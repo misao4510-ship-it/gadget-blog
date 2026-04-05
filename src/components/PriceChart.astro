@@ -24,42 +24,71 @@ const history = JSON.stringify(priceData.history);
 </div>
 
 <script>
-  import { createChart, ColorType } from 'lightweight-charts';
+  import { createChart, ColorType, LineSeries } from 'lightweight-charts';
 
   document.querySelectorAll('.price-chart-container').forEach(container => {
-    const history = JSON.parse(container.getAttribute('data-price-history') || '[]');
+    const historyRaw = container.getAttribute('data-price-history') || '[]';
     const productId = container.getAttribute('data-product-id');
-    const chartEl = container.querySelector(`#chart-${productId}`);
-    if (!chartEl || !history.length) return;
+    if (!productId) return;
+
+    let history: any[] = [];
+    try { history = JSON.parse(historyRaw); } catch { return; }
+    if (!history.length) return;
+
+    const chartEl = container.querySelector(`#chart-${productId}`) as HTMLElement;
+    if (!chartEl) return;
+
+    // width取得: offsetWidth使用 (clientWidthが0になる場合の対策)
+    const width = chartEl.offsetWidth || chartEl.parentElement?.offsetWidth || 600;
 
     const chart = createChart(chartEl, {
-      layout: { background: { type: ColorType.Solid, color: '#ffffff' }, textColor: '#333' },
-      grid: { vertLines: { color: '#f0f0f0' }, horzLines: { color: '#f0f0f0' } },
-      width: (chartEl as HTMLElement).clientWidth,
-      height: 300,
-      timeScale: { timeVisible: true },
+      layout: {
+        background: { type: ColorType.Solid, color: '#ffffff' },
+        textColor: '#334155',
+      },
+      grid: {
+        vertLines: { color: '#f1f5f9' },
+        horzLines: { color: '#f1f5f9' },
+      },
+      width,
+      height: 280,
+      timeScale: { timeVisible: false, borderColor: '#e2e8f0' },
+      rightPriceScale: { borderColor: '#e2e8f0' },
+      crosshair: { mode: 1 },
     });
 
-    // Amazon series (赤)
-    const amazonSeries = chart.addLineSeries({ color: '#e63946', lineWidth: 2, title: 'Amazon' });
+    // Amazon series (赤) — v5 API
+    const amazonSeries = chart.addSeries(LineSeries, {
+      color: '#e63946',
+      lineWidth: 2,
+      title: 'Amazon',
+      priceFormat: { type: 'price', precision: 0, minMove: 1 },
+    });
     const amazonData = history
-      .filter((d: any) => d.amazon)
-      .map((d: any) => ({ time: d.date, value: d.amazon }));
-    amazonSeries.setData(amazonData);
+      .filter((d: any) => typeof d.amazon === 'number')
+      .map((d: any) => ({ time: d.date as string, value: d.amazon as number }));
+    if (amazonData.length) amazonSeries.setData(amazonData);
 
-    // 楽天 series (緑)
-    const rakutenSeries = chart.addLineSeries({ color: '#2dc653', lineWidth: 2, title: '楽天' });
+    // 楽天 series (緑) — v5 API
+    const rakutenSeries = chart.addSeries(LineSeries, {
+      color: '#16a34a',
+      lineWidth: 2,
+      title: '楽天',
+      priceFormat: { type: 'price', precision: 0, minMove: 1 },
+    });
     const rakutenData = history
-      .filter((d: any) => d.rakuten)
-      .map((d: any) => ({ time: d.date, value: d.rakuten }));
-    rakutenSeries.setData(rakutenData);
+      .filter((d: any) => typeof d.rakuten === 'number')
+      .map((d: any) => ({ time: d.date as string, value: d.rakuten as number }));
+    if (rakutenData.length) rakutenSeries.setData(rakutenData);
 
     chart.timeScale().fitContent();
 
-    // レスポンシブ
-    window.addEventListener('resize', () => {
-      chart.applyOptions({ width: (chartEl as HTMLElement).clientWidth });
+    // レスポンシブ対応
+    const resizeObserver = new ResizeObserver(() => {
+      const newWidth = chartEl.offsetWidth;
+      if (newWidth > 0) chart.applyOptions({ width: newWidth });
     });
+    resizeObserver.observe(chartEl);
   });
 </script>
 

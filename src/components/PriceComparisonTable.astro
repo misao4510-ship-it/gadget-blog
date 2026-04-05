@@ -11,9 +11,21 @@ const storeNames: Record<string, string> = {
   rakuten: '楽天市場',
   a8: 'その他'
 };
+const productName = product?.name ?? productId;
+const productImage = product?.image ?? null;
 ---
 <div class="price-comparison-wrap">
-  <h3>各ストアの最新価格</h3>
+  <div class="price-product-header">
+    {productImage && (
+      <div class="price-product-image-wrap">
+        <span class="price-product-image-placeholder">{productName.slice(0,2)}</span>
+      </div>
+    )}
+    <div class="price-product-info">
+      <h3 class="price-product-name">{productName}</h3>
+      <p class="price-product-sub">各ストアの最新価格比較</p>
+    </div>
+  </div>
   <table class="price-comparison">
     <thead>
       <tr><th>ストア</th><th>価格</th><th>在庫</th><th>購入リンク</th></tr>
@@ -55,6 +67,26 @@ const storeNames: Record<string, string> = {
     color: #0f172a; display: flex; align-items: center; gap: .4rem;
   }
   .price-comparison-wrap h3::before { content: "📊"; }
+  .price-product-header {
+    display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem;
+    padding: .75rem; background: #eff6ff; border-radius: var(--radius, 8px);
+    border-left: 4px solid #2563eb;
+  }
+  .price-product-image-wrap {
+    width: 44px; height: 44px; border-radius: var(--radius, 8px);
+    background: #2563eb; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .price-product-image-placeholder {
+    color: white; font-weight: 800; font-size: .9rem;
+  }
+  .price-product-info { flex: 1; }
+  .price-product-name {
+    font-size: 1rem; font-weight: 700; color: #0f172a;
+    margin: 0 0 .15rem; line-height: 1.3;
+  }
+  .price-product-name::before { content: none; }  /* h3のbefore打ち消し */
+  .price-product-sub { font-size: .8rem; color: #64748b; margin: 0; }
   .price-comparison {
     width: 100%; border-collapse: collapse;
     border-radius: var(--radius, 8px); overflow: hidden;
