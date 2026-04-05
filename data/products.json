@@ -8,15 +8,19 @@
       "rakuten_keyword": "Anker PowerCore 10000",
       "a8_link": "https://px.a8.net/placeholder/product-001",
       "image": "/images/products/anker-powercore-10000.svg",
-      "tags": ["モバイルバッテリー", "Anker", "10000mAh"],
+      "tags": [
+        "モバイルバッテリー",
+        "Anker",
+        "10000mAh"
+      ],
       "affiliate_links": {
         "amazon": {
-          "tag": "yourtag-22",
+          "tag": "misao4510-22",
           "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
         },
         "rakuten": {
-          "affiliate_id": "your_affiliate_id",
-          "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}"
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%252010000%2F"
         },
         "a8": {
           "url": "https://px.a8.net/placeholder/product-001"
@@ -31,15 +35,19 @@
       "rakuten_keyword": "Anker PowerCore III 20000",
       "a8_link": "https://px.a8.net/placeholder/product-002",
       "image": "/images/products/anker-powercore-iii-20000.svg",
-      "tags": ["モバイルバッテリー", "Anker", "20000mAh"],
+      "tags": [
+        "モバイルバッテリー",
+        "Anker",
+        "20000mAh"
+      ],
       "affiliate_links": {
         "amazon": {
-          "tag": "yourtag-22",
+          "tag": "misao4510-22",
           "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
         },
         "rakuten": {
-          "affiliate_id": "your_affiliate_id",
-          "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}"
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%2520III%252020000%2F"
         },
         "a8": {
           "url": "https://px.a8.net/placeholder/product-002"
@@ -54,15 +62,19 @@
       "rakuten_keyword": "Anker 555 USB-C Hub",
       "a8_link": "https://px.a8.net/placeholder/product-003",
       "image": "/images/products/anker-555-usb-hub.svg",
-      "tags": ["USBハブ", "Anker", "9-in-1"],
+      "tags": [
+        "USBハブ",
+        "Anker",
+        "9-in-1"
+      ],
       "affiliate_links": {
         "amazon": {
-          "tag": "yourtag-22",
+          "tag": "misao4510-22",
           "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
         },
         "rakuten": {
-          "affiliate_id": "your_affiliate_id",
-          "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}"
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520555%2520USB-C%2520Hub%2F"
         },
         "a8": {
           "url": "https://px.a8.net/placeholder/product-003"
@@ -77,15 +89,19 @@
       "rakuten_keyword": "Soundcore Life P3",
       "a8_link": "https://px.a8.net/placeholder/product-004",
       "image": "/images/products/soundcore-life-p3.svg",
-      "tags": ["イヤホン", "Soundcore", "ノイズキャンセリング"],
+      "tags": [
+        "イヤホン",
+        "Soundcore",
+        "ノイズキャンセリング"
+      ],
       "affiliate_links": {
         "amazon": {
-          "tag": "yourtag-22",
+          "tag": "misao4510-22",
           "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
         },
         "rakuten": {
-          "affiliate_id": "your_affiliate_id",
-          "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}"
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Life%2520P3%2F"
         },
         "a8": {
           "url": "https://px.a8.net/placeholder/product-004"
@@ -100,15 +116,20 @@
       "rakuten_keyword": "CIO NovaPort TRIO 65W",
       "a8_link": "https://px.a8.net/placeholder/product-005",
       "image": "/images/products/cio-novaport-trio-65w.svg",
-      "tags": ["充電器", "CIO", "65W", "GaN"],
+      "tags": [
+        "充電器",
+        "CIO",
+        "65W",
+        "GaN"
+      ],
       "affiliate_links": {
         "amazon": {
-          "tag": "yourtag-22",
+          "tag": "misao4510-22",
           "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
         },
         "rakuten": {
-          "affiliate_id": "your_affiliate_id",
-          "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}"
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCIO%2520NovaPort%2520TRIO%252065W%2F"
         },
         "a8": {
           "url": "https://px.a8.net/placeholder/product-005"
@@ -123,11 +144,23 @@
       "rakuten_keyword": "Apple Watch SE 第2世代 40mm",
       "a8_link": "https://px.a8.net/placeholder/product-006",
       "image": "/images/products/apple-watch-se.svg",
-      "tags": ["スマートウォッチ", "Apple", "Apple Watch"],
+      "tags": [
+        "スマートウォッチ",
+        "Apple",
+        "Apple Watch"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-006" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FApple%2520Watch%2520SE%2520%25E7%25AC%25AC2%25E4%25B8%2596%25E4%25BB%25A3%252040mm%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-006"
+        }
       }
     },
     {
@@ -138,11 +171,23 @@
       "rakuten_keyword": "Anker ワイヤレス充電器 Qi",
       "a8_link": "https://px.a8.net/placeholder/product-007",
       "image": "/images/products/anker-wireless-charger.svg",
-      "tags": ["ワイヤレス充電器", "Anker", "Qi"],
+      "tags": [
+        "ワイヤレス充電器",
+        "Anker",
+        "Qi"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-007" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520%25E3%2583%25AF%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25AC%25E3%2582%25B9%25E5%2585%2585%25E9%259B%25BB%25E5%2599%25A8%2520Qi%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-007"
+        }
       }
     },
     {
@@ -153,11 +198,24 @@
       "rakuten_keyword": "LG 27インチ 4K モニター 27UL500",
       "a8_link": "https://px.a8.net/placeholder/product-008",
       "image": "/images/products/lg-27ul500w.svg",
-      "tags": ["PCモニター", "LG", "4K", "27インチ"],
+      "tags": [
+        "PCモニター",
+        "LG",
+        "4K",
+        "27インチ"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-008" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLG%252027%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2581%25204K%2520%25E3%2583%25A2%25E3%2583%258B%25E3%2582%25BF%25E3%2583%25BC%252027UL500%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-008"
+        }
       }
     },
     {
@@ -168,11 +226,24 @@
       "rakuten_keyword": "Keychron K2 メカニカルキーボード",
       "a8_link": "https://px.a8.net/placeholder/product-009",
       "image": "/images/products/keychron-k2.svg",
-      "tags": ["キーボード", "Keychron", "メカニカル", "ワイヤレス"],
+      "tags": [
+        "キーボード",
+        "Keychron",
+        "メカニカル",
+        "ワイヤレス"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-009" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKeychron%2520K2%2520%25E3%2583%25A1%25E3%2582%25AB%25E3%2583%258B%25E3%2582%25AB%25E3%2583%25AB%25E3%2582%25AD%25E3%2583%25BC%25E3%2583%259C%25E3%2583%25BC%25E3%2583%2589%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-009"
+        }
       }
     },
     {
@@ -183,11 +254,24 @@
       "rakuten_keyword": "Samsung T7 ポータブルSSD 1TB",
       "a8_link": "https://px.a8.net/placeholder/product-010",
       "image": "/images/products/samsung-t7-ssd.svg",
-      "tags": ["ポータブルSSD", "Samsung", "1TB", "USB-C"],
+      "tags": [
+        "ポータブルSSD",
+        "Samsung",
+        "1TB",
+        "USB-C"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-010" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamsung%2520T7%2520%25E3%2583%259D%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%2596%25E3%2583%25ABSSD%25201TB%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-010"
+        }
       }
     },
     {
@@ -198,15 +282,20 @@
       "rakuten_keyword": "ESR iPhone 17 Pro Max ケース MagSafe Classic",
       "a8_link": "https://px.a8.net/placeholder/product-011",
       "image": "/images/products/esr-iphone17-case.svg",
-      "tags": ["iPhoneケース", "ESR", "MagSafe", "iPhone 17 Pro Max"],
+      "tags": [
+        "iPhoneケース",
+        "ESR",
+        "MagSafe",
+        "iPhone 17 Pro Max"
+      ],
       "affiliate_links": {
         "amazon": {
           "tag": "misao4510-22",
           "url": "https://amzn.to/41fUDSp"
         },
         "rakuten": {
-          "affiliate_id": "your_affiliate_id",
-          "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}"
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FESR%2520iPhone%252017%2520Pro%2520Max%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9%2520MagSafe%2520Classic%2F"
         },
         "a8": {
           "url": "https://px.a8.net/placeholder/product-011"
@@ -221,11 +310,23 @@
       "rakuten_keyword": "ルンバ i2 ロボット掃除機",
       "a8_link": "https://px.a8.net/placeholder/product-012",
       "image": "/images/products/roomba-i2.svg",
-      "tags": ["ロボット掃除機", "iRobot", "ルンバ"],
+      "tags": [
+        "ロボット掃除機",
+        "iRobot",
+        "ルンバ"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-012" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%25AB%25E3%2583%25B3%25E3%2583%2590%2520i2%2520%25E3%2583%25AD%25E3%2583%259C%25E3%2583%2583%25E3%2583%2588%25E6%258E%2583%25E9%2599%25A4%25E6%25A9%259F%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-012"
+        }
       }
     },
     {
@@ -236,11 +337,24 @@
       "rakuten_keyword": "シャープ 加湿空気清浄機 KC-S50",
       "a8_link": "https://px.a8.net/placeholder/product-013",
       "image": "/images/products/sharp-kc-s50.svg",
-      "tags": ["空気清浄機", "SHARP", "プラズマクラスター", "加湿"],
+      "tags": [
+        "空気清浄機",
+        "SHARP",
+        "プラズマクラスター",
+        "加湿"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-013" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B7%25E3%2583%25A3%25E3%2583%25BC%25E3%2583%2597%2520%25E5%258A%25A0%25E6%25B9%25BF%25E7%25A9%25BA%25E6%25B0%2597%25E6%25B8%2585%25E6%25B5%2584%25E6%25A9%259F%2520KC-S50%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-013"
+        }
       }
     },
     {
@@ -251,11 +365,23 @@
       "rakuten_keyword": "ティファール ジャスティンプラス 1.2L",
       "a8_link": "https://px.a8.net/placeholder/product-014",
       "image": "/images/products/tfal-justine-plus.svg",
-      "tags": ["電気ケトル", "ティファール", "1.2L"],
+      "tags": [
+        "電気ケトル",
+        "ティファール",
+        "1.2L"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-014" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%2586%25E3%2582%25A3%25E3%2583%2595%25E3%2582%25A1%25E3%2583%25BC%25E3%2583%25AB%2520%25E3%2582%25B8%25E3%2583%25A3%25E3%2582%25B9%25E3%2583%2586%25E3%2582%25A3%25E3%2583%25B3%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25B9%25201.2L%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-014"
+        }
       }
     },
     {
@@ -266,11 +392,24 @@
       "rakuten_keyword": "パナソニック ナノケア EH-NA0J ドライヤー",
       "a8_link": "https://px.a8.net/placeholder/product-015",
       "image": "/images/products/panasonic-nanocare.svg",
-      "tags": ["ドライヤー", "Panasonic", "ナノケア", "ナノイー"],
+      "tags": [
+        "ドライヤー",
+        "Panasonic",
+        "ナノケア",
+        "ナノイー"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-015" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%2591%25E3%2583%258A%25E3%2582%25BD%25E3%2583%258B%25E3%2583%2583%25E3%2582%25AF%2520%25E3%2583%258A%25E3%2583%258E%25E3%2582%25B1%25E3%2582%25A2%2520EH-NA0J%2520%25E3%2583%2589%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-015"
+        }
       }
     },
     {
@@ -281,11 +420,23 @@
       "rakuten_keyword": "アイリスオーヤマ サーキュレーター PCF-SC15T",
       "a8_link": "https://px.a8.net/placeholder/product-016",
       "image": "/images/products/iris-circulator.svg",
-      "tags": ["サーキュレーター", "アイリスオーヤマ", "静音"],
+      "tags": [
+        "サーキュレーター",
+        "アイリスオーヤマ",
+        "静音"
+      ],
       "affiliate_links": {
-        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
-        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
-        "a8": { "url": "https://px.a8.net/placeholder/product-016" }
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A2%25E3%2582%25A4%25E3%2583%25AA%25E3%2582%25B9%25E3%2582%25AA%25E3%2583%25BC%25E3%2583%25A4%25E3%2583%259E%2520%25E3%2582%25B5%25E3%2583%25BC%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AC%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%25BC%2520PCF-SC15T%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-016"
+        }
       }
     }
   ]
