@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5f3ff"/><stop offset="100%" stop-color="#ede9fe"/></linearGradient>
+    <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4299e1"/><stop offset="50%" stop-color="#805ad5"/><stop offset="100%" stop-color="#ed64a6"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Monitor body -->
+  <rect x="55" y="70" width="290" height="180" rx="10" fill="#1a202c" stroke="#2d3748" stroke-width="2"/>
+  <!-- Screen -->
+  <rect x="65" y="78" width="270" height="155" rx="4" fill="url(#scr)"/>
+  <!-- 4K text on screen -->
+  <text x="200" y="165" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="42" font-weight="200" opacity=".8">4K UHD</text>
+  <!-- Bezel bottom (thicker) -->
+  <rect x="55" y="243" width="290" height="8" rx="0" fill="#2d3748"/>
+  <!-- Stand neck -->
+  <rect x="185" y="251" width="30" height="50" fill="#a0aec0"/>
+  <!-- Stand base -->
+  <ellipse cx="200" cy="305" rx="70" ry="12" fill="#a0aec0"/>
+  <!-- LG logo -->
+  <text x="200" y="240" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="10" font-weight="700">LG</text>
+  <!-- Label -->
+  <text x="200" y="345" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="20" font-weight="800">LG 27UL500-W</text>
+  <text x="200" y="372" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">27" 4K IPS モニター</text>
+</svg>

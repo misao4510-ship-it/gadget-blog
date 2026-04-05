@@ -7,7 +7,7 @@
       "asin": "B09PLACEHOLDER1",
       "rakuten_keyword": "Anker PowerCore 10000",
       "a8_link": "https://px.a8.net/placeholder/product-001",
-      "image": "/images/products/anker-powercore-10000.webp",
+      "image": "/images/products/anker-powercore-10000.svg",
       "tags": ["モバイルバッテリー", "Anker", "10000mAh"],
       "affiliate_links": {
         "amazon": {
@@ -30,7 +30,7 @@
       "asin": "B09PLACEHOLDER2",
       "rakuten_keyword": "Anker PowerCore III 20000",
       "a8_link": "https://px.a8.net/placeholder/product-002",
-      "image": "/images/products/anker-powercore-iii-20000.webp",
+      "image": "/images/products/anker-powercore-iii-20000.svg",
       "tags": ["モバイルバッテリー", "Anker", "20000mAh"],
       "affiliate_links": {
         "amazon": {
@@ -53,7 +53,7 @@
       "asin": "B09PLACEHOLDER3",
       "rakuten_keyword": "Anker 555 USB-C Hub",
       "a8_link": "https://px.a8.net/placeholder/product-003",
-      "image": "/images/products/anker-555-usb-hub.webp",
+      "image": "/images/products/anker-555-usb-hub.svg",
       "tags": ["USBハブ", "Anker", "9-in-1"],
       "affiliate_links": {
         "amazon": {
@@ -76,7 +76,7 @@
       "asin": "B09PLACEHOLDER4",
       "rakuten_keyword": "Soundcore Life P3",
       "a8_link": "https://px.a8.net/placeholder/product-004",
-      "image": "/images/products/soundcore-life-p3.webp",
+      "image": "/images/products/soundcore-life-p3.svg",
       "tags": ["イヤホン", "Soundcore", "ノイズキャンセリング"],
       "affiliate_links": {
         "amazon": {
@@ -99,7 +99,7 @@
       "asin": "B09PLACEHOLDER5",
       "rakuten_keyword": "CIO NovaPort TRIO 65W",
       "a8_link": "https://px.a8.net/placeholder/product-005",
-      "image": "/images/products/cio-novaport-trio-65w.webp",
+      "image": "/images/products/cio-novaport-trio-65w.svg",
       "tags": ["充電器", "CIO", "65W", "GaN"],
       "affiliate_links": {
         "amazon": {
@@ -122,7 +122,7 @@
       "asin": "B0BDJQZPNY",
       "rakuten_keyword": "Apple Watch SE 第2世代 40mm",
       "a8_link": "https://px.a8.net/placeholder/product-006",
-      "image": "/images/products/apple-watch-se.webp",
+      "image": "/images/products/apple-watch-se.svg",
       "tags": ["スマートウォッチ", "Apple", "Apple Watch"],
       "affiliate_links": {
         "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
@@ -137,7 +137,7 @@
       "asin": "B09PLCHRG01",
       "rakuten_keyword": "Anker ワイヤレス充電器 Qi",
       "a8_link": "https://px.a8.net/placeholder/product-007",
-      "image": "/images/products/anker-wireless-charger.webp",
+      "image": "/images/products/anker-wireless-charger.svg",
       "tags": ["ワイヤレス充電器", "Anker", "Qi"],
       "affiliate_links": {
         "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
@@ -152,7 +152,7 @@
       "asin": "B07NFGDZRX",
       "rakuten_keyword": "LG 27インチ 4K モニター 27UL500",
       "a8_link": "https://px.a8.net/placeholder/product-008",
-      "image": "/images/products/lg-27ul500w.webp",
+      "image": "/images/products/lg-27ul500w.svg",
       "tags": ["PCモニター", "LG", "4K", "27インチ"],
       "affiliate_links": {
         "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
@@ -167,7 +167,7 @@
       "asin": "B08GHW7LBK",
       "rakuten_keyword": "Keychron K2 メカニカルキーボード",
       "a8_link": "https://px.a8.net/placeholder/product-009",
-      "image": "/images/products/keychron-k2.webp",
+      "image": "/images/products/keychron-k2.svg",
       "tags": ["キーボード", "Keychron", "メカニカル", "ワイヤレス"],
       "affiliate_links": {
         "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
@@ -182,7 +182,7 @@
       "asin": "B08GTYFC37",
       "rakuten_keyword": "Samsung T7 ポータブルSSD 1TB",
       "a8_link": "https://px.a8.net/placeholder/product-010",
-      "image": "/images/products/samsung-t7-ssd.webp",
+      "image": "/images/products/samsung-t7-ssd.svg",
       "tags": ["ポータブルSSD", "Samsung", "1TB", "USB-C"],
       "affiliate_links": {
         "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
@@ -197,7 +197,7 @@
       "asin": "B0FCXYKVG2",
       "rakuten_keyword": "ESR iPhone 17 Pro Max ケース MagSafe Classic",
       "a8_link": "https://px.a8.net/placeholder/product-011",
-      "image": "/images/products/esr-iphone17-case.webp",
+      "image": "/images/products/esr-iphone17-case.svg",
       "tags": ["iPhoneケース", "ESR", "MagSafe", "iPhone 17 Pro Max"],
       "affiliate_links": {
         "amazon": {

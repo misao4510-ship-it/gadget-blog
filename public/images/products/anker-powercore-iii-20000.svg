@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0f9ff"/><stop offset="100%" stop-color="#e0f2fe"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f7fafc"/><stop offset="100%" stop-color="#e2e8f0"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Battery body (larger, white) -->
+  <rect x="80" y="110" width="240" height="140" rx="18" fill="url(#body)" stroke="#cbd5e0" stroke-width="2"/>
+  <!-- USB-C ports -->
+  <rect x="295" y="155" width="22" height="18" rx="4" fill="#a0aec0"/>
+  <rect x="295" y="185" width="22" height="18" rx="4" fill="#a0aec0"/>
+  <!-- LED ring -->
+  <circle cx="140" cy="180" r="20" fill="none" stroke="#63b3ed" stroke-width="3"/>
+  <path d="M140 165 L140 180 L150 175" fill="none" stroke="#63b3ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Brand -->
+  <text x="220" y="175" text-anchor="middle" fill="#3182ce" font-family="Arial,sans-serif" font-size="16" font-weight="700">ANKER</text>
+  <text x="220" y="198" text-anchor="middle" fill="#4a5568" font-family="Arial,sans-serif" font-size="12">PowerCore III</text>
+  <!-- Label -->
+  <text x="200" y="300" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="22" font-weight="800">PowerCore III 20000</text>
+  <text x="200" y="330" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">20,000mAh / USB-C</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fefce8"/><stop offset="100%" stop-color="#fef9c3"/></linearGradient>
+    <linearGradient id="case" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f7fafc"/><stop offset="100%" stop-color="#e2e8f0"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Charging case -->
+  <ellipse cx="200" cy="210" rx="90" ry="60" fill="url(#case)" stroke="#cbd5e0" stroke-width="2"/>
+  <!-- Case lid line -->
+  <path d="M115 195 Q200 175 285 195" fill="none" stroke="#a0aec0" stroke-width="1.5"/>
+  <!-- LED indicator -->
+  <circle cx="200" cy="230" r="3" fill="#48bb78"/>
+  <!-- Left earbud -->
+  <ellipse cx="145" cy="135" rx="28" ry="30" fill="#1a202c" stroke="#2d3748" stroke-width="1.5"/>
+  <ellipse cx="145" cy="125" rx="10" ry="10" fill="#4a5568"/>
+  <path d="M130 150 Q125 170 130 185" fill="none" stroke="#1a202c" stroke-width="5" stroke-linecap="round"/>
+  <!-- Right earbud -->
+  <ellipse cx="255" cy="135" rx="28" ry="30" fill="#1a202c" stroke="#2d3748" stroke-width="1.5"/>
+  <ellipse cx="255" cy="125" rx="10" ry="10" fill="#4a5568"/>
+  <path d="M270 150 Q275 170 270 185" fill="none" stroke="#1a202c" stroke-width="5" stroke-linecap="round"/>
+  <!-- Label -->
+  <text x="200" y="310" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="22" font-weight="800">Soundcore Life P3</text>
+  <text x="200" y="340" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">ノイズキャンセリング</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#eff6ff"/><stop offset="100%" stop-color="#dbeafe"/></linearGradient>
+    <linearGradient id="pad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d3748"/><stop offset="100%" stop-color="#1a202c"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0%" stop-color="#63b3ed" stop-opacity=".3"/><stop offset="100%" stop-color="#63b3ed" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Qi glow -->
+  <circle cx="200" cy="190" r="80" fill="url(#glow)"/>
+  <!-- Charging pad -->
+  <ellipse cx="200" cy="210" rx="90" ry="30" fill="url(#pad)" stroke="#4a5568" stroke-width="1.5"/>
+  <ellipse cx="200" cy="200" rx="90" ry="30" fill="url(#pad)" stroke="#4a5568" stroke-width="1.5"/>
+  <!-- Top surface -->
+  <ellipse cx="200" cy="195" rx="85" ry="27" fill="#2d3748"/>
+  <!-- Qi symbol -->
+  <circle cx="200" cy="190" r="18" fill="none" stroke="#63b3ed" stroke-width="2"/>
+  <path d="M193 190 Q200 178 207 190" fill="none" stroke="#63b3ed" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Wireless waves -->
+  <path d="M200 155 Q215 140 230 155" fill="none" stroke="#90cdf4" stroke-width="1.5" opacity=".6"/>
+  <path d="M200 145 Q220 125 240 145" fill="none" stroke="#90cdf4" stroke-width="1.5" opacity=".4"/>
+  <!-- Cable -->
+  <path d="M200 230 Q200 260 230 270 Q260 280 260 295" fill="none" stroke="#4a5568" stroke-width="3" stroke-linecap="round"/>
+  <!-- LED -->
+  <circle cx="200" cy="218" r="3" fill="#63b3ed"/>
+  <!-- Label -->
+  <text x="200" y="330" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="20" font-weight="800">Anker 313 Wireless</text>
+  <text x="200" y="358" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">Qi ワイヤレス充電器</text>
+</svg>

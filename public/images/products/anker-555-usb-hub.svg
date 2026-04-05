@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf5ff"/><stop offset="100%" stop-color="#f3e8ff"/></linearGradient>
+    <linearGradient id="hub" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a0aec0"/><stop offset="100%" stop-color="#718096"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Hub body -->
+  <rect x="60" y="140" width="280" height="80" rx="14" fill="url(#hub)" stroke="#4a5568" stroke-width="1.5"/>
+  <!-- Ports on top -->
+  <rect x="90" y="148" width="30" height="20" rx="3" fill="#2d3748"/>
+  <rect x="130" y="148" width="30" height="20" rx="3" fill="#2d3748"/>
+  <rect x="170" y="148" width="30" height="20" rx="3" fill="#2d3748"/>
+  <!-- HDMI -->
+  <rect x="215" y="148" width="36" height="20" rx="3" fill="#2d3748"/>
+  <text x="233" y="163" text-anchor="middle" fill="#a0aec0" font-family="Arial,sans-serif" font-size="7" font-weight="700">HDMI</text>
+  <!-- SD card slots -->
+  <rect x="265" y="148" width="20" height="20" rx="2" fill="#2d3748"/>
+  <rect x="292" y="148" width="20" height="20" rx="2" fill="#2d3748"/>
+  <!-- Cable -->
+  <path d="M200 220 Q200 260 180 280" fill="none" stroke="#4a5568" stroke-width="4" stroke-linecap="round"/>
+  <rect x="170" y="275" width="20" height="14" rx="4" fill="#4a5568"/>
+  <!-- Brand -->
+  <text x="200" y="200" text-anchor="middle" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="13" font-weight="700">ANKER 555</text>
+  <!-- Label -->
+  <text x="200" y="330" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="22" font-weight="800">Anker 555 USB-C Hub</text>
+  <text x="200" y="358" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">9-in-1 マルチポート</text>
+</svg>
