@@ -1,15 +1,928 @@
 {
   "product_id": "product-007",
   "current": {
-    "amazon": { "price": 1490, "url": "https://www.amazon.co.jp/dp/B09PLCHRG01?tag=yourtag-22", "in_stock": true, "updated": "2026-04-05" },
-    "rakuten": { "price": 1680, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fwireless", "in_stock": true, "updated": "2026-04-05" },
-    "cheapest": { "store": "amazon", "price": 1490 }
+    "amazon": {
+      "price": 1490,
+      "url": "https://www.amazon.co.jp/dp/B09PLCHRG01?tag=yourtag-22",
+      "in_stock": true,
+      "updated": "2026-04-05"
+    },
+    "rakuten": {
+      "price": 1680,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fwireless",
+      "in_stock": true,
+      "updated": "2026-04-05"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 1490
+    }
   },
   "history": [
-    { "date": "2026-04-05", "amazon": 1490, "rakuten": 1680 },
-    { "date": "2026-04-04", "amazon": 1490, "rakuten": 1780 },
-    { "date": "2026-04-03", "amazon": 1590, "rakuten": 1780 },
-    { "date": "2026-04-02", "amazon": 1590, "rakuten": 1880 },
-    { "date": "2026-04-01", "amazon": 1690, "rakuten": 1880 }
+    {
+      "date": "2025-10-07",
+      "amazon": 1630,
+      "rakuten": 1820
+    },
+    {
+      "date": "2025-10-08",
+      "amazon": 1600,
+      "rakuten": 1900
+    },
+    {
+      "date": "2025-10-09",
+      "amazon": 1600,
+      "rakuten": 1890
+    },
+    {
+      "date": "2025-10-10",
+      "amazon": 1390,
+      "rakuten": 1810
+    },
+    {
+      "date": "2025-10-11",
+      "amazon": 1420,
+      "rakuten": 1830
+    },
+    {
+      "date": "2025-10-12",
+      "amazon": 1450,
+      "rakuten": 1900
+    },
+    {
+      "date": "2025-10-13",
+      "amazon": 1440,
+      "rakuten": 1880
+    },
+    {
+      "date": "2025-10-14",
+      "amazon": 1410,
+      "rakuten": 1810
+    },
+    {
+      "date": "2025-10-15",
+      "amazon": 1620,
+      "rakuten": 1830
+    },
+    {
+      "date": "2025-10-16",
+      "amazon": 1590,
+      "rakuten": 1900
+    },
+    {
+      "date": "2025-10-17",
+      "amazon": 1600,
+      "rakuten": 1870
+    },
+    {
+      "date": "2025-10-18",
+      "amazon": 1630,
+      "rakuten": 1800
+    },
+    {
+      "date": "2025-10-19",
+      "amazon": 1670,
+      "rakuten": 1830
+    },
+    {
+      "date": "2025-10-20",
+      "amazon": 1690,
+      "rakuten": 1900
+    },
+    {
+      "date": "2025-10-21",
+      "amazon": 1680,
+      "rakuten": 1860
+    },
+    {
+      "date": "2025-10-22",
+      "amazon": 1640,
+      "rakuten": 1790
+    },
+    {
+      "date": "2025-10-23",
+      "amazon": 1600,
+      "rakuten": 1840
+    },
+    {
+      "date": "2025-10-24",
+      "amazon": 1590,
+      "rakuten": 1900
+    },
+    {
+      "date": "2025-10-25",
+      "amazon": 1600,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-10-26",
+      "amazon": 1630,
+      "rakuten": 1790
+    },
+    {
+      "date": "2025-10-27",
+      "amazon": 1670,
+      "rakuten": 1840
+    },
+    {
+      "date": "2025-10-28",
+      "amazon": 1680,
+      "rakuten": 1900
+    },
+    {
+      "date": "2025-10-29",
+      "amazon": 1660,
+      "rakuten": 1840
+    },
+    {
+      "date": "2025-10-30",
+      "amazon": 1630,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-10-31",
+      "amazon": 1590,
+      "rakuten": 1840
+    },
+    {
+      "date": "2025-11-01",
+      "amazon": 1580,
+      "rakuten": 1890
+    },
+    {
+      "date": "2025-11-02",
+      "amazon": 1600,
+      "rakuten": 1830
+    },
+    {
+      "date": "2025-11-03",
+      "amazon": 1630,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-11-04",
+      "amazon": 1670,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-11-05",
+      "amazon": 1670,
+      "rakuten": 1880
+    },
+    {
+      "date": "2025-11-06",
+      "amazon": 1650,
+      "rakuten": 1810
+    },
+    {
+      "date": "2025-11-07",
+      "amazon": 1610,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-11-08",
+      "amazon": 1580,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-11-09",
+      "amazon": 1570,
+      "rakuten": 1880
+    },
+    {
+      "date": "2025-11-10",
+      "amazon": 1600,
+      "rakuten": 1800
+    },
+    {
+      "date": "2025-11-11",
+      "amazon": 1630,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-11-12",
+      "amazon": 1660,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-11-13",
+      "amazon": 1660,
+      "rakuten": 1870
+    },
+    {
+      "date": "2025-11-14",
+      "amazon": 1640,
+      "rakuten": 1790
+    },
+    {
+      "date": "2025-11-15",
+      "amazon": 1600,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-11-16",
+      "amazon": 1570,
+      "rakuten": 1860
+    },
+    {
+      "date": "2025-11-17",
+      "amazon": 1570,
+      "rakuten": 1860
+    },
+    {
+      "date": "2025-11-18",
+      "amazon": 1600,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-11-19",
+      "amazon": 1630,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-11-20",
+      "amazon": 1660,
+      "rakuten": 1860
+    },
+    {
+      "date": "2025-11-21",
+      "amazon": 1650,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-11-22",
+      "amazon": 1620,
+      "rakuten": 1770
+    },
+    {
+      "date": "2025-11-23",
+      "amazon": 1590,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-11-24",
+      "amazon": 1240,
+      "rakuten": 1680
+    },
+    {
+      "date": "2025-11-25",
+      "amazon": 1240,
+      "rakuten": 1660
+    },
+    {
+      "date": "2025-11-26",
+      "amazon": 1270,
+      "rakuten": 1580
+    },
+    {
+      "date": "2025-11-27",
+      "amazon": 1310,
+      "rakuten": 1600
+    },
+    {
+      "date": "2025-11-28",
+      "amazon": 1330,
+      "rakuten": 1680
+    },
+    {
+      "date": "2025-11-29",
+      "amazon": 1320,
+      "rakuten": 1650
+    },
+    {
+      "date": "2025-11-30",
+      "amazon": 1290,
+      "rakuten": 1580
+    },
+    {
+      "date": "2025-12-01",
+      "amazon": 1570,
+      "rakuten": 1790
+    },
+    {
+      "date": "2025-12-02",
+      "amazon": 1550,
+      "rakuten": 1860
+    },
+    {
+      "date": "2025-12-03",
+      "amazon": 1560,
+      "rakuten": 1820
+    },
+    {
+      "date": "2025-12-04",
+      "amazon": 1590,
+      "rakuten": 1750
+    },
+    {
+      "date": "2025-12-05",
+      "amazon": 1630,
+      "rakuten": 1790
+    },
+    {
+      "date": "2025-12-06",
+      "amazon": 1650,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-12-07",
+      "amazon": 1630,
+      "rakuten": 1810
+    },
+    {
+      "date": "2025-12-08",
+      "amazon": 1600,
+      "rakuten": 1750
+    },
+    {
+      "date": "2025-12-09",
+      "amazon": 1560,
+      "rakuten": 1790
+    },
+    {
+      "date": "2025-12-10",
+      "amazon": 1550,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-12-11",
+      "amazon": 1560,
+      "rakuten": 1800
+    },
+    {
+      "date": "2025-12-12",
+      "amazon": 1590,
+      "rakuten": 1740
+    },
+    {
+      "date": "2025-12-13",
+      "amazon": 1630,
+      "rakuten": 1800
+    },
+    {
+      "date": "2025-12-14",
+      "amazon": 1640,
+      "rakuten": 1850
+    },
+    {
+      "date": "2025-12-15",
+      "amazon": 1620,
+      "rakuten": 1780
+    },
+    {
+      "date": "2025-12-16",
+      "amazon": 1580,
+      "rakuten": 1740
+    },
+    {
+      "date": "2025-12-17",
+      "amazon": 1550,
+      "rakuten": 1800
+    },
+    {
+      "date": "2025-12-18",
+      "amazon": 1540,
+      "rakuten": 1840
+    },
+    {
+      "date": "2025-12-19",
+      "amazon": 1560,
+      "rakuten": 1770
+    },
+    {
+      "date": "2025-12-20",
+      "amazon": 1440,
+      "rakuten": 1470
+    },
+    {
+      "date": "2025-12-21",
+      "amazon": 1470,
+      "rakuten": 1540
+    },
+    {
+      "date": "2025-12-22",
+      "amazon": 1470,
+      "rakuten": 1570
+    },
+    {
+      "date": "2025-12-23",
+      "amazon": 1450,
+      "rakuten": 1490
+    },
+    {
+      "date": "2025-12-24",
+      "amazon": 1410,
+      "rakuten": 1470
+    },
+    {
+      "date": "2025-12-25",
+      "amazon": 1380,
+      "rakuten": 1540
+    },
+    {
+      "date": "2025-12-26",
+      "amazon": 1380,
+      "rakuten": 1560
+    },
+    {
+      "date": "2025-12-27",
+      "amazon": 1400,
+      "rakuten": 1480
+    },
+    {
+      "date": "2025-12-28",
+      "amazon": 1440,
+      "rakuten": 1470
+    },
+    {
+      "date": "2025-12-29",
+      "amazon": 1460,
+      "rakuten": 1540
+    },
+    {
+      "date": "2025-12-30",
+      "amazon": 1460,
+      "rakuten": 1550
+    },
+    {
+      "date": "2025-12-31",
+      "amazon": 1440,
+      "rakuten": 1470
+    },
+    {
+      "date": "2026-01-01",
+      "amazon": 1370,
+      "rakuten": 1420
+    },
+    {
+      "date": "2026-01-02",
+      "amazon": 1340,
+      "rakuten": 1490
+    },
+    {
+      "date": "2026-01-03",
+      "amazon": 1340,
+      "rakuten": 1490
+    },
+    {
+      "date": "2026-01-04",
+      "amazon": 1370,
+      "rakuten": 1410
+    },
+    {
+      "date": "2026-01-05",
+      "amazon": 1400,
+      "rakuten": 1420
+    },
+    {
+      "date": "2026-01-06",
+      "amazon": 1430,
+      "rakuten": 1490
+    },
+    {
+      "date": "2026-01-07",
+      "amazon": 1420,
+      "rakuten": 1480
+    },
+    {
+      "date": "2026-01-08",
+      "amazon": 1580,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-01-09",
+      "amazon": 1540,
+      "rakuten": 1740
+    },
+    {
+      "date": "2026-01-10",
+      "amazon": 1520,
+      "rakuten": 1810
+    },
+    {
+      "date": "2026-01-11",
+      "amazon": 1530,
+      "rakuten": 1790
+    },
+    {
+      "date": "2026-01-12",
+      "amazon": 1560,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-01-13",
+      "amazon": 1590,
+      "rakuten": 1740
+    },
+    {
+      "date": "2026-01-14",
+      "amazon": 1610,
+      "rakuten": 1810
+    },
+    {
+      "date": "2026-01-15",
+      "amazon": 1600,
+      "rakuten": 1780
+    },
+    {
+      "date": "2026-01-16",
+      "amazon": 1560,
+      "rakuten": 1710
+    },
+    {
+      "date": "2026-01-17",
+      "amazon": 1530,
+      "rakuten": 1750
+    },
+    {
+      "date": "2026-01-18",
+      "amazon": 1510,
+      "rakuten": 1810
+    },
+    {
+      "date": "2026-01-19",
+      "amazon": 1520,
+      "rakuten": 1760
+    },
+    {
+      "date": "2026-01-20",
+      "amazon": 1560,
+      "rakuten": 1700
+    },
+    {
+      "date": "2026-01-21",
+      "amazon": 1590,
+      "rakuten": 1750
+    },
+    {
+      "date": "2026-01-22",
+      "amazon": 1600,
+      "rakuten": 1810
+    },
+    {
+      "date": "2026-01-23",
+      "amazon": 1590,
+      "rakuten": 1750
+    },
+    {
+      "date": "2026-01-24",
+      "amazon": 1550,
+      "rakuten": 1700
+    },
+    {
+      "date": "2026-01-25",
+      "amazon": 1520,
+      "rakuten": 1750
+    },
+    {
+      "date": "2026-01-26",
+      "amazon": 1510,
+      "rakuten": 1800
+    },
+    {
+      "date": "2026-01-27",
+      "amazon": 1520,
+      "rakuten": 1740
+    },
+    {
+      "date": "2026-01-28",
+      "amazon": 1560,
+      "rakuten": 1700
+    },
+    {
+      "date": "2026-01-29",
+      "amazon": 1590,
+      "rakuten": 1760
+    },
+    {
+      "date": "2026-01-30",
+      "amazon": 1590,
+      "rakuten": 1800
+    },
+    {
+      "date": "2026-01-31",
+      "amazon": 1570,
+      "rakuten": 1730
+    },
+    {
+      "date": "2026-02-01",
+      "amazon": 1540,
+      "rakuten": 1690
+    },
+    {
+      "date": "2026-02-02",
+      "amazon": 1510,
+      "rakuten": 1760
+    },
+    {
+      "date": "2026-02-03",
+      "amazon": 1500,
+      "rakuten": 1790
+    },
+    {
+      "date": "2026-02-04",
+      "amazon": 1520,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-02-05",
+      "amazon": 1560,
+      "rakuten": 1690
+    },
+    {
+      "date": "2026-02-06",
+      "amazon": 1580,
+      "rakuten": 1760
+    },
+    {
+      "date": "2026-02-07",
+      "amazon": 1580,
+      "rakuten": 1780
+    },
+    {
+      "date": "2026-02-08",
+      "amazon": 1560,
+      "rakuten": 1710
+    },
+    {
+      "date": "2026-02-09",
+      "amazon": 1520,
+      "rakuten": 1690
+    },
+    {
+      "date": "2026-02-10",
+      "amazon": 1500,
+      "rakuten": 1770
+    },
+    {
+      "date": "2026-02-11",
+      "amazon": 1490,
+      "rakuten": 1770
+    },
+    {
+      "date": "2026-02-12",
+      "amazon": 1520,
+      "rakuten": 1700
+    },
+    {
+      "date": "2026-02-13",
+      "amazon": 1550,
+      "rakuten": 1690
+    },
+    {
+      "date": "2026-02-14",
+      "amazon": 1580,
+      "rakuten": 1770
+    },
+    {
+      "date": "2026-02-15",
+      "amazon": 1580,
+      "rakuten": 1760
+    },
+    {
+      "date": "2026-02-16",
+      "amazon": 1550,
+      "rakuten": 1690
+    },
+    {
+      "date": "2026-02-17",
+      "amazon": 1510,
+      "rakuten": 1690
+    },
+    {
+      "date": "2026-02-18",
+      "amazon": 1490,
+      "rakuten": 1770
+    },
+    {
+      "date": "2026-02-19",
+      "amazon": 1490,
+      "rakuten": 1760
+    },
+    {
+      "date": "2026-02-20",
+      "amazon": 1520,
+      "rakuten": 1680
+    },
+    {
+      "date": "2026-02-21",
+      "amazon": 1550,
+      "rakuten": 1700
+    },
+    {
+      "date": "2026-02-22",
+      "amazon": 1570,
+      "rakuten": 1770
+    },
+    {
+      "date": "2026-02-23",
+      "amazon": 1560,
+      "rakuten": 1740
+    },
+    {
+      "date": "2026-02-24",
+      "amazon": 1530,
+      "rakuten": 1670
+    },
+    {
+      "date": "2026-02-25",
+      "amazon": 1500,
+      "rakuten": 1700
+    },
+    {
+      "date": "2026-02-26",
+      "amazon": 1480,
+      "rakuten": 1770
+    },
+    {
+      "date": "2026-02-27",
+      "amazon": 1490,
+      "rakuten": 1730
+    },
+    {
+      "date": "2026-02-28",
+      "amazon": 1520,
+      "rakuten": 1670
+    },
+    {
+      "date": "2026-03-01",
+      "amazon": 1550,
+      "rakuten": 1700
+    },
+    {
+      "date": "2026-03-02",
+      "amazon": 1570,
+      "rakuten": 1760
+    },
+    {
+      "date": "2026-03-03",
+      "amazon": 1550,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-03-04",
+      "amazon": 1520,
+      "rakuten": 1400
+    },
+    {
+      "date": "2026-03-05",
+      "amazon": 1490,
+      "rakuten": 1450
+    },
+    {
+      "date": "2026-03-06",
+      "amazon": 1470,
+      "rakuten": 1500
+    },
+    {
+      "date": "2026-03-07",
+      "amazon": 1480,
+      "rakuten": 1450
+    },
+    {
+      "date": "2026-03-08",
+      "amazon": 1520,
+      "rakuten": 1400
+    },
+    {
+      "date": "2026-03-09",
+      "amazon": 1550,
+      "rakuten": 1450
+    },
+    {
+      "date": "2026-03-10",
+      "amazon": 1560,
+      "rakuten": 1500
+    },
+    {
+      "date": "2026-03-11",
+      "amazon": 1540,
+      "rakuten": 1440
+    },
+    {
+      "date": "2026-03-12",
+      "amazon": 1510,
+      "rakuten": 1650
+    },
+    {
+      "date": "2026-03-13",
+      "amazon": 1470,
+      "rakuten": 1710
+    },
+    {
+      "date": "2026-03-14",
+      "amazon": 1460,
+      "rakuten": 1750
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 1480,
+      "rakuten": 1690
+    },
+    {
+      "date": "2026-03-16",
+      "amazon": 1520,
+      "rakuten": 1650
+    },
+    {
+      "date": "2026-03-17",
+      "amazon": 1550,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-03-18",
+      "amazon": 1550,
+      "rakuten": 1750
+    },
+    {
+      "date": "2026-03-19",
+      "amazon": 1530,
+      "rakuten": 1680
+    },
+    {
+      "date": "2026-03-20",
+      "amazon": 1490,
+      "rakuten": 1650
+    },
+    {
+      "date": "2026-03-21",
+      "amazon": 1460,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-03-22",
+      "amazon": 1460,
+      "rakuten": 1740
+    },
+    {
+      "date": "2026-03-23",
+      "amazon": 1480,
+      "rakuten": 1670
+    },
+    {
+      "date": "2026-03-24",
+      "amazon": 1520,
+      "rakuten": 1650
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 1540,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-03-26",
+      "amazon": 1540,
+      "rakuten": 1730
+    },
+    {
+      "date": "2026-03-27",
+      "amazon": 1510,
+      "rakuten": 1660
+    },
+    {
+      "date": "2026-03-28",
+      "amazon": 1480,
+      "rakuten": 1650
+    },
+    {
+      "date": "2026-03-29",
+      "amazon": 1450,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-03-30",
+      "amazon": 1460,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-03-31",
+      "amazon": 1480,
+      "rakuten": 1650
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 1510,
+      "rakuten": 1650
+    },
+    {
+      "date": "2026-04-02",
+      "amazon": 1540,
+      "rakuten": 1720
+    },
+    {
+      "date": "2026-04-03",
+      "amazon": 1530,
+      "rakuten": 1710
+    },
+    {
+      "date": "2026-04-04",
+      "amazon": 1500,
+      "rakuten": 1640
+    },
+    {
+      "date": "2026-04-05",
+      "amazon": 1470,
+      "rakuten": 1650
+    }
   ]
 }
