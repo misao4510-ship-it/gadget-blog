@@ -142,7 +142,7 @@ const categoryLabels: Record<string, string> = {
     align-items: start;
     padding: 2rem 0 4rem;
   }
-  .article-layout__toc { align-self: start; /* stickyが効くためにstretch(デフォルト)を上書き */ }
+  .article-layout__toc { align-self: start; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
   .article-layout__main { min-width: 0; }
   .article-layout__pv { position: sticky; top: 80px; }
 
