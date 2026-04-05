@@ -7,21 +7,42 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
 ---
 
 {tocHeadings.length > 0 && (
-  <nav class="toc" id="toc" aria-label="目次">
-    <div class="toc__header">
-      <span class="toc__icon">📋</span>
-      <span class="toc__title">目次</span>
-    </div>
-    <ol class="toc__list">
-      {tocHeadings.map(h => (
-        <li class={`toc__item toc__item--depth-${h.depth}`}>
-          <a href={`#${h.slug}`} class="toc__link" data-heading={h.slug}>
-            {h.text}
-          </a>
-        </li>
-      ))}
-    </ol>
-  </nav>
+  <>
+    {/* PC: サイドバー固定表示 */}
+    <nav class="toc toc--desktop" id="toc" aria-label="目次">
+      <div class="toc__header">
+        <span class="toc__icon">📋</span>
+        <span class="toc__title">目次</span>
+      </div>
+      <ol class="toc__list">
+        {tocHeadings.map(h => (
+          <li class={`toc__item toc__item--depth-${h.depth}`}>
+            <a href={`#${h.slug}`} class="toc__link" data-heading={h.slug}>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    {/* モバイル: 折りたたみ式 */}
+    <details class="toc toc--mobile">
+      <summary class="toc__summary">
+        <span class="toc__icon">📋</span>
+        <span class="toc__title">目次を表示</span>
+        <span class="toc__chevron">▼</span>
+      </summary>
+      <ol class="toc__list">
+        {tocHeadings.map(h => (
+          <li class={`toc__item toc__item--depth-${h.depth}`}>
+            <a href={`#${h.slug}`} class="toc__link" data-heading={h.slug}>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </details>
+  </>
 )}
 
 <script>
@@ -68,13 +89,51 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
+    font-size: .875rem;
+  }
+
+  /* デスクトップ用スタイル */
+  .toc--desktop {
     padding: 1.25rem;
     position: sticky;
     top: 80px;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
-    font-size: .875rem;
   }
+
+  /* デスクトップ: モバイル折りたたみを非表示 */
+  .toc--mobile { display: none; }
+
+  /* モバイル */
+  @media (max-width: 1100px) {
+    .toc--desktop { display: none; }
+    .toc--mobile {
+      display: block;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      margin: 0 0 1.5rem;
+      overflow: hidden;
+    }
+    .toc--mobile[open] .toc__chevron { transform: rotate(180deg); }
+  }
+
+  .toc__summary {
+    display: flex; align-items: center; gap: .5rem;
+    padding: .875rem 1.25rem;
+    font-weight: 700; font-size: .95rem;
+    cursor: pointer; list-style: none;
+    background: var(--color-surface-raised);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .toc__summary::-webkit-details-marker { display: none; }
+  .toc__summary:hover { background: var(--color-primary-light); }
+  .toc__chevron {
+    margin-left: auto; font-size: .75rem;
+    transition: transform .2s; color: var(--color-text-muted);
+  }
+  .toc--mobile .toc__list { padding: .75rem 1.25rem 1rem; }
+
   .toc__header {
     display: flex; align-items: center; gap: .4rem;
     font-weight: 700; font-size: .9rem; color: var(--color-text);
@@ -104,6 +163,6 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
     border-left-color: var(--color-primary);
   }
   /* スクロールバー細め */
-  .toc::-webkit-scrollbar { width: 4px; }
-  .toc::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+  .toc--desktop::-webkit-scrollbar { width: 4px; }
+  .toc--desktop::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
 </style>
