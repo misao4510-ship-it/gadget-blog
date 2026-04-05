@@ -31,7 +31,7 @@
 
 /* ===== Reset ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 /* ===== Body — Mesh gradient background ===== */
 body {

@@ -49,12 +49,16 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
     if (el) observer.observe(el);
   });
 
-  // スムーズスクロール
+  // スムーズスクロール（固定ヘッダー64px + 余白16px = 80px オフセット）
   links.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       const target = document.getElementById(link.dataset.heading!);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (target) {
+        const headerHeight = 80;
+        const y = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     });
   });
 </script>

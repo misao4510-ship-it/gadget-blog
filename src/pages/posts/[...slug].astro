@@ -113,6 +113,7 @@ const categoryLabels: Record<string, string> = {
   .article__price-widget { background: var(--color-bg); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--color-border); }
 
   /* Prose styles */
+  .prose h2, .prose h3, .prose h4 { scroll-margin-top: 80px; }
   .prose h2 { border-bottom: 2px solid var(--color-border); padding-bottom: .5rem; }
   .prose h3 { color: var(--color-primary); }
   .prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1rem; }
@@ -141,7 +142,7 @@ const categoryLabels: Record<string, string> = {
     align-items: start;
     padding: 2rem 0 4rem;
   }
-  .article-layout__toc { /* sticky は TableOfContents 内で設定済み */ }
+  .article-layout__toc { align-self: start; /* stickyが効くためにstretch(デフォルト)を上書き */ }
   .article-layout__main { min-width: 0; }
   .article-layout__pv { position: sticky; top: 80px; }
 
