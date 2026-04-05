@@ -2,7 +2,7 @@
 interface Props { productId: string; }
 const { productId } = Astro.props;
 const priceData = await import(`../../data/prices/${productId}.json`);
-const history = JSON.stringify(priceData.history);
+const history = JSON.stringify(priceData.history ?? []);
 ---
 <div
   class="price-chart-container"
@@ -11,13 +11,13 @@ const history = JSON.stringify(priceData.history);
 >
   <h3>価格推移グラフ</h3>
   <div class="chart-wrapper">
-    <div id={`chart-${productId}`} style="height: 300px;"></div>
+    <div class="chart-area" style="width:100%; height:300px; position:relative;"></div>
     <div class="chart-legend">
       <span class="chart-legend__item">
         <span class="chart-legend__dot" style="background:#e63946;"></span>Amazon
       </span>
       <span class="chart-legend__item">
-        <span class="chart-legend__dot" style="background:#2dc653;"></span>楽天
+        <span class="chart-legend__dot" style="background:#16a34a;"></span>楽天
       </span>
     </div>
   </div>
@@ -26,70 +26,86 @@ const history = JSON.stringify(priceData.history);
 <script>
   import { createChart, ColorType, LineSeries } from 'lightweight-charts';
 
-  document.querySelectorAll('.price-chart-container').forEach(container => {
-    const historyRaw = container.getAttribute('data-price-history') || '[]';
-    const productId = container.getAttribute('data-product-id');
-    if (!productId) return;
+  function initCharts() {
+    document.querySelectorAll<HTMLElement>('.price-chart-container').forEach(container => {
+      const historyRaw = container.getAttribute('data-price-history') || '[]';
+      const productId = container.getAttribute('data-product-id');
+      if (!productId) return;
 
-    let history: any[] = [];
-    try { history = JSON.parse(historyRaw); } catch { return; }
-    if (!history.length) return;
+      let history: any[] = [];
+      try { history = JSON.parse(historyRaw); } catch { return; }
+      if (!history.length) return;
 
-    const chartEl = container.querySelector(`#chart-${productId}`) as HTMLElement;
-    if (!chartEl) return;
+      const chartEl = container.querySelector<HTMLElement>('.chart-area');
+      if (!chartEl || chartEl.dataset.initialized) return;
+      chartEl.dataset.initialized = 'true';
 
-    // width取得: offsetWidth使用 (clientWidthが0になる場合の対策)
-    const width = chartEl.offsetWidth || chartEl.parentElement?.offsetWidth || 600;
+      // Wait for layout to ensure width is available
+      requestAnimationFrame(() => {
+        const width = chartEl.clientWidth || chartEl.offsetWidth || chartEl.parentElement?.offsetWidth || 400;
 
-    const chart = createChart(chartEl, {
-      layout: {
-        background: { type: ColorType.Solid, color: '#ffffff' },
-        textColor: '#334155',
-      },
-      grid: {
-        vertLines: { color: '#f1f5f9' },
-        horzLines: { color: '#f1f5f9' },
-      },
-      width,
-      height: 280,
-      timeScale: { timeVisible: false, borderColor: '#e2e8f0' },
-      rightPriceScale: { borderColor: '#e2e8f0' },
-      crosshair: { mode: 1 },
+        const chart = createChart(chartEl, {
+          layout: {
+            background: { type: ColorType.Solid, color: '#ffffff' },
+            textColor: '#334155',
+          },
+          grid: {
+            vertLines: { color: '#f1f5f9' },
+            horzLines: { color: '#f1f5f9' },
+          },
+          width,
+          height: 280,
+          timeScale: { timeVisible: false, borderColor: '#e2e8f0' },
+          rightPriceScale: { borderColor: '#e2e8f0' },
+          crosshair: { mode: 1 },
+        });
+
+        // Amazon series
+        const amazonSeries = chart.addSeries(LineSeries, {
+          color: '#e63946',
+          lineWidth: 2,
+          title: 'Amazon',
+          priceFormat: { type: 'price', precision: 0, minMove: 1 },
+        });
+        const amazonData = history
+          .filter((d: any) => typeof d.amazon === 'number')
+          .map((d: any) => ({ time: d.date as string, value: d.amazon as number }))
+          .sort((a, b) => a.time.localeCompare(b.time));
+        if (amazonData.length) amazonSeries.setData(amazonData);
+
+        // Rakuten series
+        const rakutenSeries = chart.addSeries(LineSeries, {
+          color: '#16a34a',
+          lineWidth: 2,
+          title: '楽天',
+          priceFormat: { type: 'price', precision: 0, minMove: 1 },
+        });
+        const rakutenData = history
+          .filter((d: any) => typeof d.rakuten === 'number')
+          .map((d: any) => ({ time: d.date as string, value: d.rakuten as number }))
+          .sort((a, b) => a.time.localeCompare(b.time));
+        if (rakutenData.length) rakutenSeries.setData(rakutenData);
+
+        chart.timeScale().fitContent();
+
+        // Responsive
+        const ro = new ResizeObserver((entries) => {
+          for (const entry of entries) {
+            const w = entry.contentRect.width;
+            if (w > 0) chart.applyOptions({ width: w });
+          }
+        });
+        ro.observe(chartEl);
+      });
     });
+  }
 
-    // Amazon series (赤) — v5 API
-    const amazonSeries = chart.addSeries(LineSeries, {
-      color: '#e63946',
-      lineWidth: 2,
-      title: 'Amazon',
-      priceFormat: { type: 'price', precision: 0, minMove: 1 },
-    });
-    const amazonData = history
-      .filter((d: any) => typeof d.amazon === 'number')
-      .map((d: any) => ({ time: d.date as string, value: d.amazon as number }));
-    if (amazonData.length) amazonSeries.setData(amazonData);
-
-    // 楽天 series (緑) — v5 API
-    const rakutenSeries = chart.addSeries(LineSeries, {
-      color: '#16a34a',
-      lineWidth: 2,
-      title: '楽天',
-      priceFormat: { type: 'price', precision: 0, minMove: 1 },
-    });
-    const rakutenData = history
-      .filter((d: any) => typeof d.rakuten === 'number')
-      .map((d: any) => ({ time: d.date as string, value: d.rakuten as number }));
-    if (rakutenData.length) rakutenSeries.setData(rakutenData);
-
-    chart.timeScale().fitContent();
-
-    // レスポンシブ対応
-    const resizeObserver = new ResizeObserver(() => {
-      const newWidth = chartEl.offsetWidth;
-      if (newWidth > 0) chart.applyOptions({ width: newWidth });
-    });
-    resizeObserver.observe(chartEl);
-  });
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCharts);
+  } else {
+    initCharts();
+  }
 </script>
 
 <style>
@@ -105,6 +121,9 @@ const history = JSON.stringify(priceData.history);
   .chart-wrapper {
     border: 1px solid #e2e8f0; border-radius: var(--radius, 8px);
     overflow: hidden; background: white;
+  }
+  .chart-area {
+    min-height: 280px;
   }
   .chart-legend {
     display: flex; gap: 1rem; padding: .5rem .75rem; font-size: .8rem;

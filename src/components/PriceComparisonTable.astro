@@ -11,6 +11,11 @@ const storeNames: Record<string, string> = {
   rakuten: '楽天市場',
   a8: 'その他'
 };
+const storeBtnText: Record<string, string> = {
+  amazon: 'Amazonで価格を見る',
+  rakuten: '楽天市場で見る',
+  a8: '詳細を見る'
+};
 const productName = product?.name ?? productId;
 const productImage = product?.image ?? null;
 ---
@@ -43,7 +48,9 @@ const productImage = product?.image ?? null;
             <td class="price">¥{info.price.toLocaleString('ja-JP')}</td>
             <td>{info.in_stock ? '✅ 在庫あり' : '❌ 在庫なし'}</td>
             <td>
-              <a href={product.affiliate_links[store]?.url ?? '#'} rel="nofollow sponsored" target="_blank" class="buy-btn">購入 →</a>
+              <a href={product.affiliate_links[store]?.url ?? '#'} rel="nofollow sponsored" target="_blank" class="buy-btn">
+                {storeBtnText[store] ?? '詳細を見る'}
+              </a>
             </td>
           </tr>
         ))
@@ -54,11 +61,10 @@ const productImage = product?.image ?? null;
     🏷️ 現在の最安値: {storeNames[priceData.current.cheapest.store] ?? priceData.current.cheapest.store}
     <strong>¥{priceData.current.cheapest.price.toLocaleString('ja-JP')}</strong>
   </p>
-  <p class="updated-note">最終更新: {priceData.current.amazon?.updated ?? priceData.current.rakuten?.updated}</p>
+  <p class="updated-note">最終更新: {priceData.current.amazon?.updated ?? priceData.current.rakuten?.updated} ※ 価格は変動します</p>
 </div>
 
 <style>
-  /* PriceComparisonTable styles */
   .price-comparison-wrap {
     font-family: var(--font-sans, sans-serif);
   }
@@ -85,7 +91,7 @@ const productImage = product?.image ?? null;
     font-size: 1rem; font-weight: 700; color: var(--color-text);
     margin: 0 0 .15rem; line-height: 1.3;
   }
-  .price-product-name::before { content: none; }  /* h3のbefore打ち消し */
+  .price-product-name::before { content: none; }
   .price-product-sub { font-size: .8rem; color: var(--color-text-muted); margin: 0; }
   .price-comparison {
     width: 100%; border-collapse: collapse;
@@ -104,14 +110,18 @@ const productImage = product?.image ?? null;
   tr.cheapest td { background: #f0fdf4 !important; }
   tr.cheapest .price { color: var(--color-cheapest); font-weight: 800; font-size: 1.1em; }
   .cheapest-label { background: var(--color-cheapest); color: white; font-size: .7rem; padding: .1em .5em; border-radius: 99px; font-weight: 700; margin-left: .4rem; }
+
+  /* Green CTA buttons */
   .buy-btn {
-    display: inline-block; background: #f97316; color: white;
-    padding: .35em .85em; border-radius: 99px; text-decoration: none;
-    font-size: .8rem; font-weight: 700; transition: background .15s;
+    display: inline-block; background: #22c55e; color: white;
+    padding: .4em .9em; border-radius: var(--radius); text-decoration: none;
+    font-size: .8rem; font-weight: 700; transition: background .15s, transform .1s;
+    white-space: nowrap;
   }
-  .buy-btn:hover { background: #ea6e00; color: white; }
-  tr.cheapest .buy-btn { background: var(--color-cheapest); }
+  .buy-btn:hover { background: #16a34a; color: white; transform: translateY(-1px); }
+  tr.cheapest .buy-btn { background: #16a34a; }
   tr.cheapest .buy-btn:hover { background: #15803d; }
+
   .cheapest-badge { margin-top: .75rem; font-size: .9rem; font-weight: 600; color: var(--color-cheapest); }
   .updated-note { font-size: .75rem; color: var(--color-text-muted); margin-top: .25rem; }
   @media (max-width: 480px) {

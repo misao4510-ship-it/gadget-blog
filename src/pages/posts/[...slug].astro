@@ -5,6 +5,8 @@ import PriceComparisonTable from '../../components/PriceComparisonTable.astro';
 import PriceChart from '../../components/PriceChart.astro';
 import ProductSchemaLD from '../../components/ProductSchemaLD.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
+import StoreLinkBox from '../../components/StoreLinkBox.astro';
+import AuthorProfile from '../../components/AuthorProfile.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -55,12 +57,12 @@ const categoryLabels: Record<string, string> = {
 
     <div class="container">
       <div class="article-layout">
-        <!-- 左サイドバー: 目次 -->
+        <!-- Left sidebar: ToC -->
         <aside class="article-layout__toc">
           <TableOfContents headings={headings} />
         </aside>
 
-        <!-- 本文 -->
+        <!-- Main content -->
         <div class="article-layout__main">
           <div class="article__inner">
             <!-- Meta -->
@@ -71,6 +73,17 @@ const categoryLabels: Record<string, string> = {
             </div>
             <h1 class="article__title">{post.data.title}</h1>
             <p class="article__desc">{post.data.description}</p>
+
+            {/* === CTA #1: Store link box at top (above the fold) === */}
+            {post.data.products.length > 0 && (
+              <div class="article__top-cta">
+                {post.data.products.map((id: string) => (
+                  <StoreLinkBox productId={id} />
+                ))}
+              </div>
+            )}
+
+            {/* === Product image gallery === */}
             {post.data.products.length > 0 && (
               <div class="article__product-gallery">
                 {post.data.products.map((id: string) => {
@@ -84,6 +97,13 @@ const categoryLabels: Record<string, string> = {
                 })}
               </div>
             )}
+
+            {/* === Article content (markdown) === */}
+            <div class="article__content prose">
+              <Content />
+            </div>
+
+            {/* === CTA #2: Price comparison + chart (after content) === */}
             {post.data.products.length > 0 && (
               <div class="article__price-widgets">
                 {post.data.products.map((id: string) => (
@@ -94,15 +114,23 @@ const categoryLabels: Record<string, string> = {
                 ))}
               </div>
             )}
-            <div class="article__content prose">
-              <Content />
-            </div>
+
+            {/* === CTA #3: Store link box at bottom (after price section) === */}
+            {post.data.products.length > 0 && (
+              <div class="article__bottom-cta">
+                {post.data.products.map((id: string) => (
+                  <StoreLinkBox productId={id} />
+                ))}
+              </div>
+            )}
+
+            {/* === Author profile (E-E-A-T) === */}
+            <AuthorProfile />
           </div>
         </div>
 
-        <!-- 右サイドバー: PVカウンター (足軽2号が実装) -->
+        <!-- Right sidebar: PV counter -->
         <aside class="article-layout__pv" id="pv-sidebar">
-          <!-- PageViewCounter component will be inserted by ashigaru2's implementation -->
           <div class="pv-widget">
             <div class="pv-widget__header">
               <span>📊</span>
@@ -127,7 +155,10 @@ const categoryLabels: Record<string, string> = {
   .article__date { font-size: .875rem; color: var(--color-text-muted); margin-left: auto; }
 
   .article__title { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; margin: .5rem 0 .75rem; color: var(--color-text); }
-  .article__desc { font-size: 1.05rem; color: var(--color-text-muted); border-left: 4px solid var(--color-primary); padding-left: 1rem; margin-bottom: 2rem; }
+  .article__desc { font-size: 1.05rem; color: var(--color-text-muted); border-left: 4px solid var(--color-primary); padding-left: 1rem; margin-bottom: 1.5rem; }
+
+  /* Top CTA */
+  .article__top-cta { margin-bottom: 1.5rem; }
 
   /* Product gallery */
   .article__product-gallery {
@@ -148,6 +179,9 @@ const categoryLabels: Record<string, string> = {
 
   .article__price-widgets { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem 0; }
   .article__price-widget { background: var(--color-bg); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--color-border); }
+
+  /* Bottom CTA */
+  .article__bottom-cta { margin: 2rem 0; }
 
   /* Prose styles */
   .prose h2, .prose h3, .prose h4 { scroll-margin-top: 80px; }
@@ -171,7 +205,7 @@ const categoryLabels: Record<string, string> = {
     .article__inner { padding: 1.5rem 0 3rem; }
   }
 
-  /* ===== 3カラムレイアウト ===== */
+  /* ===== 3-column layout ===== */
   .article-layout {
     display: grid;
     grid-template-columns: 240px 1fr 200px;
@@ -202,19 +236,17 @@ const categoryLabels: Record<string, string> = {
   }
   .pv-widget__label { font-size: .75rem; color: var(--color-text-muted); margin: 0; }
 
-  /* article__inner の padding-top 調整 (article-layout内では不要) */
   .article-layout .article__inner { padding-top: 0; }
 
-  /* タブレット: 2カラム（ToC内部でモバイル切り替え） */
+  /* Tablet: 2-column */
   @media (max-width: 1100px) {
     .article-layout {
       grid-template-columns: 1fr 180px;
       gap: 1.5rem;
     }
-    /* article-layout__toc は非表示にしない（ToC内部でモバイル切り替え） */
   }
 
-  /* モバイル: 1カラム */
+  /* Mobile: 1-column */
   @media (max-width: 768px) {
     .article-layout {
       grid-template-columns: 1fr;
@@ -222,7 +254,6 @@ const categoryLabels: Record<string, string> = {
       padding: 1rem 0 3rem;
     }
     .article-layout__toc {
-      /* モバイルでToCをgridの先頭に表示 */
       order: -1;
     }
     .article-layout__pv {
