@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PriceComparisonTable from '../../components/PriceComparisonTable.astro';
 import PriceChart from '../../components/PriceChart.astro';
 import ProductSchemaLD from '../../components/ProductSchemaLD.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 
 const typeLabels: Record<string, string> = {
   review: 'レビュー', comparison: '比較', roundup: 'まとめ'
@@ -21,7 +22,12 @@ const categoryLabels: Record<string, string> = {
   'usb-hub': 'USB-Cハブ',
   'earphones': 'イヤホン',
   'charger': '充電器',
-  'sale-guide': 'セール情報'
+  'sale-guide': 'セール情報',
+  'smartwatch': 'スマートウォッチ',
+  'wireless-charger': 'ワイヤレス充電器',
+  'monitor': 'PCモニター',
+  'keyboard': 'キーボード',
+  'portable-ssd': 'ポータブルSSD',
 };
 ---
 <BaseLayout
@@ -41,33 +47,51 @@ const categoryLabels: Record<string, string> = {
     )}
 
     <div class="container">
-      <div class="article__inner">
-        <!-- Meta -->
-        <div class="article__meta">
-          <span class="badge badge--category">{categoryLabels[post.data.category] ?? post.data.category}</span>
-          <span class="badge badge--type" style="background:#fff7ed;color:#c2410c">{typeLabels[post.data.type] ?? post.data.type}</span>
-          <time class="article__date">{post.data.publishDate}</time>
-        </div>
+      <div class="article-layout">
+        <!-- 左サイドバー: 目次 -->
+        <aside class="article-layout__toc">
+          <TableOfContents headings={headings} />
+        </aside>
 
-        <h1 class="article__title">{post.data.title}</h1>
-        <p class="article__desc">{post.data.description}</p>
-
-        <!-- Price widgets for products -->
-        {post.data.products.length > 0 && (
-          <div class="article__price-widgets">
-            {post.data.products.map((id: string) => (
-              <div class="article__price-widget">
-                <PriceComparisonTable productId={id} />
-                <PriceChart productId={id} />
+        <!-- 本文 -->
+        <div class="article-layout__main">
+          <div class="article__inner">
+            <!-- Meta -->
+            <div class="article__meta">
+              <span class="badge badge--category">{categoryLabels[post.data.category] ?? post.data.category}</span>
+              <span class="badge badge--type" style="background:#fff7ed;color:#c2410c">{typeLabels[post.data.type] ?? post.data.type}</span>
+              <time class="article__date">{post.data.publishDate}</time>
+            </div>
+            <h1 class="article__title">{post.data.title}</h1>
+            <p class="article__desc">{post.data.description}</p>
+            {post.data.products.length > 0 && (
+              <div class="article__price-widgets">
+                {post.data.products.map((id: string) => (
+                  <div class="article__price-widget">
+                    <PriceComparisonTable productId={id} />
+                    <PriceChart productId={id} />
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
+            <div class="article__content prose">
+              <Content />
+            </div>
           </div>
-        )}
-
-        <!-- Content -->
-        <div class="article__content prose">
-          <Content />
         </div>
+
+        <!-- 右サイドバー: PVカウンター (足軽2号が実装) -->
+        <aside class="article-layout__pv" id="pv-sidebar">
+          <!-- PageViewCounter component will be inserted by ashigaru2's implementation -->
+          <div class="pv-widget">
+            <div class="pv-widget__header">
+              <span>📊</span>
+              <span class="pv-widget__title">閲覧統計</span>
+            </div>
+            <div id="pv-display" class="pv-widget__count">計測中…</div>
+            <p class="pv-widget__label">累計ページビュー</p>
+          </div>
+        </aside>
       </div>
     </div>
   </article>
@@ -107,5 +131,60 @@ const categoryLabels: Record<string, string> = {
   @media (max-width: 640px) {
     .article__hero-img { height: 220px; }
     .article__inner { padding: 1.5rem 0 3rem; }
+  }
+
+  /* ===== 3カラムレイアウト ===== */
+  .article-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr 200px;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem 0 4rem;
+  }
+  .article-layout__toc { /* sticky は TableOfContents 内で設定済み */ }
+  .article-layout__main { min-width: 0; }
+  .article-layout__pv { position: sticky; top: 80px; }
+
+  .pv-widget {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .pv-widget__header {
+    display: flex; align-items: center; justify-content: center; gap: .4rem;
+    font-weight: 700; font-size: .9rem; margin-bottom: .75rem;
+    padding-bottom: .625rem; border-bottom: 2px solid var(--color-primary-light);
+  }
+  .pv-widget__title { color: var(--color-text); }
+  .pv-widget__count {
+    font-size: 2rem; font-weight: 800; color: var(--color-primary);
+    line-height: 1.2; margin: .5rem 0 .25rem;
+  }
+  .pv-widget__label { font-size: .75rem; color: var(--color-text-muted); margin: 0; }
+
+  /* article__inner の padding-top 調整 (article-layout内では不要) */
+  .article-layout .article__inner { padding-top: 0; }
+
+  /* タブレット: 目次を非表示、2カラム */
+  @media (max-width: 1100px) {
+    .article-layout {
+      grid-template-columns: 1fr 180px;
+    }
+    .article-layout__toc { display: none; }
+  }
+
+  /* モバイル: 1カラム */
+  @media (max-width: 768px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0 3rem;
+    }
+    .article-layout__pv {
+      position: static;
+      order: 10; /* 本文の後ろに */
+    }
   }
 </style>
