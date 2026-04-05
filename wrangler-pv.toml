@@ -1,0 +1,8 @@
+name = "pv-counter"
+main = "workers/pv-counter.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "PV_COUNTER"
+id = "f5670b684b124e9e951358a190bc31c7"
+preview_id = "ac4277789b6848f1b9cd29f9009e6fc3"

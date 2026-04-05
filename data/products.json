@@ -212,6 +212,81 @@
           "url": "https://px.a8.net/placeholder/product-011"
         }
       }
+    },
+    {
+      "id": "product-012",
+      "name": "iRobot ルンバ i2",
+      "category": "robot-vacuum",
+      "asin": "B0B5GZ5K9S",
+      "rakuten_keyword": "ルンバ i2 ロボット掃除機",
+      "a8_link": "https://px.a8.net/placeholder/product-012",
+      "image": "/images/products/roomba-i2.svg",
+      "tags": ["ロボット掃除機", "iRobot", "ルンバ"],
+      "affiliate_links": {
+        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-012" }
+      }
+    },
+    {
+      "id": "product-013",
+      "name": "SHARP 加湿空気清浄機 KC-S50",
+      "category": "air-purifier",
+      "asin": "B0CHSGPWMF",
+      "rakuten_keyword": "シャープ 加湿空気清浄機 KC-S50",
+      "a8_link": "https://px.a8.net/placeholder/product-013",
+      "image": "/images/products/sharp-kc-s50.svg",
+      "tags": ["空気清浄機", "SHARP", "プラズマクラスター", "加湿"],
+      "affiliate_links": {
+        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-013" }
+      }
+    },
+    {
+      "id": "product-014",
+      "name": "ティファール ジャスティンプラス 1.2L",
+      "category": "electric-kettle",
+      "asin": "B00JMCQE7W",
+      "rakuten_keyword": "ティファール ジャスティンプラス 1.2L",
+      "a8_link": "https://px.a8.net/placeholder/product-014",
+      "image": "/images/products/tfal-justine-plus.svg",
+      "tags": ["電気ケトル", "ティファール", "1.2L"],
+      "affiliate_links": {
+        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-014" }
+      }
+    },
+    {
+      "id": "product-015",
+      "name": "Panasonic ヘアドライヤー ナノケア EH-NA0J",
+      "category": "hair-dryer",
+      "asin": "B0B7QJCQ3V",
+      "rakuten_keyword": "パナソニック ナノケア EH-NA0J ドライヤー",
+      "a8_link": "https://px.a8.net/placeholder/product-015",
+      "image": "/images/products/panasonic-nanocare.svg",
+      "tags": ["ドライヤー", "Panasonic", "ナノケア", "ナノイー"],
+      "affiliate_links": {
+        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-015" }
+      }
+    },
+    {
+      "id": "product-016",
+      "name": "アイリスオーヤマ サーキュレーター PCF-SC15T",
+      "category": "circulator",
+      "asin": "B07BHMHP76",
+      "rakuten_keyword": "アイリスオーヤマ サーキュレーター PCF-SC15T",
+      "a8_link": "https://px.a8.net/placeholder/product-016",
+      "image": "/images/products/iris-circulator.svg",
+      "tags": ["サーキュレーター", "アイリスオーヤマ", "静音"],
+      "affiliate_links": {
+        "amazon": { "tag": "misao4510-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-016" }
+      }
     }
   ]
 }

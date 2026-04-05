@@ -1,0 +1,13 @@
+{
+  "product_id": "product-015",
+  "current": {
+    "amazon": { "price": 28600, "url": "https://www.amazon.co.jp/dp/B0B7QJCQ3V?tag=misao4510-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 27800, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpanasonic%2Feh-na0j", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "rakuten", "price": 27800 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 28600, "rakuten": 27800 },
+    { "date": "2026-04-04", "amazon": 29800, "rakuten": 28500 },
+    { "date": "2026-04-03", "amazon": 29800, "rakuten": 29800 }
+  ]
+}

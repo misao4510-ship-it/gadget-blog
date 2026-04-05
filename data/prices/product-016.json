@@ -1,0 +1,13 @@
+{
+  "product_id": "product-016",
+  "current": {
+    "amazon": { "price": 6480, "url": "https://www.amazon.co.jp/dp/B07BHMHP76?tag=misao4510-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 6980, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Firis%2Fpcf-sc15t", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 6480 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 6480, "rakuten": 6980 },
+    { "date": "2026-04-04", "amazon": 6480, "rakuten": 7280 },
+    { "date": "2026-04-03", "amazon": 6980, "rakuten": 7280 }
+  ]
+}

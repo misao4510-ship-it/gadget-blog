@@ -1,0 +1,13 @@
+{
+  "product_id": "product-014",
+  "current": {
+    "amazon": { "price": 3280, "url": "https://www.amazon.co.jp/dp/B00JMCQE7W?tag=misao4510-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 3480, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftfal%2Fjustine-plus", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 3280 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 3280, "rakuten": 3480 },
+    { "date": "2026-04-04", "amazon": 3280, "rakuten": 3580 },
+    { "date": "2026-04-03", "amazon": 3480, "rakuten": 3580 }
+  ]
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fef3c7"/><stop offset="100%" stop-color="#fde68a"/></linearGradient>
+    <linearGradient id="kettle" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#e2e8f0"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Kettle body -->
+  <path d="M140 130 Q135 130 130 150 L120 250 Q118 270 140 275 L260 275 Q282 270 280 250 L270 150 Q265 130 260 130 Z" fill="url(#kettle)" stroke="#cbd5e0" stroke-width="2"/>
+  <!-- Water level window -->
+  <rect x="265" y="155" width="8" height="100" rx="4" fill="#bfdbfe" opacity=".6"/>
+  <rect x="265" y="200" width="8" height="55" rx="4" fill="#60a5fa" opacity=".5"/>
+  <!-- Lid -->
+  <rect x="145" y="118" width="110" height="18" rx="9" fill="#e2e8f0" stroke="#cbd5e0" stroke-width="1.5"/>
+  <rect x="185" y="108" width="30" height="14" rx="7" fill="#a0aec0"/>
+  <!-- Handle -->
+  <path d="M260 155 Q310 160 310 210 Q310 260 260 265" fill="none" stroke="#2d3748" stroke-width="8" stroke-linecap="round"/>
+  <!-- Base -->
+  <ellipse cx="200" cy="285" rx="85" ry="12" fill="#2d3748"/>
+  <!-- T-fal logo -->
+  <text x="195" y="215" text-anchor="middle" fill="#e53e3e" font-family="Arial,sans-serif" font-size="18" font-weight="800">T-fal</text>
+  <!-- Steam -->
+  <path d="M170 100 Q168 85 175 75" fill="none" stroke="#94a3b8" stroke-width="1.5" opacity=".4"/>
+  <path d="M195 95 Q193 78 200 68" fill="none" stroke="#94a3b8" stroke-width="1.5" opacity=".4"/>
+  <path d="M220 100 Q218 85 225 75" fill="none" stroke="#94a3b8" stroke-width="1.5" opacity=".4"/>
+  <!-- Label -->
+  <text x="200" y="330" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="20" font-weight="800">T-fal ジャスティンプラス</text>
+  <text x="200" y="358" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">1.2L 電気ケトル</text>
+</svg>

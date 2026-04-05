@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ecfeff"/><stop offset="100%" stop-color="#cffafe"/></linearGradient>
+    <radialGradient id="fan" cx=".5" cy=".5" r=".5"><stop offset="0%" stop-color="#f0f9ff"/><stop offset="100%" stop-color="#e0f2fe"/></radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Guard ring -->
+  <circle cx="200" cy="160" r="80" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  <circle cx="200" cy="160" r="75" fill="url(#fan)"/>
+  <!-- Guard grid lines -->
+  <line x1="200" y1="85" x2="200" y2="235" stroke="#cbd5e0" stroke-width="1" opacity=".5"/>
+  <line x1="125" y1="160" x2="275" y2="160" stroke="#cbd5e0" stroke-width="1" opacity=".5"/>
+  <line x1="147" y1="107" x2="253" y2="213" stroke="#cbd5e0" stroke-width="1" opacity=".5"/>
+  <line x1="253" y1="107" x2="147" y2="213" stroke="#cbd5e0" stroke-width="1" opacity=".5"/>
+  <!-- Center hub -->
+  <circle cx="200" cy="160" r="18" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Fan blades -->
+  <path d="M200 160 Q215 135 200 115 Q190 135 200 160" fill="#94a3b8" opacity=".6"/>
+  <path d="M200 160 Q225 170 240 155 Q220 155 200 160" fill="#94a3b8" opacity=".6"/>
+  <path d="M200 160 Q210 185 200 205 Q195 180 200 160" fill="#94a3b8" opacity=".6"/>
+  <path d="M200 160 Q175 150 160 165 Q180 165 200 160" fill="#94a3b8" opacity=".6"/>
+  <!-- Stand/neck -->
+  <rect x="190" y="240" width="20" height="30" rx="4" fill="#f1f5f9" stroke="#cbd5e0" stroke-width="1.5"/>
+  <!-- Base -->
+  <ellipse cx="200" cy="280" rx="55" ry="14" fill="#f1f5f9" stroke="#cbd5e0" stroke-width="1.5"/>
+  <!-- Controls on base -->
+  <circle cx="185" cy="278" r="4" fill="#22d3ee"/>
+  <circle cx="200" cy="278" r="4" fill="#e2e8f0" stroke="#cbd5e0" stroke-width="1"/>
+  <circle cx="215" cy="278" r="4" fill="#e2e8f0" stroke="#cbd5e0" stroke-width="1"/>
+  <!-- Wind lines -->
+  <path d="M120 130 Q100 125 85 130" stroke="#22d3ee" stroke-width="1.5" opacity=".4" fill="none"/>
+  <path d="M115 160 Q95 160 80 160" stroke="#22d3ee" stroke-width="1.5" opacity=".4" fill="none"/>
+  <path d="M120 190 Q100 195 85 190" stroke="#22d3ee" stroke-width="1.5" opacity=".4" fill="none"/>
+  <!-- Label -->
+  <text x="200" y="325" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="19" font-weight="800">IRIS サーキュレーター</text>
+  <text x="200" y="355" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">PCF-SC15T 静音タイプ</text>
+</svg>

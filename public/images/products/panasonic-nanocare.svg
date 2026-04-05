@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fdf2f8"/><stop offset="100%" stop-color="#fce7f3"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#831843"/><stop offset="100%" stop-color="#be185d"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Dryer nozzle -->
+  <rect x="90" y="120" width="100" height="55" rx="10" fill="url(#body)"/>
+  <ellipse cx="90" cy="147" rx="12" ry="27" fill="#9d174d"/>
+  <!-- Air flow -->
+  <path d="M75 135 L55 130" stroke="#f9a8d4" stroke-width="1.5" opacity=".5"/>
+  <path d="M75 147 L50 147" stroke="#f9a8d4" stroke-width="1.5" opacity=".5"/>
+  <path d="M75 159 L55 164" stroke="#f9a8d4" stroke-width="1.5" opacity=".5"/>
+  <!-- Body -->
+  <rect x="170" y="105" width="80" height="85" rx="14" fill="url(#body)"/>
+  <!-- Handle -->
+  <rect x="190" y="185" width="40" height="110" rx="12" fill="url(#body)"/>
+  <!-- nanocare label -->
+  <text x="210" y="150" text-anchor="middle" fill="#fce7f3" font-family="Arial,sans-serif" font-size="11" font-weight="600">nanoe</text>
+  <!-- Button -->
+  <circle cx="210" cy="220" r="6" fill="#fce7f3" opacity=".6"/>
+  <!-- Panasonic -->
+  <text x="210" y="170" text-anchor="middle" fill="#fce7f3" font-family="Arial,sans-serif" font-size="8" font-weight="400">Panasonic</text>
+  <!-- nanoe sparkles -->
+  <circle cx="65" cy="125" r="2" fill="#f9a8d4" opacity=".6"/>
+  <circle cx="45" cy="147" r="2" fill="#f9a8d4" opacity=".6"/>
+  <circle cx="60" cy="168" r="2" fill="#f9a8d4" opacity=".6"/>
+  <!-- Label -->
+  <text x="200" y="330" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="20" font-weight="800">Panasonic ナノケア</text>
+  <text x="200" y="358" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">EH-NA0J ヘアドライヤー</text>
+</svg>

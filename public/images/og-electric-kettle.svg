@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#92400e"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <text x="600" y="220" text-anchor="middle" fill="white" font-family="sans-serif" font-size="96">☕</text>
+  <text x="600" y="340" text-anchor="middle" fill="white" font-family="sans-serif" font-size="48" font-weight="800">T-fal ジャスティンプラス レビュー</text>
+  <text x="600" y="420" text-anchor="middle" fill="#fde68a" font-family="sans-serif" font-size="28">3,000円台で買える高コスパ電気ケトル</text>
+  <text x="600" y="500" text-anchor="middle" fill="#fcd34d" font-family="sans-serif" font-size="22">📊 ガジェット価格比較ブログ</text>
+</svg>

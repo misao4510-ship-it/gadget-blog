@@ -1,0 +1,13 @@
+{
+  "product_id": "product-013",
+  "current": {
+    "amazon": { "price": 22800, "url": "https://www.amazon.co.jp/dp/B0CHSGPWMF?tag=misao4510-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 24980, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsharp%2Fkc-s50", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 22800 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 22800, "rakuten": 24980 },
+    { "date": "2026-04-04", "amazon": 23500, "rakuten": 24980 },
+    { "date": "2026-04-03", "amazon": 23500, "rakuten": 25800 }
+  ]
+}

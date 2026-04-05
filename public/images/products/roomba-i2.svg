@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0fdf4"/><stop offset="100%" stop-color="#dcfce7"/></linearGradient>
+    <radialGradient id="body" cx=".5" cy=".5" r=".5"><stop offset="0%" stop-color="#4a5568"/><stop offset="100%" stop-color="#2d3748"/></radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Robot body (top view) -->
+  <circle cx="200" cy="180" r="95" fill="url(#body)" stroke="#1a202c" stroke-width="2"/>
+  <!-- Top surface -->
+  <circle cx="200" cy="175" r="88" fill="#374151"/>
+  <!-- Bumper -->
+  <path d="M115 145 A95 95 0 0 1 285 145" fill="none" stroke="#6b7280" stroke-width="4"/>
+  <!-- iRobot logo area -->
+  <circle cx="200" cy="160" r="22" fill="#1f2937" stroke="#4b5563" stroke-width="1"/>
+  <text x="200" y="164" text-anchor="middle" fill="#10b981" font-family="Arial,sans-serif" font-size="10" font-weight="700">iRobot</text>
+  <!-- Clean button -->
+  <circle cx="200" cy="200" r="16" fill="#10b981" opacity=".9"/>
+  <text x="200" y="205" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="10" font-weight="700">CLEAN</text>
+  <!-- Camera/sensor -->
+  <rect x="185" y="120" width="30" height="10" rx="5" fill="#1f2937"/>
+  <!-- Side brush indicator -->
+  <circle cx="140" cy="240" r="15" fill="none" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Shadow -->
+  <ellipse cx="200" cy="285" rx="90" ry="10" fill="#1a202c" opacity=".1"/>
+  <!-- Label -->
+  <text x="200" y="325" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="22" font-weight="800">iRobot Roomba i2</text>
+  <text x="200" y="355" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="16">ロボット掃除機</text>
+</svg>
