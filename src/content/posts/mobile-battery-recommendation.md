@@ -6,6 +6,7 @@ category: "mobile-battery"
 products: ["product-001", "product-002"]
 type: "roundup"
 draft: false
+ogImage: /images/og-mobile-battery.svg
 ---
 
 ※本記事はアフィリエイト広告を含みます

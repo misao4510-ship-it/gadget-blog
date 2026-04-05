@@ -6,6 +6,7 @@ category: "sale-guide"
 products: ["product-001", "product-003", "product-004", "product-005"]
 type: "roundup"
 draft: false
+ogImage: /images/og-amazon-sale.svg
 ---
 
 ※本記事はアフィリエイト広告を含みます

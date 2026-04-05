@@ -1,33 +1,80 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('posts', ({ data }) => !data.draft);
-const posts = allPosts.sort(
-  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
-);
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+posts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+
+const ogImages: Record<string, string> = {
+  'mobile-battery-recommendation': '/images/og-mobile-battery.svg',
+  'anker-powercore-10000-review': '/images/og-anker-review.svg',
+  'usbc-hub-comparison': '/images/og-usbc-hub.svg',
+  'wireless-earphones-guide': '/images/og-earphones.svg',
+  'amazon-sale-guide-2026': '/images/og-amazon-sale.svg',
+};
 ---
-
 <BaseLayout
-  title="ガジェット価格比較ブログ"
-  description="ガジェット商品の最新価格比較・レビュー情報をお届け"
+  title="ガジェット価格比較ブログ — Amazon・楽天の最安値を自動追跡"
+  description="人気ガジェットの価格をAmazon・楽天で自動比較。価格推移グラフで買い時がひと目でわかる。"
 >
-  <h1>ガジェット価格比較ブログ</h1>
-  <p>ガジェット商品の最新価格比較・レビュー情報をお届けします。</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <h1 class="hero__title">ガジェットの<span class="hero__accent">最安値</span>を自動追跡</h1>
+        <p class="hero__lead">Amazon・楽天の価格を毎日自動更新。価格推移グラフで本当の買い時がひと目でわかります。</p>
+        <div class="hero__badges">
+          <span>🔄 毎日自動更新</span>
+          <span>📊 価格推移グラフ</span>
+          <span>🏷️ 最安値ハイライト</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  {posts.length > 0 ? (
-    <ul>
-      {posts.map((post) => (
-        <li>
-          <a href={`/posts/${post.id}/`}>
-            <strong>{post.data.title}</strong>
-          </a>
-          <span> — {post.data.publishDate}</span>
-          <p>{post.data.description}</p>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <p>記事がまだありません。</p>
-  )}
+  <!-- Articles Grid -->
+  <section class="articles">
+    <div class="container">
+      <h2 class="section-title">最新記事</h2>
+      <div class="articles__grid">
+        {posts.map(post => (
+          <ArticleCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            category={post.data.category}
+            publishDate={post.data.publishDate}
+            ogImage={ogImages[post.id] ?? '/images/og-default.svg'}
+            type={post.data.type}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    color: white; padding: 4rem 0 3rem;
+  }
+  .hero__inner { max-width: 700px; }
+  .hero__title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; color: white; }
+  .hero__accent { color: #fbbf24; }
+  .hero__lead { font-size: 1.125rem; color: #bfdbfe; margin-bottom: 1.5rem; }
+  .hero__badges { display: flex; gap: .75rem; flex-wrap: wrap; }
+  .hero__badges span { background: rgba(255,255,255,.15); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.25); padding: .35em .85em; border-radius: 99px; font-size: .875rem; font-weight: 600; }
+
+  .articles { padding: 3rem 0; }
+  .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 1.75rem; padding-bottom: .5rem; border-bottom: 3px solid var(--color-primary); display: inline-block; }
+  .articles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+  @media (max-width: 640px) {
+    .articles__grid { grid-template-columns: 1fr; }
+    .hero { padding: 2.5rem 0 2rem; }
+  }
+</style>

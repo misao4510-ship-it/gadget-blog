@@ -6,6 +6,7 @@ category: "earphones"
 products: ["product-004"]
 type: "roundup"
 draft: false
+ogImage: /images/og-earphones.svg
 ---
 
 ※本記事はアフィリエイト広告を含みます

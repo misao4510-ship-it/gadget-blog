@@ -11,6 +11,7 @@ const posts = defineCollection({
     products: z.array(z.string()).default([]),
     type: z.enum(['review', 'comparison', 'roundup']),
     draft: z.boolean().default(false),
+    ogImage: z.string().optional(),
   }),
 });
 

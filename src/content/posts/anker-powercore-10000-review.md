@@ -6,6 +6,7 @@ category: "mobile-battery"
 products: ["product-001"]
 type: "review"
 draft: false
+ogImage: /images/og-anker-review.svg
 ---
 
 ※本記事はアフィリエイト広告を含みます

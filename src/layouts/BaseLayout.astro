@@ -1,50 +1,70 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  type?: string;
 }
-
-const { title, description, ogImage = '/og-default.png' } = Astro.props;
+const { title, description, ogImage = '/images/og-default.svg', type = 'website' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteName = 'ガジェット価格比較ブログ';
+const ogImageURL = new URL(ogImage, Astro.site);
+const currentYear = new Date().getFullYear();
 ---
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | {siteName}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | ガジェット価格比較ブログ</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <!-- OGP -->
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="ガジェット価格比較ブログ" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">📊 ガジェット価格比較</a>
+      <nav class="site-header__nav">
+        <a href="/">ホーム</a>
+        <a href="/posts/mobile-battery-recommendation/">モバイルバッテリー</a>
+        <a href="/posts/usbc-hub-comparison/">USB-Cハブ</a>
+        <a href="/posts/wireless-earphones-guide/">イヤホン</a>
+        <a href="/posts/amazon-sale-guide-2026/">セール情報</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:site_name" content={siteName} />
+  <main>
+    <slot />
+  </main>
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
-  </head>
-  <body>
-    <header>
-      <a href="/">{siteName}</a>
-    </header>
-
-    <main>
-      <slot />
-    </main>
-
-    <footer>
-      <p>※当サイトはアフィリエイト広告を掲載しています。</p>
-    </footer>
-  </body>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__links">
+        <a href="/">ホーム</a>
+        <a href="/privacy-policy/">プライバシーポリシー</a>
+        <a href="/sitemap-index.xml">サイトマップ</a>
+      </div>
+      <p>© {currentYear} ガジェット価格比較ブログ</p>
+      <p class="site-footer__affiliate">
+        ※当サイトはAmazonアソシエイト・楽天アフィリエイト等のアフィリエイト広告を利用しています。
+        掲載している価格は記事作成時点または自動取得時点のものです。実際の価格はリンク先でご確認ください。
+      </p>
+    </div>
+  </footer>
+</body>
 </html>

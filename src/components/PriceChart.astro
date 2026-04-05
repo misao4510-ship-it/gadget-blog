@@ -10,7 +10,17 @@ const history = JSON.stringify(priceData.history);
   data-product-id={productId}
 >
   <h3>価格推移グラフ</h3>
-  <div id={`chart-${productId}`} style="height: 300px;"></div>
+  <div class="chart-wrapper">
+    <div id={`chart-${productId}`} style="height: 300px;"></div>
+    <div class="chart-legend">
+      <span class="chart-legend__item">
+        <span class="chart-legend__dot" style="background:#e63946;"></span>Amazon
+      </span>
+      <span class="chart-legend__item">
+        <span class="chart-legend__dot" style="background:#2dc653;"></span>楽天
+      </span>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -54,5 +64,23 @@ const history = JSON.stringify(priceData.history);
 </script>
 
 <style>
-  .price-chart-container { margin: 1.5rem 0; }
+  .price-chart-container {
+    margin: 1rem 0;
+    font-family: var(--font-sans, sans-serif);
+  }
+  .price-chart-container h3 {
+    font-size: 1rem; font-weight: 700; margin-bottom: .75rem;
+    color: #0f172a; display: flex; align-items: center; gap: .4rem;
+  }
+  .price-chart-container h3::before { content: "📈"; }
+  .chart-wrapper {
+    border: 1px solid #e2e8f0; border-radius: var(--radius, 8px);
+    overflow: hidden; background: white;
+  }
+  .chart-legend {
+    display: flex; gap: 1rem; padding: .5rem .75rem; font-size: .8rem;
+    border-top: 1px solid #e2e8f0; background: #f8fafc;
+  }
+  .chart-legend__item { display: flex; align-items: center; gap: .3rem; font-weight: 600; }
+  .chart-legend__dot { width: 10px; height: 10px; border-radius: 50%; }
 </style>

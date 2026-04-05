@@ -6,6 +6,7 @@ category: "usb-hub"
 products: ["product-003"]
 type: "comparison"
 draft: false
+ogImage: /images/og-usbc-hub.svg
 ---
 
 ※本記事はアフィリエイト広告を含みます

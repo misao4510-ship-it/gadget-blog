@@ -24,13 +24,14 @@ const storeNames: Record<string, string> = {
         .sort(([,a], [,b]) => (a as any).price - (b as any).price)
         .map(([store, info]: [string, any]) => (
           <tr class={store === priceData.current.cheapest.store ? 'cheapest' : ''}>
-            <td>{storeNames[store] ?? store}</td>
+            <td>
+              {storeNames[store] ?? store}
+              {store === priceData.current.cheapest.store && <span class="cheapest-label">最安値</span>}
+            </td>
             <td class="price">¥{info.price.toLocaleString('ja-JP')}</td>
             <td>{info.in_stock ? '✅ 在庫あり' : '❌ 在庫なし'}</td>
             <td>
-              <a href={product.affiliate_links[store]?.url ?? '#'} rel="nofollow sponsored" target="_blank">
-                購入する →
-              </a>
+              <a href={product.affiliate_links[store]?.url ?? '#'} rel="nofollow sponsored" target="_blank" class="buy-btn">購入 →</a>
             </td>
           </tr>
         ))
@@ -45,11 +46,44 @@ const storeNames: Record<string, string> = {
 </div>
 
 <style>
-  .price-comparison { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-  .price-comparison th, .price-comparison td { padding: 0.6rem 1rem; border: 1px solid #ddd; text-align: left; }
-  .price-comparison th { background: #f5f5f5; font-weight: bold; }
-  tr.cheapest { background: #fff3cd; }
-  tr.cheapest .price { font-weight: bold; color: #e63946; font-size: 1.1em; }
-  .cheapest-badge { margin-top: 0.5rem; font-size: 1rem; }
-  .updated-note { font-size: 0.8rem; color: #888; }
+  /* PriceComparisonTable styles */
+  .price-comparison-wrap {
+    font-family: var(--font-sans, sans-serif);
+  }
+  .price-comparison-wrap h3 {
+    font-size: 1rem; font-weight: 700; margin-bottom: .75rem;
+    color: #0f172a; display: flex; align-items: center; gap: .4rem;
+  }
+  .price-comparison-wrap h3::before { content: "📊"; }
+  .price-comparison {
+    width: 100%; border-collapse: collapse;
+    border-radius: var(--radius, 8px); overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  .price-comparison thead th {
+    background: #2563eb; color: white;
+    padding: .7rem 1rem; text-align: left; font-weight: 600; font-size: .875rem;
+  }
+  .price-comparison tbody td {
+    padding: .75rem 1rem; border-bottom: 1px solid #e2e8f0; font-size: .9rem;
+  }
+  .price-comparison tbody tr:last-child td { border-bottom: none; }
+  .price-comparison tbody tr:hover td { background: #f8fafc; }
+  tr.cheapest td { background: #f0fdf4 !important; }
+  tr.cheapest .price { color: #16a34a; font-weight: 800; font-size: 1.1em; }
+  .cheapest-label { background: #16a34a; color: white; font-size: .7rem; padding: .1em .5em; border-radius: 99px; font-weight: 700; margin-left: .4rem; }
+  .buy-btn {
+    display: inline-block; background: #f97316; color: white;
+    padding: .35em .85em; border-radius: 99px; text-decoration: none;
+    font-size: .8rem; font-weight: 700; transition: background .15s;
+  }
+  .buy-btn:hover { background: #ea6e00; color: white; }
+  tr.cheapest .buy-btn { background: #16a34a; }
+  tr.cheapest .buy-btn:hover { background: #15803d; }
+  .cheapest-badge { margin-top: .75rem; font-size: .9rem; font-weight: 600; color: #16a34a; }
+  .updated-note { font-size: .75rem; color: #94a3b8; margin-top: .25rem; }
+  @media (max-width: 480px) {
+    .price-comparison thead th:nth-child(3),
+    .price-comparison tbody td:nth-child(3) { display: none; }
+  }
 </style>
