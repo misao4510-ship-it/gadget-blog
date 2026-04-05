@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#0c2a4a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="450" y="150" width="300" height="200" rx="24" fill="#1e293b" stroke="#334155" stroke-width="4"/>
+  <rect x="468" y="168" width="264" height="164" rx="16" fill="#0f172a"/>
+  <text x="600" y="245" text-anchor="middle" fill="#22d3ee" font-size="28" font-weight="bold" font-family="monospace">Samsung T7</text>
+  <text x="600" y="275" text-anchor="middle" fill="#64748b" font-size="18" font-family="monospace">1TB SSD</text>
+  <rect x="540" y="295" width="120" height="8" rx="4" fill="#0ea5e9"/>
+  <rect x="480" y="350" width="240" height="12" rx="4" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <rect x="480" y="350" width="180" height="12" rx="4" fill="#22d3ee"/>
+  <text x="600" y="382" text-anchor="middle" fill="#94a3b8" font-size="14" font-family="monospace">READ 1,050 MB/s</text>
+  <text x="600" y="530" text-anchor="middle" fill="white" font-size="44" font-weight="bold" font-family="sans-serif">ポータブルSSD 比較</text>
+  <text x="600" y="580" text-anchor="middle" fill="#7dd3fc" font-size="26" font-family="sans-serif">Samsung T7 価格推移と最安値</text>
+</svg>

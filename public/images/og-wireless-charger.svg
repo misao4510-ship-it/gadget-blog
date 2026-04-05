@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c1445"/>
+      <stop offset="100%" style="stop-color:#1a237e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <ellipse cx="600" cy="340" rx="120" ry="30" fill="#1e293b" stroke="#334155" stroke-width="3"/>
+  <ellipse cx="600" cy="280" rx="90" ry="22" fill="#253061" stroke="#3b82f6" stroke-width="2"/>
+  <path d="M570 280 Q600 220 630 280" fill="none" stroke="#60a5fa" stroke-width="4" opacity="0.6"/>
+  <path d="M550 290 Q600 200 650 290" fill="none" stroke="#60a5fa" stroke-width="3" opacity="0.4"/>
+  <path d="M530 300 Q600 180 670 300" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.2"/>
+  <rect x="555" y="185" width="90" height="160" rx="14" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+  <rect x="563" y="193" width="74" height="144" rx="10" fill="#0f172a"/>
+  <rect x="575" y="200" width="50" height="80" rx="6" fill="#1e3a5f"/>
+  <text x="600" y="530" text-anchor="middle" fill="white" font-size="44" font-weight="bold" font-family="sans-serif">ワイヤレス充電器</text>
+  <text x="600" y="580" text-anchor="middle" fill="#93c5fd" font-size="26" font-family="sans-serif">おすすめランキング 2026</text>
+</svg>

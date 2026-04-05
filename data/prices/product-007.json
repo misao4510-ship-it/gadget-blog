@@ -1,0 +1,15 @@
+{
+  "product_id": "product-007",
+  "current": {
+    "amazon": { "price": 1490, "url": "https://www.amazon.co.jp/dp/B09PLCHRG01?tag=yourtag-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 1680, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fwireless", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 1490 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 1490, "rakuten": 1680 },
+    { "date": "2026-04-04", "amazon": 1490, "rakuten": 1780 },
+    { "date": "2026-04-03", "amazon": 1590, "rakuten": 1780 },
+    { "date": "2026-04-02", "amazon": 1590, "rakuten": 1880 },
+    { "date": "2026-04-01", "amazon": 1690, "rakuten": 1880 }
+  ]
+}

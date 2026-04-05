@@ -114,6 +114,81 @@
           "url": "https://px.a8.net/placeholder/product-005"
         }
       }
+    },
+    {
+      "id": "product-006",
+      "name": "Apple Watch SE 第2世代",
+      "category": "smartwatch",
+      "asin": "B0BDJQZPNY",
+      "rakuten_keyword": "Apple Watch SE 第2世代 40mm",
+      "a8_link": "https://px.a8.net/placeholder/product-006",
+      "image": "/images/products/apple-watch-se.webp",
+      "tags": ["スマートウォッチ", "Apple", "Apple Watch"],
+      "affiliate_links": {
+        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-006" }
+      }
+    },
+    {
+      "id": "product-007",
+      "name": "Anker 313 Wireless Charger",
+      "category": "wireless-charger",
+      "asin": "B09PLCHRG01",
+      "rakuten_keyword": "Anker ワイヤレス充電器 Qi",
+      "a8_link": "https://px.a8.net/placeholder/product-007",
+      "image": "/images/products/anker-wireless-charger.webp",
+      "tags": ["ワイヤレス充電器", "Anker", "Qi"],
+      "affiliate_links": {
+        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-007" }
+      }
+    },
+    {
+      "id": "product-008",
+      "name": "LG 27インチ 4K モニター 27UL500-W",
+      "category": "monitor",
+      "asin": "B07NFGDZRX",
+      "rakuten_keyword": "LG 27インチ 4K モニター 27UL500",
+      "a8_link": "https://px.a8.net/placeholder/product-008",
+      "image": "/images/products/lg-27ul500w.webp",
+      "tags": ["PCモニター", "LG", "4K", "27インチ"],
+      "affiliate_links": {
+        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-008" }
+      }
+    },
+    {
+      "id": "product-009",
+      "name": "Keychron K2 メカニカルキーボード",
+      "category": "keyboard",
+      "asin": "B08GHW7LBK",
+      "rakuten_keyword": "Keychron K2 メカニカルキーボード",
+      "a8_link": "https://px.a8.net/placeholder/product-009",
+      "image": "/images/products/keychron-k2.webp",
+      "tags": ["キーボード", "Keychron", "メカニカル", "ワイヤレス"],
+      "affiliate_links": {
+        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-009" }
+      }
+    },
+    {
+      "id": "product-010",
+      "name": "Samsung T7 ポータブルSSD 1TB",
+      "category": "portable-ssd",
+      "asin": "B08GTYFC37",
+      "rakuten_keyword": "Samsung T7 ポータブルSSD 1TB",
+      "a8_link": "https://px.a8.net/placeholder/product-010",
+      "image": "/images/products/samsung-t7-ssd.webp",
+      "tags": ["ポータブルSSD", "Samsung", "1TB", "USB-C"],
+      "affiliate_links": {
+        "amazon": { "tag": "yourtag-22", "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}" },
+        "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
+        "a8": { "url": "https://px.a8.net/placeholder/product-010" }
+      }
     }
   ]
 }

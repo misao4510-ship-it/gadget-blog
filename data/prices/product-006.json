@@ -1,0 +1,15 @@
+{
+  "product_id": "product-006",
+  "current": {
+    "amazon": { "price": 34800, "url": "https://www.amazon.co.jp/dp/B0BDJQZPNY?tag=yourtag-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 36300, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fapple%2Fwatch-se", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 34800 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 34800, "rakuten": 36300 },
+    { "date": "2026-04-04", "amazon": 34800, "rakuten": 36800 },
+    { "date": "2026-04-03", "amazon": 35800, "rakuten": 36800 },
+    { "date": "2026-04-02", "amazon": 35800, "rakuten": 37200 },
+    { "date": "2026-04-01", "amazon": 36800, "rakuten": 37200 }
+  ]
+}

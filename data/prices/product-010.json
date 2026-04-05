@@ -1,0 +1,15 @@
+{
+  "product_id": "product-010",
+  "current": {
+    "amazon": { "price": 11980, "url": "https://www.amazon.co.jp/dp/B08GTYFC37?tag=yourtag-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 12800, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsamsung%2Ft7ssd", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 11980 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 11980, "rakuten": 12800 },
+    { "date": "2026-04-04", "amazon": 11980, "rakuten": 12800 },
+    { "date": "2026-04-03", "amazon": 12500, "rakuten": 13200 },
+    { "date": "2026-04-02", "amazon": 12500, "rakuten": 13200 },
+    { "date": "2026-04-01", "amazon": 13200, "rakuten": 13800 }
+  ]
+}
