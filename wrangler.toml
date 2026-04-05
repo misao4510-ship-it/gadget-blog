@@ -1,0 +1,10 @@
+name = "gadget-blog"
+pages_build_output_dir = "dist"
+
+[build]
+command = "npm run build"
+
+[env.production.vars]
+# シークレット変数は Cloudflare Dashboard で設定
+# AMAZON_CLIENT_ID, AMAZON_CLIENT_SECRET, AMAZON_PARTNER_TAG
+# RAKUTEN_APP_ID, RAKUTEN_ACCESS_KEY

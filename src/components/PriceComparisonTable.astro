@@ -1,0 +1,55 @@
+---
+interface Props { productId: string; }
+const { productId } = Astro.props;
+const priceData = await import(`../../data/prices/${productId}.json`);
+const { products } = await import('../../data/products.json');
+const product = products.find(p => p.id === productId);
+if (!product || !priceData) return;
+
+const storeNames: Record<string, string> = {
+  amazon: 'Amazon.co.jp',
+  rakuten: '楽天市場',
+  a8: 'その他'
+};
+---
+<div class="price-comparison-wrap">
+  <h3>各ストアの最新価格</h3>
+  <table class="price-comparison">
+    <thead>
+      <tr><th>ストア</th><th>価格</th><th>在庫</th><th>購入リンク</th></tr>
+    </thead>
+    <tbody>
+      {Object.entries(priceData.current)
+        .filter(([key]) => key !== 'cheapest')
+        .sort(([,a], [,b]) => (a as any).price - (b as any).price)
+        .map(([store, info]: [string, any]) => (
+          <tr class={store === priceData.current.cheapest.store ? 'cheapest' : ''}>
+            <td>{storeNames[store] ?? store}</td>
+            <td class="price">¥{info.price.toLocaleString('ja-JP')}</td>
+            <td>{info.in_stock ? '✅ 在庫あり' : '❌ 在庫なし'}</td>
+            <td>
+              <a href={product.affiliate_links[store]?.url ?? '#'} rel="nofollow sponsored" target="_blank">
+                購入する →
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+  <p class="cheapest-badge">
+    🏷️ 現在の最安値: {storeNames[priceData.current.cheapest.store] ?? priceData.current.cheapest.store}
+    <strong>¥{priceData.current.cheapest.price.toLocaleString('ja-JP')}</strong>
+  </p>
+  <p class="updated-note">最終更新: {priceData.current.amazon?.updated ?? priceData.current.rakuten?.updated}</p>
+</div>
+
+<style>
+  .price-comparison { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  .price-comparison th, .price-comparison td { padding: 0.6rem 1rem; border: 1px solid #ddd; text-align: left; }
+  .price-comparison th { background: #f5f5f5; font-weight: bold; }
+  tr.cheapest { background: #fff3cd; }
+  tr.cheapest .price { font-weight: bold; color: #e63946; font-size: 1.1em; }
+  .cheapest-badge { margin-top: 0.5rem; font-size: 1rem; }
+  .updated-note { font-size: 0.8rem; color: #888; }
+</style>

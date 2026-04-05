@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PriceComparisonTable from '../../components/PriceComparisonTable.astro';
+import PriceChart from '../../components/PriceChart.astro';
+import ProductSchemaLD from '../../components/ProductSchemaLD.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({ params: { slug: post.id.replace(/\.(md|mdx)$/, '') }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BaseLayout title={post.data.title} description={post.data.description}>
+  {post.data.products.map(id => <ProductSchemaLD productId={id} />)}
+  <article>
+    <h1>{post.data.title}</h1>
+    <time>{post.data.publishDate}</time>
+    <Content components={{ PriceComparisonTable, PriceChart }} />
+  </article>
+</BaseLayout>

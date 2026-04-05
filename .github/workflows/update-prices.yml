@@ -1,0 +1,38 @@
+name: Update Prices
+on:
+  schedule:
+    - cron: '0 3 * * *'  # 毎日12:00 JST (UTC 03:00)
+  workflow_dispatch: {}
+jobs:
+  fetch-prices:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Fetch Amazon prices (PA-API v5)
+        run: node scripts/fetch-amazon-prices.mjs
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AMAZON_PARTNER_TAG: ${{ secrets.AMAZON_PARTNER_TAG }}
+        continue-on-error: true
+      - name: Fetch Rakuten prices
+        run: node scripts/fetch-rakuten-prices.mjs
+        env:
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+        continue-on-error: true
+      - name: Merge prices
+        run: node scripts/merge-prices.mjs
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/prices/
+          git diff --cached --quiet || git commit -m "chore: update prices $(date +%Y-%m-%d)"
+          git push

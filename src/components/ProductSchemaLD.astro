@@ -1,0 +1,41 @@
+---
+interface Props { productId: string; }
+const { productId } = Astro.props;
+const priceData = await import(`../../data/prices/${productId}.json`);
+const { products } = await import('../../data/products.json');
+const product = products.find(p => p.id === productId);
+if (!product) return;
+
+const offers = Object.entries(priceData.current)
+  .filter(([key]) => key !== 'cheapest')
+  .map(([store, info]: [string, any]) => ({
+    "@type": "Offer",
+    "seller": { "@type": "Organization", "name": store === 'amazon' ? 'Amazon.co.jp' : store === 'rakuten' ? '楽天市場' : store },
+    "price": String(info.price),
+    "priceCurrency": "JPY",
+    "availability": info.in_stock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+    "url": product.affiliate_links[store]?.url ?? '#',
+    "priceValidUntil": new Date(Date.now() + 86400000).toISOString().split('T')[0]
+  }));
+
+const prices = Object.values(priceData.current)
+  .filter((v: any) => v && typeof v.price === 'number')
+  .map((v: any) => v.price);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": product.name,
+  "image": product.image,
+  "brand": { "@type": "Brand", "name": product.tags[0] ?? product.name },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": String(Math.min(...prices)),
+    "highPrice": String(Math.max(...prices)),
+    "priceCurrency": "JPY",
+    "offerCount": String(offers.length),
+    "offers": offers
+  }
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

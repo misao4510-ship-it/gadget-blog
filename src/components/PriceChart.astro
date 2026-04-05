@@ -1,0 +1,58 @@
+---
+interface Props { productId: string; }
+const { productId } = Astro.props;
+const priceData = await import(`../../data/prices/${productId}.json`);
+const history = JSON.stringify(priceData.history);
+---
+<div
+  class="price-chart-container"
+  data-price-history={history}
+  data-product-id={productId}
+>
+  <h3>価格推移グラフ</h3>
+  <div id={`chart-${productId}`} style="height: 300px;"></div>
+</div>
+
+<script>
+  import { createChart, ColorType } from 'lightweight-charts';
+
+  document.querySelectorAll('.price-chart-container').forEach(container => {
+    const history = JSON.parse(container.getAttribute('data-price-history') || '[]');
+    const productId = container.getAttribute('data-product-id');
+    const chartEl = container.querySelector(`#chart-${productId}`);
+    if (!chartEl || !history.length) return;
+
+    const chart = createChart(chartEl, {
+      layout: { background: { type: ColorType.Solid, color: '#ffffff' }, textColor: '#333' },
+      grid: { vertLines: { color: '#f0f0f0' }, horzLines: { color: '#f0f0f0' } },
+      width: (chartEl as HTMLElement).clientWidth,
+      height: 300,
+      timeScale: { timeVisible: true },
+    });
+
+    // Amazon series (赤)
+    const amazonSeries = chart.addLineSeries({ color: '#e63946', lineWidth: 2, title: 'Amazon' });
+    const amazonData = history
+      .filter((d: any) => d.amazon)
+      .map((d: any) => ({ time: d.date, value: d.amazon }));
+    amazonSeries.setData(amazonData);
+
+    // 楽天 series (緑)
+    const rakutenSeries = chart.addLineSeries({ color: '#2dc653', lineWidth: 2, title: '楽天' });
+    const rakutenData = history
+      .filter((d: any) => d.rakuten)
+      .map((d: any) => ({ time: d.date, value: d.rakuten }));
+    rakutenSeries.setData(rakutenData);
+
+    chart.timeScale().fitContent();
+
+    // レスポンシブ
+    window.addEventListener('resize', () => {
+      chart.applyOptions({ width: (chartEl as HTMLElement).clientWidth });
+    });
+  });
+</script>
+
+<style>
+  .price-chart-container { margin: 1.5rem 0; }
+</style>
