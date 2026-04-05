@@ -189,6 +189,29 @@
         "rakuten": { "affiliate_id": "your_affiliate_id", "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}" },
         "a8": { "url": "https://px.a8.net/placeholder/product-010" }
       }
+    },
+    {
+      "id": "product-011",
+      "name": "ESR iPhone 17 Pro Max ケース MagSafe対応 Classic フロストブルー",
+      "category": "iphone-case",
+      "asin": "B0FCXYKVG2",
+      "rakuten_keyword": "ESR iPhone 17 Pro Max ケース MagSafe Classic",
+      "a8_link": "https://px.a8.net/placeholder/product-011",
+      "image": "/images/products/esr-iphone17-case.webp",
+      "tags": ["iPhoneケース", "ESR", "MagSafe", "iPhone 17 Pro Max"],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://amzn.to/41fUDSp"
+        },
+        "rakuten": {
+          "affiliate_id": "your_affiliate_id",
+          "url_template": "https://hb.afl.rakuten.co.jp/hgc/{affiliate_id}/?pc={encoded_url}"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-011"
+        }
+      }
     }
   ]
 }
