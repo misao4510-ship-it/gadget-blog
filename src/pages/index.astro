@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+---
+
+<BaseLayout
+  title="ガジェット価格比較ブログ"
+  description="ガジェット商品の最新価格比較・レビュー情報をお届け"
+>
+  <h1>ガジェット価格比較ブログ</h1>
+  <p>ガジェット商品の最新価格比較・レビュー情報をお届けします。</p>
+
+  {posts.length > 0 ? (
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.id}/`}>
+            <strong>{post.data.title}</strong>
+          </a>
+          <span> — {post.data.publishDate}</span>
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>記事がまだありません。</p>
+  )}
+</BaseLayout>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gadget-blog.pages.dev/sitemap-index.xml

@@ -1,0 +1,13 @@
+{
+  "product_id": "product-002",
+  "current": {
+    "amazon": { "price": 5490, "url": "https://www.amazon.co.jp/dp/B09PLACEHOLDER2?tag=yourtag-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 5800, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fanker%2Fpowercore20000", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 5490 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 5490, "rakuten": 5800 },
+    { "date": "2026-04-04", "amazon": 5490, "rakuten": 5980 },
+    { "date": "2026-04-03", "amazon": 5680, "rakuten": 5980 }
+  ]
+}

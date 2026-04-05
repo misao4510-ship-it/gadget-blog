@@ -1,0 +1,13 @@
+{
+  "product_id": "product-004",
+  "current": {
+    "amazon": { "price": 5990, "url": "https://www.amazon.co.jp/dp/B09PLACEHOLDER4?tag=yourtag-22", "in_stock": true, "updated": "2026-04-05" },
+    "rakuten": { "price": 6200, "url": "https://hb.afl.rakuten.co.jp/hgc/your_affiliate_id/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsoundcore%2Flifep3", "in_stock": true, "updated": "2026-04-05" },
+    "cheapest": { "store": "amazon", "price": 5990 }
+  },
+  "history": [
+    { "date": "2026-04-05", "amazon": 5990, "rakuten": 6200 },
+    { "date": "2026-04-04", "amazon": 5990, "rakuten": 6380 },
+    { "date": "2026-04-03", "amazon": 6290, "rakuten": 6380 }
+  ]
+}
