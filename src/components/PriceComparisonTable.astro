@@ -18,6 +18,24 @@ const storeBtnText: Record<string, string> = {
 };
 const productName = product?.name ?? productId;
 const productImage = product?.image ?? null;
+
+// Calculate historical lowest prices per store
+const history = priceData.history ?? [];
+const historicalLow: Record<string, { price: number; date: string }> = {};
+for (const store of ['amazon', 'rakuten']) {
+  let minPrice = Infinity;
+  let minDate = '';
+  for (const entry of history) {
+    const p = entry[store];
+    if (typeof p === 'number' && p > 0 && p < minPrice) {
+      minPrice = p;
+      minDate = entry.date;
+    }
+  }
+  if (minPrice < Infinity) {
+    historicalLow[store] = { price: minPrice, date: minDate };
+  }
+}
 ---
 <div class="price-comparison-wrap">
   <div class="price-product-header">
@@ -45,7 +63,15 @@ const productImage = product?.image ?? null;
               {storeNames[store] ?? store}
               {store === priceData.current.cheapest.store && <span class="cheapest-label">最安値</span>}
             </td>
-            <td class="price">¥{info.price.toLocaleString('ja-JP')}</td>
+            <td class="price-cell">
+              <span class="price">¥{info.price.toLocaleString('ja-JP')}</span>
+              {historicalLow[store] && historicalLow[store].price < info.price && (
+                <span class="historical-low">過去最安 ¥{historicalLow[store].price.toLocaleString('ja-JP')}（{historicalLow[store].date.slice(5)}）</span>
+              )}
+              {historicalLow[store] && historicalLow[store].price === info.price && (
+                <span class="historical-low historical-low--now">今が過去最安値!</span>
+              )}
+            </td>
             <td>{info.in_stock ? '✅ 在庫あり' : '❌ 在庫なし'}</td>
             <td>
               <a href={product.affiliate_links[store]?.url ?? '#'} rel="nofollow sponsored" target="_blank" class="buy-btn">
@@ -108,7 +134,15 @@ const productImage = product?.image ?? null;
   .price-comparison tbody tr:last-child td { border-bottom: none; }
   .price-comparison tbody tr:hover td { background: var(--color-surface-raised); }
   tr.cheapest td { background: #f0fdf4 !important; }
+  .price-cell { display: flex; flex-direction: column; gap: .15rem; }
+  .price { font-weight: 700; }
   tr.cheapest .price { color: var(--color-cheapest); font-weight: 800; font-size: 1.1em; }
+  .historical-low {
+    font-size: .7rem; color: var(--color-text-muted); font-weight: 400;
+  }
+  .historical-low--now {
+    color: #dc2626; font-weight: 700;
+  }
   .cheapest-label { background: var(--color-cheapest); color: white; font-size: .7rem; padding: .1em .5em; border-radius: 99px; font-weight: 700; margin-left: .4rem; }
 
   /* Green CTA buttons */
