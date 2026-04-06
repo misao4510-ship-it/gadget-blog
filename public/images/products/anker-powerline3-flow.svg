@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0fdf4"/><stop offset="100%" stop-color="#dcfce7"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#166534"/><stop offset="100%" stop-color="#14532d"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Cable coil -->
+  <circle cx="200" cy="185" r="70" fill="none" stroke="#166534" stroke-width="18" opacity="0.7"/>
+  <circle cx="200" cy="185" r="45" fill="none" stroke="#14532d" stroke-width="10" opacity="0.5"/>
+  <!-- USB-C connector left -->
+  <rect x="60" y="178" width="40" height="14" rx="7" fill="#4ade80"/>
+  <!-- USB-C connector right -->
+  <rect x="300" y="178" width="40" height="14" rx="7" fill="#4ade80"/>
+  <!-- Flow dots -->
+  <circle cx="200" cy="112" r="6" fill="#4ade80"/>
+  <circle cx="200" cy="258" r="6" fill="#4ade80"/>
+
+  <text x="200" y="350" text-anchor="middle" fill="#166534" font-family="Arial,sans-serif" font-size="16" font-weight="800">PowerLine III Flow</text>
+  <text x="200" y="373" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="13">USB-C 100W 1.8m</text>
+</svg>

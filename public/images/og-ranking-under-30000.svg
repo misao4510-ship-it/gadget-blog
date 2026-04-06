@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e3a5f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="980" cy="120" r="180" fill="#1e40af" opacity="0.25"/>
+  <circle cx="1100" cy="500" r="120" fill="#0e7490" opacity="0.2"/>
+  <circle cx="80" cy="520" r="100" fill="#1e3a8a" opacity="0.3"/>
+  <!-- Gold accent bar -->
+  <rect x="80" y="160" width="8" height="140" rx="4" fill="url(#gold)"/>
+  <!-- Ranking badge -->
+  <rect x="80" y="80" width="230" height="48" rx="24" fill="url(#gold)"/>
+  <text x="195" y="113" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="800" fill="#1f2937" text-anchor="middle">¥30,000以下</text>
+  <!-- Main title -->
+  <text x="105" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="900" fill="#ffffff">おすすめ</text>
+  <text x="105" y="295" font-family="'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="900" fill="#ffffff">本格ガジェット</text>
+  <!-- Ranking label -->
+  <text x="105" y="355" font-family="'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="700" fill="url(#accent)">ランキングTOP10</text>
+  <!-- Year badge -->
+  <rect x="80" y="390" width="160" height="42" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="160" y="419" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="700" fill="#93c5fd" text-anchor="middle">2026年最新版</text>
+  <!-- Trophy icons -->
+  <text x="760" y="320" font-family="'Helvetica Neue', Arial, sans-serif" font-size="130" fill="#f59e0b" opacity="0.6">🏆</text>
+  <!-- Star decorations -->
+  <text x="900" y="200" font-family="'Helvetica Neue', Arial, sans-serif" font-size="50" fill="#fbbf24" opacity="0.5">★</text>
+  <text x="850" y="450" font-family="'Helvetica Neue', Arial, sans-serif" font-size="35" fill="#fbbf24" opacity="0.4">★</text>
+  <text x="1050" y="380" font-family="'Helvetica Neue', Arial, sans-serif" font-size="45" fill="#fbbf24" opacity="0.35">★</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="#0f172a" opacity="0.8"/>
+  <text x="600" y="612" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#64748b" text-anchor="middle">本格投資で毎日の生活をアップグレード</text>
+</svg>

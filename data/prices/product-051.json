@@ -1,0 +1,28 @@
+{
+  "product_id": "product-051",
+  "current": {
+    "amazon": {
+      "price": 5380,
+      "url": "https://www.amazon.co.jp/dp/B09JC8PJRC?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 5680,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520M650%2520Signature%2520%25E3%2583%25AF%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25AC%25E3%2582%25B9%25E3%2583%259E%25E3%2582%25A6%25E3%2582%25B9%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 5380
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 5380, "rakuten": 5680 },
+    { "date": "2026-04-01", "amazon": 5380, "rakuten": 5780 },
+    { "date": "2026-03-25", "amazon": 5780, "rakuten": 5980 },
+    { "date": "2026-03-15", "amazon": 5780, "rakuten": 5980 },
+    { "date": "2026-03-01", "amazon": 5980, "rakuten": 6180 }
+  ]
+}

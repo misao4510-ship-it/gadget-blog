@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff7ed"/><stop offset="100%" stop-color="#ffedd5"/></linearGradient>
+    <linearGradient id="kb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a5568"/><stop offset="100%" stop-color="#2d3748"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Keyboard body -->
+  <path d="M50 175 L350 175 L330 295 L70 295 Z" fill="url(#kb)" stroke="#1a202c" stroke-width="1.5"/>
+  <!-- Row 1 (75% layout - more keys) -->
+  <rect x="62" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="84" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="106" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="128" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="150" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="172" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="194" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="216" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="238" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="260" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="282" y="187" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="304" y="187" width="22" height="16" rx="3" fill="#e53e3e"/>
+  <!-- Row 2 -->
+  <rect x="66" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="88" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="110" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="132" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="154" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="176" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="198" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="220" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="242" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="264" y="207" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="286" y="207" width="40" height="16" rx="3" fill="#718096"/>
+  <!-- Row 3 -->
+  <rect x="70" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="92" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="114" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="136" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="158" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="180" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="202" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="224" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="246" y="227" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="268" y="227" width="58" height="16" rx="3" fill="#ed8936"/>
+  <!-- Spacebar row -->
+  <rect x="74" y="247" width="26" height="16" rx="3" fill="#718096"/>
+  <rect x="104" y="247" width="22" height="16" rx="3" fill="#718096"/>
+  <rect x="130" y="247" width="110" height="16" rx="3" fill="#718096"/>
+  <rect x="244" y="247" width="22" height="16" rx="3" fill="#718096"/>
+  <rect x="270" y="247" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="292" y="247" width="18" height="16" rx="3" fill="#718096"/>
+  <rect x="314" y="247" width="12" height="16" rx="3" fill="#718096"/>
+  <!-- RGB indicator -->
+  <circle cx="200" cy="168" r="4" fill="#a78bfa"/>
+  <!-- Label -->
+  <text x="200" y="335" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="20" font-weight="800">Keychron K3 Pro</text>
+  <text x="200" y="358" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="14">75% QMK/VIA メカニカル</text>
+</svg>

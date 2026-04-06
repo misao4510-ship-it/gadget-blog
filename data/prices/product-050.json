@@ -1,0 +1,28 @@
+{
+  "product_id": "product-050",
+  "current": {
+    "amazon": {
+      "price": 9980,
+      "url": "https://www.amazon.co.jp/dp/B0964949GH?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 9980,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Life%2520Q35%2520%25E3%2583%2598%25E3%2583%2583%25E3%2583%2589%25E3%2583%259B%25E3%2583%25B3%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 9980
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 9980, "rakuten": 9980 },
+    { "date": "2026-04-01", "amazon": 9980, "rakuten": 10280 },
+    { "date": "2026-03-25", "amazon": 10480, "rakuten": 10780 },
+    { "date": "2026-03-15", "amazon": 10480, "rakuten": 10780 },
+    { "date": "2026-03-01", "amazon": 11800, "rakuten": 12000 }
+  ]
+}

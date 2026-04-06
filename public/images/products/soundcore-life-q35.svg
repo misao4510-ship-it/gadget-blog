@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg)"/>
+  <!-- Headband arc -->
+  <path d="M 120 200 Q 120 80 200 80 Q 280 80 280 200" stroke="#6366f1" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- Left ear cup -->
+  <ellipse cx="118" cy="215" rx="40" ry="50" fill="#4f46e5"/>
+  <ellipse cx="118" cy="215" rx="28" ry="36" fill="#3730a3"/>
+  <circle cx="118" cy="215" r="14" fill="#6366f1"/>
+  <!-- Right ear cup -->
+  <ellipse cx="282" cy="215" rx="40" ry="50" fill="#4f46e5"/>
+  <ellipse cx="282" cy="215" rx="28" ry="36" fill="#3730a3"/>
+  <circle cx="282" cy="215" r="14" fill="#6366f1"/>
+  <!-- ANC indicator -->
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#a5b4fc" text-anchor="middle">ANC</text>
+  <!-- Label -->
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="15" fill="#818cf8" text-anchor="middle">Soundcore Life Q35</text>
+</svg>

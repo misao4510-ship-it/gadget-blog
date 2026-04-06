@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg)"/>
+  <!-- Mouse body (gaming shape - wider/more aggressive) -->
+  <path d="M 138 290 Q 120 210 135 145 Q 148 95 200 90 Q 252 95 265 145 Q 280 210 262 290 Q 248 318 200 320 Q 152 318 138 290 Z" fill="#1a1a2e"/>
+  <path d="M 144 288 Q 126 210 140 148 Q 152 100 200 95 Q 248 100 260 148 Q 274 210 256 288 Q 243 316 200 318 Q 157 316 144 288 Z" fill="#111827"/>
+  <!-- Side grip texture -->
+  <rect x="126" y="200" width="12" height="60" rx="4" fill="#1f2937"/>
+  <rect x="262" y="200" width="12" height="60" rx="4" fill="#1f2937"/>
+  <!-- Center divider -->
+  <line x1="200" y1="95" x2="200" y2="210" stroke="#374151" stroke-width="2"/>
+  <!-- Scroll wheel (glowing) -->
+  <ellipse cx="200" cy="160" rx="16" ry="22" fill="#7c3aed"/>
+  <ellipse cx="200" cy="160" rx="11" ry="17" fill="#6d28d9"/>
+  <ellipse cx="200" cy="160" rx="6" ry="10" fill="#a78bfa"/>
+  <!-- G logo area -->
+  <circle cx="200" cy="220" r="18" fill="#1f2937"/>
+  <text x="200" y="226" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#7c3aed" text-anchor="middle">G</text>
+  <!-- LIGHTSPEED indicator -->
+  <rect x="155" y="248" width="90" height="16" rx="8" fill="#1f2937"/>
+  <text x="200" y="261" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#a78bfa" text-anchor="middle">LIGHTSPEED</text>
+  <!-- Label -->
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="14" fill="#7c3aed" text-anchor="middle">Logicool G304</text>
+</svg>

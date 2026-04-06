@@ -1,0 +1,48 @@
+{
+  "product_id": "product-061",
+  "current": {
+    "amazon": {
+      "price": 16980,
+      "url": "https://www.amazon.co.jp/dp/B0BHZT5S12?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 17480,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FFire%2520HD%252010%2520%E7%AC%AC13%E4%B8%96%E4%BB%A3%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 16980
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-07",
+      "amazon": 16980,
+      "rakuten": 17480
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 16980,
+      "rakuten": 17680
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 17480,
+      "rakuten": 17980
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 17480,
+      "rakuten": 18180
+    },
+    {
+      "date": "2026-03-01",
+      "amazon": 17980,
+      "rakuten": 18680
+    }
+  ]
+}

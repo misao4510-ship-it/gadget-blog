@@ -1,0 +1,28 @@
+{
+  "product_id": "product-053",
+  "current": {
+    "amazon": {
+      "price": 7980,
+      "url": "https://www.amazon.co.jp/dp/B09NMDLC3K?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 8280,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520Nexode%2520100W%2520USB-C%2520GaN%2520%25E5%2585%2585%25E9%259B%25BB%25E5%2599%25A8%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 7980
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 7980, "rakuten": 8280 },
+    { "date": "2026-04-01", "amazon": 7980, "rakuten": 8480 },
+    { "date": "2026-03-25", "amazon": 8480, "rakuten": 8780 },
+    { "date": "2026-03-15", "amazon": 8480, "rakuten": 8780 },
+    { "date": "2026-03-01", "amazon": 8980, "rakuten": 9280 }
+  ]
+}

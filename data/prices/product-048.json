@@ -1,0 +1,28 @@
+{
+  "product_id": "product-048",
+  "current": {
+    "amazon": {
+      "price": 5990,
+      "url": "https://www.amazon.co.jp/dp/B09W57T4D2?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 6280,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520735%2520Charger%2520GaNPrime%252065W%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 5990
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 5990, "rakuten": 6280 },
+    { "date": "2026-04-01", "amazon": 5990, "rakuten": 6380 },
+    { "date": "2026-03-25", "amazon": 6480, "rakuten": 6680 },
+    { "date": "2026-03-15", "amazon": 6480, "rakuten": 6680 },
+    { "date": "2026-03-01", "amazon": 6480, "rakuten": 6980 }
+  ]
+}

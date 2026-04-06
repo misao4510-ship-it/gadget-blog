@@ -1,0 +1,28 @@
+{
+  "product_id": "product-052",
+  "current": {
+    "amazon": {
+      "price": 5990,
+      "url": "https://www.amazon.co.jp/dp/B09BT4DL71?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 6280,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%252010000%2520PD%2520Redux%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 5990
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 5990, "rakuten": 6280 },
+    { "date": "2026-04-01", "amazon": 5990, "rakuten": 6280 },
+    { "date": "2026-03-25", "amazon": 6380, "rakuten": 6580 },
+    { "date": "2026-03-15", "amazon": 6380, "rakuten": 6580 },
+    { "date": "2026-03-01", "amazon": 6380, "rakuten": 6780 }
+  ]
+}

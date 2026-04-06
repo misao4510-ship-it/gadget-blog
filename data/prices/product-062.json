@@ -1,0 +1,48 @@
+{
+  "product_id": "product-062",
+  "current": {
+    "amazon": {
+      "price": 10990,
+      "url": "https://www.amazon.co.jp/dp/B0BY2YLMQK?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 11490,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Liberty%25204%2520NC%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 10990
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-07",
+      "amazon": 10990,
+      "rakuten": 11490
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 10990,
+      "rakuten": 11690
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 11490,
+      "rakuten": 11990
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 11490,
+      "rakuten": 12190
+    },
+    {
+      "date": "2026-03-01",
+      "amazon": 11990,
+      "rakuten": 12690
+    }
+  ]
+}

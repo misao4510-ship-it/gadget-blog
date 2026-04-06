@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0f9ff"/><stop offset="100%" stop-color="#e0f2fe"/></linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a5568"/><stop offset="100%" stop-color="#1a202c"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Handle (grip) -->
+  <rect x="175" y="250" width="50" height="100" rx="12" fill="url(#handle)"/>
+  <!-- DJI logo area -->
+  <text x="200" y="308" text-anchor="middle" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="11" font-weight="700">DJI</text>
+  <!-- Gimbal arm 1 (horizontal) -->
+  <rect x="120" y="200" width="160" height="16" rx="8" fill="#2d3748"/>
+  <!-- Gimbal arm 2 (vertical) -->
+  <rect x="192" y="100" width="16" height="120" rx="8" fill="#4a5568"/>
+  <!-- Gimbal arm 3 (small horizontal top) -->
+  <rect x="155" y="108" width="90" height="14" rx="7" fill="#2d3748"/>
+  <!-- Phone holder -->
+  <rect x="140" y="60" width="120" height="70" rx="8" fill="#718096" stroke="#4a5568" stroke-width="2"/>
+  <!-- Phone screen in holder -->
+  <rect x="150" y="68" width="100" height="54" rx="4" fill="#1a365d"/>
+  <!-- Camera icon on phone -->
+  <circle cx="200" cy="95" r="12" fill="none" stroke="#63b3ed" stroke-width="2"/>
+  <circle cx="200" cy="95" r="6" fill="#63b3ed"/>
+  <!-- Motor joints -->
+  <circle cx="200" cy="205" r="10" fill="#718096" stroke="#2d3748" stroke-width="1.5"/>
+  <circle cx="200" cy="112" r="8" fill="#718096" stroke="#2d3748" stroke-width="1.5"/>
+  <!-- Trigger button -->
+  <rect x="178" y="255" width="14" height="20" rx="4" fill="#e53e3e"/>
+  <!-- Label -->
+  <text x="200" y="378" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="20" font-weight="800">DJI OM 6</text>
+  <text x="200" y="398" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="13">3軸スマホスタビライザー</text>
+</svg>

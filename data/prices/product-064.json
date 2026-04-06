@@ -1,0 +1,48 @@
+{
+  "product_id": "product-064",
+  "current": {
+    "amazon": {
+      "price": 12980,
+      "url": "https://www.amazon.co.jp/dp/B0872D6BHK?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 13480,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTP-Link%2520Deco%2520X20%2520%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5WiFi%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 12980
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-07",
+      "amazon": 12980,
+      "rakuten": 13480
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 12980,
+      "rakuten": 13680
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 13480,
+      "rakuten": 13980
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 13480,
+      "rakuten": 14180
+    },
+    {
+      "date": "2026-03-01",
+      "amazon": 13980,
+      "rakuten": 14680
+    }
+  ]
+}

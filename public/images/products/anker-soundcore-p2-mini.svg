@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fef3c7"/><stop offset="100%" stop-color="#fde68a"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1c1917"/><stop offset="100%" stop-color="#0c0a09"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Charging case -->
+  <rect x="110" y="140" width="180" height="120" rx="20" fill="url(#body)"/>
+  <!-- Case lid line -->
+  <line x1="110" y1="188" x2="290" y2="188" stroke="#374151" stroke-width="2"/>
+  <!-- Left earbud slot -->
+  <ellipse cx="160" cy="168" rx="22" ry="28" fill="#374151"/>
+  <ellipse cx="160" cy="162" rx="12" ry="16" fill="#f59e0b" opacity="0.6"/>
+  <!-- Right earbud slot -->
+  <ellipse cx="240" cy="168" rx="22" ry="28" fill="#374151"/>
+  <ellipse cx="240" cy="162" rx="12" ry="16" fill="#f59e0b" opacity="0.6"/>
+  <!-- LED indicator -->
+  <circle cx="200" cy="205" r="5" fill="#f59e0b"/>
+  <!-- USB-C port -->
+  <rect x="184" y="248" width="32" height="10" rx="5" fill="#4b5563"/>
+  <!-- Soundcore text -->
+  <text x="200" y="135" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="700">Soundcore</text>
+
+  <text x="200" y="350" text-anchor="middle" fill="#1c1917" font-family="Arial,sans-serif" font-size="16" font-weight="800">Life P2 Mini</text>
+  <text x="200" y="373" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="13">32h / IPX5</text>
+</svg>

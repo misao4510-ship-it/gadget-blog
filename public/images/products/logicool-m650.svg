@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c1917"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg)"/>
+  <!-- Mouse body -->
+  <path d="M 145 280 Q 130 200 145 140 Q 160 90 200 85 Q 240 90 255 140 Q 270 200 255 280 Q 240 310 200 312 Q 160 310 145 280 Z" fill="#475569"/>
+  <path d="M 150 278 Q 136 200 150 142 Q 164 95 200 90 Q 236 95 250 142 Q 264 200 250 278 Q 236 308 200 310 Q 164 308 150 278 Z" fill="#334155"/>
+  <!-- Center line -->
+  <line x1="200" y1="90" x2="200" y2="200" stroke="#64748b" stroke-width="3"/>
+  <!-- Scroll wheel -->
+  <ellipse cx="200" cy="160" rx="16" ry="22" fill="#94a3b8"/>
+  <ellipse cx="200" cy="160" rx="11" ry="18" fill="#64748b"/>
+  <!-- Left button highlight -->
+  <path d="M 155 145 Q 155 115 200 108 L 200 200 L 155 200 Z" fill="#475569" opacity="0.5"/>
+  <!-- Label -->
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">Logicool M650</text>
+</svg>

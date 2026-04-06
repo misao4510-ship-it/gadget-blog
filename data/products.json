@@ -453,8 +453,7 @@
           "url": "https://px.a8.net/placeholder/product-016"
         }
       }
-    }
-    ,
+    },
     {
       "id": "product-017",
       "name": "Snow Peak チタンシングルマグ600",
@@ -761,6 +760,1159 @@
         },
         "a8": {
           "url": "https://px.a8.net/placeholder/product-027"
+        }
+      }
+    },
+    {
+      "id": "product-048",
+      "name": "Anker 735 Charger GaNPrime 65W",
+      "category": "charger",
+      "asin": "B09W57T4D2",
+      "rakuten_keyword": "Anker 735 Charger GaNPrime 65W",
+      "a8_link": "https://px.a8.net/placeholder/product-048",
+      "image": "/images/products/anker-735-ganprime-65w.svg",
+      "tags": [
+        "充電器",
+        "Anker",
+        "GaN",
+        "65W",
+        "USB-C"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09W57T4D2?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520735%2520Charger%2520GaNPrime%252065W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-048"
+        }
+      }
+    },
+    {
+      "id": "product-049",
+      "name": "JBL GO 3 Bluetoothスピーカー",
+      "category": "bluetooth-speaker",
+      "asin": "B08KMN3GKL",
+      "rakuten_keyword": "JBL GO 3 Bluetoothスピーカー",
+      "a8_link": "https://px.a8.net/placeholder/product-049",
+      "image": "/images/products/jbl-go-3.svg",
+      "tags": [
+        "スピーカー",
+        "JBL",
+        "Bluetooth",
+        "防水",
+        "ポータブル"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B08KMN3GKL?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FJBL%2520GO%25203%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-049"
+        }
+      }
+    },
+    {
+      "id": "product-050",
+      "name": "Soundcore Life Q35 ワイヤレスヘッドホン",
+      "category": "headphones",
+      "asin": "B0964949GH",
+      "rakuten_keyword": "Soundcore Life Q35 ワイヤレスヘッドホン",
+      "a8_link": "https://px.a8.net/placeholder/product-050",
+      "image": "/images/products/soundcore-life-q35.svg",
+      "tags": [
+        "ヘッドホン",
+        "Soundcore",
+        "ANC",
+        "LDAC",
+        "ワイヤレス"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0964949GH?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Life%2520Q35%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-050"
+        }
+      }
+    },
+    {
+      "id": "product-051",
+      "name": "Logicool M650 Signature ワイヤレスマウス",
+      "category": "mouse",
+      "asin": "B09JC8PJRC",
+      "rakuten_keyword": "Logicool M650 Signature ワイヤレスマウス",
+      "a8_link": "https://px.a8.net/placeholder/product-051",
+      "image": "/images/products/logicool-m650.svg",
+      "tags": [
+        "マウス",
+        "Logicool",
+        "ワイヤレス",
+        "静音",
+        "USB-C"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09JC8PJRC?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520M650%2520Signature%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-051"
+        }
+      }
+    },
+    {
+      "id": "product-052",
+      "name": "Anker PowerCore 10000 PD Redux モバイルバッテリー",
+      "category": "mobile-battery",
+      "asin": "B09BT4DL71",
+      "rakuten_keyword": "Anker PowerCore 10000 PD Redux",
+      "a8_link": "https://px.a8.net/placeholder/product-052",
+      "image": "/images/products/anker-powercore-10000-pd-redux.svg",
+      "tags": [
+        "モバイルバッテリー",
+        "Anker",
+        "10000mAh",
+        "PD",
+        "USB-C"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09BT4DL71?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%252010000%2520PD%2520Redux%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-052"
+        }
+      }
+    },
+    {
+      "id": "product-053",
+      "name": "UGREEN Nexode 100W USB-C GaN充電器",
+      "category": "charger",
+      "asin": "B09NMDLC3K",
+      "rakuten_keyword": "UGREEN Nexode 100W GaN充電器",
+      "a8_link": "https://px.a8.net/placeholder/product-053",
+      "image": "/images/products/ugreen-nexode-100w.svg",
+      "tags": [
+        "充電器",
+        "UGREEN",
+        "GaN",
+        "100W",
+        "USB-C"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09NMDLC3K?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520Nexode%2520100W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-053"
+        }
+      }
+    },
+    {
+      "id": "product-054",
+      "name": "Anker 637 Magnetic Charging Station (MagGo)",
+      "category": "wireless-charger",
+      "asin": "B09MJ14FY7",
+      "rakuten_keyword": "Anker 637 Magnetic Charging Station MagGo",
+      "a8_link": "https://px.a8.net/placeholder/product-054",
+      "image": "/images/products/anker-637-magsafe-station.svg",
+      "tags": [
+        "ワイヤレス充電",
+        "Anker",
+        "MagSafe",
+        "MagGo",
+        "充電ステーション"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09MJ14FY7?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520637%2520Magnetic%2520Charging%2520Station%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-054"
+        }
+      }
+    },
+    {
+      "id": "product-055",
+      "name": "TP-Link RE500X WiFi中継器 AX1500",
+      "category": "wifi-extender",
+      "asin": "B08MTZ27X4",
+      "rakuten_keyword": "TP-Link RE500X WiFi中継器",
+      "a8_link": "https://px.a8.net/placeholder/product-055",
+      "image": "/images/products/tp-link-re500x.svg",
+      "tags": [
+        "WiFi中継器",
+        "TP-Link",
+        "Wi-Fi 6",
+        "AX1500",
+        "無線LAN"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B08MTZ27X4?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTP-Link%2520RE500X%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-055"
+        }
+      }
+    },
+    {
+      "id": "product-056",
+      "name": "Soundcore Liberty 4 NC ワイヤレスイヤホン",
+      "category": "earphones",
+      "asin": "B0CG4B3C9M",
+      "rakuten_keyword": "Soundcore Liberty 4 NC ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-056",
+      "image": "/images/products/soundcore-liberty-4-nc.svg",
+      "tags": [
+        "イヤホン",
+        "Soundcore",
+        "ANC",
+        "LDAC",
+        "ワイヤレス"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CG4B3C9M?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Liberty%25204%2520NC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-056"
+        }
+      }
+    },
+    {
+      "id": "product-057",
+      "name": "Logicool G304 LIGHTSPEED ワイヤレスゲーミングマウス",
+      "category": "gaming-mouse",
+      "asin": "B07GWZ8D3X",
+      "rakuten_keyword": "Logicool G304 LIGHTSPEED ゲーミングマウス",
+      "a8_link": "https://px.a8.net/placeholder/product-057",
+      "image": "/images/products/logicool-g304-lightspeed.svg",
+      "tags": [
+        "ゲーミングマウス",
+        "Logicool",
+        "LIGHTSPEED",
+        "ワイヤレス",
+        "G304"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07GWZ8D3X?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520G304%2520LIGHTSPEED%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-057"
+        }
+      }
+    },
+    {
+      "id": "product-028",
+      "name": "Anker 332 USB-C ハブ (5-in-1)",
+      "category": "usb-hub",
+      "asin": "B09B871XHF",
+      "rakuten_keyword": "Anker USB-C ハブ 5in1",
+      "a8_link": "https://px.a8.net/placeholder/product-028",
+      "image": "/images/products/anker-332-usbc-hub.svg",
+      "tags": [
+        "USBハブ",
+        "Anker",
+        "HDMI",
+        "5-in-1",
+        "テレワーク"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09B871XHF?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+USB-C+%E3%83%8F%E3%83%96+5in1%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-028"
+        }
+      }
+    },
+    {
+      "id": "product-029",
+      "name": "折りたたみスマホ・タブレットスタンド アルミ製",
+      "category": "stand",
+      "asin": "B082Q59VK3",
+      "rakuten_keyword": "折りたたみ スマホスタンド アルミ 角度調整",
+      "a8_link": "https://px.a8.net/placeholder/product-029",
+      "image": "/images/products/foldable-aluminum-tablet-stand.svg",
+      "tags": [
+        "スタンド",
+        "アルミ",
+        "折りたたみ",
+        "タブレット",
+        "角度調整"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B082Q59VK3?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E6%8A%98%E3%82%8A%E3%81%9F%E3%81%9F%E3%81%BF+%E3%82%B9%E3%83%9E%E3%83%9B%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89+%E3%82%A2%E3%83%AB%E3%83%9F%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-029"
+        }
+      }
+    },
+    {
+      "id": "product-030",
+      "name": "Anker 511 Charger (Nano 3) 30W",
+      "category": "charger",
+      "asin": "B0BJ14P8WM",
+      "rakuten_keyword": "Anker 511 充電器 30W USB-C",
+      "a8_link": "https://px.a8.net/placeholder/product-030",
+      "image": "/images/products/anker-511-charger-30w.svg",
+      "tags": [
+        "充電器",
+        "Anker",
+        "急速充電",
+        "USB-C",
+        "コンパクト"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0BJ14P8WM?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+511+%E5%85%85%E9%9B%BB%E5%99%A8+30W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-030"
+        }
+      }
+    },
+    {
+      "id": "product-031",
+      "name": "クリップ式 LEDブックライト USB充電式",
+      "category": "light",
+      "asin": "B07GKPGGKM",
+      "rakuten_keyword": "クリップ式 LEDライト USB充電 読書灯",
+      "a8_link": "https://px.a8.net/placeholder/product-031",
+      "image": "/images/products/clip-led-book-light.svg",
+      "tags": [
+        "LEDライト",
+        "クリップ",
+        "読書灯",
+        "USB充電",
+        "フレキシブル"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07GKPGGKM?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E5%BC%8F+LED%E3%83%A9%E3%82%A4%E3%83%88+USB%E5%85%85%E9%9B%BB%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-031"
+        }
+      }
+    },
+    {
+      "id": "product-032",
+      "name": "Anker PowerWave ワイヤレス充電パッド 10W",
+      "category": "wireless-charger",
+      "asin": "B07TGM3WYL",
+      "rakuten_keyword": "Anker ワイヤレス充電 パッド 10W Qi",
+      "a8_link": "https://px.a8.net/placeholder/product-032",
+      "image": "/images/products/anker-powerwave-pad.svg",
+      "tags": [
+        "ワイヤレス充電",
+        "Anker",
+        "Qi",
+        "10W",
+        "急速充電"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07TGM3WYL?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%AC%E3%82%B9%E5%85%85%E9%9B%BB+%E3%83%91%E3%83%83%E3%83%89%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-032"
+        }
+      }
+    },
+    {
+      "id": "product-033",
+      "name": "マルチ収納ポーチ ケーブルオーガナイザー",
+      "category": "storage",
+      "asin": "B07Q2TZMN2",
+      "rakuten_keyword": "ケーブル 収納ポーチ 多機能 旅行",
+      "a8_link": "https://px.a8.net/placeholder/product-033",
+      "image": "/images/products/multi-cable-organizer-pouch.svg",
+      "tags": [
+        "収納",
+        "ポーチ",
+        "ケーブル整理",
+        "旅行",
+        "EVA"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07Q2TZMN2?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB+%E5%8F%8E%E7%B4%8D+%E3%83%9D%E3%83%BC%E3%83%81+%E5%A4%9A%E6%A9%9F%E8%83%BD%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-033"
+        }
+      }
+    },
+    {
+      "id": "product-034",
+      "name": "UGREEN 急速充電器 20W USB-C PD対応",
+      "category": "charger",
+      "asin": "B091WMFKPG",
+      "rakuten_keyword": "UGREEN 急速充電器 20W USB-C PD",
+      "a8_link": "https://px.a8.net/placeholder/product-034",
+      "image": "/images/products/ugreen-20w-usbc-charger.svg",
+      "tags": [
+        "充電器",
+        "UGREEN",
+        "USB-C",
+        "急速充電",
+        "PD対応"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B091WMFKPG?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN+%E6%80%A5%E9%80%9F%E5%85%85%E9%9B%BB%E5%99%A8+20W+USB-C%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-034"
+        }
+      }
+    },
+    {
+      "id": "product-035",
+      "name": "マグネット式車載スマホホルダー MagSafe対応",
+      "category": "car-holder",
+      "asin": "B094RVKXZN",
+      "rakuten_keyword": "マグネット 車載 スマホホルダー MagSafe",
+      "a8_link": "https://px.a8.net/placeholder/product-035",
+      "image": "/images/products/magnetic-car-holder-magsafe.svg",
+      "tags": [
+        "車載ホルダー",
+        "マグネット",
+        "MagSafe",
+        "エアコン取付",
+        "iPhone"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B094RVKXZN?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%83%9E%E3%82%B0%E3%83%8D%E3%83%83%E3%83%88+%E8%BB%8A%E8%BC%89+%E3%82%B9%E3%83%9E%E3%83%9B%E3%83%9B%E3%83%AB%E3%83%80%E3%83%BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-035"
+        }
+      }
+    },
+    {
+      "id": "product-036",
+      "name": "Anker USB-C & USB-C ケーブル 高耐久ナイロン 1.8m",
+      "category": "cable",
+      "asin": "B07X7H9FNR",
+      "rakuten_keyword": "Anker USB-C ケーブル 高耐久 ナイロン 1.8m",
+      "a8_link": "https://px.a8.net/placeholder/product-036",
+      "image": "/images/products/anker-usbc-cable-nylon-1m8.svg",
+      "tags": [
+        "ケーブル",
+        "Anker",
+        "USB-C",
+        "高耐久",
+        "100W"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07X7H9FNR?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+USB-C+%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB+%E9%AB%98%E8%80%90%E4%B9%85%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-036"
+        }
+      }
+    },
+    {
+      "id": "product-037",
+      "name": "防水スマホポーチ IPX8 2枚セット",
+      "category": "waterproof",
+      "asin": "B07PFFMP9D",
+      "rakuten_keyword": "防水 スマホポーチ IPX8 アウトドア",
+      "a8_link": "https://px.a8.net/placeholder/product-037",
+      "image": "/images/products/waterproof-phone-pouch-set.svg",
+      "tags": [
+        "防水",
+        "スマホポーチ",
+        "IPX8",
+        "アウトドア",
+        "海"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07PFFMP9D?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E9%98%B2%E6%B0%B4+%E3%82%B9%E3%83%9E%E3%83%9B%E3%83%9D%E3%83%BC%E3%83%81+IPX8%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-037"
+        }
+      }
+    },
+    {
+      "id": "product-058",
+      "name": "Logicool MX Master 3S ワイヤレスマウス",
+      "category": "mouse",
+      "asin": "B09HM94VDS",
+      "rakuten_keyword": "Logicool MX Master 3S ワイヤレスマウス",
+      "a8_link": "https://px.a8.net/placeholder/product-058",
+      "image": "/images/products/logicool-mx-master-3s.svg",
+      "tags": [
+        "ワイヤレスマウス",
+        "Logicool",
+        "MX Master",
+        "高精度"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09HM94VDS?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520MX%2520Master%25203S%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-058"
+        }
+      }
+    },
+    {
+      "id": "product-059",
+      "name": "Kindle Paperwhite 第11世代 8GB",
+      "category": "e-reader",
+      "asin": "B08N2QK2TG",
+      "rakuten_keyword": "Kindle Paperwhite 第11世代",
+      "a8_link": "https://px.a8.net/placeholder/product-059",
+      "image": "/images/products/kindle-paperwhite-11th.svg",
+      "tags": [
+        "電子書籍リーダー",
+        "Kindle",
+        "Amazon",
+        "防水",
+        "300ppi"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B08N2QK2TG?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKindle%2520Paperwhite%2520%E7%AC%AC11%E4%B8%96%E4%BB%A3%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-059"
+        }
+      }
+    },
+    {
+      "id": "product-060",
+      "name": "Sony SRS-XG300 ワイヤレススピーカー",
+      "category": "speaker",
+      "asin": "B0B2SDQFJ7",
+      "rakuten_keyword": "Sony SRS-XG300 ワイヤレススピーカー",
+      "a8_link": "https://px.a8.net/placeholder/product-060",
+      "image": "/images/products/sony-srs-xg300.svg",
+      "tags": [
+        "ワイヤレススピーカー",
+        "Sony",
+        "IP67",
+        "防水",
+        "30時間再生"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0B2SDQFJ7?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%2520SRS-XG300%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-060"
+        }
+      }
+    },
+    {
+      "id": "product-061",
+      "name": "Fire HD 10 タブレット 第13世代 32GB",
+      "category": "tablet",
+      "asin": "B0BHZT5S12",
+      "rakuten_keyword": "Fire HD 10 タブレット 第13世代",
+      "a8_link": "https://px.a8.net/placeholder/product-061",
+      "image": "/images/products/fire-hd-10-13th.svg",
+      "tags": [
+        "タブレット",
+        "Amazon",
+        "Fire HD",
+        "フルHD",
+        "10インチ"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0BHZT5S12?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FFire%2520HD%252010%2520%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%2520%E7%AC%AC13%E4%B8%96%E4%BB%A3%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-061"
+        }
+      }
+    },
+    {
+      "id": "product-062",
+      "name": "Anker Soundcore Liberty 4 NC ワイヤレスイヤホン",
+      "category": "earphones",
+      "asin": "B0BY2YLMQK",
+      "rakuten_keyword": "Anker Soundcore Liberty 4 NC ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-062",
+      "image": "/images/products/soundcore-liberty-4-nc.svg",
+      "tags": [
+        "ワイヤレスイヤホン",
+        "Anker",
+        "ANC",
+        "LDAC",
+        "50時間再生"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0BY2YLMQK?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Liberty%25204%2520NC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-062"
+        }
+      }
+    },
+    {
+      "id": "product-063",
+      "name": "Belkin Boost Charge Pro 3-in-1 MagSafe対応充電器",
+      "category": "charger",
+      "asin": "B0B3L15C82",
+      "rakuten_keyword": "Belkin Boost Charge Pro 3-in-1 MagSafe",
+      "a8_link": "https://px.a8.net/placeholder/product-063",
+      "image": "/images/products/belkin-boost-3in1.svg",
+      "tags": [
+        "ワイヤレス充電",
+        "Belkin",
+        "MagSafe",
+        "3-in-1",
+        "Apple"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0B3L15C82?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBelkin%2520Boost%2520Charge%2520Pro%25203-in-1%2520MagSafe%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-063"
+        }
+      }
+    },
+    {
+      "id": "product-064",
+      "name": "TP-Link Deco X20 メッシュWi-Fi 2台セット",
+      "category": "network",
+      "asin": "B0872D6BHK",
+      "rakuten_keyword": "TP-Link Deco X20 メッシュWi-Fi",
+      "a8_link": "https://px.a8.net/placeholder/product-064",
+      "image": "/images/products/tplink-deco-x20.svg",
+      "tags": [
+        "メッシュWi-Fi",
+        "TP-Link",
+        "Wi-Fi 6",
+        "AX1800"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0872D6BHK?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTP-Link%2520Deco%2520X20%2520%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5WiFi%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-064"
+        }
+      }
+    },
+    {
+      "id": "product-065",
+      "name": "Anker 767 PowerBank 26800mAh モバイルバッテリー",
+      "category": "mobile-battery",
+      "asin": "B09D5DBFZJ",
+      "rakuten_keyword": "Anker 767 PowerBank 26800mAh",
+      "a8_link": "https://px.a8.net/placeholder/product-065",
+      "image": "/images/products/anker-767-powerbank.svg",
+      "tags": [
+        "モバイルバッテリー",
+        "Anker",
+        "26800mAh",
+        "87W",
+        "大容量"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09D5DBFZJ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520767%2520PowerBank%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-065"
+        }
+      }
+    },
+    {
+      "id": "product-066",
+      "name": "Keychron K3 Pro QMK/VIA メカニカルキーボード",
+      "category": "keyboard",
+      "asin": "B0BKP8HWNJ",
+      "rakuten_keyword": "Keychron K3 Pro QMK/VIA メカニカルキーボード",
+      "a8_link": "https://px.a8.net/placeholder/product-066",
+      "image": "/images/products/keychron-k3-pro.svg",
+      "tags": [
+        "メカニカルキーボード",
+        "Keychron",
+        "QMK/VIA",
+        "75%レイアウト"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0BKP8HWNJ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKeychron%2520K3%2520Pro%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-066"
+        }
+      }
+    },
+    {
+      "id": "product-067",
+      "name": "DJI OM 6 スマートフォンスタビライザー",
+      "category": "stabilizer",
+      "asin": "B0BG4YXNLJ",
+      "rakuten_keyword": "DJI OM 6 スマートフォンスタビライザー",
+      "a8_link": "https://px.a8.net/placeholder/product-067",
+      "image": "/images/products/dji-om6.svg",
+      "tags": [
+        "スタビライザー",
+        "DJI",
+        "ジンバル",
+        "3軸",
+        "スマホ撮影"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0BG4YXNLJ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FDJI%2520OM%25206%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-067"
+        }
+      }
+    },
+    {
+      "id": "product-038",
+      "name": "Anker 622 Magnetic Battery (MagGo) 5000mAh",
+      "category": "mobile-battery",
+      "asin": "B09C4HXQZZ",
+      "rakuten_keyword": "Anker MagGo マグネット式 モバイルバッテリー",
+      "a8_link": "https://px.a8.net/placeholder/product-038",
+      "image": "/images/products/anker-maggo-battery.svg",
+      "tags": [
+        "モバイルバッテリー",
+        "MagSafe",
+        "Anker",
+        "ワイヤレス充電"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09C4HXQZZ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520MagGo%2520%25E3%2583%259E%25E3%2582%25B0%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%25E5%25BC%258F%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-038"
+        }
+      }
+    },
+    {
+      "id": "product-039",
+      "name": "Anker PowerCore Slim 10000",
+      "category": "mobile-battery",
+      "asin": "B07YCF3KCK",
+      "rakuten_keyword": "Anker PowerCore Slim 10000 モバイルバッテリー",
+      "a8_link": "https://px.a8.net/placeholder/product-039",
+      "image": "/images/products/anker-powercore-slim-10000.svg",
+      "tags": [
+        "モバイルバッテリー",
+        "薄型",
+        "Anker",
+        "10000mAh"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07YCF3KCK?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%2520Slim%252010000%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-039"
+        }
+      }
+    },
+    {
+      "id": "product-040",
+      "name": "Anker 5-in-1 USB-C ハブ (A8338)",
+      "category": "usb-hub",
+      "asin": "B07ZSG2XJD",
+      "rakuten_keyword": "Anker USB-C ハブ 5in1",
+      "a8_link": "https://px.a8.net/placeholder/product-040",
+      "image": "/images/products/anker-5in1-usbc-hub.svg",
+      "tags": [
+        "USBハブ",
+        "USB-C",
+        "HDMI",
+        "Anker"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07ZSG2XJD?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520USB-C%2520%25E3%2583%258F%25E3%2583%2596%25205in1%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-040"
+        }
+      }
+    },
+    {
+      "id": "product-041",
+      "name": "UGREEN USB3.0 ハブ 4ポート",
+      "category": "usb-hub",
+      "asin": "B07WKFLPGZ",
+      "rakuten_keyword": "UGREEN USB3.0 ハブ 4ポート",
+      "a8_link": "https://px.a8.net/placeholder/product-041",
+      "image": "/images/products/ugreen-usb3-hub.svg",
+      "tags": [
+        "USBハブ",
+        "USB3.0",
+        "UGREEN",
+        "4ポート"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B07WKFLPGZ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520USB3.0%2520%25E3%2583%258F%25E3%2583%2596%25204%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-041"
+        }
+      }
+    },
+    {
+      "id": "product-042",
+      "name": "Anker PowerLine III Flow USB-C to USB-C ケーブル 1.8m",
+      "category": "cable",
+      "asin": "B09C5NSLT8",
+      "rakuten_keyword": "Anker PowerLine III Flow USB-C ケーブル",
+      "a8_link": "https://px.a8.net/placeholder/product-042",
+      "image": "/images/products/anker-powerline3-flow.svg",
+      "tags": [
+        "ケーブル",
+        "USB-C",
+        "100W",
+        "Anker",
+        "シリコン"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09C5NSLT8?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerLine%2520III%2520Flow%2520USB-C%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-042"
+        }
+      }
+    },
+    {
+      "id": "product-043",
+      "name": "Baseus 65W GaN USB-C 急速充電器",
+      "category": "charger",
+      "asin": "B09MBPYWMM",
+      "rakuten_keyword": "Baseus GaN 65W USB-C 充電器",
+      "a8_link": "https://px.a8.net/placeholder/product-043",
+      "image": "/images/products/baseus-gan-charger-65w.svg",
+      "tags": [
+        "充電器",
+        "GaN",
+        "65W",
+        "Baseus",
+        "PD"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B09MBPYWMM?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBaseus%2520GaN%252065W%2520USB-C%2520%25E5%2585%2585%25E9%259B%25BB%25E5%2599%25A8%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-043"
+        }
+      }
+    },
+    {
+      "id": "product-044",
+      "name": "Spigen iPhone 15 Pro ガラスフィルム EZ Fit (2枚入り)",
+      "category": "screen-protector",
+      "asin": "B0CF7LFSGG",
+      "rakuten_keyword": "Spigen iPhone15 Pro ガラスフィルム EZ Fit",
+      "a8_link": "https://px.a8.net/placeholder/product-044",
+      "image": "/images/products/spigen-iphone15-glass.svg",
+      "tags": [
+        "ガラスフィルム",
+        "iPhone15 Pro",
+        "Spigen",
+        "EZ Fit",
+        "2枚"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CF7LFSGG?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSpigen%2520iPhone15%2520Pro%2520%25E3%2582%25AC%25E3%2583%25A9%25E3%2582%25B9%25E3%2583%2595%25E3%2582%25A3%25E3%2583%25AB%25E3%2583%25A0%2520EZ%2520Fit%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-044"
+        }
+      }
+    },
+    {
+      "id": "product-045",
+      "name": "ESR iPhone 15 HaloLock Magnetic Case",
+      "category": "smartphone-case",
+      "asin": "B0CH5QKJML",
+      "rakuten_keyword": "ESR iPhone15 マグネット ケース HaloLock",
+      "a8_link": "https://px.a8.net/placeholder/product-045",
+      "image": "/images/products/esr-iphone15-case.svg",
+      "tags": [
+        "スマホケース",
+        "MagSafe",
+        "iPhone15",
+        "ESR",
+        "HaloLock"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CH5QKJML?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FESR%2520iPhone15%2520%25E3%2583%259E%25E3%2582%25B0%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9%2520HaloLock%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-045"
+        }
+      }
+    },
+    {
+      "id": "product-046",
+      "name": "Anker Soundcore Life P2 Mini ワイヤレスイヤホン",
+      "category": "wireless-earbuds",
+      "asin": "B0C4XY73CS",
+      "rakuten_keyword": "Anker Soundcore Life P2 Mini ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-046",
+      "image": "/images/products/anker-soundcore-p2-mini.svg",
+      "tags": [
+        "ワイヤレスイヤホン",
+        "TWS",
+        "Anker",
+        "Soundcore",
+        "IPX5"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0C4XY73CS?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Life%2520P2%2520Mini%2520%25E3%2583%25AF%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25AC%25E3%2582%25B9%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%259B%25E3%2583%25B3%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-046"
+        }
+      }
+    },
+    {
+      "id": "product-047",
+      "name": "UGREEN 100W USB-C to USB-C ケーブル 2m",
+      "category": "cable",
+      "asin": "B08L7Y4VP9",
+      "rakuten_keyword": "UGREEN USB-C ケーブル 100W 2m",
+      "a8_link": "https://px.a8.net/placeholder/product-047",
+      "image": "/images/products/ugreen-usbc-100w-cable.svg",
+      "tags": [
+        "ケーブル",
+        "USB-C",
+        "100W",
+        "UGREEN",
+        "2m"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B08L7Y4VP9?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520USB-C%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%2520100W%25202m%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-047"
         }
       }
     }

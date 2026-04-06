@@ -1,0 +1,25 @@
+{
+  "product_id": "product-032",
+  "current": {
+    "amazon": {
+      "price": 1590,
+      "url": "https://www.amazon.co.jp/dp/?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 1780,
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 1590
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 1590, "rakuten": 1780 },
+    { "date": "2026-04-01", "amazon": 1590, "rakuten": 1780 },
+    { "date": "2026-03-25", "amazon": 1590, "rakuten": 1780 }
+  ]
+}

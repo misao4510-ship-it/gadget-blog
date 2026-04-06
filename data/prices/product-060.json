@@ -1,0 +1,48 @@
+{
+  "product_id": "product-060",
+  "current": {
+    "amazon": {
+      "price": 24200,
+      "url": "https://www.amazon.co.jp/dp/B0B2SDQFJ7?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 24800,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%2520SRS-XG300%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 24200
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-07",
+      "amazon": 24200,
+      "rakuten": 24800
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 24200,
+      "rakuten": 25000
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 24700,
+      "rakuten": 25300
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 24700,
+      "rakuten": 25500
+    },
+    {
+      "date": "2026-03-01",
+      "amazon": 25200,
+      "rakuten": 26000
+    }
+  ]
+}

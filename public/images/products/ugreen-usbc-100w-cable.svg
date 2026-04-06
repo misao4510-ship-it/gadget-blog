@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff7ed"/><stop offset="100%" stop-color="#ffedd5"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1c3a5c"/><stop offset="100%" stop-color="#0f2035"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Cable body -->
+  <path d="M100 200 C100 120, 300 280, 300 200" fill="none" stroke="#f97316" stroke-width="14" stroke-linecap="round" opacity="0.8"/>
+  <path d="M100 200 C100 120, 300 280, 300 200" fill="none" stroke="#ea580c" stroke-width="8" stroke-linecap="round"/>
+  <!-- Left connector -->
+  <rect x="60" y="190" width="44" height="20" rx="8" fill="#f97316"/>
+  <rect x="62" y="194" width="20" height="12" rx="6" fill="#1c3a5c"/>
+  <!-- Right connector -->
+  <rect x="296" y="190" width="44" height="20" rx="8" fill="#f97316"/>
+  <rect x="318" y="194" width="20" height="12" rx="6" fill="#1c3a5c"/>
+  <!-- 100W badge -->
+  <rect x="156" y="240" width="88" height="28" rx="14" fill="#f97316"/>
+  <text x="200" y="259" text-anchor="middle" fill="white" font-size="14" font-weight="800">100W</text>
+
+  <text x="200" y="350" text-anchor="middle" fill="#1c3a5c" font-family="Arial,sans-serif" font-size="16" font-weight="800">USB-C Cable 100W</text>
+  <text x="200" y="373" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="13">2m ナイロン編み</text>
+</svg>

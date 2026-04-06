@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg)"/>
+  <!-- Speaker body (rounded rectangle) -->
+  <rect x="80" y="130" width="240" height="140" rx="70" fill="#e11d48"/>
+  <rect x="90" y="140" width="220" height="120" rx="60" fill="#be123c"/>
+  <!-- Speaker grille circles -->
+  <circle cx="200" cy="200" r="45" fill="#1a1a2e" opacity="0.6"/>
+  <circle cx="200" cy="200" r="30" fill="#1a1a2e" opacity="0.8"/>
+  <!-- Speaker cone -->
+  <circle cx="200" cy="200" r="18" fill="#9f1239"/>
+  <circle cx="200" cy="200" r="8" fill="#fda4af"/>
+  <!-- Sound waves -->
+  <path d="M 260 175 Q 280 200 260 225" stroke="#fda4af" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 275 165 Q 300 200 275 235" stroke="#fda4af" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <!-- JBL label -->
+  <text x="200" y="340" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#f43f5e" text-anchor="middle">JBL GO 3</text>
+</svg>

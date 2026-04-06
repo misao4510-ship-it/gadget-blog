@@ -1,0 +1,48 @@
+{
+  "product_id": "product-059",
+  "current": {
+    "amazon": {
+      "price": 14980,
+      "url": "https://www.amazon.co.jp/dp/B08N2QK2TG?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 15480,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKindle%2520Paperwhite%2520%E7%AC%AC11%E4%B8%96%E4%BB%A3%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 14980
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-07",
+      "amazon": 14980,
+      "rakuten": 15480
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 14980,
+      "rakuten": 15680
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 15480,
+      "rakuten": 15980
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 15480,
+      "rakuten": 16180
+    },
+    {
+      "date": "2026-03-01",
+      "amazon": 15980,
+      "rakuten": 16680
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "product_id": "product-055",
+  "current": {
+    "amazon": {
+      "price": 5980,
+      "url": "https://www.amazon.co.jp/dp/B08MTZ27X4?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 6280,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTP-Link%2520RE500X%2520WiFi%2520%25E4%25B8%25AD%25E7%25B6%2599%25E5%2599%25A8%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 5980
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 5980, "rakuten": 6280 },
+    { "date": "2026-04-01", "amazon": 5980, "rakuten": 6480 },
+    { "date": "2026-03-25", "amazon": 6380, "rakuten": 6680 },
+    { "date": "2026-03-15", "amazon": 6380, "rakuten": 6680 },
+    { "date": "2026-03-01", "amazon": 6380, "rakuten": 6980 }
+  ]
+}

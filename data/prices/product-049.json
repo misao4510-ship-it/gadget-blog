@@ -1,0 +1,28 @@
+{
+  "product_id": "product-049",
+  "current": {
+    "amazon": {
+      "price": 6380,
+      "url": "https://www.amazon.co.jp/dp/B08KMN3GKL?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 6580,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FJBL%2520GO%25203%2520Bluetooth%2520%25E3%2582%25B9%25E3%2583%2594%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25BC%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 6380
+    }
+  },
+  "history": [
+    { "date": "2026-04-07", "amazon": 6380, "rakuten": 6580 },
+    { "date": "2026-04-01", "amazon": 6380, "rakuten": 6780 },
+    { "date": "2026-03-25", "amazon": 6780, "rakuten": 6980 },
+    { "date": "2026-03-15", "amazon": 6780, "rakuten": 7180 },
+    { "date": "2026-03-01", "amazon": 7180, "rakuten": 7380 }
+  ]
+}

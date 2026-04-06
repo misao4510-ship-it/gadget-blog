@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0f9ff"/><stop offset="100%" stop-color="#e0f2fe"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d3748"/><stop offset="100%" stop-color="#1a202c"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- Slim battery body -->
+  <rect x="80" y="160" width="240" height="80" rx="12" fill="url(#body)"/>
+  <!-- USB-C port -->
+  <rect x="300" y="183" width="20" height="34" rx="4" fill="#4a5568"/>
+  <!-- LED indicators -->
+  <circle cx="140" cy="200" r="5" fill="#63b3ed"/>
+  <circle cx="165" cy="200" r="5" fill="#63b3ed"/>
+  <circle cx="190" cy="200" r="5" fill="#63b3ed"/>
+  <circle cx="215" cy="200" r="5" fill="#4a5568" opacity=".3"/>
+  <!-- ANKER text -->
+  <text x="200" y="175" text-anchor="middle" fill="#63b3ed" font-size="14" font-weight="700">ANKER</text>
+
+  <text x="200" y="350" text-anchor="middle" fill="#2d3748" font-family="Arial,sans-serif" font-size="16" font-weight="800">PowerCore Slim</text>
+  <text x="200" y="373" text-anchor="middle" fill="#718096" font-family="Arial,sans-serif" font-size="13">10,000mAh</text>
+</svg>

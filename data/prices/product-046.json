@@ -1,0 +1,48 @@
+{
+  "product_id": "product-046",
+  "current": {
+    "amazon": {
+      "price": 4990,
+      "url": "https://www.amazon.co.jp/dp/B0C4XY73CS?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 5180,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Life%2520P2%2520Mini%2520%25E3%2583%25AF%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25AC%25E3%2582%25B9%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%259B%25E3%2583%25B3%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 4990
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-07",
+      "amazon": 4990,
+      "rakuten": 5180
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 4990,
+      "rakuten": 5180
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 5090,
+      "rakuten": 5290
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 5190,
+      "rakuten": 5400
+    },
+    {
+      "date": "2026-03-01",
+      "amazon": 5190,
+      "rakuten": 5400
+    }
+  ]
+}
