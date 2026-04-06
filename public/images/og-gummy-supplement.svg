@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF8C42;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD93D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#fff8f0;stop-opacity:0.90" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+
+  <!-- Decorative circles -->
+  <circle cx="80" cy="80" r="60" fill="#FF4EA3" opacity="0.3" />
+  <circle cx="1120" cy="80" r="80" fill="#FFB347" opacity="0.3" />
+  <circle cx="1100" cy="550" r="100" fill="#FF6B9D" opacity="0.2" />
+  <circle cx="100" cy="560" r="70" fill="#FFD93D" opacity="0.25" />
+  <circle cx="600" cy="30" r="40" fill="#FF8C42" opacity="0.2" />
+
+  <!-- Gummy candy decorations -->
+  <ellipse cx="150" cy="200" rx="30" ry="20" fill="#FF4EA3" opacity="0.6" />
+  <ellipse cx="200" cy="160" rx="20" ry="15" fill="#FFB347" opacity="0.6" />
+  <ellipse cx="1050" cy="200" rx="28" ry="18" fill="#6BCB77" opacity="0.6" />
+  <ellipse cx="1000" cy="160" rx="22" ry="16" fill="#4D96FF" opacity="0.6" />
+  <ellipse cx="1080" cy="420" rx="25" ry="17" fill="#FF4EA3" opacity="0.5" />
+  <ellipse cx="120" cy="420" rx="27" ry="19" fill="#FFD93D" opacity="0.5" />
+
+  <!-- Main card -->
+  <rect x="80" y="80" width="1040" height="470" rx="24" ry="24" fill="url(#cardGrad)" />
+
+  <!-- Top accent bar -->
+  <rect x="80" y="80" width="1040" height="8" rx="4" fill="url(#bgGrad)" />
+
+  <!-- Site label -->
+  <text x="600" y="148" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="22" font-weight="600" fill="#FF6B9D" text-anchor="middle">ガジェットレビューブログ</text>
+
+  <!-- Main title -->
+  <text x="600" y="225" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="46" font-weight="900" fill="#2D2D2D" text-anchor="middle">【2026年】おすすめグミサプリ3選</text>
+  <text x="600" y="285" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="34" font-weight="700" fill="#FF6B9D" text-anchor="middle">手軽に栄養補給できる美味しいサプリ比較</text>
+
+  <!-- Divider -->
+  <line x1="160" y1="315" x2="1040" y2="315" stroke="#FFB347" stroke-width="2" stroke-dasharray="8,4" />
+
+  <!-- Product badges -->
+  <!-- Badge 1: ビタミンC -->
+  <rect x="130" y="340" width="280" height="160" rx="16" fill="#FFF0F7" stroke="#FF6B9D" stroke-width="2" />
+  <circle cx="220" cy="375" r="25" fill="#FF6B9D" />
+  <text x="220" y="382" font-family="sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">C</text>
+  <text x="270" y="375" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#FF4EA3">ビタミンC</text>
+  <text x="270" y="397" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="14" fill="#888">500mg配合</text>
+  <text x="165" y="435" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="15" fill="#555">レモン味・コラーゲン200mg</text>
+  <text x="165" y="460" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="14" fill="#FF6B9D" font-weight="600">美容・免疫サポート</text>
+  <text x="165" y="485" font-family="sans-serif" font-size="16" font-weight="700" fill="#2D2D2D">¥3,995〜（5袋セット）</text>
+
+  <!-- Badge 2: マルチビタミン -->
+  <rect x="460" y="340" width="280" height="160" rx="16" fill="#FFF5F0" stroke="#FF8C42" stroke-width="2" />
+  <circle cx="550" cy="375" r="25" fill="#FF8C42" />
+  <text x="550" y="383" font-family="sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">MV</text>
+  <text x="600" y="375" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#FF8C42">マルチビタミン</text>
+  <text x="600" y="397" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="14" fill="#888">11種配合</text>
+  <text x="495" y="435" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="15" fill="#555">グレープフルーツ味</text>
+  <text x="495" y="460" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="14" fill="#FF8C42" font-weight="600">総合栄養サポート</text>
+  <text x="495" y="485" font-family="sans-serif" font-size="16" font-weight="700" fill="#2D2D2D">¥3,780〜（5袋セット）</text>
+
+  <!-- Badge 3: 亜鉛&マカ -->
+  <rect x="790" y="340" width="280" height="160" rx="16" fill="#F0FFF5" stroke="#6BCB77" stroke-width="2" />
+  <circle cx="880" cy="375" r="25" fill="#6BCB77" />
+  <text x="880" y="383" font-family="sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Zn</text>
+  <text x="930" y="375" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="18" font-weight="700" fill="#4AAA57">亜鉛&amp;マカ</text>
+  <text x="930" y="397" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="14" fill="#888">黒マカ30mg</text>
+  <text x="825" y="435" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="15" fill="#555">コーラ味・活力サポート</text>
+  <text x="825" y="460" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="14" fill="#4AAA57" font-weight="600">疲労感・元気をサポート</text>
+  <text x="825" y="485" font-family="sans-serif" font-size="16" font-weight="700" fill="#2D2D2D">¥3,580〜（5袋セット）</text>
+
+  <!-- UHA brand label -->
+  <text x="600" y="535" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="20" font-weight="700" fill="#888" text-anchor="middle">UHA味覚糖 グミサプリシリーズ 全商品 通販限定5袋セット</text>
+</svg>

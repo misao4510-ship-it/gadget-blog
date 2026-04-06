@@ -1915,6 +1915,97 @@
           "url": "https://px.a8.net/placeholder/product-047"
         }
       }
+    },
+    {
+      "id": "product-068",
+      "name": "UHA味覚糖 グミサプリ ビタミンC 30日分 レモン味 5袋セット",
+      "category": "health",
+      "asin": "B0C5QQZYJ8",
+      "rakuten_keyword": "UHAグミサプリ ビタミンC 5袋",
+      "a8_link": "https://px.a8.net/placeholder/product-068",
+      "image": "/images/products/uha-gummy-vitaminc.svg",
+      "tags": [
+        "グミサプリ",
+        "ビタミンC",
+        "UHA味覚糖",
+        "サプリメント",
+        "美容"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B0C5QQZYJ8?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E3%2583%2593%25E3%2582%25BF%25E3%2583%259F%25E3%2583%25B3C%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-068"
+        }
+      }
+    },
+    {
+      "id": "product-069",
+      "name": "UHA味覚糖 グミサプリ マルチビタミン 30日分 ピンクグレープフルーツ味 5袋セット",
+      "category": "health",
+      "asin": "B0C5QF95PT",
+      "rakuten_keyword": "UHAグミサプリ マルチビタミン 5袋",
+      "a8_link": "https://px.a8.net/placeholder/product-069",
+      "image": "/images/products/uha-gummy-multivitamin.svg",
+      "tags": [
+        "グミサプリ",
+        "マルチビタミン",
+        "UHA味覚糖",
+        "サプリメント",
+        "11種ビタミン"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B0C5QF95PT?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2583%2593%25E3%2582%25BF%25E3%2583%259F%25E3%2583%25B3%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-069"
+        }
+      }
+    },
+    {
+      "id": "product-070",
+      "name": "UHA味覚糖 亜鉛&マカ グミサプリ コーラ味 5袋",
+      "category": "health",
+      "asin": "B0C5QX63J1",
+      "rakuten_keyword": "UHAグミサプリ 亜鉛 マカ 5袋",
+      "a8_link": "https://px.a8.net/placeholder/product-070",
+      "image": "/images/products/uha-gummy-zinc-maca.svg",
+      "tags": [
+        "グミサプリ",
+        "亜鉛",
+        "マカ",
+        "UHA味覚糖",
+        "サプリメント",
+        "活力"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B0C5QX63J1?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E4%25BA%259C%25E9%2589%259B%2520%25E3%2583%259E%25E3%2582%25AB%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-070"
+        }
+      }
     }
   ]
 }
