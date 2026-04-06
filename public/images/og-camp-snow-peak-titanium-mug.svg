@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e3a5f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Mug body -->
+  <rect x="470" y="160" width="200" height="220" rx="16" fill="none" stroke="#94a3b8" stroke-width="6"/>
+  <!-- Mug handle -->
+  <path d="M670 200 Q730 200 730 260 Q730 320 670 320" fill="none" stroke="#94a3b8" stroke-width="6"/>
+  <!-- Mug lid -->
+  <rect x="462" y="148" width="216" height="20" rx="10" fill="#64748b"/>
+  <!-- Steam lines -->
+  <path d="M520 130 Q530 110 520 90" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 120 Q570 100 560 80" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+  <path d="M600 130 Q610 110 600 90" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+  <!-- Snow Peak logo area (simple triangle) -->
+  <polygon points="570,240 600,200 630,240" fill="none" stroke="#f8fafc" stroke-width="3"/>
+  <text x="600" y="280" text-anchor="middle" fill="#94a3b8" font-size="18" font-family="sans-serif">TITANIUM</text>
+  <!-- Bottom label -->
+  <text x="600" y="480" text-anchor="middle" fill="white" font-size="48" font-weight="bold" font-family="sans-serif">Snow Peak チタンマグ</text>
+  <text x="600" y="540" text-anchor="middle" fill="#94a3b8" font-size="28" font-family="sans-serif">チタンシングルマグ600 徹底レビュー</text>
+</svg>

@@ -454,5 +454,36 @@
         }
       }
     }
+    ,
+    {
+      "id": "product-017",
+      "name": "Snow Peak チタンシングルマグ600",
+      "category": "camp",
+      "asin": "B000AR4ZES",
+      "rakuten_keyword": "Snow Peak チタンシングルマグ 600 MG-042",
+      "a8_link": "https://px.a8.net/placeholder/product-017",
+      "image": "/images/products/snow-peak-titanium-mug-600.svg",
+      "tags": [
+        "キャンプ",
+        "Snow Peak",
+        "チタン",
+        "マグカップ",
+        "アウトドア"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/{asin}?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B000AR4ZES?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSnow%2520Peak%2520%25E3%2583%2581%25E3%2582%25BF%25E3%2583%25B3%25E3%2582%25B7%25E3%2583%25B3%25E3%2582%25B0%25E3%2583%25AB%25E3%2583%259E%25E3%2582%25B0%2520600%2520MG-042%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-017"
+        }
+      }
+    }
   ]
 }
