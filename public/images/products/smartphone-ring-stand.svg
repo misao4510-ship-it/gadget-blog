@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#bg)"/>
+  <!-- Ring base plate -->
+  <rect x="140" y="240" width="120" height="20" rx="5" fill="#64748b"/>
+  <!-- Ring stand arm -->
+  <rect x="194" y="180" width="12" height="65" rx="4" fill="#94a3b8"/>
+  <!-- Ring circle -->
+  <circle cx="200" cy="165" r="42" fill="none" stroke="#f59e0b" stroke-width="10"/>
+  <circle cx="200" cy="165" r="28" fill="#1e293b"/>
+  <!-- 360 text -->
+  <text x="200" y="172" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">360°</text>
+  <!-- Rotation arrows -->
+  <path d="M158 165 A42 42 0 0 1 200 123" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="6,4"/>
+  <polygon points="200,118 207,130 193,130" fill="#3b82f6"/>
+  <!-- Label -->
+  <text x="200" y="295" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="bold" fill="#f1f5f9" text-anchor="middle">スマホリング</text>
+  <text x="200" y="320" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">360度回転・落下防止</text>
+  <!-- Price tag -->
+  <rect x="148" y="340" width="104" height="30" rx="15" fill="#f59e0b"/>
+  <text x="200" y="361" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937" text-anchor="middle">¥499</text>
+</svg>

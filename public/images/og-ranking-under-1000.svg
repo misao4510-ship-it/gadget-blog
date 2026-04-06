@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e3a5f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="980" cy="120" r="180" fill="#1e40af" opacity="0.25"/>
+  <circle cx="1100" cy="500" r="120" fill="#0e7490" opacity="0.2"/>
+  <circle cx="80" cy="520" r="100" fill="#1e3a8a" opacity="0.3"/>
+  <!-- Gold accent bar -->
+  <rect x="80" y="160" width="8" height="140" rx="4" fill="url(#gold)"/>
+  <!-- Ranking badge -->
+  <rect x="80" y="80" width="200" height="48" rx="24" fill="url(#gold)"/>
+  <text x="180" y="113" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="800" fill="#1f2937" text-anchor="middle">¥1,000以下</text>
+  <!-- Main title -->
+  <text x="105" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="900" fill="#ffffff">おすすめ</text>
+  <text x="105" y="295" font-family="'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="900" fill="#ffffff">プチガジェット</text>
+  <!-- Ranking label -->
+  <text x="105" y="365" font-family="'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="900" fill="url(#gold)">ランキング TOP10</text>
+  <!-- Subtitle -->
+  <text x="105" y="430" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#94a3b8">2026年最新版 ｜ コスパ最強プチガジェット厳選</text>
+  <!-- Accent line -->
+  <rect x="80" y="455" width="600" height="3" rx="2" fill="url(#accent)" opacity="0.8"/>
+  <!-- Medal icons row -->
+  <text x="105" y="530" font-family="'Helvetica Neue', Arial, sans-serif" font-size="40">🥇</text>
+  <text x="165" y="530" font-family="'Helvetica Neue', Arial, sans-serif" font-size="40">🥈</text>
+  <text x="225" y="530" font-family="'Helvetica Neue', Arial, sans-serif" font-size="40">🥉</text>
+  <!-- Site badge -->
+  <rect x="900" y="560" width="220" height="44" rx="22" fill="#1e40af" opacity="0.8"/>
+  <text x="1010" y="588" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#93c5fd" text-anchor="middle">GadgetBlog</text>
+</svg>

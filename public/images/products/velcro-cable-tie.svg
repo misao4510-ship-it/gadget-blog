@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#1e293b" rx="20"/>
+  <rect x="60" y="170" width="280" height="30" rx="8" fill="#22c55e"/>
+  <rect x="60" y="215" width="280" height="30" rx="8" fill="#16a34a"/>
+  <rect x="60" y="260" width="280" height="30" rx="8" fill="#15803d"/>
+  <rect x="320" y="160" width="20" height="150" rx="5" fill="#4ade80"/>
+  <rect x="60" y="160" width="20" height="150" rx="5" fill="#4ade80"/>
+  <circle cx="340" cy="200" r="15" fill="#86efac"/>
+  <circle cx="340" cy="230" r="15" fill="#86efac"/>
+  <circle cx="340" cy="260" r="15" fill="#86efac"/>
+  <text x="200" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#f8fafc">ケーブルタイ</text>
+  <text x="200" y="148" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8">10本セット</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#22c55e">¥399</text>
+</svg>

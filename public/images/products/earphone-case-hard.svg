@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#1e293b" rx="20"/>
+  <rect x="80" y="120" width="240" height="180" rx="16" fill="#334155"/>
+  <rect x="80" y="120" width="240" height="90" rx="16" fill="#475569"/>
+  <rect x="80" y="205" width="240" height="6" fill="#1e293b"/>
+  <circle cx="200" cy="118" r="8" fill="#64748b"/>
+  <circle cx="200" cy="118" r="4" fill="#0f172a"/>
+  <circle cx="130" cy="180" r="25" fill="#0f172a" stroke="#64748b" stroke-width="3"/>
+  <circle cx="130" cy="180" r="12" fill="#1d4ed8"/>
+  <circle cx="270" cy="180" r="25" fill="#0f172a" stroke="#64748b" stroke-width="3"/>
+  <circle cx="270" cy="180" r="12" fill="#1d4ed8"/>
+  <path d="M155 180 Q200 150 245 180" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  <text x="200" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="bold" fill="#f8fafc">イヤホンケース</text>
+  <text x="200" y="94" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8">ハードタイプ</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#94a3b8">¥599</text>
+</svg>

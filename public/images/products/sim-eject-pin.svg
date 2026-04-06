@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#1e293b" rx="20"/>
+  <rect x="60" y="185" width="280" height="10" rx="5" fill="#94a3b8"/>
+  <rect x="60" y="200" width="280" height="10" rx="5" fill="#64748b"/>
+  <rect x="60" y="215" width="280" height="10" rx="5" fill="#94a3b8"/>
+  <rect x="60" y="230" width="280" height="10" rx="5" fill="#64748b"/>
+  <rect x="60" y="245" width="280" height="10" rx="5" fill="#94a3b8"/>
+  <circle cx="60" cy="190" r="15" fill="#cbd5e1"/>
+  <circle cx="60" cy="205" r="15" fill="#94a3b8"/>
+  <circle cx="60" cy="220" r="15" fill="#cbd5e1"/>
+  <circle cx="60" cy="235" r="15" fill="#94a3b8"/>
+  <circle cx="60" cy="250" r="15" fill="#cbd5e1"/>
+  <polygon points="340,190 360,200 340,210" fill="#e2e8f0"/>
+  <polygon points="340,205 360,215 340,225" fill="#e2e8f0"/>
+  <polygon points="340,220 360,230 340,240" fill="#e2e8f0"/>
+  <polygon points="340,235 360,245 340,255" fill="#e2e8f0"/>
+  <polygon points="340,250 360,260 340,270" fill="#e2e8f0"/>
+  <text x="200" y="110" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="bold" fill="#f8fafc">SIM取り出しピン</text>
+  <text x="200" y="138" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8">5本セット</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#f1f5f9">¥299</text>
+</svg>

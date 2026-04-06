@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#1e293b" rx="20"/>
+  <rect x="120" y="140" width="60" height="30" rx="4" fill="#64748b"/>
+  <rect x="135" y="125" width="30" height="20" rx="3" fill="#475569"/>
+  <rect x="140" y="170" width="20" height="30" rx="3" fill="#7c3aed"/>
+  <rect x="133" y="196" width="34" height="16" rx="4" fill="#6d28d9"/>
+  <rect x="175" y="140" width="60" height="30" rx="4" fill="#64748b"/>
+  <rect x="190" y="125" width="30" height="20" rx="3" fill="#475569"/>
+  <rect x="195" y="170" width="20" height="30" rx="3" fill="#7c3aed"/>
+  <rect x="188" y="196" width="34" height="16" rx="4" fill="#6d28d9"/>
+  <rect x="230" y="140" width="60" height="30" rx="4" fill="#64748b"/>
+  <rect x="245" y="125" width="30" height="20" rx="3" fill="#475569"/>
+  <rect x="250" y="170" width="20" height="30" rx="3" fill="#7c3aed"/>
+  <rect x="243" y="196" width="34" height="16" rx="4" fill="#6d28d9"/>
+  <text x="200" y="240" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#a78bfa">USB-A → USB-C</text>
+  <text x="200" y="60" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#f8fafc">USB変換アダプタ</text>
+  <text x="200" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#94a3b8">3個セット</text>
+  <text x="200" y="360" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#7c3aed">¥699</text>
+</svg>

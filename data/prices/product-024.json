@@ -1,0 +1,28 @@
+{
+  "product_id": "product-024",
+  "current": {
+    "amazon": {
+      "price": 699,
+      "url": "https://www.amazon.co.jp/dp/B07RSDMCLF?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-06"
+    },
+    "rakuten": {
+      "price": 780,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUSB-A+USB-C+%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%2F",
+      "in_stock": true,
+      "updated": "2026-04-06"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 699
+    }
+  },
+  "history": [
+    { "date": "2026-04-06", "amazon": 699, "rakuten": 780 },
+    { "date": "2026-04-05", "amazon": 699, "rakuten": 780 },
+    { "date": "2026-04-01", "amazon": 720, "rakuten": 800 },
+    { "date": "2026-03-25", "amazon": 720, "rakuten": 800 },
+    { "date": "2026-03-15", "amazon": 750, "rakuten": 820 }
+  ]
+}
