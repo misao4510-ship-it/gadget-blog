@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#BF0000"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="16" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <text x="600" y="200" text-anchor="middle" fill="white" font-family="sans-serif" font-size="88">🗓️</text>
+  <text x="600" y="320" text-anchor="middle" fill="white" font-family="sans-serif" font-size="56" font-weight="800">楽天セール 2026年版</text>
+  <text x="600" y="400" text-anchor="middle" fill="#ffcccc" font-family="sans-serif" font-size="30">年間カレンダー完全ガイド</text>
+  <text x="600" y="460" text-anchor="middle" fill="#ffaaaa" font-family="sans-serif" font-size="24">お買い物マラソン・スーパーSALE攻略</text>
+  <text x="600" y="530" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="20">📊 ガジェット価格比較ブログ</text>
+</svg>

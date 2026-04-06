@@ -9,7 +9,7 @@ const posts = defineCollection({
     publishDate: z.string(),
     category: z.string(),
     products: z.array(z.string()).default([]),
-    type: z.enum(['review', 'comparison', 'roundup', 'ranking']),
+    type: z.enum(['review', 'comparison', 'roundup', 'ranking', 'guide']),
     draft: z.boolean().default(false),
     ogImage: z.string().optional(),
   }),
