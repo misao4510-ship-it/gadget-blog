@@ -1,0 +1,513 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import productsData from '../../data/products.json';
+
+const products = productsData.products;
+
+// 価格帯をIDの数値から判定
+function getPriceRange(id: string): string {
+  const num = parseInt(id.replace('product-', ''), 10);
+  if (num >= 18 && num <= 27) return '1000';
+  if (num >= 28 && num <= 37) return '3000';
+  if (num >= 38 && num <= 47) return '5000';
+  if (num >= 48 && num <= 57) return '10000';
+  if (num >= 58 && num <= 67) return '30000';
+  return 'other';
+}
+
+const categoryLabels: Record<string, string> = {
+  'mobile-battery': 'モバイルバッテリー',
+  'usb-hub': 'USB-Cハブ',
+  'earphones': 'イヤホン',
+  'charger': '充電器',
+  'iphone-case': 'iPhoneケース',
+  'robot-vacuum': 'ロボット掃除機',
+  'air-purifier': '空気清浄機',
+  'electric-kettle': '電気ケトル',
+  'hair-dryer': 'ヘアドライヤー',
+  'circulator': 'サーキュレーター',
+  'smartwatch': 'スマートウォッチ',
+  'wireless-charger': 'ワイヤレス充電',
+  'monitor': 'モニター',
+  'keyboard': 'キーボード',
+  'portable-ssd': 'ポータブルSSD',
+  'camp': 'キャンプ用品',
+  'bluetooth-speaker': 'スピーカー',
+  'headphones': 'ヘッドホン',
+  'mouse': 'マウス',
+  'gaming-mouse': 'ゲーミングマウス',
+  'wifi-extender': 'Wi-Fi中継器',
+  'network': 'ネットワーク',
+  'stand': 'スタンド',
+  'light': 'ライト',
+  'storage': 'ストレージ',
+  'car-holder': 'カーホルダー',
+  'cable': 'ケーブル',
+  'waterproof': '防水グッズ',
+  'screen-protector': 'フィルム',
+  'smartphone-case': 'スマホケース',
+  'wireless-earbuds': 'ワイヤレスイヤホン',
+  'e-reader': '電子書籍リーダー',
+  'speaker': 'スピーカー',
+  'tablet': 'タブレット',
+  'stabilizer': 'スタビライザー',
+  'gadget-misc': 'ガジェット雑貨',
+};
+
+const allCategories = [...new Set(products.map(p => p.category))].sort();
+
+const productsWithMeta = products.map(p => ({
+  ...p,
+  priceRange: getPriceRange(p.id),
+  categoryLabel: categoryLabels[p.category] ?? p.category,
+}));
+---
+
+<BaseLayout
+  title="商品一覧"
+  description="全67商品を価格帯・カテゴリ・キーワードで絞り込み検索。Amazon・楽天の購入リンク付き。"
+>
+  <!-- Page Header -->
+  <section class="products-hero">
+    <div class="container">
+      <h1 class="products-hero__title">商品一覧</h1>
+      <p class="products-hero__lead">全{products.length}商品 — 価格帯・カテゴリ・キーワードで絞り込めます</p>
+    </div>
+  </section>
+
+  <!-- Filter / Search Bar -->
+  <section class="filter-bar">
+    <div class="container">
+      <!-- Search -->
+      <div class="filter-bar__search">
+        <span class="filter-bar__search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="商品名・タグで検索..."
+          class="filter-bar__input"
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Price Range Buttons -->
+      <div class="filter-bar__price">
+        <span class="filter-bar__label">価格帯</span>
+        <div class="price-buttons">
+          <button class="price-btn active" data-price="all">すべて</button>
+          <button class="price-btn" data-price="1000">〜1,000円</button>
+          <button class="price-btn" data-price="3000">〜3,000円</button>
+          <button class="price-btn" data-price="5000">〜5,000円</button>
+          <button class="price-btn" data-price="10000">〜1万円</button>
+          <button class="price-btn" data-price="30000">〜3万円</button>
+        </div>
+      </div>
+
+      <!-- Category Dropdown -->
+      <div class="filter-bar__category">
+        <span class="filter-bar__label">カテゴリ</span>
+        <select id="categorySelect" class="filter-bar__select">
+          <option value="all">全カテゴリ</option>
+          {allCategories.map(cat => (
+            <option value={cat}>{categoryLabels[cat] ?? cat}</option>
+          ))}
+        </select>
+      </div>
+
+      <!-- Result Count -->
+      <div class="filter-bar__count">
+        <span id="resultCount">{products.length}</span>件表示
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-grid" id="productsGrid">
+        {productsWithMeta.map(product => (
+          <article
+            class="product-card"
+            data-price={product.priceRange}
+            data-category={product.category}
+            data-name={product.name.toLowerCase()}
+            data-tags={product.tags.join(' ').toLowerCase()}
+          >
+            <div class="product-card__image-wrap">
+              <img
+                src={product.image}
+                alt={product.name}
+                class="product-card__image"
+                width="240"
+                height="160"
+                loading="lazy"
+              />
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__meta">
+                <span class="badge badge--category">{product.categoryLabel}</span>
+              </div>
+              <h2 class="product-card__title">{product.name}</h2>
+              <div class="product-card__tags">
+                {product.tags.slice(0, 3).map((tag: string) => (
+                  <span class="product-tag">{tag}</span>
+                ))}
+              </div>
+              <div class="product-card__buttons">
+                <a
+                  href={product.affiliate_links.amazon.url}
+                  class="buy-btn buy-btn--amazon"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  <span class="buy-btn__icon">🛒</span> Amazon
+                </a>
+                <a
+                  href={product.affiliate_links.rakuten.url}
+                  class="buy-btn buy-btn--rakuten"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  <span class="buy-btn__icon">🛍️</span> 楽天
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Empty State -->
+      <div class="no-results" id="noResults" style="display:none;">
+        <p>条件に合う商品が見つかりませんでした。</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  (function () {
+    const grid = document.getElementById('productsGrid') as HTMLElement;
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('.product-card'));
+    const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+    const categorySelect = document.getElementById('categorySelect') as HTMLSelectElement;
+    const priceButtons = document.querySelectorAll<HTMLButtonElement>('.price-btn');
+    const resultCount = document.getElementById('resultCount') as HTMLElement;
+    const noResults = document.getElementById('noResults') as HTMLElement;
+
+    let currentPrice = 'all';
+    let currentCategory = 'all';
+    let currentQuery = '';
+
+    function applyFilters() {
+      let visible = 0;
+      cards.forEach(card => {
+        const price = card.dataset.price ?? '';
+        const category = card.dataset.category ?? '';
+        const name = card.dataset.name ?? '';
+        const tags = card.dataset.tags ?? '';
+
+        const matchPrice = currentPrice === 'all' || price === currentPrice;
+        const matchCategory = currentCategory === 'all' || category === currentCategory;
+        const matchQuery = currentQuery === '' ||
+          name.includes(currentQuery) || tags.includes(currentQuery);
+
+        if (matchPrice && matchCategory && matchQuery) {
+          card.style.display = '';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      resultCount.textContent = String(visible);
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    priceButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        priceButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPrice = btn.dataset.price ?? 'all';
+        applyFilters();
+      });
+    });
+
+    categorySelect.addEventListener('change', () => {
+      currentCategory = categorySelect.value;
+      applyFilters();
+    });
+
+    let searchTimer: ReturnType<typeof setTimeout>;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        currentQuery = searchInput.value.toLowerCase().trim();
+        applyFilters();
+      }, 120);
+    });
+  })();
+</script>
+
+<style>
+  /* ===== Hero ===== */
+  .products-hero {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    color: white;
+    padding: 3rem 0 2.5rem;
+  }
+  .products-hero__title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: .5rem;
+  }
+  .products-hero__lead {
+    font-size: 1rem;
+    color: #bfdbfe;
+    margin: 0;
+  }
+
+  /* ===== Filter Bar ===== */
+  .filter-bar {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.25rem 0;
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+    box-shadow: 0 2px 8px rgba(0,50,100,.06);
+  }
+  @media (min-width: 640px) { .filter-bar { top: 64px; } }
+
+  .filter-bar .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .filter-bar__search {
+    position: relative;
+    flex: 1 1 220px;
+    min-width: 180px;
+  }
+  .filter-bar__search-icon {
+    position: absolute;
+    left: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: .9rem;
+    pointer-events: none;
+  }
+  .filter-bar__input {
+    width: 100%;
+    padding: .55rem .75rem .55rem 2.2rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: .9rem;
+    font-family: var(--font-body);
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    transition: border-color .15s, box-shadow .15s;
+    outline: none;
+  }
+  .filter-bar__input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0,158,243,.12);
+  }
+
+  .filter-bar__price,
+  .filter-bar__category {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+  }
+  .filter-bar__label {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .price-buttons { display: flex; gap: .35rem; flex-wrap: wrap; }
+  .price-btn {
+    padding: .35em .8em;
+    border: 1.5px solid var(--color-border);
+    border-radius: 99px;
+    background: var(--color-surface-raised);
+    color: var(--color-text-muted);
+    font-size: .8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .price-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+  .price-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+  }
+
+  .filter-bar__select {
+    padding: .45rem .9rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: .875rem;
+    font-family: var(--font-body);
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    cursor: pointer;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .filter-bar__select:focus { border-color: var(--color-primary); }
+
+  .filter-bar__count {
+    font-size: .85rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    margin-left: auto;
+  }
+  .filter-bar__count span {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1rem;
+  }
+
+  /* ===== Products Section ===== */
+  .products-section { padding: 2.5rem 0 4rem; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .products-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  }
+  @media (min-width: 960px) {
+    .products-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ===== Product Card ===== */
+  .product-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .22s ease, box-shadow .22s ease, opacity .2s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .product-card__image-wrap {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fc 100%);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+  }
+  .product-card__image {
+    width: 100%;
+    max-width: 160px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .product-card__body {
+    padding: .875rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .product-card__meta { display: flex; flex-wrap: wrap; gap: .3rem; }
+
+  .product-card__title {
+    font-size: .85rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem;
+    margin-top: auto;
+  }
+  .product-tag {
+    font-size: .7rem;
+    background: var(--color-tag-bg);
+    color: var(--color-tag-text);
+    padding: .15em .55em;
+    border-radius: 99px;
+    font-weight: 500;
+  }
+
+  .product-card__buttons {
+    display: flex;
+    gap: .4rem;
+    margin-top: .5rem;
+  }
+
+  .buy-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    padding: .45em .5em;
+    border-radius: var(--radius);
+    font-size: .78rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity .15s, transform .1s;
+    white-space: nowrap;
+  }
+  .buy-btn:hover { opacity: .88; transform: translateY(-1px); }
+  .buy-btn:active { transform: translateY(0); }
+  .buy-btn__icon { font-size: .85em; }
+
+  .buy-btn--amazon {
+    background: #ff9900;
+    color: #111;
+  }
+  .buy-btn--rakuten {
+    background: #bf0000;
+    color: white;
+  }
+
+  /* ===== No Results ===== */
+  .no-results {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+  }
+
+  /* ===== Badge override for small cards ===== */
+  .product-card .badge--category {
+    font-size: .65rem;
+    padding: .15em .55em;
+  }
+</style>
