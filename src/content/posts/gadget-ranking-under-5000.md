@@ -31,6 +31,8 @@ ogImage: /images/og-ranking-under-5000.svg
 
 iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット式ワイヤレスモバイルバッテリー。ワイヤレス充電（最大5W）に対応し、ケーブル不要でスマートに充電できます。薄型・軽量設計で、装着したままでも違和感なく使えるのが最大の魅力。USB-Cでの有線充電にも対応しています。
 
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09C4HXQZZ?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520MagGo%2520%25E3%2583%259E%25E3%2582%25B0%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%25E5%25BC%258F%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2F)
+
 | 項目 | 仕様 |
 |------|------|
 | 容量 | 5,000mAh |
@@ -44,8 +46,6 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 
 **おすすめポイント：** iPhoneの背面に貼り付けるだけで充電開始。外出先でケーブルを取り出す手間がゼロになります。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09C4HXQZZ?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520MagGo%2520%25E3%2583%259E%25E3%2582%25B0%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%25E5%25BC%258F%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2F)
-
 ---
 
 ## 第2位：Anker PowerCore Slim 10000
@@ -53,6 +53,8 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 **価格：3,990円**
 
 業界最薄クラスの薄型ボディに10,000mAhの大容量を詰め込んだAnkerのロングセラーモデル。USB-C入出力 + USB-A出力の2ポート搭載で、2台同時充電も可能。iPhoneを約2.5回、Android機種を約2回フル充電できます。毎日バッグに入れても苦にならない薄型・軽量設計が人気の秘密。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07YCF3KCK?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%2520Slim%252010000%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -67,8 +69,6 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 
 **おすすめポイント：** 毎日使うからこそ、薄さと軽さが重要。通勤・通学のお供に最適なモバイルバッテリーです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07YCF3KCK?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%2520Slim%252010000%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2F)
-
 ---
 
 ## 第3位：Baseus 65W GaN USB-C 急速充電器
@@ -76,6 +76,8 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 **価格：4,490円**
 
 次世代半導体GaN（窒化ガリウム）を採用し、従来比約40%小型化を実現した65W対応USB-C充電器。USB-C×1＋USB-A×1の2ポート搭載で、PC・スマホ・タブレットを同時充電可能。折り畳み式プラグで持ち運びにも便利。MacBook Airの充電器として使えるパワーをこの価格帯で実現。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09MBPYWMM?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBaseus%2520GaN%252065W%2520USB-C%2520%25E5%2585%2585%25E9%259B%25BB%25E5%2599%25A8%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -90,8 +92,6 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 
 **おすすめポイント：** MacBook Air・iPad・iPhoneを1個の充電器でまかなえる万能充電器。出張や旅行時の荷物を劇的に減らせます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09MBPYWMM?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBaseus%2520GaN%252065W%2520USB-C%2520%25E5%2585%2585%25E9%259B%25BB%25E5%2599%25A8%2F)
-
 ---
 
 ## 第4位：Anker Soundcore Life P2 Mini ワイヤレスイヤホン
@@ -99,6 +99,8 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 **価格：4,990円**
 
 最大10時間（ケース込み32時間）の超ロングバッテリーを誇るコスパ最強の完全ワイヤレスイヤホン。IPX5防水対応で、汗や雨を気にせず使える。低音強調のサウンドプロファイルと外音取り込み機能を搭載し、通勤・運動シーン両方で活躍。ゲーミングモードで低遅延再生も可能。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0C4XY73CS?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Life%2520P2%2520Mini%2520%25E3%2583%25AF%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25AC%25E3%2582%25B9%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%259B%25E3%2583%25B3%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -113,8 +115,6 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 
 **おすすめポイント：** 5,000円以下でこの音質・バッテリー性能は驚異的。防水対応でアウトドアにも安心して持ち出せます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0C4XY73CS?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Life%2520P2%2520Mini%2520%25E3%2583%25AF%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25AC%25E3%2582%25B9%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%259B%25E3%2583%25B3%2F)
-
 ---
 
 ## 第5位：Anker 5-in-1 USB-C ハブ (A8338)
@@ -122,6 +122,8 @@ iPhone 12以降のMagSafe対応機種にそのままくっつくマグネット�
 **価格：3,490円**
 
 USB-C接続で使える5in1マルチポートハブ。4K対応HDMI・USB 3.0×2ポート・SDカード・microSDカードスロットを1台に集約。MacBook・ChromeBook・iPad Proなど、ポートが少ないデバイスを一気に拡張できます。バスパワー駆動でシンプルに使えるコンパクト設計。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07ZSG2XJD?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520USB-C%2520%25E3%2583%258F%25E3%2583%2596%25205in1%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -136,8 +138,6 @@ USB-C接続で使える5in1マルチポートハブ。4K対応HDMI・USB 3.0×2�
 
 **おすすめポイント：** USBポートが少ないMacBookユーザーに必須アイテム。出張先やカフェでも手軽に使えるコンパクトサイズです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07ZSG2XJD?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520USB-C%2520%25E3%2583%258F%25E3%2583%2596%25205in1%2F)
-
 ---
 
 ## 第6位：Anker PowerLine III Flow USB-C to USB-C ケーブル 1.8m
@@ -145,6 +145,8 @@ USB-C接続で使える5in1マルチポートハブ。4K対応HDMI・USB 3.0×2�
 **価格：3,490円**
 
 独自の「シリコン素材」を採用し、ゴムのようなしなやかな質感が特徴のプレミアムケーブル。100W対応で高速充電に対応しながら、からまりにくく取り扱いやすい。1.8mの余裕ある長さで、コンセントが遠い場所でも使いやすい。USB 2.0（480Mbps）のデータ転送にも対応。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09C5NSLT8?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerLine%2520III%2520Flow%2520USB-C%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -159,8 +161,6 @@ USB-C接続で使える5in1マルチポートハブ。4K対応HDMI・USB 3.0×2�
 
 **おすすめポイント：** 普通のケーブルと比べてからまりにくく、手触りも良いのが最高。長く使えるプレミアムケーブルです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09C5NSLT8?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerLine%2520III%2520Flow%2520USB-C%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%2F)
-
 ---
 
 ## 第7位：Spigen iPhone 15 Pro ガラスフィルム EZ Fit (2枚入り)
@@ -168,6 +168,8 @@ USB-C接続で使える5in1マルチポートハブ。4K対応HDMI・USB 3.0×2�
 **価格：3,480円**
 
 専用ガイド枠で誰でも簡単に気泡なしで貼れる「EZ Fit」シリーズのガラスフィルム。硬度9Hの強化ガラス採用で傷・衝撃をしっかりガード。2枚セットなので失敗しても安心。タッチ感度を損なわず、ケースとの干渉も最小限に設計されています。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0CF7LFSGG?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSpigen%2520iPhone15%2520Pro%2520%25E3%2582%25AC%25E3%2583%25A9%25E3%2582%25B9%25E3%2583%2595%25E3%2582%25A3%25E3%2583%25AB%25E3%2583%25A0%2520EZ%2520Fit%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -182,8 +184,6 @@ USB-C接続で使える5in1マルチポートハブ。4K対応HDMI・USB 3.0×2�
 
 **おすすめポイント：** ガイド枠のおかげで初めての人でもまっすぐ貼れます。2枚入りで万が一の際も安心。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0CF7LFSGG?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSpigen%2520iPhone15%2520Pro%2520%25E3%2582%25AC%25E3%2583%25A9%25E3%2582%25B9%25E3%2583%2595%25E3%2582%25A3%25E3%2583%25AB%25E3%2583%25A0%2520EZ%2520Fit%2F)
-
 ---
 
 ## 第8位：UGREEN USB3.0 ハブ 4ポート
@@ -191,6 +191,8 @@ USB-C接続で使える5in1マルチポートハブ。4K対応HDMI・USB 3.0×2�
 **価格：3,290円**
 
 USB 3.0対応の4ポートハブ。5Gbpsの高速データ転送でUSBメモリ・外付けHDD・マウスなどをまとめて接続できます。コンパクトな筐体ながら各ポートに個別LED表示付き。バスパワー駆動でデスクやノートPCを手軽に拡張できます。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07WKFLPGZ?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520USB3.0%2520%25E3%2583%258F%25E3%2583%2596%25204%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -205,8 +207,6 @@ USB 3.0対応の4ポートハブ。5Gbpsの高速データ転送でUSBメモリ�
 
 **おすすめポイント：** USBポートが足りないときの定番解決策。デスクに置いてマウス・USBメモリ・外付けSSDをまとめて管理できます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07WKFLPGZ?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520USB3.0%2520%25E3%2583%258F%25E3%2583%2596%25204%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2F)
-
 ---
 
 ## 第9位：ESR iPhone 15 HaloLock Magnetic Case
@@ -214,6 +214,8 @@ USB 3.0対応の4ポートハブ。5Gbpsの高速データ転送でUSBメモリ�
 **価格：3,280円**
 
 MagSafe対応の強力マグネット内蔵スマホケース。MagSafe充電器・カーマウント・ウォレットとの磁力吸着をしっかりサポートしながら、軍用グレードMIL-STD-810Gに相当する耐衝撃性能を発揮。薄型・軽量でポケットへの収まりも◎。クリアタイプは本体カラーを活かしたデザイン。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0CH5QKJML?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FESR%2520iPhone15%2520%25E3%2583%259E%25E3%2582%25B0%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9%2520HaloLock%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -228,8 +230,6 @@ MagSafe対応の強力マグネット内蔵スマホケース。MagSafe充電器
 
 **おすすめポイント：** MagSafe対応でありながら手頃な価格。純正ケースに近い薄さと軽さを維持しています。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0CH5QKJML?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FESR%2520iPhone15%2520%25E3%2583%259E%25E3%2582%25B0%25E3%2583%258D%25E3%2583%2583%25E3%2583%2588%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9%2520HaloLock%2F)
-
 ---
 
 ## 第10位：UGREEN 100W USB-C to USB-C ケーブル 2m
@@ -237,6 +237,8 @@ MagSafe対応の強力マグネット内蔵スマホケース。MagSafe充電器
 **価格：3,290円**
 
 100W対応の高出力USB-Cケーブル2m。ノートPCからスマホまで幅広い機器の急速充電に対応。ナイロン編みの外皮で耐久性が高く、絡まりにくい。2mの長さがあるので、コンセントから離れたベッドサイドやソファでも余裕を持って使用可能。
+
+[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B08L7Y4VP9?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520USB-C%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%2520100W%25202m%2F)
 
 | 項目 | 仕様 |
 |------|------|
@@ -250,8 +252,6 @@ MagSafe対応の強力マグネット内蔵スマホケース。MagSafe充電器
 | 価格帯 | 3,000〜3,800円 |
 
 **おすすめポイント：** PC充電にも使える100W対応で汎用性抜群。2mの長さは「ちょっと足りない」場面を解消してくれます。
-
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B08L7Y4VP9?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520USB-C%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%2520100W%25202m%2F)
 
 ---
 
