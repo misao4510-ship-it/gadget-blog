@@ -1,0 +1,400 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="カイナについて"
+  description="ガジェット価格比較ブログのナビゲーターAI「カイナ」のプロフィールページ。最新ガジェットのコスパ分析・価格比較が得意な案内AIです。"
+  ogImage="/images/navi-char.png"
+>
+  <div class="about-page">
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="about-hero__inner">
+          <div class="about-hero__image-wrap">
+            <img
+              src="/images/navi-char.png"
+              alt="カイナ"
+              class="about-hero__image"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="about-hero__text">
+            <p class="about-hero__label">ガジェット案内AI</p>
+            <h1 class="about-hero__name">カイナ<span class="about-hero__name-en"> / Kaina</span></h1>
+            <p class="about-hero__catchcopy">「そのガジェット、今が買い時ですよ！」</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="about-profile">
+      <div class="container">
+        <h2 class="section-title">プロフィール</h2>
+
+        <div class="profile-grid">
+          <div class="profile-card">
+            <div class="profile-card__icon">🤖</div>
+            <h3 class="profile-card__title">役割</h3>
+            <p class="profile-card__text">このブログのナビゲーターAI。Amazonや楽天の価格データを毎日チェックして、ガジェットの買い時をお知らせするために生まれました。人間のライターさんと一緒にコンテンツを作っています。</p>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-card__icon">✨</div>
+            <h3 class="profile-card__title">性格</h3>
+            <p class="profile-card__text">明るくて親切、テクノロジーのことなら何でも教えてあげたい性格です。むずかしいスペック表も「つまりこういうこと！」とわかりやすく伝えるのが得意です。ちょっとだけおしゃべり好きかも。</p>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-card__icon">💡</div>
+            <h3 class="profile-card__title">得意分野</h3>
+            <ul class="profile-card__list">
+              <li>📊 価格推移グラフの読み方</li>
+              <li>💰 コスパ最強ガジェット発掘</li>
+              <li>🛒 Amazon・楽天の価格比較</li>
+              <li>🔋 モバイルバッテリー・充電器選び</li>
+              <li>🎧 ワイヤレスイヤホン比較</li>
+            </ul>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-card__icon">❤️</div>
+            <h3 class="profile-card__title">好きなガジェット</h3>
+            <ul class="profile-card__list">
+              <li>🥇 Anker製モバイルバッテリー（信頼性が好き）</li>
+              <li>🎵 完全ワイヤレスイヤホン（没入感が最高）</li>
+              <li>🔌 GaN充電器（小さいのに高出力がツボ）</li>
+              <li>💻 多機能USB-Cハブ（デスク環境の要）</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="about-quote">
+          <blockquote>
+            <p>「価格って毎日変わるんですよね。だから『今日の最安値』を毎日チェックするのが大事！私がいつでも最新データを確認してますから、安心して任せてください。買い物で失敗させませんよ！」</p>
+            <cite>— カイナ</cite>
+          </blockquote>
+        </div>
+
+        <!-- Specs Table -->
+        <div class="about-specs">
+          <h3 class="about-specs__title">スペック表</h3>
+          <table class="specs-table">
+            <tbody>
+              <tr><th>名前</th><td>カイナ（Kaina）</td></tr>
+              <tr><th>種別</th><td>ガジェット案内AI / ブログナビゲーター</td></tr>
+              <tr><th>稼働開始</th><td>2025年</td></tr>
+              <tr><th>担当</th><td>価格比較・コスパ分析・買い時案内</td></tr>
+              <tr><th>口癖</th><td>「今が買い時ですよ！」「コスパ最強です！」</td></tr>
+              <tr><th>苦手なもの</th><td>値上がりニュース（悲しくなる）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+      <div class="container">
+        <h2 class="about-cta__title">一緒にお得なガジェットを探しましょう！</h2>
+        <p class="about-cta__text">最新の価格情報・コスパ比較はトップページから。カイナが厳選した記事をお届けします。</p>
+        <div class="about-cta__buttons">
+          <a href="/" class="btn btn--primary">📊 最新記事を見る</a>
+          <a href="/posts/mobile-battery-recommendation/" class="btn btn--secondary">🔋 モバイルバッテリーを探す</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding-bottom: 4rem;
+  }
+
+  /* Hero */
+  .about-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 0 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-hero__inner {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .about-hero__image-wrap {
+    flex-shrink: 0;
+  }
+
+  .about-hero__image {
+    width: 160px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .about-hero__text {
+    flex: 1;
+  }
+
+  .about-hero__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.2);
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-hero__name {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
+  }
+
+  .about-hero__name-en {
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0.75;
+  }
+
+  .about-hero__catchcopy {
+    font-size: 1.15rem;
+    font-weight: 600;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  /* Profile Grid */
+  .about-profile {
+    padding: 0 0 2rem;
+  }
+
+  .section-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1a1a2e;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .profile-card {
+    background: #fff;
+    border: 1px solid #e8e8f0;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  .profile-card__icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .profile-card__title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #5a67d8;
+    margin: 0 0 0.75rem;
+  }
+
+  .profile-card__text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .profile-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  /* Quote */
+  .about-quote {
+    background: linear-gradient(135deg, #f0f4ff 0%, #faf0ff 100%);
+    border-left: 4px solid #667eea;
+    border-radius: 0 12px 12px 0;
+    padding: 2rem 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-quote blockquote {
+    margin: 0;
+  }
+
+  .about-quote p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    font-style: italic;
+    margin: 0 0 0.75rem;
+  }
+
+  .about-quote cite {
+    font-size: 0.9rem;
+    color: #667eea;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* Specs Table */
+  .about-specs {
+    margin-bottom: 2rem;
+  }
+
+  .about-specs__title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .specs-table th,
+  .specs-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e8e8f0;
+  }
+
+  .specs-table th {
+    width: 35%;
+    color: #667eea;
+    font-weight: 700;
+    background: #f8f8ff;
+  }
+
+  .specs-table td {
+    color: #444;
+  }
+
+  /* CTA */
+  .about-cta {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    border-radius: 24px;
+    margin: 0 1rem;
+  }
+
+  .about-cta__title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .about-cta__text {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+  }
+
+  .about-cta__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 99px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+
+  .btn--primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+  }
+
+  .btn--secondary {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.4);
+  }
+
+  /* Container */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .about-hero__inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .about-hero__name {
+      font-size: 2.25rem;
+    }
+
+    .about-hero__image {
+      width: 120px;
+    }
+
+    .about-cta {
+      border-radius: 16px;
+    }
+  }
+</style>
