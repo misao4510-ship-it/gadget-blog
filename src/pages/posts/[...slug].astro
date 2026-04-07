@@ -141,18 +141,6 @@ const categoryLabels: Record<string, string> = {
           {/* === Navi character (fixed bottom-right) === */}
           <NaviChar />
         </div>
-
-        <!-- Right sidebar: PV counter -->
-        <aside class="article-layout__pv" id="pv-sidebar">
-          <div class="pv-widget">
-            <div class="pv-widget__header">
-              <span>📊</span>
-              <span class="pv-widget__title">閲覧統計</span>
-            </div>
-            <div id="pv-display" class="pv-widget__count">計測中…</div>
-            <p class="pv-widget__label">累計ページビュー</p>
-          </div>
-        </aside>
       </div>
     </div>
   </article>
@@ -221,40 +209,20 @@ const categoryLabels: Record<string, string> = {
   /* ===== 3-column layout ===== */
   .article-layout {
     display: grid;
-    grid-template-columns: 240px 1fr 200px;
+    grid-template-columns: 240px 1fr;
     gap: 2rem;
     align-items: start;
     padding: 2rem 0 4rem;
   }
   .article-layout__toc { align-self: start; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
   .article-layout__main { min-width: 0; }
-  .article-layout__pv { position: sticky; top: 80px; }
-
-  .pv-widget {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 1.25rem;
-    text-align: center;
-  }
-  .pv-widget__header {
-    display: flex; align-items: center; justify-content: center; gap: .4rem;
-    font-weight: 700; font-size: .9rem; margin-bottom: .75rem;
-    padding-bottom: .625rem; border-bottom: 2px solid var(--color-primary-light);
-  }
-  .pv-widget__title { color: var(--color-text); }
-  .pv-widget__count {
-    font-size: 2rem; font-weight: 800; color: var(--color-primary);
-    line-height: 1.2; margin: .5rem 0 .25rem;
-  }
-  .pv-widget__label { font-size: .75rem; color: var(--color-text-muted); margin: 0; }
 
   .article-layout .article__inner { padding-top: 0; }
 
-  /* Tablet: 2-column */
+  /* Tablet: narrow */
   @media (max-width: 1100px) {
     .article-layout {
-      grid-template-columns: 1fr 180px;
+      grid-template-columns: 200px 1fr;
       gap: 1.5rem;
     }
   }
@@ -268,10 +236,6 @@ const categoryLabels: Record<string, string> = {
     }
     .article-layout__toc {
       order: -1;
-    }
-    .article-layout__pv {
-      position: static;
-      order: 10;
     }
   }
 </style>
