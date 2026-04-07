@@ -2107,6 +2107,38 @@
         }
       },
       "image_url": "https://m.media-amazon.com/images/I/61example-bambu-a1-mini.jpg"
+    },
+    {
+      "id": "product-072",
+      "name": "Amazonベーシック 乾電池 単3形 アルカリ 20個セット",
+      "category": "gadget-misc",
+      "asin": "B00NTCH52W",
+      "rakuten_keyword": "アマゾンベーシック 単3 アルカリ電池 20本",
+      "a8_link": "https://px.a8.net/placeholder/product-072",
+      "image": "/images/products/amazon-basics-aa-battery.svg",
+      "tags": [
+        "電池",
+        "アルカリ電池",
+        "単3",
+        "Amazonベーシック",
+        "備蓄",
+        "コスパ"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://amzn.to/47JsGpU",
+          "url": "https://amzn.to/47JsGpU"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAmazon%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%2583%25E3%2582%25AF%2520%25E5%258D%2598%25E4%25B8%2589%2520%25E3%2582%25A2%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA%2520%25E4%25B9%25BE%25E9%259B%25BB%25E6%25B1%25A0%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-072"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71a4GiqMWoL._AC_SL1500_.jpg"
     }
   ]
 }
