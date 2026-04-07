@@ -207,4 +207,86 @@ main { min-height: 60vh; padding: 0; }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb { background: #c0cad8; border-radius: 3px; }
+
+/* ===== CTA 購入ボタン ===== */
+.btn-amazon {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff9900, #ff7700);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: .7rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  box-shadow: 0 3px 10px rgba(255,119,0,.35);
+  transition: transform .15s, box-shadow .15s;
+  margin: .3rem .4rem .3rem 0;
+}
+.btn-amazon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255,119,0,.45);
+}
+.btn-rakuten {
+  display: inline-block;
+  background: linear-gradient(135deg, #bf0000, #8b0000);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: .7rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  box-shadow: 0 3px 10px rgba(143,0,0,.35);
+  transition: transform .15s, box-shadow .15s;
+  margin: .3rem 0 .3rem 0;
+}
+.btn-rakuten:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(143,0,0,.45);
+}
+.btn-wrap { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; }
+
+/* ===== ランクバッジ（第1位〜第3位強調） ===== */
+.rank-1 { border-left: 5px solid #FFD700; padding-left: .8rem; }
+.rank-2 { border-left: 5px solid #C0C0C0; padding-left: .8rem; }
+.rank-3 { border-left: 5px solid #CD7F32; padding-left: .8rem; }
+
+/* ===== 人気・売れ筋バッジ ===== */
+.badge-popular {
+  display: inline-block;
+  background: #e53e3e;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: .15rem .55rem;
+  border-radius: 4px;
+  margin-right: .4rem;
+  vertical-align: middle;
+  letter-spacing: .04em;
+}
+.badge-recommended {
+  display: inline-block;
+  background: #ff9900;
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: .15rem .55rem;
+  border-radius: 4px;
+  margin-right: .4rem;
+  vertical-align: middle;
+  letter-spacing: .04em;
+}
+
+/* ===== 更新日・信頼バッジ ===== */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .8rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: .25rem .65rem;
+  margin-bottom: .5rem;
+}
 ::-webkit-scrollbar-thumb:hover { background: #9aaabb; }

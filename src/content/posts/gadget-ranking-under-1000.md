@@ -15,23 +15,16 @@ ogImage: /images/og-ranking-under-1000.svg
 
 スマホアクセサリーやPC周辺機器など、日常生活をちょっと便利にしてくれるアイテムを厳選しました。プレゼントにもぴったりな小物ばかりです。
 
-## TOP3サマリー
-
-| 順位 | 商品名 | 価格 | おすすめポイント |
-|------|--------|------|----------------|
-| 🥇 1位 | スマホリング 360度回転 | 499円 | 落下防止＋スタンド機能で超便利 |
-| 🥈 2位 | マジックテープ ケーブルタイ 10本セット | 399円 | デスク周りのケーブル整理に必須 |
-| 🥉 3位 | マイクロファイバークリーニングクロス 10枚 | 499円 | スマホ・メガネ・PCに毎日使える |
-
----
 
 ## 第1位：スマホリング 360度回転 フィンガーリング スタンド
+
+<span class="badge-popular">人気No.1</span>
 
 **価格：499円**
 
 スマホの背面に貼るだけで、落下防止と卓上スタンドが実現するフィンガーリング。360度回転・180度折りたたみで、縦置き・横置きどちらにも対応します。薄型設計なのでポケットへの収まりも良く、毎日使えるコスパ最高アイテムです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07WZKCB27?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%259B%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0+360%25E5%25BA%25A6%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07WZKCB27?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%259B%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0+360%25E5%25BA%25A6%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -50,11 +43,13 @@ ogImage: /images/og-ranking-under-1000.svg
 
 ## 第2位：マジックテープ ケーブルタイ 10本セット
 
+<span class="badge-recommended">おすすめ</span>
+
 **価格：399円**
 
 繰り返し使えるベルクロ素材のケーブルタイ。充電ケーブル・USBケーブル・イヤホンコードなど、デスク周りやバッグの中のケーブルをすっきりまとめられます。切って長さ調整もでき、10本セットでコスパ抜群です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07QDK8GJD?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%259E%25E3%2582%25B8%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2597+%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E3%2582%25BF%25E3%2582%25A4%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07QDK8GJD?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%259E%25E3%2582%25B8%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2597+%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E3%2582%25BF%25E3%2582%25A4%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -73,11 +68,13 @@ ogImage: /images/og-ranking-under-1000.svg
 
 ## 第3位：マイクロファイバークリーニングクロス 10枚セット
 
+<span class="badge-recommended">コスパ抜群</span>
+
 **価格：499円**
 
 スマホ・タブレット・メガネ・PCモニターの拭き取りに最適なマイクロファイバークロス。超極細繊維が汚れや皮脂を絡め取り、キズをつけずにピカピカに。洗濯して何度でも使えるエコなアイテムです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07BK2KWTQ?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%259E%25E3%2582%25A4%25E3%2582%25AF%25E3%2583%25AD%25E3%2583%2595%25E3%2582%25A1%25E3%2582%25A4%25E3%2583%2590%25E3%2583%25BC+%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%258B%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25AF%25E3%2583%25AD%25E3%2582%25B9%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07BK2KWTQ?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%259E%25E3%2582%25A4%25E3%2582%25AF%25E3%2583%25AD%25E3%2583%2595%25E3%2582%25A1%25E3%2582%25A4%25E3%2583%2590%25E3%2583%25BC+%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%258B%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25AF%25E3%2583%25AD%25E3%2582%25B9%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -99,7 +96,7 @@ ogImage: /images/og-ranking-under-1000.svg
 
 スマートフォンのSIMトレイを取り出すためのイジェクトピン。ペーパークリップで代用している方も多いですが、専用品は形状が最適化されているため圧倒的に使いやすいです。紛失しがちなので5本セットがベスト。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07F1VL8BT?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSIM%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589+%25E5%258F%2596%25E3%2582%258A%25E5%2587%25BA%25E3%2581%2597%25E3%2583%2594%25E3%2583%25B3%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07F1VL8BT?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSIM%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589+%25E5%258F%2596%25E3%2582%258A%25E5%2587%25BA%25E3%2581%2597%25E3%2583%2594%25E3%2583%25B3%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -121,7 +118,7 @@ ogImage: /images/og-ranking-under-1000.svg
 
 アルミ合金製の卓上スマホスタンド。角度調整が可能で、動画視聴・ビデオ通話・料理レシピ確認などに大活躍。折りたたんでコンパクトになるので出張や旅行にも持ち運べます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07HZLHPKQ?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%25BC%25E3%2583%2588%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25B3+%25E5%258D%25931%25E4%25B8%258A%25E3%2582%25B9%25E3%2582%25BF%25E3%2583%25B3%25E3%2583%2589%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07HZLHPKQ?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%25BC%25E3%2583%2588%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25B3+%25E5%258D%25931%25E4%25B8%258A%25E3%2582%25B9%25E3%2582%25BF%25E3%2583%25B3%25E3%2583%2589%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -144,7 +141,7 @@ ogImage: /images/og-ranking-under-1000.svg
 
 デスクの端に挟んで使えるシリコン製ケーブルクリップ。充電ケーブルが机の端から落ちてしまう問題を解決します。柔らかいシリコン素材で机に傷をつけず、複数本のケーブルをまとめて保持できます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07G3HXMNN?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B7%25E3%2583%25AA%25E3%2582%25B3%25E3%2583%25B3+%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%2583%25E3%2583%2597%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07G3HXMNN?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B7%25E3%2583%25AA%25E3%2582%25B3%25E3%2583%25B3+%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%2583%25E3%2583%2597%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -166,7 +163,7 @@ ogImage: /images/og-ranking-under-1000.svg
 
 USB-AポートをUSB-Cに変換するアダプタ3個セット。古いPCやカーチャージャーでUSB-Cデバイスを充電できるようになります。コンパクトで目立たず、複数個あると家・職場・車と置いておけて便利です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07RSDMCLF?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUSB-A+USB-C+%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07RSDMCLF?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUSB-A+USB-C+%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -189,7 +186,7 @@ USB-AポートをUSB-Cに変換するアダプタ3個セット。古いPCやカ�
 
 スマートフォンのカメラに後付けできるクリップ式広角レンズ。通常の1.5〜2倍広い画角で撮影でき、風景写真やグループ自撮りに最適。ユニバーサルクリップで全スマホ対応です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07M8TNWBD?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%259B+%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%2583%25E3%2583%2597%25E5%25BC%258F+%25E5%25BA%2583%25E8%25A7%2592%25E3%2583%25AC%25E3%2583%25B3%25E3%2582%25BA%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07M8TNWBD?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%259B+%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%2583%25E3%2583%2597%25E5%25BC%258F+%25E5%25BA%2583%25E8%25A7%2592%25E3%2583%25AC%25E3%2583%25B3%25E3%2582%25BA%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -212,7 +209,7 @@ USB-AポートをUSB-Cに変換するアダプタ3個セット。古いPCやカ�
 
 ワイヤレスイヤホンやケーブル付きイヤホンをコンパクトに収納できるハードケース。衝撃から守り、バッグの中でからまるストレスを解消。メッシュポケット付きで小物類もまとめて収納できます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B08PJ9TKWQ?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%259B%25E3%2583%25B3+%25E5%258F%258E%25E7%25B4%258D%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9+%25E3%2583%258F%25E3%2583%25BC%25E3%2583%2589%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B08PJ9TKWQ?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%259B%25E3%2583%25B3+%25E5%258F%258E%25E7%25B4%258D%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9+%25E3%2583%258F%25E3%2583%25BC%25E3%2583%2589%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -234,7 +231,7 @@ USB-AポートをUSB-Cに変換するアダプタ3個セット。古いPCやカ�
 
 一般的な三脚のネジ穴に取り付けられるスマホアダプター。クリップ式で幅広いスマホに対応し、三脚・自撮り棒・フレキシブルアームなどに装着できます。動画撮影・タイムラプス・ライブ配信に最適。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07TTJQHPD?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%2583%25E3%2583%2588%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25B3+%25E4%25B8%2589%25E8%2584%259A%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07TTJQHPD?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%2583%25E3%2583%2588%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25B3+%25E4%25B8%2589%25E8%2584%259A%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|

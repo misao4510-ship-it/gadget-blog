@@ -15,23 +15,16 @@ ogImage: /images/og-ranking-under-3000.svg
 
 充電器・ハブ・ワイヤレス充電など、日常生活の利便性を大きくアップしてくれる実用アイテムを厳選しました。品質と価格のバランスが絶妙なものばかりです。
 
-## TOP3サマリー
-
-| 順位 | 商品名 | 価格 | おすすめポイント |
-|------|--------|------|----------------|
-| 🥇 1位 | Anker 332 USB-C ハブ 5-in-1 | 2,499円 | コンパクトで5ポート搭載、テレワークに最適 |
-| 🥈 2位 | 折りたたみアルミスマホ・タブレットスタンド | 2,490円 | 高さ・角度調整可能で安定感抜群 |
-| 🥉 3位 | Anker 511 Charger (Nano 3) 30W | 2,299円 | 最小クラスの急速充電器、旅行に最適 |
-
----
 
 ## 第1位：Anker 332 USB-C ハブ (5-in-1)
+
+<span class="badge-popular">人気No.1</span>
 
 **価格：2,499円**
 
 ノートPCのUSB-Cポートを一気に拡張できる5-in-1ハブ。4K HDMIミラーリング、USB-A×2、USB-C（データ転送）、microSD/SDカードスロットを搭載。コンパクトながら在宅ワークの必需品です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09B871XHF?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+USB-C+%E3%83%8F%E3%83%96+5in1%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B09B871XHF?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+USB-C+%E3%83%8F%E3%83%96+5in1%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -50,11 +43,13 @@ ogImage: /images/og-ranking-under-3000.svg
 
 ## 第2位：折りたたみスマホ・タブレットスタンド アルミ製
 
+<span class="badge-recommended">おすすめ</span>
+
 **価格：2,490円**
 
 無段階に高さと角度を調整できるアルミ合金製スタンド。スマホからタブレット・小型ノートPCまで幅広く対応。折りたたみ式でコンパクトになり、バッグに入れて持ち歩けます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B082Q59VK3?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E6%8A%98%E3%82%8A%E3%81%9F%E3%81%9F%E3%81%BF+%E3%82%B9%E3%83%9E%E3%83%9B%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89+%E3%82%A2%E3%83%AB%E3%83%9F%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B082Q59VK3?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E6%8A%98%E3%82%8A%E3%81%9F%E3%81%9F%E3%81%BF+%E3%82%B9%E3%83%9E%E3%83%9B%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89+%E3%82%A2%E3%83%AB%E3%83%9F%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -73,11 +68,13 @@ ogImage: /images/og-ranking-under-3000.svg
 
 ## 第3位：Anker 511 Charger (Nano 3) 30W
 
+<span class="badge-recommended">コスパ抜群</span>
+
 **価格：2,299円**
 
 500円玉サイズながら最大30W出力を実現するAnkerの超小型充電器。USB-Cポート1つで、スマートフォン・タブレット・MacBookの急速充電に対応。折りたたみ式プラグで鞄の中でもかさばりません。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0BJ14P8WM?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+511+%E5%85%85%E9%9B%BB%E5%99%A8+30W%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B0BJ14P8WM?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+511+%E5%85%85%E9%9B%BB%E5%99%A8+30W%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -100,7 +97,7 @@ ogImage: /images/og-ranking-under-3000.svg
 
 本やデスクに挟んで使えるUSB充電式LEDライト。3段階の明るさ調整と色温度切り替え（白色・暖色・自然色）に対応。折り曲げ可能なアームで角度を自由に調整でき、夜間読書や作業に最適です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07GKPGGKM?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E5%BC%8F+LED%E3%83%A9%E3%82%A4%E3%83%88+USB%E5%85%85%E9%9B%BB%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07GKPGGKM?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E5%BC%8F+LED%E3%83%A9%E3%82%A4%E3%83%88+USB%E5%85%85%E9%9B%BB%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -123,7 +120,7 @@ ogImage: /images/og-ranking-under-3000.svg
 
 Qiワイヤレス充電に対応したAnkerの充電パッド。最大10W出力でAndroidを、7.5WでiPhone（MagSafe非対応）を高速充電。ケースをつけたまま充電でき、置くだけで充電が始まる快適さが魅力です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07TGM3WYL?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%AC%E3%82%B9%E5%85%85%E9%9B%BB+%E3%83%91%E3%83%83%E3%83%89%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07TGM3WYL?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%AC%E3%82%B9%E5%85%85%E9%9B%BB+%E3%83%91%E3%83%83%E3%83%89%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -146,7 +143,7 @@ Qiワイヤレス充電に対応したAnkerの充電パッド。最大10W出力�
 
 充電ケーブル・イヤホン・充電器・モバイルバッテリーをまとめて収納できる多機能ポーチ。EVA素材で衝撃に強く、内部は仕切りとメッシュポケットで整理しやすい設計。旅行や出張のガジェット管理に最適です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07Q2TZMN2?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB+%E5%8F%8E%E7%B4%8D+%E3%83%9D%E3%83%BC%E3%83%81+%E5%A4%9A%E6%A9%9F%E8%83%BD%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07Q2TZMN2?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB+%E5%8F%8E%E7%B4%8D+%E3%83%9D%E3%83%BC%E3%83%81+%E5%A4%9A%E6%A9%9F%E8%83%BD%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -169,7 +166,7 @@ Qiワイヤレス充電に対応したAnkerの充電パッド。最大10W出力�
 
 PD 3.0対応の20W USB-C充電器。iPhone・iPad・Androidスマートフォンの急速充電に対応し、折りたたみ式プラグで持ち運びも便利。コンパクトで軽量ながら安定した充電性能を発揮します。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B091WMFKPG?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN+%E6%80%A5%E9%80%9F%E5%85%85%E9%9B%BB%E5%99%A8+20W+USB-C%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B091WMFKPG?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN+%E6%80%A5%E9%80%9F%E5%85%85%E9%9B%BB%E5%99%A8+20W+USB-C%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -192,7 +189,7 @@ PD 3.0対応の20W USB-C充電器。iPhone・iPad・Androidスマートフォン
 
 エアコン吹き出し口に取り付けるマグネット式スマホホルダー。MagSafe対応iPhoneはワンタッチで吸着し、360度回転で縦横自在に調整できます。強力なネオジム磁石で走行中のズレを防止。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B094RVKXZN?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%83%9E%E3%82%B0%E3%83%8D%E3%83%83%E3%83%88+%E8%BB%8A%E8%BC%89+%E3%82%B9%E3%83%9E%E3%83%9B%E3%83%9B%E3%83%AB%E3%83%80%E3%83%BC%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B094RVKXZN?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%83%9E%E3%82%B0%E3%83%8D%E3%83%83%E3%83%88+%E8%BB%8A%E8%BC%89+%E3%82%B9%E3%83%9E%E3%83%9B%E3%83%9B%E3%83%AB%E3%83%80%E3%83%BC%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -215,7 +212,7 @@ PD 3.0対応の20W USB-C充電器。iPhone・iPad・Androidスマートフォン
 
 Anker独自の高耐久ナイロン素材を使用したUSB-C to USB-Cケーブル。25,000回以上の折り曲げテストをクリアした高耐久設計で、最大100Wの電力伝送と10Gbpsのデータ転送に対応します。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07X7H9FNR?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+USB-C+%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB+%E9%AB%98%E8%80%90%E4%B9%85%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07X7H9FNR?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker+USB-C+%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB+%E9%AB%98%E8%80%90%E4%B9%85%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -238,7 +235,7 @@ Anker独自の高耐久ナイロン素材を使用したUSB-C to USB-Cケーブ�
 
 水中撮影・海水浴・アウトドアで活躍する完全防水スマホポーチ。IPX8等級で水深10mまで対応し、ポーチ越しにタッチ操作・顔認証が可能。6.9インチまでの大型スマホに対応しています。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07PFFMP9D?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E9%98%B2%E6%B0%B4+%E3%82%B9%E3%83%9E%E3%83%9B%E3%83%9D%E3%83%BC%E3%83%81+IPX8%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07PFFMP9D?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E9%98%B2%E6%B0%B4+%E3%82%B9%E3%83%9E%E3%83%9B%E3%83%9D%E3%83%BC%E3%83%81+IPX8%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|

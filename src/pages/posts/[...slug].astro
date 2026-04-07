@@ -69,6 +69,7 @@ const categoryLabels: Record<string, string> = {
             <div class="article__meta">
               <span class="badge badge--category">{categoryLabels[post.data.category] ?? post.data.category}</span>
               <span class="badge badge--type" style="background:#fff7ed;color:#c2410c">{typeLabels[post.data.type] ?? post.data.type}</span>
+              <span class="trust-badge">📅 最終更新: {post.data.publishDate}</span>
               <time class="article__date">{post.data.publishDate}</time>
             </div>
             <h1 class="article__title">{post.data.title}</h1>
@@ -90,7 +91,15 @@ const categoryLabels: Record<string, string> = {
                   const prod = products.find(p => p.id === id);
                   return prod?.image ? (
                     <div class="article__product-card">
-                      <img src={prod.image} alt={prod.name} class="article__product-img" width="300" height="300" loading="lazy" />
+                      <img
+                        src={prod.image_url ?? prod.image}
+                        alt={prod.name}
+                        class="article__product-img"
+                        width="300"
+                        height="300"
+                        loading="lazy"
+                        onerror={`this.src='${prod.image}';this.onerror=null`}
+                      />
                       <p class="article__product-name">{prod.name}</p>
                     </div>
                   ) : null;

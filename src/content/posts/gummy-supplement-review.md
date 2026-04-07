@@ -33,7 +33,7 @@ ogImage: /images/og-gummy-supplement.svg
 
 美肌・免疫サポートに定番のビタミンCを、1日2粒（5g）で500mg摂取できる定番グミサプリ。コラーゲンも200mg含まれており、美容意識の高い方にとって理想的な組み合わせです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0C5QQZYJ8?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E3%2583%2593%25E3%2582%25BF%25E3%2583%259F%25E3%2583%25B3C%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B0C5QQZYJ8?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E3%2583%2593%25E3%2582%25BF%25E3%2583%259F%25E3%2583%25B3C%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 ### 栄養成分（1日2粒あたり）
 
@@ -64,7 +64,7 @@ ogImage: /images/og-gummy-supplement.svg
 
 1日2粒で**11種類のビタミン**をまとめて補給できる万能グミサプリ。独自の「VCバリア製法」でビタミンCをグミの外側にコーティングし、おいしさと栄養を両立しています。コラーゲンも300mg配合。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0C5QF95PT?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E3%2583%2599%25E3%2583%25AB%25E3%2583%2581%25E3%2583%2593%25E3%2582%25BF%25E3%2583%259F%25E3%2583%25B3%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B0C5QF95PT?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E3%2583%2599%25E3%2583%25AB%25E3%2583%2581%25E3%2583%2593%25E3%2582%25BF%25E3%2583%259F%25E3%2583%25B3%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 ### 栄養成分（1日2粒あたり）
 
@@ -104,7 +104,7 @@ ogImage: /images/og-gummy-supplement.svg
 
 亜鉛と黒マカエキス30mgを配合した、活力サポート系グミサプリ。コーラ味という個性的なフレーバーで、男性にも取り入れやすい一品。「活力みなぎる毎日」をコンセプトに設計されています。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0C5QX63J1?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E4%25BA%259C%25E9%2589%259B%2520%25E3%2583%259E%25E3%2582%25AB%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B0C5QX63J1?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUHA%25E3%2582%25B0%25E3%2583%259F%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25AA%2520%25E4%25BA%259C%25E9%2589%259B%2520%25E3%2583%259E%25E3%2582%25AB%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 ### 主要成分（1日2粒あたり）
 
