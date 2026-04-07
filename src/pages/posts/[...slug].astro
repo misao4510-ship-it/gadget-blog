@@ -7,6 +7,7 @@ import ProductSchemaLD from '../../components/ProductSchemaLD.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import StoreLinkBox from '../../components/StoreLinkBox.astro';
 import AuthorProfile from '../../components/AuthorProfile.astro';
+import NaviChar from '../../components/NaviChar.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -136,6 +137,9 @@ const categoryLabels: Record<string, string> = {
             {/* === Author profile (E-E-A-T) === */}
             <AuthorProfile />
           </div>
+
+          {/* === Navi character (fixed bottom-right) === */}
+          <NaviChar />
         </div>
 
         <!-- Right sidebar: PV counter -->
