@@ -1,0 +1,58 @@
+{
+  "product_id": "product-071",
+  "current": {
+    "amazon": {
+      "price": 48800,
+      "url": "https://amzn.to/41jLYyj",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "rakuten": {
+      "price": 49800,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBambu%2520Lab%2520A1%2520Mini%2F",
+      "in_stock": true,
+      "updated": "2026-04-07"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 48800
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-07",
+      "amazon": 48800,
+      "rakuten": 49800
+    },
+    {
+      "date": "2026-04-06",
+      "amazon": 48800,
+      "rakuten": 49800
+    },
+    {
+      "date": "2026-04-05",
+      "amazon": 48800,
+      "rakuten": 49800
+    },
+    {
+      "date": "2026-04-04",
+      "amazon": 45300,
+      "rakuten": 49800
+    },
+    {
+      "date": "2026-04-03",
+      "amazon": 45300,
+      "rakuten": 49500
+    },
+    {
+      "date": "2026-04-02",
+      "amazon": 48800,
+      "rakuten": 49800
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 48800,
+      "rakuten": 49800
+    }
+  ]
+}

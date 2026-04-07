@@ -2076,6 +2076,37 @@
         }
       },
       "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/sugartime/cabinet/mizo/mzuha/mzuha-16.jpg?_ex=128x128"
+    },
+    {
+      "id": "product-071",
+      "name": "Bambu Lab A1 Mini 3Dプリンター",
+      "category": "3d-printer",
+      "asin": "B0CRYJBKQQ",
+      "rakuten_keyword": "Bambu Lab A1 Mini 3Dプリンター",
+      "a8_link": "https://px.a8.net/placeholder/product-071",
+      "image": "/images/products/bambu-lab-a1-mini.svg",
+      "tags": [
+        "3Dプリンター",
+        "Bambu Lab",
+        "初心者向け",
+        "高速印刷",
+        "FDM"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://amzn.to/41jLYyj",
+          "url": "https://amzn.to/41jLYyj"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBambu%2520Lab%2520A1%2520Mini%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-071"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/61example-bambu-a1-mini.jpg"
     }
   ]
 }

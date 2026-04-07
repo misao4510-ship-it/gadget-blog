@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1a3a2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- 3D Printer silhouette (simplified A1 Mini shape) -->
+  <!-- Base platform -->
+  <rect x="460" y="360" width="280" height="16" rx="4" fill="#22c55e" opacity="0.9"/>
+  <!-- Vertical frame left -->
+  <rect x="460" y="160" width="14" height="200" rx="4" fill="#4ade80" opacity="0.8"/>
+  <!-- Vertical frame right -->
+  <rect x="726" y="160" width="14" height="200" rx="4" fill="#4ade80" opacity="0.8"/>
+  <!-- Top horizontal bar -->
+  <rect x="460" y="160" width="280" height="14" rx="4" fill="#4ade80" opacity="0.8"/>
+  <!-- Print bed -->
+  <rect x="490" y="310" width="220" height="12" rx="3" fill="#64748b"/>
+  <!-- Printhead gantry -->
+  <rect x="470" y="220" width="260" height="10" rx="3" fill="#94a3b8"/>
+  <!-- Printhead body -->
+  <rect x="568" y="215" width="64" height="50" rx="6" fill="#334155"/>
+  <rect x="580" y="235" width="40" height="20" rx="3" fill="#1e293b"/>
+  <!-- Nozzle -->
+  <polygon points="595,265 605,265 600,278" fill="#f59e0b"/>
+  <!-- Filament spool hint -->
+  <circle cx="420" cy="280" r="35" fill="none" stroke="#4ade80" stroke-width="4" opacity="0.6"/>
+  <circle cx="420" cy="280" r="12" fill="#1e293b" stroke="#4ade80" stroke-width="3" opacity="0.6"/>
+  <!-- Speed indicator -->
+  <text x="780" y="255" fill="#22c55e" font-size="20" font-weight="bold" font-family="monospace">500</text>
+  <text x="780" y="275" fill="#94a3b8" font-size="13" font-family="sans-serif">mm/s</text>
+  <!-- Print layer lines (decorative) -->
+  <line x1="510" y1="298" x2="690" y2="298" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
+  <line x1="510" y1="291" x2="690" y2="291" stroke="#22c55e" stroke-width="2" opacity="0.4"/>
+  <line x1="510" y1="284" x2="680" y2="284" stroke="#22c55e" stroke-width="2" opacity="0.3"/>
+  <!-- Brand label -->
+  <text x="600" y="490" text-anchor="middle" fill="#4ade80" font-size="22" font-weight="bold" font-family="monospace">Bambu Lab</text>
+  <!-- Main title -->
+  <text x="600" y="545" text-anchor="middle" fill="white" font-size="46" font-weight="bold" font-family="sans-serif">A1 Mini レビュー</text>
+  <text x="600" y="595" text-anchor="middle" fill="#94a3b8" font-size="26" font-family="sans-serif">初心者向け高速3Dプリンター 2026年版</text>
+</svg>
