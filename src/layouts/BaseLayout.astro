@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 
 interface Props {
   title: string;
@@ -12,22 +11,15 @@ const { title, description, ogImage = '/images/og-default.svg', type = 'website'
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 const currentYear = new Date().getFullYear();
-const locale = Astro.url.pathname.startsWith('/en') ? 'en'
-  : Astro.url.pathname.startsWith('/zh') ? 'zh' : 'ja';
 ---
 <!DOCTYPE html>
-<html lang={locale}>
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} | ガジェット価格比較ブログ</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
-  <!-- hreflang for i18n SEO -->
-  <link rel="alternate" hreflang="ja" href={canonicalURL} />
-  <link rel="alternate" hreflang="en" href={new URL(`/en${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`, Astro.site)} />
-  <link rel="alternate" hreflang="zh" href={new URL(`/zh${Astro.url.pathname === '/' ? '' : Astro.url.pathname}`, Astro.site)} />
-  <link rel="alternate" hreflang="x-default" href={canonicalURL} />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <!-- Google Fonts: Quicksand (heading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +49,6 @@ const locale = Astro.url.pathname.startsWith('/en') ? 'en'
         <a href="/posts/wireless-earphones-guide/">イヤホン</a>
         <a href="/posts/amazon-sale-guide-2026/">セール情報</a>
       </nav>
-      <LanguageSwitcher />
     </div>
   </header>
 
