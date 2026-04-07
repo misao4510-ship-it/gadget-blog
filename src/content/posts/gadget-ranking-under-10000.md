@@ -18,11 +18,13 @@ ogImage: /images/og-ranking-under-10000.svg
 
 ## 第1位：Soundcore Liberty 4 NC ワイヤレスイヤホン
 
+<span class="badge-popular">人気No.1</span>
+
 **価格：8,990円**
 
 Soundcore（Anker傘下）の完全ワイヤレスイヤホン最高峰モデル。最大98.5%のノイズキャンセリング性能を誇り、通勤・仕事・勉強のあらゆるシーンで集中力を高めてくれます。LDAC対応でハイレゾ相当の高音質ストリーミングが楽しめ、最大10時間（ANCオン）＋ケース込み最大50時間という驚異のバッテリー持ちも魅力です。装着検出機能やカスタマイズ可能なイコライザーなど機能も充実しており、1万円を切る価格でこの完成度は破格と言えます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0CG4B3C9M?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Liberty%25204%2520NC%2F)
+<div class="btn-wrap"><a href="https://amzn.to/4e1MmZS" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Liberty%25204%2520NC%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -41,11 +43,13 @@ Soundcore（Anker傘下）の完全ワイヤレスイヤホン最高峰モデル
 
 ## 第2位：Anker 637 Magnetic Charging Station (MagGo)
 
+<span class="badge-recommended">おすすめ</span>
+
 **価格：8,490円**
 
 iPhone・Apple Watch・AirPodsをまとめて充電できるMagSafe対応の6-in-1充電ステーション。MagSafeによる最大15W急速ワイヤレス充電に対応し、Qi充電パッド・Apple Watch充電器・USB-AポートとUSB-Cポートも搭載した万能充電ハブです。デスクやベッドサイドに置くだけでAppleデバイスをまとめて整理できるため、煩雑なケーブルとおさらばできます。コンパクトながら複数デバイスを同時充電できる設計は、Appleユーザーにとって理想的な充電環境を提供します。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09MJ14FY7?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520637%2520Magnetic%2520Charging%2520Station%2F)
+<div class="btn-wrap"><a href="https://amzn.to/4soRURL" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520637%2520Magnetic%2520Charging%2520Station%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -64,11 +68,13 @@ iPhone・Apple Watch・AirPodsをまとめて充電できるMagSafe対応の6-in
 
 ## 第3位：Soundcore Life Q35 ワイヤレスヘッドホン
 
+<span class="badge-recommended">コスパ抜群</span>
+
 **価格：9,980円**
 
 Soundcoreのミドルレンジヘッドホンとして高く評価されているワイヤレスヘッドホン。40mmカーボンナノチューブドライバーを採用し、ハイレゾ認定の高音質を実現。3段階に切り替えられるアダプティブANCと通常モードを合わせた合計4モードのノイズコントロールが特徴で、状況に合わせた使い分けができます。バッテリーはANCオンで最大40時間、オフで最大60時間と業界トップクラスの持久力を誇ります。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B0964949GH?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Life%2520Q35%2F)
+<div class="btn-wrap"><a href="https://amzn.to/4ttIKEp" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSoundcore%2520Life%2520Q35%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -91,7 +97,7 @@ Soundcoreのミドルレンジヘッドホンとして高く評価されてい�
 
 GaN（窒化ガリウム）技術採用の100W出力USB-C充電器。USB-Cポート×2とUSB-Aポート×1を搭載し、ノートPC・スマートフォン・タブレットを同時充電できます。従来のシリコン充電器と比べて約50%小型化されており、出張や旅行でも荷物にならないコンパクトサイズが魅力。MacBook Proへの最大100W給電にも対応し、純正充電器の代替として十分な実力を持ちます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09NMDLC3K?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520Nexode%2520100W%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B09NMDLC3K?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%2520Nexode%2520100W%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -114,7 +120,7 @@ GaN（窒化ガリウム）技術採用の100W出力USB-C充電器。USB-Cポー
 
 手のひらサイズながら迫力あるサウンドを届けるJBLのポータブルBluetoothスピーカー。IP67規格の防水・防塵性能を備え、アウトドアや浴室でも安心して使えます。フックループ付きでバッグやリュックに取り付けて持ち運べるのも便利。JBLらしいパワフルな低音と明瞭な高音のバランスは、この価格帯では群を抜いた音質クオリティです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B08KMN3GKL?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FJBL%2520GO%25203%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B08KMN3GKL?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FJBL%2520GO%25203%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -137,7 +143,7 @@ GaN（窒化ガリウム）技術採用の100W出力USB-C充電器。USB-Cポー
 
 Logicoolの独自無線技術「LIGHTSPEED」を採用した本格ワイヤレスゲーミングマウス。1ms以下の超低遅延を実現し、有線接続と変わらないレスポンスで激しいゲームプレイに対応。12,000DPIのHEROセンサーは高精度で追従性も抜群です。単三電池1本で最大250時間という驚異的なバッテリー持続時間も大きな魅力で、充電を気にせずゲームに集中できます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B07GWZ8D3X?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520G304%2520LIGHTSPEED%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B07GWZ8D3X?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520G304%2520LIGHTSPEED%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -160,7 +166,7 @@ Logicoolの独自無線技術「LIGHTSPEED」を採用した本格ワイヤレ�
 
 Ankerのモバイルバッテリーの中でもコンパクトさとパワーを両立した人気モデル。USB-Cポートによる最大22.5W出力のPD（Power Delivery）急速充電に対応し、スマートフォンを素早く充電できます。従来の同容量モデルより約30%小型化されており、ポケットやポーチへの収まりが抜群。高性能なAnker独自のBMS（バッテリー管理システム）が搭載されており、安全性も折り紙付きです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09BT4DL71?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%252010000%2520PD%2520Redux%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B09BT4DL71?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%252010000%2520PD%2520Redux%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -183,7 +189,7 @@ Ankerのモバイルバッテリーの中でもコンパクトさとパワーを
 
 Wi-Fi 6（802.11ax）対応のWiFi中継器で、電波が届きにくい部屋の隅々まで高速インターネットを拡張できます。最大1,500Mbpsの通信速度（2.4GHz：300Mbps + 5GHz：1,200Mbps）に対応し、既存のルーターの電波を強力に補完。コンセントに直挿しするコンパクトなデザインで設置場所を選ばず、ワンタッチのWPS接続で初心者でも簡単にセットアップできます。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B08MTZ27X4?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTP-Link%2520RE500X%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B08MTZ27X4?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTP-Link%2520RE500X%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -206,7 +212,7 @@ Wi-Fi 6（802.11ax）対応のWiFi中継器で、電波が届きにくい部屋�
 
 GaNPrime技術採用のAnker製65W充電器。USB-Cポート×2とUSB-Aポート×1の3ポート構成で、複数デバイスを同時充電できます。65Wの高出力でノートPC（MacBook Air/Pro等）への急速充電が可能で、スマートフォンへの充電時は最大20Wと効率的。Anker独自の「ActiveShield 2.0」により常に温度を監視し、安全に充電できます。折りたたみ式プラグで旅行・出張にも最適なコンパクトサイズです。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09W57T4D2?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520735%2520Charger%2520GaNPrime%252065W%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B09W57T4D2?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520735%2520Charger%2520GaNPrime%252065W%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
@@ -229,7 +235,7 @@ GaNPrime技術採用のAnker製65W充電器。USB-Cポート×2とUSB-Aポート
 
 Logicoolの人気エントリーワイヤレスマウス。静音クリックボタンを採用し、オフィスや図書館などでも気になる音を立てずに使えます。USB-Cによる充電式で、1回の充電で最大24ヶ月使用可能という驚異的なバッテリー寿命が魅力。SmartWheelは素早い動作時に慣性スクロールに自動切り替えされ、長いウェブページやドキュメントのスクロールが快適です。
 
-[![Amazonで見る](https://img.shields.io/badge/Amazon-購入する-FF9900)](https://www.amazon.co.jp/dp/B09JC8PJRC?tag=misao4510-22) [![楽天で見る](https://img.shields.io/badge/楽天-購入する-BF0000)](https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520M650%2520Signature%2F)
+<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B09JC8PJRC?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ購入 ▶</a><a href="https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520M650%2520Signature%2F" class="btn-rakuten" target="_blank" rel="noopener">🛍️ 楽天で購入 ▶</a></div>
 
 | 項目 | 仕様 |
 |------|------|
