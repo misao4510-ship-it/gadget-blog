@@ -1,0 +1,310 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PriceComparisonTable from '../../../components/PriceComparisonTable.astro';
+import PriceChart from '../../../components/PriceChart.astro';
+import ProductSchemaLD from '../../../components/ProductSchemaLD.astro';
+import TableOfContents from '../../../components/TableOfContents.astro';
+import AuthorProfile from '../../../components/AuthorProfile.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const { products } = await import('../../../../data/products.json');
+
+const typeLabels: Record<string, string> = {
+  review: '评测', comparison: '对比', roundup: '汇总', ranking: '排行榜'
+};
+const categoryLabels: Record<string, string> = {
+  'mobile-battery': '移动电源',
+  'usb-hub': 'USB-C集线器',
+  'earphones': '耳机',
+  'charger': '充电器',
+  'sale-guide': '特卖信息',
+  'smartwatch': '智能手表',
+  'wireless-charger': '无线充电器',
+  'monitor': '显示器',
+  'keyboard': '键盘',
+  'portable-ssd': '便携SSD',
+  'iphone-case': 'iPhone保护壳',
+  'robot-vacuum': '扫地机器人',
+  'air-purifier': '空气净化器',
+  'electric-kettle': '电热水壶',
+  'hair-dryer': '吹风机',
+  'circulator': '空气循环扇',
+};
+
+// Map Japanese ranking article titles to Chinese
+const titleZh: Record<string, string> = {
+  '1000円以下ガジェットランキングTOP10': '1000日元以下数码产品排行榜TOP10',
+  '3000円以下ガジェットランキングTOP10': '3000日元以下数码产品排行榜TOP10',
+  '5000円以下ガジェットランキングTOP10': '5000日元以下数码产品排行榜TOP10',
+  '10000円以下ガジェットランキングTOP10': '1万日元以下数码产品排行榜TOP10',
+};
+const zhTitle = titleZh[post.data.title] ?? post.data.title;
+---
+<BaseLayout
+  title={zhTitle}
+  description={post.data.description}
+  ogImage={post.data.ogImage}
+  type="article"
+>
+  {post.data.products.map((id: string) => <ProductSchemaLD productId={id} />)}
+
+  <article class="article">
+    {post.data.ogImage && (
+      <div class="article__hero">
+        <img src={post.data.ogImage} alt={zhTitle} class="article__hero-img" />
+      </div>
+    )}
+
+    <div class="container">
+      <div class="article-layout">
+        <!-- Left sidebar: ToC -->
+        <aside class="article-layout__toc">
+          <TableOfContents headings={headings} />
+        </aside>
+
+        <!-- Main content -->
+        <div class="article-layout__main">
+          <div class="article__inner">
+            <!-- Meta -->
+            <div class="article__meta">
+              <span class="badge badge--category">{categoryLabels[post.data.category] ?? post.data.category}</span>
+              <span class="badge badge--type" style="background:#fff7ed;color:#c2410c">{typeLabels[post.data.type] ?? post.data.type}</span>
+              <span class="trust-badge">📅 更新日期：{post.data.publishDate}</span>
+              <time class="article__date">{post.data.publishDate}</time>
+            </div>
+            <h1 class="article__title">{zhTitle}</h1>
+            <p class="article__desc">{post.data.description}</p>
+
+            <!-- Chinese notice banner -->
+            <div class="zh-notice">
+              <span class="zh-notice__icon">🌐</span>
+              <span>本文为日语原文。</span>
+              <a href={`/posts/${post.id}`} class="zh-notice__link">查看原文（日语）</a>
+            </div>
+
+            {/* Top CTA: Chinese buy buttons */}
+            {post.data.products.length > 0 && (
+              <div class="article__top-cta">
+                {post.data.products.map((id: string) => {
+                  const prod = products.find(p => p.id === id);
+                  if (!prod) return null;
+                  return (
+                    <div class="zh-store-box">
+                      <div class="zh-store-box__name">{prod.name}</div>
+                      <div class="zh-store-box__buttons">
+                        <a href={prod.affiliate_links.amazon.url} class="zh-buy-btn zh-buy-btn--amazon" target="_blank" rel="noopener noreferrer nofollow">
+                          🛒 在Amazon购买 ▶
+                        </a>
+                        <a href={prod.affiliate_links.rakuten.url} class="zh-buy-btn zh-buy-btn--rakuten" target="_blank" rel="noopener noreferrer nofollow">
+                          🛍️ 在乐天购买 ▶
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Product image gallery */}
+            {post.data.products.length > 0 && (
+              <div class="article__product-gallery">
+                {post.data.products.map((id: string) => {
+                  const prod = products.find(p => p.id === id);
+                  return prod?.image ? (
+                    <div class="article__product-card">
+                      <img
+                        src={prod.image_url ?? prod.image}
+                        alt={prod.name}
+                        class="article__product-img"
+                        width="300"
+                        height="300"
+                        loading="lazy"
+                        onerror={`this.src='${prod.image}';this.onerror=null`}
+                      />
+                      <p class="article__product-name">{prod.name}</p>
+                    </div>
+                  ) : null;
+                })}
+              </div>
+            )}
+
+            {/* Article content (Japanese original) */}
+            <div class="article__content prose">
+              <Content />
+            </div>
+
+            {/* Price comparison + chart */}
+            {post.data.products.length > 0 && (
+              <div class="article__price-widgets">
+                {post.data.products.map((id: string) => (
+                  <div class="article__price-widget">
+                    <PriceComparisonTable productId={id} />
+                    <PriceChart productId={id} />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Bottom CTA: Chinese buy buttons */}
+            {post.data.products.length > 0 && (
+              <div class="article__bottom-cta">
+                {post.data.products.map((id: string) => {
+                  const prod = products.find(p => p.id === id);
+                  if (!prod) return null;
+                  return (
+                    <div class="zh-store-box">
+                      <div class="zh-store-box__name">{prod.name}</div>
+                      <div class="zh-store-box__buttons">
+                        <a href={prod.affiliate_links.amazon.url} class="zh-buy-btn zh-buy-btn--amazon" target="_blank" rel="noopener noreferrer nofollow">
+                          🛒 在Amazon购买 ▶
+                        </a>
+                        <a href={prod.affiliate_links.rakuten.url} class="zh-buy-btn zh-buy-btn--rakuten" target="_blank" rel="noopener noreferrer nofollow">
+                          🛍️ 在乐天购买 ▶
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            <AuthorProfile />
+          </div>
+        </div>
+
+        <!-- Right sidebar: PV counter -->
+        <aside class="article-layout__pv" id="pv-sidebar">
+          <div class="pv-widget">
+            <div class="pv-widget__header">
+              <span>📊</span>
+              <span class="pv-widget__title">浏览统计</span>
+            </div>
+            <div id="pv-display" class="pv-widget__count">计算中…</div>
+            <p class="pv-widget__label">累计浏览次数</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article__hero { width: 100%; max-height: 400px; overflow: hidden; }
+  .article__hero-img { width: 100%; height: 400px; object-fit: cover; }
+
+  .article__inner { max-width: var(--content-width); margin: 0 auto; padding: 2rem 0 4rem; }
+
+  .article__meta { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .article__date { font-size: .875rem; color: var(--color-text-muted); margin-left: auto; }
+
+  .article__title { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; margin: .5rem 0 .75rem; color: var(--color-text); }
+  .article__desc { font-size: 1.05rem; color: var(--color-text-muted); border-left: 4px solid var(--color-primary); padding-left: 1rem; margin-bottom: 1.5rem; }
+
+  /* Chinese notice */
+  .zh-notice {
+    display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: var(--radius);
+    padding: .75rem 1rem; margin-bottom: 1.5rem; font-size: .9rem; color: #1e40af;
+  }
+  .zh-notice__icon { font-size: 1rem; }
+  .zh-notice__link { color: var(--color-primary); font-weight: 600; text-decoration: underline; }
+
+  /* Chinese store box */
+  .zh-store-box {
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: 1rem;
+  }
+  .zh-store-box__name { font-size: .9rem; font-weight: 700; color: var(--color-text); margin-bottom: .75rem; }
+  .zh-store-box__buttons { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+  .zh-buy-btn {
+    display: inline-flex; align-items: center; gap: .3rem;
+    padding: .65em 1.2em; border-radius: var(--radius);
+    font-size: .9rem; font-weight: 700; text-decoration: none;
+    transition: opacity .15s, transform .1s;
+  }
+  .zh-buy-btn:hover { opacity: .88; transform: translateY(-1px); }
+  .zh-buy-btn--amazon { background: #ff9900; color: #111; }
+  .zh-buy-btn--rakuten { background: #bf0000; color: white; }
+
+  .article__top-cta { margin-bottom: 1.5rem; }
+  .article__bottom-cta { margin: 2rem 0; }
+
+  .article__product-gallery {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem; margin: 1.5rem 0 2rem;
+  }
+  .article__product-card {
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg); padding: 1rem; text-align: center;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .article__product-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .article__product-img { width: 100%; max-width: 200px; height: auto; margin: 0 auto; }
+  .article__product-name { font-size: .85rem; font-weight: 600; color: var(--color-text); margin: .75rem 0 0; line-height: 1.3; }
+
+  .article__price-widgets { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem 0; }
+  .article__price-widget { background: var(--color-bg); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--color-border); }
+
+  .prose h2, .prose h3, .prose h4 { scroll-margin-top: 80px; }
+  .prose h2 { border-bottom: 2px solid var(--color-border); padding-bottom: .5rem; }
+  .prose h3 { color: var(--color-primary); }
+  .prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .prose li { margin-bottom: .35rem; }
+  .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .9rem; }
+  .prose th { background: var(--color-primary); color: white; padding: .6rem 1rem; text-align: left; }
+  .prose td { padding: .6rem 1rem; border: 1px solid var(--color-border); }
+  .prose tr:nth-child(even) td { background: #f8fafc; }
+  .prose blockquote { border-left: 4px solid var(--color-accent); padding: .75rem 1rem; background: #fff7ed; border-radius: 0 var(--radius) var(--radius) 0; margin: 1.5rem 0; color: #7c2d12; }
+  .prose code { font-family: var(--font-mono); font-size: .875em; background: #f1f5f9; padding: .1em .35em; border-radius: 4px; }
+  .prose pre { background: #1e293b; color: #e2e8f0; padding: 1.25rem; border-radius: var(--radius); overflow-x: auto; margin: 1.5rem 0; }
+  .prose pre code { background: none; padding: 0; }
+  .prose a { font-weight: 600; }
+  .prose img { border-radius: var(--radius); margin: 1.5rem auto; box-shadow: var(--shadow-md); }
+
+  @media (max-width: 640px) {
+    .article__hero-img { height: 220px; }
+    .article__inner { padding: 1.5rem 0 3rem; }
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr 200px;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem 0 4rem;
+  }
+  .article-layout__toc { align-self: start; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
+  .article-layout__main { min-width: 0; }
+  .article-layout__pv { position: sticky; top: 80px; }
+
+  .pv-widget {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .pv-widget__header { display: flex; align-items: center; justify-content: center; gap: .4rem; font-weight: 700; font-size: .9rem; margin-bottom: .75rem; padding-bottom: .625rem; border-bottom: 2px solid var(--color-primary-light); }
+  .pv-widget__title { color: var(--color-text); }
+  .pv-widget__count { font-size: 2rem; font-weight: 800; color: var(--color-primary); line-height: 1.2; margin: .5rem 0 .25rem; }
+  .pv-widget__label { font-size: .75rem; color: var(--color-text-muted); margin: 0; }
+
+  .article-layout .article__inner { padding-top: 0; }
+
+  @media (max-width: 1100px) {
+    .article-layout { grid-template-columns: 1fr 180px; gap: 1.5rem; }
+  }
+  @media (max-width: 768px) {
+    .article-layout { grid-template-columns: 1fr; gap: 1rem; padding: 1rem 0 3rem; }
+    .article-layout__toc { order: -1; }
+    .article-layout__pv { position: static; order: 10; }
+  }
+</style>

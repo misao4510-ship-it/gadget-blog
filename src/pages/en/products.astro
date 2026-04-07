@@ -1,10 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import productsData from '../../data/products.json';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import productsData from '../../../data/products.json';
+import { en } from '../../i18n/en';
 
 const products = productsData.products;
 
-// 価格帯をIDの数値から判定
+// Determine price range from numeric ID
 function getPriceRange(id: string): string {
   const num = parseInt(id.replace('product-', ''), 10);
   if (num >= 18 && num <= 27) return '1000';
@@ -16,42 +17,42 @@ function getPriceRange(id: string): string {
 }
 
 const categoryLabels: Record<string, string> = {
-  'mobile-battery': 'モバイルバッテリー',
-  'usb-hub': 'USB-Cハブ',
-  'earphones': 'イヤホン',
-  'charger': '充電器',
-  'iphone-case': 'iPhoneケース',
-  'robot-vacuum': 'ロボット掃除機',
-  'air-purifier': '空気清浄機',
-  'electric-kettle': '電気ケトル',
-  'hair-dryer': 'ヘアドライヤー',
-  'circulator': 'サーキュレーター',
-  'smartwatch': 'スマートウォッチ',
-  'wireless-charger': 'ワイヤレス充電',
-  'monitor': 'モニター',
-  'keyboard': 'キーボード',
-  'portable-ssd': 'ポータブルSSD',
-  'camp': 'キャンプ用品',
-  'bluetooth-speaker': 'スピーカー',
-  'headphones': 'ヘッドホン',
-  'mouse': 'マウス',
-  'gaming-mouse': 'ゲーミングマウス',
-  'wifi-extender': 'Wi-Fi中継器',
-  'network': 'ネットワーク',
-  'stand': 'スタンド',
-  'light': 'ライト',
-  'storage': 'ストレージ',
-  'car-holder': 'カーホルダー',
-  'cable': 'ケーブル',
-  'waterproof': '防水グッズ',
-  'screen-protector': 'フィルム',
-  'smartphone-case': 'スマホケース',
-  'wireless-earbuds': 'ワイヤレスイヤホン',
-  'e-reader': '電子書籍リーダー',
-  'speaker': 'スピーカー',
-  'tablet': 'タブレット',
-  'stabilizer': 'スタビライザー',
-  'gadget-misc': 'ガジェット雑貨',
+  'mobile-battery': 'Mobile Battery',
+  'usb-hub': 'USB-C Hub',
+  'earphones': 'Earphones',
+  'charger': 'Charger',
+  'iphone-case': 'iPhone Case',
+  'robot-vacuum': 'Robot Vacuum',
+  'air-purifier': 'Air Purifier',
+  'electric-kettle': 'Electric Kettle',
+  'hair-dryer': 'Hair Dryer',
+  'circulator': 'Air Circulator',
+  'smartwatch': 'Smartwatch',
+  'wireless-charger': 'Wireless Charger',
+  'monitor': 'Monitor',
+  'keyboard': 'Keyboard',
+  'portable-ssd': 'Portable SSD',
+  'camp': 'Camping Gear',
+  'bluetooth-speaker': 'Speaker',
+  'headphones': 'Headphones',
+  'mouse': 'Mouse',
+  'gaming-mouse': 'Gaming Mouse',
+  'wifi-extender': 'Wi-Fi Extender',
+  'network': 'Network',
+  'stand': 'Stand',
+  'light': 'Light',
+  'storage': 'Storage',
+  'car-holder': 'Car Holder',
+  'cable': 'Cable',
+  'waterproof': 'Waterproof',
+  'screen-protector': 'Screen Protector',
+  'smartphone-case': 'Smartphone Case',
+  'wireless-earbuds': 'Wireless Earbuds',
+  'e-reader': 'E-Reader',
+  'speaker': 'Speaker',
+  'tablet': 'Tablet',
+  'stabilizer': 'Stabilizer',
+  'gadget-misc': 'Gadget Accessories',
 };
 
 const allCategories = [...new Set(products.map(p => p.category))].sort();
@@ -64,14 +65,14 @@ const productsWithMeta = products.map(p => ({
 ---
 
 <BaseLayout
-  title="商品一覧"
-  description="全67商品を価格帯・カテゴリ・キーワードで絞り込み検索。Amazon・楽天の購入リンク付き。"
+  title={`Products | ${en.site.name}`}
+  description="Browse all 67 gadgets. Filter by price range, category, or keyword. Buy links for Amazon Japan & Rakuten included."
 >
   <!-- Page Header -->
   <section class="products-hero">
     <div class="container">
-      <h1 class="products-hero__title">商品一覧</h1>
-      <p class="products-hero__lead">全{products.length}商品 — 価格帯・カテゴリ・キーワードで絞り込めます</p>
+      <h1 class="products-hero__title">Product Catalog</h1>
+      <p class="products-hero__lead">{products.length} products — filter by price range, category, or keyword</p>
     </div>
   </section>
 
@@ -84,7 +85,7 @@ const productsWithMeta = products.map(p => ({
         <input
           type="text"
           id="searchInput"
-          placeholder="商品名・タグで検索..."
+          placeholder="Search by product name or tag..."
           class="filter-bar__input"
           autocomplete="off"
         />
@@ -92,22 +93,22 @@ const productsWithMeta = products.map(p => ({
 
       <!-- Price Range Buttons -->
       <div class="filter-bar__price">
-        <span class="filter-bar__label">価格帯</span>
+        <span class="filter-bar__label">Price Range</span>
         <div class="price-buttons">
-          <button class="price-btn active" data-price="all">すべて</button>
-          <button class="price-btn" data-price="1000">〜1,000円</button>
-          <button class="price-btn" data-price="3000">〜3,000円</button>
-          <button class="price-btn" data-price="5000">〜5,000円</button>
-          <button class="price-btn" data-price="10000">〜1万円</button>
-          <button class="price-btn" data-price="30000">〜3万円</button>
+          <button class="price-btn active" data-price="all">All</button>
+          <button class="price-btn" data-price="1000">Under ¥1,000</button>
+          <button class="price-btn" data-price="3000">Under ¥3,000</button>
+          <button class="price-btn" data-price="5000">Under ¥5,000</button>
+          <button class="price-btn" data-price="10000">Under ¥10,000</button>
+          <button class="price-btn" data-price="30000">Under ¥30,000</button>
         </div>
       </div>
 
       <!-- Category Dropdown -->
       <div class="filter-bar__category">
-        <span class="filter-bar__label">カテゴリ</span>
+        <span class="filter-bar__label">Category</span>
         <select id="categorySelect" class="filter-bar__select">
-          <option value="all">全カテゴリ</option>
+          <option value="all">All Categories</option>
           {allCategories.map(cat => (
             <option value={cat}>{categoryLabels[cat] ?? cat}</option>
           ))}
@@ -116,7 +117,7 @@ const productsWithMeta = products.map(p => ({
 
       <!-- Result Count -->
       <div class="filter-bar__count">
-        <span id="resultCount">{products.length}</span>件表示
+        <span id="resultCount">{products.length}</span> results
       </div>
     </div>
   </section>
@@ -169,7 +170,7 @@ const productsWithMeta = products.map(p => ({
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                 >
-                  <span class="buy-btn__icon">🛍️</span> 楽天
+                  <span class="buy-btn__icon">🛍️</span> Rakuten
                 </a>
               </div>
             </div>
@@ -179,7 +180,7 @@ const productsWithMeta = products.map(p => ({
 
       <!-- Empty State -->
       <div class="no-results" id="noResults" style="display:none;">
-        <p>条件に合う商品が見つかりませんでした。</p>
+        <p>No products found matching your criteria.</p>
       </div>
     </div>
   </section>

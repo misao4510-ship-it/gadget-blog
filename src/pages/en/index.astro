@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+import { en } from '../../i18n/en';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+posts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+
+const ogImages: Record<string, string> = {
+  'mobile-battery-recommendation': '/images/og-mobile-battery.svg',
+  'anker-powercore-10000-review': '/images/og-anker-review.svg',
+  'usbc-hub-comparison': '/images/og-usbc-hub.svg',
+  'wireless-earphones-guide': '/images/og-earphones.svg',
+  'amazon-sale-guide-2026': '/images/og-amazon-sale.svg',
+};
+---
+<BaseLayout
+  title={`${en.site.name} | Best Gadgets Japan`}
+  description={en.site.tagline}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <h1 class="hero__title">Find the <span class="hero__accent">Best Price</span> on Gadgets</h1>
+        <p class="hero__lead">Daily automated price tracking on Amazon Japan & Rakuten. Price history charts help you spot the perfect time to buy.</p>
+        <div class="hero__badges">
+          <span>🔄 Daily Updates</span>
+          <span>📊 Price History Charts</span>
+          <span>🏷️ Best Price Highlights</span>
+        </div>
+        <div class="hero__note">
+          <span>📝 {en.misc.inJapanese}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="articles">
+    <div class="container">
+      <h2 class="section-title">Latest Articles</h2>
+      <div class="articles__grid">
+        {posts.map(post => (
+          <ArticleCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            category={post.data.category}
+            publishDate={post.data.publishDate}
+            ogImage={ogImages[post.id] ?? '/images/og-default.svg'}
+            type={post.data.type}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    color: white; padding: 4rem 0 3rem;
+  }
+  .hero__inner { max-width: 700px; }
+  .hero__title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; color: white; }
+  .hero__accent { color: #fbbf24; }
+  .hero__lead { font-size: 1.125rem; color: #bfdbfe; margin-bottom: 1.5rem; }
+  .hero__badges { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .hero__badges span { background: rgba(255,255,255,.15); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.25); padding: .35em .85em; border-radius: 99px; font-size: .875rem; font-weight: 600; }
+  .hero__note { font-size: .875rem; color: #93c5fd; }
+
+  .articles { padding: 3rem 0; }
+  .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 1.75rem; padding-bottom: .5rem; border-bottom: 3px solid var(--color-primary); display: inline-block; }
+  .articles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+  @media (max-width: 640px) {
+    .articles__grid { grid-template-columns: 1fr; }
+    .hero { padding: 2.5rem 0 2rem; }
+  }
+</style>

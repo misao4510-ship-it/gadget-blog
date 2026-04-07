@@ -1,10 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import productsData from '../../data/products.json';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import productsData from '../../../data/products.json';
 
 const products = productsData.products;
 
-// 価格帯をIDの数値から判定
 function getPriceRange(id: string): string {
   const num = parseInt(id.replace('product-', ''), 10);
   if (num >= 18 && num <= 27) return '1000';
@@ -16,42 +15,42 @@ function getPriceRange(id: string): string {
 }
 
 const categoryLabels: Record<string, string> = {
-  'mobile-battery': 'モバイルバッテリー',
-  'usb-hub': 'USB-Cハブ',
-  'earphones': 'イヤホン',
-  'charger': '充電器',
-  'iphone-case': 'iPhoneケース',
-  'robot-vacuum': 'ロボット掃除機',
-  'air-purifier': '空気清浄機',
-  'electric-kettle': '電気ケトル',
-  'hair-dryer': 'ヘアドライヤー',
-  'circulator': 'サーキュレーター',
-  'smartwatch': 'スマートウォッチ',
-  'wireless-charger': 'ワイヤレス充電',
-  'monitor': 'モニター',
-  'keyboard': 'キーボード',
-  'portable-ssd': 'ポータブルSSD',
-  'camp': 'キャンプ用品',
-  'bluetooth-speaker': 'スピーカー',
-  'headphones': 'ヘッドホン',
-  'mouse': 'マウス',
-  'gaming-mouse': 'ゲーミングマウス',
-  'wifi-extender': 'Wi-Fi中継器',
-  'network': 'ネットワーク',
-  'stand': 'スタンド',
-  'light': 'ライト',
-  'storage': 'ストレージ',
-  'car-holder': 'カーホルダー',
-  'cable': 'ケーブル',
-  'waterproof': '防水グッズ',
-  'screen-protector': 'フィルム',
-  'smartphone-case': 'スマホケース',
-  'wireless-earbuds': 'ワイヤレスイヤホン',
-  'e-reader': '電子書籍リーダー',
-  'speaker': 'スピーカー',
-  'tablet': 'タブレット',
-  'stabilizer': 'スタビライザー',
-  'gadget-misc': 'ガジェット雑貨',
+  'mobile-battery': '移动电源',
+  'usb-hub': 'USB-C集线器',
+  'earphones': '耳机',
+  'charger': '充电器',
+  'iphone-case': 'iPhone保护壳',
+  'robot-vacuum': '扫地机器人',
+  'air-purifier': '空气净化器',
+  'electric-kettle': '电热水壶',
+  'hair-dryer': '吹风机',
+  'circulator': '空气循环扇',
+  'smartwatch': '智能手表',
+  'wireless-charger': '无线充电',
+  'monitor': '显示器',
+  'keyboard': '键盘',
+  'portable-ssd': '便携SSD',
+  'camp': '露营用品',
+  'bluetooth-speaker': '蓝牙音箱',
+  'headphones': '头戴耳机',
+  'mouse': '鼠标',
+  'gaming-mouse': '游戏鼠标',
+  'wifi-extender': 'Wi-Fi中继器',
+  'network': '网络设备',
+  'stand': '支架',
+  'light': '灯具',
+  'storage': '存储设备',
+  'car-holder': '车载支架',
+  'cable': '数据线',
+  'waterproof': '防水用品',
+  'screen-protector': '屏幕保护膜',
+  'smartphone-case': '手机保护壳',
+  'wireless-earbuds': '真无线耳机',
+  'e-reader': '电子书阅读器',
+  'speaker': '音箱',
+  'tablet': '平板电脑',
+  'stabilizer': '稳定器',
+  'gadget-misc': '数码杂货',
 };
 
 const allCategories = [...new Set(products.map(p => p.category))].sort();
@@ -64,14 +63,14 @@ const productsWithMeta = products.map(p => ({
 ---
 
 <BaseLayout
-  title="商品一覧"
-  description="全67商品を価格帯・カテゴリ・キーワードで絞り込み検索。Amazon・楽天の購入リンク付き。"
+  title="商品列表 | 数码产品比价博客"
+  description="全部商品按价格区间・类别・关键词筛选。附Amazon・乐天购买链接。"
 >
   <!-- Page Header -->
   <section class="products-hero">
     <div class="container">
-      <h1 class="products-hero__title">商品一覧</h1>
-      <p class="products-hero__lead">全{products.length}商品 — 価格帯・カテゴリ・キーワードで絞り込めます</p>
+      <h1 class="products-hero__title">商品列表</h1>
+      <p class="products-hero__lead">共{products.length}件商品 — 可按价格区间・类别・关键词筛选</p>
     </div>
   </section>
 
@@ -84,7 +83,7 @@ const productsWithMeta = products.map(p => ({
         <input
           type="text"
           id="searchInput"
-          placeholder="商品名・タグで検索..."
+          placeholder="搜索商品名称・标签..."
           class="filter-bar__input"
           autocomplete="off"
         />
@@ -92,22 +91,22 @@ const productsWithMeta = products.map(p => ({
 
       <!-- Price Range Buttons -->
       <div class="filter-bar__price">
-        <span class="filter-bar__label">価格帯</span>
+        <span class="filter-bar__label">价格区间</span>
         <div class="price-buttons">
-          <button class="price-btn active" data-price="all">すべて</button>
-          <button class="price-btn" data-price="1000">〜1,000円</button>
-          <button class="price-btn" data-price="3000">〜3,000円</button>
-          <button class="price-btn" data-price="5000">〜5,000円</button>
-          <button class="price-btn" data-price="10000">〜1万円</button>
-          <button class="price-btn" data-price="30000">〜3万円</button>
+          <button class="price-btn active" data-price="all">全部</button>
+          <button class="price-btn" data-price="1000">〜1,000日元</button>
+          <button class="price-btn" data-price="3000">〜3,000日元</button>
+          <button class="price-btn" data-price="5000">〜5,000日元</button>
+          <button class="price-btn" data-price="10000">〜1万日元</button>
+          <button class="price-btn" data-price="30000">〜3万日元</button>
         </div>
       </div>
 
       <!-- Category Dropdown -->
       <div class="filter-bar__category">
-        <span class="filter-bar__label">カテゴリ</span>
+        <span class="filter-bar__label">类别</span>
         <select id="categorySelect" class="filter-bar__select">
-          <option value="all">全カテゴリ</option>
+          <option value="all">全部类别</option>
           {allCategories.map(cat => (
             <option value={cat}>{categoryLabels[cat] ?? cat}</option>
           ))}
@@ -116,7 +115,7 @@ const productsWithMeta = products.map(p => ({
 
       <!-- Result Count -->
       <div class="filter-bar__count">
-        <span id="resultCount">{products.length}</span>件表示
+        <span id="resultCount">{products.length}</span>件
       </div>
     </div>
   </section>
@@ -161,7 +160,7 @@ const productsWithMeta = products.map(p => ({
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                 >
-                  <span class="buy-btn__icon">🛒</span> Amazon
+                  <span class="buy-btn__icon">🛒</span> 在Amazon购买
                 </a>
                 <a
                   href={product.affiliate_links.rakuten.url}
@@ -169,7 +168,7 @@ const productsWithMeta = products.map(p => ({
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                 >
-                  <span class="buy-btn__icon">🛍️</span> 楽天
+                  <span class="buy-btn__icon">🛍️</span> 在乐天购买
                 </a>
               </div>
             </div>
@@ -179,7 +178,7 @@ const productsWithMeta = products.map(p => ({
 
       <!-- Empty State -->
       <div class="no-results" id="noResults" style="display:none;">
-        <p>条件に合う商品が見つかりませんでした。</p>
+        <p>未找到符合条件的商品。</p>
       </div>
     </div>
   </section>
@@ -252,7 +251,6 @@ const productsWithMeta = products.map(p => ({
 </script>
 
 <style>
-  /* ===== Hero ===== */
   .products-hero {
     background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
     color: white;
@@ -270,7 +268,6 @@ const productsWithMeta = products.map(p => ({
     margin: 0;
   }
 
-  /* ===== Filter Bar ===== */
   .filter-bar {
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
@@ -382,7 +379,6 @@ const productsWithMeta = products.map(p => ({
     font-size: 1rem;
   }
 
-  /* ===== Products Section ===== */
   .products-section { padding: 2.5rem 0 4rem; }
 
   .products-grid {
@@ -397,7 +393,6 @@ const productsWithMeta = products.map(p => ({
     .products-grid { grid-template-columns: repeat(4, 1fr); }
   }
 
-  /* ===== Product Card ===== */
   .product-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -489,16 +484,9 @@ const productsWithMeta = products.map(p => ({
   .buy-btn:active { transform: translateY(0); }
   .buy-btn__icon { font-size: .85em; }
 
-  .buy-btn--amazon {
-    background: #ff9900;
-    color: #111;
-  }
-  .buy-btn--rakuten {
-    background: #bf0000;
-    color: white;
-  }
+  .buy-btn--amazon { background: #ff9900; color: #111; }
+  .buy-btn--rakuten { background: #bf0000; color: white; }
 
-  /* ===== No Results ===== */
   .no-results {
     text-align: center;
     padding: 4rem 1rem;
@@ -506,7 +494,6 @@ const productsWithMeta = products.map(p => ({
     font-size: 1.1rem;
   }
 
-  /* ===== Badge override for small cards ===== */
   .product-card .badge--category {
     font-size: .65rem;
     padding: .15em .55em;
