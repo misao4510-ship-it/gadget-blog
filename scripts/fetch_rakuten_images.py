@@ -39,21 +39,26 @@ def load_config():
     return config
 
 config = load_config()
-APP_ID = config.get("RAKUTEN_APPLICATION_ID", "528d8064")
-BASE_URL = "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601"
+APP_ID = config.get("RAKUTEN_APPLICATION_ID", "")
+ACCESS_KEY = config.get("RAKUTEN_ACCESS_KEY", "")
+ORIGIN = config.get("RAKUTEN_ORIGIN", "https://gadget-blog-dxq.pages.dev")
+BASE_URL = "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601"
 
 
 def search_product(name):
     """楽天APIで商品検索し、画像URLを返す。取得失敗時はNoneを返す。"""
     params = urllib.parse.urlencode({
         "applicationId": APP_ID,
+        "accessKey": ACCESS_KEY,
         "keyword": name,
         "hits": 1,
         "format": "json"
     })
     url = f"{BASE_URL}?{params}"
     try:
-        with urllib.request.urlopen(url, timeout=10) as r:
+        req = urllib.request.Request(url)
+        req.add_header("Origin", ORIGIN)
+        with urllib.request.urlopen(req, timeout=10) as r:
             data = json.load(r)
 
         if "error" in data:
