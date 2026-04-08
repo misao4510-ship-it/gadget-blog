@@ -7,17 +7,22 @@ const ROOT = join(__dirname, '..');
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-async function fetchRakutenPrice(keyword, appId, retries = 3) {
-  const url = new URL('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601');
+async function fetchRakutenPrice(keyword, appId, accessKey, origin, retries = 3) {
+  const url = new URL('https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260401');
   url.searchParams.set('applicationId', appId);
+  url.searchParams.set('accessKey', accessKey);
   url.searchParams.set('keyword', keyword);
   url.searchParams.set('sort', '+itemPrice');
   url.searchParams.set('hits', '5');
   url.searchParams.set('format', 'json');
 
+  const headers = {
+    'Origin': origin,
+  };
+
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
-      const res = await fetch(url.toString());
+      const res = await fetch(url.toString(), { headers });
 
       if (res.status === 429) {
         const wait = Math.pow(2, attempt + 1) * 1000;
@@ -59,9 +64,16 @@ async function fetchRakutenPrice(keyword, appId, retries = 3) {
 
 async function main() {
   const appId = process.env.RAKUTEN_APP_ID;
+  const accessKey = process.env.RAKUTEN_ACCESS_KEY;
+  const origin = process.env.RAKUTEN_ORIGIN || 'https://gadget-blog-dxq.pages.dev';
 
   if (!appId) {
     console.error('Missing env: RAKUTEN_APP_ID');
+    process.exit(1);
+  }
+
+  if (!accessKey) {
+    console.error('Missing env: RAKUTEN_ACCESS_KEY');
     process.exit(1);
   }
 
@@ -79,7 +91,7 @@ async function main() {
     console.log(`Fetching Rakuten price for ${product.id} (${product.name})...`);
     await sleep(1000); // Rate limit: 1 req/sec
 
-    const priceData = await fetchRakutenPrice(keyword, appId);
+    const priceData = await fetchRakutenPrice(keyword, appId, accessKey, origin);
     if (priceData) {
       writeFileSync(
         join(ROOT, `data/prices/${product.id}_rakuten_tmp.json`),
