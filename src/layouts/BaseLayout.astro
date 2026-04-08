@@ -40,16 +40,32 @@ const currentYear = new Date().getFullYear();
   <meta name="twitter:image" content={ogImageURL} />
 </head>
 <body>
+  <!-- モバイルドロワーオーバーレイ -->
+  <div id="drawer-overlay"></div>
+
+  <!-- モバイルドロワー -->
+  <div id="mobile-drawer">
+    <button id="drawer-close" aria-label="メニューを閉じる">×</button>
+    <nav class="drawer-nav">
+      <a href="/">トップ</a>
+      <a href="/categories/sale/">セール時期</a>
+      <a href="/categories/ranking/">ランキング</a>
+      <a href="/categories/review/">レビュー</a>
+      <a href="/about/">カイナとは</a>
+    </nav>
+  </div>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a href="/" class="site-header__logo">📊 ガジェット価格比較</a>
-      <nav class="site-header__nav">
+      <nav class="site-header__nav pc-nav">
         <a href="/">ホーム</a>
         <a href="/categories/sale/">セール時期</a>
         <a href="/categories/ranking/">ランキング</a>
         <a href="/categories/review/">レビュー</a>
         <a href="/about/">カイナとは</a>
       </nav>
+      <button id="hamburger-btn" aria-label="メニューを開く">☰</button>
     </div>
   </header>
 
@@ -72,5 +88,98 @@ const currentYear = new Date().getFullYear();
       </p>
     </div>
   </footer>
+
+<style>
+  /* ハンバーガーボタン: モバイルのみ表示 */
+  #hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    color: inherit;
+    line-height: 1;
+  }
+  @media (max-width: 768px) {
+    #hamburger-btn { display: block; }
+    .pc-nav { display: none !important; }
+  }
+
+  /* ドロワー */
+  #mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #fff;
+    z-index: 1001;
+    transition: left 0.3s ease;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  }
+  #mobile-drawer.open { left: 0; }
+
+  #drawer-close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    float: right;
+    line-height: 1;
+    padding: 0 4px;
+    color: #333;
+  }
+
+  .drawer-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 48px;
+    gap: 0;
+  }
+  .drawer-nav a {
+    display: block;
+    padding: 14px 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+  .drawer-nav a:hover { background: #f5f5f5; }
+
+  /* オーバーレイ */
+  #drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+  #drawer-overlay.open { display: block; }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  const closeBtn = document.getElementById('drawer-close');
+
+  function openDrawer() {
+    drawer?.classList.add('open');
+    overlay?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer?.classList.remove('open');
+    overlay?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  overlay?.addEventListener('click', closeDrawer);
+</script>
 </body>
 </html>
