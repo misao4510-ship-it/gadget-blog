@@ -8,21 +8,21 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 6980,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A2%25E3%2582%25A4%25E3%2583%25AA%25E3%2582%25B9%25E3%2582%25AA%25E3%2583%25BC%25E3%2583%25A4%25E3%2583%259E%2520%25E3%2582%25B5%25E3%2583%25BC%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AC%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%25BC%2520PCF-SC15T%2F",
+      "price": 1669,
       "in_stock": true,
-      "updated": "2026-04-05"
+      "url": "https://item.rakuten.co.jp/ecoeur555/jw294-00/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 6480
+      "store": "rakuten",
+      "price": 1669
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 6480,
-      "rakuten": 6980
+      "rakuten": 1669
     },
     {
       "date": "2026-04-07",

@@ -8,10 +8,10 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 4680,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBaseus%2520GaN%252065W%2520USB-C%2520%25E5%2585%2585%25E9%259B%25BB%25E5%2599%25A8%2F",
+      "price": 4980,
       "in_stock": true,
-      "updated": "2026-04-07"
+      "url": "https://item.rakuten.co.jp/laox/6932172628161/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
       "store": "amazon",
@@ -22,7 +22,7 @@
     {
       "date": "2026-04-08",
       "amazon": 4490,
-      "rakuten": 4680
+      "rakuten": 4980
     },
     {
       "date": "2026-04-07",

@@ -8,21 +8,21 @@
       "updated": "2026-04-08"
     },
     "rakuten": {
-      "price": 3431,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FPYKES%2520PEAK%2520%25E7%25B0%25A1%25E6%2598%2593%25E3%2583%2588%25E3%2582%25A4%25E3%2583%25AC%2F",
+      "price": 2780,
       "in_stock": true,
+      "url": "https://item.rakuten.co.jp/pykespeak/p0244z/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
       "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 3062
+      "store": "rakuten",
+      "price": 2780
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 3062,
-      "rakuten": 3431
+      "rakuten": 2780
     },
     {
       "date": "2026-04-07",

@@ -8,10 +8,10 @@
       "updated": "2026-04-06"
     },
     "rakuten": {
-      "price": 350,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSIM%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2520%25E5%258F%2596%25E3%2582%258A%25E5%2587%25BA%25E3%2581%2597%25E3%2583%2594%25E3%2583%25B3%2F",
+      "price": 1094,
       "in_stock": true,
-      "updated": "2026-04-06"
+      "url": "https://item.rakuten.co.jp/coco26/b0by1yx3q1/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
       "store": "amazon",
@@ -22,7 +22,7 @@
     {
       "date": "2026-04-08",
       "amazon": 299,
-      "rakuten": 350
+      "rakuten": 1094
     },
     {
       "date": "2026-04-07",

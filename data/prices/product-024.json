@@ -8,21 +8,21 @@
       "updated": "2026-04-06"
     },
     "rakuten": {
-      "price": 780,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUSB-A+USB-C+%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%2F",
+      "price": 498,
       "in_stock": true,
-      "updated": "2026-04-06"
+      "url": "https://item.rakuten.co.jp/urpremium/gpnp/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 699
+      "store": "rakuten",
+      "price": 498
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 699,
-      "rakuten": 780
+      "rakuten": 498
     },
     {
       "date": "2026-04-07",

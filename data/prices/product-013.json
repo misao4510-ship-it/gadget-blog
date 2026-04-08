@@ -8,21 +8,21 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 24980,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B7%25E3%2583%25A3%25E3%2583%25BC%25E3%2583%2597%2520%25E5%258A%25A0%25E6%25B9%25BF%25E7%25A9%25BA%25E6%25B0%2597%25E6%25B8%2585%25E6%25B5%2584%25E6%25A9%259F%2520KC-S50%2F",
+      "price": 798,
       "in_stock": true,
-      "updated": "2026-04-05"
+      "url": "https://item.rakuten.co.jp/bestar/s-seltuto-1/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 22800
+      "store": "rakuten",
+      "price": 798
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 22800,
-      "rakuten": 24980
+      "rakuten": 798
     },
     {
       "date": "2026-04-07",

@@ -8,21 +8,21 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 6580,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FLogicool%2520G304%2520LIGHTSPEED%2520%25E3%2583%25AF%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25AC%25E3%2582%25B9%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E3%2583%259E%25E3%2582%25A6%25E3%2582%25B9%2F",
+      "price": 2528,
       "in_stock": true,
-      "updated": "2026-04-07"
+      "url": "https://item.rakuten.co.jp/colorsstorenigoten/65081074809/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 6380
+      "store": "rakuten",
+      "price": 2528
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 6380,
-      "rakuten": 6580
+      "rakuten": 2528
     },
     {
       "date": "2026-04-07",

@@ -8,21 +8,21 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 13480,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTP-Link%2520Deco%2520X20%2520%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5WiFi%2F",
+      "price": 3800,
       "in_stock": true,
-      "updated": "2026-04-07"
+      "url": "https://item.rakuten.co.jp/status/tp-link_decox20_ax1800/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 12980
+      "store": "rakuten",
+      "price": 3800
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 12980,
-      "rakuten": 13480
+      "rakuten": 3800
     },
     {
       "date": "2026-04-07",

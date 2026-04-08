@@ -8,21 +8,21 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 17480,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FFire%2520HD%252010%2520%E7%AC%AC13%E4%B8%96%E4%BB%A3%2F",
+      "price": 550,
       "in_stock": true,
-      "updated": "2026-04-07"
+      "url": "https://item.rakuten.co.jp/windygirl/h-tbcase-004-1014-1ca/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 16980
+      "store": "rakuten",
+      "price": 550
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 16980,
-      "rakuten": 17480
+      "rakuten": 550
     },
     {
       "date": "2026-04-07",

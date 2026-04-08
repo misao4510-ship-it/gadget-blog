@@ -8,21 +8,21 @@
       "updated": "2026-04-08"
     },
     "rakuten": {
-      "price": 904,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E4%25BA%2595%25E6%259D%2591%25E5%25B1%258B%2520%25E3%2581%2588%25E3%2581%2584%25E3%2582%2588%25E3%2581%2586%25E3%2581%258B%25E3%2582%2593%2F",
+      "price": 440,
       "in_stock": true,
+      "url": "https://item.rakuten.co.jp/kk1206/syoku00248/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
       "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 856
+      "store": "rakuten",
+      "price": 440
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 856,
-      "rakuten": 904
+      "rakuten": 440
     },
     {
       "date": "2026-04-07",

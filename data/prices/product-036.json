@@ -8,20 +8,21 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1480,
+      "price": 990,
       "in_stock": true,
-      "updated": "2026-04-07"
+      "url": "https://item.rakuten.co.jp/iikakakustore/b0bpfnjm4q/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 1299
+      "store": "rakuten",
+      "price": 990
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 1299,
-      "rakuten": 1480
+      "rakuten": 990
     },
     {
       "date": "2026-04-07",

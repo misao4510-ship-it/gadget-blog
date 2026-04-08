@@ -8,21 +8,21 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 15480,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKindle%2520Paperwhite%2520%E7%AC%AC11%E4%B8%96%E4%BB%A3%2F",
+      "price": 420,
       "in_stock": true,
-      "updated": "2026-04-07"
+      "url": "https://item.rakuten.co.jp/east-plus/10006222/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 14980
+      "store": "rakuten",
+      "price": 420
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 14980,
-      "rakuten": 15480
+      "rakuten": 420
     },
     {
       "date": "2026-04-07",

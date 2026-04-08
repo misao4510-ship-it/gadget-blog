@@ -8,10 +8,10 @@
       "updated": "2026-04-06"
     },
     "rakuten": {
-      "price": 880,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25B9%25E3%2583%259E%25E3%2583%25BC%25E3%2583%2588%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25B3%2520%25E4%25B8%2589%25E8%2584%259A%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC%2F",
+      "price": 903,
       "in_stock": true,
-      "updated": "2026-04-06"
+      "url": "https://item.rakuten.co.jp/rinrindou/495187c309f25a/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
       "store": "amazon",
@@ -22,7 +22,7 @@
     {
       "date": "2026-04-08",
       "amazon": 799,
-      "rakuten": 880
+      "rakuten": 903
     },
     {
       "date": "2026-04-07",

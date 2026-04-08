@@ -8,21 +8,21 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 36300,
-      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FApple%2520Watch%2520SE%2520%25E7%25AC%25AC2%25E4%25B8%2596%25E4%25BB%25A3%252040mm%2F",
+      "price": 419,
       "in_stock": true,
-      "updated": "2026-04-05"
+      "url": "https://item.rakuten.co.jp/dailyplus-onlineshop/s0dp1nwyz6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-08"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 34800
+      "store": "rakuten",
+      "price": 419
     }
   },
   "history": [
     {
       "date": "2026-04-08",
       "amazon": 34800,
-      "rakuten": 36300
+      "rakuten": 419
     },
     {
       "date": "2026-04-07",
