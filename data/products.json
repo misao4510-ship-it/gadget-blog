@@ -2292,6 +2292,37 @@
         }
       },
       "image_url": "https://m.media-amazon.com/images/I/71placeholder077.jpg"
+    },
+    {
+      "id": "product-078",
+      "name": "THREEKEY Qi2 PSE公式認証 MagSafe充電器 両面マグネット式",
+      "category": "gadget",
+      "asin": "B0DLSMH23R",
+      "rakuten_keyword": "THREEKEY Qi2 MagSafe 充電器",
+      "a8_link": "https://px.a8.net/placeholder/product-078",
+      "image": "/images/products/threekey-qi2-charger.svg",
+      "tags": [
+        "MagSafe",
+        "Qi2",
+        "ワイヤレス充電",
+        "15W急速充電",
+        "両面マグネット"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0DLSMH23R?tag=misao4510-22",
+          "url": "https://amzn.to/4c33snq"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTHREEKEY%2520Qi2%2520MagSafe%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-078"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder078.jpg"
     }
   ]
 }
