@@ -48,11 +48,12 @@
     }
   }
 
-  /* 吹き出し（カイナ画像の左側、尻尾は右向き） */
+  /* 吹き出し（カイナ頭上、尻尾は下向き） */
   .speech-bubble {
     position: absolute;
-    right: calc(100% + 14px);
-    bottom: 24px;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
     width: 180px;
     background: #fff;
     border-radius: 12px;
@@ -68,17 +69,18 @@
     word-break: break-all;
   }
 
-  /* 吹き出しの尻尾（右向き） */
+  /* 吹き出しの尻尾（下向き、カイナを指す） */
   .speech-bubble::after {
     content: '';
     position: absolute;
-    right: -10px;
-    bottom: 14px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 7px 0 7px 10px;
-    border-color: transparent transparent transparent #fff;
+    border-width: 10px 7px 0 7px;
+    border-color: #fff transparent transparent transparent;
   }
 
   .speech-bubble.fade-out {
@@ -142,11 +144,12 @@
     }
 
     .speech-bubble {
-      width: 140px;
+      width: 120px;
       font-size: 11px;
       padding: 8px 10px;
-      right: calc(100% + 10px);
-      bottom: 14px;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .navi-reopen-btn {

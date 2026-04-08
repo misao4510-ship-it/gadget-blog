@@ -4,6 +4,7 @@ description: "Anker PowerCore 10000の徹底レビュー。Amazon・楽天の価
 publishDate: "2026-04-05"
 category: "mobile-battery"
 products: ["product-001"]
+subcategory: "gadget"
 type: "review"
 draft: false
 ogImage: /images/og-anker-review.svg

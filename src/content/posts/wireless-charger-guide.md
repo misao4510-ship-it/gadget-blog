@@ -4,6 +4,7 @@ description: "AnkerやBelkinなど人気ワイヤレス充電器の価格推移�
 publishDate: "2026-04-05"
 category: "wireless-charger"
 products: ["product-007"]
+subcategory: "gadget"
 type: "roundup"
 draft: false
 ogImage: /images/og-wireless-charger.svg

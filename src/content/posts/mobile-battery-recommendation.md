@@ -4,6 +4,7 @@ description: "2026年最新のモバイルバッテリーをAmazon・楽天の�
 publishDate: "2026-04-05"
 category: "mobile-battery"
 products: ["product-001", "product-002"]
+subcategory: "gadget"
 type: "roundup"
 draft: false
 ogImage: /images/og-mobile-battery.svg

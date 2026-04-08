@@ -4,6 +4,7 @@ description: "T-fal（ティファール）ジャスティンプラス1.2Lを徹
 publishDate: "2026-04-05"
 category: "electric-kettle"
 products: ["product-014"]
+subcategory: "appliance"
 type: "review"
 draft: false
 ogImage: /images/og-electric-kettle.svg

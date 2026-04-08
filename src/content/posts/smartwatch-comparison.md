@@ -4,6 +4,7 @@ description: "Apple Watch SEをはじめ人気スマートウォッチの価格�
 publishDate: "2026-04-05"
 category: "smartwatch"
 products: ["product-006"]
+subcategory: "gadget"
 type: "comparison"
 draft: false
 ogImage: /images/og-smartwatch.svg

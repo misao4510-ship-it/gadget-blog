@@ -3,6 +3,7 @@ title: "【2026年】Bambu Lab A1 Mini レビュー｜初心者向け高速3Dプ
 description: "Bambu Lab A1 Miniの特徴・スペック・メリット・デメリットを詳しく解説。500mm/s高速印刷・全自動キャリブレーションで初心者でも簡単に3Dプリントを始められる。"
 publishDate: "2026-04-07"
 category: "gadget"
+subcategory: "appliance"
 type: "review"
 draft: false
 products: ["product-071"]

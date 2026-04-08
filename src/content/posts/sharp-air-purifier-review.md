@@ -4,6 +4,7 @@ description: "SHARP加湿空気清浄機KC-S50を徹底レビュー。プラズ�
 publishDate: "2026-04-05"
 category: "air-purifier"
 products: ["product-013"]
+subcategory: "appliance"
 type: "review"
 draft: false
 ogImage: /images/og-air-purifier.svg

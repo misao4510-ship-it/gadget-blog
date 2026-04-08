@@ -3,6 +3,7 @@ title: "【2026年】Amazonベーシック 単3形アルカリ電池 20本 レ�
 description: "Amazonベーシック 単3形アルカリ電池（20本セット）の特徴・スペック・メリット・デメリットを詳しく解説。1本約39円・保存期限10年の圧倒的コスパで家庭備蓄・日常使いに最適。"
 publishDate: "2026-04-08"
 category: "gadget-misc"
+subcategory: "disaster"
 type: "review"
 draft: false
 products: ["product-072"]

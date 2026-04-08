@@ -4,6 +4,7 @@ description: "Keychron K2をはじめ人気メカニカルキーボードの価�
 publishDate: "2026-04-05"
 category: "keyboard"
 products: ["product-009"]
+subcategory: "gadget"
 type: "comparison"
 draft: false
 ogImage: /images/og-keyboard.svg

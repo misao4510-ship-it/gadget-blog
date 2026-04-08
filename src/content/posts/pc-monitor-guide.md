@@ -4,6 +4,7 @@ description: "PCモニター選びのポイントを解説。LG 27UL500をはじ
 publishDate: "2026-04-05"
 category: "monitor"
 products: ["product-008"]
+subcategory: "gadget"
 type: "comparison"
 draft: false
 ogImage: /images/og-pc-monitor.svg

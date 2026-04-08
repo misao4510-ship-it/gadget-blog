@@ -4,6 +4,7 @@ description: "アイリスオーヤマ サーキュレーターPCF-SC15Tを徹�
 publishDate: "2026-04-05"
 category: "circulator"
 products: ["product-016"]
+subcategory: "appliance"
 type: "review"
 draft: false
 ogImage: /images/og-circulator.svg

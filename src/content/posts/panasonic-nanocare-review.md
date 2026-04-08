@@ -4,6 +4,7 @@ description: "Panasonicヘアドライヤー ナノケアEH-NA0Jを徹底レビ�
 publishDate: "2026-04-05"
 category: "hair-dryer"
 products: ["product-015"]
+subcategory: "appliance"
 type: "review"
 draft: false
 ogImage: /images/og-hair-dryer.svg

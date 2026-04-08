@@ -4,6 +4,7 @@ description: "作者が実際に選んだESR iPhone 17 Pro MaxケースのMagSaf
 publishDate: "2026-04-05"
 category: "iphone-case"
 products: ["product-011"]
+subcategory: "gadget"
 type: "review"
 draft: false
 ogImage: /images/og-esr-iphone-case.svg

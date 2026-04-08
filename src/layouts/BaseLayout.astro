@@ -51,6 +51,9 @@ const currentYear = new Date().getFullYear();
       <a href="/categories/sale/">セール時期</a>
       <a href="/categories/ranking/">ランキング</a>
       <a href="/categories/review/">レビュー</a>
+      <a href="/categories/review/gadget/" class="drawer-nav__sub">　📱 ガジェット</a>
+      <a href="/categories/review/appliance/" class="drawer-nav__sub">　🏠 家電</a>
+      <a href="/categories/review/disaster/" class="drawer-nav__sub">　🆘 防災</a>
       <a href="/about/">カイナとは</a>
     </nav>
   </div>
@@ -62,7 +65,14 @@ const currentYear = new Date().getFullYear();
         <a href="/">ホーム</a>
         <a href="/categories/sale/">セール時期</a>
         <a href="/categories/ranking/">ランキング</a>
-        <a href="/categories/review/">レビュー</a>
+        <div class="nav-dropdown">
+          <a href="/categories/review/">レビュー</a>
+          <div class="nav-dropdown__menu">
+            <a href="/categories/review/gadget/">📱 ガジェット</a>
+            <a href="/categories/review/appliance/">🏠 家電</a>
+            <a href="/categories/review/disaster/">🆘 防災</a>
+          </div>
+        </div>
         <a href="/about/">カイナとは</a>
       </nav>
       <button id="hamburger-btn" aria-label="メニューを開く">☰</button>
@@ -106,6 +116,34 @@ const currentYear = new Date().getFullYear();
     .pc-nav { display: none !important; }
   }
 
+  /* PCナビ ドロップダウン */
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-dropdown__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    min-width: 160px;
+    z-index: 100;
+    padding: 4px 0;
+  }
+  .nav-dropdown__menu a {
+    display: block;
+    padding: 10px 16px;
+    font-size: .9rem;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-dropdown__menu a:hover { background: #f5f5f5; }
+  .nav-dropdown:hover .nav-dropdown__menu { display: block; }
+
   /* ドロワー */
   #mobile-drawer {
     position: fixed;
@@ -148,6 +186,14 @@ const currentYear = new Date().getFullYear();
     border-bottom: 1px solid #eee;
   }
   .drawer-nav a:hover { background: #f5f5f5; }
+  .drawer-nav .drawer-nav__sub {
+    font-size: .95rem;
+    font-weight: 500;
+    padding: 10px 8px;
+    color: #555;
+    background: #fafafa;
+  }
+  .drawer-nav .drawer-nav__sub:hover { background: #f0f0f0; }
 
   /* オーバーレイ */
   #drawer-overlay {

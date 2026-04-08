@@ -4,6 +4,7 @@ description: "主要USB-CハブブランドをAmazon・楽天で価格比較。�
 publishDate: "2026-04-05"
 category: "usb-hub"
 products: ["product-003"]
+subcategory: "gadget"
 type: "comparison"
 draft: false
 ogImage: /images/og-usbc-hub.svg

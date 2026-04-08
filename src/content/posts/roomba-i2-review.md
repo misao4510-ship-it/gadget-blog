@@ -4,6 +4,7 @@ description: "iRobot ルンバ i2を徹底レビュー。3万円以下で3段階
 publishDate: "2026-04-05"
 category: "robot-vacuum"
 products: ["product-012"]
+subcategory: "appliance"
 type: "review"
 draft: false
 ogImage: /images/og-robot-vacuum.svg

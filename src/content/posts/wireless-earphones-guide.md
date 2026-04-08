@@ -4,6 +4,7 @@ description: "ワイヤレスイヤホンの選び方をコーデック・ノイ
 publishDate: "2026-04-05"
 category: "earphones"
 products: ["product-004"]
+subcategory: "gadget"
 type: "roundup"
 draft: false
 ogImage: /images/og-earphones.svg

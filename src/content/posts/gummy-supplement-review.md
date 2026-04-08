@@ -3,6 +3,7 @@ title: "【2026年】おすすめグミサプリ3選｜手軽に栄養補給で�
 description: "グミで手軽に栄養補給できるサプリメント3商品を徹底比較。ビタミンC・マルチビタミン・亜鉛&マカなど成分・価格・味の違いを解説。"
 publishDate: "2026-04-07"
 category: "health"
+subcategory: "gadget"
 type: "review"
 draft: false
 products: ["product-068", "product-069", "product-070"]

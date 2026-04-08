@@ -4,6 +4,7 @@ description: "Samsung T7をはじめ人気ポータブルSSDの価格推移と�
 publishDate: "2026-04-05"
 category: "portable-ssd"
 products: ["product-010"]
+subcategory: "gadget"
 type: "comparison"
 draft: false
 ogImage: /images/og-portable-ssd.svg

@@ -4,6 +4,7 @@ description: "Snow Peak チタンシングルマグ600の特徴・スペック�
 publishDate: "2026-04-06"
 category: "camp"
 products: ["product-017"]
+subcategory: "gadget"
 type: "review"
 draft: false
 ogImage: /images/og-camp-snow-peak-titanium-mug.svg
