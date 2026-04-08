@@ -14,6 +14,16 @@
   --color-border: #dde3ec;
   --color-tag-bg: #e8f4fc;
   --color-tag-text: #007bbd;
+  /* Header / Drawer / Dropdown */
+  --header-bg: #ffffff;
+  --header-text: var(--color-text);
+  --drawer-bg: #ffffff;
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #333333;
+  --dropdown-hover-bg: #f5f5f5;
+  /* Bubble */
+  --bubble-bg: #ffffff;
+  --bubble-text: #333333;
 
   --font-heading: 'Quicksand', ui-sans-serif, system-ui, -apple-system,
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -31,6 +41,27 @@
 
   --max-width: 1120px;
   --content-width: 780px;
+}
+
+/* ===== Dark Mode Overrides ===== */
+[data-theme="dark"] {
+  --color-bg: #0f0f1a;
+  --color-surface: #1a1a2e;
+  --color-surface-raised: #16213e;
+  --color-text: #e0e0e0;
+  --color-text-muted: #a0a0c0;
+  --color-border: #333355;
+  --color-primary-light: #1a2a3e;
+  --color-tag-bg: #1a2a3e;
+  --color-tag-text: #60a5fa;
+  --header-bg: #0a0a14;
+  --header-text: #e0e0e0;
+  --drawer-bg: #1a1a2e;
+  --dropdown-bg: #1a1a2e;
+  --dropdown-text: #e0e0e0;
+  --dropdown-hover-bg: #16213e;
+  --bubble-bg: #1a1a2e;
+  --bubble-text: #e0e0e0;
 }
 
 /* ===== Reset ===== */
@@ -69,7 +100,7 @@ p  { margin: 0 0 1.2rem; }
 
 /* ===== Header ===== */
 .site-header {
-  background: #ffffff;
+  background: var(--header-bg);
   border-bottom: 3px solid var(--color-primary);
   position: sticky; top: 0; z-index: 100;
   box-shadow: 0 2px 12px rgba(0,100,200,.08);
