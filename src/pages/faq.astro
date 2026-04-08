@@ -1,0 +1,463 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="よくある質問（FAQ）"
+  description="ガジェット案内AIカイナが、モバイルバッテリー・イヤホン・充電器・セール情報など読者のよくある質問にお答えします。"
+  ogImage="/images/kaina-profile.png"
+>
+  <div class="faq-page">
+    <!-- Hero Section -->
+    <section class="faq-hero">
+      <div class="container">
+        <div class="faq-hero__inner">
+          <div class="faq-hero__image-wrap">
+            <img
+              src="/images/kaina-profile.png"
+              alt="カイナ"
+              class="faq-hero__image"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="faq-hero__text">
+            <p class="faq-hero__label">よくある質問</p>
+            <h1 class="faq-hero__title">FAQ</h1>
+            <p class="faq-hero__message">こんにちは！カイナです。<br />皆さんの疑問にお答えしますね♪</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>おすすめのモバイルバッテリーはどれですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>容量10000mAh以上のAnkerやCIOがおすすめですよ。Type-C入出力対応のものを選ぶと充電速度も速くて便利ですね。持ち運びが多い方には軽量タイプもあるので、用途に合わせて選んでみてください。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>ワイヤレスイヤホンの選び方を教えてください</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>ノイズキャンセリングの有無・通話品質・バッテリー持ちの3点を確認してみてください。AirPods ProやSony WF-1000XM5が定番ですよ。音楽メインならノイキャン強め、テレワーク用なら通話品質を重視するのがおすすめですね。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>AmazonとAmazonと楽天どっちがお得ですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>商品によって違いますが、楽天はポイント還元率が高く、セール時は特にお得ですね。Amazonはプライム会員なら配送が早くて便利ですよ。価格比較サイトで両方をチェックしてから購入するのがベストですね。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>セールはいつが一番お得ですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>Amazonはプライムデー（7月）とブラックフライデー（11月）が最大級ですよ。楽天はお買い物マラソンが月1〜2回あるので狙い目ですね。当ブログのセール情報ページも随時更新していますのでブックマークしておいてくださいね。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>防災グッズで最低限必要なものは何ですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>水（1人3日分）・非常食・懐中電灯・モバイルバッテリー・救急セットの5点は揃えてほしいですね。防災ラジオもあると安心ですよ。停電時でもスマートフォンを充電できるよう、大容量バッテリーは特に重要ですね。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>スマートフォンケースはどう選べばいいですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>落下保護なら四隅にエアクッション構造があるものがおすすめですよ。薄さ重視ならクリアケース、デザイン重視なら手帳型もいいですね。MagSafe対応のiPhoneをお使いの方は、MagSafe対応ケースを選ぶとワイヤレス充電も快適ですよ。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>充電器はどれを選べばいいですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>GaN（窒化ガリウム）素材の充電器がコンパクトで高出力なのでおすすめですよ。65W以上あればノートPCも充電できて便利ですね。ポート数が多いマルチポートタイプなら、スマホ・タブレット・PCをまとめて充電できてとても便利ですよ。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>ガジェットはどこで買うのがお得ですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>新製品はAmazonタイムセール祭、型落ち品は楽天のスーパーSALE時期が狙い目ですよ。価格比較サイトも活用してみてください。当ブログでは各商品の価格推移グラフも掲載していますので、ぜひ参考にしてみてくださいね。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>このブログはどんな情報を発信していますか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>ガジェット・家電・防災グッズのレビューや価格比較情報を発信していますよ。セール情報も随時更新していますので、ぜひブックマークしてくださいね。カイナが毎日価格をチェックして、お得情報をお届けしていますよ。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>商品レビューは実際に使ったものですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>スペックや口コミ情報をもとに詳しく調査・まとめていますよ。実際の購入者の声も参考にしていますので、ぜひ参考にしてみてください。信頼性の高い情報をお届けできるよう、常に最新データを確認していますよ。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>価格グラフはどうやって見ればいいですか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>各商品ページに過去の価格推移グラフがありますよ。グラフの底値に近い時期がお買い得のタイミングですね。セール直前に価格が上がることもあるので、普段から価格をチェックしておくのがおすすめですよ。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span class="faq-item__q-icon">Q</span>
+              <span>このブログへの問い合わせはどこからできますか？</span>
+            </summary>
+            <div class="faq-item__answer">
+              <span class="faq-item__a-icon">A</span>
+              <p>現在お問い合わせフォームは準備中ですよ。ご要望やご意見はSNSなどでお気軽にご連絡くださいね。皆さんのリクエストをもとに、より役立つコンテンツをお届けできるよう努力していきますよ。</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="faq-cta">
+      <div class="container">
+        <h2 class="faq-cta__title">もっと詳しく知りたい方はこちら</h2>
+        <p class="faq-cta__text">カイナのプロフィールや、最新のガジェット情報もチェックしてみてくださいね。</p>
+        <div class="faq-cta__buttons">
+          <a href="/about/" class="btn btn--secondary">👩‍💻 カイナとは</a>
+          <a href="/" class="btn btn--primary">📊 最新記事を見る</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .faq-page {
+    padding-bottom: 4rem;
+  }
+
+  /* Hero */
+  .faq-hero {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 4rem 0 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .faq-hero__inner {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .faq-hero__image-wrap {
+    flex-shrink: 0;
+  }
+
+  .faq-hero__image {
+    width: 140px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .faq-hero__text {
+    flex: 1;
+  }
+
+  .faq-hero__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.2);
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-hero__title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
+  }
+
+  .faq-hero__message {
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0.95;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* FAQ List */
+  .faq-section {
+    padding: 0 0 3rem;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    background: #fff;
+    border: 1px solid #e8e8f0;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+
+  .faq-item[open] {
+    border-color: #f093fb;
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    list-style: none;
+    user-select: none;
+    transition: background 0.15s;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: '▼';
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: #999;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    transform: rotate(-180deg);
+  }
+
+  .faq-item__question:hover {
+    background: #fef9ff;
+  }
+
+  .faq-item[open] .faq-item__question {
+    background: linear-gradient(135deg, #fef0ff 0%, #fff0f3 100%);
+    border-bottom: 1px solid #f0d0f8;
+  }
+
+  .faq-item__q-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    font-weight: 800;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .faq-item__answer {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #fafafa;
+  }
+
+  .faq-item__a-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 800;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .faq-item__answer p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.8;
+  }
+
+  /* CTA */
+  .faq-cta {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    border-radius: 24px;
+    margin: 0 1rem;
+  }
+
+  .faq-cta__title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .faq-cta__text {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+  }
+
+  .faq-cta__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 99px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+
+  .btn--primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+  }
+
+  .btn--secondary {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.4);
+  }
+
+  /* Container */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .faq-hero__inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .faq-hero__title {
+      font-size: 2.25rem;
+    }
+
+    .faq-hero__image {
+      width: 110px;
+    }
+
+    .faq-item__question {
+      font-size: 0.95rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .faq-item__answer {
+      padding: 1rem 1.25rem;
+    }
+
+    .faq-cta {
+      border-radius: 16px;
+    }
+  }
+</style>
