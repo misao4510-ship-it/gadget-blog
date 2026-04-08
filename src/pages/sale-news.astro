@@ -1,0 +1,591 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'セール速報';
+const description = 'Amazon・楽天の最新セール情報をまとめてお届け。開催中セール・近日開催予定・年間カレンダーを一覧表示。セール攻略のポイントも解説。';
+
+// 今日の日付（サーバーサイド）
+const today = new Date('2026-04-08');
+
+type SaleStatus = 'active' | 'upcoming' | 'ended';
+
+interface SaleEvent {
+  name: string;
+  platform: 'amazon' | 'rakuten';
+  start: Date;
+  end: Date;
+  description: string;
+  highlight?: string;
+}
+
+const saleEvents: SaleEvent[] = [
+  // 開催中
+  {
+    name: '楽天お買い物マラソン（4月第1弾）',
+    platform: 'rakuten',
+    start: new Date('2026-04-04'),
+    end: new Date('2026-04-10'),
+    description: '10店舗以上購入でポイント最大+9倍！',
+    highlight: 'ポイント最大+9倍',
+  },
+  // 近日予定
+  {
+    name: '楽天お買い物マラソン（4月第2弾）',
+    platform: 'rakuten',
+    start: new Date('2026-04-14'),
+    end: new Date('2026-04-17'),
+    description: 'ポイント最大+9倍。5と0のつく日と合わせてさらにお得。',
+    highlight: 'ポイント最大+9倍',
+  },
+  {
+    name: '楽天お買い物マラソン（4月第3弾）',
+    platform: 'rakuten',
+    start: new Date('2026-04-24'),
+    end: new Date('2026-04-27'),
+    description: 'GW前最後のマラソン。まとめ買いに最適。',
+    highlight: 'ポイント最大+9倍',
+  },
+  {
+    name: 'Amazonスマイル SALE ゴールデンウィーク',
+    platform: 'amazon',
+    start: new Date('2026-04-30'),
+    end: new Date('2026-05-03'),
+    description: 'GW大型セール。旅行・レジャー・家電など幅広いカテゴリが対象。',
+    highlight: 'GW最大セール',
+  },
+];
+
+function getStatus(event: SaleEvent): SaleStatus {
+  if (today >= event.start && today <= event.end) return 'active';
+  if (today < event.start) return 'upcoming';
+  return 'ended';
+}
+
+function formatDate(d: Date): string {
+  return `${d.getMonth() + 1}/${d.getDate()}`;
+}
+
+const activeSales = saleEvents.filter(e => getStatus(e) === 'active');
+const upcomingSales = saleEvents.filter(e => getStatus(e) === 'upcoming');
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="sale-news-page">
+    <div class="page-hero">
+      <h1>🛒 セール速報</h1>
+      <p class="page-subtitle">Amazon・楽天の最新セール情報をリアルタイムでチェック</p>
+      <p class="update-date">最終更新: 2026年4月8日</p>
+    </div>
+
+    <!-- 開催中セール -->
+    {activeSales.length > 0 && (
+      <section class="sale-section">
+        <h2 class="section-title">🔴 開催中のセール</h2>
+        <div class="sale-cards">
+          {activeSales.map(event => (
+            <div class={`sale-card active platform-${event.platform}`}>
+              <div class="sale-card__header">
+                <span class="badge badge--active">🔴 開催中</span>
+                <span class={`platform-badge platform-badge--${event.platform}`}>
+                  {event.platform === 'amazon' ? 'Amazon' : '楽天'}
+                </span>
+              </div>
+              <h3 class="sale-card__name">{event.name}</h3>
+              <p class="sale-card__period">
+                📅 {formatDate(event.start)}（{['日','月','火','水','木','金','土'][event.start.getDay()]}）〜
+                {formatDate(event.end)}（{['日','月','火','水','木','金','土'][event.end.getDay()]}）
+              </p>
+              {event.highlight && <p class="sale-card__highlight">✨ {event.highlight}</p>}
+              <p class="sale-card__desc">{event.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 近日開催予定 -->
+    {upcomingSales.length > 0 && (
+      <section class="sale-section">
+        <h2 class="section-title">⏰ 近日開催予定</h2>
+        <div class="sale-cards">
+          {upcomingSales.map(event => (
+            <div class={`sale-card upcoming platform-${event.platform}`}>
+              <div class="sale-card__header">
+                <span class="badge badge--upcoming">⏰ もうすぐ</span>
+                <span class={`platform-badge platform-badge--${event.platform}`}>
+                  {event.platform === 'amazon' ? 'Amazon' : '楽天'}
+                </span>
+              </div>
+              <h3 class="sale-card__name">{event.name}</h3>
+              <p class="sale-card__period">
+                📅 {formatDate(event.start)}（{['日','月','火','水','木','金','土'][event.start.getDay()]}）〜
+                {formatDate(event.end)}（{['日','月','火','水','木','金','土'][event.end.getDay()]}）
+              </p>
+              {event.highlight && <p class="sale-card__highlight">✨ {event.highlight}</p>}
+              <p class="sale-card__desc">{event.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Amazon 年間カレンダー -->
+    <section class="sale-section">
+      <h2 class="section-title">📦 Amazon 主要セール 年間カレンダー</h2>
+      <div class="calendar-table-wrap">
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th>時期</th>
+              <th>セール名</th>
+              <th>規模</th>
+              <th>ポイント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1月</td>
+              <td>初売り・年始セール</td>
+              <td><span class="scale scale--m">中</span></td>
+              <td>新年の買い初めに最適</td>
+            </tr>
+            <tr>
+              <td>1〜2月</td>
+              <td>スマイルSALE（冬）</td>
+              <td><span class="scale scale--m">中</span></td>
+              <td>月1〜2回開催（旧タイムセール祭り）</td>
+            </tr>
+            <tr>
+              <td>3月</td>
+              <td>新生活セール</td>
+              <td><span class="scale scale--l">大</span></td>
+              <td>家電・生活用品が狙い目</td>
+            </tr>
+            <tr>
+              <td>3月末〜4月初</td>
+              <td>新生活セール FINAL</td>
+              <td><span class="scale scale--m">中</span></td>
+              <td>在庫一掃タイミング</td>
+            </tr>
+            <tr>
+              <td>4月末〜5月初</td>
+              <td>スマイルSALE ゴールデンウィーク</td>
+              <td><span class="scale scale--m">中</span></td>
+              <td>GWのまとめ買いに</td>
+            </tr>
+            <tr>
+              <td>5〜6月</td>
+              <td>スマイルSALE 夏先取り</td>
+              <td><span class="scale scale--m">中</span></td>
+              <td>冷感・扇風機・アウトドア</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>7月</td>
+              <td>🏆 プライムデー（Prime Day）</td>
+              <td><span class="scale scale--xl">最大級</span></td>
+              <td>年間最大！Prime会員限定。ガジェット・家電が最安値に</td>
+            </tr>
+            <tr>
+              <td>8〜9月</td>
+              <td>スマイルSALE（秋）</td>
+              <td><span class="scale scale--m">中</span></td>
+              <td>秋物・防災用品のチェックに</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>10月</td>
+              <td>🏆 プライム感謝祭</td>
+              <td><span class="scale scale--l">大</span></td>
+              <td>Prime会員限定。秋冬家電・ファッションが狙い目</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>11月</td>
+              <td>🏆 ブラックフライデー</td>
+              <td><span class="scale scale--l">大</span></td>
+              <td>全会員対象。年末プレゼント・家電の大チャンス</td>
+            </tr>
+            <tr>
+              <td>12月</td>
+              <td>年末・ホリデーセール</td>
+              <td><span class="scale scale--m">中</span></td>
+              <td>クリスマス・年末需要</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">🏆 年間ビッグ3：プライムデー（7月）・プライム感謝祭（10月）・ブラックフライデー（11月）</p>
+    </section>
+
+    <!-- 楽天 年間カレンダー -->
+    <section class="sale-section">
+      <h2 class="section-title">🛍️ 楽天市場 主要セール 年間カレンダー</h2>
+      <div class="calendar-table-wrap">
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th>時期</th>
+              <th>セール名</th>
+              <th>規模</th>
+              <th>ポイント倍率・備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td>3月</td>
+              <td>🏆 楽天スーパーSALE（第1回）</td>
+              <td><span class="scale scale--xl">最大級</span></td>
+              <td>年4回のうち第1回。半額商品・ポイント最大44倍</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>6月</td>
+              <td>🏆 楽天スーパーSALE（第2回）</td>
+              <td><span class="scale scale--xl">最大級</span></td>
+              <td>梅雨前の大型セール。家電・夏物が狙い目</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>9月</td>
+              <td>🏆 楽天スーパーSALE（第3回）</td>
+              <td><span class="scale scale--xl">最大級</span></td>
+              <td>秋冬先取り。防寒・家電の買い替えに</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>12月</td>
+              <td>🏆 楽天スーパーSALE（第4回）</td>
+              <td><span class="scale scale--xl">最大級</span></td>
+              <td>年間最後の大型セール。年末まとめ買いに</td>
+            </tr>
+            <tr>
+              <td>毎月（12月除く）</td>
+              <td>お買い物マラソン</td>
+              <td><span class="scale scale--l">大</span></td>
+              <td>月1〜3回。10店舗でポイント最大+9倍</td>
+            </tr>
+            <tr>
+              <td>毎月1日</td>
+              <td>ワンダフルデー</td>
+              <td><span class="scale scale--s">小</span></td>
+              <td>楽天カードで+3倍</td>
+            </tr>
+            <tr>
+              <td>毎月18日頃</td>
+              <td>ご愛顧感謝デー</td>
+              <td><span class="scale scale--s">小</span></td>
+              <td>会員ランクに応じたポイント倍率</td>
+            </tr>
+            <tr>
+              <td>5・10・15・20・25・30日</td>
+              <td>5と0のつく日</td>
+              <td><span class="scale scale--s">小</span></td>
+              <td>楽天カード利用で+1倍（エントリー必要）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">🏆 楽天スーパーSALEは年4回（3月・6月・9月・12月）が基本パターン</p>
+    </section>
+
+    <!-- セール攻略ポイント -->
+    <section class="sale-section">
+      <h2 class="section-title">💡 セール攻略ポイント・おすすめカテゴリ</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h3>📦 Amazon攻略法</h3>
+          <ul>
+            <li><strong>ほしい物リスト</strong>に追加して値下がりを待つ</li>
+            <li><strong>Primeメンバー</strong>になるとプライムデー・プライム感謝祭に参加可能</li>
+            <li>セール開始前に<strong>カートに入れておく</strong>と売り切れを防げる</li>
+            <li><strong>タイムセール</strong>は時間限定なので通知をオンに</li>
+            <li>狙い目カテゴリ：ガジェット・家電・日用品・食料品</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <h3>🛍️ 楽天攻略法</h3>
+          <ul>
+            <li><strong>お買い物マラソン</strong>は10店舗で購入するとポイント最大+9倍</li>
+            <li><strong>5と0のつく日</strong>にエントリーしてから購入</li>
+            <li><strong>楽天カード</strong>で支払うとさらにポイントUP</li>
+            <li>スーパーSALE期間中の<strong>半額商品</strong>は開始直後が狙い目</li>
+            <li>狙い目カテゴリ：食品・日用品・ファッション・旅行</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <h3>🔔 事前準備のススメ</h3>
+          <ul>
+            <li>セール前に<strong>通常価格を確認</strong>して本当にお得かチェック</li>
+            <li>複数サイトを比較してから購入（Amazon・楽天・Yahoo!）</li>
+            <li><strong>まとめ買い</strong>できるものは大型セールまで待つ</li>
+            <li>ポイント還元は次回購入時に使えるので積極活用</li>
+            <li>クレジットカードのポイントも合わせてW取り</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 関連記事リンク -->
+    <section class="sale-section">
+      <h2 class="section-title">📖 関連記事</h2>
+      <div class="related-links">
+        <a href="/posts/rakuten-sale-calendar-2026/" class="related-link">
+          <span class="related-link__icon">🛍️</span>
+          <div>
+            <strong>楽天セール完全カレンダー2026</strong>
+            <p>楽天スーパーSALE・お買い物マラソンの日程を詳しく解説</p>
+          </div>
+        </a>
+        <a href="/posts/amazon-sale-guide-2026/" class="related-link">
+          <span class="related-link__icon">📦</span>
+          <div>
+            <strong>Amazonセール攻略ガイド2026</strong>
+            <p>プライムデー・ブラックフライデーを最大活用する方法</p>
+          </div>
+        </a>
+        <a href="/categories/sale/" class="related-link">
+          <span class="related-link__icon">🗓️</span>
+          <div>
+            <strong>セール時期まとめ</strong>
+            <p>各プラットフォームのセール時期を一覧でチェック</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .sale-news-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* ヒーロー */
+  .page-hero {
+    text-align: center;
+    padding: 2.5rem 1rem 2rem;
+    background: linear-gradient(135deg, #fff8e1 0%, #fce4ec 100%);
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+  }
+  .page-hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 .5rem;
+    color: #333;
+  }
+  .page-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 0 .5rem;
+  }
+  .update-date {
+    font-size: .85rem;
+    color: #888;
+    margin: 0;
+  }
+
+  /* セクション */
+  .sale-section {
+    margin-bottom: 3rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    border-left: 4px solid #e53e3e;
+    padding-left: .75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* セールカード */
+  .sale-cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .sale-card {
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 2px solid transparent;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .sale-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,.1);
+  }
+  .sale-card.active {
+    border-color: #e53e3e;
+    background: #fff5f5;
+  }
+  .sale-card.upcoming {
+    border-color: #d69e2e;
+    background: #fffff0;
+  }
+  .sale-card.platform-amazon.active { border-color: #f90; background: #fffbf0; }
+  .sale-card.platform-amazon.upcoming { border-color: #e5a000; background: #fffdf0; }
+
+  .sale-card__header {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-bottom: .75rem;
+  }
+  .badge {
+    font-size: .75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge--active { background: #e53e3e; color: #fff; }
+  .badge--upcoming { background: #d69e2e; color: #fff; }
+
+  .platform-badge {
+    font-size: .75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .platform-badge--rakuten { background: #bf0000; color: #fff; }
+  .platform-badge--amazon { background: #f90; color: #333; }
+
+  .sale-card__name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 .5rem;
+    color: #222;
+  }
+  .sale-card__period {
+    font-size: .9rem;
+    color: #555;
+    margin: 0 0 .4rem;
+  }
+  .sale-card__highlight {
+    font-size: .9rem;
+    font-weight: 600;
+    color: #c05621;
+    margin: 0 0 .4rem;
+  }
+  .sale-card__desc {
+    font-size: .88rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* カレンダーテーブル */
+  .calendar-table-wrap {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+  }
+  .calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+  }
+  .calendar-table th {
+    background: #f7fafc;
+    padding: .75rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    color: #4a5568;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+  }
+  .calendar-table td {
+    padding: .7rem 1rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #333;
+    vertical-align: top;
+  }
+  .calendar-table tr:last-child td { border-bottom: none; }
+  .calendar-table tr.highlight-row td {
+    background: #fff8e1;
+    font-weight: 600;
+  }
+  .calendar-table tr:hover td { background: #f7fafc; }
+  .calendar-table tr.highlight-row:hover td { background: #fef3c7; }
+
+  /* 規模バッジ */
+  .scale {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .scale--xl { background: #e53e3e; color: #fff; }
+  .scale--l  { background: #dd6b20; color: #fff; }
+  .scale--m  { background: #4a5568; color: #fff; }
+  .scale--s  { background: #a0aec0; color: #fff; }
+
+  .table-note {
+    font-size: .85rem;
+    color: #666;
+    margin: .75rem 0 0;
+    padding-left: .5rem;
+  }
+
+  /* 攻略ポイント */
+  .tips-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .tip-card {
+    background: #f7fafc;
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+  }
+  .tip-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 .75rem;
+    color: #333;
+  }
+  .tip-card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  .tip-card li {
+    font-size: .88rem;
+    color: #555;
+    margin-bottom: .4rem;
+    line-height: 1.5;
+  }
+
+  /* 関連記事 */
+  .related-links {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .related-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #f7fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    color: inherit;
+    transition: background .15s, box-shadow .15s;
+  }
+  .related-link:hover {
+    background: #edf2f7;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  }
+  .related-link__icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+  .related-link strong { display: block; font-size: .95rem; color: #2b6cb0; margin-bottom: 2px; }
+  .related-link p { font-size: .85rem; color: #666; margin: 0; }
+
+  @media (max-width: 600px) {
+    .page-hero h1 { font-size: 1.5rem; }
+    .sale-cards { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .calendar-table { font-size: .8rem; }
+    .calendar-table th, .calendar-table td { padding: .6rem .75rem; }
+  }
+</style>
