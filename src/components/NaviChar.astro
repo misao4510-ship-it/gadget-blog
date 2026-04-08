@@ -247,6 +247,86 @@
       '詳しくチェックしてみて！',
     ];
 
+    // ── キーワード抽出ユニークコメント生成 (subtask_029d) ──────────────
+
+    /** 見出しの次の兄弟要素群（最大5個）のinnerTextを結合して返す */
+    function getSectionText(heading: Element): string {
+      let text = '';
+      let el = heading.nextElementSibling;
+      let count = 0;
+      while (el && !['H2', 'H3'].includes(el.tagName) && count < 5) {
+        text += (el as HTMLElement).innerText + ' ';
+        el = el.nextElementSibling;
+        count++;
+      }
+      return text;
+    }
+
+    /** セクション本文テキストから数値・ブランド・規格名を抽出 */
+    function extractKeywords(text: string) {
+      const valueMatches = [...text.matchAll(/([0-9,]+(?:\.[0-9]+)?)\s*(mAh|Wh|W|V|A|GB|TB|MHz|GHz|kg|g|mm|cm|m)/g)];
+      const priceMatches = [...text.matchAll(/([0-9,]+)円/g)];
+      const brandList = ['Anker', 'Apple', 'Samsung', 'Sony', 'Panasonic', 'Sharp', 'バンブー', 'Bambu'];
+      const standardList = ['USB-C', 'USB-A', 'USB4', 'Qi', 'MagSafe', 'Wi-Fi 6', 'Bluetooth 5'];
+      return {
+        values: valueMatches.map((m) => m[1] + m[2]),
+        prices: priceMatches.map((m) => m[1] + '円'),
+        brands: brandList.filter((b) => text.includes(b)),
+        standards: standardList.filter((s) => text.includes(s)),
+      };
+    }
+
+    /** セクション種別とキーワードを組み合わせてユニークコメントを生成。失敗時はnull */
+    function generateUniqueComment(
+      sectionType: string,
+      kw: ReturnType<typeof extractKeywords>
+    ): string | null {
+      const pick = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+      if (sectionType === 'price' && kw.prices.length > 0) {
+        return pick([
+          `${kw.prices[0]}ならコスパ◎ですよ！`,
+          `${kw.prices[0]}、この品質でこの価格は買いですよ！`,
+          `${kw.prices[0]}、今が買い時ですよ！`,
+        ]);
+      }
+      if (kw.prices.length > 0) {
+        return pick([
+          `${kw.prices[0]}ならコスパ◎ですよ！`,
+          `${kw.prices[0]}、この品質でこの価格は買いですよ！`,
+        ]);
+      }
+      if (kw.values.length > 0) {
+        return pick([
+          `${kw.values[0]}というスペック、他製品と比べて優秀ですよ！`,
+          `${kw.values[0]}、なかなかの数値ですよね！`,
+          `${kw.values[0]}なら実用十分ですよ！`,
+        ]);
+      }
+      if (kw.brands.length > 0) {
+        return pick([
+          `${kw.brands[0]}製なら安心して使えますよ！`,
+          `${kw.brands[0]}のクオリティ、さすがですよね！`,
+        ]);
+      }
+      if (kw.standards.length > 0) {
+        return pick([
+          `${kw.standards[0]}対応、最新規格で将来性◎ですよ！`,
+          `${kw.standards[0]}なら高速転送も快適ですよ！`,
+        ]);
+      }
+      return null;
+    }
+
+    /** 見出しテキストからセクション種別文字列を返す */
+    function detectSectionType(headingText: string): string {
+      const lower = headingText.toLowerCase();
+      if (['価格', '値段', 'コスパ', '価格比較', '最安値', '円'].some((k) => lower.includes(k.toLowerCase()))) return 'price';
+      if (['スペック', '仕様', 'spec', '基本情報', '製品情報'].some((k) => lower.includes(k.toLowerCase()))) return 'spec';
+      if (['メリット', '良い点', 'おすすめポイント', '強み'].some((k) => lower.includes(k.toLowerCase()))) return 'merit';
+      if (['デメリット', '注意点', '気になる点', '弱点'].some((k) => lower.includes(k.toLowerCase()))) return 'demerit';
+      return 'other';
+    }
+
     function detectSectionComment(text: string): string | null {
       const lower = text.toLowerCase();
       for (const section of sectionTemplates) {
@@ -355,16 +435,24 @@
               // 明示メッセージまたはセクションマップ（最優先）
               msg = stored;
             } else if (entry.target.tagName === 'H2' || entry.target.tagName === 'H3') {
-              // h2/h3テキストからセクション種別を判定してコメント生成
+              // セクション本文からキーワード抽出→ユニークコメント生成 (subtask_029d)
               const headingText = (entry.target as HTMLElement).textContent?.trim() ?? '';
-              const sectionComment = headingText ? detectSectionComment(headingText) : null;
-              if (sectionComment) {
-                msg = sectionComment;
+              const sectionType = detectSectionType(headingText);
+              const bodyText = getSectionText(entry.target);
+              const kw = extractKeywords(bodyText);
+              const uniqueComment = generateUniqueComment(sectionType, kw);
+              if (uniqueComment) {
+                msg = uniqueComment;
               } else {
-                // セクション不明: 商品名 + デフォルト
-                msg = headingText
-                  ? `「${headingText}」今が買い時ですよ！`
-                  : defaultMessages[defaultMsgIdx % defaultMessages.length];
+                const sectionComment = headingText ? detectSectionComment(headingText) : null;
+                if (sectionComment) {
+                  msg = sectionComment;
+                } else {
+                  // セクション不明: 商品名 + デフォルト
+                  msg = headingText
+                    ? `「${headingText}」今が買い時ですよ！`
+                    : defaultMessages[defaultMsgIdx % defaultMessages.length];
+                }
               }
             } else {
               msg = defaultMessages[defaultMsgIdx % defaultMessages.length];
