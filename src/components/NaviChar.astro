@@ -515,15 +515,22 @@
               const sectionType = detectSectionType(headingText);
               currentSectionType = sectionType;
               tapIndex = 0;
+              // h2テキストが変わるたびに必ず更新されるようcurrentMsgをリセット
+              currentMsg = '';
               const bodyText = getSectionText(entry.target);
               const kw = extractKeywords(bodyText);
               const uniqueComment = generateUniqueComment(sectionType, kw);
+              // h2テキストを短縮してコメントに組み込む（必ずユニークにする）
+              const headingShort = headingText.length > 18 ? headingText.slice(0, 18) + '…' : headingText;
               if (uniqueComment) {
                 msg = uniqueComment;
               } else {
                 const sectionComment = headingText ? detectSectionComment(headingText) : null;
                 if (sectionComment) {
                   msg = sectionComment;
+                } else if (headingText) {
+                  // h2テキストを直接組み込んでユニークコメント生成（確実に変化させる）
+                  msg = `「${headingShort}」のセクションです。ぜひ参考にしてみてください！`;
                 } else {
                   // セクション不明: デフォルトメッセージを循環
                   msg = defaultMessages[defaultMsgIdx % defaultMessages.length];
@@ -537,8 +544,8 @@
           });
         },
         {
-          threshold: 0.25,
-          rootMargin: '0px 0px -15% 0px',
+          threshold: 0.1,
+          rootMargin: '0px 0px 0px 0px',
         }
       );
 
