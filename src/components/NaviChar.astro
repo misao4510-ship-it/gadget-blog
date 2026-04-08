@@ -243,51 +243,67 @@
 
     // IntersectionObserver でセクション検知
     function setupObserver() {
-      // セクションセレクタ → メッセージのマッピング
-      const sectionMap: Array<{ selector: string; msg: string }> = [
-        { selector: '.hero, [data-section="hero"], header', msg: sectionMessages.hero },
-        { selector: '[data-section="ranking"], .ranking-section, #ranking', msg: sectionMessages.ranking },
-        { selector: '[data-section="sale"], .sale-section, #sale', msg: sectionMessages.sale },
-        { selector: '[data-section="review"], .review-section, #review', msg: sectionMessages.review },
-      ];
-
-      // data-kaina-comment属性を持つ要素（明示的指定）
+      // data-kaina-comment属性を持つ要素（明示的指定、最優先）
       const explicitTargets = document.querySelectorAll<HTMLElement>('[data-kaina-comment]');
 
-      const observed = new Map<Element, string>();
+      // 観測対象: Element → message | null (nullはh2動的生成)
+      const observed = new Map<Element, string | null>();
 
-      // 明示的属性を優先
+      // 明示的属性を優先登録
       explicitTargets.forEach((el) => {
         const comment = el.getAttribute('data-kaina-comment');
         if (comment) observed.set(el, comment);
       });
 
-      // セクションセレクタから推定
-      sectionMap.forEach(({ selector, msg }) => {
-        try {
-          const el = document.querySelector(selector);
-          if (el && !observed.has(el)) {
-            observed.set(el, msg);
-          }
-        } catch (_) {}
+      // h2要素を観測対象に追加（商品名動的生成）
+      const h2Elements = document.querySelectorAll<HTMLElement>('h2');
+      h2Elements.forEach((h2) => {
+        if (!observed.has(h2)) {
+          observed.set(h2, null); // null = h2テキストから動的生成
+        }
       });
 
+      // h2もexplicitもなければセクションセレクタフォールバック
+      if (observed.size === 0) {
+        const sectionMap: Array<{ selector: string; msg: string }> = [
+          { selector: '.hero, [data-section="hero"], header', msg: sectionMessages.hero },
+          { selector: '[data-section="ranking"], .ranking-section, #ranking', msg: sectionMessages.ranking },
+          { selector: '[data-section="sale"], .sale-section, #sale', msg: sectionMessages.sale },
+          { selector: '[data-section="review"], .review-section, #review', msg: sectionMessages.review },
+        ];
+        sectionMap.forEach(({ selector, msg }) => {
+          try {
+            const el = document.querySelector(selector);
+            if (el && !observed.has(el)) observed.set(el, msg);
+          } catch (_) {}
+        });
+      }
+
       // 初期メッセージ
-      const firstMsg = observed.size > 0
-        ? (observed.values().next().value ?? defaultMessages[0])
-        : defaultMessages[0];
-      setMessage(firstMsg);
+      setMessage(sectionMessages.hero);
 
       if (observed.size === 0) return;
 
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const msg = observed.get(entry.target) ?? defaultMessages[defaultMsgIdx % defaultMessages.length];
-              defaultMsgIdx++;
-              setMessage(msg);
+            if (!entry.isIntersecting) return;
+            const stored = observed.get(entry.target);
+            let msg: string;
+            if (stored !== null && stored !== undefined) {
+              // 明示メッセージまたはセクションマップ
+              msg = stored;
+            } else if (entry.target.tagName === 'H2') {
+              // h2テキストから商品要約を動的生成
+              const productName = (entry.target as HTMLElement).textContent?.trim() ?? '';
+              msg = productName
+                ? `「${productName}」今が買い時ですよ！`
+                : defaultMessages[defaultMsgIdx % defaultMessages.length];
+            } else {
+              msg = defaultMessages[defaultMsgIdx % defaultMessages.length];
             }
+            defaultMsgIdx++;
+            setMessage(msg);
           });
         },
         {
