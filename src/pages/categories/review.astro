@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const reviewPosts = posts.filter(p => {
+  const isSale =
+    p.data.category === 'sale' ||
+    p.data.category === 'sale-guide' ||
+    p.data.category === 'sale-info' ||
+    p.data.title.includes('セール') ||
+    p.data.title.includes('楽天') ||
+    p.data.title.includes('Yahoo');
+  if (isSale) return false;
+  const isRanking =
+    p.data.category === 'ranking' ||
+    p.data.title.includes('ランキング') ||
+    p.data.title.includes('以下') ||
+    p.data.title.includes('おすすめ');
+  return !isRanking;
+}).sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+---
+<BaseLayout
+  title="個別レビュー"
+  description="個別ガジェット・商品の徹底レビュー記事一覧。実際に使って分かった長所・短所を正直にレポート。"
+>
+  <section class="category-hero category-hero--review">
+    <div class="container">
+      <h1 class="category-hero__title">📝 個別レビュー</h1>
+      <p class="category-hero__desc">個別ガジェット・商品の徹底レビュー。実際に使って分かった本音をレポート。</p>
+      <span class="category-hero__count">{reviewPosts.length}件の記事</span>
+    </div>
+  </section>
+
+  <section class="category-articles">
+    <div class="container">
+      {reviewPosts.length > 0 ? (
+        <div class="articles__grid">
+          {reviewPosts.map(post => (
+            <ArticleCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.id}
+              category={post.data.category}
+              publishDate={post.data.publishDate}
+              ogImage={'/images/og-default.svg'}
+              type={post.data.type}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="no-articles">記事はまだありません。</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .category-hero {
+    padding: 3rem 0 2.5rem;
+    color: white;
+  }
+  .category-hero--review {
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+  }
+  .category-hero__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: .75rem; color: white; }
+  .category-hero__desc { font-size: 1.05rem; color: rgba(255,255,255,.85); margin-bottom: 1rem; }
+  .category-hero__count { background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3); padding: .25em .8em; border-radius: 99px; font-size: .875rem; font-weight: 600; }
+
+  .category-articles { padding: 3rem 0; }
+  .articles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+  .no-articles { color: var(--color-text-muted); text-align: center; padding: 3rem 0; }
+
+  @media (max-width: 640px) {
+    .articles__grid { grid-template-columns: 1fr; }
+    .category-hero { padding: 2rem 0 1.75rem; }
+  }
+</style>
