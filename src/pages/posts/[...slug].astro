@@ -49,8 +49,8 @@ const categoryLabels: Record<string, string> = {
   {post.data.products.map((id: string) => <ProductSchemaLD productId={id} />)}
 
   <article class="article">
-    <!-- Hero Image -->
-    {post.data.ogImage && (
+    <!-- Hero Image (ランキング記事では非表示) -->
+    {post.data.ogImage && post.data.type !== 'ranking' && (
       <div class="article__hero">
         <img src={post.data.ogImage} alt={post.data.title} class="article__hero-img" />
       </div>
@@ -76,8 +76,8 @@ const categoryLabels: Record<string, string> = {
             <h1 class="article__title">{post.data.title}</h1>
             <p class="article__desc">{post.data.description}</p>
 
-            {/* === CTA #1: Store link box at top (above the fold) === */}
-            {post.data.products.length > 0 && (
+            {/* === CTA #1: Store link box at top (ランキング記事では非表示) === */}
+            {post.data.products.length > 0 && post.data.type !== 'ranking' && (
               <div class="article__top-cta">
                 {post.data.products.map((id: string) => (
                   <StoreLinkBox productId={id} />
@@ -85,8 +85,8 @@ const categoryLabels: Record<string, string> = {
               </div>
             )}
 
-            {/* === Product image gallery === */}
-            {post.data.products.length > 0 && (
+            {/* === Product image gallery (ランキング記事では非表示) === */}
+            {post.data.products.length > 0 && post.data.type !== 'ranking' && (
               <div class="article__product-gallery">
                 {post.data.products.map((id: string) => {
                   const prod = products.find(p => p.id === id);
