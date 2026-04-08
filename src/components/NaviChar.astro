@@ -193,11 +193,72 @@
       review: '実際に試した感想です！',
     };
 
+    // セクション種別ごとのテンプレート（キーワード判定）
+    const sectionTemplates: Array<{ keywords: string[]; templates: string[] }> = [
+      {
+        keywords: ['スペック', '仕様', 'spec', 'スペック表', '基本情報', '製品情報'],
+        templates: [
+          'スペックのポイントはここですよ！',
+          'この数値、他製品と比べて優秀です！',
+          'スペックだけでなく実用性もチェックして！',
+        ],
+      },
+      {
+        keywords: ['価格', '値段', 'コスパ', '価格比較', '最安値', '円'],
+        templates: [
+          '今が買い時ですよ！価格チェックしてみて！',
+          'このコスパは見逃せません！',
+          'セール時期に合わせると更にお得です！',
+        ],
+      },
+      {
+        keywords: ['メリット', '良い点', 'おすすめポイント', '強み', 'いい点'],
+        templates: [
+          'このメリット、実際に使うと実感できますよ！',
+          'ここが一番の推しポイントです！',
+        ],
+      },
+      {
+        keywords: ['デメリット', '注意点', '気になる点', '弱点', '惜しい点'],
+        templates: [
+          'デメリットも把握しておくと後悔しないですよ！',
+          'この点は許容できるか確認して！',
+        ],
+      },
+      {
+        keywords: ['レビュー', '使ってみた', '実際に', '感想', '評価'],
+        templates: [
+          '実際の使用感が大事ですよね！',
+          'レビューを参考にしてみてください！',
+        ],
+      },
+      {
+        keywords: ['第1位', '第2位', '第3位', 'ランキング', '位'],
+        templates: [
+          'この価格帯はコスパ最強ですよ！',
+          '人気ランキングの理由がわかりますよ！',
+        ],
+      },
+    ];
+
     const defaultMessages = [
       '今が買い時ですよ！',
       'このアイテム、おすすめです！',
-      '価格チェックしてみて！',
+      '詳しくチェックしてみて！',
     ];
+
+    function detectSectionComment(text: string): string | null {
+      const lower = text.toLowerCase();
+      for (const section of sectionTemplates) {
+        for (const kw of section.keywords) {
+          if (lower.includes(kw.toLowerCase())) {
+            const idx = Math.floor(Math.random() * section.templates.length);
+            return section.templates[idx];
+          }
+        }
+      }
+      return null;
+    }
 
     let defaultMsgIdx = 0;
     let currentMsg = '';
@@ -255,11 +316,11 @@
         if (comment) observed.set(el, comment);
       });
 
-      // h2要素を観測対象に追加（商品名動的生成）
-      const h2Elements = document.querySelectorAll<HTMLElement>('h2');
-      h2Elements.forEach((h2) => {
-        if (!observed.has(h2)) {
-          observed.set(h2, null); // null = h2テキストから動的生成
+      // h2/h3要素を観測対象に追加（セクション種別動的判定）
+      const h2Elements = document.querySelectorAll<HTMLElement>('h2, h3');
+      h2Elements.forEach((h) => {
+        if (!observed.has(h)) {
+          observed.set(h, null); // null = テキストから動的生成
         }
       });
 
@@ -291,14 +352,20 @@
             const stored = observed.get(entry.target);
             let msg: string;
             if (stored !== null && stored !== undefined) {
-              // 明示メッセージまたはセクションマップ
+              // 明示メッセージまたはセクションマップ（最優先）
               msg = stored;
-            } else if (entry.target.tagName === 'H2') {
-              // h2テキストから商品要約を動的生成
-              const productName = (entry.target as HTMLElement).textContent?.trim() ?? '';
-              msg = productName
-                ? `「${productName}」今が買い時ですよ！`
-                : defaultMessages[defaultMsgIdx % defaultMessages.length];
+            } else if (entry.target.tagName === 'H2' || entry.target.tagName === 'H3') {
+              // h2/h3テキストからセクション種別を判定してコメント生成
+              const headingText = (entry.target as HTMLElement).textContent?.trim() ?? '';
+              const sectionComment = headingText ? detectSectionComment(headingText) : null;
+              if (sectionComment) {
+                msg = sectionComment;
+              } else {
+                // セクション不明: 商品名 + デフォルト
+                msg = headingText
+                  ? `「${headingText}」今が買い時ですよ！`
+                  : defaultMessages[defaultMsgIdx % defaultMessages.length];
+              }
             } else {
               msg = defaultMessages[defaultMsgIdx % defaultMessages.length];
             }
