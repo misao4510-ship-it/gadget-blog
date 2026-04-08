@@ -1,9 +1,13 @@
 ---
 // src/components/NaviChar.astro
-// カイナ: スクロール追従、右下固定表示
+// カイナ: スクロール追従、右下固定表示 + 吹き出し・スクロール連動・表示/非表示トグル
 ---
 
 <div class="navi-char-wrapper" id="navi-char">
+  <div class="speech-bubble" id="kaina-speech">
+    <span id="kaina-speech-text">ようこそ！人生を快適にするガジェット情報をお届けします！</span>
+  </div>
+  <button class="close-btn" id="kaina-close" aria-label="カイナを閉じる" title="カイナを閉じる">×</button>
   <img
     src="/images/navi-char.png"
     alt="カイナ"
@@ -13,12 +17,14 @@
   />
 </div>
 
+<button class="navi-reopen-btn" id="kaina-reopen" aria-label="カイナを表示">👧 カイナを表示</button>
+
 <style>
   .navi-char-wrapper {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 100;
+    z-index: 999;
     width: 160px;
     pointer-events: none;
   }
@@ -42,6 +48,90 @@
     }
   }
 
+  /* 吹き出し（カイナ画像の左側、尻尾は右向き） */
+  .speech-bubble {
+    position: absolute;
+    right: calc(100% + 14px);
+    bottom: 24px;
+    width: 180px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #333;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.35s ease;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  /* 吹き出しの尻尾（右向き） */
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    bottom: 14px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 0 7px 10px;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  .speech-bubble.fade-out {
+    opacity: 0;
+  }
+
+  /* ×ボタン（カイナ右上） */
+  .close-btn {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 0;
+    pointer-events: auto;
+  }
+
+  .close-btn:hover {
+    background: rgba(0, 0, 0, 0.65);
+  }
+
+  /* 再表示ボタン（カイナ非表示時のみ） */
+  .navi-reopen-btn {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.40);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+    pointer-events: auto;
+  }
+
+  .navi-reopen-btn:hover {
+    background: rgba(0, 0, 0, 0.62);
+  }
+
   /* モバイル: 小サイズ右下固定（768px以下） */
   @media (max-width: 768px) {
     .navi-char-wrapper {
@@ -49,6 +139,20 @@
       bottom: 80px;
       right: 10px;
       opacity: 0.90;
+    }
+
+    .speech-bubble {
+      width: 140px;
+      font-size: 11px;
+      padding: 8px 10px;
+      right: calc(100% + 10px);
+      bottom: 14px;
+    }
+
+    .navi-reopen-btn {
+      bottom: 80px;
+      font-size: 11px;
+      padding: 5px 12px;
     }
   }
 
@@ -59,5 +163,148 @@
       bottom: 15px;
       right: 15px;
     }
+
+    .speech-bubble {
+      width: 160px;
+      font-size: 12px;
+    }
   }
 </style>
+
+<script>
+  (function () {
+    const STORAGE_KEY = 'kaina_hidden';
+    const wrapper = document.getElementById('navi-char');
+    const closeBtn = document.getElementById('kaina-close');
+    const reopenBtn = document.getElementById('kaina-reopen');
+    const speechBubble = document.getElementById('kaina-speech');
+    const speechText = document.getElementById('kaina-speech-text');
+
+    if (!wrapper || !closeBtn || !reopenBtn || !speechBubble || !speechText) return;
+
+    // セクション別メッセージ
+    const sectionMessages: Record<string, string> = {
+      hero: 'ようこそ！人生を快適にするガジェット情報をお届けします！',
+      ranking: 'この価格帯はコスパ最強ですよ！',
+      sale: 'このセール要チェックです！',
+      review: '実際に試した感想です！',
+    };
+
+    const defaultMessages = [
+      '今が買い時ですよ！',
+      'このアイテム、おすすめです！',
+      '価格チェックしてみて！',
+    ];
+
+    let defaultMsgIdx = 0;
+    let currentMsg = '';
+    let fadeTimer: ReturnType<typeof setTimeout> | null = null;
+
+    function setMessage(msg: string) {
+      if (msg === currentMsg) return;
+      currentMsg = msg;
+      if (fadeTimer) clearTimeout(fadeTimer);
+      speechBubble.classList.add('fade-out');
+      fadeTimer = setTimeout(() => {
+        speechText.textContent = msg;
+        speechBubble.classList.remove('fade-out');
+      }, 350);
+    }
+
+    // 表示/非表示の初期化
+    function init() {
+      if (sessionStorage.getItem(STORAGE_KEY) === '1') {
+        (wrapper as HTMLElement).style.display = 'none';
+        (reopenBtn as HTMLElement).style.display = 'block';
+      } else {
+        (wrapper as HTMLElement).style.display = '';
+        (reopenBtn as HTMLElement).style.display = 'none';
+        setupObserver();
+      }
+    }
+
+    // 閉じるボタン
+    closeBtn.addEventListener('click', () => {
+      (wrapper as HTMLElement).style.display = 'none';
+      (reopenBtn as HTMLElement).style.display = 'block';
+      sessionStorage.setItem(STORAGE_KEY, '1');
+    });
+
+    // 再表示ボタン
+    reopenBtn.addEventListener('click', () => {
+      (wrapper as HTMLElement).style.display = '';
+      (reopenBtn as HTMLElement).style.display = 'none';
+      sessionStorage.removeItem(STORAGE_KEY);
+      setupObserver();
+    });
+
+    // IntersectionObserver でセクション検知
+    function setupObserver() {
+      // セクションセレクタ → メッセージのマッピング
+      const sectionMap: Array<{ selector: string; msg: string }> = [
+        { selector: '.hero, [data-section="hero"], header', msg: sectionMessages.hero },
+        { selector: '[data-section="ranking"], .ranking-section, #ranking', msg: sectionMessages.ranking },
+        { selector: '[data-section="sale"], .sale-section, #sale', msg: sectionMessages.sale },
+        { selector: '[data-section="review"], .review-section, #review', msg: sectionMessages.review },
+      ];
+
+      // data-kaina-comment属性を持つ要素（明示的指定）
+      const explicitTargets = document.querySelectorAll<HTMLElement>('[data-kaina-comment]');
+
+      const observed = new Map<Element, string>();
+
+      // 明示的属性を優先
+      explicitTargets.forEach((el) => {
+        const comment = el.getAttribute('data-kaina-comment');
+        if (comment) observed.set(el, comment);
+      });
+
+      // セクションセレクタから推定
+      sectionMap.forEach(({ selector, msg }) => {
+        try {
+          const el = document.querySelector(selector);
+          if (el && !observed.has(el)) {
+            observed.set(el, msg);
+          }
+        } catch (_) {}
+      });
+
+      // 初期メッセージ
+      const firstMsg = observed.size > 0
+        ? (observed.values().next().value ?? defaultMessages[0])
+        : defaultMessages[0];
+      setMessage(firstMsg);
+
+      if (observed.size === 0) return;
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const msg = observed.get(entry.target) ?? defaultMessages[defaultMsgIdx % defaultMessages.length];
+              defaultMsgIdx++;
+              setMessage(msg);
+            }
+          });
+        },
+        {
+          threshold: 0.25,
+          rootMargin: '0px 0px -15% 0px',
+        }
+      );
+
+      observed.forEach((_, el) => io.observe(el));
+
+      // 30秒ごとにデフォルトメッセージを循環（特定セクション非検知時）
+      setInterval(() => {
+        if (defaultMessages.includes(currentMsg)) {
+          const next = defaultMessages[defaultMsgIdx % defaultMessages.length];
+          defaultMsgIdx++;
+          setMessage(next);
+        }
+      }, 30000);
+    }
+
+    init();
+  })();
+</script>
