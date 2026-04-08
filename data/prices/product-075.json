@@ -1,0 +1,173 @@
+{
+  "product_id": "product-075",
+  "current": {
+    "amazon": {
+      "price": 2980,
+      "url": "https://www.amazon.co.jp/dp/B0CT7ZX2CH?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-08"
+    },
+    "rakuten": {
+      "price": 3280,
+      "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E9%2598%25B2%25E7%2581%25BD%25E3%2582%25B0%25E3%2583%2583%25E3%2582%25BA%2F",
+      "in_stock": true,
+      "updated": "2026-04-08"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 2980
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-08",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-04-07",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-04-06",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-04-05",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-04-04",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-04-03",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-04-02",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-04-01",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-31",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-30",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-29",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-28",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-27",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-26",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-25",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-24",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-23",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-22",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-21",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-20",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-19",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-18",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-17",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-16",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-15",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-14",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-13",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-12",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-11",
+      "amazon": 2980,
+      "rakuten": 3280
+    },
+    {
+      "date": "2026-03-10",
+      "amazon": 2980,
+      "rakuten": 3280
+    }
+  ]
+}
