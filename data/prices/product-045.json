@@ -308,6 +308,461 @@
       "date": "2026-01-07",
       "amazon": 3464,
       "rakuten": 3713
+    },
+    {
+      "date": "2026-01-06",
+      "amazon": 3436,
+      "rakuten": 3691
+    },
+    {
+      "date": "2026-01-05",
+      "amazon": 3434,
+      "rakuten": 3636
+    },
+    {
+      "date": "2026-01-04",
+      "amazon": 3452,
+      "rakuten": 3650
+    },
+    {
+      "date": "2026-01-03",
+      "amazon": 3438,
+      "rakuten": 3664
+    },
+    {
+      "date": "2026-01-02",
+      "amazon": 3432,
+      "rakuten": 3638
+    },
+    {
+      "date": "2026-01-01",
+      "amazon": 3451,
+      "rakuten": 3646
+    },
+    {
+      "date": "2025-12-31",
+      "amazon": 3441,
+      "rakuten": 3653
+    },
+    {
+      "date": "2025-12-30",
+      "amazon": 3468,
+      "rakuten": 3679
+    },
+    {
+      "date": "2025-12-29",
+      "amazon": 3476,
+      "rakuten": 3683
+    },
+    {
+      "date": "2025-12-28",
+      "amazon": 3450,
+      "rakuten": 3661
+    },
+    {
+      "date": "2025-12-27",
+      "amazon": 3417,
+      "rakuten": 3613
+    },
+    {
+      "date": "2025-12-26",
+      "amazon": 3433,
+      "rakuten": 3612
+    },
+    {
+      "date": "2025-12-25",
+      "amazon": 3470,
+      "rakuten": 3639
+    },
+    {
+      "date": "2025-12-24",
+      "amazon": 3478,
+      "rakuten": 3623
+    },
+    {
+      "date": "2025-12-23",
+      "amazon": 3514,
+      "rakuten": 3640
+    },
+    {
+      "date": "2025-12-22",
+      "amazon": 3540,
+      "rakuten": 3646
+    },
+    {
+      "date": "2025-12-21",
+      "amazon": 3553,
+      "rakuten": 3628
+    },
+    {
+      "date": "2025-12-20",
+      "amazon": 3583,
+      "rakuten": 3634
+    },
+    {
+      "date": "2025-12-19",
+      "amazon": 3559,
+      "rakuten": 3637
+    },
+    {
+      "date": "2025-12-18",
+      "amazon": 3559,
+      "rakuten": 3643
+    },
+    {
+      "date": "2025-12-17",
+      "amazon": 3558,
+      "rakuten": 3686
+    },
+    {
+      "date": "2025-12-16",
+      "amazon": 3538,
+      "rakuten": 3667
+    },
+    {
+      "date": "2025-12-15",
+      "amazon": 3511,
+      "rakuten": 3664
+    },
+    {
+      "date": "2025-12-14",
+      "amazon": 3520,
+      "rakuten": 3655
+    },
+    {
+      "date": "2025-12-13",
+      "amazon": 3521,
+      "rakuten": 3616
+    },
+    {
+      "date": "2025-12-12",
+      "amazon": 3492,
+      "rakuten": 3616
+    },
+    {
+      "date": "2025-12-11",
+      "amazon": 3513,
+      "rakuten": 3621
+    },
+    {
+      "date": "2025-12-10",
+      "amazon": 3484,
+      "rakuten": 3610
+    },
+    {
+      "date": "2025-12-09",
+      "amazon": 3491,
+      "rakuten": 3629
+    },
+    {
+      "date": "2025-12-08",
+      "amazon": 3473,
+      "rakuten": 3612
+    },
+    {
+      "date": "2025-12-07",
+      "amazon": 3499,
+      "rakuten": 3641
+    },
+    {
+      "date": "2025-12-06",
+      "amazon": 3518,
+      "rakuten": 3669
+    },
+    {
+      "date": "2025-12-05",
+      "amazon": 3539,
+      "rakuten": 3682
+    },
+    {
+      "date": "2025-12-04",
+      "amazon": 3517,
+      "rakuten": 3710
+    },
+    {
+      "date": "2025-12-03",
+      "amazon": 3483,
+      "rakuten": 3718
+    },
+    {
+      "date": "2025-12-02",
+      "amazon": 3470,
+      "rakuten": 3738
+    },
+    {
+      "date": "2025-12-01",
+      "amazon": 3451,
+      "rakuten": 3712
+    },
+    {
+      "date": "2025-11-30",
+      "amazon": 3443,
+      "rakuten": 3683
+    },
+    {
+      "date": "2025-11-29",
+      "amazon": 3430,
+      "rakuten": 3673
+    },
+    {
+      "date": "2025-11-28",
+      "amazon": 3390,
+      "rakuten": 3690
+    },
+    {
+      "date": "2025-11-27",
+      "amazon": 3405,
+      "rakuten": 3675
+    },
+    {
+      "date": "2025-11-26",
+      "amazon": 3434,
+      "rakuten": 3657
+    },
+    {
+      "date": "2025-11-25",
+      "amazon": 3465,
+      "rakuten": 3653
+    },
+    {
+      "date": "2025-11-24",
+      "amazon": 3442,
+      "rakuten": 3689
+    },
+    {
+      "date": "2025-11-23",
+      "amazon": 3483,
+      "rakuten": 3664
+    },
+    {
+      "date": "2025-11-22",
+      "amazon": 3487,
+      "rakuten": 3694
+    },
+    {
+      "date": "2025-11-21",
+      "amazon": 3498,
+      "rakuten": 3710
+    },
+    {
+      "date": "2025-11-20",
+      "amazon": 3537,
+      "rakuten": 3719
+    },
+    {
+      "date": "2025-11-19",
+      "amazon": 3543,
+      "rakuten": 3701
+    },
+    {
+      "date": "2025-11-18",
+      "amazon": 3557,
+      "rakuten": 3708
+    },
+    {
+      "date": "2025-11-17",
+      "amazon": 3532,
+      "rakuten": 3715
+    },
+    {
+      "date": "2025-11-16",
+      "amazon": 3551,
+      "rakuten": 3724
+    },
+    {
+      "date": "2025-11-15",
+      "amazon": 3571,
+      "rakuten": 3759
+    },
+    {
+      "date": "2025-11-14",
+      "amazon": 3622,
+      "rakuten": 3761
+    },
+    {
+      "date": "2025-11-13",
+      "amazon": 3612,
+      "rakuten": 3763
+    },
+    {
+      "date": "2025-11-12",
+      "amazon": 3583,
+      "rakuten": 3756
+    },
+    {
+      "date": "2025-11-11",
+      "amazon": 3567,
+      "rakuten": 3748
+    },
+    {
+      "date": "2025-11-10",
+      "amazon": 3545,
+      "rakuten": 3720
+    },
+    {
+      "date": "2025-11-09",
+      "amazon": 3544,
+      "rakuten": 3719
+    },
+    {
+      "date": "2025-11-08",
+      "amazon": 3535,
+      "rakuten": 3746
+    },
+    {
+      "date": "2025-11-07",
+      "amazon": 3491,
+      "rakuten": 3745
+    },
+    {
+      "date": "2025-11-06",
+      "amazon": 3508,
+      "rakuten": 3720
+    },
+    {
+      "date": "2025-11-05",
+      "amazon": 3493,
+      "rakuten": 3673
+    },
+    {
+      "date": "2025-11-04",
+      "amazon": 3487,
+      "rakuten": 3657
+    },
+    {
+      "date": "2025-11-03",
+      "amazon": 3469,
+      "rakuten": 3645
+    },
+    {
+      "date": "2025-11-02",
+      "amazon": 3494,
+      "rakuten": 3662
+    },
+    {
+      "date": "2025-11-01",
+      "amazon": 3452,
+      "rakuten": 3628
+    },
+    {
+      "date": "2025-10-31",
+      "amazon": 3400,
+      "rakuten": 3616
+    },
+    {
+      "date": "2025-10-30",
+      "amazon": 3391,
+      "rakuten": 3649
+    },
+    {
+      "date": "2025-10-29",
+      "amazon": 3429,
+      "rakuten": 3638
+    },
+    {
+      "date": "2025-10-28",
+      "amazon": 3455,
+      "rakuten": 3642
+    },
+    {
+      "date": "2025-10-27",
+      "amazon": 3472,
+      "rakuten": 3663
+    },
+    {
+      "date": "2025-10-26",
+      "amazon": 3470,
+      "rakuten": 3685
+    },
+    {
+      "date": "2025-10-25",
+      "amazon": 3469,
+      "rakuten": 3701
+    },
+    {
+      "date": "2025-10-24",
+      "amazon": 3505,
+      "rakuten": 3714
+    },
+    {
+      "date": "2025-10-23",
+      "amazon": 3466,
+      "rakuten": 3755
+    },
+    {
+      "date": "2025-10-22",
+      "amazon": 3490,
+      "rakuten": 3744
+    },
+    {
+      "date": "2025-10-21",
+      "amazon": 3470,
+      "rakuten": 3774
+    },
+    {
+      "date": "2025-10-20",
+      "amazon": 3473,
+      "rakuten": 3802
+    },
+    {
+      "date": "2025-10-19",
+      "amazon": 3424,
+      "rakuten": 3787
+    },
+    {
+      "date": "2025-10-18",
+      "amazon": 3411,
+      "rakuten": 3767
+    },
+    {
+      "date": "2025-10-17",
+      "amazon": 3361,
+      "rakuten": 3804
+    },
+    {
+      "date": "2025-10-16",
+      "amazon": 3378,
+      "rakuten": 3799
+    },
+    {
+      "date": "2025-10-15",
+      "amazon": 3390,
+      "rakuten": 3754
+    },
+    {
+      "date": "2025-10-14",
+      "amazon": 3397,
+      "rakuten": 3749
+    },
+    {
+      "date": "2025-10-13",
+      "amazon": 3424,
+      "rakuten": 3770
+    },
+    {
+      "date": "2025-10-12",
+      "amazon": 3437,
+      "rakuten": 3751
+    },
+    {
+      "date": "2025-10-11",
+      "amazon": 3441,
+      "rakuten": 3726
+    },
+    {
+      "date": "2025-10-10",
+      "amazon": 3453,
+      "rakuten": 3738
+    },
+    {
+      "date": "2025-10-09",
+      "amazon": 3461,
+      "rakuten": 3734
+    },
+    {
+      "date": "2025-10-08",
+      "amazon": 3441,
+      "rakuten": 3731
     }
   ]
 }
