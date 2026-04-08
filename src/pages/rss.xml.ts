@@ -7,8 +7,8 @@ export async function GET(context) {
     new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
   );
   return rss({
-    title: 'ガジェット価格比較ブログ',
-    description: '最新ガジェットの価格比較・ランキング情報',
+    title: '人生を快適ブログ',
+    description: '毎日の生活をもっと快適にするガジェット・便利グッズ情報',
     site: context.site,
     items: sorted.map((post) => ({
       title: post.data.title,
