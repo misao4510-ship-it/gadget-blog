@@ -17,6 +17,14 @@ const currentYear = new Date().getFullYear();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ダークモード フラッシュ防止（<head>最初に実行） -->
+  <script is:inline>
+    (function(){
+      var saved = localStorage.getItem('theme');
+      var pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', saved || pref);
+    })();
+  </script>
   <title>{title} | 人生快適ブログ</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
@@ -77,6 +85,7 @@ const currentYear = new Date().getFullYear();
         <a href="/about/">カイナとは</a>
         <a href="/faq/">FAQ</a>
       </nav>
+      <button id="theme-toggle" aria-label="ダークモード切り替え" class="theme-toggle-btn">☀</button>
       <button id="hamburger-btn" aria-label="メニューを開く">☰</button>
     </div>
   </header>
@@ -102,6 +111,22 @@ const currentYear = new Date().getFullYear();
   </footer>
 
 <style>
+  /* ダークモードトグルボタン */
+  .theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 4px 6px;
+    color: inherit;
+    line-height: 1;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .theme-toggle-btn:hover {
+    background: rgba(128,128,128,0.15);
+  }
+
   /* ハンバーガーボタン: モバイルのみ表示 */
   #hamburger-btn {
     display: none;
@@ -127,8 +152,8 @@ const currentYear = new Date().getFullYear();
     position: absolute;
     top: 100%;
     left: 0;
-    background: #fff;
-    border: 1px solid #e2e8f0;
+    background: var(--dropdown-bg);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0,0,0,.12);
     min-width: 160px;
@@ -139,11 +164,11 @@ const currentYear = new Date().getFullYear();
     display: block;
     padding: 10px 16px;
     font-size: .9rem;
-    color: #333;
+    color: var(--dropdown-text);
     text-decoration: none;
     white-space: nowrap;
   }
-  .nav-dropdown__menu a:hover { background: #f5f5f5; }
+  .nav-dropdown__menu a:hover { background: var(--dropdown-hover-bg); }
   .nav-dropdown:hover .nav-dropdown__menu { display: block; }
 
   /* ドロワー */
@@ -153,7 +178,7 @@ const currentYear = new Date().getFullYear();
     left: -280px;
     width: 280px;
     height: 100%;
-    background: #fff;
+    background: var(--drawer-bg);
     z-index: 1001;
     transition: left 0.3s ease;
     padding: 20px;
@@ -169,7 +194,7 @@ const currentYear = new Date().getFullYear();
     float: right;
     line-height: 1;
     padding: 0 4px;
-    color: #333;
+    color: var(--color-text);
   }
 
   .drawer-nav {
@@ -183,19 +208,19 @@ const currentYear = new Date().getFullYear();
     padding: 14px 8px;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #333;
+    color: var(--color-text);
     text-decoration: none;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
   }
-  .drawer-nav a:hover { background: #f5f5f5; }
+  .drawer-nav a:hover { background: var(--color-surface-raised); }
   .drawer-nav .drawer-nav__sub {
     font-size: .95rem;
     font-weight: 500;
     padding: 10px 8px;
-    color: #555;
-    background: #fafafa;
+    color: var(--color-text-muted);
+    background: var(--color-surface-raised);
   }
-  .drawer-nav .drawer-nav__sub:hover { background: #f0f0f0; }
+  .drawer-nav .drawer-nav__sub:hover { background: var(--color-surface); }
 
   /* オーバーレイ */
   #drawer-overlay {
@@ -209,6 +234,7 @@ const currentYear = new Date().getFullYear();
 </style>
 
 <script>
+  // ドロワー
   const hamburger = document.getElementById('hamburger-btn');
   const drawer = document.getElementById('mobile-drawer');
   const overlay = document.getElementById('drawer-overlay');
@@ -228,6 +254,25 @@ const currentYear = new Date().getFullYear();
   hamburger?.addEventListener('click', openDrawer);
   closeBtn?.addEventListener('click', closeDrawer);
   overlay?.addEventListener('click', closeDrawer);
+
+  // ダークモード トグル
+  const themeToggle = document.getElementById('theme-toggle');
+
+  function updateToggleIcon() {
+    if (!themeToggle) return;
+    const current = document.documentElement.getAttribute('data-theme');
+    themeToggle.textContent = current === 'dark' ? '🌙' : '☀';
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateToggleIcon();
+  });
+
+  updateToggleIcon();
 </script>
 
 <!-- Cloudflare Web Analytics -->
