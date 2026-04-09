@@ -6,6 +6,111 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Stable Diffusion用プロンプトを素早く組み立てるツールです。"
 >
 <style>
+  /* ===== パスワード認証画面 ===== */
+  #pw-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 2rem 1rem;
+  }
+  .pw-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 2.5rem 2rem;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+  }
+  .pw-chara {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    animation: pw-bounce 1.2s ease-in-out infinite;
+  }
+  @keyframes pw-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .pw-chara-name {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .pw-speech {
+    background: var(--color-primary-light, #fce8f3);
+    color: var(--color-text);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .pw-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--color-primary-light, #fce8f3);
+  }
+  .pw-input-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .pw-input-row input[type="password"] {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  .pw-input-row input[type="password"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+  .pw-submit-btn {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: var(--font-heading);
+    white-space: nowrap;
+  }
+  .pw-submit-btn:hover:not(:disabled) { background: var(--color-primary-dark); }
+  .pw-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .pw-error {
+    color: #e03a3a;
+    font-size: 0.85rem;
+    margin-top: 0.7rem;
+    min-height: 1.2em;
+  }
+  .pw-lock-msg {
+    color: #e07a3a;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.7rem;
+    min-height: 1.2em;
+  }
+  /* ===== メインUI（認証後） ===== */
+  #pb-main { display: none; }
+  /* ===== 既存スタイル ===== */
   .pb-container {
     max-width: 900px;
     margin: 2rem auto;
@@ -198,6 +303,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 </style>
 
+<!-- パスワード認証画面 -->
+<div id="pw-screen">
+  <div class="pw-card">
+    <div class="pw-chara">🌸</div>
+    <div class="pw-chara-name">— サクラ —</div>
+    <div class="pw-speech">
+      ここはサクラの秘密工房✨<br />
+      合言葉を教えてください💖
+    </div>
+    <div class="pw-input-row">
+      <input type="password" id="pw-input" placeholder="合言葉" autocomplete="off" maxlength="20" />
+      <button class="pw-submit-btn" id="pw-submit-btn">入る</button>
+    </div>
+    <div class="pw-error" id="pw-error"></div>
+    <div class="pw-lock-msg" id="pw-lock-msg"></div>
+  </div>
+</div>
+
+<!-- メインUI（認証後に表示） -->
+<div id="pb-main">
 <div class="pb-container">
   <h1>SD プロンプトビルダー</h1>
   <div class="pb-grid">
@@ -357,8 +482,79 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </div>
 </div>
+</div><!-- /#pb-main -->
 
 <script>
+(function() {
+  // ===== パスワード認証 =====
+  const CORRECT_PW = '393941';
+  const SESSION_KEY = 'pb_auth';
+  const MAX_FAIL = 5;
+  const LOCK_SEC = 30;
+
+  const pwScreen = document.getElementById('pw-screen');
+  const pbMain = document.getElementById('pb-main');
+  const pwInput = document.getElementById('pw-input');
+  const pwSubmit = document.getElementById('pw-submit-btn');
+  const pwError = document.getElementById('pw-error');
+  const pwLock = document.getElementById('pw-lock-msg');
+
+  let failCount = 0;
+  let lockTimer = null;
+
+  function showMain() {
+    if (pwScreen) pwScreen.style.display = 'none';
+    if (pbMain) pbMain.style.display = 'block';
+  }
+
+  // セッション認証済みなら即表示
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    showMain();
+  }
+
+  function startLock() {
+    let remaining = LOCK_SEC;
+    if (pwInput) pwInput.disabled = true;
+    if (pwSubmit) pwSubmit.disabled = true;
+    if (pwError) pwError.textContent = '';
+
+    function tick() {
+      if (pwLock) pwLock.textContent = `🔒 しばらくお待ちください（残り${remaining}秒）`;
+      if (remaining <= 0) {
+        clearInterval(lockTimer);
+        lockTimer = null;
+        failCount = 0;
+        if (pwInput) { pwInput.disabled = false; pwInput.value = ''; }
+        if (pwSubmit) pwSubmit.disabled = false;
+        if (pwLock) pwLock.textContent = '';
+      }
+      remaining--;
+    }
+    tick();
+    lockTimer = setInterval(tick, 1000);
+  }
+
+  function checkPassword() {
+    if (lockTimer) return;
+    const val = pwInput ? pwInput.value : '';
+    if (val === CORRECT_PW) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      showMain();
+    } else {
+      failCount++;
+      if (failCount >= MAX_FAIL) {
+        startLock();
+      } else {
+        if (pwError) pwError.textContent = `合言葉が違います💦（残り${MAX_FAIL - failCount}回）`;
+        if (pwInput) pwInput.value = '';
+      }
+    }
+  }
+
+  if (pwSubmit) pwSubmit.addEventListener('click', checkPassword);
+  if (pwInput) pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
+})();
+
 (function() {
   function val(id) {
     const el = document.getElementById(id);
