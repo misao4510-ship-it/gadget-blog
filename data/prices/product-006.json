@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 419,
+      "price": 410,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/dailyplus-onlineshop/s0dp1nwyz6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-08"
+      "updated": "2026-04-09"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 419
+      "price": 410
     }
   },
   "history": [
+    {
+      "date": "2026-04-09",
+      "amazon": 34800,
+      "rakuten": 410
+    },
     {
       "date": "2026-04-08",
       "amazon": 34800,
@@ -468,11 +473,6 @@
       "date": "2026-01-09",
       "amazon": 35520,
       "rakuten": 37050
-    },
-    {
-      "date": "2026-01-08",
-      "amazon": 36010,
-      "rakuten": 38480
     }
   ]
 }
