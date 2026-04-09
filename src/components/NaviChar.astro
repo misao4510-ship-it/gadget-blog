@@ -10,6 +10,8 @@
   <button class="close-btn" id="sakura-close" aria-label="サクラを閉じる" title="サクラを閉じる">×</button>
   <img
     src="/images/navi-char.png"
+    data-light-src="/images/navi-char.png"
+    data-dark-src="/images/navi-char-dark.png"
     alt="サクラ"
     class="navi-char-img"
     loading="lazy"
@@ -635,6 +637,20 @@
         startAutoTimer();
       });
     }
+
+    // ダークモード時に立ち絵を切り替え
+    function updateNaviImage() {
+      const img = wrapper.querySelector<HTMLImageElement>('.navi-char-img');
+      if (!img) return;
+      const theme = document.documentElement.getAttribute('data-theme');
+      const src = theme === 'dark' ? img.dataset.darkSrc : img.dataset.lightSrc;
+      if (src && img.src !== src) img.src = src;
+    }
+
+    // テーマ変更を監視
+    const themeObserver = new MutationObserver(() => updateNaviImage());
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    updateNaviImage();
 
     init();
   })();
