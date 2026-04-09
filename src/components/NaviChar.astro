@@ -10,7 +10,7 @@
   <button class="close-btn" id="sakura-close" aria-label="サクラを閉じる" title="サクラを閉じる">×</button>
   <img
     src="/images/navi-char.png"
-    data-light-src="/images/navi-char.png"
+    data-light-src="/images/navi-char.png,/images/navi-char2.png"
     data-dark-src="/images/navi-char-dark.png,/images/navi-char-dark2.png"
     alt="サクラ"
     class="navi-char-img"
@@ -635,29 +635,36 @@
         // setMessageの重複スキップを回避するため一時的にcurrentMsgをクリア
         currentMsg = '';
         setMessage(pool[tapIndex]);
-        // ダークモード中はタップで立ち絵も切り替え
-        cycleDarkImage();
+        // タップで立ち絵も切り替え
+        cycleNaviImage();
         startAutoTimer();
       });
     }
 
-    // ダークモード時に立ち絵を切り替え
+    // テーマ別立ち絵切り替え
     let darkImageIndex = 0;
-    const darkImages = (wrapper.querySelector<HTMLImageElement>('.navi-char-img')?.dataset.darkSrc ?? '').split(',').filter(Boolean);
+    let lightImageIndex = 0;
+    const naviImg = wrapper.querySelector<HTMLImageElement>('.navi-char-img');
+    const darkImages = (naviImg?.dataset.darkSrc ?? '').split(',').filter(Boolean);
+    const lightImages = (naviImg?.dataset.lightSrc ?? '').split(',').filter(Boolean);
 
     function updateNaviImage() {
-      const img = wrapper.querySelector<HTMLImageElement>('.navi-char-img');
-      if (!img) return;
+      if (!naviImg) return;
       const theme = document.documentElement.getAttribute('data-theme');
-      const src = theme === 'dark' ? (darkImages[darkImageIndex % darkImages.length] ?? img.dataset.lightSrc) : img.dataset.lightSrc;
-      if (src && img.src !== new URL(src, location.href).href) img.src = src;
+      const src = theme === 'dark'
+        ? (darkImages[darkImageIndex % darkImages.length] ?? lightImages[0])
+        : (lightImages[lightImageIndex % lightImages.length] ?? lightImages[0]);
+      if (src && naviImg.src !== new URL(src, location.href).href) naviImg.src = src;
     }
 
-    // ダークモード中のタップで立ち絵切り替え
-    function cycleDarkImage() {
+    // タップで立ち絵切り替え（ライト/ダーク両対応）
+    function cycleNaviImage() {
       const theme = document.documentElement.getAttribute('data-theme');
-      if (theme !== 'dark' || darkImages.length <= 1) return;
-      darkImageIndex = (darkImageIndex + 1) % darkImages.length;
+      if (theme === 'dark' && darkImages.length > 1) {
+        darkImageIndex = (darkImageIndex + 1) % darkImages.length;
+      } else if (theme !== 'dark' && lightImages.length > 1) {
+        lightImageIndex = (lightImageIndex + 1) % lightImages.length;
+      }
       updateNaviImage();
     }
 
