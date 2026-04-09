@@ -212,7 +212,7 @@
       return msgs[key] ?? sectionMessages[key] ?? '';
     }
 
-    // セクション種別ごとのテンプレート（キーワード判定）
+    // セクション種別ごとのテンプレート（キーワード判定・ライト）
     const sectionTemplates: Array<{ keywords: string[]; templates: string[] }> = [
       {
         keywords: ['スペック', '仕様', 'spec', 'スペック表', '基本情報', '製品情報'],
@@ -276,12 +276,84 @@
       },
     ];
 
+    // セクション種別ごとのテンプレート（キーワード判定・ダーク・眠そう）
+    const darkSectionTemplates: Array<{ keywords: string[]; templates: string[] }> = [
+      {
+        keywords: ['スペック', '仕様', 'spec', 'スペック表', '基本情報', '製品情報'],
+        templates: [
+          'スペック…数値が高いほど…実用的…ですよ…zzz',
+          'このスペック…競合と…比べてみると…いいかも…ふぁ',
+          'カタログスペック…だけじゃなくて…実測値も…zzz…大事…',
+          'ここが…使い心地に…効いてくる…ポイント…ですよ…ふぁ〜',
+          'スペック表…慣れると…賢く…選べますよ…zzz',
+        ],
+      },
+      {
+        keywords: ['価格', '値段', 'コスパ', '価格比較', '最安値', '円'],
+        templates: [
+          '今が…買い時…ですよ…zzz…セール情報も…チェック…',
+          'この価格帯…コスパ…おすすめ…ですよ…ふぁ',
+          '価格比較サイト…併用すると…もっとお得…zzz',
+          '楽天やYahoo…セール時期…狙うと…お得…ですよ…zzz',
+          'ポイント還元…含めると…もっと…安い…かも…ふぁ〜',
+        ],
+      },
+      {
+        keywords: ['メリット', '良い点', 'おすすめポイント', '強み', 'いい点'],
+        templates: [
+          'このメリット…使うほど…実感…できますよ…zzz',
+          '実際の…利用シーンで…役立つ…ポイント…ふぁ',
+          '買ってよかった…って…きっと…思えますよ…zzz',
+          '日常使い…で差が出る…ところ…ですよ…ふぁ〜',
+          '他にはない…この強み…選ばれる理由…zzz',
+        ],
+      },
+      {
+        keywords: ['デメリット', '注意点', '気になる点', '弱点', '惜しい点'],
+        templates: [
+          'デメリット…事前に…把握…しておくと…いいですよ…zzz',
+          'この点…使い方次第で…気にならなく…なりますよ…ふぁ',
+          '購入前に…許容できるか…確認…しましょう…zzz',
+          'デメリットと…上手く…付き合う工夫…大事…ですよ…ふぁ〜',
+          '完璧な製品は…ないから…優先順位…決めましょう…zzz',
+        ],
+      },
+      {
+        keywords: ['レビュー', '使ってみた', '実際に', '感想', '評価'],
+        templates: [
+          '使用感は…スペック表だけじゃ…分からない…ですよ…zzz',
+          '長期レビュー…参考に…なりますよ…ふぁ',
+          '他のレビューも…比較…してみて…zzz',
+          '使い始めと…数週間後で…印象…変わることも…ふぁ〜',
+          'レビューの信頼性…確認…大事…zzz',
+        ],
+      },
+      {
+        keywords: ['第1位', '第2位', '第3位', 'ランキング', '位'],
+        templates: [
+          'ランキング上位…理由…ありますよ…zzz',
+          'この価格帯…おすすめ…ですよ…ふぁ',
+          'ランキング基準…確認しながら…選ぶと…いいですよ…zzz',
+          '上位製品…口コミ多くて…安心…ですよ…ふぁ〜',
+          '自分に合った…ランキングで…選ぶのが…ポイント…zzz',
+        ],
+      },
+    ];
+
     const defaultMessages = [
       '詳しい情報は、ぜひ記事全体を通してご覧ください。',
       '気になる点があれば、スペック表も参考にしてみてください。',
       '購入を検討されている方の参考になれば幸いです。',
       'わからないことがあれば、公式サイトも確認してみてくださいね。',
       'ぜひお気に入りのガジェットを見つけてください！',
+    ];
+
+    const darkDefaultMessages = [
+      'ここまで…読んでくれて…ありがとう…ございます…zzz',
+      '気になる点…スペック表も…見てみて…zzz',
+      '購入検討中…なら…参考に…なれば…嬉しいです…ふぁ',
+      'わからないこと…公式サイトも…確認…してみて…zzz',
+      'お気に入り…見つかると…いいですね…zzz',
     ];
 
     // ダークモード用コメントプール（眠そう）
@@ -495,37 +567,65 @@
       kw: ReturnType<typeof extractKeywords>
     ): string | null {
       const pick = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       if (sectionType === 'price' && kw.prices.length > 0) {
-        return pick([
-          `${kw.prices[0]}ならコスパ◎ですよ！`,
-          `${kw.prices[0]}、この品質でこの価格は買いですよ！`,
-          `${kw.prices[0]}、今が買い時ですよ！`,
-        ]);
+        return isDark
+          ? pick([
+              `${kw.prices[0]}…コスパ◎…ですよ…zzz`,
+              `${kw.prices[0]}…この品質で…この価格…買い…ですよ…ふぁ`,
+              `${kw.prices[0]}…今が…買い時…zzz`,
+            ])
+          : pick([
+              `${kw.prices[0]}ならコスパ◎ですよ！`,
+              `${kw.prices[0]}、この品質でこの価格は買いですよ！`,
+              `${kw.prices[0]}、今が買い時ですよ！`,
+            ]);
       }
       if (kw.prices.length > 0) {
-        return pick([
-          `${kw.prices[0]}ならコスパ◎ですよ！`,
-          `${kw.prices[0]}、この品質でこの価格は買いですよ！`,
-        ]);
+        return isDark
+          ? pick([
+              `${kw.prices[0]}…コスパ◎…zzz`,
+              `${kw.prices[0]}…この品質で…この価格…いいですよ…ふぁ`,
+            ])
+          : pick([
+              `${kw.prices[0]}ならコスパ◎ですよ！`,
+              `${kw.prices[0]}、この品質でこの価格は買いですよ！`,
+            ]);
       }
       if (kw.values.length > 0) {
-        return pick([
-          `${kw.values[0]}というスペック、他製品と比べて優秀ですよ！`,
-          `${kw.values[0]}、なかなかの数値ですよね！`,
-          `${kw.values[0]}なら実用十分ですよ！`,
-        ]);
+        return isDark
+          ? pick([
+              `${kw.values[0]}…他と比べて…優秀…ですよ…zzz`,
+              `${kw.values[0]}…なかなかの…数値…ですよね…ふぁ`,
+              `${kw.values[0]}…実用…十分…zzz`,
+            ])
+          : pick([
+              `${kw.values[0]}というスペック、他製品と比べて優秀ですよ！`,
+              `${kw.values[0]}、なかなかの数値ですよね！`,
+              `${kw.values[0]}なら実用十分ですよ！`,
+            ]);
       }
       if (kw.brands.length > 0) {
-        return pick([
-          `${kw.brands[0]}製なら安心して使えますよ！`,
-          `${kw.brands[0]}のクオリティ、さすがですよね！`,
-        ]);
+        return isDark
+          ? pick([
+              `${kw.brands[0]}製…安心…ですよ…zzz`,
+              `${kw.brands[0]}の…クオリティ…さすが…ふぁ〜`,
+            ])
+          : pick([
+              `${kw.brands[0]}製なら安心して使えますよ！`,
+              `${kw.brands[0]}のクオリティ、さすがですよね！`,
+            ]);
       }
       if (kw.standards.length > 0) {
-        return pick([
-          `${kw.standards[0]}対応、最新規格で将来性◎ですよ！`,
-          `${kw.standards[0]}なら高速転送も快適ですよ！`,
-        ]);
+        return isDark
+          ? pick([
+              `${kw.standards[0]}対応…将来性◎…ですよ…zzz`,
+              `${kw.standards[0]}…高速転送…快適…ふぁ`,
+            ])
+          : pick([
+              `${kw.standards[0]}対応、最新規格で将来性◎ですよ！`,
+              `${kw.standards[0]}なら高速転送も快適ですよ！`,
+            ]);
       }
       return null;
     }
@@ -540,9 +640,20 @@
       return 'other';
     }
 
+    function getActiveSectionTemplates() {
+      const theme = document.documentElement.getAttribute('data-theme');
+      return theme === 'dark' ? darkSectionTemplates : sectionTemplates;
+    }
+
+    function getActiveDefaultMessages() {
+      const theme = document.documentElement.getAttribute('data-theme');
+      return theme === 'dark' ? darkDefaultMessages : defaultMessages;
+    }
+
     function detectSectionComment(text: string): string | null {
       const lower = text.toLowerCase();
-      for (const section of sectionTemplates) {
+      const templates = getActiveSectionTemplates();
+      for (const section of templates) {
         for (const kw of section.keywords) {
           if (lower.includes(kw.toLowerCase())) {
             const idx = Math.floor(Math.random() * section.templates.length);
@@ -703,14 +814,19 @@
                   msg = sectionComment;
                 } else if (headingText) {
                   // h2テキストを直接組み込んでユニークコメント生成（確実に変化させる）
-                  msg = `「${headingShort}」のセクションです。ぜひ参考にしてみてください！`;
+                  const isDarkFb = document.documentElement.getAttribute('data-theme') === 'dark';
+                  msg = isDarkFb
+                    ? `「${headingShort}」…のセクション…ですよ…zzz`
+                    : `「${headingShort}」のセクションです。ぜひ参考にしてみてください！`;
                 } else {
                   // セクション不明: デフォルトメッセージを循環
-                  msg = defaultMessages[defaultMsgIdx % defaultMessages.length];
+                  const dms = getActiveDefaultMessages();
+                  msg = dms[defaultMsgIdx % dms.length];
                 }
               }
             } else {
-              msg = defaultMessages[defaultMsgIdx % defaultMessages.length];
+              const dms = getActiveDefaultMessages();
+              msg = dms[defaultMsgIdx % dms.length];
             }
             defaultMsgIdx++;
             setMessage(msg);
@@ -726,8 +842,9 @@
 
       // 30秒ごとにデフォルトメッセージを循環（特定セクション非検知時）
       setInterval(() => {
-        if (defaultMessages.includes(currentMsg)) {
-          const next = defaultMessages[defaultMsgIdx % defaultMessages.length];
+        const dms = getActiveDefaultMessages();
+        if (dms.includes(currentMsg) || defaultMessages.includes(currentMsg) || darkDefaultMessages.includes(currentMsg)) {
+          const next = dms[defaultMsgIdx % dms.length];
           defaultMsgIdx++;
           setMessage(next);
         }
