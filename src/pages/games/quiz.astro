@@ -1,0 +1,667 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="🧠 ガジェットクイズ"
+  description="ガジェットのスペック・用語・豆知識を4択クイズで試そう！サクラが10問出題！"
+>
+  <div class="quiz-page">
+    <div class="quiz-header">
+      <a href="/games/" class="back-link">← ゲームコーナーへ</a>
+      <h1 class="quiz-title">🧠 ガジェットクイズ</h1>
+      <p class="quiz-subtitle">サクラが10問出題するよ！全問正解できるかな？</p>
+    </div>
+
+    <!-- クイズUI -->
+    <div class="quiz-container" id="quiz-container">
+      <!-- サクラキャラ -->
+      <div class="sakura-area">
+        <img src="/images/navi-char.png" alt="サクラ" class="sakura-img" id="sakura-img" />
+        <div class="sakura-bubble" id="sakura-bubble">
+          <p id="sakura-message">準備はいい？🌸 スタートボタンを押してね！</p>
+        </div>
+      </div>
+
+      <!-- スタート画面 -->
+      <div class="screen screen--start" id="screen-start">
+        <div class="start-card">
+          <h2>ガジェットクイズ 🎮</h2>
+          <ul class="rule-list">
+            <li>📋 全10問・4択形式</li>
+            <li>⚡ ガジェットの用語・スペックが出題</li>
+            <li>🏆 最後にスコアを表示</li>
+          </ul>
+          <button class="btn btn--primary" id="btn-start">スタート！</button>
+        </div>
+      </div>
+
+      <!-- 問題画面 -->
+      <div class="screen screen--question" id="screen-question" style="display:none">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="question-info">
+          <span class="question-number" id="question-number">問題 1 / 10</span>
+          <span class="question-score" id="question-score">正解: 0</span>
+        </div>
+        <div class="question-card">
+          <p class="question-text" id="question-text">問題文がここに入ります</p>
+        </div>
+        <div class="choices-grid" id="choices-grid">
+          <!-- 選択肢はJSで生成 -->
+        </div>
+      </div>
+
+      <!-- 結果画面 -->
+      <div class="screen screen--result" id="screen-result" style="display:none">
+        <div class="result-card">
+          <div class="result-score-display">
+            <span class="result-score-num" id="result-score-num">0</span>
+            <span class="result-score-denom"> / 10問正解</span>
+          </div>
+          <p class="result-message" id="result-message"></p>
+          <div class="result-actions">
+            <button class="btn btn--primary" id="btn-replay">もう一度チャレンジ！🔄</button>
+            <a href="/games/" class="btn btn--secondary">ゲーム一覧へ</a>
+          </div>
+        </div>
+        <div class="result-review" id="result-review">
+          <h3>📝 解答まとめ</h3>
+          <div id="review-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // ===== クイズデータ（10問）=====
+  const quizData = [
+    {
+      q: "モバイルバッテリーの容量を表す単位は何？",
+      choices: ["W（ワット）", "mAh（ミリアンペア時）", "GHz（ギガヘルツ）", "dB（デシベル）"],
+      answer: 1,
+      explanation: "mAh（ミリアンペア時）がバッテリー容量の単位。数値が大きいほどたくさん充電できるよ！"
+    },
+    {
+      q: "「GaN充電器」のGaNが意味するものは？",
+      choices: ["ゲルマニウム素子", "窒化ガリウム", "グラフェン層", "ガリウムナノ粒子"],
+      answer: 1,
+      explanation: "GaN＝Gallium Nitride（窒化ガリウム）。シリコンより高効率で熱が少なく、充電器を小型化できるよ！"
+    },
+    {
+      q: "ワイヤレス充電の規格「Qi（チー）」を策定した団体は？",
+      choices: ["IEEE", "Bluetooth SIG", "Wireless Power Consortium（WPC）", "USB-IF"],
+      answer: 2,
+      explanation: "Qi規格はWPC（ワイヤレスパワーコンソーシアム）が策定した国際標準規格だよ！"
+    },
+    {
+      q: "ノイズキャンセリングの略称は？",
+      choices: ["NR", "ANC", "ENC", "DNC"],
+      answer: 1,
+      explanation: "ANC＝Active Noise Canceling（アクティブノイズキャンセリング）。マイクで周囲音を拾い、逆位相の音で打ち消すよ！"
+    },
+    {
+      q: "USB Type-Cケーブルで最大100Wの給電が可能な規格は？",
+      choices: ["USB 3.2", "USB4", "USB Power Delivery（USB PD）", "Thunderbolt 3"],
+      answer: 2,
+      explanation: "USB PD（Power Delivery）は最大100W（USB PD 3.1では240W）の給電に対応した規格だよ！"
+    },
+    {
+      q: "「IPX7」の防水等級が意味するものは？",
+      choices: ["水滴の滴下に耐える", "水の噴射に耐える", "水深1mに30分浸水しても影響なし", "水深10mに1時間浸水しても影響なし"],
+      answer: 2,
+      explanation: "IPX7＝水深1mに最大30分間沈めても内部に浸水しない等級だよ！"
+    },
+    {
+      q: "Bluetooth 5.0で大幅に改善された要素は？",
+      choices: ["音質", "通信距離と速度", "消費電力のみ", "接続デバイス数"],
+      answer: 1,
+      explanation: "Bluetooth 5.0では通信距離が最大4倍、速度が最大2倍に向上したよ！"
+    },
+    {
+      q: "M.2 SSDのインターフェースで最も高速なものは？",
+      choices: ["SATA", "NVMe（PCIe）", "USB 3.2", "mSATA"],
+      answer: 1,
+      explanation: "NVMe（PCIe）接続のM.2 SSDは読み取り最大7,000MB/s以上。SATAの約7倍の速度だよ！"
+    },
+    {
+      q: "「4K解像度」の画素数はおよそ何ピクセル？",
+      choices: ["約100万", "約200万", "約830万", "約3300万"],
+      answer: 2,
+      explanation: "4K（3840×2160）は約830万ピクセル。フルHD（1920×1080）の約4倍だよ！"
+    },
+    {
+      q: "TWS（True Wireless Stereo）イヤホンの「True」が意味するものは？",
+      choices: ["音が真に高音質であること", "左右が完全に独立（コードなし）であること", "ノイズキャンセリングが真に機能すること", "バッテリーが真に長持ちすること"],
+      answer: 1,
+      explanation: "TWS＝True Wireless Stereo。左右のイヤホンが完全にコードレスで独立しているのが「True」の意味だよ！"
+    }
+  ];
+
+  // ===== サクラのコメント =====
+  const sakuraMessages = {
+    start: ["準備はいい？🌸 スタートボタンを押してね！"],
+    question: ["考えてね！🤔", "どれだと思う？✨", "落ち着いて考えてみて🌸", "ヒントはないよ〜！笑", "自信を持って！💪"],
+    correct: ["やった！正解！🎉", "すごい！大正解！✨", "完璧！さすがだね！🌸", "正解！ガジェット通だね！💯", "その通り！🙌"],
+    wrong: ["あ〜、惜しい！😅", "残念…次は頑張って！💦", "うーん、これは難しかったね🤔", "ドンマイ！次の問題いくよ！", "そっか…でも勉強になったね！📚"],
+    result: {
+      perfect: "満点！10問全問正解！あなたはガジェット博士！🎓✨",
+      great: "すごい！かなりのガジェット通だね！🌸",
+      good: "なかなかやるね！もう少しで満点だよ！💪",
+      ok: "半分以上正解！もう一度チャレンジしてみて！🔄",
+      low: "ガジェットの世界は深いね！一緒に勉強しよう！📚"
+    }
+  };
+
+  function rand(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  // ===== ゲーム状態 =====
+  let currentQ = 0;
+  let score = 0;
+  let answered = false;
+  let results = [];
+  let shuffledData = [];
+
+  function shuffleArray(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function setSakuraMessage(msg) {
+    document.getElementById('sakura-message').textContent = msg;
+  }
+
+  function showScreen(id) {
+    ['screen-start', 'screen-question', 'screen-result'].forEach(s => {
+      const el = document.getElementById(s);
+      if (el) el.style.display = s === id ? '' : 'none';
+    });
+  }
+
+  function startQuiz() {
+    currentQ = 0;
+    score = 0;
+    results = [];
+    shuffledData = shuffleArray(quizData);
+    showScreen('screen-question');
+    showQuestion();
+  }
+
+  function showQuestion() {
+    answered = false;
+    const q = shuffledData[currentQ];
+    const total = shuffledData.length;
+
+    // プログレスバー
+    document.getElementById('progress-bar').style.width = `${(currentQ / total) * 100}%`;
+    document.getElementById('question-number').textContent = `問題 ${currentQ + 1} / ${total}`;
+    document.getElementById('question-score').textContent = `正解: ${score}`;
+    document.getElementById('question-text').textContent = q.q;
+
+    // 選択肢をシャッフル（正解インデックスを保持）
+    const choiceIndices = shuffleArray([0, 1, 2, 3]);
+    const grid = document.getElementById('choices-grid');
+    grid.innerHTML = '';
+
+    choiceIndices.forEach(origIdx => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = q.choices[origIdx];
+      btn.dataset.index = origIdx;
+      btn.addEventListener('click', () => selectAnswer(origIdx, btn));
+      grid.appendChild(btn);
+    });
+
+    setSakuraMessage(rand(sakuraMessages.question));
+  }
+
+  function selectAnswer(selectedIdx, btn) {
+    if (answered) return;
+    answered = true;
+
+    const q = shuffledData[currentQ];
+    const isCorrect = selectedIdx === q.answer;
+
+    if (isCorrect) {
+      score++;
+      btn.classList.add('choice-btn--correct');
+      setSakuraMessage(rand(sakuraMessages.correct));
+    } else {
+      btn.classList.add('choice-btn--wrong');
+      setSakuraMessage(rand(sakuraMessages.wrong));
+      // 正解を緑表示
+      document.querySelectorAll('.choice-btn').forEach(b => {
+        if (parseInt(b.dataset.index) === q.answer) {
+          b.classList.add('choice-btn--correct');
+        }
+      });
+    }
+
+    // 解説を表示
+    const grid = document.getElementById('choices-grid');
+    const exp = document.createElement('div');
+    exp.className = 'explanation';
+    exp.innerHTML = `<span class="${isCorrect ? 'exp--correct' : 'exp--wrong'}">${isCorrect ? '✅ 正解！' : '❌ 不正解…'}</span> ${q.explanation}`;
+    grid.appendChild(exp);
+
+    results.push({ q: q.q, correctIdx: q.answer, selectedIdx, isCorrect, explanation: q.explanation, choices: q.choices });
+
+    document.getElementById('question-score').textContent = `正解: ${score}`;
+
+    // 次へボタン追加
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn--next';
+    nextBtn.textContent = currentQ < shuffledData.length - 1 ? '次の問題へ →' : '結果を見る 🏆';
+    nextBtn.addEventListener('click', () => {
+      currentQ++;
+      if (currentQ < shuffledData.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    });
+    grid.appendChild(nextBtn);
+  }
+
+  function showResult() {
+    showScreen('screen-result');
+    document.getElementById('result-score-num').textContent = score;
+
+    let msg, msgKey;
+    if (score === 10) msgKey = 'perfect';
+    else if (score >= 8) msgKey = 'great';
+    else if (score >= 6) msgKey = 'good';
+    else if (score >= 5) msgKey = 'ok';
+    else msgKey = 'low';
+
+    document.getElementById('result-message').textContent = sakuraMessages.result[msgKey];
+    setSakuraMessage(sakuraMessages.result[msgKey]);
+
+    // 解答まとめ
+    const reviewList = document.getElementById('review-list');
+    reviewList.innerHTML = '';
+    results.forEach((r, i) => {
+      const item = document.createElement('div');
+      item.className = `review-item ${r.isCorrect ? 'review-item--correct' : 'review-item--wrong'}`;
+      item.innerHTML = `
+        <div class="review-item__header">
+          <span class="review-num">Q${i + 1}</span>
+          <span class="review-result">${r.isCorrect ? '✅ 正解' : '❌ 不正解'}</span>
+        </div>
+        <p class="review-q">${r.q}</p>
+        <p class="review-ans">正解: ${r.choices[r.correctIdx]}</p>
+        <p class="review-exp">${r.explanation}</p>
+      `;
+      reviewList.appendChild(item);
+    });
+
+    document.getElementById('progress-bar').style.width = '100%';
+  }
+
+  // ===== イベント =====
+  document.getElementById('btn-start')?.addEventListener('click', startQuiz);
+  document.getElementById('btn-replay')?.addEventListener('click', () => {
+    showScreen('screen-question');
+    startQuiz();
+  });
+</script>
+
+<style>
+  .quiz-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .quiz-header {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+
+  .back-link:hover { text-decoration: underline; }
+
+  .quiz-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .quiz-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* サクラエリア */
+  .sakura-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .sakura-img {
+    width: 80px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .sakura-bubble {
+    background: var(--bubble-bg, #fff0f5);
+    border: 2px solid #f9a8c9;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    position: relative;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  .sakura-bubble::before {
+    content: '';
+    position: absolute;
+    left: -14px;
+    bottom: 16px;
+    border: 7px solid transparent;
+    border-right-color: #f9a8c9;
+  }
+
+  .sakura-bubble::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: 17px;
+    border: 6px solid transparent;
+    border-right-color: var(--bubble-bg, #fff0f5);
+  }
+
+  /* プログレスバー */
+  .progress-bar-wrap {
+    height: 8px;
+    background: var(--color-border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #f9a8c9, var(--color-primary));
+    border-radius: 999px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* 問題情報 */
+  .question-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .question-score { font-weight: 700; color: var(--color-primary); }
+
+  /* 問題カード */
+  .question-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    margin-bottom: 1.25rem;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  /* 選択肢 */
+  .choices-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .choice-btn {
+    width: 100%;
+    text-align: left;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1.1rem;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    line-height: 1.4;
+  }
+
+  .choice-btn:hover:not(:disabled) {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+  }
+
+  .choice-btn--correct {
+    background: #d1fae5 !important;
+    border-color: #34d399 !important;
+    color: #065f46 !important;
+    font-weight: 700;
+  }
+
+  [data-theme="dark"] .choice-btn--correct {
+    background: #064e3b !important;
+    border-color: #34d399 !important;
+    color: #6ee7b7 !important;
+  }
+
+  .choice-btn--wrong {
+    background: #fee2e2 !important;
+    border-color: #f87171 !important;
+    color: #7f1d1d !important;
+  }
+
+  [data-theme="dark"] .choice-btn--wrong {
+    background: #7f1d1d !important;
+    border-color: #f87171 !important;
+    color: #fca5a5 !important;
+  }
+
+  /* 解説 */
+  .explanation {
+    background: var(--color-surface-raised);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-top: 0.25rem;
+  }
+
+  .exp--correct { color: #059669; font-weight: 700; margin-right: 0.3rem; }
+  .exp--wrong { color: #dc2626; font-weight: 700; margin-right: 0.3rem; }
+
+  /* ボタン共通 */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: filter 0.15s, transform 0.1s;
+    text-align: center;
+  }
+
+  .btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+
+  .btn--primary {
+    background: linear-gradient(135deg, #f9a8c9, #f06090);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(240,96,144,0.3);
+  }
+
+  .btn--secondary {
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+  }
+
+  .btn--next {
+    width: 100%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    margin-top: 0.25rem;
+    transition: filter 0.15s, transform 0.1s;
+  }
+
+  .btn--next:hover { filter: brightness(1.08); transform: translateY(-2px); }
+
+  /* スタート画面 */
+  .start-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid #f9a8c9;
+    text-align: center;
+  }
+
+  .start-card h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .rule-list {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+  }
+
+  .rule-list li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  /* 結果画面 */
+  .result-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid #f9a8c9;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .result-score-display {
+    margin-bottom: 0.75rem;
+  }
+
+  .result-score-num {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .result-score-denom {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .result-message {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .result-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* 解答まとめ */
+  .result-review h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .review-item {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border-left: 4px solid;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .review-item--correct { border-left-color: #34d399; }
+  .review-item--wrong { border-left-color: #f87171; }
+
+  .review-item__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+  }
+
+  .review-num { font-weight: 700; color: var(--color-text-muted); font-size: 0.8rem; }
+  .review-result { font-size: 0.85rem; font-weight: 700; }
+  .review-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .review-ans { font-size: 0.85rem; color: #059669; font-weight: 600; margin-bottom: 0.25rem; }
+  .review-exp { font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.5; margin: 0; }
+
+  @media (max-width: 480px) {
+    .quiz-title { font-size: 1.4rem; }
+    .result-score-num { font-size: 3rem; }
+    .sakura-img { width: 60px; }
+  }
+</style>

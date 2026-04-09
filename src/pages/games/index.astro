@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="🎮 ゲーム"
+  description="サクラと一緒にガジェット知識を楽しく試せるミニゲームコーナーです！"
+>
+  <div class="games-page">
+    <div class="games-hero">
+      <div class="sakura-intro">
+        <img
+          src="/images/navi-char.png"
+          alt="サクラ"
+          class="sakura-img"
+        />
+        <div class="speech-bubble">
+          <p>ようこそ、ゲームコーナーへ！🌸<br>ガジェット知識を試してみてね！</p>
+        </div>
+      </div>
+      <h1 class="games-title">🎮 ゲームコーナー</h1>
+      <p class="games-subtitle">楽しみながらガジェット通になろう！</p>
+    </div>
+
+    <div class="games-grid">
+      <!-- ガジェットクイズ: 実装済み -->
+      <a href="/games/quiz/" class="game-card game-card--active">
+        <div class="game-card__icon">🧠</div>
+        <div class="game-card__content">
+          <h2 class="game-card__title">ガジェットクイズ</h2>
+          <p class="game-card__desc">ガジェットのスペック・用語・豆知識を4択で出題！10問チャレンジ！</p>
+          <span class="game-card__badge game-card__badge--available">遊べるよ！</span>
+        </div>
+      </a>
+
+      <!-- 以下: 近日公開 -->
+      <div class="game-card game-card--soon">
+        <div class="game-card__icon">🃏</div>
+        <div class="game-card__content">
+          <h2 class="game-card__title">ガジェット神経衰弱</h2>
+          <p class="game-card__desc">ガジェット画像と名前を組み合わせるカードマッチングゲーム！</p>
+          <span class="game-card__badge game-card__badge--soon">近日公開</span>
+        </div>
+      </div>
+
+      <div class="game-card game-card--soon">
+        <div class="game-card__icon">✊</div>
+        <div class="game-card__content">
+          <h2 class="game-card__title">サクラとじゃんけん</h2>
+          <p class="game-card__desc">サクラとじゃんけん勝負！3連勝できるかな？</p>
+          <span class="game-card__badge game-card__badge--soon">近日公開</span>
+        </div>
+      </div>
+
+      <div class="game-card game-card--soon">
+        <div class="game-card__icon">🎯</div>
+        <div class="game-card__content">
+          <h2 class="game-card__title">ガジェットキャッチ</h2>
+          <p class="game-card__desc">落ちてくるガジェットをキャッチしてスコアを稼ごう！</p>
+          <span class="game-card__badge game-card__badge--soon">近日公開</span>
+        </div>
+      </div>
+
+      <div class="game-card game-card--soon">
+        <div class="game-card__icon">⌨️</div>
+        <div class="game-card__content">
+          <h2 class="game-card__title">ガジェットタイピング</h2>
+          <p class="game-card__desc">ガジェット名をタイプして速さを競おう！タイピング上達にも！</p>
+          <span class="game-card__badge game-card__badge--soon">近日公開</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .games-page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .games-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .sakura-intro {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .sakura-img {
+    width: 100px;
+    height: auto;
+  }
+
+  .speech-bubble {
+    background: var(--bubble-bg, #fff0f5);
+    border: 2px solid #f9a8c9;
+    border-radius: 1rem;
+    padding: 0.75rem 1.25rem;
+    max-width: 280px;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -14px;
+    bottom: 20px;
+    border: 7px solid transparent;
+    border-right-color: #f9a8c9;
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: 21px;
+    border: 6px solid transparent;
+    border-right-color: var(--bubble-bg, #fff0f5);
+  }
+
+  .games-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .games-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+  }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .game-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--color-border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .game-card--active {
+    border-color: #f9a8c9;
+    background: linear-gradient(135deg, var(--color-surface) 0%, #fff0f5 100%);
+    cursor: pointer;
+  }
+
+  [data-theme="dark"] .game-card--active {
+    background: linear-gradient(135deg, var(--color-surface) 0%, #2a1a2e 100%);
+    border-color: #c06080;
+  }
+
+  .game-card--active:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: #f06090;
+  }
+
+  .game-card--soon {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  .game-card__icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .game-card__content {
+    flex: 1;
+  }
+
+  .game-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .game-card__desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .game-card__badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+  }
+
+  .game-card__badge--available {
+    background: #f9a8c9;
+    color: #7d1a40;
+  }
+
+  .game-card__badge--soon {
+    background: var(--color-surface-raised);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 600px) {
+    .games-title { font-size: 1.5rem; }
+    .games-grid { grid-template-columns: 1fr; }
+    .sakura-img { width: 72px; }
+  }
+</style>
