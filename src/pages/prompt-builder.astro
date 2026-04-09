@@ -301,6 +301,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 0.6rem;
     flex-wrap: wrap;
   }
+  .custom-row {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+  }
+  .custom-row input[type="text"] {
+    flex: 1;
+    margin-top: 0;
+  }
+  .trans-btn {
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+    line-height: 1;
+  }
+  .trans-btn:hover { background: var(--color-primary-light); border-color: var(--color-primary); }
+  .trans-btn.translated { background: #e6f9ee; color: #00b050; border-color: #00b050; }
 </style>
 
 <!-- パスワード認証画面 -->
@@ -342,7 +365,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="semi-long hair">semi-long</option>
           <option value="braids">braids</option>
         </select>
-        <input type="text" id="pb-hair-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+        <div class="custom-row"><input type="text" id="pb-hair-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-hair-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -356,7 +379,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="blonde hair">blonde</option>
           <option value="black hair">black</option>
         </select>
-        <input type="text" id="pb-haircolor-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+        <div class="custom-row"><input type="text" id="pb-haircolor-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-haircolor-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -369,7 +392,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="purple eyes">purple</option>
           <option value="heterochromia">heterochromia</option>
         </select>
-        <input type="text" id="pb-eyes-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+        <div class="custom-row"><input type="text" id="pb-eyes-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-eyes-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -382,7 +405,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="sleepy">sleepy</option>
           <option value="determined">determined</option>
         </select>
-        <input type="text" id="pb-expression-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+        <div class="custom-row"><input type="text" id="pb-expression-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-expression-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -397,7 +420,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="swimsuit">swimsuit</option>
           <option value="pajamas">pajamas</option>
         </select>
-        <input type="text" id="pb-outfit-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+        <div class="custom-row"><input type="text" id="pb-outfit-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-outfit-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -410,7 +433,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="holding device">holding device</option>
           <option value="peace sign">peace sign</option>
         </select>
-        <input type="text" id="pb-pose-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+        <div class="custom-row"><input type="text" id="pb-pose-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-pose-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -424,7 +447,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="room">room</option>
           <option value="studio background">studio</option>
         </select>
-        <input type="text" id="pb-bg-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+        <div class="custom-row"><input type="text" id="pb-bg-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-bg-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -453,7 +476,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="field-group">
         <label for="pb-extra">追加指示（フリーテキスト）</label>
-        <input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" />
+        <div class="custom-row"><input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" /><button class="trans-btn" data-target="pb-extra">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -553,6 +576,81 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   if (pwSubmit) pwSubmit.addEventListener('click', checkPassword);
   if (pwInput) pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
+})();
+
+(function() {
+  // ===== 日本語→英語SD用語辞書 =====
+  const JP_DICT = {
+    // 髪型
+    'ツインテール': 'twin tails', 'ポニーテール': 'ponytail', 'ショートヘア': 'short hair',
+    'ロングヘア': 'long hair', 'ボブカット': 'bob cut', 'おさげ': 'braids', '三つ編み': 'braids',
+    'セミロング': 'semi-long hair', 'アップヘア': 'updo', 'お団子': 'bun hair',
+    // 髪色
+    '青い髪': 'blue hair', '青髪': 'blue hair',
+    'ピンクの髪': 'pink hair', 'ピンク髪': 'pink hair',
+    '金髪': 'blonde hair', '銀髪': 'silver hair', '黒髪': 'black hair',
+    '白髪': 'white hair', '赤髪': 'red hair', '緑髪': 'green hair',
+    '紫髪': 'purple hair', 'グラデーション': 'gradient hair',
+    // 目の色
+    '青い目': 'blue eyes', '緑の目': 'green eyes', '赤い目': 'red eyes',
+    '紫の目': 'purple eyes', 'オッドアイ': 'heterochromia',
+    // 表情・感情
+    '笑顔': 'smile', '泣いている': 'crying', '怒っている': 'angry',
+    'ウィンク': 'wink', '驚いている': 'surprised', '眠そう': 'sleepy',
+    '照れている': 'blushing', '真剣': 'serious', '嬉しそう': 'happy',
+    '悲しそう': 'sad', 'にやり': 'smirk',
+    // 服装
+    'セーラー服': 'sailor uniform', '制服': 'school uniform', 'メイド服': 'maid outfit',
+    '浴衣': 'yukata', '着物': 'kimono', '水着': 'swimsuit', 'パジャマ': 'pajamas',
+    'ワンピース': 'dress', 'スーツ': 'suit', 'カジュアル': 'casual clothes',
+    'タンクトップ': 'tank top', 'ニット': 'sweater', 'コート': 'coat',
+    // ポーズ・動作
+    '立っている': 'standing', '座っている': 'sitting', '走っている': 'running',
+    '手を振る': 'waving', '指差し': 'pointing', 'ピースサイン': 'peace sign',
+    '寝ている': 'lying down', 'ジャンプ': 'jumping', '歩いている': 'walking',
+    '抱きしめる': 'hugging', '振り向く': 'looking back',
+    // 背景・場所
+    '白背景': 'white background', '教室': 'classroom', '空': 'sky',
+    '桜': 'cherry blossoms', '都市': 'city', '自然': 'nature', '宇宙': 'space',
+    '海': 'ocean', '森': 'forest', '山': 'mountain', '夜景': 'night cityscape',
+    '星空': 'starry sky', '夕日': 'sunset', '部屋': 'room',
+    // 品質・スタイル
+    '高品質': 'best quality', 'アニメ風': 'anime style', 'リアル': 'realistic',
+    '可愛い': 'cute', 'かっこいい': 'cool', '美しい': 'beautiful',
+    '細部まで描写': 'highly detailed', '超高画質': 'ultra high resolution',
+    '傑作': 'masterpiece', 'シネマティック': 'cinematic lighting',
+  };
+
+  function translateText(text) {
+    let result = text;
+    // 長いフレーズから順に置換（部分マッチ防止）
+    const keys = Object.keys(JP_DICT).sort((a, b) => b.length - a.length);
+    for (const jp of keys) {
+      result = result.split(jp).join(JP_DICT[jp]);
+    }
+    return result;
+  }
+
+  // 変換ボタンのイベント委譲
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.trans-btn');
+    if (!btn) return;
+    const targetId = btn.dataset.target;
+    const input = document.getElementById(targetId);
+    if (!input) return;
+    const original = input.value;
+    const translated = translateText(original);
+    input.value = translated;
+    input.dispatchEvent(new Event('input'));
+    // 変換フィードバック
+    btn.classList.add('translated');
+    const orig = btn.textContent;
+    btn.textContent = '✅ 変換済';
+    setTimeout(() => {
+      btn.classList.remove('translated');
+      btn.textContent = '📝 変換';
+    }, 1500);
+  });
 })();
 
 (function() {
