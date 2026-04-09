@@ -190,13 +190,27 @@
 
     if (!wrapper || !closeBtn || !reopenBtn || !speechBubble || !speechText) return;
 
-    // セクション別メッセージ
+    // セクション別メッセージ（ライト）
     const sectionMessages: Record<string, string> = {
       hero: 'ようこそ！人生を快適にするガジェット情報をお届けします！',
       ranking: 'この価格帯はコスパ最強ですよ！',
       sale: 'このセール要チェックです！',
       review: '実際に試した感想です！',
     };
+
+    // セクション別メッセージ（ダーク・眠そう）
+    const darkSectionMessages: Record<string, string> = {
+      hero: 'ふぁ〜…こんばんは…ガジェット情報…お届けしますね…zzz',
+      ranking: 'この価格帯…コスパ最強…ですよ…zzz',
+      sale: 'このセール…要チェック…ですよ…ふぁ',
+      review: '実際に試した…感想…ですよ…zzz',
+    };
+
+    function getSectionMessage(key: string): string {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const msgs = theme === 'dark' ? darkSectionMessages : sectionMessages;
+      return msgs[key] ?? sectionMessages[key] ?? '';
+    }
 
     // セクション種別ごとのテンプレート（キーワード判定）
     const sectionTemplates: Array<{ keywords: string[]; templates: string[] }> = [
@@ -639,10 +653,10 @@
       // h2もexplicitもなければセクションセレクタフォールバック
       if (observed.size === 0) {
         const sectionMap: Array<{ selector: string; msg: string }> = [
-          { selector: '.hero, [data-section="hero"], header', msg: sectionMessages.hero },
-          { selector: '[data-section="ranking"], .ranking-section, #ranking', msg: sectionMessages.ranking },
-          { selector: '[data-section="sale"], .sale-section, #sale', msg: sectionMessages.sale },
-          { selector: '[data-section="review"], .review-section, #review', msg: sectionMessages.review },
+          { selector: '.hero, [data-section="hero"], header', msg: getSectionMessage('hero') },
+          { selector: '[data-section="ranking"], .ranking-section, #ranking', msg: getSectionMessage('ranking') },
+          { selector: '[data-section="sale"], .sale-section, #sale', msg: getSectionMessage('sale') },
+          { selector: '[data-section="review"], .review-section, #review', msg: getSectionMessage('review') },
         ];
         sectionMap.forEach(({ selector, msg }) => {
           try {
@@ -652,8 +666,8 @@
         });
       }
 
-      // 初期メッセージ
-      setMessage(sectionMessages.hero);
+      // 初期メッセージ（テーマ対応）
+      setMessage(getSectionMessage('hero'));
 
       if (observed.size === 0) return;
 
