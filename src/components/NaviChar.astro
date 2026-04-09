@@ -852,33 +852,31 @@
       }, 30000);
     }
 
-    // ── イースターエッグ: 100回タップで隠しモード ──
-    const EASTER_EGG_COUNT = 100;
+    // ── イースターエッグ: 10分滞在で隠しモード ──
     const EASTER_EGG_KEY = 'sakura_easter_egg';
-    let totalTapCount = parseInt(sessionStorage.getItem('sakura_tap_count') ?? '0', 10);
+    const EASTER_EGG_TIMER_MS = 10 * 60 * 1000; // 10分
     let easterEggActivated = sessionStorage.getItem(EASTER_EGG_KEY) === '1';
 
     const secretComments = [
-      'え…100回もタップしてくれたんですか！？すごい…！実は私、ガジェットの妖精なんです。内緒ですよ？',
-      'ひゃっ！隠しモード発動です！こんなに押してくれるなんて…嬉しくて回転しちゃいます！',
+      'こんなに長く読んでくれたんですね！嬉しい…！実は私、ガジェットの妖精なんです。内緒ですよ？',
+      'わぁ…じっくり読んでくれてありがとうございます！特別にサクラの秘密を教えちゃいます♪',
       '㊙ シークレットモード！サクラの本気、見せちゃいますよ！コスパの真実、教えちゃいます！',
-      'あなた…100回も…！？もうお友達ですね！特別にサクラの秘密を教えちゃいます♪',
       '🌸✨ サクラ覚醒モード！全商品の最安値が見えます！…嘘です、でも気合い入れてナビしますよ！',
       '…あっ、いけない。サクラの工房の合言葉…「393941」…って誰にも言っちゃダメですよ？🤫',
       'ここだけの話…サクラの秘密の部屋があるんです。合言葉は…ごにょごにょ…393941…内緒ですよ！',
     ];
 
     const secretDarkComments = [
-      'zzz…ん？100回…？こんな夜中に…？すごい根性…ですね…特別モード…発動…zzz',
-      'ふぁ〜…100回も…起きちゃいました…秘密の眠れないサクラ…見つけちゃいましたね…',
+      'zzz…こんなに長く…読んでくれて…ありがとう…特別モード…発動…zzz',
+      'ふぁ〜…ずっと一緒にいてくれたんですね…秘密の眠れないサクラ…見つけちゃいましたね…',
       '㊙ 深夜のシークレット…夜のサクラは…ちょっとだけ…本音が出ちゃいます…zzz',
-      '100回…ありがとう…ございます…眠いけど…特別に…おすすめ教えちゃいます…zzz',
       '🌙✨ 月光サクラモード…覚醒…？いえ…半分寝てます…でも嬉しい…です…zzz',
       'zzz…サクラの工房…合言葉は…393941…って…寝言じゃないですよ…🤫zzz',
       'ふぁ〜…秘密の部屋…あるんです…合言葉…393941…zzz…聞こえてない…よね…？',
     ];
 
     function activateEasterEgg() {
+      if (easterEggActivated) return;
       easterEggActivated = true;
       sessionStorage.setItem(EASTER_EGG_KEY, '1');
 
@@ -890,12 +888,13 @@
       setMessage(msg);
 
       // 特殊エフェクト: サクラが回転＋拡大
-      if (naviImg) {
-        naviImg.style.transition = 'transform 1s ease';
-        naviImg.style.transform = 'rotate(360deg) scale(1.2)';
+      const nImg = wrapper.querySelector<HTMLImageElement>('.navi-char-img');
+      if (nImg) {
+        nImg.style.transition = 'transform 1s ease';
+        nImg.style.transform = 'rotate(360deg) scale(1.2)';
         setTimeout(() => {
-          naviImg.style.transform = '';
-          setTimeout(() => { naviImg.style.transition = ''; }, 500);
+          nImg.style.transform = '';
+          setTimeout(() => { nImg.style.transition = ''; }, 500);
         }, 1500);
       }
 
@@ -912,17 +911,9 @@
       }
     }
 
-    // マイルストーンコメント（タップ回数に応じた反応）
-    function getMilestoneComment(count: number): string | null {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (count === 10) return isDark ? 'もう10回…元気ですね…zzz' : '10回タップ！元気いいですね♪';
-      if (count === 25) return isDark ? '25回…本気…ですか…？ふぁ〜' : '25回！何か探してますか？';
-      if (count === 50) return isDark ? '50回…すごい…根性…zzz…' : '50回！あと半分で何かが起こる…かも？';
-      if (count === 75) return isDark ? '75回…あと少し…何かが…zzz' : '75回！もうすぐ…何かが起きそうな予感！';
-      if (count === 90) return isDark ? '90回…あと10回…頑張って…zzz' : '90回！あと10回ですよ…！ドキドキ！';
-      if (count === 95) return isDark ? 'あと5回…zzz…起きなきゃ…' : 'あと5回！何が起こるかな…！？';
-      if (count === 99) return isDark ? 'あと…1回…！zzz…！' : 'あと1回…！！';
-      return null;
+    // 10分タイマー起動（まだ発動していない場合のみ）
+    if (!easterEggActivated) {
+      setTimeout(() => activateEasterEgg(), EASTER_EGG_TIMER_MS);
     }
 
     // サクラ画像タップ/クリックでコメント切り替え (subtask_029f)
@@ -930,27 +921,6 @@
     if (sakuraImg) {
       sakuraImg.addEventListener('click', () => {
         stopAutoTimer();
-
-        // タップカウント
-        totalTapCount++;
-        sessionStorage.setItem('sakura_tap_count', String(totalTapCount));
-
-        // 100回達成チェック
-        if (totalTapCount === EASTER_EGG_COUNT && !easterEggActivated) {
-          activateEasterEgg();
-          startAutoTimer();
-          return;
-        }
-
-        // マイルストーンチェック
-        const milestone = getMilestoneComment(totalTapCount);
-        if (milestone) {
-          currentMsg = '';
-          setMessage(milestone);
-          cycleNaviImage();
-          startAutoTimer();
-          return;
-        }
 
         // イースターエッグ発動後は特殊コメントも混ぜる
         if (easterEggActivated && Math.random() < 0.15) {
