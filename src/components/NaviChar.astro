@@ -1,23 +1,23 @@
 ---
 // src/components/NaviChar.astro
-// カイナ: スクロール追従、右下固定表示 + 吹き出し・スクロール連動・表示/非表示トグル
+// サクラ: スクロール追従、右下固定表示 + 吹き出し・スクロール連動・表示/非表示トグル
 ---
 
 <div class="navi-char-wrapper" id="navi-char">
-  <div class="speech-bubble" id="kaina-speech">
-    <span id="kaina-speech-text">ようこそ！人生を快適にするガジェット情報をお届けします！</span>
+  <div class="speech-bubble" id="sakura-speech">
+    <span id="sakura-speech-text">ようこそ！人生を快適にするガジェット情報をお届けします！</span>
   </div>
-  <button class="close-btn" id="kaina-close" aria-label="カイナを閉じる" title="カイナを閉じる">×</button>
+  <button class="close-btn" id="sakura-close" aria-label="サクラを閉じる" title="サクラを閉じる">×</button>
   <img
     src="/images/navi-char.png"
-    alt="カイナ"
+    alt="サクラ"
     class="navi-char-img"
     loading="lazy"
     decoding="async"
   />
 </div>
 
-<button class="navi-reopen-btn" id="kaina-reopen" aria-label="カイナを表示">👧 カイナを表示</button>
+<button class="navi-reopen-btn" id="sakura-reopen" aria-label="サクラを表示">👧 サクラを表示</button>
 
 <style>
   .navi-char-wrapper {
@@ -50,7 +50,7 @@
     }
   }
 
-  /* 吹き出し（カイナ頭上、尻尾は下向き） */
+  /* 吹き出し（サクラ頭上、尻尾は下向き） */
   .speech-bubble {
     position: absolute;
     bottom: calc(100% + 10px);
@@ -71,7 +71,7 @@
     word-break: break-all;
   }
 
-  /* 吹き出しの尻尾（下向き、カイナを指す） */
+  /* 吹き出しの尻尾（下向き、サクラを指す） */
   .speech-bubble::after {
     content: '';
     position: absolute;
@@ -89,7 +89,7 @@
     opacity: 0;
   }
 
-  /* ×ボタン（カイナ右上） */
+  /* ×ボタン（サクラ右上） */
   .close-btn {
     position: absolute;
     top: -6px;
@@ -115,7 +115,7 @@
     background: rgba(0, 0, 0, 0.65);
   }
 
-  /* 再表示ボタン（カイナ非表示時のみ） */
+  /* 再表示ボタン（サクラ非表示時のみ） */
   .navi-reopen-btn {
     position: fixed;
     bottom: 16px;
@@ -178,12 +178,12 @@
 
 <script>
   (function () {
-    const STORAGE_KEY = 'kaina_hidden';
+    const STORAGE_KEY = 'sakura_hidden';
     const wrapper = document.getElementById('navi-char');
-    const closeBtn = document.getElementById('kaina-close');
-    const reopenBtn = document.getElementById('kaina-reopen');
-    const speechBubble = document.getElementById('kaina-speech');
-    const speechText = document.getElementById('kaina-speech-text');
+    const closeBtn = document.getElementById('sakura-close');
+    const reopenBtn = document.getElementById('sakura-reopen');
+    const speechBubble = document.getElementById('sakura-speech');
+    const speechText = document.getElementById('sakura-speech-text');
 
     if (!wrapper || !closeBtn || !reopenBtn || !speechBubble || !speechText) return;
 
@@ -346,7 +346,7 @@
         '気になる製品は比較検討してから選ぶといいですよ。',
         '購入後に後悔しないよう、じっくり検討してくださいね。',
         'わからないことがあれば、公式サイトも確認してみてください。',
-        'カイナをタップするたびにヒントをお伝えしますよ！',
+        'サクラをタップするたびにヒントをお伝えしますよ！',
         'ぜひ記事全体を通して参考にしてみてください。',
         'お気に入りのガジェットが見つかりますように！',
         '迷ったときは、用途を整理して考えてみてください。',
@@ -518,15 +518,15 @@
 
     // IntersectionObserver でセクション検知
     function setupObserver() {
-      // data-kaina-comment属性を持つ要素（明示的指定、最優先）
-      const explicitTargets = document.querySelectorAll<HTMLElement>('[data-kaina-comment]');
+      // data-sakura-comment属性を持つ要素（明示的指定、最優先）
+      const explicitTargets = document.querySelectorAll<HTMLElement>('[data-sakura-comment]');
 
       // 観測対象: Element → message | null (nullはh2動的生成)
       const observed = new Map<Element, string | null>();
 
       // 明示的属性を優先登録
       explicitTargets.forEach((el) => {
-        const comment = el.getAttribute('data-kaina-comment');
+        const comment = el.getAttribute('data-sakura-comment');
         if (comment) observed.set(el, comment);
       });
 
@@ -622,10 +622,10 @@
       }, 30000);
     }
 
-    // カイナ画像タップ/クリックでコメント切り替え (subtask_029f)
-    const kainaImg = wrapper.querySelector<HTMLImageElement>('.navi-char-img');
-    if (kainaImg) {
-      kainaImg.addEventListener('click', () => {
+    // サクラ画像タップ/クリックでコメント切り替え (subtask_029f)
+    const sakuraImg = wrapper.querySelector<HTMLImageElement>('.navi-char-img');
+    if (sakuraImg) {
+      sakuraImg.addEventListener('click', () => {
         stopAutoTimer();
         const pool = tapCommentPool[currentSectionType] ?? tapCommentPool.default;
         tapIndex = (tapIndex + 1) % pool.length;

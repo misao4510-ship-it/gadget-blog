@@ -1,0 +1,45 @@
+# X (Twitter) 自動投稿設定
+# cronで1日2回（朝8時・夜20時）実行
+
+schedule:
+  # cron設定例 (crontab -e):
+  # 0 8 * * * /usr/bin/python3 /home/misao/gadget-blog/scripts/x_auto_post.py
+  # 0 20 * * * /usr/bin/python3 /home/misao/gadget-blog/scripts/x_auto_post.py
+  times:
+    - "08:00"
+    - "20:00"
+
+# 直近何件の投稿済み記事を除外するか
+recent_exclude_count: 10
+
+# 除外する記事スラッグ（投稿したくない記事）
+exclude_slugs: []
+
+# 除外するカテゴリ
+exclude_categories: []
+
+# 投稿フォーマット設定
+post_format:
+  base_url: "https://jinsei-kaiteki.pages.dev"
+  # テンプレート: {title}, {url}, {category_tags}
+  template: |
+    📝 {title}
+    {url}
+    {category_tags}
+
+# ハッシュタグカテゴリマッピング
+category_hashtags:
+  mobile-battery: "#モバイルバッテリー #ガジェット"
+  review: "#レビュー #ガジェット"
+  gadget: "#ガジェット"
+  keyboard: "#キーボード #ガジェット"
+  ranking: "#ランキング #ガジェット"
+  health: "#健康 #サプリ"
+  food: "#食品"
+  camera: "#カメラ #ガジェット"
+  ssd: "#SSD #ストレージ"
+  pc: "#PC #ガジェット"
+  radio: "#ラジオ #防災"
+  amazon: "#Amazon #セール"
+  rakuten: "#楽天"
+  default: "#ガジェット #レビュー"
