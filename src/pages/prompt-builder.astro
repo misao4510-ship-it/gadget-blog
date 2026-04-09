@@ -1,0 +1,480 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="SD プロンプトビルダー"
+  description="Stable Diffusion用プロンプトを素早く組み立てるツールです。"
+>
+<style>
+  .pb-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: var(--font-body);
+  }
+  h1 {
+    font-size: 1.6rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+  }
+  .pb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 640px) {
+    .pb-grid { grid-template-columns: 1fr; }
+  }
+  .form-section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .form-section h2 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin: 0 0 1rem 0;
+    font-family: var(--font-heading);
+  }
+  .field-group {
+    margin-bottom: 0.8rem;
+  }
+  label {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+  select, input[type="text"], textarea {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+  select:focus, input[type="text"]:focus, textarea:focus {
+    outline: 2px solid var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  .quality-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .quality-tags label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    color: var(--color-text);
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  .quality-tags label:hover {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+  }
+  .quality-tags input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: var(--color-primary);
+  }
+  .lora-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .lora-row input[type="checkbox"] {
+    accent-color: var(--color-primary);
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  .lora-row input[type="range"] {
+    flex: 1;
+    min-width: 100px;
+    accent-color: var(--color-primary);
+  }
+  .lora-strength-label {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    min-width: 2.5rem;
+    text-align: right;
+  }
+  .output-section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .output-section h2 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin: 0;
+    font-family: var(--font-heading);
+  }
+  .prompt-preview {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 80px;
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+  .negative-preview {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.8rem;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    min-height: 60px;
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: var(--color-primary-dark); }
+  .copy-btn.copied { background: #00b050; }
+  .copy-neg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .copy-neg-btn:hover { background: var(--color-primary-light); }
+  .copy-neg-btn.copied { background: #e6f9ee; color: #00b050; }
+  .section-label {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.3rem;
+  }
+  .btn-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+</style>
+
+<div class="pb-container">
+  <h1>SD プロンプトビルダー</h1>
+  <div class="pb-grid">
+    <!-- 左: フォーム -->
+    <div class="form-section">
+      <h2>パーツ選択</h2>
+
+      <div class="field-group">
+        <label for="pb-hair">髪型</label>
+        <select id="pb-hair">
+          <option value="">（なし）</option>
+          <option value="long hair">long hair</option>
+          <option value="short hair">short hair</option>
+          <option value="twin tails">twin tails</option>
+          <option value="ponytail">ponytail</option>
+          <option value="bob cut">bob cut</option>
+          <option value="semi-long hair">semi-long</option>
+          <option value="braids">braids</option>
+        </select>
+        <input type="text" id="pb-hair-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+      </div>
+
+      <div class="field-group">
+        <label for="pb-haircolor">髪色</label>
+        <select id="pb-haircolor">
+          <option value="">（なし）</option>
+          <option value="pink hair">pink</option>
+          <option value="blue hair">blue</option>
+          <option value="gradient pink-blue hair">gradient pink-blue</option>
+          <option value="silver hair">silver</option>
+          <option value="blonde hair">blonde</option>
+          <option value="black hair">black</option>
+        </select>
+        <input type="text" id="pb-haircolor-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+      </div>
+
+      <div class="field-group">
+        <label for="pb-eyes">目の色</label>
+        <select id="pb-eyes">
+          <option value="">（なし）</option>
+          <option value="blue eyes">blue</option>
+          <option value="green eyes">green</option>
+          <option value="red eyes">red</option>
+          <option value="purple eyes">purple</option>
+          <option value="heterochromia">heterochromia</option>
+        </select>
+        <input type="text" id="pb-eyes-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+      </div>
+
+      <div class="field-group">
+        <label for="pb-expression">表情</label>
+        <select id="pb-expression">
+          <option value="">（なし）</option>
+          <option value="smile">smile</option>
+          <option value="wink">wink</option>
+          <option value="surprised">surprised</option>
+          <option value="sleepy">sleepy</option>
+          <option value="determined">determined</option>
+        </select>
+        <input type="text" id="pb-expression-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+      </div>
+
+      <div class="field-group">
+        <label for="pb-outfit">服装</label>
+        <select id="pb-outfit">
+          <option value="">（なし）</option>
+          <option value="school uniform">school uniform</option>
+          <option value="maid outfit">maid outfit</option>
+          <option value="casual clothes">casual</option>
+          <option value="futuristic white outfit">futuristic white</option>
+          <option value="kimono">kimono</option>
+          <option value="swimsuit">swimsuit</option>
+          <option value="pajamas">pajamas</option>
+        </select>
+        <input type="text" id="pb-outfit-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+      </div>
+
+      <div class="field-group">
+        <label for="pb-pose">ポーズ</label>
+        <select id="pb-pose">
+          <option value="">（なし）</option>
+          <option value="standing">standing</option>
+          <option value="sitting">sitting</option>
+          <option value="running">running</option>
+          <option value="holding device">holding device</option>
+          <option value="peace sign">peace sign</option>
+        </select>
+        <input type="text" id="pb-pose-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+      </div>
+
+      <div class="field-group">
+        <label for="pb-bg">背景</label>
+        <select id="pb-bg">
+          <option value="">（なし）</option>
+          <option value="white background">white</option>
+          <option value="city background">city</option>
+          <option value="nature background">nature</option>
+          <option value="starry sky">starry sky</option>
+          <option value="room">room</option>
+          <option value="studio background">studio</option>
+        </select>
+        <input type="text" id="pb-bg-custom" placeholder="または手入力" style="margin-top:0.3rem;" />
+      </div>
+
+      <div class="field-group">
+        <label>品質タグ</label>
+        <div class="quality-tags" id="pb-quality-tags">
+          <label><input type="checkbox" value="masterpiece" checked /> masterpiece</label>
+          <label><input type="checkbox" value="best quality" checked /> best quality</label>
+          <label><input type="checkbox" value="highly detailed" /> highly detailed</label>
+          <label><input type="checkbox" value="ultra-detailed" /> ultra-detailed</label>
+          <label><input type="checkbox" value="8k" /> 8k</label>
+          <label><input type="checkbox" value="sharp focus" /> sharp focus</label>
+          <label><input type="checkbox" value="cinematic lighting" /> cinematic lighting</label>
+          <label><input type="checkbox" value="volumetric lighting" /> volumetric lighting</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>LoRA指定</label>
+        <div class="lora-row">
+          <input type="checkbox" id="pb-lora-on" checked />
+          <span style="font-size:0.85rem;color:var(--color-text)">kaina_v1</span>
+          <input type="range" id="pb-lora-strength" min="0.1" max="1.0" step="0.05" value="0.7" />
+          <span class="lora-strength-label" id="pb-lora-value">0.70</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="pb-extra">追加指示（フリーテキスト）</label>
+        <input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" />
+      </div>
+
+      <div class="field-group">
+        <label for="pb-negative">ネガティブプロンプト</label>
+        <textarea id="pb-negative">lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry</textarea>
+      </div>
+    </div>
+
+    <!-- 右: 出力 -->
+    <div class="output-section">
+      <h2>生成プロンプト</h2>
+      <div>
+        <div class="section-label">ポジティブプロンプト</div>
+        <div class="prompt-preview" id="pb-prompt-preview">（選択するとここに表示されます）</div>
+      </div>
+      <div class="btn-row">
+        <button class="copy-btn" id="pb-copy-btn">📋 コピー</button>
+      </div>
+      <div>
+        <div class="section-label">ネガティブプロンプト</div>
+        <div class="negative-preview" id="pb-neg-preview"></div>
+      </div>
+      <div class="btn-row">
+        <button class="copy-neg-btn" id="pb-copy-neg-btn">📋 ネガコピー</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function val(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+  function checked(id) {
+    const el = document.getElementById(id);
+    return el ? el.checked : false;
+  }
+
+  function buildPrompt() {
+    const parts = [];
+
+    // 品質タグ
+    const qtags = Array.from(document.querySelectorAll('#pb-quality-tags input[type="checkbox"]:checked'))
+      .map(cb => cb.value);
+    if (qtags.length) parts.push(qtags.join(', '));
+
+    // 各パーツ（プルダウン優先、手入力で上書き）
+    const fields = [
+      ['pb-hair', 'pb-hair-custom'],
+      ['pb-haircolor', 'pb-haircolor-custom'],
+      ['pb-eyes', 'pb-eyes-custom'],
+      ['pb-expression', 'pb-expression-custom'],
+      ['pb-outfit', 'pb-outfit-custom'],
+      ['pb-pose', 'pb-pose-custom'],
+      ['pb-bg', 'pb-bg-custom'],
+    ];
+    for (const [selId, custId] of fields) {
+      const custom = val(custId);
+      const sel = val(selId);
+      const v = custom || sel;
+      if (v) parts.push(v);
+    }
+
+    // 追加指示
+    const extra = val('pb-extra');
+    if (extra) parts.push(extra);
+
+    // LoRA
+    if (checked('pb-lora-on')) {
+      const strength = parseFloat(document.getElementById('pb-lora-strength').value).toFixed(2);
+      parts.push(`<lora:kaina_v1:${strength}>`);
+    }
+
+    return parts.join(', ');
+  }
+
+  function updatePreview() {
+    const prompt = buildPrompt();
+    const el = document.getElementById('pb-prompt-preview');
+    el.textContent = prompt || '（選択するとここに表示されます）';
+
+    // ネガティブ
+    const neg = val('pb-negative');
+    document.getElementById('pb-neg-preview').textContent = neg;
+
+    // LoRA強度表示
+    const strength = parseFloat(document.getElementById('pb-lora-strength').value).toFixed(2);
+    document.getElementById('pb-lora-value').textContent = strength;
+  }
+
+  // イベントリスナー
+  const watchIds = [
+    'pb-hair','pb-hair-custom','pb-haircolor','pb-haircolor-custom',
+    'pb-eyes','pb-eyes-custom','pb-expression','pb-expression-custom',
+    'pb-outfit','pb-outfit-custom','pb-pose','pb-pose-custom',
+    'pb-bg','pb-bg-custom','pb-extra','pb-negative',
+    'pb-lora-on','pb-lora-strength',
+  ];
+  for (const id of watchIds) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', updatePreview);
+      el.addEventListener('change', updatePreview);
+    }
+  }
+  document.querySelectorAll('#pb-quality-tags input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', updatePreview);
+  });
+
+  // コピーボタン
+  document.getElementById('pb-copy-btn').addEventListener('click', async () => {
+    const text = buildPrompt();
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('pb-copy-btn');
+      btn.textContent = '✅ コピー済み';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 コピー';
+        btn.classList.remove('copied');
+      }, 2000);
+    } catch(e) {
+      alert('コピーできませんでした。');
+    }
+  });
+
+  document.getElementById('pb-copy-neg-btn').addEventListener('click', async () => {
+    const text = val('pb-negative');
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('pb-copy-neg-btn');
+      btn.textContent = '✅ コピー済み';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 ネガコピー';
+        btn.classList.remove('copied');
+      }, 2000);
+    } catch(e) {
+      alert('コピーできませんでした。');
+    }
+  });
+
+  // 初期表示
+  updatePreview();
+})();
+</script>
+</BaseLayout>
