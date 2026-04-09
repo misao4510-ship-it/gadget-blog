@@ -2323,6 +2323,37 @@
         }
       },
       "image_url": "https://m.media-amazon.com/images/I/71placeholder078.jpg"
+    },
+    {
+      "id": "product-079",
+      "name": "Ciniffo 電動エアダスター 4段階風量調整",
+      "category": "gadget",
+      "asin": "B0DD33CFL3",
+      "rakuten_keyword": "Ciniffo 電動エアダスター",
+      "a8_link": "https://px.a8.net/placeholder/product-079",
+      "image": "/images/products/ciniffo-air-duster.svg",
+      "tags": [
+        "電動エアダスター",
+        "ブラシレスモーター",
+        "USB-C充電",
+        "PC掃除",
+        "コードレス"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0DD33CFL3?tag=misao4510-22",
+          "url": "https://amzn.to/4mtSwUP"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCiniffo%2520%25E9%259B%25BB%25E5%258B%2595%25E3%2582%25A8%25E3%2582%25A2%25E3%2583%2580%25E3%2582%25B9%25E3%2582%25BF%25E3%2583%25BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-079"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder079.jpg"
     }
   ]
 }

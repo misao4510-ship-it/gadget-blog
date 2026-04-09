@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#0f172a" rx="20"/>
+  <!-- Air duster body -->
+  <rect x="160" y="100" width="80" height="180" rx="16" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+  <!-- Nozzle tip -->
+  <rect x="178" y="75" width="44" height="32" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+  <rect x="188" y="60" width="24" height="20" rx="6" fill="#475569"/>
+  <!-- Wind speed indicator LEDs -->
+  <circle cx="200" cy="160" r="6" fill="#22c55e"/>
+  <circle cx="200" cy="180" r="6" fill="#22c55e"/>
+  <circle cx="200" cy="200" r="6" fill="#22c55e"/>
+  <circle cx="200" cy="220" r="6" fill="#64748b"/>
+  <!-- USB-C port at bottom -->
+  <rect x="186" y="272" width="28" height="10" rx="3" fill="#64748b"/>
+  <!-- Wind lines -->
+  <path d="M85 130 Q65 125 80 115 Q95 105 75 95" fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <path d="M90 150 Q65 145 80 133 Q95 121 73 109" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M88 110 Q68 108 78 99" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <!-- Power button -->
+  <circle cx="240" cy="190" r="12" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2"/>
+  <text x="240" y="195" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="white">⏻</text>
+  <!-- Labels -->
+  <text x="200" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#f8fafc">電動エアダスター</text>
+  <text x="200" y="378" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">Ciniffo 300,000RPM</text>
+</svg>
