@@ -712,7 +712,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           <div class="field-group">
             <label for="pb-count-gen">生成枚数</label>
-            <input type="number" id="pb-count-gen" min="1" max="10" value="1" style="width:80px;">
+            <select id="pb-count-gen">
+              <option value="1">1</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+            </select>
             <span>枚</span>
           </div>
         </div>
