@@ -365,100 +365,157 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="field-group">
+        <label for="pb-gender">性別</label>
+        <select id="pb-gender">
+          <option value="">（なし）</option>
+          <option value="1girl" selected>女の子 (1girl)</option>
+          <option value="1boy">男の子 (1boy)</option>
+          <option value="1girl, androgynous">中性的</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="pb-age">年齢</label>
+        <select id="pb-age">
+          <option value="">（なし）</option>
+          <option value="child">子供</option>
+          <option value="teenager">10代</option>
+          <option value="young adult">20代</option>
+          <option value="adult">大人</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="pb-count">人数</label>
+        <select id="pb-count">
+          <option value="">（なし）</option>
+          <option value="solo">1人 (solo)</option>
+          <option value="2girls">2人 (2girls)</option>
+          <option value="group">グループ</option>
+        </select>
+      </div>
+
+      <div class="field-group">
         <label for="pb-hair">髪型</label>
         <select id="pb-hair">
           <option value="">（なし）</option>
-          <option value="long hair">long hair</option>
-          <option value="short hair">short hair</option>
-          <option value="twin tails">twin tails</option>
-          <option value="ponytail">ponytail</option>
-          <option value="bob cut">bob cut</option>
-          <option value="semi-long hair">semi-long</option>
-          <option value="braids">braids</option>
+          <option value="long hair">ロングヘア</option>
+          <option value="short hair">ショートヘア</option>
+          <option value="twin tails">ツインテール</option>
+          <option value="ponytail">ポニーテール</option>
+          <option value="bob cut">ボブカット</option>
+          <option value="semi-long hair">セミロング</option>
+          <option value="braids">三つ編み</option>
         </select>
-        <div class="custom-row"><input type="text" id="pb-hair-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-hair-custom">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-hair-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
         <label for="pb-haircolor">髪色</label>
         <select id="pb-haircolor">
           <option value="">（なし）</option>
-          <option value="pink hair">pink</option>
-          <option value="blue hair">blue</option>
-          <option value="gradient pink-blue hair">gradient pink-blue</option>
-          <option value="silver hair">silver</option>
-          <option value="blonde hair">blonde</option>
-          <option value="black hair">black</option>
+          <option value="pink hair">ピンク</option>
+          <option value="blue hair">ブルー</option>
+          <option value="gradient pink-blue hair">グラデーション(ピンク→青)</option>
+          <option value="silver hair">シルバー</option>
+          <option value="blonde hair">ブロンド</option>
+          <option value="black hair">ブラック</option>
         </select>
-        <div class="custom-row"><input type="text" id="pb-haircolor-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-haircolor-custom">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-haircolor-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-haircolor-custom">📝 変換</button></div>
+      </div>
+
+      <div class="field-group">
+        <label for="pb-hair-inner">髪のインナー色</label>
+        <select id="pb-hair-inner">
+          <option value="">（なし）</option>
+          <option value="inner color hair, pink roots">ピンクルーツ</option>
+          <option value="inner color hair, blue roots">ブルールーツ</option>
+          <option value="inner color hair, white roots">ホワイトルーツ</option>
+          <option value="inner color hair, rainbow">レインボー</option>
+        </select>
+        <div class="custom-row"><input type="text" id="pb-hair-inner-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-inner-custom">📝 変換</button></div>
+      </div>
+
+      <div class="field-group">
+        <label for="pb-hair-tip">髪先の色</label>
+        <select id="pb-hair-tip">
+          <option value="">（なし）</option>
+          <option value="gradient hair, pink tips">ピンク先端</option>
+          <option value="gradient hair, blue tips">ブルー先端</option>
+          <option value="gradient hair, white tips">ホワイト先端</option>
+          <option value="gradient hair, gold tips">ゴールド先端</option>
+        </select>
+        <div class="custom-row"><input type="text" id="pb-hair-tip-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-tip-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
         <label for="pb-eyes">目の色</label>
         <select id="pb-eyes">
           <option value="">（なし）</option>
-          <option value="blue eyes">blue</option>
-          <option value="green eyes">green</option>
-          <option value="red eyes">red</option>
-          <option value="purple eyes">purple</option>
-          <option value="heterochromia">heterochromia</option>
+          <option value="blue eyes">ブルー</option>
+          <option value="green eyes">グリーン</option>
+          <option value="red eyes">レッド</option>
+          <option value="purple eyes">パープル</option>
+          <option value="heterochromia">オッドアイ</option>
         </select>
-        <div class="custom-row"><input type="text" id="pb-eyes-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-eyes-custom">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-eyes-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyes-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
         <label for="pb-expression">表情</label>
         <select id="pb-expression">
           <option value="">（なし）</option>
-          <option value="smile">smile</option>
-          <option value="wink">wink</option>
-          <option value="surprised">surprised</option>
-          <option value="sleepy">sleepy</option>
-          <option value="determined">determined</option>
+          <option value="smile">スマイル</option>
+          <option value="wink">ウィンク</option>
+          <option value="surprised">驚き</option>
+          <option value="sleepy">眠そう</option>
+          <option value="determined">真剣</option>
+          <option value="blushing">照れ</option>
+          <option value="happy">嬉しそう</option>
         </select>
-        <div class="custom-row"><input type="text" id="pb-expression-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-expression-custom">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-expression-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-expression-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
         <label for="pb-outfit">服装</label>
         <select id="pb-outfit">
           <option value="">（なし）</option>
-          <option value="school uniform">school uniform</option>
-          <option value="maid outfit">maid outfit</option>
-          <option value="casual clothes">casual</option>
-          <option value="futuristic white outfit">futuristic white</option>
-          <option value="kimono">kimono</option>
-          <option value="swimsuit">swimsuit</option>
-          <option value="pajamas">pajamas</option>
+          <option value="school uniform">制服</option>
+          <option value="maid outfit">メイド服</option>
+          <option value="casual clothes">カジュアル</option>
+          <option value="futuristic white outfit">未来的ホワイト</option>
+          <option value="kimono">着物</option>
+          <option value="swimsuit">水着</option>
+          <option value="pajamas">パジャマ</option>
         </select>
-        <div class="custom-row"><input type="text" id="pb-outfit-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-outfit-custom">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-outfit-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
         <label for="pb-pose">ポーズ</label>
         <select id="pb-pose">
           <option value="">（なし）</option>
-          <option value="standing">standing</option>
-          <option value="sitting">sitting</option>
-          <option value="running">running</option>
-          <option value="holding device">holding device</option>
-          <option value="peace sign">peace sign</option>
+          <option value="standing">立っている</option>
+          <option value="sitting">座っている</option>
+          <option value="running">走っている</option>
+          <option value="holding device">デバイスを持つ</option>
+          <option value="peace sign">ピースサイン</option>
         </select>
-        <div class="custom-row"><input type="text" id="pb-pose-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-pose-custom">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-pose-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-pose-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
         <label for="pb-bg">背景</label>
         <select id="pb-bg">
           <option value="">（なし）</option>
-          <option value="white background">white</option>
-          <option value="city background">city</option>
-          <option value="nature background">nature</option>
-          <option value="starry sky">starry sky</option>
-          <option value="room">room</option>
-          <option value="studio background">studio</option>
+          <option value="white background">白背景</option>
+          <option value="city background">都市</option>
+          <option value="nature background">自然</option>
+          <option value="starry sky">星空</option>
+          <option value="room">部屋</option>
+          <option value="studio background">スタジオ</option>
         </select>
-        <div class="custom-row"><input type="text" id="pb-bg-custom" placeholder="または手入力" /><button class="trans-btn" data-target="pb-bg-custom">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-bg-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-bg-custom">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -487,7 +544,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="field-group">
         <label for="pb-extra">追加指示（フリーテキスト）</label>
-        <div class="custom-row"><input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" /><button class="trans-btn" data-target="pb-extra">📝 変換</button></div>
+        <div class="custom-row"><input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" /><button type="button" class="trans-btn" data-target="pb-extra">📝 変換</button></div>
       </div>
 
       <div class="field-group">
@@ -640,6 +697,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     '可愛い': 'cute', 'かっこいい': 'cool', '美しい': 'beautiful',
     '細部まで描写': 'highly detailed', '超高画質': 'ultra high resolution',
     '傑作': 'masterpiece', 'シネマティック': 'cinematic lighting',
+    // 性別・人数
+    '女の子': '1girl', '男の子': '1boy', '1人': 'solo', '2人': '2girls',
+    '子供': 'child', '10代': 'teenager', '20代': 'young adult', '大人': 'adult',
+    // 髪インナー・先端
+    'インナーカラー': 'inner color hair', 'ルーツカラー': 'inner color hair',
+    'グラデーション先端': 'gradient hair tips',
   };
 
   function translateText(text) {
@@ -692,6 +755,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       .map(cb => cb.value);
     if (qtags.length) parts.push(qtags.join(', '));
 
+    // 性別・人数・年齢
+    const gender = val('pb-gender');
+    if (gender) parts.push(gender);
+    const count = val('pb-count');
+    if (count) parts.push(count);
+    const age = val('pb-age');
+    if (age) parts.push(age);
+
     // 構図
     const composition = val('pb-composition');
     if (composition) parts.push(composition);
@@ -700,6 +771,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const fields = [
       ['pb-hair', 'pb-hair-custom'],
       ['pb-haircolor', 'pb-haircolor-custom'],
+      ['pb-hair-inner', 'pb-hair-inner-custom'],
+      ['pb-hair-tip', 'pb-hair-tip-custom'],
       ['pb-eyes', 'pb-eyes-custom'],
       ['pb-expression', 'pb-expression-custom'],
       ['pb-outfit', 'pb-outfit-custom'],
@@ -743,7 +816,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   // イベントリスナー
   const watchIds = [
     'pb-composition',
+    'pb-gender', 'pb-age', 'pb-count',
     'pb-hair','pb-hair-custom','pb-haircolor','pb-haircolor-custom',
+    'pb-hair-inner', 'pb-hair-inner-custom',
+    'pb-hair-tip', 'pb-hair-tip-custom',
     'pb-eyes','pb-eyes-custom','pb-expression','pb-expression-custom',
     'pb-outfit','pb-outfit-custom','pb-pose','pb-pose-custom',
     'pb-bg','pb-bg-custom','pb-extra','pb-negative',
