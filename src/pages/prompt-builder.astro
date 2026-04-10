@@ -534,14 +534,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="field-group">
         <label>品質タグ</label>
         <div class="quality-tags" id="pb-quality-tags">
-          <label><input type="checkbox" value="masterpiece" checked /> masterpiece</label>
-          <label><input type="checkbox" value="best quality" checked /> best quality</label>
-          <label><input type="checkbox" value="highly detailed" /> highly detailed</label>
-          <label><input type="checkbox" value="ultra-detailed" /> ultra-detailed</label>
-          <label><input type="checkbox" value="8k" /> 8k</label>
-          <label><input type="checkbox" value="sharp focus" /> sharp focus</label>
-          <label><input type="checkbox" value="cinematic lighting" /> cinematic lighting</label>
-          <label><input type="checkbox" value="volumetric lighting" /> volumetric lighting</label>
+          <label><input type="checkbox" value="masterpiece" checked /> 傑作</label>
+          <label><input type="checkbox" value="best quality" checked /> 最高品質</label>
+          <label><input type="checkbox" value="highly detailed" /> 高品質（詳細）</label>
+          <label><input type="checkbox" value="ultra-detailed" /> 超精細</label>
+          <label><input type="checkbox" value="8k" /> 8K解像度</label>
+          <label><input type="checkbox" value="sharp focus" /> くっきり</label>
+          <label><input type="checkbox" value="cinematic lighting" /> シネマ照明</label>
+          <label><input type="checkbox" value="volumetric lighting" /> 立体照明</label>
         </div>
       </div>
 
@@ -592,7 +592,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // ===== アクセス制御（ナビリンク経由 または 認証済みなら許可） =====
 (function() {
   const isViaNav = sessionStorage.getItem('prompt_builder_via_nav') === 'true';
-  const isAuth = sessionStorage.getItem('pb_auth') === '1';
+  const isAuth = localStorage.getItem('pb_auth') === '1';
   if (!isViaNav && !isAuth) {
     window.location.href = '/';
     return;
@@ -622,8 +622,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (pbMain) pbMain.style.display = 'block';
   }
 
-  // セッション認証済みなら即表示
-  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+  // 認証済みなら即表示（localStorageで永続化）
+  if (localStorage.getItem(SESSION_KEY) === '1') {
     showMain();
   }
 
@@ -653,7 +653,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (lockTimer) return;
     const val = pwInput ? pwInput.value : '';
     if (val === CORRECT_PW) {
-      sessionStorage.setItem(SESSION_KEY, '1');
+      localStorage.setItem(SESSION_KEY, '1');
       showMain();
     } else {
       failCount++;
