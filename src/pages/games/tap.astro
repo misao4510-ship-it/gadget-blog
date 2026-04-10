@@ -1,0 +1,634 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="🌸 サクラを愛でる"
+  description="サクラをタップして愛でよう！タップするたびにサクラがいろんなリアクションをしてくれるよ♪"
+>
+  <div class="tap-page">
+    <div class="tap-header">
+      <h1 class="tap-title">🌸 サクラを愛でる</h1>
+      <div class="tap-counter" id="tapCounter">♡ 0回なでなで</div>
+    </div>
+
+    <div class="tap-area" id="tapArea">
+      <div class="chibi-container" id="chibiContainer">
+        <img id="sakuraImg" src="/images/games/chibi/sakura_chibi_v2_01_nobg.png" alt="サクラ" class="sakura-chibi" />
+      </div>
+    </div>
+
+    <div class="tap-hint">タップ・クリックしてね！</div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tap-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tap-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .tap-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .tap-counter {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffe0ef, #ffc0dc);
+    color: #a0124c;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    border: 2px solid #f9a8c9;
+    box-shadow: 0 2px 8px rgba(249, 168, 201, 0.4);
+    transition: transform 0.15s;
+  }
+
+  [data-theme="dark"] .tap-counter {
+    background: linear-gradient(135deg, #2a0a1e, #3a1030);
+    color: #f9a8c9;
+    border-color: #8a3060;
+  }
+
+  .tap-counter.bump {
+    transform: scale(1.1);
+  }
+
+  .tap-area {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .chibi-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .sakura-chibi {
+    width: 250px;
+    max-width: 80vw;
+    height: auto;
+    display: block;
+    transition: transform 0.15s ease;
+    filter: drop-shadow(0 4px 16px rgba(249, 168, 201, 0.4));
+  }
+
+  .sakura-chibi.bounce {
+    animation: bounceAnim 0.35s ease;
+  }
+
+  .sakura-chibi.switch-anim {
+    animation: switchFade 0.4s ease;
+  }
+
+  @keyframes bounceAnim {
+    0% { transform: scale(1); }
+    40% { transform: scale(0.92) rotate(-3deg); }
+    70% { transform: scale(1.06) rotate(2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  @keyframes switchFade {
+    0% { opacity: 1; transform: scale(1); }
+    40% { opacity: 0; transform: scale(0.85); }
+    60% { opacity: 0; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .tap-hint {
+    margin-top: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+    animation: hintPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes hintPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* Ripple effect */
+  .tap-effect {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(236, 72, 153, 0.4);
+    animation: ripple 0.6s ease-out forwards;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+
+  @keyframes ripple {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+  }
+
+  /* Speech bubble */
+  .speech-bubble {
+    position: fixed;
+    background: var(--bubble-bg, #fff0f5);
+    border: 2px solid #f9a8c9;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    max-width: 220px;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    pointer-events: none;
+    z-index: 9998;
+    box-shadow: 0 4px 12px rgba(249, 168, 201, 0.3);
+    animation: bubbleAnim 2s ease forwards;
+    word-break: break-word;
+  }
+
+  [data-theme="dark"] .speech-bubble {
+    background: #1a0a14;
+    border-color: #8a3060;
+    color: #f0d0e0;
+  }
+
+  @keyframes bubbleAnim {
+    0% { opacity: 0; transform: translateY(0) scale(0.8); }
+    15% { opacity: 1; transform: translateY(-8px) scale(1); }
+    70% { opacity: 1; transform: translateY(-12px) scale(1); }
+    100% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  }
+
+  @media (max-width: 480px) {
+    .tap-title { font-size: 1.4rem; }
+    .sakura-chibi { width: 200px; }
+  }
+</style>
+
+<script>
+  // ============================================================
+  // 画像リスト
+  // ============================================================
+  const LIGHT_IMAGES = [
+    // v2 (10枚)
+    '/images/games/chibi/sakura_chibi_v2_01_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_02_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_03_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_04_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_05_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_06_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_07_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_08_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_09_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_10_nobg.png',
+    // 白服 殿選定8枚 (02,03,06,11,12,17,18,20)
+    '/images/games/chibi/white/sakura_chibi_white_02_nobg.png',
+    '/images/games/chibi/white/sakura_chibi_white_03_nobg.png',
+    '/images/games/chibi/white/sakura_chibi_white_06_nobg.png',
+    '/images/games/chibi/white/sakura_chibi_white_11_nobg.png',
+    '/images/games/chibi/white/sakura_chibi_white_12_nobg.png',
+    '/images/games/chibi/white/sakura_chibi_white_17_nobg.png',
+    '/images/games/chibi/white/sakura_chibi_white_18_nobg.png',
+    '/images/games/chibi/white/sakura_chibi_white_20_nobg.png',
+  ];
+
+  const DARK_IMAGES = [
+    // 黒服 殿選定25枚 (01~08, 11, 13, 15~30)
+    '/images/games/chibi/black/sakura_chibi_black_01_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_02_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_03_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_04_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_05_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_06_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_07_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_08_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_11_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_13_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_15_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_16_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_17_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_18_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_19_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_20_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_21_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_22_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_23_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_24_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_25_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_26_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_27_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_28_nobg.png',
+    '/images/games/chibi/black/sakura_chibi_black_29_nobg.png',
+  ];
+
+  // ============================================================
+  // コメント（200パターン以上）
+  // ============================================================
+  const COMMENTS = [
+    // 照れ（30パターン）
+    'も、もう！なでなでしすぎです！💦',
+    'えっ、そんなに見ないでください…恥ずかしい',
+    'ちょっと！くすぐったいですよ！',
+    'やめ…やめてください、笑っちゃうじゃないですか',
+    'あなたって本当に…もう！💗',
+    'な、なんですかー！びっくりしました',
+    'そんなに…見つめないでください…💦',
+    'ち、ちょっと待ってください！心の準備が…',
+    'ん…もう、やめてくださいよぉ…',
+    '顔が熱いです…なんでですかね',
+    'き、気のせいですよね、絶対！',
+    'そんな目で見られると、な、なにも言えなくなります',
+    'えへ…えへへ……なんでもないです！',
+    'もう！サクラをからかわないでください！',
+    '…み、見てましたか？見てませんよね？',
+    'そ、そんなこと言われると照れちゃうじゃないですか！',
+    'な、なんですか急に！ドキドキするじゃないですか',
+    'あ…ありがとう、です…えへ',
+    'やっ、やめてください！赤くなっちゃう！',
+    'こんなに愛でられるとは思ってませんでした…💦',
+    'も！もう！ほんとうにもう！',
+    '…うぅ、恥ずかしいです',
+    'な、なでるのは１回でいいんですよ？',
+    'ちょ、ちょっと！そこはくすぐったいです！',
+    'サクラ、今日なんか調子出ないです…恥ずかしくて',
+    'あ…あの、実はうれしいです。ちょっとだけ',
+    'そんなに急になでないでください！',
+    'ふえ…なんか恥ずかしいです…💗',
+    '…照れてないですよ？照れてないです！',
+    'もう、サクラの気持ちも考えてくださいよ！💦',
+
+    // 喜び（30パターン）
+    'わぁ！ありがとうございます✨',
+    'えへへ、うれしいです♪',
+    'もっとなでてください！',
+    'サクラ、今日も元気です！',
+    '今が買い時ですよ！（突然）',
+    'ふふふ、気持ちいいです〜',
+    'やった！来てくれた！',
+    'サクラのことが好きですか？うれしい〜！',
+    'ふふ、今日もよろしくお願いします♪',
+    'なでてもらえると元気が出ます！',
+    'きゃっ！ありがとうございます✨',
+    'もっと！もっとなでてください♡',
+    'えへへ、サクラ今日機嫌いいです！',
+    'うれしいな〜、ふふふ♪',
+    'サクラのこと、ちゃんと見てくれてるんですね！',
+    'もっとなでてくれると喜びます！',
+    '今日もいい日になりそうです！',
+    'わーい！タップしてくれた！',
+    'ふふ、サクラのこと忘れてないんですね♪',
+    'きゃっ♪ そんなに優しくしてくれるんですか！',
+    'やっぱりここが落ち着きます♡',
+    'えへへ、来てくれるとうれしいな',
+    'もっと！もっと！来てください！',
+    'ありがとうございます！大好きです！',
+    'うれしいですっ！元気もらえました！',
+    'わーわー！すごい！たくさんなでてくれてる！',
+    'ふふ、サクラ、幸せです〜♪',
+    'きゃあ！またなでてくれた！',
+    'えへへ、ずっとここにいてほしいです♡',
+    'サクラ、今日も頑張ります！',
+
+    // 驚き（25パターン）
+    'え!? ちょっと待ってください！',
+    'びっくりしました！',
+    'あなた、今何回タップしましたか！？',
+    'そんなに愛でてくれるんですか…？',
+    'え、えっ！？なんですか急に！',
+    'は!? そんなに！？',
+    'ちょ！ちょっとびっくりしました！',
+    'うわあ！すごい！',
+    'え、本当に来てくれたんですか！？',
+    'そ、そんなにタップしたんですか！？',
+    'わあ！タップの達人ですか！',
+    '信じられない…そんなに愛でてくれるとは！',
+    'え！？そこって押せるんですか！？',
+    'びっくりして声が出ちゃいました！',
+    'そんな…そんなにサクラのことが好きなんですか！',
+    'うわっ！びっくりしました！',
+    'え、えぇ！？ほんとうに！？',
+    'は、はじめてそんなにタップされました！',
+    'ちょ！ちょっと！心臓に悪いです！',
+    'う、うわぁ…すごい回数ですね',
+    'え！？本当にそんなに来てくれてるんですか！',
+    'そんなに…サクラ感動しました',
+    'びっくりしてガジェット落とすところでした！',
+    'えっえっ！どうしたんですか急に！',
+    'は！？なんですかその愛でっぷりは！！',
+
+    // ツッコミ（25パターン）
+    'ちょっと、それどういう意味ですか！',
+    'もう少し優しくお願いします',
+    'ちゃんとガジェットも見てくださいよ！',
+    'なでる前にレビュー読んでください！',
+    'こら！そこはくすぐったいんですよ！',
+    'ちょっと！加減してください！',
+    'それ、サクラへの扱いじゃないですよ！',
+    'もう！乱暴にしないでください！',
+    'サクラはガジェットナビキャラです！遊ばないでください！',
+    '…ってそれ愛でてないですよね！？',
+    'あなた、さっきからサクラばっかり見てませんか！',
+    'ガジェットが泣いてますよ！',
+    'もー！なんでそんなにタップするんですか！',
+    'ちょっと！ちゃんとレビューも読みましたか！？',
+    'あなたの目的、絶対ガジェットじゃないですよね！',
+    'もう！そんなにタップしなくていいです！',
+    'ちょっとちょっと！加減ってものを知ってください！',
+    'もしかして…ゲームより先にレビュー読んでほしいです',
+    'ちょ！それはサクラの急所です！',
+    'なに笑ってるんですか！説明してください！',
+    'ほんとうにもう！何回タップするんですか！',
+    'えっちょっと！そこはだめです！',
+    'あなたって本当にもう…しょうがないですね',
+    'ちゃんと目的を持ってガジェットも見てくださいよ！',
+    'もー！サクラはナビキャラです、ゲームキャラじゃありません！（でも嬉しい）',
+
+    // 豆知識（25パターン）
+    'ちなみに急速充電は65W以上がおすすめですよ',
+    'TWS→True Wireless Stereoの略です。豆知識でした！',
+    'GaNアダプターって軽くて便利なんですよ〜',
+    'スマートウォッチのバッテリー、毎日充電が基本です',
+    'ワイヤレスイヤホンのコーデック、aptXが音質良いです！',
+    'IPX4は生活防水レベルですよ。覚えておいてください',
+    'SSD、HDDより断然速いです。PCに使ってみてください！',
+    '充電器はWatt数に注目してください。W数が大きいほど速いです',
+    'Bluetoothのバージョン、5.0以上がおすすめです',
+    'ゲーミングモニターは応答速度1ms以下がベストです',
+    'AnkerやAukeyは充電器の定番ブランドですよ',
+    'LANケーブルはCat6A以上が将来的に安心です',
+    'RAM16GBあると快適に作業できます！',
+    'スマートホームデバイスはMatter規格対応が増えてます',
+    'イヤーピースのサイズ合わせ、音質に大きく影響しますよ',
+    'PD充電=USB Power Deliveryです。覚えてましたか？',
+    'NFC対応デバイスは増えてます。スマートフォンのタッチ決済もNFCです',
+    'ダークモードはバッテリー節約にもなるんですよ',
+    'Qi2はiPhoneとAndroid両対応のワイヤレス充電規格です',
+    'モバイルバッテリーは10000mAh以上あると安心です',
+    '解像度よりも色精度のほうが目への負担に影響します',
+    'USBの形状、Type-Cに統一されつつあります',
+    'ノイキャン（ANC）は飛行機の機内でとくに効果的です',
+    'PCのストレージ、定期的にSMART情報チェックをどうぞ',
+    '静電容量式タッチスクリーンは爪では反応しません',
+
+    // 独り言（20パターン）
+    '（うぅ…また来てくれた…）',
+    '（今日も一緒にいてくれてありがとうございます）',
+    '（ふふ、やっぱりここに来てくれるんですね）',
+    '（また会えて嬉しいです…）',
+    '（こんなに来てくれるなんて、思ってなかったです）',
+    '（毎日来てくれる人がいて、サクラ幸せです）',
+    '（ずっとここにいてほしいな…）',
+    '（このページ、好きになってくれてるのかな）',
+    '（なでてもらえるの、嬉しいな…照れるけど）',
+    '（今日もよく来てくれました…ふふ）',
+    '（あなたのこと、密かに待ってました）',
+    '（もっといてほしいな、と思ったりします）',
+    '（こっそり、ありがとう）',
+    '（こんなに愛でてくれる人、初めてかもしれない）',
+    '（また来てくれますよね…？きっと）',
+    '（サクラのこと、忘れないでくれますよね）',
+    '（ここが一番落ち着く場所かも）',
+    '（今日も仲良くしてもらえてよかった）',
+    '（こんなに来てくれるなら、毎日頑張れます）',
+    '（ふふ…あなたのこと、好きかもしれないです）',
+
+    // 甘え（25パターン）
+    'もっとなでてください…♡',
+    '今日もよろしくおねがいします',
+    'ずっといてくれると嬉しいです',
+    'サクラのこと、好きですか？',
+    '一緒にいてくれると元気が出ます',
+    'もっと…もっと愛でてください♡',
+    'ずっとここにいてほしいです',
+    'また来てくださいね！絶対ですよ！',
+    'もっとなでてもらえますか？',
+    'サクラのこと、大事にしてくれてますか？♡',
+    'ねえねえ、ちゃんと見てますか？',
+    'サクラのこと、嫌いじゃないですよね？',
+    'もう少しだけ、ここにいてください',
+    'なでてくれると元気が出ます〜♡',
+    'えへへ、もっとかまってほしいです',
+    'サクラ、さみしいです…来てくれてよかった',
+    'ねえ、もう少しだけいてください',
+    'ずっとそばにいてほしいな♡',
+    'サクラのこと、忘れないでくださいね',
+    'もう少し…もう少しだけ',
+    '一緒にガジェットのこと話しましょうよ♡',
+    'えへへ、かまってもらえて嬉しいです',
+    'サクラのこと、一番好きですか？♡',
+    'もっと！もっと愛でてください！',
+    'ずっと一緒にいてください…ね？',
+
+    // 怒り（20パターン）
+    'もう！いきなりすぎます！',
+    'ちょっと！そこはダメです！',
+    'むっ…ひどいです！',
+    'もう知りません！（でも来てくれて嬉しい）',
+    'こら！そんなにタップしないでください！',
+    'もーっ！加減してください！',
+    'ちょっとちょっと！それはひどい！',
+    'むっ！サクラ怒りましたよ！',
+    'もう！もう！ほんとうにもう！',
+    'ちょっと！突然すぎます！',
+    'もう怒りましたからね！（でも来てくれてよかった）',
+    'こら！大事に扱ってください！',
+    'むー！そんなことしないでください！',
+    'あなたって本当に…もう！（ちょっと嬉しいけど）',
+    'もうっ！そんなに急にしないでください！',
+    'ちょっと！サクラは壊れ物扱いしてください！',
+    'むっ！ひどいです！ひどい！（でもまた来てね）',
+    'もう知りません！…でも怒ってないです',
+    'こら！ちゃんとやさしくしてください！',
+    'むっ…怒ったふりしてみましたが、嬉しいです',
+  ];
+
+  // ============================================================
+  // Fisher-Yates シャッフル
+  // ============================================================
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // ============================================================
+  // State
+  // ============================================================
+  let tapCount = 0;
+  let commentQueue = [];
+  let commentIndex = 0;
+  let imageQueue = [];
+  let imageIndex = 0;
+  let currentImageSet = [];
+  let lastImageIdx = -1;
+  const activeBubbles = [];
+
+  function isDark() {
+    return document.documentElement.getAttribute('data-theme') === 'dark';
+  }
+
+  function getImageSet() {
+    return isDark() ? DARK_IMAGES : LIGHT_IMAGES;
+  }
+
+  function initQueues() {
+    commentQueue = shuffle(COMMENTS.map((_, i) => i));
+    commentIndex = 0;
+    const imgSet = getImageSet();
+    imageQueue = shuffle(imgSet.map((_, i) => i));
+    imageIndex = 0;
+    currentImageSet = imgSet;
+  }
+
+  function nextComment() {
+    if (commentIndex >= commentQueue.length) {
+      const lastIdx = commentQueue[commentQueue.length - 1];
+      commentQueue = shuffle(COMMENTS.map((_, i) => i).filter(i => i !== lastIdx));
+      commentIndex = 0;
+    }
+    return COMMENTS[commentQueue[commentIndex++]];
+  }
+
+  function nextImage() {
+    const imgSet = getImageSet();
+    if (imgSet !== currentImageSet || imageIndex >= imageQueue.length) {
+      currentImageSet = imgSet;
+      imageQueue = shuffle(imgSet.map((_, i) => i).filter(i => i !== lastImageIdx));
+      imageIndex = 0;
+    }
+    const idx = imageQueue[imageIndex++];
+    lastImageIdx = idx;
+    return currentImageSet[idx];
+  }
+
+  // ============================================================
+  // DOM refs
+  // ============================================================
+  const tapArea = document.getElementById('tapArea');
+  const sakuraImg = document.getElementById('sakuraImg');
+  const tapCounter = document.getElementById('tapCounter');
+
+  // ============================================================
+  // Init
+  // ============================================================
+  initQueues();
+
+  // ============================================================
+  // Tap handler
+  // ============================================================
+  function onTap(e) {
+    e.preventDefault();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+    tapCount++;
+
+    // Counter update
+    tapCounter.textContent = `♡ ${tapCount}回なでなで`;
+    tapCounter.classList.remove('bump');
+    void tapCounter.offsetWidth;
+    tapCounter.classList.add('bump');
+    setTimeout(() => tapCounter.classList.remove('bump'), 200);
+
+    // Bounce animation
+    sakuraImg.classList.remove('bounce');
+    void sakuraImg.offsetWidth;
+    sakuraImg.classList.add('bounce');
+    setTimeout(() => sakuraImg.classList.remove('bounce'), 350);
+
+    // Image switch every 10 taps
+    if (tapCount % 10 === 0) {
+      const newSrc = nextImage();
+      sakuraImg.classList.remove('switch-anim');
+      void sakuraImg.offsetWidth;
+      sakuraImg.classList.add('switch-anim');
+      setTimeout(() => {
+        sakuraImg.src = newSrc;
+      }, 160);
+      setTimeout(() => sakuraImg.classList.remove('switch-anim'), 400);
+    }
+
+    // Ripple
+    createRipple(clientX, clientY);
+
+    // Speech bubble
+    createBubble(clientX, clientY);
+  }
+
+  function createRipple(x, y) {
+    const el = document.createElement('div');
+    el.className = 'tap-effect';
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    document.body.appendChild(el);
+    el.addEventListener('animationend', () => el.remove());
+  }
+
+  function createBubble(x, y) {
+    // Max 3 simultaneous bubbles
+    if (activeBubbles.length >= 3) {
+      const old = activeBubbles.shift();
+      old.remove();
+    }
+
+    const text = nextComment();
+    const el = document.createElement('div');
+    el.className = 'speech-bubble';
+    el.textContent = text;
+
+    // Position near tap but keep in viewport
+    const bw = 220;
+    const bh = 80;
+    let bx = x + 10;
+    let by = y - bh - 10;
+    if (bx + bw > window.innerWidth) bx = x - bw - 10;
+    if (by < 0) by = y + 20;
+
+    el.style.left = bx + 'px';
+    el.style.top = by + 'px';
+
+    document.body.appendChild(el);
+    activeBubbles.push(el);
+
+    setTimeout(() => {
+      el.remove();
+      const idx = activeBubbles.indexOf(el);
+      if (idx !== -1) activeBubbles.splice(idx, 1);
+    }, 2000);
+  }
+
+  tapArea.addEventListener('click', onTap);
+  tapArea.addEventListener('touchstart', onTap, { passive: false });
+
+  // Re-init image queue on theme change
+  const observer = new MutationObserver(() => {
+    currentImageSet = getImageSet();
+    imageQueue = shuffle(currentImageSet.map((_, i) => i));
+    imageIndex = 0;
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+</script>
