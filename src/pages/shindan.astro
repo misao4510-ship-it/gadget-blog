@@ -1,220 +1,443 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import productsData from '../../data/products.json';
+
+const products = productsData.products;
+const productsJson = JSON.stringify(products);
 ---
 <BaseLayout
-  title="🔍 ガジェット相性診断"
-  description="3つの質問に答えるだけ！あなたにぴったりのガジェット記事をサクラが診断します✨"
+  title="ガジェット相性診断"
+  description="3つの質問に答えるだけであなたにピッタリのガジェットをサクラが診断！予算・用途・こだわりから最適なガジェット記事をご案内します。"
 >
   <div class="shindan-page">
     <div class="shindan-header">
       <h1 class="shindan-title">🔍 ガジェット相性診断</h1>
-      <p class="shindan-subtitle">3問に答えるだけで、あなたにぴったりのガジェットが見つかる！</p>
+      <p class="shindan-subtitle">3つの質問でぴったりのガジェットをサクラが診断します✨</p>
     </div>
 
-    <!-- サクラキャラ -->
-    <div class="sakura-area">
-      <div class="chibi-wrapper">
-        <img class="sakura-img chibi-light" src="/images/games/chibi/sakura_chibi_v2_01_nobg.png" alt="サクラ" />
-        <img class="sakura-img chibi-dark" src="/images/games/chibi/black/sakura_chibi_black_01_nobg.png" alt="サクラ" />
+    <div class="shindan-box">
+      <!-- ステップ表示 -->
+      <div class="step-indicator" id="step-indicator">
+        <span class="step-dot active" data-step="1"></span>
+        <span class="step-line"></span>
+        <span class="step-dot" data-step="2"></span>
+        <span class="step-line"></span>
+        <span class="step-dot" data-step="3"></span>
       </div>
-      <div class="sakura-bubble">
-        <p id="sakura-message">どんなガジェットが気になる？✨ 一緒に探そ！</p>
-      </div>
-    </div>
 
-    <div class="shindan-container" id="shindan-container">
-
-      <!-- 開始画面 -->
-      <div class="screen screen--start" id="screen-start">
-        <div class="start-card">
-          <h2>ガジェット相性診断 💕</h2>
-          <p class="start-desc">たった3問で<strong>あなたにぴったりのガジェット記事</strong>を案内するよ！</p>
-          <ul class="rule-list">
-            <li>💰 予算はどのくらい？</li>
-            <li>🎯 どんなシーンで使う？</li>
-            <li>✨ いちばんのこだわりは？</li>
-          </ul>
-          <button class="btn btn--primary" id="btn-start">診断スタート！</button>
+      <!-- サクラのメッセージ -->
+      <div class="sakura-msg">
+        <img src="/images/sakura-icon.png" alt="サクラ" class="sakura-avatar" onerror="this.style.display='none'" />
+        <div class="sakura-bubble" id="sakura-bubble">
+          質問に答えてね！あなたにぴったりのガジェットを紹介するよ🌸
         </div>
       </div>
 
-      <!-- 質問画面 -->
-      <div class="screen screen--question" id="screen-question" style="display:none">
-        <div class="progress-wrap">
-          <div class="progress-bar-track">
-            <div class="progress-bar-fill" id="progress-bar"></div>
-          </div>
-          <span class="progress-label" id="progress-label">1 / 3</span>
-        </div>
-        <div class="question-card" id="question-card">
-          <p class="question-text" id="question-text"></p>
-          <div class="choices" id="choices"></div>
+      <!-- Q1 -->
+      <div class="question-block active" id="q1">
+        <p class="question-label">Q1 / 3</p>
+        <h2 class="question-text">💰 予算はどのくらい？</h2>
+        <div class="choices">
+          <button class="choice-btn" data-q="1" data-v="A">
+            <span class="choice-icon">🪙</span>
+            <span class="choice-main">5,000円以下</span>
+            <span class="choice-sub">プチプラで試したい</span>
+          </button>
+          <button class="choice-btn" data-q="1" data-v="B">
+            <span class="choice-icon">💳</span>
+            <span class="choice-main">1万円以下</span>
+            <span class="choice-sub">手頃な価格で高品質</span>
+          </button>
+          <button class="choice-btn" data-q="1" data-v="C">
+            <span class="choice-icon">💎</span>
+            <span class="choice-main">1万円以上</span>
+            <span class="choice-sub">本格的なものが欲しい</span>
+          </button>
         </div>
       </div>
 
-      <!-- 結果画面 -->
-      <div class="screen screen--result" id="screen-result" style="display:none">
-        <div class="result-card">
-          <div class="result-badge">診断結果</div>
-          <h2 class="result-title" id="result-title"></h2>
-          <p class="result-comment" id="result-comment"></p>
-          <a class="btn btn--result" id="result-link" href="#" target="_blank" rel="noopener">
-            記事を読む →
+      <!-- Q2 -->
+      <div class="question-block" id="q2">
+        <p class="question-label">Q2 / 3</p>
+        <h2 class="question-text">🎯 主な用途は？</h2>
+        <div class="choices">
+          <button class="choice-btn" data-q="2" data-v="A">
+            <span class="choice-icon">🚶</span>
+            <span class="choice-main">持ち運び・外出</span>
+            <span class="choice-sub">外でガンガン使いたい</span>
+          </button>
+          <button class="choice-btn" data-q="2" data-v="B">
+            <span class="choice-icon">💻</span>
+            <span class="choice-main">デスク・仕事</span>
+            <span class="choice-sub">作業効率を上げたい</span>
+          </button>
+          <button class="choice-btn" data-q="2" data-v="C">
+            <span class="choice-icon">⛺</span>
+            <span class="choice-main">アウトドア・趣味</span>
+            <span class="choice-sub">趣味や娯楽を充実させたい</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-block" id="q3">
+        <p class="question-label">Q3 / 3</p>
+        <h2 class="question-text">✨ 一番のこだわりは？</h2>
+        <div class="choices">
+          <button class="choice-btn" data-q="3" data-v="A">
+            <span class="choice-icon">⚡</span>
+            <span class="choice-main">コスパ重視</span>
+            <span class="choice-sub">コスパ最強のものを選ぶ</span>
+          </button>
+          <button class="choice-btn" data-q="3" data-v="B">
+            <span class="choice-icon">🏆</span>
+            <span class="choice-main">性能・品質</span>
+            <span class="choice-sub">スペックや信頼性が大事</span>
+          </button>
+          <button class="choice-btn" data-q="3" data-v="C">
+            <span class="choice-icon">🎨</span>
+            <span class="choice-main">デザイン・おしゃれ</span>
+            <span class="choice-sub">見た目や雰囲気も重要</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 結果 -->
+      <div class="result-block" id="result-block">
+        <div class="result-badge">🎉 診断結果</div>
+        <h2 class="result-title" id="result-title"></h2>
+        <p class="result-desc" id="result-desc"></p>
+
+        <!-- おすすめ商品 -->
+        <div class="product-card">
+          <a id="product-link" href="#" target="_blank" rel="noopener noreferrer nofollow">
+            <div class="product-img-wrap">
+              <img id="product-img" src="" alt="" class="product-img hidden" />
+              <div id="product-img-ph" class="product-img-ph">📦</div>
+            </div>
+            <div class="product-info">
+              <p class="product-name" id="product-name"></p>
+              <span class="product-cta">Amazon で見る →</span>
+            </div>
           </a>
-          <button class="btn btn--retry" id="btn-retry">もう一度診断する 🔁</button>
         </div>
-      </div>
 
+        <!-- 記事リンク -->
+        <a class="article-link" id="article-link" href="#">
+          📖 関連記事を読む
+        </a>
+
+        <!-- サクラのコメント（結果） -->
+        <div class="sakura-result-msg">
+          <img src="/images/sakura-icon.png" alt="サクラ" class="sakura-avatar" onerror="this.style.display='none'" />
+          <div class="sakura-bubble" id="result-comment"></div>
+        </div>
+
+        <button class="retry-btn" id="retry-btn">🔄 もう一度診断する</button>
+      </div>
     </div>
   </div>
+</BaseLayout>
+
+<script define:vars={{ productsJson }}>
+  const products = JSON.parse(productsJson);
+
+  // 診断マッピング: Q1Q2Q3 → { category, article, title, desc, sakura }
+  const diagMap = {
+    'AAA': { category: 'mobile-battery', article: '/posts/mobile-battery-recommendation/', title: 'コスパ最強モバイルバッテリー', desc: '5,000円以下で外出中の充電切れを解消！コスパで選ぶならモバイルバッテリーが◎', sakura: 'お財布に優しくて、外でも安心！サクラもいつも持ち歩いてるよ🔋' },
+    'AAB': { category: 'wireless-earbuds', article: '/posts/wireless-earphones-guide/', title: '高音質ワイヤレスイヤホン', desc: '外出先でもクリアな音楽を。5,000円以下でも性能十分なイヤホンがたくさん！', sakura: 'コードがないって本当に快適だよね！電車の中でも最高🎵' },
+    'AAC': { category: 'iphone-case', article: '/posts/esr-iphone17-case-review/', title: 'おしゃれスマホケース', desc: 'プチプラでもかわいいデザインのスマホケースでイメチェン！', sakura: 'ケースって毎日目に入るから、かわいいのを選ぶと気分が上がるよ🌸' },
+    'ABA': { category: 'usb-hub', article: '/posts/usbc-hub-comparison/', title: 'コスパ抜群USBハブ', desc: 'デスク環境をスッキリ整理！5,000円以下でPC作業が格段に快適になる。', sakura: 'ポートが足りない悩み、USBハブで一発解決！コスパ最強だよ⌨️' },
+    'ABB': { category: 'keyboard', article: '/posts/keyboard-comparison/', title: '高性能キーボード', desc: 'デスクワークの生産性アップ！打鍵感にこだわったキーボードで作業が変わる。', sakura: 'キーボードを変えると仕事の気分まで変わるよ！ぜひ試してみて✨' },
+    'ABC': { category: 'mouse', article: '/posts/keyboard-comparison/', title: 'デザイン重視マウス', desc: 'おしゃれなデスク環境づくりに！デザインと使いやすさを兼ね備えたマウス。', sakura: 'マウスはデスクの主役だよ！見た目にこだわると毎日の作業が楽しくなる🖱️' },
+    'ACA': { category: 'earphones', article: '/posts/gadget-ranking-under-5000/', title: '5,000円以下コスパガジェット', desc: '趣味やアウトドアで使えるコスパ最強ガジェットを厳選！', sakura: 'この価格帯、実は宝の山なんだよ！サクラお気に入りのコスパ圏🌟' },
+    'ACB': { category: 'earphones', article: '/posts/wireless-earphones-guide/', title: '高性能イヤホン', desc: 'アウトドアや運動中も高音質！スポーツにも対応したイヤホンがおすすめ。', sakura: '外で音楽聴きながら過ごすの最高だよね！高性能イヤホンで世界が変わる🎶' },
+    'ACC': { category: 'bluetooth-speaker', article: '/posts/gadget-ranking-under-5000/', title: 'おしゃれBluetoothスピーカー', desc: 'アウトドアに持って行きたいおしゃれスピーカー。5,000円以下でも十分楽しめる！', sakura: 'キャンプや公園で音楽流したら最高の気分！おしゃれなデザインも◎🎵' },
+    'BAA': { category: 'charger', article: '/posts/gadget-ranking-under-10000/', title: 'コスパ充電器セット', desc: '1万円以下でスマホ・PC何でも充電できる高性能充電器！外出がもっと快適に。', sakura: '充電器って意外と重要！良いものを持つと毎日のストレスが消えるよ🔌' },
+    'BAB': { category: 'smartwatch', article: '/posts/smartwatch-comparison/', title: '高性能スマートウォッチ', desc: '健康管理からナビまで！外出に最適な多機能スマートウォッチ。', sakura: '着けてるだけで健康管理できちゃうの、すごくない？外出中も安心⌚' },
+    'BAC': { category: 'wireless-earbuds', article: '/posts/wireless-earphones-guide/', title: 'おしゃれワイヤレスイヤホン', desc: 'デザインにこだわったワイヤレスイヤホンで外出がさらに楽しくなる！', sakura: 'おしゃれイヤホンをつけてると、気分が上がるんだよね🎨' },
+    'BBA': { category: 'mouse', article: '/posts/gadget-ranking-under-10000/', title: 'コスパマウス', desc: 'デスク作業の効率を上げるコスパ最強マウス。1万円以下でも高性能！', sakura: 'マウスを変えると作業速度が変わるよ！コスパ重視ならこれ一択🖱️' },
+    'BBB': { category: 'headphones', article: '/posts/wireless-earphones-guide/', title: '高性能ヘッドフォン', desc: '没入感のある音質でデスクワークが捗る！ノイズキャンセリング搭載モデルも。', sakura: 'ヘッドフォンで外の音を遮断すると集中力が全然違う！おすすめ🎧' },
+    'BBC': { category: 'keyboard', article: '/posts/keyboard-comparison/', title: 'デザインキーボード', desc: 'おしゃれなデスク環境に！デザイン性の高いキーボードで作業部屋をアップグレード。', sakura: '見た目のいいキーボードって、テンション上がってタイピングも速くなる気がする✨' },
+    'BCA': { category: 'bluetooth-speaker', article: '/posts/gadget-ranking-under-10000/', title: 'コスパBluetoothスピーカー', desc: '1万円以下でも高音質！アウトドアでも趣味でも活躍するスピーカー。', sakura: 'コスパスピーカーも最近めちゃくちゃ良くなってるよ！驚くはず🌟' },
+    'BCB': { category: 'portable-ssd', article: '/posts/portable-ssd-comparison/', title: '高速ポータブルSSD', desc: '大容量データを高速転送！趣味の動画・写真管理にもぴったり。', sakura: 'ポータブルSSDって、一度使ったら戻れなくなるやつ！性能感動的だよ💾' },
+    'BCC': { category: 'speaker', article: '/posts/gadget-ranking-under-10000/', title: 'おしゃれスピーカー', desc: 'インテリアにも馴染むデザイン性の高いスピーカーで趣味の空間を演出。', sakura: '部屋のインテリアになるスピーカー、いいよね！音楽で空間が変わる🎨' },
+    'CAA': { category: 'tablet', article: '/posts/gadget-ranking-under-30000/', title: 'コスパタブレット', desc: '勉強・読書・動画鑑賞に！持ち運びできるコスパ最強タブレット。', sakura: 'タブレットって持ち歩けるのに大画面！コスパ最強の選択肢だよ📱' },
+    'CAB': { category: 'e-reader', article: '/posts/gadget-ranking-under-30000/', title: '高性能電子書籍リーダー', desc: '目に優しい電子ペーパーで長時間読書も快適。持ち運びにも最適！', sakura: '電子書籍リーダー、一冊分の重さで何千冊も持ち歩けるの、最高すぎる📚' },
+    'CAC': { category: 'smartwatch', article: '/posts/smartwatch-comparison/', title: 'デザインスマートウォッチ', desc: 'ファッションとして映えるおしゃれスマートウォッチ。毎日のコーデのアクセントに！', sakura: 'スマートウォッチはもはやファッションアイテム！おしゃれに決めよう⌚' },
+    'CBA': { category: 'monitor', article: '/posts/pc-monitor-guide/', title: 'コスパ高解像度モニター', desc: 'デスク作業を劇的に改善！広い画面で作業効率が格段に上がる。', sakura: '大きいモニターを一回使ったら元に戻れない！コスパ最高の投資だよ🖥️' },
+    'CBB': { category: 'monitor', article: '/posts/pc-monitor-guide/', title: '高性能プロ向けモニター', desc: '色再現性・応答速度・高解像度にこだわる人のためのプロ仕様モニター。', sakura: '仕事や創作に本気で向き合うなら、モニターに投資するのが一番効果的！🏆' },
+    'CBC': { category: 'gaming-mouse', article: '/posts/gadget-ranking-under-30000/', title: 'おしゃれゲーミングマウス', desc: 'デザインも性能もこだわりたい人に！RGB搭載のゲーミングマウスでデスクを彩る。', sakura: 'ゲーミングマウスってデザインも超カッコいいんだよね！RGBが最高🎨' },
+    'CCA': { category: 'robot-vacuum', article: '/posts/roomba-i2-review/', title: 'コスパロボット掃除機', desc: '家事を自動化してゆっくりできる時間を作ろう！コスパ最強のロボット掃除機。', sakura: 'ロボット掃除機ってホントに生活が変わるよ！掃除を任せてアウトドアを満喫しよう✨' },
+    'CCB': { category: 'air-purifier', article: '/posts/sharp-air-purifier-review/', title: '高性能空気清浄機', desc: '花粉・PM2.5もしっかりキャッチ！パワフルな空気清浄機で快適な環境づくり。', sakura: 'きれいな空気って、健康への投資だよ！体が喜ぶガジェットを選ぼう🌿' },
+    'CCC': { category: 'wireless-charger', article: '/posts/wireless-charger-guide/', title: 'おしゃれワイヤレス充電器', desc: '置くだけ充電でデスクをスッキリ！デザイン性の高いワイヤレス充電器で趣味部屋を演出。', sakura: 'ケーブルなしでおしゃれに充電！趣味の空間にぴったりのアイテムだよ💕' },
+  };
+
+  const questionMessages = [
+    '予算を教えてね！どのくらいの価格帯で探してるの？🌸',
+    '次は用途ね！どんな場面で使いたいの？🎯',
+    'いよいよ最後！一番のこだわりを教えてね✨',
+  ];
+
+  let answers = {};
+  const sakuraBubble = document.getElementById('sakura-bubble');
+  const stepDots = document.querySelectorAll('.step-dot');
+  const retryBtn = document.getElementById('retry-btn');
+
+  function showQuestion(n) {
+    document.querySelectorAll('.question-block').forEach(el => el.classList.remove('active'));
+    const q = document.getElementById('q' + n);
+    if (q) q.classList.add('active');
+    sakuraBubble.textContent = questionMessages[n - 1];
+
+    stepDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i < n);
+      dot.classList.toggle('done', i < n - 1);
+    });
+  }
+
+  function showResult() {
+    const key = (answers[1] || 'A') + (answers[2] || 'A') + (answers[3] || 'A');
+    const data = diagMap[key] || diagMap['AAA'];
+
+    const categoryProducts = products.filter(p => p.category === data.category);
+    const product = categoryProducts.length > 0 ? categoryProducts[0] : products[0];
+
+    document.getElementById('result-title').textContent = data.title;
+    document.getElementById('result-desc').textContent = data.desc;
+    document.getElementById('result-comment').textContent = data.sakura;
+
+    const articleLink = document.getElementById('article-link');
+    articleLink.href = data.article;
+
+    const productLink = document.getElementById('product-link');
+    productLink.href = product.affiliate_links?.amazon?.url || '#';
+    document.getElementById('product-name').textContent = product.name;
+
+    const productImg = document.getElementById('product-img');
+    const productImgPh = document.getElementById('product-img-ph');
+    if (product.image_url) {
+      productImg.src = product.image_url;
+      productImg.alt = product.name;
+      productImg.classList.remove('hidden');
+      productImgPh.classList.add('hidden');
+    } else {
+      productImg.classList.add('hidden');
+      productImgPh.classList.remove('hidden');
+    }
+
+    document.querySelectorAll('.question-block').forEach(el => el.classList.remove('active'));
+    document.getElementById('step-indicator').style.opacity = '0.4';
+    document.getElementById('result-block').classList.add('active');
+    sakuraBubble.textContent = '診断完了！あなたにぴったりのガジェットはこれだよ🎉';
+  }
+
+  function resetQuiz() {
+    answers = {};
+    document.getElementById('result-block').classList.remove('active');
+    document.getElementById('step-indicator').style.opacity = '1';
+    document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+    showQuestion(1);
+  }
+
+  document.querySelectorAll('.choice-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const q = parseInt(btn.dataset.q);
+      const v = btn.dataset.v;
+      answers[q] = v;
+
+      btn.closest('.choices')?.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      setTimeout(() => {
+        if (q < 3) {
+          showQuestion(q + 1);
+        } else {
+          showResult();
+        }
+      }, 350);
+    });
+  });
+
+  retryBtn?.addEventListener('click', resetQuiz);
+
+  showQuestion(1);
+</script>
 
 <style>
   .shindan-page {
     max-width: 680px;
     margin: 0 auto;
-    padding: 1.5rem 1rem 3rem;
+    padding: 2rem 1rem 4rem;
   }
 
   .shindan-header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .shindan-title {
     font-size: 2rem;
     font-weight: 800;
-    color: var(--color-accent, #e05a8a);
-    margin: 0 0 0.4rem;
+    color: var(--color-heading, #1a1a2e);
+    margin-bottom: 0.5rem;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  [data-theme="dark"] .shindan-title {
+    color: #f0f0f0;
   }
 
   .shindan-subtitle {
-    color: var(--color-text-muted, #888);
-    font-size: 0.95rem;
-    margin: 0;
+    font-size: 1rem;
+    color: var(--color-text-muted, #666);
   }
 
-  /* サクラエリア */
-  .sakura-area {
+  .shindan-box {
+    background: var(--color-surface, #fff);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 24px rgba(99, 102, 241, 0.12);
+    border: 2px solid rgba(99, 102, 241, 0.18);
+    min-height: 480px;
+  }
+
+  [data-theme="dark"] .shindan-box {
+    background: var(--color-surface, #1a1a2e);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.08);
+  }
+
+  /* ステップインジケーター */
+  .step-indicator {
     display: flex;
-    align-items: flex-end;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    padding: 0 0.5rem;
-  }
-
-  .chibi-wrapper {
-    flex-shrink: 0;
-    position: relative;
-    width: 90px;
-    height: 110px;
-  }
-
-  .sakura-img {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 90px;
-    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
     transition: opacity 0.3s;
   }
 
-  .chibi-light { opacity: 1; }
-  .chibi-dark  { opacity: 0; }
-
-  [data-theme="dark"] .chibi-light { opacity: 0; }
-  [data-theme="dark"] .chibi-dark  { opacity: 1; }
-
-  .sakura-bubble {
-    background: var(--color-surface, #fff);
-    border: 2px solid var(--color-accent, #e05a8a);
-    border-radius: 1rem 1rem 1rem 0.25rem;
-    padding: 0.75rem 1rem;
-    flex: 1;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  .step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-border, #e5e7eb);
+    border: 2px solid var(--color-border, #e5e7eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    transition: background 0.3s, border-color 0.3s;
+    flex-shrink: 0;
     position: relative;
   }
 
-  .sakura-bubble p { margin: 0; }
-
-  /* コンテナ */
-  .shindan-container {
-    background: var(--color-surface, #fff);
-    border-radius: 1.25rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
-    overflow: hidden;
+  .step-dot::after {
+    content: attr(data-step);
+    color: #aaa;
   }
 
-  .screen { padding: 2rem 1.5rem; }
+  .step-dot.active {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border-color: transparent;
+  }
 
-  /* スタート画面 */
-  .start-card { text-align: center; }
-  .start-card h2 { font-size: 1.5rem; font-weight: 800; margin: 0 0 0.75rem; }
-  .start-desc { color: var(--color-text-muted, #666); margin-bottom: 1.25rem; line-height: 1.6; }
+  .step-dot.active::after {
+    color: #fff;
+  }
 
-  .rule-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem;
+  .step-dot.done {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border-color: transparent;
+  }
+
+  .step-dot.done::after {
+    content: '✓';
+    color: #fff;
+  }
+
+  .step-line {
+    height: 2px;
+    width: 60px;
+    background: var(--color-border, #e5e7eb);
+    flex-shrink: 0;
+  }
+
+  /* サクラのメッセージ */
+  .sakura-msg {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .rule-list li {
-    background: var(--color-bg, #fdf5f8);
-    border-radius: 0.75rem;
-    padding: 0.6rem 1rem;
-    font-size: 0.95rem;
-    text-align: left;
-  }
-
-  /* プログレス */
-  .progress-wrap {
-    display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.75rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
   }
 
-  .progress-bar-track {
+  .sakura-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(236, 72, 153, 0.4);
+  }
+
+  .sakura-bubble {
+    background: linear-gradient(135deg, #fff0f6, #f0f0ff);
+    border: 1.5px solid rgba(99, 102, 241, 0.25);
+    border-radius: 16px;
+    border-top-left-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
     flex: 1;
-    height: 8px;
-    background: var(--color-bg, #f0e0ea);
-    border-radius: 4px;
-    overflow: hidden;
+    transition: background 0.3s;
   }
 
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #e05a8a, #f0a0c0);
-    border-radius: 4px;
-    transition: width 0.4s ease;
+  [data-theme="dark"] .sakura-bubble {
+    background: linear-gradient(135deg, #2d1b2e, #1e1b4b);
+    border-color: rgba(139, 92, 246, 0.35);
+    color: #f0f0f0;
   }
 
-  .progress-label {
+  /* 質問ブロック */
+  .question-block {
+    display: none;
+    animation: fadeIn 0.35s ease;
+  }
+
+  .question-block.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .question-label {
     font-size: 0.8rem;
-    color: var(--color-text-muted, #999);
-    white-space: nowrap;
+    font-weight: 700;
+    color: #6366f1;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
   }
 
-  /* 質問カード */
-  .question-card {
-    animation: slideIn 0.35s ease;
-  }
-
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(30px); }
-    to   { opacity: 1; transform: translateX(0); }
+  [data-theme="dark"] .question-label {
+    color: #a5b4fc;
   }
 
   .question-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0 0 1.25rem;
-    line-height: 1.5;
-    color: var(--color-heading, #333);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-heading, #1a1a2e);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  [data-theme="dark"] .question-text {
+    color: #f0f0f0;
   }
 
   .choices {
@@ -224,335 +447,266 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .choice-btn {
-    background: var(--color-bg, #fdf5f8);
-    border: 2px solid var(--color-border, #f0d0e0);
-    border-radius: 1rem;
-    padding: 0.85rem 1.25rem;
-    font-size: 0.95rem;
-    font-weight: 600;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "icon main" "icon sub";
+    align-items: center;
+    gap: 0 0.5rem;
+    background: var(--color-surface-raised, #f8f9ff);
+    border: 2px solid var(--color-border, #e0e4ff);
+    border-radius: 14px;
+    padding: 0.9rem 1.1rem;
     cursor: pointer;
     text-align: left;
-    transition: all 0.18s ease;
-    color: var(--color-text, #333);
+    transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+
+  [data-theme="dark"] .choice-btn {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(139, 92, 246, 0.25);
   }
 
   .choice-btn:hover {
-    border-color: var(--color-accent, #e05a8a);
-    background: var(--color-accent-bg, #fff0f5);
+    border-color: #6366f1;
+    background: #f0f0ff;
     transform: translateX(4px);
+    box-shadow: 0 2px 12px rgba(99, 102, 241, 0.15);
+  }
+
+  [data-theme="dark"] .choice-btn:hover {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
   }
 
   .choice-btn.selected {
-    border-color: var(--color-accent, #e05a8a);
-    background: linear-gradient(135deg, #e05a8a, #f07aaa);
-    color: #fff;
+    border-color: #ec4899;
+    background: linear-gradient(135deg, #fff0f6, #f0f0ff);
+    transform: translateX(4px);
+    box-shadow: 0 2px 16px rgba(236, 72, 153, 0.2);
   }
 
-  /* 結果画面 */
-  .result-card {
+  [data-theme="dark"] .choice-btn.selected {
+    background: linear-gradient(135deg, #2d1b2e, #1e1b4b);
+    border-color: #ec4899;
+  }
+
+  .choice-icon {
+    grid-area: icon;
+    font-size: 1.5rem;
     text-align: center;
-    animation: fadeInUp 0.5s ease;
   }
 
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+  .choice-main {
+    grid-area: main;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-heading, #1a1a2e);
+    line-height: 1.3;
+  }
+
+  [data-theme="dark"] .choice-main {
+    color: #f0f0f0;
+  }
+
+  .choice-sub {
+    grid-area: sub;
+    font-size: 0.78rem;
+    color: var(--color-text-muted, #888);
+  }
+
+  /* 結果ブロック */
+  .result-block {
+    display: none;
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .result-block.active {
+    display: block;
   }
 
   .result-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #e05a8a, #f07aaa);
+    background: linear-gradient(135deg, #6366f1, #ec4899);
     color: #fff;
-    font-size: 0.8rem;
+    border-radius: 50px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    padding: 0.3rem 1rem;
-    border-radius: 2rem;
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
   }
 
   .result-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin: 0 0 1rem;
-    line-height: 1.4;
-    color: var(--color-heading, #333);
+    color: var(--color-heading, #1a1a2e);
+    margin-bottom: 0.6rem;
+    font-family: 'Quicksand', sans-serif;
   }
 
-  .result-comment {
-    font-size: 0.9rem;
-    color: var(--color-text-muted, #666);
+  [data-theme="dark"] .result-title {
+    color: #f0f0f0;
+  }
+
+  .result-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted, #555);
+    line-height: 1.7;
     margin-bottom: 1.5rem;
-    line-height: 1.6;
   }
 
-  /* ボタン */
-  .btn {
-    display: inline-block;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  [data-theme="dark"] .result-desc {
+    color: #c0c0c0;
+  }
+
+  /* 商品カード */
+  .product-card {
+    background: var(--color-surface-raised, #f8f9ff);
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  [data-theme="dark"] .product-card {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(139, 92, 246, 0.25);
+  }
+
+  .product-card a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     text-decoration: none;
+    color: inherit;
   }
 
-  .btn--primary {
-    background: linear-gradient(135deg, #e05a8a, #f07aaa);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(224,90,138,0.35);
+  .product-img-wrap {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(224,90,138,0.45);
-  }
-
-  .btn--result {
-    display: block;
-    background: linear-gradient(135deg, #e05a8a, #f07aaa);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(224,90,138,0.35);
-    margin-bottom: 0.75rem;
-  }
-
-  .btn--result:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(224,90,138,0.45);
-    color: #fff;
-  }
-
-  .btn--retry {
-    background: var(--color-bg, #f8f0f4);
-    color: var(--color-accent, #e05a8a);
-    border: 2px solid var(--color-accent, #e05a8a);
-    display: block;
+  .product-img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
-  .btn--retry:hover {
-    background: var(--color-accent, #e05a8a);
+  .product-img-ph {
+    font-size: 2rem;
+  }
+
+  .product-info {
+    flex: 1;
+    text-align: left;
+  }
+
+  .product-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-heading, #1a1a2e);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+
+  [data-theme="dark"] .product-name {
+    color: #f0f0f0;
+  }
+
+  .product-cta {
+    display: inline-block;
+    background: #ec4899;
     color: #fff;
+    border-radius: 20px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 700;
   }
 
-  /* ダークモード調整 */
-  [data-theme="dark"] .shindan-container {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  .product-card a:hover .product-cta {
+    background: #db2777;
   }
 
-  [data-theme="dark"] .rule-list li,
-  [data-theme="dark"] .choice-btn {
-    background: #2a1a22;
-    border-color: #4a2a3a;
-    color: #f0d0df;
+  /* 記事リンク */
+  .article-link {
+    display: block;
+    background: linear-gradient(135deg, #f0f0ff, #fff0f6);
+    border: 1.5px solid rgba(99, 102, 241, 0.25);
+    border-radius: 12px;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    color: #6366f1;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.2s;
   }
 
-  [data-theme="dark"] .choice-btn:hover {
-    background: #3a1a28;
-    border-color: #e05a8a;
+  .article-link:hover {
+    background: linear-gradient(135deg, #e0e0ff, #ffe0f0);
+    transform: translateY(-2px);
   }
 
-  [data-theme="dark"] .btn--retry {
-    background: transparent;
-    color: #f07aaa;
-    border-color: #f07aaa;
+  [data-theme="dark"] .article-link {
+    background: linear-gradient(135deg, #1e1b4b, #2d1b2e);
+    border-color: rgba(139, 92, 246, 0.35);
+    color: #a5b4fc;
   }
 
-  [data-theme="dark"] .progress-bar-track {
-    background: #3a1a28;
+  /* 結果時サクラコメント */
+  .sakura-result-msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  /* もう一度ボタン */
+  .retry-btn {
+    display: inline-block;
+    background: var(--color-surface-raised, #f3f4f6);
+    color: var(--color-text, #444);
+    border: 1.5px solid var(--color-border, #e5e7eb);
+    border-radius: 50px;
+    padding: 0.65rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .retry-btn:hover {
+    background: var(--color-border, #e5e7eb);
+    transform: translateY(-1px);
+  }
+
+  [data-theme="dark"] .retry-btn {
+    background: rgba(255,255,255,0.08);
+    color: #e0e0e0;
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  [data-theme="dark"] .retry-btn:hover {
+    background: rgba(255,255,255,0.14);
+  }
+
+  .hidden {
+    display: none !important;
   }
 
   @media (max-width: 480px) {
     .shindan-title { font-size: 1.6rem; }
-    .screen { padding: 1.5rem 1rem; }
-    .question-text { font-size: 1.05rem; }
+    .shindan-box { padding: 2rem 1.25rem; }
+    .question-text { font-size: 1.15rem; }
+    .step-line { width: 40px; }
   }
 </style>
-
-<script>
-  const questions = [
-    {
-      text: "Q1. 予算はどのくらいですか？",
-      choices: [
-        { label: "A　5,000円以下", value: "A" },
-        { label: "B　1万円以下",   value: "B" },
-        { label: "C　1万円以上",   value: "C" },
-      ],
-      messages: [
-        "予算を教えてね💰 どれくらいが理想？",
-        "どのくらい使える？一緒に考えよ！",
-        "予算次第でおすすめが変わるよ✨"
-      ]
-    },
-    {
-      text: "Q2. 主な使用シーンは？",
-      choices: [
-        { label: "A　持ち運び・外出",     value: "A" },
-        { label: "B　デスク・仕事",       value: "B" },
-        { label: "C　アウトドア・趣味",   value: "C" },
-      ],
-      messages: [
-        "どんな場面で使う？🌟",
-        "シーンを教えてくれると絞り込めるよ！",
-        "使う場所でぴったりのガジェットが変わるね💕"
-      ]
-    },
-    {
-      text: "Q3. いちばんのこだわりは？",
-      choices: [
-        { label: "A　コスパ重視",       value: "A" },
-        { label: "B　性能・品質",       value: "B" },
-        { label: "C　デザイン・おしゃれ", value: "C" },
-      ],
-      messages: [
-        "最後の質問！こだわりは何？✨",
-        "あと一問だよ、もうちょっと！🌸",
-        "こだわりを教えて！ぴったりを見つけるよ💕"
-      ]
-    }
-  ];
-
-  // 27通りの結果マッピング (Q1Q2Q3 → { slug, title, comment })
-  const results: Record<string, { slug: string; title: string; comment: string }> = {
-    // A (5000円以下)
-    AAA: { slug: "anker-powercore-10000-review",        title: "Anker PowerCore 10000 レビュー",        comment: "外出×コスパ最強のモバイルバッテリー！軽くてコンパクトだから毎日持ち歩けるよ✨" },
-    AAB: { slug: "portable-ssd-comparison",             title: "ポータブルSSD比較 2026年版",             comment: "外出先でデータも快適に！高性能ポータブルSSDでストレスフリーに🎵" },
-    AAC: { slug: "wireless-earphones-guide",            title: "ワイヤレスイヤホンの選び方完全ガイド",   comment: "外出中のおしゃれアイテムといえばコレ！スタイリッシュなイヤホンを探してみて🌸" },
-    ABA: { slug: "gadget-ranking-under-5000",           title: "5,000円以下ガジェット おすすめランキング", comment: "デスクで使えるコスパ最強ガジェットがまとめてチェックできるよ！" },
-    ABB: { slug: "ciniffo-electric-air-duster-review",  title: "Ciniffo 電動エアダスター レビュー",       comment: "デスク周りをキレイに保つ高性能ガジェット！PCのホコリに悩んでいるなら必見✨" },
-    ABC: { slug: "threekey-qi2-magsafe-charger-review", title: "Qi2 MagSafe充電器 レビュー",             comment: "デスクをおしゃれに彩るワイヤレス充電器！インテリアとしても映えるよ🌸" },
-    ACA: { slug: "amazon-basics-aa-battery-review",     title: "Amazonベーシック 乾電池 レビュー",        comment: "アウトドアの備えはコスパ重視で！大容量パックでお得にストックしておこう💪" },
-    ACB: { slug: "greeshow-gs297-radio-review",         title: "Greeshow GS-297 防災ラジオ レビュー",    comment: "アウトドアや緊急時に頼れる高性能ラジオ！性能重視ならこれが一番✨" },
-    ACC: { slug: "esr-iphone17-case-review",            title: "ESR iPhone 17 ケース レビュー",          comment: "アウトドアでもスタイリッシュに！おしゃれなケースで気分を上げよう🌺" },
-
-    // B (1万円以下)
-    BAA: { slug: "mobile-battery-recommendation",       title: "モバイルバッテリー おすすめ10選",        comment: "1万円以内のコスパ最強モバイルバッテリー比較！あなたにぴったりの一台が見つかるよ💕" },
-    BAB: { slug: "smartwatch-comparison",               title: "スマートウォッチ比較 2026年版",           comment: "外出の相棒に！健康管理もできる高性能スマートウォッチはどう？✨" },
-    BAC: { slug: "wireless-earphones-guide",            title: "ワイヤレスイヤホンの選び方完全ガイド",   comment: "1万円以下でおしゃれなイヤホンが揃ってるよ！外出をもっと楽しくしよう🎵" },
-    BBA: { slug: "usbc-hub-comparison",                 title: "USB-Cハブ 徹底比較",                     comment: "仕事効率を上げるコスパ最強のUSB-Cハブ！テレワークの必需品だよ✨" },
-    BBB: { slug: "keyboard-comparison",                 title: "メカニカルキーボード比較 2026年版",       comment: "デスクワークの質が上がるキーボード！高性能タイピング体験を試してみて⌨️" },
-    BBC: { slug: "threekey-qi2-magsafe-charger-review", title: "Qi2 MagSafe充電器 レビュー",             comment: "デスクにおしゃれなMagSafe充電器を置こう！シンプルでスタイリッシュ🌸" },
-    BCA: { slug: "gadget-ranking-under-10000",          title: "1万円以下ガジェット おすすめランキング",  comment: "アウトドアで使えるコスパガジェットを一覧でチェックできるよ！" },
-    BCB: { slug: "portable-ssd-comparison",             title: "ポータブルSSD比較 2026年版",             comment: "アウトドアでも頼れる高性能ストレージ！フィールドで大切なデータを守ろう✨" },
-    BCC: { slug: "snow-peak-titanium-mug-600",          title: "Snow Peak チタンシングルマグ600 レビュー", comment: "キャンプをおしゃれに演出するチタンマグ！軽くて丈夫でかっこいいよ🏕️" },
-
-    // C (1万円以上)
-    CAA: { slug: "gadget-ranking-under-30000",          title: "3万円以下ガジェット おすすめランキング",  comment: "予算があるならコスパ重視でベストの一台を探そう！ランキングで一気にチェック✨" },
-    CAB: { slug: "smartwatch-comparison",               title: "スマートウォッチ比較 2026年版",           comment: "外出に最高の高性能スマートウォッチはこれ！フル装備で日常をアップデートしよう💕" },
-    CAC: { slug: "panasonic-nanocare-review",           title: "パナソニック ナノケア ドライヤー レビュー", comment: "外出先でもおしゃれを楽しむ！話題の美容家電でスタイルをキープしよう✨" },
-    CBA: { slug: "pc-monitor-guide",                    title: "PCモニター 選び方ガイド",                 comment: "仕事の生産性を上げるPCモニター！コスパ重視で最高の作業環境を作ろう💼" },
-    CBB: { slug: "keyboard-comparison",                 title: "メカニカルキーボード比較 2026年版",       comment: "高性能キーボードでデスクワークを極める！タイピングが楽しくなるよ⌨️" },
-    CBC: { slug: "sharp-air-purifier-review",           title: "シャープ 空気清浄機 レビュー",            comment: "デスクをおしゃれに彩る空気清浄機！清潔な空気でお仕事の質が上がるよ🌿" },
-    CCA: { slug: "amazon-disaster-kit-b0ct7zx2ch-review", title: "Amazon 防災セット レビュー",           comment: "アウトドアでも防災意識はコスパ重視で！いざという時の備えを万全に✊" },
-    CCB: { slug: "pykes-peak-toilet-120-review",        title: "パイクスピーク 簡易トイレ レビュー",      comment: "アウトドアの高性能装備でワンランク上の体験を！快適さが段違いだよ✨" },
-    CCC: { slug: "snow-peak-titanium-mug-600",          title: "Snow Peak チタンシングルマグ600 レビュー", comment: "アウトドアをおしゃれに演出！軽量チタンマグでキャンプの雰囲気アップ🏕️" },
-  };
-
-  let answers: string[] = [];
-  let currentQ = 0;
-
-  const msgEl       = document.getElementById('sakura-message')!;
-  const startScreen = document.getElementById('screen-start')!;
-  const qScreen     = document.getElementById('screen-question')!;
-  const resScreen   = document.getElementById('screen-result')!;
-  const progressBar = document.getElementById('progress-bar')!;
-  const progressLbl = document.getElementById('progress-label')!;
-  const questionTxt = document.getElementById('question-text')!;
-  const choicesEl   = document.getElementById('choices')!;
-  const resultTitle = document.getElementById('result-title')!;
-  const resultComment= document.getElementById('result-comment')!;
-  const resultLink  = document.getElementById('result-link') as HTMLAnchorElement;
-
-  function setMessage(text: string) {
-    msgEl.textContent = text;
-  }
-
-  function showQuestion(index: number) {
-    const q = questions[index];
-    const randMsg = q.messages[Math.floor(Math.random() * q.messages.length)];
-    setMessage(randMsg);
-
-    // プログレスバー
-    progressBar.style.width = `${((index) / questions.length) * 100}%`;
-    progressLbl.textContent = `${index + 1} / ${questions.length}`;
-
-    questionTxt.textContent = q.text;
-
-    // 選択肢を再生成
-    choicesEl.innerHTML = '';
-    q.choices.forEach(c => {
-      const btn = document.createElement('button');
-      btn.className = 'choice-btn';
-      btn.textContent = c.label;
-      btn.addEventListener('click', () => selectAnswer(c.value, btn));
-      choicesEl.appendChild(btn);
-    });
-
-    // アニメーションリセット
-    const card = document.getElementById('question-card')!;
-    card.style.animation = 'none';
-    requestAnimationFrame(() => { card.style.animation = ''; });
-  }
-
-  function selectAnswer(value: string, btn: HTMLButtonElement) {
-    // ボタン無効化（連打防止）
-    choicesEl.querySelectorAll('.choice-btn').forEach(b => (b as HTMLButtonElement).disabled = true);
-    btn.classList.add('selected');
-
-    answers.push(value);
-
-    setTimeout(() => {
-      currentQ++;
-      if (currentQ < questions.length) {
-        showQuestion(currentQ);
-      } else {
-        showResult();
-      }
-    }, 350);
-  }
-
-  function showResult() {
-    const key = answers.join('') as string;
-    const r = results[key];
-
-    progressBar.style.width = '100%';
-
-    qScreen.style.display = 'none';
-    resScreen.style.display = '';
-
-    if (r) {
-      resultTitle.textContent = r.title;
-      resultComment.textContent = r.comment;
-      resultLink.href = `/posts/${r.slug}/`;
-      setMessage(`診断完了！あなたにぴったりはこれだよ💕`);
-    } else {
-      resultTitle.textContent = 'モバイルバッテリー おすすめ10選';
-      resultComment.textContent = 'どんな場面でも使えるモバイルバッテリーがおすすめ！一緒にチェックしてみて✨';
-      resultLink.href = '/posts/mobile-battery-recommendation/';
-      setMessage('診断完了！おすすめ記事を紹介するね🌸');
-    }
-  }
-
-  // スタートボタン
-  document.getElementById('btn-start')!.addEventListener('click', () => {
-    answers = [];
-    currentQ = 0;
-    startScreen.style.display = 'none';
-    qScreen.style.display = '';
-    showQuestion(0);
-  });
-
-  // リトライボタン
-  document.getElementById('btn-retry')!.addEventListener('click', () => {
-    answers = [];
-    currentQ = 0;
-    resScreen.style.display = 'none';
-    startScreen.style.display = '';
-    progressBar.style.width = '0%';
-    setMessage('どんなガジェットが気になる？✨ 一緒に探そ！');
-  });
-</script>
-
-</BaseLayout>
