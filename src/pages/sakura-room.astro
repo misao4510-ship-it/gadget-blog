@@ -1,0 +1,665 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// ギャラリー画像リスト
+const profileImages = [
+  { src: '/images/sakura-profile.png', alt: 'サクラ 立ち絵' },
+];
+
+const chibiv2Images = Array.from({ length: 10 }, (_, i) => ({
+  src: `/images/games/chibi/sakura_chibi_v2_${String(i + 1).padStart(2, '0')}_nobg.png`,
+  alt: `サクラちびキャラv2 ${i + 1}`,
+}));
+
+const whiteNums = [2, 3, 6, 11, 12, 17, 18, 20];
+const whiteImages = whiteNums.map(n => ({
+  src: `/images/games/chibi/white/sakura_chibi_white_${String(n).padStart(2, '0')}_nobg.png`,
+  alt: `サクラ白服ちびキャラ ${n}`,
+}));
+
+const blackNums = [1,2,3,4,5,6,7,8,11,13,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+const blackImages = blackNums.map(n => ({
+  src: `/images/games/chibi/black/sakura_chibi_black_${String(n).padStart(2, '0')}_nobg.png`,
+  alt: `サクラ黒服ちびキャラ ${n}`,
+}));
+
+const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...blackImages];
+---
+<BaseLayout
+  title="サクラの部屋"
+  description="サクラの秘密のギャラリールームへようこそ"
+>
+
+<style>
+  /* ===== パスワード認証画面 ===== */
+  #sakura-pw-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #fdf0f8 0%, #fff0fa 100%);
+  }
+  [data-theme="dark"] #sakura-pw-screen {
+    background: linear-gradient(135deg, #1a0d1a 0%, #1f0f1f 100%);
+  }
+  .sr-pw-card {
+    background: var(--color-surface);
+    border: 2px solid #f9a8d4;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.15);
+    padding: 2.5rem 2rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  [data-theme="dark"] .sr-pw-card {
+    border-color: #9d174d;
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.08);
+  }
+  .sr-pw-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto 0.5rem;
+    display: block;
+    animation: sr-bounce 1.2s ease-in-out infinite;
+  }
+  @keyframes sr-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .sr-pw-name {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .sr-pw-speech {
+    background: #fce8f3;
+    color: #be185d;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  [data-theme="dark"] .sr-pw-speech {
+    background: #3d0e2a;
+    color: #f9a8d4;
+  }
+  .sr-pw-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #fce8f3;
+  }
+  [data-theme="dark"] .sr-pw-speech::after {
+    border-top-color: #3d0e2a;
+  }
+  .sr-pw-input-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .sr-pw-input-row input[type="password"] {
+    flex: 1;
+    padding: 0.65rem 0.8rem;
+    border: 2px solid #f9a8d4;
+    border-radius: 10px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  .sr-pw-input-row input[type="password"]:focus {
+    outline: none;
+    border-color: #ec4899;
+  }
+  .sr-pw-btn {
+    background: #ec4899;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .sr-pw-btn:hover:not(:disabled) { background: #be185d; }
+  .sr-pw-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .sr-pw-error {
+    color: #e03a3a;
+    font-size: 0.85rem;
+    margin-top: 0.7rem;
+    min-height: 1.2em;
+  }
+  .sr-pw-lock {
+    color: #e07a3a;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.7rem;
+    min-height: 1.2em;
+  }
+
+  /* ===== ウェルカム演出 ===== */
+  #sakura-welcome {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(253, 240, 248, 0.97);
+    z-index: 2000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  [data-theme="dark"] #sakura-welcome {
+    background: rgba(26, 13, 26, 0.97);
+  }
+  #sakura-welcome.show { display: flex; }
+  .sw-img-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .sw-sakura-img {
+    width: 260px;
+    max-width: 80vw;
+    height: auto;
+    object-fit: contain;
+    filter: saturate(1.5) hue-rotate(-10deg);
+    animation: sw-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes sw-pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .sw-blush {
+    position: absolute;
+    bottom: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 18%;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+  .sw-blush-circle {
+    width: 28px;
+    height: 18px;
+    background: rgba(255, 100, 120, 0.5);
+    border-radius: 50%;
+    filter: blur(4px);
+  }
+  .sw-comment {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #be185d;
+    max-width: 400px;
+    line-height: 1.7;
+    background: #fce8f3;
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: sw-fadein 0.4s ease 0.3s both;
+  }
+  [data-theme="dark"] .sw-comment {
+    background: #3d0e2a;
+    color: #f9a8d4;
+  }
+  @keyframes sw-fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .sw-continue-btn {
+    background: #ec4899;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    animation: sw-fadein 0.4s ease 0.6s both;
+  }
+  .sw-continue-btn:hover { background: #be185d; }
+  .sw-countdown {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    animation: sw-fadein 0.4s ease 0.8s both;
+  }
+
+  /* ===== ギャラリー ===== */
+  #sakura-gallery {
+    display: none;
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .sg-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #fce8f3, #fdf0f8);
+    border-radius: 20px;
+    border: 1px solid #f9a8d4;
+  }
+  [data-theme="dark"] .sg-header {
+    background: linear-gradient(135deg, #2d0e20, #3d1530);
+    border-color: #9d174d;
+  }
+  .sg-header h1 {
+    font-size: 2rem;
+    color: #be185d;
+    margin: 0 0 0.5rem;
+  }
+  [data-theme="dark"] .sg-header h1 { color: #f9a8d4; }
+  .sg-header p {
+    color: #9d174d;
+    font-size: 0.95rem;
+  }
+  [data-theme="dark"] .sg-header p { color: #f0abcc; }
+  .sg-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #be185d;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #f9a8d4;
+  }
+  [data-theme="dark"] .sg-section-title {
+    color: #f9a8d4;
+    border-bottom-color: #9d174d;
+  }
+  .sg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  @media (min-width: 640px) {
+    .sg-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 900px) {
+    .sg-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .sg-thumb {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid #f9a8d4;
+    cursor: pointer;
+    background: #fdf0f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  [data-theme="dark"] .sg-thumb {
+    background: #2d0e20;
+    border-color: #9d174d;
+  }
+  .sg-thumb:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.25);
+    border-color: #ec4899;
+  }
+  .sg-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+  }
+
+  /* ===== ライトボックス ===== */
+  #sg-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #sg-lightbox.open { display: flex; }
+  .sg-lb-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    animation: lb-fadein 0.2s ease;
+  }
+  @keyframes lb-fadein {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .sg-lb-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .sg-lb-close:hover { background: rgba(255,255,255,0.3); }
+  .sg-lb-prev, .sg-lb-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .sg-lb-prev:hover, .sg-lb-next:hover { background: rgba(255,255,255,0.3); }
+  .sg-lb-prev { left: 12px; }
+  .sg-lb-next { right: 12px; }
+  .sg-lb-counter {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    margin-top: 12px;
+  }
+</style>
+
+<!-- パスワード認証画面 -->
+<div id="sakura-pw-screen">
+  <div class="sr-pw-card">
+    <img src="/images/sakura-profile.png" alt="サクラ" class="sr-pw-img" />
+    <div class="sr-pw-name">— サクラ —</div>
+    <div class="sr-pw-speech" id="sr-pw-speech">
+      合言葉は？🌸
+    </div>
+    <div class="sr-pw-input-row">
+      <input type="password" id="sr-pw-input" placeholder="合言葉を入力" autocomplete="off" maxlength="30" />
+      <button class="sr-pw-btn" id="sr-pw-btn">入る</button>
+    </div>
+    <div class="sr-pw-error" id="sr-pw-error"></div>
+    <div class="sr-pw-lock" id="sr-pw-lock"></div>
+  </div>
+</div>
+
+<!-- ウェルカム演出 -->
+<div id="sakura-welcome">
+  <div class="sw-img-wrap">
+    <img src="/images/sakura-profile.png" alt="サクラ" class="sw-sakura-img" />
+    <div class="sw-blush">
+      <div class="sw-blush-circle"></div>
+      <div class="sw-blush-circle"></div>
+    </div>
+  </div>
+  <div class="sw-comment" id="sw-comment"></div>
+  <button class="sw-continue-btn" id="sw-continue-btn">ギャラリーを見る ✨</button>
+  <div class="sw-countdown" id="sw-countdown">3秒後に自動で移動します…</div>
+</div>
+
+<!-- ギャラリー -->
+<div id="sakura-gallery">
+  <div class="sg-header">
+    <h1>🌸 サクラの部屋</h1>
+    <p>ようこそ、サクラの秘密のギャラリーへ✨</p>
+  </div>
+
+  <div class="sg-section-title">🌸 立ち絵</div>
+  <div class="sg-grid" id="sg-grid-profile">
+    {profileImages.map((img, i) => (
+      <div class="sg-thumb" data-index={i} data-group="profile">
+        <img src={img.src} alt={img.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+
+  <div class="sg-section-title">🎀 ちびキャラ v2</div>
+  <div class="sg-grid" id="sg-grid-v2">
+    {chibiv2Images.map((img, i) => (
+      <div class="sg-thumb" data-index={i} data-group="v2">
+        <img src={img.src} alt={img.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+
+  <div class="sg-section-title">🤍 白服ちびキャラ</div>
+  <div class="sg-grid" id="sg-grid-white">
+    {whiteImages.map((img, i) => (
+      <div class="sg-thumb" data-index={i} data-group="white">
+        <img src={img.src} alt={img.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+
+  <div class="sg-section-title">🖤 黒服ちびキャラ</div>
+  <div class="sg-grid" id="sg-grid-black">
+    {blackImages.map((img, i) => (
+      <div class="sg-thumb" data-index={i} data-group="black">
+        <img src={img.src} alt={img.alt} loading="lazy" />
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- ライトボックス -->
+<div id="sg-lightbox" role="dialog" aria-modal="true">
+  <button class="sg-lb-close" id="sg-lb-close" aria-label="閉じる">×</button>
+  <button class="sg-lb-prev" id="sg-lb-prev" aria-label="前の画像">‹</button>
+  <img src="" alt="" class="sg-lb-img" id="sg-lb-img" />
+  <button class="sg-lb-next" id="sg-lb-next" aria-label="次の画像">›</button>
+  <div class="sg-lb-counter" id="sg-lb-counter"></div>
+</div>
+
+<script define:vars={{ allGallery }}>
+(function() {
+  const SESSION_KEY = 'sakura_room_auth';
+  const CORRECT_PW = 'sakusakusakusaku';
+  const MAX_FAIL = 5;
+  const LOCK_SEC = 30;
+
+  const pwScreen = document.getElementById('sakura-pw-screen');
+  const welcome = document.getElementById('sakura-welcome');
+  const gallery = document.getElementById('sakura-gallery');
+  const pwInput = document.getElementById('sr-pw-input');
+  const pwBtn = document.getElementById('sr-pw-btn');
+  const pwError = document.getElementById('sr-pw-error');
+  const pwLock = document.getElementById('sr-pw-lock');
+  const pwSpeech = document.getElementById('sr-pw-speech');
+
+  let failCount = 0;
+  let lockTimer = null;
+
+  const COMMENTS = [
+    'え!? ちょ、ちょっと待ってください！まだ着替え中ですよ！💦',
+    'もう！ノックくらいしてくださいよー！🌸💢',
+    'な、なんで合言葉知ってるんですか…？ き、気にしないでください！！',
+    'ちょ、ちょっと！そんなに見ないでください、恥ずかしいです…💦💦',
+    '入ってこないでって言ったのに…！もうっ！❤',
+    '……っ！き、気づいてましたよ？ ちゃんとノックしてください！',
+    'えっ！？今ここにいたんですか！？全然気づきませんでした…💦',
+    'も、もう！覗かないでください！乙女の部屋ですよ！✨',
+    'う、うわ〜！な、なんで来るんですか〜！恥ずかしすぎます…',
+    'これが合言葉を知った代償です…わたし、あなたを恨みますからね…💗',
+  ];
+
+  function showGallery() {
+    if (pwScreen) pwScreen.style.display = 'none';
+    if (welcome) welcome.classList.remove('show');
+    if (gallery) gallery.style.display = 'block';
+  }
+
+  function showWelcome() {
+    if (pwScreen) pwScreen.style.display = 'none';
+    if (welcome) {
+      welcome.classList.add('show');
+      const commentEl = document.getElementById('sw-comment');
+      if (commentEl) {
+        commentEl.textContent = COMMENTS[Math.floor(Math.random() * COMMENTS.length)];
+      }
+      // 3秒カウントダウン
+      let remaining = 3;
+      const countdownEl = document.getElementById('sw-countdown');
+      const tick = () => {
+        if (countdownEl) countdownEl.textContent = `${remaining}秒後に自動で移動します…`;
+        if (remaining <= 0) {
+          clearInterval(timer);
+          showGallery();
+        }
+        remaining--;
+      };
+      tick();
+      const timer = setInterval(tick, 1000);
+
+      const continueBtn = document.getElementById('sw-continue-btn');
+      if (continueBtn) {
+        continueBtn.onclick = () => {
+          clearInterval(timer);
+          showGallery();
+        };
+      }
+    }
+  }
+
+  // セッション確認
+  if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+    showGallery();
+  }
+
+  // ロック処理
+  function startLock() {
+    let remaining = LOCK_SEC;
+    if (pwInput) pwInput.disabled = true;
+    if (pwBtn) pwBtn.disabled = true;
+    if (pwError) pwError.textContent = '';
+
+    const tick = () => {
+      if (pwLock) pwLock.textContent = `🔒 しばらくお待ちください（残り${remaining}秒）`;
+      if (remaining <= 0) {
+        clearInterval(lockTimer);
+        lockTimer = null;
+        failCount = 0;
+        if (pwInput) { pwInput.disabled = false; pwInput.value = ''; }
+        if (pwBtn) pwBtn.disabled = false;
+        if (pwLock) pwLock.textContent = '';
+      }
+      remaining--;
+    };
+    tick();
+    lockTimer = setInterval(tick, 1000);
+  }
+
+  function checkPassword() {
+    if (lockTimer) return;
+    const val = pwInput ? pwInput.value : '';
+    if (val === CORRECT_PW) {
+      sessionStorage.setItem(SESSION_KEY, 'true');
+      showWelcome();
+    } else {
+      failCount++;
+      if (failCount >= MAX_FAIL) {
+        startLock();
+      } else {
+        if (pwError) pwError.textContent = `ちがうよ…💦（残り${MAX_FAIL - failCount}回）`;
+        if (pwSpeech) pwSpeech.textContent = 'ちがうよ…💦 もう一度！';
+        if (pwInput) pwInput.value = '';
+      }
+    }
+  }
+
+  if (pwBtn) pwBtn.addEventListener('click', checkPassword);
+  if (pwInput) pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
+
+  // ===== ライトボックス =====
+  const lightbox = document.getElementById('sg-lightbox');
+  const lbImg = document.getElementById('sg-lb-img');
+  const lbCounter = document.getElementById('sg-lb-counter');
+  const lbClose = document.getElementById('sg-lb-close');
+  const lbPrev = document.getElementById('sg-lb-prev');
+  const lbNext = document.getElementById('sg-lb-next');
+
+  let currentIdx = 0;
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    const item = allGallery[idx];
+    if (lbImg && item) {
+      lbImg.src = item.src;
+      lbImg.alt = item.alt;
+    }
+    if (lbCounter) lbCounter.textContent = `${idx + 1} / ${allGallery.length}`;
+    if (lightbox) lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (lightbox) lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function prevImage() {
+    const idx = (currentIdx - 1 + allGallery.length) % allGallery.length;
+    openLightbox(idx);
+  }
+
+  function nextImage() {
+    const idx = (currentIdx + 1) % allGallery.length;
+    openLightbox(idx);
+  }
+
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (lbPrev) lbPrev.addEventListener('click', prevImage);
+  if (lbNext) lbNext.addEventListener('click', nextImage);
+  if (lightbox) lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox?.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'ArrowRight') nextImage();
+  });
+
+  // サムネイルクリック — グループ別にフラット化してインデックス計算
+  const groupOffsets = {
+    profile: 0,
+    v2: 1,        // profile 1枚
+    white: 11,    // profile 1 + v2 10 = 11
+    black: 19,    // + white 8 = 19
+  };
+
+  document.querySelectorAll('.sg-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const group = thumb.dataset.group;
+      const localIdx = parseInt(thumb.dataset.index || '0', 10);
+      const offset = groupOffsets[group] ?? 0;
+      openLightbox(offset + localIdx);
+    });
+  });
+})();
+</script>
+</BaseLayout>

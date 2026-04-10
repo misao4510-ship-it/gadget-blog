@@ -77,6 +77,7 @@ const currentYear = new Date().getFullYear();
       <a href="/faq/">FAQ</a>
       <a href="/prompt-builder/">🎨工房</a>
       <a href="/games/">🎮 ゲーム</a>
+      <a href="/sakura-room/" class="hidden-link" aria-label="サクラの部屋">🌸</a>
     </nav>
   </div>
 
@@ -100,6 +101,7 @@ const currentYear = new Date().getFullYear();
         <a href="/faq/">FAQ</a>
         <a href="/prompt-builder/">🎨工房</a>
         <a href="/games/">🎮 ゲーム</a>
+        <a href="/sakura-room/" class="hidden-link" aria-label="サクラの部屋">🌸</a>
       </nav>
       <button id="theme-toggle" aria-label="ダークモード切り替え" class="theme-toggle-btn">☀</button>
       <button id="hamburger-btn" aria-label="メニューを開く">☰</button>
@@ -238,6 +240,26 @@ const currentYear = new Date().getFullYear();
   }
   .drawer-nav .drawer-nav__sub:hover { background: var(--color-surface); }
 
+  /* 隠しリンク（サクラの部屋） */
+  .hidden-link {
+    color: var(--header-bg, #ffffff) !important;
+    transition: color 0.3s;
+    text-decoration: none;
+    border-bottom-color: transparent !important;
+  }
+  .hidden-link:hover,
+  .hidden-link:focus {
+    color: #ec4899 !important;
+    border-bottom-color: #ec4899 !important;
+  }
+  [data-theme="dark"] .hidden-link {
+    color: var(--header-bg, #0a0a14) !important;
+  }
+  [data-theme="dark"] .hidden-link:hover,
+  [data-theme="dark"] .hidden-link:focus {
+    color: #ec4899 !important;
+  }
+
   /* オーバーレイ */
   #drawer-overlay {
     display: none;
@@ -289,6 +311,19 @@ const currentYear = new Date().getFullYear();
   });
 
   updateToggleIcon();
+
+  // 0.5%リダイレクト: 記事カードクリック時にサクラの部屋へ
+  (function() {
+    if (sessionStorage.getItem('sakura_room_auth') === 'true') return;
+    document.querySelectorAll('a.article-card__image-link, a[href*="/posts/"], .article-card a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (Math.random() < 0.005) {
+          e.preventDefault();
+          window.location.href = '/sakura-room/';
+        }
+      });
+    });
+  })();
 </script>
 
 <!-- Cloudflare Web Analytics -->
