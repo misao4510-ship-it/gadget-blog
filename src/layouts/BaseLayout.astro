@@ -296,8 +296,6 @@ const currentYear = new Date().getFullYear();
 
   // 0.1%招待状オーバーレイ: 記事カードクリック時にサクラの部屋への招待状を表示
   (function() {
-    if (sessionStorage.getItem('sakura_room_auth') === 'true') return;
-
     function showArticleInvitation() {
       const invOverlay = document.createElement('div');
       invOverlay.id = 'article-invitation-overlay';
@@ -328,13 +326,16 @@ const currentYear = new Date().getFullYear();
       });
     }
 
-    document.querySelectorAll('a.article-card__image-link, a[href*="/posts/"], .article-card a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (Math.random() < 0.3) {
-          e.preventDefault();
-          showArticleInvitation();
-        }
-      });
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      const isArticleLink = href.includes('/posts/') || link.closest('.article-card');
+      if (!isArticleLink) return;
+      if (Math.random() < 0.3) {
+        e.preventDefault();
+        showArticleInvitation();
+      }
     });
   })();
 
