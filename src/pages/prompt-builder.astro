@@ -705,6 +705,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label for="pb-extra">追加指示（フリーテキスト）</label>
             <div class="custom-row"><input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" /><button type="button" class="trans-btn" data-target="pb-extra">📝 変換</button></div>
           </div>
+          <div class="field-group">
+            <div class="quality-tags">
+              <label><input type="checkbox" id="pb-nsfw" value="nsfw" /> NSFW</label>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -1035,6 +1040,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (v) parts.push(v);
     }
 
+    // NSFW
+    if (checked('pb-nsfw')) parts.push('nsfw');
+
     // 追加指示
     const extra = val('pb-extra');
     if (extra) parts.push(extra);
@@ -1079,7 +1087,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     'pb-outfit-color','pb-outfit-color-custom',
     'pb-pose','pb-pose-custom',
     'pb-bg','pb-bg-custom','pb-extra','pb-negative',
-    'pb-lora-on','pb-lora-strength',
+    'pb-lora-on','pb-lora-strength','pb-nsfw',
   ];
   for (const id of watchIds) {
     const el = document.getElementById(id);
