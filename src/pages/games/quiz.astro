@@ -141,7 +141,106 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       choices: ["音が真に高音質であること", "左右が完全に独立（コードなし）であること", "ノイズキャンセリングが真に機能すること", "バッテリーが真に長持ちすること"],
       answer: 1,
       explanation: "TWS＝True Wireless Stereo。左右のイヤホンが完全にコードレスで独立しているのが「True」の意味だよ！"
-    }
+    },
+    // ===== 充電・バッテリー追加問題 =====
+    { q: "iPhoneのMagSafe充電の最大速度は？", choices: ["7.5W", "10W", "15W", "25W"], answer: 2, explanation: "MagSafeはiPhone 12以降で最大15Wのワイヤレス充電に対応。Qi通常の7.5Wより倍速だよ！" },
+    { q: "「Qi2」規格の最大充電速度は？", choices: ["5W", "10W", "15W", "25W"], answer: 2, explanation: "Qi2はQi規格の後継で最大15W。MagSafeと同じ磁気アライメント技術を採用しているよ！" },
+    { q: "USB PD 3.1で対応した最大出力は？", choices: ["100W", "140W", "200W", "240W"], answer: 3, explanation: "USB PD 3.1では最大240Wに対応。大型ノートPCも高速充電できるようになったよ！" },
+    { q: "Samsungの急速充電規格「AFC」の最大出力は？", choices: ["9W", "15W", "25W", "45W"], answer: 1, explanation: "AFC（Adaptive Fast Charging）はSamsungの急速充電規格で最大15W（9V/1.67A）対応だよ！" },
+    { q: "OPPOの急速充電規格の名称は？", choices: ["Warp Charge", "SuperVOOC", "TurboCharge", "Flash Charge"], answer: 1, explanation: "SuperVOOC（スーパーボーク）はOPPO/OnePlusの急速充電規格。最新モデルでは240Wにも対応しているよ！" },
+    { q: "航空機内でのリチウムイオン電池持ち込み上限（一般的な目安）は？", choices: ["50Wh", "100Wh", "160Wh", "制限なし"], answer: 1, explanation: "多くの航空会社では100Wh以下が機内持ち込み可能。100〜160Whは事前申告が必要な場合が多いよ！" },
+    { q: "リチウムイオン電池の公称電圧は何V？", choices: ["1.5V", "3.7V", "5.0V", "7.4V"], answer: 1, explanation: "リチウムイオン電池の公称電圧は3.7V。mAh×3.7÷1000でWh（ワット時）を計算できるよ！" },
+    { q: "Qualcommの急速充電規格「Quick Charge 5」の最大出力は？", choices: ["18W", "45W", "65W", "100W"], answer: 3, explanation: "Quick Charge 5は最大100Wに対応。15分でスマートフォンを充電できる設計だよ！" },
+    // ===== イヤホン・ヘッドホン追加問題 =====
+    { q: "Bluetoothコーデック「aptX」を提供しているメーカーは？", choices: ["Sony", "Apple", "Qualcomm", "Samsung"], answer: 2, explanation: "aptXはQualcommが提供するBluetoothコーデック。有線に近い音質が特徴だよ！" },
+    { q: "SonyのBluetoothコーデック「LDAC」の最大転送レートは？", choices: ["320kbps", "660kbps", "990kbps", "1320kbps"], answer: 2, explanation: "LDACの最大転送レートは990kbps。SBC（328kbps）の約3倍でハイレゾ相当の音質を伝送できるよ！" },
+    { q: "ハイレゾ音源の一般的な最低サンプリングレートの目安は？", choices: ["44.1kHz", "48kHz", "96kHz", "192kHz"], answer: 2, explanation: "ハイレゾは一般的に96kHz/24bit以上が目安。CD音質（44.1kHz/16bit）を超える高音質だよ！" },
+    { q: "骨伝導イヤホンの仕組みとして正しいものは？", choices: ["空気振動で音を伝える", "骨の振動を直接内耳に伝える", "レーザーで鼓膜を振動させる", "電磁波で神経を刺激する"], answer: 1, explanation: "骨伝導は頬骨などを振動させて内耳に直接音を伝える仕組み。耳を塞がないので周囲の音も聞こえるよ！" },
+    { q: "「開放型（オープンバック）」ヘッドホンの特徴は？", choices: ["防水性が高い", "音漏れがほぼない", "自然な音場感が得られる", "ノイズキャンセリングが強力"], answer: 2, explanation: "開放型は音が外に漏れる代わりに自然で広がりのある音場感が特徴。主に室内での使用向けだよ！" },
+    { q: "「密閉型（クローズドバック）」ヘッドホンの最大の特徴は？", choices: ["低音が出ない", "音漏れが少ない", "軽量で持ち運びやすい", "価格が安い"], answer: 1, explanation: "密閉型は外部に音が漏れにくく、外の騒音も遮断しやすい。外出先や騒がしい場所での使用に向いているよ！" },
+    { q: "イヤホンの「感度（dB/mW）」が高い場合の特徴は？", choices: ["音質が良い", "低消費電力で大きな音が出る", "ノイズキャンセリングが強い", "有線専用である"], answer: 1, explanation: "感度が高いほど少ない電力で大きな音が出せる。スマホなど非力なプレイヤーでも十分な音量が得られるよ！" },
+    { q: "「カナル型」イヤホンの特徴は？", choices: ["耳の入口に引っかける形式", "耳栓状のイヤーチップで耳道に挿入する形式", "ヘッドバンドで固定する", "骨を振動させる形式"], answer: 1, explanation: "カナル型はイヤーチップを耳道に深く挿入するタイプ。密閉感が高く遮音性・低音が優れているよ！" },
+    { q: "Bluetooth LE Audioで採用された新コーデックは？", choices: ["aptX HD", "LDAC", "LC3", "AAC+"], answer: 2, explanation: "LC3（Low Complexity Communication Codec）はBluetooth LE Audio向けの新コーデック。低ビットレートでも高音質を実現するよ！" },
+    // ===== スマートフォン・タブレット追加問題 =====
+    { q: "AppleのM4チップが使用する製造プロセスは？", choices: ["5nm", "4nm", "3nm", "2nm"], answer: 2, explanation: "M4チップはTSMCの第2世代3nmプロセスで製造。高性能・低消費電力を両立しているよ！" },
+    { q: "Snapdragon 8 Gen 3を開発したメーカーは？", choices: ["Intel", "MediaTek", "Qualcomm", "Samsung"], answer: 2, explanation: "Snapdragon 8 Gen 3はQualcomm製のフラッグシップSoC。Androidの高性能スマホに多く採用されているよ！" },
+    { q: "iPhone 15 Proのメインカメラの画素数は？", choices: ["12MP", "24MP", "48MP", "108MP"], answer: 2, explanation: "iPhone 15 Proのメインカメラは48MPセンサーを搭載。通常撮影はピクセルビニングで12MP相当になるよ！" },
+    { q: "「リフレッシュレート120Hz」のディスプレイが意味することは？", choices: ["画面輝度が120%向上", "1秒間に120回画面を更新できる", "色数が120倍になる", "省電力性が120%向上"], answer: 1, explanation: "リフレッシュレート120Hzは1秒間に120回画面を書き換えること。スクロールやアニメーションがより滑らかに見えるよ！" },
+    { q: "「SoC（System on a Chip）」に通常統合されていないものは？", choices: ["CPU", "GPU", "メモリコントローラー", "ハードディスク"], answer: 3, explanation: "SoCにはCPU・GPU・メモリコントローラー・通信モジュールなどが統合されるが、ハードディスクは別デバイスだよ！" },
+    { q: "iPhone 15シリーズで初めて採用されたポートは？", choices: ["Lightning", "USB-A", "USB-C", "micro USB"], answer: 2, explanation: "iPhone 15でAppleはLightningを廃止しUSB-Cを初採用。充電ケーブルの統一化が進んだよ！" },
+    { q: "スマホのRAM規格「LPDDR5」の「LP」は何の略？", choices: ["Large Processor", "Low Power", "Long Performance", "Latest Protocol"], answer: 1, explanation: "LPはLow Power（低消費電力）の略。スマートフォン向けに省電力化されたモバイルDRAMの規格だよ！" },
+    { q: "スマホカメラの「光学ズーム」と「デジタルズーム」の違いは？", choices: ["解像度の差はない", "光学は画質劣化なし、デジタルは拡大で劣化あり", "デジタルの方が高品質", "光学はソフトウェア処理"], answer: 1, explanation: "光学ズームはレンズを物理的に動かすため画質劣化なし。デジタルズームは画像を切り抜き拡大するため劣化するよ！" },
+    { q: "折りたたみスマホで使われるディスプレイ素材の主流は？", choices: ["Gorilla Glass", "サファイアガラス", "折りたためる有機EL（OLED）", "液晶（LCD）"], answer: 2, explanation: "折りたたみスマホは曲げられる薄型有機EL（OLED）フィルムを使用。ガラスと異なり折り曲げに対応できるよ！" },
+    // ===== PC周辺機器追加問題 =====
+    { q: "ゲーミングマウスの「DPI」が高い場合の特徴は？", choices: ["ボタン数が増える", "少し動かすだけでカーソルが大きく動く", "クリック音が大きくなる", "バッテリーが長持ちする"], answer: 1, explanation: "DPI（Dots Per Inch）が高いほど感度が上がり、わずかな動きでカーソルが大きく移動するよ！" },
+    { q: "メカニカルキーボードの「赤軸」の特徴は？", choices: ["クリック感あり・打鍵音大", "クリック感なし・軽いタッチ", "重いタッチ・スムーズ", "クリック感あり・打鍵音小"], answer: 1, explanation: "赤軸は線形スイッチでクリック感がなく、軽い力でスムーズに入力できる。静音性も比較的高いよ！" },
+    { q: "HDR規格「HDR10」の最大輝度は？", choices: ["400nit", "600nit", "1000nit", "4000nit"], answer: 2, explanation: "HDR10の最大輝度は1000nit。SDRの最大100nitと比べ大幅に明るい映像表現が可能だよ！" },
+    { q: "モニターパネル「VA」の最大の特徴は？", choices: ["応答速度が最速", "コントラスト比が高い", "視野角が最も広い", "最も価格が安い"], answer: 1, explanation: "VAパネルはコントラスト比が非常に高いのが特徴。黒の深さが際立ち映画鑑賞に向いているよ！" },
+    { q: "USB 3.2 Gen 2の最大転送速度は？", choices: ["5Gbps", "10Gbps", "20Gbps", "40Gbps"], answer: 1, explanation: "USB 3.2 Gen 2は最大10Gbpsの転送速度に対応。旧称はUSB 3.1 Gen 2だよ！" },
+    { q: "外付けGPU（eGPU）の接続に主に使われるインターフェースは？", choices: ["USB-A", "HDMI", "Thunderbolt", "DisplayPort"], answer: 2, explanation: "eGPUはThunderbolt（主にTB3/TB4）を使って接続。最大40GbpsのPCIe帯域幅を利用するよ！" },
+    { q: "DDR5メモリのDDR4に対する主な改善点は？", choices: ["容量の上限が下がった", "消費電力が低下し帯域幅が向上", "クロック速度が低下", "物理サイズが大きくなった"], answer: 1, explanation: "DDR5はDDR4より電圧が低く（1.1V）消費電力が少ない。帯域幅も大幅に向上しているよ！" },
+    { q: "PCの起動時に実行される「POST」とは？", choices: ["OSの起動処理", "ハードウェアの自己診断テスト", "BIOSのアップデート", "ネットワーク接続確認"], answer: 1, explanation: "POST（Power-On Self-Test）はPCが起動時にCPU・メモリ・ストレージなどを確認する自己診断テストだよ！" },
+    { q: "4K/144Hzのモニターを使う場合に推奨される接続規格は？", choices: ["HDMI 1.4", "DisplayPort 1.2", "HDMI 2.1またはDisplayPort 1.4以降", "USB 3.2"], answer: 2, explanation: "4K/144Hzには高帯域幅が必要。HDMI 2.1（48Gbps）またはDisplayPort 1.4（32.4Gbps）以降が推奨されるよ！" },
+    // ===== ネットワーク・通信追加問題 =====
+    { q: "Wi-Fi 6の規格番号（IEEE）は？", choices: ["802.11ac", "802.11ax", "802.11n", "802.11be"], answer: 1, explanation: "Wi-Fi 6（および6E）は802.11axの規格。前世代のWi-Fi 5（802.11ac）から効率が大幅に向上したよ！" },
+    { q: "5Gの「ミリ波（mmWave）」は主に何GHz帯？", choices: ["2.4GHz", "6GHz", "28GHz以上", "900MHz"], answer: 2, explanation: "ミリ波は28GHz以上の高周波帯域。超高速通信が可能だが距離が短く障害物に弱いのが特徴だよ！" },
+    { q: "Wi-Fi 6Eが新たに対応した周波数帯は？", choices: ["2.4GHz", "5GHz", "6GHz", "60GHz"], answer: 2, explanation: "Wi-Fi 6Eは6GHz帯にも対応。新しい帯域なので混雑が少なく高速通信しやすいよ！" },
+    { q: "IoT向け低消費電力・長距離通信規格「LoRa」の通信距離は？", choices: ["約100m", "約1km", "数〜15km（環境次第）", "約100km"], answer: 2, explanation: "LoRaは数km〜15km以上（見通し距離）の通信が可能なLPWAN規格。農業や物流向けIoTで多用されているよ！" },
+    { q: "NFC通信の主な使用用途として正しくないものは？", choices: ["交通系ICカード", "スマホ決済", "長距離ファイル転送", "データ共有（名刺交換）"], answer: 2, explanation: "NFCは数cmの近距離通信専用。長距離ファイル転送はWi-FiやBluetoothが使われるよ！" },
+    { q: "「Wi-Fi Direct」の特徴として正しいものは？", choices: ["インターネット接続が必須", "ルーターなしで機器同士が直接接続できる", "最大接続距離は1cm", "速度は最大1Mbps"], answer: 1, explanation: "Wi-Fi Directはルーター（アクセスポイント）なしで機器同士がWi-Fiで直接通信できる規格だよ！" },
+    { q: "Bluetooth LEの「LE」は何の略？", choices: ["Large Extent", "Long Error", "Low Energy", "Latest Edition"], answer: 2, explanation: "LE＝Low Energy。消費電力を極力抑えたBluetoothの仕様で、ウェアラブルやセンサー機器に多用されているよ！" },
+    { q: "「DNS」の主な役割は？", choices: ["データを暗号化する", "ドメイン名をIPアドレスに変換する", "Webページをキャッシュする", "パケットを最適なルートで転送する"], answer: 1, explanation: "DNS（Domain Name System）はgoogle.comのようなドメイン名をIPアドレスに変換するシステムだよ！" },
+    { q: "Wi-Fi 7（802.11be）で新たに採用された主な技術は？", choices: ["OFDMA", "MU-MIMO", "MLO（マルチリンクオペレーション）", "ビームフォーミング"], answer: 2, explanation: "Wi-Fi 7はMLO（Multi-Link Operation）を新採用。複数の周波数帯を同時に使って超高速通信を目指すよ！" },
+    // ===== スマートホーム・IoT追加問題 =====
+    { q: "Amazon Echoシリーズのウェイクワードは？", choices: ["シリ", "アレクサ", "コルタナ", "Bixby"], answer: 1, explanation: "Amazon EchoのウェイクワードはAlexa（アレクサ）。他にもAmazon/Echo/Ziggyなどに変更できるよ！" },
+    { q: "Google Nestスピーカーのウェイクワードは？", choices: ["Hey Siri", "OK Google / Hey Google", "Hey Cortana", "Wake Up Google"], answer: 1, explanation: "「OK Google」または「Hey Google」がGoogle Nestのウェイクワードだよ！" },
+    { q: "Apple HomeKitのホームハブとして使えるデバイスは？", choices: ["iPhone", "MacBook", "Apple TV / HomePod", "AirPods"], answer: 2, explanation: "HomeKitのホームハブはApple TV・HomePod・常時Wi-Fi接続のiPadが対応。外から操作するために必要だよ！" },
+    { q: "スマートホーム統一規格「Matter」を推進する団体は？", choices: ["IEEE", "CSA（Connectivity Standards Alliance）", "Wi-Fi Alliance", "Bluetooth SIG"], answer: 1, explanation: "MatterはCSA（旧Zigbee Alliance）が策定したスマートホーム相互接続規格。Apple・Google・Amazonも参加しているよ！" },
+    { q: "スマートホーム規格「Zigbee」が使用する主な周波数帯は？", choices: ["433MHzのみ", "868MHz/915MHz/2.4GHz（地域依存）", "5GHz専用", "60GHz"], answer: 1, explanation: "Zigbeeは地域により433MHz・868MHz・915MHz・2.4GHzを使用。低消費電力でメッシュネットワークを構築できるよ！" },
+    { q: "ロボット掃除機の「LiDAR」は何の略？", choices: ["Light Distance And Ranging", "Laser Imaging Detection and Ranging", "Linear Infrared Detection Array Radar", "Light Integrated Direction And Rotation"], answer: 1, explanation: "LiDAR＝Laser Imaging Detection and Ranging（レーザー光を使った距離測定）。ロボット掃除機の地図作成に使われるよ！" },
+    { q: "スマートプラグで主に計測できるデータは？", choices: ["室温と湿度", "消費電力（W・kWh）", "Wi-Fi信号強度", "接続デバイス数"], answer: 1, explanation: "スマートプラグは電力モニタリング機能を持つものが多く、家電ごとの消費電力をスマホで確認できるよ！" },
+    { q: "「IFTTT」のサービス名が意味することは？", choices: ["Integrated Framework for Tech and Technology Tools", "If This Then That", "Internet Functions Through Trigger Tools", "Intelligent Feature Transfer Technology"], answer: 1, explanation: "IFTTT＝If This Then That。「もし〇〇なら△△する」という自動化ルールを作れるサービスだよ！" },
+    { q: "スマートホームのハブの主な役割は？", choices: ["電力を供給する", "異なる通信規格のデバイスを統合・制御する", "Wi-Fiルーターの別名", "センサーデータのみ記録する"], answer: 1, explanation: "スマートホームのハブはZigbee・Z-Wave・Threadなど異なる通信規格を束ねて一元管理するための機器だよ！" },
+    // ===== カメラ・映像機器追加問題 =====
+    { q: "映像コーデック「HEVC」の別名（規格番号）は？", choices: ["H.264", "H.265", "H.266", "VP9"], answer: 1, explanation: "HEVC＝High Efficiency Video CodingはH.265とも呼ばれる。H.264比で同画質なら約半分のデータ量で済むよ！" },
+    { q: "カメラの「F値（絞り値）」が小さいほど？", choices: ["暗い写真になる", "被写界深度が深くなる", "より多くの光を取り込め背景がボケやすい", "ズーム倍率が上がる"], answer: 2, explanation: "F値が小さいほどレンズ開口部が大きく、より多くの光が入り被写界深度が浅くなって背景がボケやすいよ！" },
+    { q: "3軸ジンバルが制御する3方向を正しく表したものは？", choices: ["上下・前後・左右の移動", "ピッチ・ロール・ヨー", "X軸・Y軸・Z軸の移動", "速度・加速度・角速度"], answer: 1, explanation: "ジンバルはピッチ（前後傾き）・ロール（左右回転）・ヨー（水平回転）の3軸を制御して映像を安定させるよ！" },
+    { q: "ミラーレスカメラが一眼レフと比較して有利な点は？", choices: ["光学ファインダーが使える", "ボディが薄く軽量化しやすい", "バッテリー持ちが良い", "全天候対応が標準"], answer: 1, explanation: "ミラーレスはミラーボックスが不要なためボディを薄く・軽くできる。電子ビューファインダーで撮影前から結果を確認できるよ！" },
+    { q: "動画の「LOG撮影」の主な目的は？", choices: ["ファイルサイズを小さくする", "低ダイナミックレンジを記録する", "広いダイナミックレンジを保持してポスプロの柔軟性を高める", "自動でカラー補正する"], answer: 2, explanation: "LOG撮影は明暗情報を広く記録してフラットな映像を生成。カラーグレーディングで自在に仕上げられるよ！" },
+    { q: "「RAW」形式の写真データとJPEGの最大の違いは？", choices: ["RAWの方がファイルサイズが小さい", "RAWは現像処理前のデータを保持し編集の自由度が高い", "JPEGはRAWより高画質", "RAWはすべてのデバイスで即時表示できる"], answer: 1, explanation: "RAWはカメラセンサーの未処理データを保存。ホワイトバランス・露出などをあとから自由に調整できるよ！" },
+    { q: "「フルサイズ」センサーが基準としているのは？", choices: ["人間の瞳の大きさ", "35mmフィルム（36×24mm）", "4×5インチ大判フィルム", "APS-Cの2倍"], answer: 1, explanation: "フルサイズは35mmフィルムと同じ36×24mmのセンサーサイズが基準。ボケ量・光量でAPS-Cより有利だよ！" },
+    { q: "8K解像度（7680×4320）の総画素数は約何万画素？", choices: ["約830万画素", "約1600万画素", "約3300万画素", "約6600万画素"], answer: 2, explanation: "7680×4320≒3318万画素。4K（約830万画素）の約4倍の情報量だよ！" },
+    { q: "ドローンの飛行姿勢安定化に使われる主なセンサーは？", choices: ["GPS単独", "IMU（慣性計測装置）とジャイロスコープ", "LiDARのみ", "カメラのみ"], answer: 1, explanation: "ドローンはIMU（加速度センサー＋ジャイロスコープ）で姿勢を検知・制御。GPSと組み合わせて位置も保持するよ！" },
+    // ===== 防水・堅牢性追加問題 =====
+    { q: "IP等級の最初の数字（例：IP6X）は何を示す？", choices: ["防水等級", "固体（粉塵）に対する保護等級", "衝撃耐性等級", "温度耐性等級"], answer: 1, explanation: "IP等級の最初の数字は固体（粉塵・異物）からの保護レベル。最高の6は「防塵（完全保護）」を意味するよ！" },
+    { q: "米軍規格「MIL-STD-810」は何の試験を規定している？", choices: ["電磁波耐性", "温度・湿度・衝撃・振動などの環境耐久性", "防水性のみ", "爆発耐性"], answer: 1, explanation: "MIL-STD-810は米軍の環境耐久試験規格。落下・振動・温度・湿度・砂塵など多岐にわたる試験を定義しているよ！" },
+    { q: "「IPX8」の防水等級が意味することは？", choices: ["水深30cmに30分耐える", "水深1mに30分耐える", "メーカー指定の条件での継続水没に耐える", "水圧試験未実施"], answer: 2, explanation: "IPX8はIPX7（水深1m/30分）を超えた連続水没への耐性。具体的な深さと時間はメーカーが独自に規定するよ！" },
+    { q: "IP規格で固体保護等級「5（IP5X）」は何を意味する？", choices: ["完全防塵", "粉塵の侵入を防ぐが完全ではない（有害な堆積なし）", "粉塵に対して保護なし", "液体からの保護のみ"], answer: 1, explanation: "IP5Xは「防塵」で粉塵の完全遮断はしないが、機器の動作に支障をきたす量の侵入を防ぐ等級だよ！" },
+    { q: "「防滴」と「防水」の主な違いは？", choices: ["実質的な差はない", "防滴は雨・水しぶき程度、防水は水没に耐える", "防水のほうが保護レベルが低い", "防滴はIP68相当"], answer: 1, explanation: "防滴（shower-proof）は雨や水しぶきへの耐性。防水は一定時間の水没にも耐えるより高い保護レベルだよ！" },
+    { q: "Corning Gorilla Glassは主にどのような用途向け？", choices: ["熱への耐性強化", "スクリーンの傷・落下への耐性強化", "電磁波遮蔽", "指紋認証センサーの保護"], answer: 1, explanation: "Gorilla GlassはCorning社のアルミノシリケートガラス。スマホのディスプレイを傷・落下から守るために設計されているよ！" },
+    { q: "IP規格において「X」が使われる場合（例：IPX7）の意味は？", choices: ["最高等級を意味する", "その保護分類の試験を行っていない（評価なし）", "この方向からの侵入に耐える", "特殊環境向け"], answer: 1, explanation: "「X」はその保護分類の試験を行っていないことを示す。IPX7は固体保護評価なし＋水深1m/30分耐水だよ！" },
+    { q: "IP防水規格は海水・塩水への耐性を保証するか？", choices: ["IPX7以上なら保証される", "IP68なら保証される", "保証されない（淡水のみが対象）", "全等級で保証される"], answer: 2, explanation: "IP試験は淡水（清水）が対象。海水・プールの塩素・石鹸水などは腐食の原因になるため保証外だよ！" },
+    { q: "タフネス系スマホの「1.8m落下耐性」の基準は？", choices: ["あらゆる角度から1.8m落下OK", "特定条件下で1.8mの高さからの落下テストをクリア", "水深1.8mに対応", "1.8kgの荷重に耐える"], answer: 1, explanation: "落下テストは決められた条件（角度・回数・床材）で実施される。日常環境への耐性の目安として参考にしてね！" },
+    // ===== バッテリー・電源追加問題 =====
+    { q: "「LFP（リン酸鉄リチウム）」電池の最大の特徴は？", choices: ["エネルギー密度が最高", "安全性が高く長寿命だが重量が重い", "充電速度が最も速い", "最も安価で軽量"], answer: 1, explanation: "LFP電池は熱安定性が高く火災リスクが低い。サイクル寿命も長いのでEV・ポータブル電源に多用されているよ！" },
+    { q: "「UPS（無停電電源装置）」の主な用途は？", choices: ["電力を増幅する", "停電時でも機器に電力を供給し続ける", "太陽光発電を管理する", "電圧を変換する"], answer: 1, explanation: "UPS（Uninterruptible Power Supply）は停電・瞬断時にバッテリーで電力を供給。PCやサーバーのデータ保護に必須だよ！" },
+    { q: "モバイルバッテリーの「パススルー充電」とは？", choices: ["USB-Cポートが2つある機能", "充電しながら他のデバイスにも給電できる機能", "過充電を防止する安全機能", "充電速度が最大になるモード"], answer: 1, explanation: "パススルー充電はモバイルバッテリー自体を充電しながら、同時に別デバイスへ電力を供給できる機能だよ！" },
+    { q: "電力（W）×時間（h）で計算される単位は？", choices: ["A（アンペア）", "V（ボルト）", "Wh（ワット時）", "F（ファラッド）"], answer: 2, explanation: "Wh（ワット時）＝W×h。バッテリーの容量を表す単位で、ポータブル電源の仕様によく登場するよ！" },
+    { q: "スマートフォンのバッテリー交換の一般的な目安は？", choices: ["残容量が90%に低下したとき", "バッテリー容量が元の80%以下に劣化したとき", "購入から1年経過したとき", "1回でも過放電したとき"], answer: 1, explanation: "一般的にバッテリー容量が設計容量の80%以下に低下したら交換推奨。iOSでは設定画面で確認できるよ！" },
+    { q: "ポータブル電源に多く使われる「LiPo（リチウムポリマー）」の特徴は？", choices: ["液体電解質で大容量", "固体ゲル電解質で薄型・軽量化が可能", "鉛蓄電池の改良版", "充電サイクルが最も長い"], answer: 1, explanation: "LiPo（リチウムポリマー）はゲル状電解質を使用。薄型・軽量・形状自由度が高くスマホにも多用されているよ！" },
+    { q: "急速充電でバッテリーが早く劣化する主な原因は？", choices: ["電流が多すぎる", "充電時の発熱（熱ストレス）", "電圧が低すぎる", "充電回数が増える"], answer: 1, explanation: "急速充電は電力が大きい分発熱しやすく、熱がリチウムイオン電池の劣化を加速する主因だよ！" },
+    { q: "リチウムイオン電池の満充電時の電圧は？", choices: ["3.7V", "4.0V", "4.2V", "5.0V"], answer: 2, explanation: "リチウムイオン電池は公称3.7Vで、満充電時は4.2V。この電圧を超えると劣化・発火リスクが高まるよ！" },
+    { q: "「自己放電」とはどのような現象か？", choices: ["充電時に電力がムダになる現象", "使用しなくてもバッテリー残量が自然に減る現象", "過放電で電池が壊れる現象", "逆方向に充電される現象"], answer: 1, explanation: "自己放電は保存中でも化学反応により容量が失われる現象。リチウムイオン電池は自己放電が非常に少ないよ！" },
+    // ===== 一般ガジェット知識追加問題 =====
+    { q: "「OLED」と「LCD」の根本的な違いは？", choices: ["OLEDは液体を使用する", "OLEDは各画素が自発光し、LCDはバックライトが必要", "LCDの方が薄い", "OLEDは屋外で見づらい"], answer: 1, explanation: "OLEDは各ピクセルが自ら光るため薄型・高コントラスト。LCDはバックライトで全面を照らす方式だよ！" },
+    { q: "Thunderbolt 4の最大データ転送速度は？", choices: ["20Gbps", "32Gbps", "40Gbps", "80Gbps"], answer: 2, explanation: "Thunderbolt 4は最大40Gbps。USB4と同じ帯域だが対応要件がより厳格で安定した性能が保証されるよ！" },
+    { q: "CPUのコア数が多いと向上するのは？", choices: ["単一スレッドの処理速度", "並列処理能力（マルチタスク性能）", "GPU性能", "消費電力の効率"], answer: 1, explanation: "コア数が多いほど複数の処理を並行して実行できる。動画編集・3Dレンダリングなどで特に効果を発揮するよ！" },
+    { q: "製品の「EOL（End of Life）」が意味することは？", choices: ["バッテリーの最大寿命", "メーカーによるサポート・アップデートの終了", "製品の製造終了のみ", "保証期間の開始"], answer: 1, explanation: "EOLはEnd of Life（サポート終了）を意味。セキュリティアップデートが来なくなるため使い続けるリスクが高まるよ！" },
+    { q: "「HDD」と「SSD」の最も根本的な違いは？", choices: ["HDDは電池式、SSDはAC電源式", "HDDは磁気ディスク回転方式、SSDはフラッシュメモリ式", "SSDは古い技術", "HDDは防水対応が多い"], answer: 1, explanation: "HDDは磁気プラッタを回転させてデータを読み書きするが、SSDは半導体フラッシュメモリで動作。SSDは高速・静音・耐衝撃だよ！" },
+    { q: "「DisplayPort 2.1」の最大帯域幅は？", choices: ["21.6Gbps", "32.4Gbps", "54Gbps", "80Gbps"], answer: 3, explanation: "DisplayPort 2.1（UHBR20）の最大帯域幅は80Gbps。4K/240Hzや8K/60Hzなど超高解像度・高フレームレートに対応するよ！" },
+    { q: "スマホのストレージ規格「UFS 3.1」と「eMMC 5.1」を比較すると？", choices: ["eMMCの方が高速", "UFS 3.1の方が大幅に高速（逐次読み取りで約2〜3倍）", "速度は同等", "UFSは読み込み専用"], answer: 1, explanation: "UFS（Universal Flash Storage）はeMMCの後継で大幅に高速。特に逐次読み取りで2〜3倍の差が出ることもあるよ！" },
+    { q: "スマートウォッチのGPS精度を最も大きく左右する要因は？", choices: ["本体の重量", "バッテリー容量", "受信できる衛星の数と信号強度", "ディスプレイの解像度"], answer: 2, explanation: "GPS精度は受信できる衛星の数と信号強度に最も依存する。マルチバンドGPS（L1+L5）対応モデルは特に高精度だよ！" },
+    { q: "「HDMI 2.1」が対応する最大解像度と最大フレームレートの組み合わせ（理論値）は？", choices: ["4K/120Hz", "8K/30Hz", "10K/120Hz", "1080p/240Hz"], answer: 2, explanation: "HDMI 2.1は理論上10K/120Hzまで対応。実用的には8K/60HzやゲームのためのFRL（4K/144Hz等）で多用されるよ！" },
   ];
 
   // ===== サクラのコメント =====
@@ -228,7 +327,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     currentQ = 0;
     score = 0;
     results = [];
-    shuffledData = shuffleArray(quizData);
+    shuffledData = shuffleArray(quizData).slice(0, 10);
     setChibiPose('idle');
     showScreen('screen-question');
     showQuestion();
@@ -357,6 +456,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   document.getElementById('btn-replay')?.addEventListener('click', () => {
     showScreen('screen-question');
     startQuiz();
+  });
+
+  // ===== ちびキャラ ダーク/ライト切替（即時対応） =====
+  function updateChibiTheme() {
+    const lImg = document.querySelector('.chibi-light');
+    const dImg = document.querySelector('.chibi-dark');
+    if (!lImg || !dImg) return;
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    (lImg as HTMLElement).style.display = isDark ? 'none' : 'block';
+    (dImg as HTMLElement).style.display = isDark ? 'block' : 'none';
+  }
+  updateChibiTheme();
+  new MutationObserver(updateChibiTheme).observe(document.documentElement, {
+    attributes: true, attributeFilter: ['data-theme']
   });
 </script>
 
