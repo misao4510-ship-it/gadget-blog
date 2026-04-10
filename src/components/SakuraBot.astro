@@ -30,17 +30,62 @@
 
   <!-- 入力エリア -->
   <div class="sakura-bot-input-area">
-    <input
-      type="text"
-      class="sakura-bot-input"
-      id="sakura-bot-input"
-      placeholder="質問を入力…"
-      autocomplete="off"
-      maxlength="200"
-    />
-    <button class="sakura-bot-send" id="sakura-bot-send" aria-label="送信">
-      ➤
-    </button>
+    <div class="sakura-bot-select-row">
+      <select class="sakura-bot-select" id="sakura-bot-select">
+        <option value="">質問を選んでください...</option>
+        <optgroup label="挨拶・基本">
+          <option value="こんにちは！">こんにちは！</option>
+          <option value="サクラって何者？">サクラって何者？</option>
+          <option value="ありがとう">ありがとう</option>
+        </optgroup>
+        <optgroup label="おすすめガジェット">
+          <option value="おすすめのモバイルバッテリーは？">おすすめのモバイルバッテリーは？</option>
+          <option value="おすすめのワイヤレスイヤホンは？">おすすめのワイヤレスイヤホンは？</option>
+          <option value="おすすめの充電器は？">おすすめの充電器は？</option>
+          <option value="おすすめのキーボードは？">おすすめのキーボードは？</option>
+          <option value="おすすめのスマートウォッチは？">おすすめのスマートウォッチは？</option>
+        </optgroup>
+        <optgroup label="価格・セール">
+          <option value="セールはいつがお得？">セールはいつがお得？</option>
+          <option value="価格グラフの見方を教えて">価格グラフの見方を教えて</option>
+        </optgroup>
+        <optgroup label="スペック・技術">
+          <option value="GaN充電器って何？">GaN充電器って何？</option>
+          <option value="ノイズキャンセリング（ANC）って何？">ノイズキャンセリング（ANC）って何？</option>
+          <option value="USB PDって何？">USB PDって何？</option>
+          <option value="Qiワイヤレス充電って何？">Qiワイヤレス充電って何？</option>
+          <option value="防水のIPX規格を教えて">防水のIPX規格を教えて</option>
+          <option value="Bluetoothの違いを教えて">Bluetoothの違いを教えて</option>
+          <option value="mAhって何？">mAhって何？</option>
+        </optgroup>
+        <optgroup label="使い方・選び方">
+          <option value="ガジェットの選び方を教えて">ガジェットの選び方を教えて</option>
+        </optgroup>
+        <optgroup label="ブログ案内">
+          <option value="このブログについて教えて">このブログについて教えて</option>
+          <option value="おみくじページはどこ？">おみくじページはどこ？</option>
+          <option value="相性診断はどこ？">相性診断はどこ？</option>
+          <option value="ゲームページはどこ？">ゲームページはどこ？</option>
+          <option value="またね！">またね！</option>
+        </optgroup>
+      </select>
+      <button class="sakura-bot-send sakura-bot-send--select" id="sakura-bot-send-select" aria-label="選択した質問を送信">
+        ➤
+      </button>
+    </div>
+    <div class="sakura-bot-text-row">
+      <input
+        type="text"
+        class="sakura-bot-input"
+        id="sakura-bot-input"
+        placeholder="または自由に入力…"
+        autocomplete="off"
+        maxlength="200"
+      />
+      <button class="sakura-bot-send" id="sakura-bot-send" aria-label="送信">
+        ➤
+      </button>
+    </div>
   </div>
 </div>
 
@@ -102,34 +147,44 @@
 
   /* ダークモード */
   [data-theme="dark"] .sakura-bot-window {
-    --sakura-bot-bg: #2a1a24;
-    --sakura-bot-border: #5a2a45;
+    --sakura-bot-bg: #1e293b;
+    --sakura-bot-border: #4a5568;
   }
   [data-theme="dark"] .sakura-bot-header {
-    background: linear-gradient(135deg, #7a2a50 0%, #5a2040 100%);
+    background: linear-gradient(135deg, #7c3d6e 0%, #5a2a50 100%);
   }
   [data-theme="dark"] .sakura-bot-msg--bot .sakura-bot-msg__bubble {
-    background: #3d1a2e;
-    color: #f0d0e0;
+    background: #3d3d3d;
+    color: #f0f0f0;
   }
   [data-theme="dark"] .sakura-bot-input-area {
-    background: #2a1a24;
-    border-top-color: #5a2a45;
+    background: #2d2d2d;
+    border-top-color: #4a5568;
   }
   [data-theme="dark"] .sakura-bot-input {
-    background: #3d1a2e;
-    color: #f0d0e0;
-    border-color: #7a3a5a;
+    background: #2d2d2d;
+    color: #f0f0f0;
+    border-color: #6b7280;
   }
   [data-theme="dark"] .sakura-bot-input::placeholder {
-    color: #9a6070;
+    color: #9ca3af;
   }
   [data-theme="dark"] .sakura-bot-messages {
-    background: #2a1a24;
+    background: #1e293b;
   }
   [data-theme="dark"] .sakura-bot-msg--user .sakura-bot-msg__bubble {
-    background: #7a2a50;
-    color: #ffe0f0;
+    background: #3b82f6;
+    color: #ffffff;
+  }
+  [data-theme="dark"] .sakura-bot-select {
+    background: #2d2d2d;
+    color: #f0f0f0;
+    border-color: #6b7280;
+  }
+  [data-theme="dark"] .sakura-bot-select option,
+  [data-theme="dark"] .sakura-bot-select optgroup {
+    background: #2d2d2d;
+    color: #f0f0f0;
   }
 
   /* ===== ヘッダー ===== */
@@ -239,7 +294,7 @@
     width: fit-content;
   }
   [data-theme="dark"] .sakura-bot-typing {
-    background: #3d1a2e;
+    background: #3d3d3d;
   }
   .sakura-bot-typing__dot {
     width: 7px;
@@ -258,12 +313,35 @@
   /* ===== 入力エリア ===== */
   .sakura-bot-input-area {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 6px;
     padding: 10px 12px;
     background: #fff;
     border-top: 1px solid #ffd6e7;
     flex-shrink: 0;
+  }
+  .sakura-bot-select-row,
+  .sakura-bot-text-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sakura-bot-select {
+    flex: 1;
+    border: 1px solid #ffc0d6;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    outline: none;
+    background: #fff9fb;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    appearance: auto;
+  }
+  .sakura-bot-select:focus {
+    border-color: #ff9ab5;
+    box-shadow: 0 0 0 2px rgba(255, 154, 181, 0.2);
   }
   .sakura-bot-input {
     flex: 1;
@@ -529,12 +607,14 @@
   }
 
   // ===== DOM =====
-  const trigger = document.getElementById('sakura-bot-trigger');
-  const win     = document.getElementById('sakura-bot-window');
-  const closeBtn = document.getElementById('sakura-bot-close');
-  const input   = document.getElementById('sakura-bot-input');
-  const sendBtn = document.getElementById('sakura-bot-send');
-  const msgs    = document.getElementById('sakura-bot-messages');
+  const trigger     = document.getElementById('sakura-bot-trigger');
+  const win         = document.getElementById('sakura-bot-window');
+  const closeBtn    = document.getElementById('sakura-bot-close');
+  const input       = document.getElementById('sakura-bot-input');
+  const sendBtn     = document.getElementById('sakura-bot-send');
+  const selectEl    = document.getElementById('sakura-bot-select');
+  const sendSelectBtn = document.getElementById('sakura-bot-send-select');
+  const msgs        = document.getElementById('sakura-bot-messages');
 
   if (!trigger || !win || !closeBtn || !input || !sendBtn || !msgs) return;
 
@@ -542,7 +622,6 @@
     win.classList.add('open');
     win.setAttribute('aria-hidden', 'false');
     trigger.classList.add('open');
-    input.focus();
   }
 
   function closeChat() {
@@ -594,13 +673,8 @@
     if (el) el.remove();
   }
 
-  function handleSend() {
-    const text = input.value.trim();
-    if (!text) return;
-    input.value = '';
+  function dispatchReply(text) {
     addMessage(text, 'user');
-
-    // タイピングアニメーション → 回答表示
     showTyping();
     const delay = 700 + Math.random() * 400;
     setTimeout(() => {
@@ -610,6 +684,21 @@
     }, delay);
   }
 
+  function handleSend() {
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    dispatchReply(text);
+  }
+
+  function handleSelectSend() {
+    if (!selectEl) return;
+    const text = selectEl.value;
+    if (!text) return;
+    selectEl.value = '';
+    dispatchReply(text);
+  }
+
   sendBtn.addEventListener('click', handleSend);
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.isComposing) {
@@ -617,5 +706,9 @@
       handleSend();
     }
   });
+
+  if (sendSelectBtn) {
+    sendSelectBtn.addEventListener('click', handleSelectSend);
+  }
 })();
 </script>
