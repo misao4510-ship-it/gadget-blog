@@ -515,6 +515,10 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
   }
 
   function showWelcome() {
+    const welcomeImgEl = document.querySelector('.sw-sakura-img');
+    if (welcomeImgEl) {
+      welcomeImgEl.src = WELCOME_IMAGES[Math.floor(Math.random() * WELCOME_IMAGES.length)];
+    }
     if (pwScreen) pwScreen.style.display = 'none';
     if (welcome) {
       welcome.classList.add('show');
@@ -545,6 +549,10 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
   ];
 
   function showWelcomeWithComment(comment) {
+    const welcomeImgEl = document.querySelector('.sw-sakura-img');
+    if (welcomeImgEl) {
+      welcomeImgEl.src = WELCOME_IMAGES[Math.floor(Math.random() * WELCOME_IMAGES.length)];
+    }
     if (pwScreen) pwScreen.style.display = 'none';
     if (welcome) {
       welcome.classList.add('show');
@@ -663,11 +671,6 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     '/images/games/chibi/sakura_chibi_v2_06_nobg.png',
     '/images/games/chibi/sakura_chibi_v2_08_nobg.png',
   ];
-  const welcomeImg = document.querySelector('.sw-sakura-img');
-  if (welcomeImg) {
-    welcomeImg.src = WELCOME_IMAGES[Math.floor(Math.random() * WELCOME_IMAGES.length)];
-  }
-
   // ロック処理
   function startLock() {
     const lockUntil = Date.now() + LOCK_SEC * 1000;
