@@ -339,6 +339,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .trans-btn:hover { background: var(--color-primary-light); border-color: var(--color-primary); }
   .trans-btn.translated { background: #e6f9ee; color: #00b050; border-color: #00b050; }
+
+  /* ===== アコーディオン ===== */
+  .pb-accordion {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+  }
+  .pb-accordion summary {
+    cursor: pointer;
+    padding: 12px 1rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: background 0.15s;
+  }
+  .pb-accordion summary::-webkit-details-marker { display: none; }
+  .pb-accordion summary::after {
+    content: '▶';
+    font-size: 0.7rem;
+    margin-left: auto;
+    transition: transform 0.2s;
+    color: var(--color-text-muted);
+  }
+  .pb-accordion[open] > summary {
+    border-bottom-color: var(--color-border);
+    background: var(--color-surface-raised, var(--color-surface));
+  }
+  .pb-accordion[open] > summary::after { transform: rotate(90deg); }
+  .pb-accordion summary:hover { background: var(--color-primary-light, #fce8f3); }
+  .accordion-content {
+    padding: 0.8rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .accordion-content .field-group { margin-bottom: 0; }
+  [data-theme=dark] .pb-accordion { border-color: var(--color-border); }
+  [data-theme=dark] .pb-accordion summary { background: var(--color-surface); }
+  [data-theme=dark] .pb-accordion[open] > summary { background: var(--color-surface-raised, #2a2a2a); }
+  [data-theme=dark] .pb-accordion summary:hover { background: var(--color-primary-light, #3a1a2a); }
 </style>
 
 <!-- パスワード認証画面 -->
@@ -368,212 +416,237 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="form-section">
       <h2>パーツ選択</h2>
 
-      <div class="field-group">
-        <label for="pb-composition">構図</label>
-        <select id="pb-composition">
-          <option value="full body" selected>全身 (full body)</option>
-          <option value="upper body">上半身 (upper body)</option>
-          <option value="portrait, from chest up">バストアップ (portrait, from chest up)</option>
-          <option value="close-up face">顔アップ (close-up face)</option>
-          <option value="chibi, super deformed">ちびキャラ (chibi, super deformed)</option>
-          <option value="cowboy shot">膝から上 (cowboy shot)</option>
-        </select>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-gender">性別</label>
-        <select id="pb-gender">
-          <option value="">（なし）</option>
-          <option value="1girl" selected>女の子 (1girl)</option>
-          <option value="1boy">男の子 (1boy)</option>
-          <option value="1girl, androgynous">中性的</option>
-        </select>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-age">年齢</label>
-        <select id="pb-age">
-          <option value="">（なし）</option>
-          <option value="child">子供</option>
-          <option value="teenager">10代</option>
-          <option value="young adult">20代</option>
-          <option value="adult">大人</option>
-        </select>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-bust">胸のサイズ</label>
-        <select id="pb-bust">
-          <option value="">（なし）</option>
-          <option value="flat chest">フラット</option>
-          <option value="small breasts">小さめ</option>
-          <option value="medium breasts">普通</option>
-          <option value="large breasts">大きめ</option>
-          <option value="huge breasts">かなり大きめ</option>
-        </select>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-count">人数</label>
-        <select id="pb-count">
-          <option value="">（なし）</option>
-          <option value="solo">1人 (solo)</option>
-          <option value="2girls">2人 (2girls)</option>
-          <option value="group">グループ</option>
-        </select>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-hair">髪型</label>
-        <select id="pb-hair">
-          <option value="">（なし）</option>
-          <option value="long hair">ロングヘア</option>
-          <option value="short hair">ショートヘア</option>
-          <option value="twin tails">ツインテール</option>
-          <option value="ponytail">ポニーテール</option>
-          <option value="bob cut">ボブカット</option>
-          <option value="semi-long hair">セミロング</option>
-          <option value="braids">三つ編み</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-hair-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-haircolor">髪色</label>
-        <select id="pb-haircolor">
-          <option value="">（なし）</option>
-          <option value="pink hair">ピンク</option>
-          <option value="blue hair">ブルー</option>
-          <option value="gradient pink-blue hair">グラデーション(ピンク→青)</option>
-          <option value="silver hair">シルバー</option>
-          <option value="blonde hair">ブロンド</option>
-          <option value="black hair">ブラック</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-haircolor-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-haircolor-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-hair-inner">髪のインナー色</label>
-        <select id="pb-hair-inner">
-          <option value="">（なし）</option>
-          <option value="inner color hair, pink roots">ピンクルーツ</option>
-          <option value="inner color hair, blue roots">ブルールーツ</option>
-          <option value="inner color hair, white roots">ホワイトルーツ</option>
-          <option value="inner color hair, rainbow">レインボー</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-hair-inner-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-inner-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-hair-tip">髪先の色</label>
-        <select id="pb-hair-tip">
-          <option value="">（なし）</option>
-          <option value="gradient hair, pink tips">ピンク先端</option>
-          <option value="gradient hair, blue tips">ブルー先端</option>
-          <option value="gradient hair, white tips">ホワイト先端</option>
-          <option value="gradient hair, gold tips">ゴールド先端</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-hair-tip-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-tip-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-eyes">目の色</label>
-        <select id="pb-eyes">
-          <option value="">（なし）</option>
-          <option value="blue eyes">ブルー</option>
-          <option value="green eyes">グリーン</option>
-          <option value="red eyes">レッド</option>
-          <option value="purple eyes">パープル</option>
-          <option value="heterochromia">オッドアイ</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-eyes-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyes-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-expression">表情</label>
-        <select id="pb-expression">
-          <option value="">（なし）</option>
-          <option value="smile">スマイル</option>
-          <option value="wink">ウィンク</option>
-          <option value="surprised">驚き</option>
-          <option value="sleepy">眠そう</option>
-          <option value="determined">真剣</option>
-          <option value="blushing">照れ</option>
-          <option value="happy">嬉しそう</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-expression-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-expression-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-outfit">服装</label>
-        <select id="pb-outfit">
-          <option value="">（なし）</option>
-          <option value="school uniform">制服</option>
-          <option value="maid outfit">メイド服</option>
-          <option value="casual clothes">カジュアル</option>
-          <option value="futuristic white outfit">未来的ホワイト</option>
-          <option value="kimono">着物</option>
-          <option value="swimsuit">水着</option>
-          <option value="pajamas">パジャマ</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-outfit-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-pose">ポーズ</label>
-        <select id="pb-pose">
-          <option value="">（なし）</option>
-          <option value="standing">立っている</option>
-          <option value="sitting">座っている</option>
-          <option value="running">走っている</option>
-          <option value="holding device">デバイスを持つ</option>
-          <option value="peace sign">ピースサイン</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-pose-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-pose-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label for="pb-bg">背景</label>
-        <select id="pb-bg">
-          <option value="">（なし）</option>
-          <option value="white background">白背景</option>
-          <option value="city background">都市</option>
-          <option value="nature background">自然</option>
-          <option value="starry sky">星空</option>
-          <option value="room">部屋</option>
-          <option value="studio background">スタジオ</option>
-        </select>
-        <div class="custom-row"><input type="text" id="pb-bg-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-bg-custom">📝 変換</button></div>
-      </div>
-
-      <div class="field-group">
-        <label>品質タグ</label>
-        <div class="quality-tags" id="pb-quality-tags">
-          <label><input type="checkbox" value="masterpiece" checked /> 傑作</label>
-          <label><input type="checkbox" value="best quality" checked /> 最高品質</label>
-          <label><input type="checkbox" value="highly detailed" /> 高品質（詳細）</label>
-          <label><input type="checkbox" value="ultra-detailed" /> 超精細</label>
-          <label><input type="checkbox" value="8k" /> 8K解像度</label>
-          <label><input type="checkbox" value="sharp focus" /> くっきり</label>
-          <label><input type="checkbox" value="cinematic lighting" /> シネマ照明</label>
-          <label><input type="checkbox" value="volumetric lighting" /> 立体照明</label>
+      <!-- 👤 基本 -->
+      <details class="pb-accordion" open>
+        <summary>👤 基本</summary>
+        <div class="accordion-content">
+          <div class="field-group">
+            <label for="pb-composition">構図</label>
+            <select id="pb-composition">
+              <option value="full body" selected>全身 (full body)</option>
+              <option value="upper body">上半身 (upper body)</option>
+              <option value="portrait, from chest up">バストアップ (portrait, from chest up)</option>
+              <option value="close-up face">顔アップ (close-up face)</option>
+              <option value="chibi, super deformed">ちびキャラ (chibi, super deformed)</option>
+              <option value="cowboy shot">膝から上 (cowboy shot)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-gender">性別</label>
+            <select id="pb-gender">
+              <option value="">（なし）</option>
+              <option value="1girl" selected>女の子 (1girl)</option>
+              <option value="1boy">男の子 (1boy)</option>
+              <option value="1girl, androgynous">中性的</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-age">年齢</label>
+            <select id="pb-age">
+              <option value="">（なし）</option>
+              <option value="child">子供</option>
+              <option value="teenager">10代</option>
+              <option value="young adult">20代</option>
+              <option value="adult">大人</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-count">人数</label>
+            <select id="pb-count">
+              <option value="">（なし）</option>
+              <option value="solo">1人 (solo)</option>
+              <option value="2girls">2人 (2girls)</option>
+              <option value="group">グループ</option>
+            </select>
+          </div>
         </div>
-      </div>
+      </details>
 
-      <div class="field-group">
-        <label>LoRA指定</label>
-        <div class="lora-row">
-          <input type="checkbox" id="pb-lora-on" checked />
-          <span style="font-size:0.85rem;color:var(--color-text)">kaina_v1</span>
-          <input type="range" id="pb-lora-strength" min="0.1" max="1.0" step="0.05" value="0.7" />
-          <span class="lora-strength-label" id="pb-lora-value">0.70</span>
+      <!-- 💇 髪 -->
+      <details class="pb-accordion">
+        <summary>💇 髪</summary>
+        <div class="accordion-content">
+          <div class="field-group">
+            <label for="pb-hair">髪型</label>
+            <select id="pb-hair">
+              <option value="">（なし）</option>
+              <option value="long hair">ロングヘア</option>
+              <option value="short hair">ショートヘア</option>
+              <option value="twin tails">ツインテール</option>
+              <option value="ponytail">ポニーテール</option>
+              <option value="bob cut">ボブカット</option>
+              <option value="semi-long hair">セミロング</option>
+              <option value="braids">三つ編み</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-hair-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-haircolor">髪色</label>
+            <select id="pb-haircolor">
+              <option value="">（なし）</option>
+              <option value="pink hair">ピンク</option>
+              <option value="blue hair">ブルー</option>
+              <option value="gradient pink-blue hair">グラデーション(ピンク→青)</option>
+              <option value="silver hair">シルバー</option>
+              <option value="blonde hair">ブロンド</option>
+              <option value="black hair">ブラック</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-haircolor-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-haircolor-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-hair-inner">髪のインナー色</label>
+            <select id="pb-hair-inner">
+              <option value="">（なし）</option>
+              <option value="inner color hair, pink roots">ピンクルーツ</option>
+              <option value="inner color hair, blue roots">ブルールーツ</option>
+              <option value="inner color hair, white roots">ホワイトルーツ</option>
+              <option value="inner color hair, rainbow">レインボー</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-hair-inner-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-inner-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-hair-tip">髪先の色</label>
+            <select id="pb-hair-tip">
+              <option value="">（なし）</option>
+              <option value="gradient hair, pink tips">ピンク先端</option>
+              <option value="gradient hair, blue tips">ブルー先端</option>
+              <option value="gradient hair, white tips">ホワイト先端</option>
+              <option value="gradient hair, gold tips">ゴールド先端</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-hair-tip-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-tip-custom">📝 変換</button></div>
+          </div>
         </div>
-      </div>
+      </details>
 
-      <div class="field-group">
-        <label for="pb-extra">追加指示（フリーテキスト）</label>
-        <div class="custom-row"><input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" /><button type="button" class="trans-btn" data-target="pb-extra">📝 変換</button></div>
-      </div>
+      <!-- 👁️ 顔 -->
+      <details class="pb-accordion">
+        <summary>👁️ 顔</summary>
+        <div class="accordion-content">
+          <div class="field-group">
+            <label for="pb-eyes">目の色</label>
+            <select id="pb-eyes">
+              <option value="">（なし）</option>
+              <option value="blue eyes">ブルー</option>
+              <option value="green eyes">グリーン</option>
+              <option value="red eyes">レッド</option>
+              <option value="purple eyes">パープル</option>
+              <option value="heterochromia">オッドアイ</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-eyes-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyes-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-expression">表情</label>
+            <select id="pb-expression">
+              <option value="">（なし）</option>
+              <option value="smile">スマイル</option>
+              <option value="wink">ウィンク</option>
+              <option value="surprised">驚き</option>
+              <option value="sleepy">眠そう</option>
+              <option value="determined">真剣</option>
+              <option value="blushing">照れ</option>
+              <option value="happy">嬉しそう</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-expression-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-expression-custom">📝 変換</button></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- 👗 外見 -->
+      <details class="pb-accordion">
+        <summary>👗 外見</summary>
+        <div class="accordion-content">
+          <div class="field-group">
+            <label for="pb-outfit">服装</label>
+            <select id="pb-outfit">
+              <option value="">（なし）</option>
+              <option value="school uniform">制服</option>
+              <option value="maid outfit">メイド服</option>
+              <option value="casual clothes">カジュアル</option>
+              <option value="futuristic white outfit">未来的ホワイト</option>
+              <option value="kimono">着物</option>
+              <option value="swimsuit">水着</option>
+              <option value="pajamas">パジャマ</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-outfit-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-bust">胸のサイズ</label>
+            <select id="pb-bust">
+              <option value="">（なし）</option>
+              <option value="flat chest">フラット</option>
+              <option value="small breasts">小さめ</option>
+              <option value="medium breasts">普通</option>
+              <option value="large breasts">大きめ</option>
+              <option value="huge breasts">かなり大きめ</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-pose">ポーズ</label>
+            <select id="pb-pose">
+              <option value="">（なし）</option>
+              <option value="standing">立っている</option>
+              <option value="sitting">座っている</option>
+              <option value="running">走っている</option>
+              <option value="holding device">デバイスを持つ</option>
+              <option value="peace sign">ピースサイン</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-pose-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-pose-custom">📝 変換</button></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- 🖼️ 背景・品質 -->
+      <details class="pb-accordion">
+        <summary>🖼️ 背景・品質</summary>
+        <div class="accordion-content">
+          <div class="field-group">
+            <label for="pb-bg">背景</label>
+            <select id="pb-bg">
+              <option value="">（なし）</option>
+              <option value="white background">白背景</option>
+              <option value="city background">都市</option>
+              <option value="nature background">自然</option>
+              <option value="starry sky">星空</option>
+              <option value="room">部屋</option>
+              <option value="studio background">スタジオ</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-bg-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-bg-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label>品質タグ</label>
+            <div class="quality-tags" id="pb-quality-tags">
+              <label><input type="checkbox" value="masterpiece" checked /> 傑作</label>
+              <label><input type="checkbox" value="best quality" checked /> 最高品質</label>
+              <label><input type="checkbox" value="highly detailed" /> 高品質（詳細）</label>
+              <label><input type="checkbox" value="ultra-detailed" /> 超精細</label>
+              <label><input type="checkbox" value="8k" /> 8K解像度</label>
+              <label><input type="checkbox" value="sharp focus" /> くっきり</label>
+              <label><input type="checkbox" value="cinematic lighting" /> シネマ照明</label>
+              <label><input type="checkbox" value="volumetric lighting" /> 立体照明</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>LoRA指定</label>
+            <div class="lora-row">
+              <input type="checkbox" id="pb-lora-on" checked />
+              <span style="font-size:0.85rem;color:var(--color-text)">kaina_v1</span>
+              <input type="range" id="pb-lora-strength" min="0.1" max="1.0" step="0.05" value="0.7" />
+              <span class="lora-strength-label" id="pb-lora-value">0.70</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ✏️ 追加入力 -->
+      <details class="pb-accordion">
+        <summary>✏️ 追加入力</summary>
+        <div class="accordion-content">
+          <div class="field-group">
+            <label for="pb-extra">追加指示（フリーテキスト）</label>
+            <div class="custom-row"><input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" /><button type="button" class="trans-btn" data-target="pb-extra">📝 変換</button></div>
+          </div>
+        </div>
+      </details>
 
       <div class="field-group">
         <label for="pb-negative">ネガティブプロンプト</label>
