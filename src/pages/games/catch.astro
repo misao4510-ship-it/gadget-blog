@@ -1,0 +1,398 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="🎯 ガジェットキャッチ"
+  description="落ちてくるガジェットをキャッチ！30秒タイマー制のアクションゲーム！"
+>
+  <div class="game-page">
+    <div class="game-header">
+      <a href="/games/" class="back-link">← ゲームコーナーへ</a>
+      <h1 class="game-title">🎯 ガジェットキャッチ</h1>
+      <p class="game-subtitle">30秒でガジェットをキャッチ！💣は避けてね！</p>
+    </div>
+
+    <div class="game-container">
+      <!-- サクラキャラ -->
+      <div class="sakura-area">
+        <img src="/images/navi-char.png" alt="サクラ" class="sakura-img" />
+        <div class="sakura-bubble">
+          <p id="sakura-message">ガジェットをタップ・クリックしてキャッチ！💣は−3点だよ！🌸</p>
+        </div>
+      </div>
+
+      <!-- ゲームHUD -->
+      <div class="game-hud">
+        <span class="hud-badge">スコア: <strong id="score-display">0</strong></span>
+        <span class="hud-badge hud-badge--timer">⏱ <strong id="timer-display">30</strong>秒</span>
+        <button class="btn btn--sm btn--secondary" id="btn-start-catch">スタート</button>
+      </div>
+
+      <!-- ゲームフィールド -->
+      <div class="catch-field" id="catch-field">
+        <div class="field-overlay" id="field-overlay">
+          <div class="overlay-content">
+            <p class="overlay-title">🎯 ガジェットキャッチ</p>
+            <p class="overlay-desc">📱💻🎧等をタップしてキャッチ！<br>💣をタップすると−3点！</p>
+            <button class="btn btn--primary" id="btn-start-overlay">スタート！</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ゲームオーバー -->
+      <div class="gameover-screen" id="gameover-screen" style="display:none">
+        <div class="gameover-card">
+          <div class="gameover-emoji" id="gameover-emoji">🎯</div>
+          <h2 class="gameover-title">タイムアップ！</h2>
+          <p class="gameover-score">スコア: <strong id="final-score">0</strong></p>
+          <p class="gameover-comment" id="gameover-comment"></p>
+          <button class="btn btn--primary" id="btn-retry">もう一度！🔄</button>
+          <a href="/games/" class="btn btn--secondary">ゲーム一覧へ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const gadgets = ['📱','💻','🎧','🔋','⌨️','🖱️','📷','🖥️','🎮','📡'];
+  const bomb = '💣';
+  const GAME_TIME = 30;
+  const GADGET_SCORE = 1;
+  const BOMB_SCORE = -3;
+  const SPAWN_INTERVAL = 800; // ms
+  const FALL_BASE = 2200; // ms
+
+  const sakuraMessages = {
+    idle: ['ガジェットをタップ・クリックしてキャッチ！💣は−3点だよ！🌸'],
+    playing: ['頑張って！💪', 'キャッチ！✨', 'その調子！🌸', '爆弾避けて！💦', 'ガンバ！🎯'],
+    gameover: {
+      high:   ['すごい！ハイスコア！✨ ガジェットキャッチの達人！🏆', '完璧なキャッチ！さすが！🌸'],
+      mid:    ['なかなかやるね！もう一度挑戦してみて！💪', 'いい感じ！次はもっと上を狙って！✨'],
+      low:    ['惜しかったね！💦 もう一度チャレンジ！🔄', 'ドンマイ！練習あるのみ！📚'],
+    },
+  };
+
+  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function setSakura(msg) { document.getElementById('sakura-message').textContent = msg; }
+
+  let score = 0;
+  let timeLeft = GAME_TIME;
+  let gameActive = false;
+  let timerInterval = null;
+  let spawnInterval = null;
+  let animFrames = [];
+
+  function startGame() {
+    score = 0;
+    timeLeft = GAME_TIME;
+    gameActive = true;
+    document.getElementById('score-display').textContent = '0';
+    document.getElementById('timer-display').textContent = GAME_TIME;
+    document.getElementById('field-overlay').style.display = 'none';
+    document.getElementById('gameover-screen').style.display = 'none';
+    document.getElementById('catch-field').querySelectorAll('.falling-item').forEach(el => el.remove());
+    document.getElementById('btn-start-catch').textContent = '進行中…';
+
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      document.getElementById('timer-display').textContent = timeLeft;
+      if (timeLeft <= 0) endGame();
+    }, 1000);
+
+    spawnInterval = setInterval(spawnItem, SPAWN_INTERVAL);
+    setSakura(rand(sakuraMessages.playing));
+  }
+
+  function endGame() {
+    gameActive = false;
+    clearInterval(timerInterval);
+    clearInterval(spawnInterval);
+    animFrames.forEach(id => cancelAnimationFrame(id));
+    animFrames = [];
+    document.getElementById('catch-field').querySelectorAll('.falling-item').forEach(el => el.remove());
+    document.getElementById('btn-start-catch').textContent = 'スタート';
+
+    document.getElementById('final-score').textContent = score;
+
+    let key = score >= 15 ? 'high' : score >= 7 ? 'mid' : 'low';
+    const comment = rand(sakuraMessages.gameover[key]);
+    document.getElementById('gameover-comment').textContent = comment;
+    document.getElementById('gameover-emoji').textContent = score >= 15 ? '🏆' : score >= 7 ? '🎯' : '😅';
+    setSakura(comment);
+
+    document.getElementById('gameover-screen').style.display = '';
+  }
+
+  function spawnItem() {
+    if (!gameActive) return;
+    const field = document.getElementById('catch-field');
+    const fieldW = field.clientWidth;
+    const isBomb = Math.random() < 0.2;
+    const emoji = isBomb ? bomb : rand(gadgets);
+
+    const el = document.createElement('div');
+    el.className = 'falling-item' + (isBomb ? ' falling-item--bomb' : '');
+    el.textContent = emoji;
+    el.style.left = Math.random() * (fieldW - 48) + 'px';
+    el.style.top = '-50px';
+    field.appendChild(el);
+
+    const startTime = performance.now();
+    const duration = FALL_BASE + Math.random() * 1200;
+    const fieldH = field.clientHeight + 60;
+
+    function animate(now) {
+      if (!gameActive) { el.remove(); return; }
+      const elapsed = now - startTime;
+      const progress = elapsed / duration;
+      const y = progress * fieldH - 50;
+      el.style.top = y + 'px';
+      if (y > fieldH) {
+        el.remove();
+        return;
+      }
+      animFrames.push(requestAnimationFrame(animate));
+    }
+
+    el.addEventListener('click', (e) => {
+      if (!gameActive) return;
+      e.stopPropagation();
+      score += isBomb ? BOMB_SCORE : GADGET_SCORE;
+      if (score < 0) score = 0;
+      document.getElementById('score-display').textContent = score;
+      setSakura(isBomb ? '💣 爆弾！－3点！😱' : rand(sakuraMessages.playing));
+
+      // pop effect
+      el.style.transform = 'scale(1.5)';
+      el.style.opacity = '0';
+      setTimeout(() => el.remove(), 200);
+    });
+
+    el.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      el.click();
+    }, { passive: false });
+
+    animFrames.push(requestAnimationFrame(animate));
+  }
+
+  document.getElementById('btn-start-overlay')?.addEventListener('click', startGame);
+  document.getElementById('btn-start-catch')?.addEventListener('click', () => { if (!gameActive) startGame(); });
+  document.getElementById('btn-retry')?.addEventListener('click', startGame);
+</script>
+
+<style>
+  .game-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .game-header { margin-bottom: 2rem; }
+
+  .back-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .game-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .game-subtitle { color: var(--color-text-muted); font-size: 0.9rem; }
+
+  .sakura-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .sakura-img { width: 80px; height: auto; flex-shrink: 0; }
+
+  .sakura-bubble {
+    background: var(--bubble-bg, #fff0f5);
+    border: 2px solid #f9a8c9;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    position: relative;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  .sakura-bubble::before {
+    content: '';
+    position: absolute;
+    left: -14px; bottom: 16px;
+    border: 7px solid transparent;
+    border-right-color: #f9a8c9;
+  }
+
+  .sakura-bubble::after {
+    content: '';
+    position: absolute;
+    left: -10px; bottom: 17px;
+    border: 6px solid transparent;
+    border-right-color: var(--bubble-bg, #fff0f5);
+  }
+
+  .game-hud {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hud-badge {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+
+  .hud-badge strong { color: var(--color-primary); }
+  .hud-badge--timer strong { color: #e11d48; }
+
+  /* ゲームフィールド */
+  .catch-field {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    user-select: none;
+  }
+
+  .field-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: var(--radius-lg);
+  }
+
+  .overlay-content {
+    text-align: center;
+    color: #fff;
+    padding: 1.5rem;
+  }
+
+  .overlay-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .overlay-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .falling-item {
+    position: absolute;
+    font-size: 2.2rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.15s, opacity 0.15s;
+    touch-action: none;
+  }
+
+  .falling-item--bomb {
+    filter: grayscale(0.2) drop-shadow(0 0 4px rgba(255,80,0,0.5));
+  }
+
+  .falling-item:hover { transform: scale(1.15); }
+
+  /* ゲームオーバー */
+  .gameover-screen { text-align: center; padding: 1rem 0; }
+
+  .gameover-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid #f9a8c9;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .gameover-emoji { font-size: 3.5rem; }
+
+  .gameover-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0;
+  }
+
+  .gameover-score { font-size: 1.1rem; color: var(--color-text); margin: 0; }
+  .gameover-score strong { color: var(--color-primary); font-size: 1.8rem; }
+  .gameover-comment { font-size: 0.95rem; color: var(--color-text-muted); margin: 0; }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: filter 0.15s, transform 0.1s;
+    text-align: center;
+    margin: 0.25rem;
+  }
+
+  .btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+
+  .btn--primary {
+    background: linear-gradient(135deg, #f9a8c9, #f06090);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(240,96,144,0.3);
+  }
+
+  .btn--secondary {
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+  }
+
+  .btn--sm { padding: 0.35rem 0.9rem; font-size: 0.8rem; }
+
+  @media (max-width: 480px) {
+    .game-title { font-size: 1.4rem; }
+    .sakura-img { width: 60px; }
+    .catch-field { height: 280px; }
+    .falling-item { font-size: 1.8rem; }
+  }
+</style>

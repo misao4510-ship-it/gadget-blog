@@ -1,0 +1,476 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="✊ サクラとじゃんけん"
+  description="サクラとじゃんけん勝負！10回勝負でスコアを競おう！"
+>
+  <div class="game-page">
+    <div class="game-header">
+      <a href="/games/" class="back-link">← ゲームコーナーへ</a>
+      <h1 class="game-title">✊ サクラとじゃんけん</h1>
+      <p class="game-subtitle">10回勝負！サクラに勝てるかな？</p>
+    </div>
+
+    <div class="game-container">
+      <!-- サクラキャラ -->
+      <div class="sakura-area">
+        <img src="/images/navi-char.png" alt="サクラ" class="sakura-img" />
+        <div class="sakura-bubble">
+          <p id="sakura-message">じゃんけん勝負しよう！🌸 グー・チョキ・パーどれを出す？</p>
+        </div>
+      </div>
+
+      <!-- スコア -->
+      <div class="score-bar">
+        <div class="score-item score-item--win">
+          <span class="score-label">あなた</span>
+          <span class="score-num" id="player-score">0</span>
+        </div>
+        <div class="score-item score-item--round">
+          <span class="score-label">残り</span>
+          <span class="score-num" id="rounds-left">10</span>
+          <span class="score-unit">回</span>
+        </div>
+        <div class="score-item score-item--lose">
+          <span class="score-label">サクラ</span>
+          <span class="score-num" id="sakura-score">0</span>
+        </div>
+      </div>
+
+      <!-- 対戦エリア -->
+      <div class="battle-area" id="battle-area">
+        <div class="hand-display">
+          <div class="hand-box">
+            <div class="hand-emoji" id="player-hand">🤜</div>
+            <div class="hand-label">あなた</div>
+          </div>
+          <div class="vs-badge">VS</div>
+          <div class="hand-box">
+            <div class="hand-emoji" id="sakura-hand">🤜</div>
+            <div class="hand-label">サクラ</div>
+          </div>
+        </div>
+        <div class="result-display" id="result-display"></div>
+      </div>
+
+      <!-- 選択ボタン -->
+      <div class="choice-area" id="choice-area">
+        <button class="hand-btn" data-hand="rock" id="btn-rock">
+          <span class="hand-btn__emoji">✊</span>
+          <span class="hand-btn__label">グー</span>
+        </button>
+        <button class="hand-btn" data-hand="scissors" id="btn-scissors">
+          <span class="hand-btn__emoji">✌️</span>
+          <span class="hand-btn__label">チョキ</span>
+        </button>
+        <button class="hand-btn" data-hand="paper" id="btn-paper">
+          <span class="hand-btn__emoji">🖐️</span>
+          <span class="hand-btn__label">パー</span>
+        </button>
+      </div>
+
+      <!-- 最終結果 -->
+      <div class="final-screen" id="final-screen" style="display:none">
+        <div class="final-card">
+          <div class="final-emoji" id="final-emoji">🎊</div>
+          <h2 class="final-title" id="final-title">結果</h2>
+          <div class="final-scores">
+            <span>あなた <strong id="final-player">0</strong> 勝</span>
+            <span>引き分け <strong id="final-draw">0</strong></span>
+            <span>サクラ <strong id="final-sakura">0</strong> 勝</span>
+          </div>
+          <p class="final-comment" id="final-comment"></p>
+          <button class="btn btn--primary" id="btn-again">もう一度！🔄</button>
+          <a href="/games/" class="btn btn--secondary">ゲーム一覧へ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const hands = {
+    rock:     { emoji: '✊', label: 'グー' },
+    scissors: { emoji: '✌️', label: 'チョキ' },
+    paper:    { emoji: '🖐️', label: 'パー' },
+  };
+
+  const winMap = { rock: 'scissors', scissors: 'paper', paper: 'rock' };
+
+  const sakuraMessages = {
+    idle: ['じゃんけん勝負しよう！🌸 グー・チョキ・パーどれを出す？', 'さあ、どれを出す？💭', '次はどうする？🤔'],
+    win: ['やるじゃないですか！😤', 'くっ…負けた！次は負けないよ！', 'うまい！でも次は本気で行くよ！✨', 'すごい！やるね！'],
+    lose: ['やった！サクラの勝ち！🌸', 'へへ、サクラの勝ち！😊', 'いただき！💪', 'そこに出すとは…！'],
+    draw: ['あいこ！もう一度！🤝', 'おそろい！😄', 'あいこですね〜', '同じだ！'],
+    finalWin: ['完敗…あなたが強かった！🎊 リベンジさせてね！', '負けた！次は絶対勝つよ！💪', 'すごい！じゃんけん強すぎ！✨'],
+    finalLose: ['サクラの勝ち〜！🌸 また挑戦してね！', 'やった！サクラが勝ったよ！✨', 'ふふ、サクラ強かった？'],
+    finalDraw: ['引き分け！いい勝負だったね！🤝', 'おあいこだ！また勝負しよう！', '同点！実力伯仲だね〜！'],
+  };
+
+  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function setSakura(msg) { document.getElementById('sakura-message').textContent = msg; }
+
+  const TOTAL = 10;
+  let playerScore = 0;
+  let sakuraScore = 0;
+  let drawCount = 0;
+  let round = 0;
+  let busy = false;
+
+  function getRandomHand() {
+    const keys = Object.keys(hands);
+    return keys[Math.floor(Math.random() * keys.length)];
+  }
+
+  function judge(player, sakura) {
+    if (player === sakura) return 'draw';
+    if (winMap[player] === sakura) return 'win';
+    return 'lose';
+  }
+
+  function play(playerHand) {
+    if (busy || round >= TOTAL) return;
+    busy = true;
+
+    const sakuraHand = getRandomHand();
+    const result = judge(playerHand, sakuraHand);
+
+    document.getElementById('player-hand').textContent = hands[playerHand].emoji;
+    document.getElementById('sakura-hand').textContent = hands[sakuraHand].emoji;
+
+    round++;
+    const left = TOTAL - round;
+
+    if (result === 'win') {
+      playerScore++;
+      document.getElementById('result-display').textContent = '✅ あなたの勝ち！';
+      document.getElementById('result-display').className = 'result-display result--win';
+      setSakura(rand(sakuraMessages.win));
+    } else if (result === 'lose') {
+      sakuraScore++;
+      document.getElementById('result-display').textContent = '😅 サクラの勝ち！';
+      document.getElementById('result-display').className = 'result-display result--lose';
+      setSakura(rand(sakuraMessages.lose));
+    } else {
+      drawCount++;
+      document.getElementById('result-display').textContent = '🤝 あいこ！';
+      document.getElementById('result-display').className = 'result-display result--draw';
+      setSakura(rand(sakuraMessages.draw));
+    }
+
+    document.getElementById('player-score').textContent = playerScore;
+    document.getElementById('sakura-score').textContent = sakuraScore;
+    document.getElementById('rounds-left').textContent = left;
+
+    if (round >= TOTAL) {
+      setTimeout(showFinal, 800);
+    } else {
+      setTimeout(() => {
+        document.getElementById('result-display').textContent = '';
+        document.getElementById('player-hand').textContent = '🤜';
+        document.getElementById('sakura-hand').textContent = '🤜';
+        setSakura(rand(sakuraMessages.idle));
+        busy = false;
+      }, 900);
+    }
+  }
+
+  function showFinal() {
+    document.getElementById('choice-area').style.display = 'none';
+    document.getElementById('battle-area').style.display = 'none';
+    const fs = document.getElementById('final-screen');
+    fs.style.display = '';
+
+    document.getElementById('final-player').textContent = playerScore;
+    document.getElementById('final-draw').textContent = drawCount;
+    document.getElementById('final-sakura').textContent = sakuraScore;
+
+    let emoji, title, comment;
+    if (playerScore > sakuraScore) {
+      emoji = '🏆'; title = 'あなたの勝ち！'; comment = rand(sakuraMessages.finalWin);
+    } else if (playerScore < sakuraScore) {
+      emoji = '🌸'; title = 'サクラの勝ち！'; comment = rand(sakuraMessages.finalLose);
+    } else {
+      emoji = '🤝'; title = '引き分け！'; comment = rand(sakuraMessages.finalDraw);
+    }
+
+    document.getElementById('final-emoji').textContent = emoji;
+    document.getElementById('final-title').textContent = title;
+    document.getElementById('final-comment').textContent = comment;
+    setSakura(comment);
+  }
+
+  function resetGame() {
+    playerScore = 0; sakuraScore = 0; drawCount = 0; round = 0; busy = false;
+    document.getElementById('player-score').textContent = '0';
+    document.getElementById('sakura-score').textContent = '0';
+    document.getElementById('rounds-left').textContent = TOTAL;
+    document.getElementById('player-hand').textContent = '🤜';
+    document.getElementById('sakura-hand').textContent = '🤜';
+    document.getElementById('result-display').textContent = '';
+    document.getElementById('result-display').className = 'result-display';
+    document.getElementById('final-screen').style.display = 'none';
+    document.getElementById('choice-area').style.display = '';
+    document.getElementById('battle-area').style.display = '';
+    setSakura(rand(sakuraMessages.idle));
+  }
+
+  document.querySelectorAll('.hand-btn').forEach(btn => {
+    btn.addEventListener('click', () => play(btn.dataset.hand));
+  });
+
+  document.getElementById('btn-again')?.addEventListener('click', resetGame);
+</script>
+
+<style>
+  .game-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  .game-header { margin-bottom: 2rem; }
+
+  .back-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .game-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .game-subtitle { color: var(--color-text-muted); font-size: 0.9rem; }
+
+  .sakura-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .sakura-img { width: 80px; height: auto; flex-shrink: 0; }
+
+  .sakura-bubble {
+    background: var(--bubble-bg, #fff0f5);
+    border: 2px solid #f9a8c9;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    position: relative;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  .sakura-bubble::before {
+    content: '';
+    position: absolute;
+    left: -14px; bottom: 16px;
+    border: 7px solid transparent;
+    border-right-color: #f9a8c9;
+  }
+
+  .sakura-bubble::after {
+    content: '';
+    position: absolute;
+    left: -10px; bottom: 17px;
+    border: 6px solid transparent;
+    border-right-color: var(--bubble-bg, #fff0f5);
+  }
+
+  .score-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .score-label { font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600; }
+
+  .score-num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .score-unit { font-size: 0.75rem; color: var(--color-text-muted); }
+  .score-item--win .score-num { color: #059669; }
+  .score-item--lose .score-num { color: #f06090; }
+  .score-item--round .score-num { color: var(--color-primary); }
+
+  .battle-area {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  .hand-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hand-box { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+
+  .hand-emoji {
+    font-size: 3.5rem;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+
+  .hand-label { font-size: 0.8rem; color: var(--color-text-muted); font-weight: 600; }
+
+  .vs-badge {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-text-muted);
+    padding: 0.5rem;
+  }
+
+  .result-display {
+    font-size: 1.1rem;
+    font-weight: 700;
+    min-height: 1.6rem;
+    transition: color 0.2s;
+  }
+
+  .result--win { color: #059669; }
+  .result--lose { color: #f06090; }
+  .result--draw { color: var(--color-text-muted); }
+
+  .choice-area {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hand-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+    flex: 1;
+    max-width: 120px;
+  }
+
+  .hand-btn:hover {
+    border-color: #f9a8c9;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(240,96,144,0.2);
+  }
+
+  .hand-btn:active { transform: translateY(0); }
+
+  .hand-btn__emoji { font-size: 2.5rem; line-height: 1; }
+  .hand-btn__label { font-size: 0.85rem; font-weight: 700; color: var(--color-text); }
+
+  /* 最終結果 */
+  .final-screen { text-align: center; padding: 1rem 0; }
+
+  .final-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid #f9a8c9;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 380px;
+    width: 100%;
+  }
+
+  .final-emoji { font-size: 3.5rem; }
+
+  .final-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0;
+  }
+
+  .final-scores {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .final-scores strong { color: var(--color-primary); font-size: 1.2rem; }
+  .final-comment { font-size: 0.95rem; color: var(--color-text-muted); margin: 0; }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: filter 0.15s, transform 0.1s;
+    text-align: center;
+    margin: 0.25rem;
+  }
+
+  .btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+
+  .btn--primary {
+    background: linear-gradient(135deg, #f9a8c9, #f06090);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(240,96,144,0.3);
+  }
+
+  .btn--secondary {
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+  }
+
+  @media (max-width: 480px) {
+    .game-title { font-size: 1.4rem; }
+    .sakura-img { width: 60px; }
+    .hand-btn { padding: 0.75rem 0.75rem; }
+    .hand-btn__emoji { font-size: 2rem; }
+  }
+</style>
