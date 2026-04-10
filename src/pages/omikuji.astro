@@ -65,8 +65,8 @@ const productsJson = JSON.stringify(products);
           <div class="sakura-bubble" id="comment-text"></div>
         </div>
 
-        <p class="omikuji-note">※ 毎日0時に新しいおみくじに変わります</p>
-        <button id="redraw-btn" class="redraw-btn">🔄 明日また来てね</button>
+        <p class="omikuji-note">※ 何回でも引けます</p>
+        <button id="redraw-btn" class="redraw-btn">🔄 もう一度引く</button>
       </div>
     </div>
   </div>
@@ -232,13 +232,11 @@ const productsJson = JSON.stringify(products);
   const commentText = document.getElementById('comment-text');
 
   function showResult() {
-    const todayStr = new Date().toDateString();
-    const seed = dateHash(todayStr);
-    const todayIndex = seed % products.length;
+    const todayIndex = Math.floor(Math.random() * products.length);
     const product = products[todayIndex];
 
     // 運勢
-    const fortune = getFortune(seed);
+    const fortune = getFortune(Math.floor(Math.random() * 10000));
     resultFortune.textContent = fortune.text;
     resultFortune.style.color = fortune.color;
 
@@ -258,7 +256,7 @@ const productsJson = JSON.stringify(products);
     }
 
     // サクラのコメント
-    const commentSeed = dateHash(todayStr + product.category);
+    const commentSeed = Math.floor(Math.random() * 10000);
     commentText.textContent = getComment(product.category, commentSeed);
 
     // アニメーション開始
@@ -291,6 +289,13 @@ const productsJson = JSON.stringify(products);
   }
 
   drawBtn?.addEventListener('click', showResult);
+
+  document.getElementById('redraw-btn')?.addEventListener('click', () => {
+    flipContainer.classList.remove('flipped');
+    document.getElementById('special-prize')?.classList.add('hidden');
+    omikujiResult.classList.add('hidden');
+    omikujiPre.classList.remove('hidden');
+  });
 </script>
 
 <style>
