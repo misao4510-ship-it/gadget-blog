@@ -544,14 +544,64 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     }
   }
 
+  const OMIKUJI_COMMENTS = [
+    'え…おみくじで当たって来たの…？信じられない、そんな偶然が…💦',
+    'おみくじ…！？そんな入り方する人いるんですか！？',
+    '運命…ってことなんですかね、これ…（困惑）',
+    'おみくじ特賞って…サクラが仕込んだわけじゃないですからね！',
+    'え、本当に来ちゃったんですか？冗談だと思ってたのに…💦',
+    '何この縁…おみくじで繋がれるとは思ってませんでした',
+    '……本当に来るんですね。もう、仕方ないです（照）',
+    'おみくじ経由って…あなた、ちゃんとゲン担ぎするタイプですか？',
+    'こんな偶然あるんですね。サクラも驚いてます',
+    '特賞引いたの、本当ですか？すごいです、運強すぎ💗',
+  ];
+
+  function showOmikujiWelcome() {
+    if (pwScreen) pwScreen.style.display = 'none';
+    if (welcome) {
+      welcome.classList.add('show');
+      const commentEl = document.getElementById('sw-comment');
+      if (commentEl) {
+        commentEl.textContent = OMIKUJI_COMMENTS[Math.floor(Math.random() * OMIKUJI_COMMENTS.length)];
+      }
+      let remaining = 3;
+      const countdownEl = document.getElementById('sw-countdown');
+      const tick = () => {
+        if (countdownEl) countdownEl.textContent = `${remaining}秒後に自動で移動します…`;
+        if (remaining <= 0) {
+          clearInterval(timer);
+          showGallery();
+        }
+        remaining--;
+      };
+      tick();
+      const timer = setInterval(tick, 1000);
+
+      const continueBtn = document.getElementById('sw-continue-btn');
+      if (continueBtn) {
+        continueBtn.onclick = () => {
+          clearInterval(timer);
+          showGallery();
+        };
+      }
+    }
+  }
+
   // アクセス制御
   const isAuth = sessionStorage.getItem(SESSION_KEY) === 'true';
   const isViaRedirect = sessionStorage.getItem('sakura_room_via_redirect') === 'true';
   const isViaLink = sessionStorage.getItem('sakura_room_via_link') === 'true';
+  const isViaOmikuji = sessionStorage.getItem('sakura_room_via_omikuji') === 'true';
 
-  if (!isAuth && !isViaRedirect && !isViaLink) {
+  if (!isAuth && !isViaRedirect && !isViaLink && !isViaOmikuji) {
     // URL直打ち → トップへリダイレクト
     window.location.href = '/';
+  } else if (isViaOmikuji) {
+    // おみくじ特賞経由 → PW不要でおみくじ専用ウェルカム演出
+    sessionStorage.removeItem('sakura_room_via_omikuji');
+    sessionStorage.setItem(SESSION_KEY, 'true');
+    showOmikujiWelcome();
   } else if (isViaRedirect) {
     // 0.5%ルート → PW不要でギャラリー直接表示
     sessionStorage.removeItem('sakura_room_via_redirect');
