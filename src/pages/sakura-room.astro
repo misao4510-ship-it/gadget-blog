@@ -557,13 +557,13 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     '特賞引いたの、本当ですか？すごいです、運強すぎ💗',
   ];
 
-  function showOmikujiWelcome() {
+  function showWelcomeWithComment(comment) {
     if (pwScreen) pwScreen.style.display = 'none';
     if (welcome) {
       welcome.classList.add('show');
       const commentEl = document.getElementById('sw-comment');
       if (commentEl) {
-        commentEl.textContent = OMIKUJI_COMMENTS[Math.floor(Math.random() * OMIKUJI_COMMENTS.length)];
+        commentEl.textContent = comment;
       }
       let remaining = 3;
       const countdownEl = document.getElementById('sw-countdown');
@@ -588,15 +588,42 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     }
   }
 
+  function showOmikujiWelcome() {
+    showWelcomeWithComment(OMIKUJI_COMMENTS[Math.floor(Math.random() * OMIKUJI_COMMENTS.length)]);
+  }
+
+  const TAP_COMMENTS = [
+    '1万回…！？本当に1万回タップしたんですか？！💦',
+    'もう…そんなに叩かれたら痛いですよ！（照）',
+    '1万回叩いて入ってくる人が現れるとは…サクラも想定外でした',
+    'あなたのこと、ちょっと怖いです（でも嬉しいです）',
+    'す、すごい…執念ですね…サクラ、感動してます💗',
+    '1万回…その指、大丈夫ですか…？（心配）',
+    'こんなに愛でてくれる人がいるなんて…サクラ、報われました',
+    'え、本当に1万回？数えてました？正直に言ってください！',
+    '…あなた、そんなに暇だったんですか？（失礼）',
+    '1万回のタップ、サクラはちゃんと感じてましたよ♡',
+  ];
+
+  function showTapWelcome() {
+    showWelcomeWithComment(TAP_COMMENTS[Math.floor(Math.random() * TAP_COMMENTS.length)]);
+  }
+
   // アクセス制御
   const isAuth = sessionStorage.getItem(SESSION_KEY) === 'true';
   const isViaRedirect = sessionStorage.getItem('sakura_room_via_redirect') === 'true';
   const isViaLink = sessionStorage.getItem('sakura_room_via_link') === 'true';
   const isViaOmikuji = sessionStorage.getItem('sakura_room_via_omikuji') === 'true';
+  const isViaTap = sessionStorage.getItem('sakura_room_via_tap') === 'true';
 
-  if (!isAuth && !isViaRedirect && !isViaLink && !isViaOmikuji) {
+  if (!isAuth && !isViaRedirect && !isViaLink && !isViaOmikuji && !isViaTap) {
     // URL直打ち → トップへリダイレクト
     window.location.href = '/';
+  } else if (isViaTap) {
+    // 1万回タップ経由 → PW不要でタップ専用ウェルカム演出
+    sessionStorage.removeItem('sakura_room_via_tap');
+    sessionStorage.setItem(SESSION_KEY, 'true');
+    showTapWelcome();
   } else if (isViaOmikuji) {
     // おみくじ特賞経由 → PW不要でおみくじ専用ウェルカム演出
     sessionStorage.removeItem('sakura_room_via_omikuji');
