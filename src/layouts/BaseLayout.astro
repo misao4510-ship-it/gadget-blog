@@ -319,11 +319,19 @@ const currentYear = new Date().getFullYear();
       link.addEventListener('click', (e) => {
         if (Math.random() < 0.005) {
           e.preventDefault();
+          sessionStorage.setItem('sakura_room_via_redirect', 'true');
           window.location.href = '/sakura-room/';
         }
       });
     });
   })();
+
+  // 隠しリンク（サクラの部屋）クリック時にフラグを立てる
+  document.querySelectorAll('a.hidden-link[href="/sakura-room/"]').forEach(link => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('sakura_room_via_link', 'true');
+    });
+  });
 </script>
 
 <!-- Cloudflare Web Analytics -->

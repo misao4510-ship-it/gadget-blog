@@ -544,8 +544,25 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     }
   }
 
-  // セッション確認
-  if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+  // アクセス制御
+  const isAuth = sessionStorage.getItem(SESSION_KEY) === 'true';
+  const isViaRedirect = sessionStorage.getItem('sakura_room_via_redirect') === 'true';
+  const isViaLink = sessionStorage.getItem('sakura_room_via_link') === 'true';
+
+  if (!isAuth && !isViaRedirect && !isViaLink) {
+    // URL直打ち → トップへリダイレクト
+    window.location.href = '/';
+  } else if (isViaRedirect) {
+    // 0.5%ルート → PW不要でギャラリー直接表示
+    sessionStorage.removeItem('sakura_room_via_redirect');
+    sessionStorage.setItem(SESSION_KEY, 'true');
+    showGallery();
+  } else if (isViaLink) {
+    // 隠しリンク → PW認証画面表示（フラグ消費）
+    sessionStorage.removeItem('sakura_room_via_link');
+    // PW画面はデフォルト表示のため何もしない
+  } else {
+    // 認証済み → ギャラリー直接表示
     showGallery();
   }
 
