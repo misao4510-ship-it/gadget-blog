@@ -361,6 +361,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="portrait, from chest up">バストアップ (portrait, from chest up)</option>
           <option value="close-up face">顔アップ (close-up face)</option>
           <option value="chibi, super deformed">ちびキャラ (chibi, super deformed)</option>
+          <option value="cowboy shot">膝から上 (cowboy shot)</option>
         </select>
       </div>
 
@@ -382,6 +383,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <option value="teenager">10代</option>
           <option value="young adult">20代</option>
           <option value="adult">大人</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="pb-bust">胸のサイズ</label>
+        <select id="pb-bust">
+          <option value="">（なし）</option>
+          <option value="flat chest">フラット</option>
+          <option value="small breasts">小さめ</option>
+          <option value="medium breasts">普通</option>
+          <option value="large breasts">大きめ</option>
+          <option value="huge breasts">かなり大きめ</option>
         </select>
       </div>
 
@@ -704,6 +717,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     // 髪インナー・先端
     'インナーカラー': 'inner color hair', 'ルーツカラー': 'inner color hair',
     'グラデーション先端': 'gradient hair tips',
+    // 胸のサイズ
+    'フラット': 'flat chest', '小さめ': 'small breasts', '普通': 'medium breasts',
+    '大きめ': 'large breasts', 'かなり大きめ': 'huge breasts',
   };
 
   function translateText(text) {
@@ -763,6 +779,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (count) parts.push(count);
     const age = val('pb-age');
     if (age) parts.push(age);
+    const bust = val('pb-bust');
+    if (bust) parts.push(bust);
 
     // 構図
     const composition = val('pb-composition');
@@ -817,7 +835,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   // イベントリスナー
   const watchIds = [
     'pb-composition',
-    'pb-gender', 'pb-age', 'pb-count',
+    'pb-gender', 'pb-age', 'pb-bust', 'pb-count',
     'pb-hair','pb-hair-custom','pb-haircolor','pb-haircolor-custom',
     'pb-hair-inner', 'pb-hair-inner-custom',
     'pb-hair-tip', 'pb-hair-tip-custom',
