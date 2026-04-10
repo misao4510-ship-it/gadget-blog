@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1840,
+      "price": 2790,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/anker/a2147/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-09"
+      "updated": "2026-04-10"
     },
     "cheapest": {
-      "store": "rakuten",
-      "price": 1840
+      "store": "amazon",
+      "price": 2299
     }
   },
   "history": [
+    {
+      "date": "2026-04-10",
+      "amazon": 2299,
+      "rakuten": 2790
+    },
     {
       "date": "2026-04-09",
       "amazon": 2299,
@@ -413,11 +418,6 @@
       "date": "2026-01-10",
       "amazon": 2230,
       "rakuten": 2448
-    },
-    {
-      "date": "2026-01-09",
-      "amazon": 2191,
-      "rakuten": 2406
     }
   ]
 }
