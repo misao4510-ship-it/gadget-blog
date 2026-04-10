@@ -522,26 +522,11 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
       if (commentEl) {
         commentEl.textContent = COMMENTS[Math.floor(Math.random() * COMMENTS.length)];
       }
-      // 3秒カウントダウン
-      let remaining = 3;
       const countdownEl = document.getElementById('sw-countdown');
-      const tick = () => {
-        if (countdownEl) countdownEl.textContent = `${remaining}秒後に自動で移動します…`;
-        if (remaining <= 0) {
-          clearInterval(timer);
-          showGallery();
-        }
-        remaining--;
-      };
-      tick();
-      const timer = setInterval(tick, 1000);
-
+      if (countdownEl) countdownEl.style.display = 'none';
       const continueBtn = document.getElementById('sw-continue-btn');
       if (continueBtn) {
-        continueBtn.onclick = () => {
-          clearInterval(timer);
-          showGallery();
-        };
+        continueBtn.onclick = () => showGallery();
       }
     }
   }
@@ -567,25 +552,11 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
       if (commentEl) {
         commentEl.textContent = comment;
       }
-      let remaining = 3;
       const countdownEl = document.getElementById('sw-countdown');
-      const tick = () => {
-        if (countdownEl) countdownEl.textContent = `${remaining}秒後に自動で移動します…`;
-        if (remaining <= 0) {
-          clearInterval(timer);
-          showGallery();
-        }
-        remaining--;
-      };
-      tick();
-      const timer = setInterval(tick, 1000);
-
+      if (countdownEl) countdownEl.style.display = 'none';
       const continueBtn = document.getElementById('sw-continue-btn');
       if (continueBtn) {
-        continueBtn.onclick = () => {
-          clearInterval(timer);
-          showGallery();
-        };
+        continueBtn.onclick = () => showGallery();
       }
     }
   }
