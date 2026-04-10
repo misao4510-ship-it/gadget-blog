@@ -609,6 +609,23 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     showWelcomeWithComment(TAP_COMMENTS[Math.floor(Math.random() * TAP_COMMENTS.length)]);
   }
 
+  const REDIRECT_COMMENTS = [
+    'ちょ、ちょっと！記事を読もうとしてたんじゃないんですか！？💦',
+    'え…偶然ここに来ちゃったんですか？運命かもしれないですよ？（照）',
+    'き、気づいてましたよ？記事クリックしたのに来たんでしょ！',
+    'こんなところに迷い込んじゃって…大丈夫ですか？（困惑）',
+    '記事を読もうとしてサクラの部屋に来るって…どんな偶然ですか！💦',
+    'ま、まあ…来てしまったものは仕方ないですよね（受け入れ）',
+    'え！？記事の途中でここに飛ばされたんですか？それはビックリしますよね…',
+    '偶然来てくれたんですね。でも…ちょっと心の準備が…💦',
+    'うわ、本当に来ちゃった！サクラも驚いてます、ほんとに！',
+    '記事からここに…あなた、何か引き寄せ体質ありますよ（まじめ）',
+  ];
+
+  function showRedirectWelcome() {
+    showWelcomeWithComment(REDIRECT_COMMENTS[Math.floor(Math.random() * REDIRECT_COMMENTS.length)]);
+  }
+
   // アクセス制御
   const isAuth = sessionStorage.getItem(SESSION_KEY) === 'true';
   const isViaRedirect = sessionStorage.getItem('sakura_room_via_redirect') === 'true';
@@ -630,10 +647,10 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     sessionStorage.setItem(SESSION_KEY, 'true');
     showOmikujiWelcome();
   } else if (isViaRedirect) {
-    // 0.5%ルート → PW不要でギャラリー直接表示
+    // 記事クリック経由 → PW不要で記事経由専用ウェルカム演出
     sessionStorage.removeItem('sakura_room_via_redirect');
     sessionStorage.setItem(SESSION_KEY, 'true');
-    showGallery();
+    showRedirectWelcome();
   } else if (isViaLink) {
     // 隠しリンク → PW認証画面表示（フラグ消費）
     sessionStorage.removeItem('sakura_room_via_link');
