@@ -33,6 +33,7 @@ const disasterPosts = posts.filter(p => p.data.subcategory === 'disaster')
               publishDate={post.data.publishDate}
               ogImage={'/images/og-default.svg'}
               type={post.data.type}
+              productId={post.data.products?.[0]}
             />
           ))}
         </div>

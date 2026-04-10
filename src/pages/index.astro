@@ -47,6 +47,7 @@ const ogImages: Record<string, string> = {
             publishDate={post.data.publishDate}
             ogImage={ogImages[post.id] ?? '/images/og-default.svg'}
             type={post.data.type}
+            productId={post.data.products?.[0]}
           />
         ))}
       </div>

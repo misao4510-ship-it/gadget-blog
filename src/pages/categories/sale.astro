@@ -38,6 +38,7 @@ const salePosts = posts.filter(p =>
               publishDate={post.data.publishDate}
               ogImage={'/images/og-default.svg'}
               type={post.data.type}
+              productId={post.data.products?.[0]}
             />
           ))}
         </div>

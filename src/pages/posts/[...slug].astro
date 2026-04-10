@@ -8,6 +8,10 @@ import TableOfContents from '../../components/TableOfContents.astro';
 import StoreLinkBox from '../../components/StoreLinkBox.astro';
 import AuthorProfile from '../../components/AuthorProfile.astro';
 import NaviChar from '../../components/NaviChar.astro';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { getPriceTrend } from '../../utils/priceTrend';
+import type { TrendResult } from '../../utils/priceTrend';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -17,6 +21,24 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const { products } = await import('../../../data/products.json');
+
+const articleTrend: TrendResult | null = (() => {
+  const firstProduct = post.data.products?.[0];
+  if (!firstProduct) return null;
+  try {
+    const raw = readFileSync(join(process.cwd(), 'data/prices', `${firstProduct}.json`), 'utf-8');
+    const data = JSON.parse(raw);
+    const pricePoints = (data.history ?? [])
+      .map((h: { date: string; amazon?: number; rakuten?: number }) => {
+        const price = Math.min(h.amazon ?? Infinity, h.rakuten ?? Infinity);
+        return isFinite(price) ? { date: h.date, price } : null;
+      })
+      .filter(Boolean);
+    return getPriceTrend(pricePoints);
+  } catch {
+    return null;
+  }
+})();
 
 const typeLabels: Record<string, string> = {
   review: 'レビュー', comparison: '比較', roundup: 'まとめ', ranking: 'ランキング'
@@ -70,6 +92,9 @@ const categoryLabels: Record<string, string> = {
             <div class="article__meta">
               <span class="badge badge--category">{categoryLabels[post.data.category] ?? post.data.category}</span>
               <span class="badge badge--type" style="background:#fff7ed;color:#c2410c">{typeLabels[post.data.type] ?? post.data.type}</span>
+              {articleTrend && (
+                <span class={`price-badge price-badge--${articleTrend.color}`}>{articleTrend.label}</span>
+              )}
               <span class="trust-badge">📅 最終更新: {post.data.publishDate}</span>
               <time class="article__date">{post.data.publishDate}</time>
             </div>
@@ -152,6 +177,10 @@ const categoryLabels: Record<string, string> = {
 
   .article__inner { max-width: var(--content-width); margin: 0 auto; padding: 2rem 0 4rem; }
 
+  .price-badge { font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+  .price-badge--pink { background: #fce7f3; color: #be185d; }
+  .price-badge--green { background: #dcfce7; color: #166534; }
+  .price-badge--orange { background: #ffedd5; color: #c2410c; }
   .article__meta { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: 1rem; }
   .article__date { font-size: .875rem; color: var(--color-text-muted); margin-left: auto; }
 
