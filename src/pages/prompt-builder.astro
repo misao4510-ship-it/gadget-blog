@@ -576,10 +576,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div><!-- /#pb-main -->
 
 <script>
-// ===== URL直打ちブロック（ナビリンク経由のみ許可） =====
+// ===== アクセス制御（ナビリンク経由 または 認証済みなら許可） =====
 (function() {
   const isViaNav = sessionStorage.getItem('prompt_builder_via_nav') === 'true';
-  if (!isViaNav) {
+  const isAuth = sessionStorage.getItem('pb_auth') === '1';
+  if (!isViaNav && !isAuth) {
     window.location.href = '/';
     return;
   }
