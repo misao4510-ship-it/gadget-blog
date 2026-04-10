@@ -264,18 +264,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .unlock-btn {
-    display: inline-block;
+    display: block;
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     color: #fff;
     font-weight: 700;
     font-size: 1rem;
     padding: 0.65rem 1.8rem;
     border-radius: 999px;
+    border: none;
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(255, 20, 147, 0.4);
     transition: transform 0.15s, box-shadow 0.15s;
     margin-bottom: 0.75rem;
-    display: block;
+    cursor: pointer;
   }
 
   .unlock-btn:hover {
@@ -666,8 +667,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     if (unlockShown) return;
     unlockShown = true;
 
-    sessionStorage.setItem('sakura_room_auth', 'true');
-
     // Overlay
     const overlay = document.createElement('div');
     overlay.id = 'unlock-overlay';
@@ -676,11 +675,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="unlock-confetti" id="unlock-confetti"></div>
         <div class="unlock-emoji">🌸✨🎉</div>
         <p class="unlock-msg">わ、わわわ！！<strong>1万回！？</strong><br>すごいです、信じられません！！<br>もう…こんなに愛でてくれたんですね…💗<br>特別に、サクラの部屋への扉を開けてあげます。🌸</p>
-        <a href="/sakura-room/" class="unlock-btn">🌸 サクラの部屋へ</a>
+        <button class="unlock-btn" id="unlock-room-btn">🌸 サクラの部屋へ</button>
         <button class="unlock-close" onclick="document.getElementById('unlock-overlay').remove()">閉じる</button>
       </div>
     `;
     document.body.appendChild(overlay);
+
+    // 招待状ボタン：トークン方式でsakura-roomへ
+    const roomBtn = document.getElementById('unlock-room-btn');
+    if (roomBtn) {
+      roomBtn.addEventListener('click', () => {
+        sessionStorage.setItem('sakura_room_via_tap', 'true');
+        window.location.href = '/sakura-room/';
+      });
+    }
 
     // 紙吹雪
     const confetti = document.getElementById('unlock-confetti');
