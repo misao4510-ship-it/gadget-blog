@@ -271,7 +271,7 @@ const productsJson = JSON.stringify(products);
     }, 300);
 
     // 0.1%の確率で特賞（日付シードではなく毎回ランダム）
-    const isSpecialPrize = Math.random() < 0.001;
+    const isSpecialPrize = Math.random() < 0.3;
     if (isSpecialPrize) {
       setTimeout(() => showSpecialPrize(), 1800);
     }
