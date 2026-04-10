@@ -69,9 +69,6 @@ const currentYear = new Date().getFullYear();
       <a href="/categories/sale/">セール時期</a>
       <a href="/categories/ranking/">ランキング</a>
       <a href="/categories/review/">レビュー</a>
-      <a href="/categories/review/gadget/" class="drawer-nav__sub">　📱 ガジェット</a>
-      <a href="/categories/review/appliance/" class="drawer-nav__sub">　🏠 家電</a>
-      <a href="/categories/review/disaster/" class="drawer-nav__sub">　🆘 防災</a>
       <a href="/sale-news/">セール速報</a>
       <a href="/about/">サクラとは</a>
       <a href="/faq/">FAQ</a>
@@ -90,14 +87,7 @@ const currentYear = new Date().getFullYear();
         <a href="/">ホーム</a>
         <a href="/categories/sale/">セール時期</a>
         <a href="/categories/ranking/">ランキング</a>
-        <div class="nav-dropdown">
-          <a href="/categories/review/">レビュー</a>
-          <div class="nav-dropdown__menu">
-            <a href="/categories/review/gadget/">📱 ガジェット</a>
-            <a href="/categories/review/appliance/">🏠 家電</a>
-            <a href="/categories/review/disaster/">🆘 防災</a>
-          </div>
-        </div>
+        <a href="/categories/review/">レビュー</a>
         <a href="/sale-news/">セール速報</a>
         <a href="/about/">サクラとは</a>
         <a href="/faq/">FAQ</a>
@@ -165,33 +155,6 @@ const currentYear = new Date().getFullYear();
     .pc-nav { display: none !important; }
   }
 
-  /* PCナビ ドロップダウン */
-  .nav-dropdown {
-    position: relative;
-  }
-  .nav-dropdown__menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--dropdown-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.12);
-    min-width: 160px;
-    z-index: 100;
-    padding: 4px 0;
-  }
-  .nav-dropdown__menu a {
-    display: block;
-    padding: 10px 16px;
-    font-size: .9rem;
-    color: var(--dropdown-text);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .nav-dropdown__menu a:hover { background: var(--dropdown-hover-bg); }
-  .nav-dropdown:hover .nav-dropdown__menu { display: block; }
 
   /* ドロワー */
   #mobile-drawer {
@@ -235,14 +198,6 @@ const currentYear = new Date().getFullYear();
     border-bottom: 1px solid var(--color-border);
   }
   .drawer-nav a:hover { background: var(--color-surface-raised); }
-  .drawer-nav .drawer-nav__sub {
-    font-size: .95rem;
-    font-weight: 500;
-    padding: 10px 8px;
-    color: var(--color-text-muted);
-    background: var(--color-surface-raised);
-  }
-  .drawer-nav .drawer-nav__sub:hover { background: var(--color-surface); }
 
   /* 隠しリンク（サクラの部屋） */
   .hidden-link {
@@ -262,6 +217,29 @@ const currentYear = new Date().getFullYear();
   [data-theme="dark"] .hidden-link:hover,
   [data-theme="dark"] .hidden-link:focus {
     color: #ec4899 !important;
+  }
+
+  /* 招待状オーバーレイ */
+  #article-invitation-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+  }
+  .invitation-modal { max-width: 360px; width: 90%; }
+  .invitation-letter {
+    background: var(--card-bg, #fff);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .letter-header { font-size: 1.2em; font-weight: bold; margin-bottom: 16px; }
+  #article-invite-btn {
+    background: #ec4899; color: white;
+    border: none; border-radius: 24px;
+    padding: 12px 32px; font-size: 1em;
+    cursor: pointer; width: 100%; margin-top: 16px;
   }
 
   /* オーバーレイ */
@@ -316,15 +294,45 @@ const currentYear = new Date().getFullYear();
 
   updateToggleIcon();
 
-  // 0.1%リダイレクト: 記事カードクリック時にサクラの部屋へ
+  // 0.1%招待状オーバーレイ: 記事カードクリック時にサクラの部屋への招待状を表示
   (function() {
     if (sessionStorage.getItem('sakura_room_auth') === 'true') return;
+
+    function showArticleInvitation() {
+      const invOverlay = document.createElement('div');
+      invOverlay.id = 'article-invitation-overlay';
+      invOverlay.innerHTML = `
+        <div class="invitation-modal">
+          <div class="invitation-letter">
+            <div class="letter-header">✉️ 招待状が届きました</div>
+            <div class="letter-body">
+              <p>🌸 <strong>サクラの部屋</strong>へご招待</p>
+              <p style="font-size:0.9em; color:var(--text-muted)">
+                「あなたに会いたいな…こっそり教えてあげます」
+              </p>
+            </div>
+            <button id="article-invite-btn">サクラの部屋へ</button>
+            <button id="article-invite-close" style="background:transparent;color:var(--text-muted);margin-top:8px;font-size:0.8em;cursor:pointer;">今は行かない</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(invOverlay);
+
+      document.getElementById('article-invite-btn').addEventListener('click', () => {
+        sessionStorage.setItem('sakura_room_via_redirect', 'true');
+        window.location.href = '/sakura-room/';
+      });
+
+      document.getElementById('article-invite-close').addEventListener('click', () => {
+        invOverlay.remove();
+      });
+    }
+
     document.querySelectorAll('a.article-card__image-link, a[href*="/posts/"], .article-card a').forEach(link => {
       link.addEventListener('click', (e) => {
         if (Math.random() < 0.001) {
           e.preventDefault();
-          sessionStorage.setItem('sakura_room_via_redirect', 'true');
-          window.location.href = '/sakura-room/';
+          showArticleInvitation();
         }
       });
     });
