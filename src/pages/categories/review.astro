@@ -33,21 +33,13 @@ const reviewPosts = posts.filter(p => {
     </div>
   </section>
 
-  <section class="subcategory-nav">
+  <section class="tab-filter">
     <div class="container">
-      <div class="subcategory-nav__list">
-        <a href="/categories/review/gadget/" class="subcategory-nav__item subcategory-nav__item--gadget">
-          <span class="subcategory-nav__icon">📱</span>
-          <span class="subcategory-nav__label">ガジェット</span>
-        </a>
-        <a href="/categories/review/appliance/" class="subcategory-nav__item subcategory-nav__item--appliance">
-          <span class="subcategory-nav__icon">🏠</span>
-          <span class="subcategory-nav__label">家電</span>
-        </a>
-        <a href="/categories/review/disaster/" class="subcategory-nav__item subcategory-nav__item--disaster">
-          <span class="subcategory-nav__icon">🆘</span>
-          <span class="subcategory-nav__label">防災</span>
-        </a>
+      <div class="tab-list" role="tablist">
+        <button class="tab-btn active" data-cat="all" role="tab" aria-selected="true">すべて</button>
+        <button class="tab-btn" data-cat="gadget" role="tab" aria-selected="false">📱 ガジェット</button>
+        <button class="tab-btn" data-cat="appliance" role="tab" aria-selected="false">🏠 家電</button>
+        <button class="tab-btn" data-cat="disaster" role="tab" aria-selected="false">🆘 防災</button>
       </div>
     </div>
   </section>
@@ -57,16 +49,18 @@ const reviewPosts = posts.filter(p => {
       {reviewPosts.length > 0 ? (
         <div class="articles__grid">
           {reviewPosts.map(post => (
-            <ArticleCard
-              title={post.data.title}
-              description={post.data.description}
-              slug={post.id}
-              category={post.data.category}
-              publishDate={post.data.publishDate}
-              ogImage={'/images/og-default.svg'}
-              type={post.data.type}
-              productId={post.data.products?.[0]}
-            />
+            <div class="review-card" data-subcategory={post.data.subcategory || 'gadget'}>
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                slug={post.id}
+                category={post.data.category}
+                publishDate={post.data.publishDate}
+                ogImage={'/images/og-default.svg'}
+                type={post.data.type}
+                productId={post.data.products?.[0]}
+              />
+            </div>
           ))}
         </div>
       ) : (
@@ -96,28 +90,63 @@ const reviewPosts = posts.filter(p => {
   }
   .no-articles { color: var(--color-text-muted); text-align: center; padding: 3rem 0; }
 
-  .subcategory-nav { padding: 1.5rem 0; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
-  .subcategory-nav__list { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .subcategory-nav__item {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .6rem 1.2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: .95rem;
-    transition: transform .15s, box-shadow .15s;
-    color: white;
+  .tab-filter { padding: 1.5rem 0; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+  .tab-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: var(--color-surface, #fff);
+    color: var(--color-text, #1f2937);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
-  .subcategory-nav__item:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
-  .subcategory-nav__item--gadget { background: linear-gradient(135deg, #2563eb, #3b82f6); }
-  .subcategory-nav__item--appliance { background: linear-gradient(135deg, #059669, #34d399); }
-  .subcategory-nav__item--disaster { background: linear-gradient(135deg, #dc2626, #f87171); }
-  .subcategory-nav__icon { font-size: 1.1rem; }
+  .tab-btn:hover {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #2563eb;
+  }
+  .tab-btn.active {
+    background: var(--accent, #ec4899);
+    color: white;
+    border-color: transparent;
+  }
+  [data-theme="dark"] .tab-btn {
+    background: var(--color-surface, #1e293b);
+    color: var(--color-text, #e2e8f0);
+  }
+  [data-theme="dark"] .tab-btn:hover {
+    background: rgba(37,99,235,0.2);
+    border-color: #3b82f6;
+    color: #93c5fd;
+  }
 
   @media (max-width: 640px) {
     .articles__grid { grid-template-columns: 1fr; }
     .category-hero { padding: 2rem 0 1.75rem; }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = (btn as HTMLElement).dataset.cat;
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.querySelectorAll('.review-card').forEach(card => {
+        const el = card as HTMLElement;
+        if (cat === 'all' || el.dataset.subcategory === cat) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
