@@ -222,3 +222,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .sakura-img { width: 72px; }
   }
 </style>
+
+<script>
+  const lImg = document.querySelector('.chibi-light');
+  const dImg = document.querySelector('.chibi-dark');
+
+  function updateChibiTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (lImg) lImg.style.display = isDark ? 'none' : 'block';
+    if (dImg) dImg.style.display = isDark ? 'block' : 'none';
+  }
+  new MutationObserver(updateChibiTheme).observe(document.documentElement, {
+    attributes: true, attributeFilter: ['data-theme']
+  });
+  updateChibiTheme();
+</script>
