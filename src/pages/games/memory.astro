@@ -15,7 +15,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="game-container">
       <!-- サクラキャラ -->
       <div class="sakura-area">
-        <img src="/images/navi-char.png" alt="サクラ" class="sakura-img" />
+        <div class="chibi-wrapper">
+          <img class="sakura-img chibi-light" src="/images/games/chibi/sakura_chibi_v2_01_nobg.png" alt="サクラ" />
+          <img class="sakura-img chibi-dark" src="/images/games/chibi/black/sakura_chibi_black_01_nobg.png" alt="サクラ" />
+        </div>
         <div class="sakura-bubble">
           <p id="sakura-message">カードをめくってペアを揃えてね！🌸</p>
         </div>
@@ -66,6 +69,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
   function setSakura(msg) { document.getElementById('sakura-message').textContent = msg; }
 
+  const CHIBI = {
+    idle:    { l: '/images/games/chibi/sakura_chibi_v2_01_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_01_nobg.png' },
+    think:   { l: '/images/games/chibi/sakura_chibi_v2_03_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_03_nobg.png' },
+    correct: { l: '/images/games/chibi/sakura_chibi_v2_01_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_04_nobg.png' },
+    wrong:   { l: '/images/games/chibi/sakura_chibi_v2_08_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_08_nobg.png' },
+    guts:    { l: '/images/games/chibi/sakura_chibi_v2_04_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_04_nobg.png' },
+  };
+
+  function setChibiPose(pose) {
+    const p = CHIBI[pose] || CHIBI.idle;
+    const lImg = document.querySelector('.chibi-light');
+    const dImg = document.querySelector('.chibi-dark');
+    if (lImg) lImg.src = p.l;
+    if (dImg) dImg.src = p.d;
+  }
+
   let flipped = [];
   let matched = [];
   let moves = 0;
@@ -110,13 +129,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       el.dataset.idx = idx;
       el.innerHTML = `
         <div class="card-inner">
-          <div class="card-front">❓</div>
+          <div class="card-front"><span class="card-back-deco">♦</span></div>
           <div class="card-back">${card.side === 'emoji' ? card.emoji : card.name}</div>
         </div>`;
       el.addEventListener('click', () => flipCard(el, card));
       grid.appendChild(el);
     });
     setSakura('カードをめくってペアを揃えてね！🌸');
+    setChibiPose('idle');
   }
 
   function flipCard(el, card) {
@@ -127,6 +147,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     el.classList.add('flipped');
     flipped.push({ el, card });
     setSakura(rand(sakuraMessages.flip));
+    setChibiPose('think');
 
     if (flipped.length === 2) {
       moves++;
@@ -141,6 +162,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           pairs++;
           updateInfo();
           setSakura(rand(sakuraMessages.match));
+          setChibiPose('correct');
           flipped = [];
           isLocked = false;
           if (pairs === 6) showClear();
@@ -148,6 +170,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       } else {
         // mismatch
         setSakura(rand(sakuraMessages.miss));
+        setChibiPose('wrong');
         setTimeout(() => {
           a.el.classList.remove('flipped');
           b.el.classList.remove('flipped');
@@ -170,6 +193,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     document.getElementById('clear-moves').textContent = moves;
     document.getElementById('clear-comment').textContent = rand(sakuraMessages.clear);
     setSakura(rand(sakuraMessages.clear));
+    setChibiPose('guts');
   }
 
   document.getElementById('btn-restart')?.addEventListener('click', renderGrid);
@@ -217,7 +241,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
-  .sakura-img { width: 80px; height: auto; flex-shrink: 0; }
+  .chibi-wrapper { flex-shrink: 0; }
+  .chibi-dark { display: none; }
+  [data-theme="dark"] .chibi-light { display: none; }
+  [data-theme="dark"] .chibi-dark { display: block; }
+  .sakura-img { width: 80px; height: auto; display: block; }
 
   .sakura-bubble {
     background: var(--bubble-bg, #fff0f5);
@@ -286,6 +314,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: transform 0.4s;
     border-radius: 0.75rem;
   }
@@ -302,6 +331,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     border-radius: 0.75rem;
     font-size: 1.4rem;
     line-height: 1.3;
@@ -311,11 +341,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     border: 2px solid var(--color-border);
   }
 
+  /* カード裏面（クリック前）: トランプ裏のようなデザイン */
   .card-front {
-    background: linear-gradient(135deg, #f9a8c9, #f06090);
-    color: #fff;
-    font-size: 1.75rem;
-    border-color: #f06090;
+    background: linear-gradient(135deg, #c0392b, #8e1a1a);
+    border: 3px solid #e74c3c;
+    box-shadow: inset 0 0 0 4px rgba(255,255,255,0.15);
+    overflow: hidden;
+  }
+
+  .card-front::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 0.4rem;
+  }
+
+  .card-back-deco {
+    font-size: 2rem;
+    color: rgba(255,255,255,0.7);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 1;
   }
 
   .card-back {
@@ -405,6 +452,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .card-grid { grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
     .game-title { font-size: 1.4rem; }
     .sakura-img { width: 60px; }
+    .chibi-wrapper { flex-shrink: 0; }
     .card-back { font-size: 0.75rem; }
   }
 </style>

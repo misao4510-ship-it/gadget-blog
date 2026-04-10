@@ -8,11 +8,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <div class="games-page">
     <div class="games-hero">
       <div class="sakura-intro">
-        <img
-          src="/images/navi-char.png"
-          alt="サクラ"
-          class="sakura-img"
-        />
+        <div class="chibi-wrapper">
+          <img class="sakura-img chibi-light" src="/images/games/chibi/sakura_chibi_v2_01_nobg.png" alt="サクラ" />
+          <img class="sakura-img chibi-dark" src="/images/games/chibi/black/sakura_chibi_black_01_nobg.png" alt="サクラ" />
+        </div>
         <div class="speech-bubble">
           <p>ようこそ、ゲームコーナーへ！🌸<br>ガジェット知識を試してみてね！</p>
         </div>
@@ -62,15 +61,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </a>
 
-      <!-- タイピング: 実装済み -->
-      <a href="/games/typing/" class="game-card game-card--active">
-        <div class="game-card__icon">⌨️</div>
-        <div class="game-card__content">
-          <h2 class="game-card__title">ガジェットタイピング</h2>
-          <p class="game-card__desc">ガジェット名をタイプして速さを競おう！60秒タイマー制！</p>
-          <span class="game-card__badge game-card__badge--available">遊べるよ！</span>
-        </div>
-      </a>
     </div>
   </div>
 </BaseLayout>
@@ -96,9 +86,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
+  .chibi-wrapper { flex-shrink: 0; }
+  .chibi-dark { display: none; }
+  [data-theme="dark"] .chibi-light { display: none; }
+  [data-theme="dark"] .chibi-dark { display: block; }
+
   .sakura-img {
     width: 100px;
     height: auto;
+    display: block;
   }
 
   .speech-bubble {

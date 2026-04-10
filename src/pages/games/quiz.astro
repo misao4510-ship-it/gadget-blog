@@ -14,9 +14,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <!-- クイズUI -->
     <div class="quiz-container" id="quiz-container">
+      <!-- 正解/不正解オーバーレイ -->
+      <div class="answer-overlay" id="answer-overlay" style="display:none"></div>
       <!-- サクラキャラ -->
       <div class="sakura-area">
-        <img src="/images/navi-char.png" alt="サクラ" class="sakura-img" id="sakura-img" />
+        <div class="chibi-wrapper">
+          <img class="sakura-img chibi-light" src="/images/games/chibi/sakura_chibi_v2_01_nobg.png" alt="サクラ" />
+          <img class="sakura-img chibi-dark" src="/images/games/chibi/black/sakura_chibi_black_01_nobg.png" alt="サクラ" />
+        </div>
         <div class="sakura-bubble" id="sakura-bubble">
           <p id="sakura-message">準備はいい？🌸 スタートボタンを押してね！</p>
         </div>
@@ -158,6 +163,40 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
+  const CHIBI = {
+    idle:    { l: '/images/games/chibi/sakura_chibi_v2_01_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_01_nobg.png' },
+    think:   { l: '/images/games/chibi/sakura_chibi_v2_03_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_03_nobg.png' },
+    correct: { l: '/images/games/chibi/sakura_chibi_v2_01_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_04_nobg.png' },
+    wrong:   { l: '/images/games/chibi/sakura_chibi_v2_08_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_08_nobg.png' },
+    guts:    { l: '/images/games/chibi/sakura_chibi_v2_04_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_04_nobg.png' },
+  };
+
+  function setChibiPose(pose) {
+    const p = CHIBI[pose] || CHIBI.idle;
+    const lImg = document.querySelector('.chibi-light');
+    const dImg = document.querySelector('.chibi-dark');
+    if (lImg) lImg.src = p.l;
+    if (dImg) dImg.src = p.d;
+  }
+
+  function showAnswerOverlay(isCorrect) {
+    const el = document.getElementById('answer-overlay');
+    if (!el) return;
+    el.textContent = isCorrect ? '⭕' : '❌';
+    el.className = 'answer-overlay answer-overlay--' + (isCorrect ? 'correct' : 'wrong');
+    el.style.display = 'flex';
+    setTimeout(() => { el.style.display = 'none'; }, isCorrect ? 1200 : 900);
+  }
+
+  function chibiBounce() {
+    const wrapper = document.querySelector('.chibi-wrapper');
+    if (!wrapper) return;
+    wrapper.classList.remove('chibi-bounce');
+    void wrapper.offsetWidth; // reflow
+    wrapper.classList.add('chibi-bounce');
+    setTimeout(() => wrapper.classList.remove('chibi-bounce'), 700);
+  }
+
   // ===== ゲーム状態 =====
   let currentQ = 0;
   let score = 0;
@@ -190,6 +229,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     score = 0;
     results = [];
     shuffledData = shuffleArray(quizData);
+    setChibiPose('idle');
     showScreen('screen-question');
     showQuestion();
   }
@@ -220,6 +260,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     });
 
     setSakuraMessage(rand(sakuraMessages.question));
+    setChibiPose('think');
   }
 
   function selectAnswer(selectedIdx, btn) {
@@ -233,9 +274,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       score++;
       btn.classList.add('choice-btn--correct');
       setSakuraMessage(rand(sakuraMessages.correct));
+      setChibiPose('correct');
+      showAnswerOverlay(true);
+      chibiBounce();
     } else {
       btn.classList.add('choice-btn--wrong');
       setSakuraMessage(rand(sakuraMessages.wrong));
+      setChibiPose('wrong');
+      showAnswerOverlay(false);
       // 正解を緑表示
       document.querySelectorAll('.choice-btn').forEach(b => {
         if (parseInt(b.dataset.index) === q.answer) {
@@ -283,6 +329,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     document.getElementById('result-message').textContent = sakuraMessages.result[msgKey];
     setSakuraMessage(sakuraMessages.result[msgKey]);
+    setChibiPose('guts');
 
     // 解答まとめ
     const reviewList = document.getElementById('review-list');
@@ -314,6 +361,37 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </script>
 
 <style>
+  /* 正解/不正解オーバーレイ */
+  .answer-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    z-index: 200;
+    pointer-events: none;
+    animation: overlay-fade 0.2s ease-in;
+  }
+
+  .answer-overlay--correct { color: #e11d48; }
+  .answer-overlay--wrong   { color: #374151; }
+
+  @keyframes overlay-fade {
+    from { opacity: 0; transform: scale(0.4); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* chibi バウンスアニメーション */
+  @keyframes chibi-bounce {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-18px) scale(1.1); }
+    60%  { transform: translateY(-6px) scale(1.05); }
+    100% { transform: translateY(0); }
+  }
+
+  .chibi-bounce { animation: chibi-bounce 0.6s ease-out; }
+
   .quiz-page {
     max-width: 720px;
     margin: 0 auto;
@@ -356,10 +434,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
+  .chibi-wrapper { flex-shrink: 0; }
+  .chibi-dark { display: none; }
+  [data-theme="dark"] .chibi-light { display: none; }
+  [data-theme="dark"] .chibi-dark { display: block; }
+
   .sakura-img {
     width: 80px;
     height: auto;
-    flex-shrink: 0;
+    display: block;
   }
 
   .sakura-bubble {
@@ -663,5 +746,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .quiz-title { font-size: 1.4rem; }
     .result-score-num { font-size: 3rem; }
     .sakura-img { width: 60px; }
+    .chibi-wrapper { flex-shrink: 0; }
   }
 </style>

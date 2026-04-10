@@ -15,7 +15,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="game-container">
       <!-- サクラキャラ -->
       <div class="sakura-area">
-        <img src="/images/navi-char.png" alt="サクラ" class="sakura-img" />
+        <div class="chibi-wrapper">
+          <img class="sakura-img chibi-light" src="/images/games/chibi/sakura_chibi_v2_05_nobg.png" alt="サクラ" />
+          <img class="sakura-img chibi-dark" src="/images/games/chibi/black/sakura_chibi_black_05_nobg.png" alt="サクラ" />
+        </div>
         <div class="sakura-bubble">
           <p id="sakura-message">ガジェットをタップ・クリックしてキャッチ！💣は−3点だよ！🌸</p>
         </div>
@@ -33,7 +36,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="field-overlay" id="field-overlay">
           <div class="overlay-content">
             <p class="overlay-title">🎯 ガジェットキャッチ</p>
-            <p class="overlay-desc">📱💻🎧等をタップしてキャッチ！<br>💣をタップすると−3点！</p>
+            <ul class="overlay-rules">
+              <li>👆 クリック/タップでガジェットをキャッチ！</li>
+              <li>📱 ガジェット → +1点</li>
+              <li>💣 爆弾をキャッチすると −3点！</li>
+              <li>⏱ 制限時間：30秒</li>
+            </ul>
             <button class="btn btn--primary" id="btn-start-overlay">スタート！</button>
           </div>
         </div>
@@ -76,6 +84,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
   function setSakura(msg) { document.getElementById('sakura-message').textContent = msg; }
 
+  const CHIBI = {
+    idle:    { l: '/images/games/chibi/sakura_chibi_v2_01_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_01_nobg.png' },
+    wave:    { l: '/images/games/chibi/sakura_chibi_v2_05_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_05_nobg.png' },
+    wrong:   { l: '/images/games/chibi/sakura_chibi_v2_08_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_08_nobg.png' },
+    guts:    { l: '/images/games/chibi/sakura_chibi_v2_04_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_04_nobg.png' },
+  };
+  function setChibiPose(pose) {
+    const p = CHIBI[pose] || CHIBI.idle;
+    const lImg = document.querySelector('.chibi-light');
+    const dImg = document.querySelector('.chibi-dark');
+    if (lImg) lImg.src = p.l;
+    if (dImg) dImg.src = p.d;
+  }
+
   let score = 0;
   let timeLeft = GAME_TIME;
   let gameActive = false;
@@ -102,6 +124,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     spawnInterval = setInterval(spawnItem, SPAWN_INTERVAL);
     setSakura(rand(sakuraMessages.playing));
+    setChibiPose('wave');
   }
 
   function endGame() {
@@ -120,6 +143,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     document.getElementById('gameover-comment').textContent = comment;
     document.getElementById('gameover-emoji').textContent = score >= 15 ? '🏆' : score >= 7 ? '🎯' : '😅';
     setSakura(comment);
+    setChibiPose(score >= 15 ? 'guts' : score >= 7 ? 'idle' : 'wrong');
 
     document.getElementById('gameover-screen').style.display = '';
   }
@@ -134,9 +158,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const el = document.createElement('div');
     el.className = 'falling-item' + (isBomb ? ' falling-item--bomb' : '');
     el.textContent = emoji;
-    el.style.left = Math.random() * (fieldW - 48) + 'px';
-    el.style.top = '-50px';
+    el.style.top = '-60px';
+    el.style.left = '0px';
     field.appendChild(el);
+    const itemW = el.offsetWidth || 44;
+    el.style.left = Math.random() * Math.max(0, fieldW - itemW) + 'px';
 
     const startTime = performance.now();
     const duration = FALL_BASE + Math.random() * 1200;
@@ -218,7 +244,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
-  .sakura-img { width: 80px; height: auto; flex-shrink: 0; }
+  .chibi-wrapper { flex-shrink: 0; }
+  .chibi-dark { display: none; }
+  [data-theme="dark"] .chibi-light { display: none; }
+  [data-theme="dark"] .chibi-dark { display: block; }
+  .sakura-img { width: 80px; height: auto; display: block; }
 
   .sakura-bubble {
     background: var(--bubble-bg, #fff0f5);
@@ -312,6 +342,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     opacity: 0.9;
   }
 
+  .overlay-rules {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .overlay-rules li { padding: 0.2rem 0; }
+
   .falling-item {
     position: absolute;
     font-size: 2.2rem;
@@ -392,6 +434,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   @media (max-width: 480px) {
     .game-title { font-size: 1.4rem; }
     .sakura-img { width: 60px; }
+    .chibi-wrapper { flex-shrink: 0; }
     .catch-field { height: 280px; }
     .falling-item { font-size: 1.8rem; }
   }

@@ -15,7 +15,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="game-container">
       <!-- サクラキャラ -->
       <div class="sakura-area">
-        <img src="/images/navi-char.png" alt="サクラ" class="sakura-img" />
+        <div class="chibi-wrapper">
+          <img class="sakura-img chibi-light" src="/images/games/chibi/sakura_chibi_v2_01_nobg.png" alt="サクラ" />
+          <img class="sakura-img chibi-dark" src="/images/games/chibi/black/sakura_chibi_black_01_nobg.png" alt="サクラ" />
+        </div>
         <div class="sakura-bubble">
           <p id="sakura-message">じゃんけん勝負しよう！🌸 グー・チョキ・パーどれを出す？</p>
         </div>
@@ -111,6 +114,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
   function setSakura(msg) { document.getElementById('sakura-message').textContent = msg; }
 
+  const CHIBI = {
+    idle:    { l: '/images/games/chibi/sakura_chibi_v2_01_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_01_nobg.png' },
+    think:   { l: '/images/games/chibi/sakura_chibi_v2_03_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_03_nobg.png' },
+    correct: { l: '/images/games/chibi/sakura_chibi_v2_01_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_04_nobg.png' },
+    wrong:   { l: '/images/games/chibi/sakura_chibi_v2_08_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_08_nobg.png' },
+    guts:    { l: '/images/games/chibi/sakura_chibi_v2_04_nobg.png',   d: '/images/games/chibi/black/sakura_chibi_black_04_nobg.png' },
+  };
+  function setChibiPose(pose) {
+    const p = CHIBI[pose] || CHIBI.idle;
+    const lImg = document.querySelector('.chibi-light');
+    const dImg = document.querySelector('.chibi-dark');
+    if (lImg) lImg.src = p.l;
+    if (dImg) dImg.src = p.d;
+  }
+
   const TOTAL = 10;
   let playerScore = 0;
   let sakuraScore = 0;
@@ -147,16 +165,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       document.getElementById('result-display').textContent = '✅ あなたの勝ち！';
       document.getElementById('result-display').className = 'result-display result--win';
       setSakura(rand(sakuraMessages.win));
+      setChibiPose('idle');   // 勝ち→v2_01喜びポーズ
     } else if (result === 'lose') {
       sakuraScore++;
       document.getElementById('result-display').textContent = '😅 サクラの勝ち！';
       document.getElementById('result-display').className = 'result-display result--lose';
       setSakura(rand(sakuraMessages.lose));
+      setChibiPose('wrong');  // 負け→v2_08泣きポーズ
     } else {
       drawCount++;
       document.getElementById('result-display').textContent = '🤝 あいこ！';
       document.getElementById('result-display').className = 'result-display result--draw';
       setSakura(rand(sakuraMessages.draw));
+      setChibiPose('think');  // 引き分け→v2_03考え中ポーズ
     }
 
     document.getElementById('player-score').textContent = playerScore;
@@ -171,6 +192,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         document.getElementById('player-hand').textContent = '🤜';
         document.getElementById('sakura-hand').textContent = '🤜';
         setSakura(rand(sakuraMessages.idle));
+        setChibiPose('idle');
         busy = false;
       }, 900);
     }
@@ -199,6 +221,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     document.getElementById('final-title').textContent = title;
     document.getElementById('final-comment').textContent = comment;
     setSakura(comment);
+    if (playerScore > sakuraScore) setChibiPose('idle');   // 最終勝ち→喜び
+    else if (playerScore < sakuraScore) setChibiPose('wrong'); // 最終負け→泣き
+    else setChibiPose('think'); // 最終引き分け→考え中
   }
 
   function resetGame() {
@@ -214,6 +239,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     document.getElementById('choice-area').style.display = '';
     document.getElementById('battle-area').style.display = '';
     setSakura(rand(sakuraMessages.idle));
+    setChibiPose('idle');
   }
 
   document.querySelectorAll('.hand-btn').forEach(btn => {
@@ -259,7 +285,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     flex-wrap: wrap;
   }
 
-  .sakura-img { width: 80px; height: auto; flex-shrink: 0; }
+  .chibi-wrapper { flex-shrink: 0; }
+  .chibi-dark { display: none; }
+  [data-theme="dark"] .chibi-light { display: none; }
+  [data-theme="dark"] .chibi-dark { display: block; }
+  .sakura-img { width: 80px; height: auto; display: block; }
 
   .sakura-bubble {
     background: var(--bubble-bg, #fff0f5);
@@ -470,6 +500,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   @media (max-width: 480px) {
     .game-title { font-size: 1.4rem; }
     .sakura-img { width: 60px; }
+    .chibi-wrapper { flex-shrink: 0; }
     .hand-btn { padding: 0.75rem 0.75rem; }
     .hand-btn__emoji { font-size: 2rem; }
   }
