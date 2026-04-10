@@ -312,12 +312,12 @@ const currentYear = new Date().getFullYear();
 
   updateToggleIcon();
 
-  // 0.5%リダイレクト: 記事カードクリック時にサクラの部屋へ
+  // 0.1%リダイレクト: 記事カードクリック時にサクラの部屋へ
   (function() {
     if (sessionStorage.getItem('sakura_room_auth') === 'true') return;
     document.querySelectorAll('a.article-card__image-link, a[href*="/posts/"], .article-card a').forEach(link => {
       link.addEventListener('click', (e) => {
-        if (Math.random() < 0.005) {
+        if (Math.random() < 0.001) {
           e.preventDefault();
           sessionStorage.setItem('sakura_room_via_redirect', 'true');
           window.location.href = '/sakura-room/';
