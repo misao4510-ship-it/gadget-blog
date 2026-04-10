@@ -1,0 +1,574 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import productsData from '../../data/products.json';
+
+const products = productsData.products;
+const productsJson = JSON.stringify(products);
+---
+<BaseLayout
+  title="ガジェットおみくじ"
+  description="今日のおすすめガジェットをサクラが占います！毎日変わるガジェットおみくじをどうぞ🎋"
+>
+  <div class="omikuji-page">
+    <div class="omikuji-header">
+      <h1 class="omikuji-title">🎋 ガジェットおみくじ</h1>
+      <p class="omikuji-subtitle">サクラが今日のおすすめガジェットを占います✨</p>
+    </div>
+
+    <div class="omikuji-shrine">
+      <!-- 引く前の状態 -->
+      <div id="omikuji-pre" class="omikuji-pre">
+        <div class="shrine-decoration">
+          <span class="shrine-icon">⛩️</span>
+        </div>
+        <div class="sakura-pre-message">
+          <img src="/images/sakura-icon.png" alt="サクラ" class="sakura-avatar" onerror="this.style.display='none'" />
+          <div class="sakura-bubble">
+            今日はどんなガジェットと出会えるかな？<br />
+            ボタンを押しておみくじを引いてみて！🌸
+          </div>
+        </div>
+        <button id="draw-btn" class="draw-btn">
+          🎋 おみくじを引く
+        </button>
+      </div>
+
+      <!-- 結果カード（フリップアニメーション） -->
+      <div id="omikuji-result" class="omikuji-result hidden">
+        <div class="flip-container" id="flip-container">
+          <div class="flip-card">
+            <!-- カード裏面（最初に見える） -->
+            <div class="flip-back">
+              <div class="omikuji-tube">🎋</div>
+              <p class="flip-back-text">おみくじ</p>
+            </div>
+            <!-- カード表面（フリップ後） -->
+            <div class="flip-front">
+              <div class="result-fortune" id="result-fortune"></div>
+              <div class="result-product">
+                <a id="result-link" href="#" target="_blank" rel="noopener noreferrer nofollow">
+                  <div class="result-image-wrap">
+                    <img id="result-image" src="" alt="" class="result-image" />
+                    <div id="result-image-placeholder" class="result-image-placeholder hidden">📦</div>
+                  </div>
+                  <div class="result-name" id="result-name"></div>
+                  <div class="result-check-btn">Amazon で見る →</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- サクラのコメント -->
+        <div class="sakura-comment" id="sakura-comment">
+          <img src="/images/sakura-icon.png" alt="サクラ" class="sakura-avatar" onerror="this.style.display='none'" />
+          <div class="sakura-bubble" id="comment-text"></div>
+        </div>
+
+        <p class="omikuji-note">※ 毎日0時に新しいおみくじに変わります</p>
+        <button id="redraw-btn" class="redraw-btn">🔄 明日また来てね</button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ productsJson }}>
+  const products = JSON.parse(productsJson);
+
+  // カテゴリ別コメント
+  const categoryComments = {
+    'mobile-battery': [
+      '今日はモバイルバッテリー運が◎！充電切れ知らずの1日になりそう✨',
+      'バッテリー残量を気にせず外出できる日ですよ！サクラのお墨付き🔋',
+    ],
+    'charger': [
+      '充電器運が上昇中！素早く充電できてお出かけもスムーズな予感🔌',
+      '今日は充電グッズが縁日！電力を味方につけて快適ライフを🌟',
+    ],
+    'earphones': [
+      '今日は音楽運バッチリ！お気に入りの曲がより輝いて聴こえそう🎵',
+      'イヤホン運◎！通勤・通学が音楽で最高の時間になりそうです🎶',
+    ],
+    'headphones': [
+      '今日はヘッドフォン運最高潮！音に包まれて至福のひとときを🎧',
+      'ノイズキャンセリングで雑音シャットアウト！集中力アップの日です🌙',
+    ],
+    'keyboard': [
+      '今日のおすすめはキーボード！タイピング運アップの予感🎋',
+      'キーボード運上昇！今日のタイピングはいつもより速い気がする⌨️',
+    ],
+    'mouse': [
+      '今日はマウス運が高まっています！作業効率がアップしそうですね🖱️',
+      'クリック運◎！今日はパソコン作業がはかどる予感がします✨',
+    ],
+    'gaming-mouse': [
+      'ゲーミング運が爆上がりの日！ランクマッチに挑戦してみては？🎮',
+      '今日はゲーム運最強！サクラも応援してるよ！勝てる気がする🌸',
+    ],
+    'monitor': [
+      '今日はモニター運がいい日！広い画面で作業効率が上がりそうですね🖥️',
+      'ディスプレイ運◎！目にも優しい素敵な画面と出会えそうです✨',
+    ],
+    'smartwatch': [
+      '今日は健康運アップ！スマートウォッチで体のコンディションを管理して💪',
+      'スマートウォッチ運◎！時間とデータを味方につけて最高の1日を⌚',
+    ],
+    'tablet': [
+      '今日はタブレット運が高まっています！勉強・読書・動画鑑賞が捗りそう📱',
+      'タブレット運◎！大きな画面でコンテンツを楽しんで！サクラもうらやましい🌸',
+    ],
+    'bluetooth-speaker': [
+      '今日は音楽運が絶好調！スピーカーで部屋を音楽で満たして🎵',
+      'スピーカー運◎！今日は家でも外でも音楽が輝く日ですよ✨',
+    ],
+    'speaker': [
+      '今日は音響運アップ！いい音楽でポジティブな1日を過ごして🎶',
+      '音楽運バッチリ！お気に入りの曲をいい音で聴いてリフレッシュしよう🌟',
+    ],
+    'robot-vacuum': [
+      '今日は快適住空間運◎！ロボット掃除機でお部屋もキレイに✨',
+      '掃除運アップ！家事を自動化してゆっくりできる時間を作って🌸',
+    ],
+    'air-purifier': [
+      '今日は空気清浄運が高い日！澄んだ空気で健康的な1日を🌿',
+      '空気運◎！きれいな空気の中で過ごすと気分もリフレッシュされますよ✨',
+    ],
+    'wireless-charger': [
+      'ワイヤレス運◎！ケーブルのない快適ライフが始まりそうです✨',
+      '今日は充電が楽々できる日！置くだけ充電で快適さをゲット🔋',
+    ],
+    'usb-hub': [
+      '今日はUSB運バッチリ！全部つないで作業効率を最大化しよう💻',
+      '接続運◎！全てのデバイスが繋がってスムーズな作業ができる日です🌟',
+    ],
+    'portable-ssd': [
+      '今日はデータ運が良い日！大切なデータをしっかり持ち歩いて💾',
+      'ストレージ運◎！高速転送でデータ管理が捗る予感がします✨',
+    ],
+    'wireless-earbuds': [
+      'ワイヤレスイヤホン運◎！コードから解放されて自由を楽しんで🎵',
+      '今日は音楽運が最高潮！ワイヤレスで快適なミュージックライフを🌸',
+    ],
+    'default': [
+      'このガジェット、今が買い時ですよ！サクラのお墨付き🌸',
+      '今日のおすすめガジェット！運命の出会いかもしれません✨',
+      'このアイテムがあなたの生活を快適にしてくれるはず！サクラが保証します🌟',
+      '今日はこのガジェットと縁がある日！ぜひチェックしてみて💕',
+      'サクラが選んだ今日のおすすめ！きっと満足できますよ🎋',
+    ],
+  };
+
+  function dateHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
+  function getComment(category, seed) {
+    const comments = categoryComments[category] || categoryComments['default'];
+    return comments[seed % comments.length];
+  }
+
+  function getFortune(seed) {
+    const fortunes = ['大吉', '中吉', '小吉', '吉', '末吉'];
+    const weights = [2, 3, 3, 3, 1]; // 大吉は少し出にくく
+    const total = weights.reduce((a, b) => a + b, 0);
+    const fortuneColors = {
+      '大吉': '#ff6b9d',
+      '中吉': '#f59e0b',
+      '小吉': '#10b981',
+      '吉': '#6366f1',
+      '末吉': '#8b5cf6',
+    };
+    let idx = seed % total;
+    let cumulative = 0;
+    for (let i = 0; i < fortunes.length; i++) {
+      cumulative += weights[i];
+      if (idx < cumulative) {
+        return { text: fortunes[i], color: fortuneColors[fortunes[i]] };
+      }
+    }
+    return { text: '吉', color: '#6366f1' };
+  }
+
+  const drawBtn = document.getElementById('draw-btn');
+  const omikujiPre = document.getElementById('omikuji-pre');
+  const omikujiResult = document.getElementById('omikuji-result');
+  const flipContainer = document.getElementById('flip-container');
+  const resultFortune = document.getElementById('result-fortune');
+  const resultLink = document.getElementById('result-link');
+  const resultImage = document.getElementById('result-image');
+  const resultImagePlaceholder = document.getElementById('result-image-placeholder');
+  const resultName = document.getElementById('result-name');
+  const commentText = document.getElementById('comment-text');
+
+  function showResult() {
+    const todayStr = new Date().toDateString();
+    const seed = dateHash(todayStr);
+    const todayIndex = seed % products.length;
+    const product = products[todayIndex];
+
+    // 運勢
+    const fortune = getFortune(seed);
+    resultFortune.textContent = fortune.text;
+    resultFortune.style.color = fortune.color;
+
+    // 商品
+    const amazonUrl = product.affiliate_links?.amazon?.url || '#';
+    resultLink.href = amazonUrl;
+    resultName.textContent = product.name;
+
+    if (product.image_url) {
+      resultImage.src = product.image_url;
+      resultImage.alt = product.name;
+      resultImage.classList.remove('hidden');
+      resultImagePlaceholder.classList.add('hidden');
+    } else {
+      resultImage.classList.add('hidden');
+      resultImagePlaceholder.classList.remove('hidden');
+    }
+
+    // サクラのコメント
+    const commentSeed = dateHash(todayStr + product.category);
+    commentText.textContent = getComment(product.category, commentSeed);
+
+    // アニメーション開始
+    omikujiPre.classList.add('hidden');
+    omikujiResult.classList.remove('hidden');
+
+    // 少し遅延してフリップ
+    setTimeout(() => {
+      flipContainer.classList.add('flipped');
+    }, 300);
+  }
+
+  drawBtn?.addEventListener('click', showResult);
+</script>
+
+<style>
+  .omikuji-page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    text-align: center;
+  }
+
+  .omikuji-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .omikuji-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-heading, #1a1a2e);
+    margin-bottom: 0.5rem;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  [data-theme="dark"] .omikuji-title {
+    color: #f0f0f0;
+  }
+
+  .omikuji-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted, #666);
+  }
+
+  /* 神社装飾 */
+  .omikuji-shrine {
+    background: var(--color-surface, #fff);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 24px rgba(236, 72, 153, 0.12);
+    border: 2px solid rgba(236, 72, 153, 0.2);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-theme="dark"] .omikuji-shrine {
+    background: var(--color-surface, #1a1a2e);
+    border-color: rgba(236, 72, 153, 0.3);
+    box-shadow: 0 4px 24px rgba(236, 72, 153, 0.08);
+  }
+
+  .omikuji-pre, .omikuji-result {
+    width: 100%;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .shrine-decoration {
+    margin-bottom: 1.5rem;
+  }
+
+  .shrine-icon {
+    font-size: 3.5rem;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* サクラのメッセージ */
+  .sakura-pre-message, .sakura-comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .sakura-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(236, 72, 153, 0.4);
+  }
+
+  .sakura-bubble {
+    background: linear-gradient(135deg, #fff0f6, #fce7f3);
+    border: 1.5px solid rgba(236, 72, 153, 0.3);
+    border-radius: 16px;
+    border-top-left-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    max-width: 420px;
+  }
+
+  [data-theme="dark"] .sakura-bubble {
+    background: linear-gradient(135deg, #2d1b2e, #3b1f35);
+    border-color: rgba(236, 72, 153, 0.4);
+    color: #f0f0f0;
+  }
+
+  /* 引くボタン */
+  .draw-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ec4899, #f59e0b);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(236, 72, 153, 0.4);
+    letter-spacing: 0.05em;
+  }
+
+  .draw-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(236, 72, 153, 0.5);
+  }
+
+  .draw-btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* フリップカード */
+  .flip-container {
+    width: 220px;
+    height: 300px;
+    margin: 0 auto 2rem;
+    perspective: 1000px;
+  }
+
+  .flip-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .flip-container.flipped .flip-card {
+    transform: rotateY(180deg);
+  }
+
+  .flip-back, .flip-front {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+  }
+
+  /* カード裏面（最初に見える面） */
+  .flip-back {
+    background: linear-gradient(160deg, #fce7f3 0%, #e0e7ff 100%);
+    border: 2px solid rgba(236, 72, 153, 0.3);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+  }
+
+  [data-theme="dark"] .flip-back {
+    background: linear-gradient(160deg, #2d1b2e 0%, #1e1b4b 100%);
+    border-color: rgba(236, 72, 153, 0.4);
+  }
+
+  .omikuji-tube {
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+    animation: shake 2s ease-in-out infinite;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+  }
+
+  .flip-back-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ec4899;
+    letter-spacing: 0.1em;
+  }
+
+  [data-theme="dark"] .flip-back-text {
+    color: #f9a8d4;
+  }
+
+  /* カード表面（フリップ後） */
+  .flip-front {
+    background: linear-gradient(160deg, #fff0f6 0%, #fff7ed 100%);
+    border: 2px solid rgba(236, 72, 153, 0.3);
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 16px rgba(236, 72, 153, 0.15);
+    gap: 0.75rem;
+  }
+
+  [data-theme="dark"] .flip-front {
+    background: linear-gradient(160deg, #2d1b2e 0%, #2d1b1b 100%);
+    border-color: rgba(236, 72, 153, 0.4);
+  }
+
+  .result-fortune {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .result-product {
+    width: 100%;
+  }
+
+  .result-product a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .result-image-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .result-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .result-image-placeholder {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .result-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-align: center;
+    color: #444;
+    line-height: 1.4;
+    max-width: 170px;
+  }
+
+  [data-theme="dark"] .result-name {
+    color: #e0e0e0;
+  }
+
+  .result-check-btn {
+    background: #ec4899;
+    color: #fff;
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    transition: background 0.2s;
+  }
+
+  .result-product a:hover .result-check-btn {
+    background: #db2777;
+  }
+
+  /* 注記・再引きボタン */
+  .omikuji-note {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #999);
+    margin-bottom: 1rem;
+  }
+
+  .redraw-btn {
+    display: inline-block;
+    background: var(--color-surface-raised, #f3f4f6);
+    color: var(--color-text, #444);
+    border: 1.5px solid var(--color-border, #e5e7eb);
+    border-radius: 50px;
+    padding: 0.6rem 1.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .redraw-btn:hover {
+    background: var(--color-border, #e5e7eb);
+  }
+
+  [data-theme="dark"] .redraw-btn {
+    background: rgba(255,255,255,0.08);
+    color: #e0e0e0;
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  [data-theme="dark"] .redraw-btn:hover {
+    background: rgba(255,255,255,0.14);
+  }
+
+  @media (max-width: 480px) {
+    .omikuji-title { font-size: 1.6rem; }
+    .omikuji-shrine { padding: 2rem 1.25rem; }
+    .flip-container { width: 180px; height: 250px; }
+  }
+</style>
