@@ -354,6 +354,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>パーツ選択</h2>
 
       <div class="field-group">
+        <label for="pb-composition">構図</label>
+        <select id="pb-composition">
+          <option value="full body" selected>全身 (full body)</option>
+          <option value="upper body">上半身 (upper body)</option>
+          <option value="portrait, from chest up">バストアップ (portrait, from chest up)</option>
+          <option value="close-up face">顔アップ (close-up face)</option>
+          <option value="chibi, super deformed">ちびキャラ (chibi, super deformed)</option>
+        </select>
+      </div>
+
+      <div class="field-group">
         <label for="pb-hair">髪型</label>
         <select id="pb-hair">
           <option value="">（なし）</option>
@@ -671,6 +682,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       .map(cb => cb.value);
     if (qtags.length) parts.push(qtags.join(', '));
 
+    // 構図
+    const composition = val('pb-composition');
+    if (composition) parts.push(composition);
+
     // 各パーツ（プルダウン優先、手入力で上書き）
     const fields = [
       ['pb-hair', 'pb-hair-custom'],
@@ -717,6 +732,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   // イベントリスナー
   const watchIds = [
+    'pb-composition',
     'pb-hair','pb-hair-custom','pb-haircolor','pb-haircolor-custom',
     'pb-eyes','pb-eyes-custom','pb-expression','pb-expression-custom',
     'pb-outfit','pb-outfit-custom','pb-pose','pb-pose-custom',
