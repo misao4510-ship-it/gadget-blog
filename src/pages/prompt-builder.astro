@@ -459,6 +459,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <option value="group">グループ</option>
             </select>
           </div>
+          <div class="field-group">
+            <label for="pb-angle">カメラアングル</label>
+            <select id="pb-angle">
+              <option value="">（なし）</option>
+              <option value="from front">正面</option>
+              <option value="from side angle">斜め</option>
+              <option value="profile view">横顔</option>
+              <option value="from behind">後ろ</option>
+              <option value="from above">上から</option>
+              <option value="from below">下から</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-angle-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-angle-custom">📝 変換</button></div>
+          </div>
         </div>
       </details>
 
@@ -535,6 +548,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="custom-row"><input type="text" id="pb-eyes-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyes-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
+            <label for="pb-eye-shape">目の形</label>
+            <select id="pb-eye-shape">
+              <option value="">（なし）</option>
+              <option value="droopy eyes">たれ目</option>
+              <option value="sharp eyes">つり目</option>
+              <option value="round eyes">丸い目</option>
+              <option value="narrow eyes">細い目</option>
+              <option value="big eyes">大きい目</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-eye-shape-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eye-shape-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-eyebrow-shape">眉の形</label>
+            <select id="pb-eyebrow-shape">
+              <option value="">（なし）</option>
+              <option value="thick eyebrows">太眉</option>
+              <option value="thin eyebrows">細眉</option>
+              <option value="arched eyebrows">つり眉</option>
+              <option value="drooping eyebrows">垂れ眉</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-eyebrow-shape-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyebrow-shape-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-eyebrow-color">眉の色</label>
+            <select id="pb-eyebrow-color">
+              <option value="">（なし）</option>
+              <option value="black eyebrows">黒</option>
+              <option value="brown eyebrows">茶</option>
+              <option value="blonde eyebrows">金</option>
+              <option value="matching eyebrows">髪色と同じ</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-eyebrow-color-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyebrow-color-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
             <label for="pb-expression">表情</label>
             <select id="pb-expression">
               <option value="">（なし）</option>
@@ -568,6 +615,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <option value="pajamas">パジャマ</option>
             </select>
             <div class="custom-row"><input type="text" id="pb-outfit-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-custom">📝 変換</button></div>
+          </div>
+          <div class="field-group">
+            <label for="pb-outfit-color">服の色</label>
+            <select id="pb-outfit-color">
+              <option value="">（なし）</option>
+              <option value="white outfit">白</option>
+              <option value="black outfit">黒</option>
+              <option value="red outfit">赤</option>
+              <option value="blue outfit">青</option>
+              <option value="pink outfit">ピンク</option>
+            </select>
+            <div class="custom-row"><input type="text" id="pb-outfit-color-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-color-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
             <label for="pb-bust">胸のサイズ</label>
@@ -864,6 +923,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     // 胸のサイズ
     'かなり大きめ': 'huge breasts', 'フラット': 'flat chest',
     '小さめ': 'small breasts', '普通': 'medium breasts', '大きめ': 'large breasts',
+    // カメラアングル
+    '正面から': 'from front', '斜めから': 'from side angle', '横顔': 'profile view',
+    '後ろから': 'from behind', '上から': 'from above', '下から': 'from below',
+    // 目の形
+    'たれ目': 'droopy eyes', 'つり目': 'sharp eyes', '丸い目': 'round eyes',
+    '細い目': 'narrow eyes', '大きい目': 'big eyes',
+    // 眉
+    '太眉': 'thick eyebrows', '細眉': 'thin eyebrows',
+    'つり眉': 'arched eyebrows', '垂れ眉': 'drooping eyebrows',
+    '黒眉': 'black eyebrows', '茶眉': 'brown eyebrows', '金眉': 'blonde eyebrows',
+    // 服の色
+    '白い服': 'white outfit', '黒い服': 'black outfit', '赤い服': 'red outfit',
+    '青い服': 'blue outfit', 'ピンクの服': 'pink outfit',
   };
 
   function translateText(text) {
@@ -935,6 +1007,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const composition = val('pb-composition');
     if (composition) parts.push(composition);
 
+    // カメラアングル
+    const angle = val('pb-angle-custom') || val('pb-angle');
+    if (angle) parts.push(angle);
+
     // 各パーツ（プルダウン優先、手入力で上書き）
     const fields = [
       ['pb-hair', 'pb-hair-custom'],
@@ -942,8 +1018,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       ['pb-hair-inner', 'pb-hair-inner-custom'],
       ['pb-hair-tip', 'pb-hair-tip-custom'],
       ['pb-eyes', 'pb-eyes-custom'],
+      ['pb-eye-shape', 'pb-eye-shape-custom'],
+      ['pb-eyebrow-shape', 'pb-eyebrow-shape-custom'],
+      ['pb-eyebrow-color', 'pb-eyebrow-color-custom'],
       ['pb-expression', 'pb-expression-custom'],
       ['pb-outfit', 'pb-outfit-custom'],
+      ['pb-outfit-color', 'pb-outfit-color-custom'],
       ['pb-pose', 'pb-pose-custom'],
       ['pb-bg', 'pb-bg-custom'],
     ];
@@ -985,11 +1065,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   const watchIds = [
     'pb-composition',
     'pb-gender', 'pb-age', 'pb-bust', 'pb-count',
+    'pb-angle', 'pb-angle-custom',
     'pb-hair','pb-hair-custom','pb-haircolor','pb-haircolor-custom',
     'pb-hair-inner', 'pb-hair-inner-custom',
     'pb-hair-tip', 'pb-hair-tip-custom',
-    'pb-eyes','pb-eyes-custom','pb-expression','pb-expression-custom',
-    'pb-outfit','pb-outfit-custom','pb-pose','pb-pose-custom',
+    'pb-eyes','pb-eyes-custom',
+    'pb-eye-shape','pb-eye-shape-custom',
+    'pb-eyebrow-shape','pb-eyebrow-shape-custom',
+    'pb-eyebrow-color','pb-eyebrow-color-custom',
+    'pb-expression','pb-expression-custom',
+    'pb-outfit','pb-outfit-custom',
+    'pb-outfit-color','pb-outfit-color-custom',
+    'pb-pose','pb-pose-custom',
     'pb-bg','pb-bg-custom','pb-extra','pb-negative',
     'pb-lora-on','pb-lora-strength',
   ];
