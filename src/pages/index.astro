@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 
 const posts = await getCollection('posts', ({ data }) => !data.draft);
 posts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+const recentPosts = posts.slice(0, 5);
 
 const ogImages: Record<string, string> = {
   'mobile-battery-recommendation': '/images/og-mobile-battery.svg',
@@ -33,49 +34,358 @@ const ogImages: Record<string, string> = {
     </div>
   </section>
 
-  <!-- Articles Grid -->
-  <section class="articles">
+  <!-- Main Content: Category sidebar + Latest articles -->
+  <section class="main-content">
     <div class="container">
-      <h2 class="section-title">最新記事</h2>
-      <div class="articles__grid">
-        {posts.map(post => (
-          <ArticleCard
-            title={post.data.title}
-            description={post.data.description}
-            slug={post.id}
-            category={post.data.category}
-            publishDate={post.data.publishDate}
-            ogImage={ogImages[post.id] ?? '/images/og-default.svg'}
-            type={post.data.type}
-            productId={post.data.products?.[0]}
-          />
-        ))}
+      <div class="content-grid">
+
+        <!-- Category Sidebar -->
+        <aside class="category-sidebar">
+          <h2 class="sidebar-title">カテゴリ</h2>
+          <nav class="category-menu" aria-label="カテゴリナビ">
+            <a href="/categories/ranking/" class="category-item">
+              <span class="category-icon">🏆</span>
+              <span>ランキング</span>
+            </a>
+            <a href="/categories/sale/" class="category-item">
+              <span class="category-icon">🛒</span>
+              <span>セール</span>
+            </a>
+
+            <!-- Review accordion -->
+            <div class="category-accordion">
+              <button
+                id="review-toggle"
+                class="category-item category-item--toggle"
+                aria-expanded="false"
+                aria-controls="review-submenu"
+              >
+                <span class="category-icon">📝</span>
+                <span>レビュー</span>
+                <span class="accordion-arrow" aria-hidden="true">▼</span>
+              </button>
+              <div id="review-submenu" class="review-submenu" role="region" aria-labelledby="review-toggle">
+                <a href="/categories/review/gadget/" class="category-subitem">
+                  <span>📱 ガジェット</span>
+                </a>
+                <a href="/categories/review/appliance/" class="category-subitem">
+                  <span>🏠 家電</span>
+                </a>
+                <a href="/categories/review/disaster/" class="category-subitem">
+                  <span>🆘 防災</span>
+                </a>
+              </div>
+            </div>
+
+            <a href="/games/" class="category-item">
+              <span class="category-icon">🎮</span>
+              <span>ゲーム</span>
+            </a>
+            <a href="/omikuji/" class="category-item">
+              <span class="category-icon">🎋</span>
+              <span>おみくじ</span>
+            </a>
+            <a href="/shindan/" class="category-item">
+              <span class="category-icon">🔍</span>
+              <span>診断</span>
+            </a>
+          </nav>
+        </aside>
+
+        <!-- Latest Articles -->
+        <div class="articles-column">
+          <h2 class="section-title">最新記事</h2>
+          <div class="articles__list">
+            {recentPosts.map(post => (
+              <ArticleCard
+                title={post.data.title}
+                description={post.data.description}
+                slug={post.id}
+                category={post.data.category}
+                publishDate={post.data.publishDate}
+                ogImage={ogImages[post.id] ?? '/images/og-default.svg'}
+                type={post.data.type}
+                productId={post.data.products?.[0]}
+              />
+            ))}
+          </div>
+          {posts.length > 5 && (
+            <div class="more-articles">
+              <a href="/posts/" class="more-link">記事一覧をもっと見る →</a>
+            </div>
+          )}
+        </div>
+
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  /* ===== Hero ===== */
   .hero {
     background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
-    color: white; padding: 4rem 0 3rem;
+    color: white;
+    padding: 4rem 0 3rem;
   }
   .hero__inner { max-width: 700px; }
-  .hero__title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; color: white; }
+  .hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: white;
+  }
   .hero__accent { color: #fbbf24; }
   .hero__lead { font-size: 1.125rem; color: #bfdbfe; margin-bottom: 1.5rem; }
   .hero__badges { display: flex; gap: .75rem; flex-wrap: wrap; }
-  .hero__badges span { background: rgba(255,255,255,.15); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.25); padding: .35em .85em; border-radius: 99px; font-size: .875rem; font-weight: 600; }
-
-  .articles { padding: 3rem 0; }
-  .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 1.75rem; padding-bottom: .5rem; border-bottom: 3px solid var(--color-primary); display: inline-block; }
-  .articles__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.75rem;
+  .hero__badges span {
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: .35em .85em;
+    border-radius: 99px;
+    font-size: .875rem;
+    font-weight: 600;
   }
+
+  /* ===== Main Content Layout ===== */
+  .main-content { padding: 3rem 0; }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* ===== Category Sidebar ===== */
+  .category-sidebar {
+    position: sticky;
+    top: 80px;
+  }
+
+  .sidebar-title {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--color-text-muted, #6b7280);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border, #e5e7eb);
+  }
+
+  .category-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .category-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text, #1f2937);
+    text-decoration: none;
+    background: var(--color-surface, #f9fafb);
+    border: 1px solid transparent;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+  .category-item:hover {
+    background: var(--color-primary-light, #eff6ff);
+    border-color: var(--color-primary, #2563eb);
+    color: var(--color-primary, #2563eb);
+  }
+  .category-item--toggle {
+    /* reset button styles */
+    appearance: none;
+    font-family: inherit;
+    line-height: 1.4;
+  }
+
+  .category-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    width: 1.4rem;
+    text-align: center;
+  }
+
+  .accordion-arrow {
+    margin-left: auto;
+    font-size: 0.7rem;
+    transition: transform 0.25s ease;
+    color: var(--color-text-muted, #6b7280);
+  }
+  .category-item--toggle[aria-expanded="true"] .accordion-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Review submenu accordion */
+  .review-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .review-submenu.open {
+    max-height: 200px;
+  }
+
+  .category-subitem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.85rem 0.5rem 2.2rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted, #6b7280);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .category-subitem:hover {
+    background: var(--color-primary-light, #eff6ff);
+    color: var(--color-primary, #2563eb);
+  }
+
+  /* Category accordion wrapper */
+  .category-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ===== Articles Column ===== */
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    padding-bottom: .5rem;
+    border-bottom: 3px solid var(--color-primary, #2563eb);
+    display: inline-block;
+  }
+
+  .articles__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .more-articles {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  .more-link {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: var(--color-primary, #2563eb);
+    color: white;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .more-link:hover { opacity: 0.85; }
+
+  /* ===== Dark mode adjustments ===== */
+  [data-theme="dark"] .category-item {
+    background: var(--color-surface, #1e293b);
+    color: var(--color-text, #e2e8f0);
+  }
+  [data-theme="dark"] .category-item:hover {
+    background: rgba(37, 99, 235, 0.2);
+    border-color: #3b82f6;
+    color: #93c5fd;
+  }
+  [data-theme="dark"] .category-subitem:hover {
+    background: rgba(37, 99, 235, 0.15);
+    color: #93c5fd;
+  }
+
+  /* ===== Responsive: Tablet ===== */
+  @media (max-width: 900px) {
+    .content-grid {
+      grid-template-columns: 180px 1fr;
+    }
+  }
+
+  /* ===== Responsive: Mobile ===== */
   @media (max-width: 640px) {
-    .articles__grid { grid-template-columns: 1fr; }
     .hero { padding: 2.5rem 0 2rem; }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .category-sidebar {
+      position: static;
+    }
+
+    .category-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .category-item {
+      flex-direction: column;
+      text-align: center;
+      padding: 0.6rem 0.4rem;
+      font-size: 0.8rem;
+      gap: 0.25rem;
+    }
+    .category-item--toggle {
+      /* On mobile, show accordion inline still but in grid context */
+    }
+    .accordion-arrow { display: none; }
+
+    .category-accordion {
+      grid-column: span 1;
+    }
+
+    /* Mobile: review submenu shown as horizontal strip */
+    .review-submenu {
+      /* Override transition for mobile — always show */
+      max-height: none !important;
+      overflow: visible !important;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      padding-top: 4px;
+    }
+
+    .category-subitem {
+      padding: 0.5rem 0.3rem;
+      font-size: 0.75rem;
+      justify-content: center;
+      border-radius: 8px;
+      background: var(--color-surface-raised, #f3f4f6);
+    }
+
+    .sidebar-title { display: none; }
+    .articles__list { gap: 1rem; }
   }
 </style>
+
+<script>
+  // Review accordion toggle
+  const reviewBtn = document.getElementById('review-toggle');
+  const reviewSub = document.getElementById('review-submenu');
+
+  if (reviewBtn && reviewSub) {
+    reviewBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = reviewSub.classList.contains('open');
+      reviewSub.classList.toggle('open');
+      reviewBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+</script>
