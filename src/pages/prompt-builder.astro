@@ -697,6 +697,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </details>
 
+      <!-- ⚙️ SD設定 -->
+      <details class="pb-accordion">
+        <summary>⚙️ SD設定</summary>
+        <div class="accordion-content">
+          <div class="field-group">
+            <label for="pb-sd-size">画像サイズ</label>
+            <select id="pb-sd-size">
+              <option value="512x512">512×512（正方形）</option>
+              <option value="512x768" selected>512×768（縦長）</option>
+              <option value="768x512">768×512（横長）</option>
+              <option value="768x1024">768×1024（縦長大）</option>
+              <option value="1024x768">1024×768（横長大）</option>
+              <option value="1024x1024">1024×1024（正方形大）</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-sd-model">モデル</label>
+            <select id="pb-sd-model">
+              <option value="novaAnimeXL_ilV170.safetensors" selected>Nova Anime XL v1.70</option>
+              <option value="animagine-xl-3.0.safetensors">Animagine XL 3.0</option>
+              <option value="ponyDiffusionV6XL_v6StartWithThisOne.safetensors">Pony Diffusion XL v6</option>
+              <option value="v1-5-pruned-emaonly.ckpt">SD 1.5</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-sd-sampler">サンプラー</label>
+            <select id="pb-sd-sampler">
+              <option value="Euler a">Euler a</option>
+              <option value="Euler">Euler</option>
+              <option value="DPM++ 2M">DPM++ 2M</option>
+              <option value="DPM++ 2M Karras">DPM++ 2M Karras</option>
+              <option value="DPM++ 2M SDE Karras" selected>DPM++ 2M SDE Karras</option>
+              <option value="DPM++ 2S a Karras">DPM++ 2S a Karras</option>
+              <option value="DDIM">DDIM</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-sd-count">生成枚数</label>
+            <select id="pb-sd-count">
+              <option value="1" selected>1枚</option>
+              <option value="5">5枚</option>
+              <option value="10">10枚</option>
+              <option value="20">20枚</option>
+              <option value="30">30枚</option>
+            </select>
+          </div>
+        </div>
+      </details>
+
       <!-- ✏️ 追加入力 -->
       <details class="pb-accordion">
         <summary>✏️ 追加入力</summary>
@@ -709,17 +758,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="quality-tags">
               <label><input type="checkbox" id="pb-nsfw" value="nsfw" /> NSFW</label>
             </div>
-          </div>
-          <div class="field-group">
-            <label for="pb-count-gen">生成枚数</label>
-            <select id="pb-count-gen">
-              <option value="1">1</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
-            <span>枚</span>
           </div>
         </div>
       </details>
@@ -1135,8 +1173,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       return;
     }
     navigator.clipboard.writeText(prompt).catch(() => {});
-    const countGen = document.getElementById('pb-count-gen').value || '1';
-    const message = encodeURIComponent('🎨画像生成依頼(' + countGen + '枚):\n' + prompt);
+    const countSd = document.getElementById('pb-sd-count').value || '1';
+    const sizeSd = document.getElementById('pb-sd-size').value || '512x768';
+    const modelSd = document.getElementById('pb-sd-model').value || '';
+    const samplerSd = document.getElementById('pb-sd-sampler').value || '';
+    const msgLines = [
+      '🎨画像生成依頼(' + countSd + '枚)',
+      '📐サイズ: ' + sizeSd,
+      '🤖モデル: ' + modelSd,
+      '🔧サンプラー: ' + samplerSd,
+      'プロンプト: ' + prompt
+    ];
+    const message = encodeURIComponent(msgLines.join('\n'));
     const botUsername = 'Shogun4510_bot';
     window.open('https://t.me/' + botUsername + '?text=' + message, '_blank');
     const btn = document.getElementById('send-to-shogun-btn');
