@@ -332,6 +332,13 @@ const currentYear = new Date().getFullYear();
       sessionStorage.setItem('sakura_room_via_link', 'true');
     });
   });
+
+  // 🎨工房リンク（/prompt-builder/）クリック時にフラグを立てる
+  document.querySelectorAll('a[href="/prompt-builder/"]').forEach(link => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('prompt_builder_via_nav', 'true');
+    });
+  });
 </script>
 
 <!-- Cloudflare Web Analytics -->

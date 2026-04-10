@@ -519,6 +519,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div><!-- /#pb-main -->
 
 <script>
+// ===== URL直打ちブロック（ナビリンク経由のみ許可） =====
+(function() {
+  const isViaNav = sessionStorage.getItem('prompt_builder_via_nav') === 'true';
+  if (!isViaNav) {
+    window.location.href = '/';
+    return;
+  }
+  sessionStorage.removeItem('prompt_builder_via_nav'); // フラグ消費
+})();
+
 (function() {
   // ===== パスワード認証 =====
   const CORRECT_PW = '393941';
