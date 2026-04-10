@@ -153,7 +153,7 @@
   [data-theme="dark"] .sakura-bot-header {
     background: linear-gradient(135deg, #7c3d6e 0%, #5a2a50 100%);
   }
-  [data-theme="dark"] .sakura-bot-msg--bot .sakura-bot-msg__bubble {
+  :global([data-theme="dark"] .sakura-bot-msg--bot .sakura-bot-msg__bubble) {
     background: #3d3d3d;
     color: #f0f0f0;
   }
@@ -172,7 +172,7 @@
   [data-theme="dark"] .sakura-bot-messages {
     background: #1e293b;
   }
-  [data-theme="dark"] .sakura-bot-msg--user .sakura-bot-msg__bubble {
+  :global([data-theme="dark"] .sakura-bot-msg--user .sakura-bot-msg__bubble) {
     background: #3b82f6;
     color: #ffffff;
   }
@@ -293,7 +293,7 @@
     border-bottom-left-radius: 4px;
     width: fit-content;
   }
-  [data-theme="dark"] .sakura-bot-typing {
+  :global([data-theme="dark"] .sakura-bot-typing) {
     background: #3d3d3d;
   }
   .sakura-bot-typing__dot {
