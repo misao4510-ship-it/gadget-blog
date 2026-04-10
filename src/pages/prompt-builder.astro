@@ -673,53 +673,108 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 (function() {
   // ===== 日本語→英語SD用語辞書 =====
   const JP_DICT = {
-    // 髪型
+    // 髪型（複合フレーズ先）
     'ツインテール': 'twin tails', 'ポニーテール': 'ponytail', 'ショートヘア': 'short hair',
-    'ロングヘア': 'long hair', 'ボブカット': 'bob cut', 'おさげ': 'braids', '三つ編み': 'braids',
-    'セミロング': 'semi-long hair', 'アップヘア': 'updo', 'お団子': 'bun hair',
-    // 髪色
-    '青い髪': 'blue hair', '青髪': 'blue hair',
-    'ピンクの髪': 'pink hair', 'ピンク髪': 'pink hair',
-    '金髪': 'blonde hair', '銀髪': 'silver hair', '黒髪': 'black hair',
-    '白髪': 'white hair', '赤髪': 'red hair', '緑髪': 'green hair',
-    '紫髪': 'purple hair', 'グラデーション': 'gradient hair',
-    // 目の色
+    'ロングヘア': 'long hair', 'ボブカット': 'bob cut', 'セミロング': 'semi-long hair',
+    'アップヘア': 'updo', 'お団子ヘア': 'hair bun', 'お団子': 'bun hair',
+    'ハーフアップ': 'half updo', 'アップスタイル': 'updo', '縦ロール': 'drill hair',
+    'くせ毛': 'wavy hair', 'ツインテ': 'twin tails', 'ポニテ': 'ponytail',
+    'おさげ': 'braids', '三つ編み': 'braids', 'ロング': 'long hair',
+    'ショート': 'short hair', 'ミディアム': 'medium hair', 'ツイン': 'twin tails',
+    // 髪色（複合フレーズ先）
+    'ブルーの髪': 'blue hair', '青い髪': 'blue hair', 'ピンクの髪': 'pink hair',
+    'グラデーション先端': 'gradient hair tips',
+    '青髪': 'blue hair', 'ピンク髪': 'pink hair', '金髪': 'blonde hair',
+    '銀髪': 'silver hair', '黒髪': 'black hair', '白髪': 'white hair',
+    '赤髪': 'red hair', '緑髪': 'green hair', '紫髪': 'purple hair',
+    '茶髪': 'brown hair', 'グラデーション': 'gradient hair',
+    'インナーカラー': 'inner color hair', 'ルーツカラー': 'inner color hair',
+    // 単体色（日本語）
+    '青': 'blue', '赤': 'red', '緑': 'green', '紫': 'purple',
+    '金': 'gold', '銀': 'silver', '白': 'white', '黒': 'black',
+    '茶': 'brown', '茶色': 'brown', '灰色': 'gray', '橙': 'orange',
+    // カタカナ色名
+    'ライトブルー': 'light blue', 'ダークブルー': 'dark blue',
+    'ライトピンク': 'light pink', 'ディープレッド': 'deep red',
+    'ブルー': 'blue', 'ピンク': 'pink', 'レッド': 'red', 'グリーン': 'green',
+    'パープル': 'purple', 'シルバー': 'silver', 'ゴールド': 'gold',
+    'ホワイト': 'white', 'ブラック': 'black', 'オレンジ': 'orange',
+    'イエロー': 'yellow', 'ブラウン': 'brown', 'グレー': 'gray',
+    'ネイビー': 'navy', 'ベージュ': 'beige', 'ライム': 'lime green',
+    'ターコイズ': 'turquoise', 'マゼンタ': 'magenta', 'シアン': 'cyan',
+    'コーラル': 'coral', 'ラベンダー': 'lavender', 'ミント': 'mint',
+    // 目の色（複合フレーズ先）
+    'ブルーアイ': 'blue eyes', 'グリーンアイ': 'green eyes',
+    '青い瞳': 'blue eyes', '赤い瞳': 'red eyes', '緑の瞳': 'green eyes',
+    '紫の瞳': 'purple eyes', '金の瞳': 'golden eyes', '銀の瞳': 'silver eyes',
     '青い目': 'blue eyes', '緑の目': 'green eyes', '赤い目': 'red eyes',
-    '紫の目': 'purple eyes', 'オッドアイ': 'heterochromia',
+    '紫の目': 'purple eyes', '青目': 'blue eyes', '赤目': 'red eyes',
+    'オッドアイ': 'heterochromia',
     // 表情・感情
-    '笑顔': 'smile', '泣いている': 'crying', '怒っている': 'angry',
-    'ウィンク': 'wink', '驚いている': 'surprised', '眠そう': 'sleepy',
-    '照れている': 'blushing', '真剣': 'serious', '嬉しそう': 'happy',
-    '悲しそう': 'sad', 'にやり': 'smirk',
-    // 服装
+    '泣いている': 'crying', '怒っている': 'angry', '驚いている': 'surprised',
+    '照れている': 'blushing', '嬉しそう': 'happy', '悲しそう': 'sad',
+    '眠そう': 'sleepy', '笑顔': 'smile', '真剣': 'serious',
+    'ウィンク': 'wink', 'にやり': 'smirk',
+    'にこにこ': 'smile', 'てへぺろ': 'tongue out smile', 'ぷんぷん': 'angry',
+    'えへへ': 'shy smile', 'ドヤ顔': 'smug', 'ポカン': 'blank stare',
+    '泣き顔': 'crying', '涙目': 'teary eyes', 'キリッ': 'serious',
+    'あはは': 'laughing', 'ドキドキ': 'flustered',
+    'デレデレ': 'lovestruck', 'ツンツン': 'tsundere',
+    // 服装（複合フレーズ先）
     'セーラー服': 'sailor uniform', '制服': 'school uniform', 'メイド服': 'maid outfit',
+    'ショートパンツ': 'shorts',
+    'セーラー': 'sailor uniform', 'ブレザー': 'blazer uniform',
     '浴衣': 'yukata', '着物': 'kimono', '水着': 'swimsuit', 'パジャマ': 'pajamas',
     'ワンピース': 'dress', 'スーツ': 'suit', 'カジュアル': 'casual clothes',
-    'タンクトップ': 'tank top', 'ニット': 'sweater', 'コート': 'coat',
-    // ポーズ・動作
+    'タンクトップ': 'tank top', 'ニット': 'knit sweater', 'コート': 'coat',
+    'パーカー': 'hoodie', 'Tシャツ': 'T-shirt', 'スカート': 'skirt',
+    'ジーンズ': 'jeans', 'ジャケット': 'jacket',
+    'チャイナ服': 'cheongsam', 'ゴスロリ': 'gothic lolita',
+    'メイド': 'maid outfit', 'ナース': 'nurse outfit',
+    'バニー': 'bunny suit', 'アーマー': 'armor',
+    // ポーズ・動作（複合フレーズ先）
     '立っている': 'standing', '座っている': 'sitting', '走っている': 'running',
+    '歩いている': 'walking', '寝ている': 'lying down',
     '手を振る': 'waving', '指差し': 'pointing', 'ピースサイン': 'peace sign',
-    '寝ている': 'lying down', 'ジャンプ': 'jumping', '歩いている': 'walking',
-    '抱きしめる': 'hugging', '振り向く': 'looking back',
-    // 背景・場所
-    '白背景': 'white background', '教室': 'classroom', '空': 'sky',
+    'ジャンプ': 'jumping', '抱きしめる': 'hugging', '振り向く': 'looking back',
+    '立ちポーズ': 'standing', 'お座り': 'sitting', '座り': 'sitting',
+    'あぐら': 'sitting cross-legged', '腕組み': 'arms crossed',
+    '寝そべり': 'lying down', 'うつ伏せ': 'prone position',
+    'ピース': 'peace sign', 'Vサイン': 'V sign', 'ポーズ': 'posing',
+    '後ろ向き': 'back view', '横向き': 'side view', '正面': 'front view',
+    '走る': 'running',
+    // 背景・場所（複合フレーズ先）
+    '白背景': 'white background', '夜景': 'night cityscape', '星空': 'starry sky',
+    '夕日': 'sunset', '夕焼け': 'sunset background', '花畑': 'flower field',
+    '雪景色': 'snowy background', '商店街': 'shopping street', '神社': 'shrine background',
+    'プール': 'pool background', '温泉': 'hot spring background',
+    'ビーチ': 'beach background', '海岸': 'beach background',
+    'カフェ': 'cafe background', '図書館': 'library background',
+    '公園': 'park background', '学校': 'school background',
+    '教室': 'classroom', '屋上': 'rooftop background',
     '桜': 'cherry blossoms', '都市': 'city', '自然': 'nature', '宇宙': 'space',
-    '海': 'ocean', '森': 'forest', '山': 'mountain', '夜景': 'night cityscape',
-    '星空': 'starry sky', '夕日': 'sunset', '部屋': 'room',
-    // 品質・スタイル
-    '高品質': 'best quality', 'アニメ風': 'anime style', 'リアル': 'realistic',
-    '可愛い': 'cute', 'かっこいい': 'cool', '美しい': 'beautiful',
-    '細部まで描写': 'highly detailed', '超高画質': 'ultra high resolution',
-    '傑作': 'masterpiece', 'シネマティック': 'cinematic lighting',
-    // 性別・人数
+    '海': 'ocean', '森': 'forest', '山': 'mountain', '部屋': 'room',
+    '空': 'sky',
+    // 構図・照明（複合フレーズ先）
+    'バストアップ': 'bust shot', 'アップ': 'close-up', '全身': 'full body',
+    '俯瞰': 'bird eye view', '煽り': 'worm eye view',
+    '逆光': 'backlight', '窓光': 'window light', 'スタジオ': 'studio lighting',
+    'ドラマチック': 'dramatic lighting', 'ソフト': 'soft lighting',
+    // 品質・スタイル（複合フレーズ先）
+    'アニメ風': 'anime style', '細部まで描写': 'highly detailed',
+    '超高画質': 'ultra high quality', '高品質': 'best quality',
+    'リアル': 'realistic', '可愛い': 'cute', 'かっこいい': 'cool',
+    '美しい': 'beautiful', '傑作': 'masterpiece', 'シネマティック': 'cinematic lighting',
+    '写真': 'photorealistic', '水彩': 'watercolor', 'アニメ': 'anime style',
+    '漫画': 'manga style', 'ゲーム': 'game art style',
+    'かわいい': 'cute', 'セクシー': 'sexy', 'おしゃれ': 'stylish',
+    'クール': 'cool', 'エレガント': 'elegant',
+    // 性別・人数・年齢
     '女の子': '1girl', '男の子': '1boy', '1人': 'solo', '2人': '2girls',
     '子供': 'child', '10代': 'teenager', '20代': 'young adult', '大人': 'adult',
-    // 髪インナー・先端
-    'インナーカラー': 'inner color hair', 'ルーツカラー': 'inner color hair',
-    'グラデーション先端': 'gradient hair tips',
     // 胸のサイズ
-    'フラット': 'flat chest', '小さめ': 'small breasts', '普通': 'medium breasts',
-    '大きめ': 'large breasts', 'かなり大きめ': 'huge breasts',
+    'かなり大きめ': 'huge breasts', 'フラット': 'flat chest',
+    '小さめ': 'small breasts', '普通': 'medium breasts', '大きめ': 'large breasts',
   };
 
   function translateText(text) {
@@ -740,17 +795,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const input = document.getElementById(targetId);
     if (!input) return;
     const original = input.value;
-    const translated = translateText(original);
-    input.value = translated;
-    input.dispatchEvent(new Event('input'));
-    // 変換フィードバック
-    btn.classList.add('translated');
-    const orig = btn.textContent;
-    btn.textContent = '✅ 変換済';
-    setTimeout(() => {
-      btn.classList.remove('translated');
-      btn.textContent = '📝 変換';
-    }, 1500);
+    const translated = translateText(original.trim());
+    if (translated === original.trim()) {
+      // 変換されなかった場合
+      btn.textContent = '⚠️ 未対応';
+      setTimeout(() => { btn.textContent = '📝 変換'; }, 1500);
+    } else {
+      input.value = translated;
+      input.dispatchEvent(new Event('input'));
+      // 変換フィードバック
+      btn.classList.add('translated');
+      btn.textContent = '✅ 変換済';
+      setTimeout(() => {
+        btn.classList.remove('translated');
+        btn.textContent = '📝 変換';
+      }, 1500);
+    }
   });
 })();
 
