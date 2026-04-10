@@ -87,15 +87,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .chibi-wrapper { flex-shrink: 0; }
-  .chibi-dark { display: none; }
-  [data-theme="dark"] .chibi-light { display: none; }
-  [data-theme="dark"] .chibi-dark { display: block; }
 
   .sakura-img {
     width: 100px;
     height: auto;
     display: block;
   }
+  .chibi-dark { display: none; }
+  [data-theme="dark"] .chibi-light { display: none; }
+  [data-theme="dark"] .chibi-dark { display: block; }
 
   .speech-bubble {
     background: var(--bubble-bg, #fff0f5);
