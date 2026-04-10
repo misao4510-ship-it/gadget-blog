@@ -280,13 +280,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .sakura-area {
     display: flex;
     align-items: flex-end;
+    justify-content: center;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
   }
 
   .chibi-wrapper { flex-shrink: 0; }
-  .sakura-img { width: 80px; height: auto; display: block; }
+  .sakura-img { width: 160px; height: auto; display: block; }
   .chibi-dark { display: none; }
   [data-theme="dark"] .chibi-light { display: none; }
   [data-theme="dark"] .chibi-dark { display: block; }
@@ -499,7 +500,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   @media (max-width: 480px) {
     .game-title { font-size: 1.4rem; }
-    .sakura-img { width: 60px; }
+    .sakura-img { width: 100px; }
     .chibi-wrapper { flex-shrink: 0; }
     .hand-btn { padding: 0.75rem 0.75rem; }
     .hand-btn__emoji { font-size: 2rem; }
