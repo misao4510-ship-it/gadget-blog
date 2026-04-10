@@ -70,6 +70,32 @@ const productsJson = JSON.stringify(products);
       </div>
     </div>
   </div>
+
+  <!-- 特賞演出オーバーレイ -->
+  <div id="special-prize" class="special-prize hidden" role="dialog" aria-modal="true">
+    <div class="sp-backdrop"></div>
+    <div class="sp-card">
+      <div class="sp-stars">✨⭐✨⭐✨</div>
+      <div class="sp-title">✨ 特賞 ✨</div>
+      <div class="sp-subtitle">おめでとうございます！</div>
+      <div class="sp-envelope-wrap">
+        <div class="sp-envelope">
+          <div class="sp-envelope-flap">💌</div>
+          <div class="sp-letter">
+            <div class="sp-letter-header">🌸 ご招待状 🌸</div>
+            <div class="sp-letter-body">
+              特別なあなたへ<br />
+              サクラの秘密の部屋への<br />
+              招待状をお届けします✨
+            </div>
+            <div class="sp-letter-sign">— サクラ より —</div>
+          </div>
+        </div>
+      </div>
+      <div class="sp-message">サクラの部屋への招待状が届きました！</div>
+      <button id="invitation-btn" class="sp-btn">📩 招待状を開く</button>
+    </div>
+  </div>
 </BaseLayout>
 
 <script define:vars={{ productsJson }}>
@@ -243,6 +269,25 @@ const productsJson = JSON.stringify(products);
     setTimeout(() => {
       flipContainer.classList.add('flipped');
     }, 300);
+
+    // 0.1%の確率で特賞（日付シードではなく毎回ランダム）
+    const isSpecialPrize = Math.random() < 0.001;
+    if (isSpecialPrize) {
+      setTimeout(() => showSpecialPrize(), 1800);
+    }
+  }
+
+  function showSpecialPrize() {
+    const overlay = document.getElementById('special-prize');
+    if (overlay) overlay.classList.remove('hidden');
+  }
+
+  const invitationBtn = document.getElementById('invitation-btn');
+  if (invitationBtn) {
+    invitationBtn.addEventListener('click', () => {
+      sessionStorage.setItem('sakura_room_via_omikuji', 'true');
+      window.location.href = '/sakura-room/';
+    });
   }
 
   drawBtn?.addEventListener('click', showResult);
@@ -570,5 +615,193 @@ const productsJson = JSON.stringify(products);
     .omikuji-title { font-size: 1.6rem; }
     .omikuji-shrine { padding: 2rem 1.25rem; }
     .flip-container { width: 180px; height: 250px; }
+  }
+
+  /* ===== 特賞演出オーバーレイ ===== */
+  .special-prize {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .special-prize.hidden {
+    display: none !important;
+  }
+
+  .sp-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+  }
+
+  .sp-card {
+    position: relative;
+    background: linear-gradient(135deg, #fff0f6, #fffbf0);
+    border: 3px solid #f59e0b;
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(245, 158, 11, 0.4), 0 0 0 6px rgba(245, 158, 11, 0.15);
+    animation: sp-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  [data-theme="dark"] .sp-card {
+    background: linear-gradient(135deg, #2d1b0e, #2d2b0e);
+    border-color: #f59e0b;
+  }
+
+  @keyframes sp-pop {
+    from { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .sp-stars {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    animation: sp-twinkle 1.5s ease-in-out infinite;
+  }
+
+  @keyframes sp-twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  .sp-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f59e0b;
+    text-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  [data-theme="dark"] .sp-title {
+    color: #fbbf24;
+  }
+
+  .sp-subtitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ec4899;
+    margin-bottom: 1.25rem;
+  }
+
+  [data-theme="dark"] .sp-subtitle {
+    color: #f9a8d4;
+  }
+
+  .sp-envelope-wrap {
+    margin-bottom: 1.25rem;
+  }
+
+  .sp-envelope {
+    background: linear-gradient(160deg, #fce7f3 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 16px;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
+  }
+
+  [data-theme="dark"] .sp-envelope {
+    background: linear-gradient(160deg, #3d1530 0%, #3d2a00 100%);
+    border-color: #d97706;
+  }
+
+  .sp-envelope-flap {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    animation: sp-bounce 1s ease-in-out infinite;
+  }
+
+  @keyframes sp-bounce {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-6px) rotate(3deg); }
+  }
+
+  .sp-letter {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  [data-theme="dark"] .sp-letter {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+  }
+
+  .sp-letter-header {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #ec4899;
+    margin-bottom: 0.5rem;
+  }
+
+  [data-theme="dark"] .sp-letter-header {
+    color: #f9a8d4;
+  }
+
+  .sp-letter-body {
+    margin-bottom: 0.5rem;
+  }
+
+  .sp-letter-sign {
+    font-size: 0.8rem;
+    color: #be185d;
+    font-style: italic;
+  }
+
+  [data-theme="dark"] .sp-letter-sign {
+    color: #f9a8d4;
+  }
+
+  .sp-message {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #7c3aed;
+    margin-bottom: 1.25rem;
+  }
+
+  [data-theme="dark"] .sp-message {
+    color: #c4b5fd;
+  }
+
+  .sp-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ec4899, #f59e0b);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.9rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(236, 72, 153, 0.45);
+    letter-spacing: 0.05em;
+    animation: sp-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes sp-pulse {
+    0%, 100% { box-shadow: 0 4px 16px rgba(236, 72, 153, 0.45); }
+    50% { box-shadow: 0 6px 24px rgba(236, 72, 153, 0.7); }
+  }
+
+  .sp-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  .sp-btn:active {
+    transform: translateY(0) scale(0.98);
   }
 </style>
