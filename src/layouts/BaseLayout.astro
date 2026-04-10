@@ -219,27 +219,107 @@ const currentYear = new Date().getFullYear();
     color: #ec4899 !important;
   }
 
-  /* 招待状オーバーレイ */
-  #article-invitation-overlay {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999;
+  /* === 共通招待状デザイン (sinv-) === */
+  .sinv-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    display: flex; align-items: center; justify-content: center; padding: 1rem;
   }
-  .invitation-modal { max-width: 360px; width: 90%; }
-  .invitation-letter {
-    background: var(--card-bg, #fff);
-    border-radius: 16px;
-    padding: 32px 24px;
+  .sinv-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+  }
+  .sinv-card {
+    position: relative;
+    background: linear-gradient(135deg, #fff0f6, #fffbf0);
+    border: 3px solid #f59e0b; border-radius: 24px;
+    padding: 2rem 1.5rem; max-width: 380px; width: 100%;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 40px rgba(245,158,11,0.4), 0 0 0 6px rgba(245,158,11,0.15);
+    animation: sinv-pop 0.5s cubic-bezier(0.34,1.56,0.64,1);
   }
-  .letter-header { font-size: 1.2em; font-weight: bold; margin-bottom: 16px; }
-  #article-invite-btn {
-    background: #ec4899; color: white;
-    border: none; border-radius: 24px;
-    padding: 12px 32px; font-size: 1em;
-    cursor: pointer; width: 100%; margin-top: 16px;
+  [data-theme="dark"] .sinv-card {
+    background: linear-gradient(135deg, #2d1b0e, #2d2b0e);
+    border-color: #f59e0b;
+  }
+  @keyframes sinv-pop {
+    from { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+    to   { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .sinv-stars {
+    font-size: 1.2rem; margin-bottom: 0.5rem;
+    animation: sinv-twinkle 1.5s ease-in-out infinite;
+  }
+  @keyframes sinv-twinkle {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%     { opacity:0.7; transform:scale(1.1); }
+  }
+  .sinv-title {
+    font-size: 2rem; font-weight: 900; color: #f59e0b;
+    text-shadow: 0 2px 8px rgba(245,158,11,0.4);
+    margin-bottom: 0.25rem; letter-spacing: 0.05em;
+  }
+  [data-theme="dark"] .sinv-title { color: #fbbf24; }
+  .sinv-subtitle {
+    font-size: 1rem; font-weight: 700; color: #ec4899; margin-bottom: 1.25rem;
+  }
+  [data-theme="dark"] .sinv-subtitle { color: #f9a8d4; }
+  .sinv-envelope-wrap { margin-bottom: 1.25rem; }
+  .sinv-envelope {
+    background: linear-gradient(160deg, #fce7f3 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b; border-radius: 16px;
+    padding: 1rem; position: relative;
+    box-shadow: 0 4px 16px rgba(245,158,11,0.2);
+  }
+  [data-theme="dark"] .sinv-envelope {
+    background: linear-gradient(160deg, #3d1530 0%, #3d2a00 100%);
+    border-color: #d97706;
+  }
+  .sinv-envelope-flap {
+    font-size: 2.5rem; margin-bottom: 0.75rem;
+    animation: sinv-bounce 1s ease-in-out infinite;
+  }
+  @keyframes sinv-bounce {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50%     { transform: translateY(-6px) rotate(3deg); }
+  }
+  .sinv-letter {
+    background: rgba(255,255,255,0.85); border-radius: 10px;
+    padding: 0.85rem 1rem; font-size: 0.9rem; line-height: 1.8; color: #444;
+  }
+  [data-theme="dark"] .sinv-letter {
+    background: rgba(255,255,255,0.1); color: #f0f0f0;
+  }
+  .sinv-letter-header {
+    font-weight: 700; font-size: 0.95rem; color: #ec4899; margin-bottom: 0.5rem;
+  }
+  [data-theme="dark"] .sinv-letter-header { color: #f9a8d4; }
+  .sinv-letter-body { margin-bottom: 0.5rem; }
+  .sinv-letter-sign { font-size: 0.8rem; color: #be185d; font-style: italic; }
+  [data-theme="dark"] .sinv-letter-sign { color: #f9a8d4; }
+  .sinv-message {
+    font-size: 0.95rem; font-weight: 600; color: #7c3aed; margin-bottom: 1.25rem;
+  }
+  [data-theme="dark"] .sinv-message { color: #c4b5fd; }
+  .sinv-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ec4899, #f59e0b);
+    color: #fff; border: none; border-radius: 50px;
+    padding: 0.9rem 2.5rem; font-size: 1.1rem; font-weight: 700;
+    cursor: pointer; width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(236,72,153,0.45);
+    letter-spacing: 0.05em;
+    animation: sinv-pulse 2s ease-in-out infinite;
+  }
+  .sinv-btn:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(236,72,153,0.55); }
+  @keyframes sinv-pulse {
+    0%,100% { box-shadow: 0 4px 16px rgba(236,72,153,0.45); }
+    50%     { box-shadow: 0 4px 28px rgba(236,72,153,0.7); }
+  }
+  .sinv-close-btn {
+    display: block; background: transparent; border: none;
+    color: var(--color-text-muted, #777); font-size: 0.85rem;
+    cursor: pointer; margin-top: 0.75rem; width: 100%;
   }
 
   /* オーバーレイ */
@@ -298,20 +378,30 @@ const currentYear = new Date().getFullYear();
   (function() {
     function showArticleInvitation() {
       const invOverlay = document.createElement('div');
-      invOverlay.id = 'article-invitation-overlay';
+      invOverlay.className = 'sinv-overlay';
       invOverlay.innerHTML = `
-        <div class="invitation-modal">
-          <div class="invitation-letter">
-            <div class="letter-header">✉️ 招待状が届きました</div>
-            <div class="letter-body">
-              <p>🌸 <strong>サクラの部屋</strong>へご招待</p>
-              <p style="font-size:0.9em; color:var(--text-muted)">
-                「あなたに会いたいな…こっそり教えてあげます」
-              </p>
+        <div class="sinv-backdrop"></div>
+        <div class="sinv-card">
+          <div class="sinv-stars">✨💌✨💌✨</div>
+          <div class="sinv-title">✨ 招待状 ✨</div>
+          <div class="sinv-subtitle">記事を読んでいたら届きました</div>
+          <div class="sinv-envelope-wrap">
+            <div class="sinv-envelope">
+              <div class="sinv-envelope-flap">💌</div>
+              <div class="sinv-letter">
+                <div class="sinv-letter-header">🌸 ご招待状 🌸</div>
+                <div class="sinv-letter-body">
+                  こっそり教えてあげます<br>
+                  サクラの秘密の部屋への<br>
+                  招待状をお届けします✨
+                </div>
+                <div class="sinv-letter-sign">— サクラ より —</div>
+              </div>
             </div>
-            <button id="article-invite-btn">サクラの部屋へ</button>
-            <button id="article-invite-close" style="background:transparent;color:var(--text-muted);margin-top:8px;font-size:0.8em;cursor:pointer;">今は行かない</button>
           </div>
+          <div class="sinv-message">サクラの部屋への特別招待状が届きました！</div>
+          <button class="sinv-btn" id="article-invite-btn">📩 招待状を開く</button>
+          <button class="sinv-close-btn" id="article-invite-close">今は行かない</button>
         </div>
       `;
       document.body.appendChild(invOverlay);
@@ -320,7 +410,6 @@ const currentYear = new Date().getFullYear();
         sessionStorage.setItem('sakura_room_via_redirect', 'true');
         window.location.href = '/sakura-room/';
       });
-
       document.getElementById('article-invite-close').addEventListener('click', () => {
         invOverlay.remove();
       });

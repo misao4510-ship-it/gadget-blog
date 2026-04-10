@@ -188,117 +188,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     100% { opacity: 0; transform: translateY(-20px) scale(0.95); }
   }
 
-  /* Unlock overlay */
-  #unlock-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.65);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    animation: fadeIn 0.4s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .unlock-box {
-    position: relative;
-    background: linear-gradient(135deg, #fff0f8, #ffe0ef);
-    border: 3px solid #f9a8c9;
-    border-radius: 1.5rem;
-    padding: 2rem 2.5rem;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 8px 40px rgba(249, 168, 201, 0.5);
-    overflow: hidden;
-  }
-
-  [data-theme="dark"] .unlock-box {
-    background: linear-gradient(135deg, #1a0510, #2a0a20);
-    border-color: #8a3060;
-  }
-
-  .unlock-confetti {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .confetti-piece {
-    position: absolute;
-    top: -10px;
-    animation: confettiFall linear forwards;
-  }
-
-  @keyframes confettiFall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(400px) rotate(720deg); opacity: 0; }
-  }
-
-  .unlock-emoji {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-    animation: bounce 0.6s ease infinite alternate;
-  }
-
-  @keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-8px); }
-  }
-
-  .unlock-msg {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: #7a0040;
-    margin-bottom: 1.25rem;
-  }
-
-  [data-theme="dark"] .unlock-msg {
-    color: #f0c0d8;
-  }
-
-  .unlock-btn {
-    display: block;
-    background: linear-gradient(135deg, #ff69b4, #ff1493);
-    color: #fff;
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 0.65rem 1.8rem;
-    border-radius: 999px;
-    border: none;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(255, 20, 147, 0.4);
-    transition: transform 0.15s, box-shadow 0.15s;
-    margin-bottom: 0.75rem;
-    cursor: pointer;
-  }
-
-  .unlock-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
-  }
-
-  .unlock-close {
-    background: none;
-    border: 1px solid #f9a8c9;
-    color: #a0124c;
-    font-size: 0.85rem;
-    padding: 0.35rem 1rem;
-    border-radius: 999px;
-    cursor: pointer;
-    margin-top: 0.25rem;
-  }
-
-  [data-theme="dark"] .unlock-close {
-    border-color: #8a3060;
-    color: #f0c0d8;
-  }
 </style>
 
 <script>
@@ -667,46 +556,43 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     if (unlockShown) return;
     unlockShown = true;
 
-    // Overlay
     const overlay = document.createElement('div');
-    overlay.id = 'unlock-overlay';
+    overlay.className = 'sinv-overlay';
     overlay.innerHTML = `
-      <div class="unlock-box">
-        <div class="unlock-confetti" id="unlock-confetti"></div>
-        <div class="unlock-emoji">🌸✨🎉</div>
-        <p class="unlock-msg">わ、わわわ！！<strong>1万回！？</strong><br>すごいです、信じられません！！<br>もう…こんなに愛でてくれたんですね…💗<br>特別に、サクラの部屋への扉を開けてあげます。🌸</p>
-        <button class="unlock-btn" id="unlock-room-btn">🌸 サクラの部屋へ</button>
-        <button class="unlock-close" onclick="document.getElementById('unlock-overlay').remove()">閉じる</button>
+      <div class="sinv-backdrop"></div>
+      <div class="sinv-card">
+        <div class="sinv-stars">✨🌸✨🌸✨</div>
+        <div class="sinv-title">✨ 100回達成！✨</div>
+        <div class="sinv-subtitle">すごい…信じられません！</div>
+        <div class="sinv-envelope-wrap">
+          <div class="sinv-envelope">
+            <div class="sinv-envelope-flap">💗</div>
+            <div class="sinv-letter">
+              <div class="sinv-letter-header">🌸 ご招待状 🌸</div>
+              <div class="sinv-letter-body">
+                わ、わわわ！！<br>
+                100回もタップしてくれたんですね…<br>
+                こんなに愛でてくれたんですね…💗
+              </div>
+              <div class="sinv-letter-sign">— サクラ より —</div>
+            </div>
+          </div>
+        </div>
+        <div class="sinv-message">特別に、サクラの部屋への扉を開けてあげます🌸</div>
+        <button class="sinv-btn" id="unlock-room-btn">🌸 サクラの部屋へ</button>
+        <button class="sinv-close-btn" id="unlock-close-btn">閉じる</button>
       </div>
     `;
     document.body.appendChild(overlay);
 
-    // 招待状ボタン：トークン方式でsakura-roomへ
-    const roomBtn = document.getElementById('unlock-room-btn');
-    if (roomBtn) {
-      roomBtn.addEventListener('click', () => {
-        sessionStorage.setItem('sakura_room_via_tap', 'true');
-        window.location.href = '/sakura-room/';
-      });
-    }
-
-    // 紙吹雪
-    const confetti = document.getElementById('unlock-confetti');
-    const colors = ['#ff69b4', '#ffb6c1', '#ff1493', '#ffd700', '#ff6347', '#98fb98'];
-    for (let i = 0; i < 60; i++) {
-      const p = document.createElement('div');
-      p.className = 'confetti-piece';
-      p.style.cssText = `
-        left:${Math.random() * 100}%;
-        background:${colors[Math.floor(Math.random() * colors.length)]};
-        animation-delay:${Math.random() * 1.5}s;
-        animation-duration:${1.5 + Math.random() * 1.5}s;
-        width:${6 + Math.random() * 8}px;
-        height:${6 + Math.random() * 8}px;
-        border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
-      `;
-      confetti.appendChild(p);
-    }
+    document.getElementById('unlock-room-btn').addEventListener('click', () => {
+      sessionStorage.setItem('sakura_room_via_tap', 'true');
+      window.location.href = '/sakura-room/';
+    });
+    document.getElementById('unlock-close-btn').addEventListener('click', () => {
+      overlay.remove();
+      unlockShown = false;
+    });
   }
 
   // ============================================================
