@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SakuraBot from '../components/SakuraBot.astro';
 
 interface Props {
   title: string;
@@ -294,5 +295,8 @@ const currentYear = new Date().getFullYear();
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
   data-cf-beacon='{"token": "e38061c395ac4765a0b26d9395654415"}'></script>
+
+<!-- サクラFAQ Bot -->
+<SakuraBot />
 </body>
 </html>
