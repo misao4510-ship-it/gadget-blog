@@ -508,6 +508,13 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     '…見つかっちゃいましたね。もう逃げられないです（観念）',
   ];
 
+  // ウェルカム画面の立ち絵をランダム設定
+  const WELCOME_IMAGES = [
+    '/images/sakura-profile.png',
+    '/images/games/chibi/sakura_chibi_v2_06_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_08_nobg.png',
+  ];
+
   function showGallery() {
     if (pwScreen) pwScreen.style.display = 'none';
     if (welcome) welcome.classList.remove('show');
@@ -665,12 +672,6 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     lockTimer = setInterval(tick, 1000);
   }
 
-  // ウェルカム画面の立ち絵をランダム設定
-  const WELCOME_IMAGES = [
-    '/images/sakura-profile.png',
-    '/images/games/chibi/sakura_chibi_v2_06_nobg.png',
-    '/images/games/chibi/sakura_chibi_v2_08_nobg.png',
-  ];
   // ロック処理
   function startLock() {
     const lockUntil = Date.now() + LOCK_SEC * 1000;
