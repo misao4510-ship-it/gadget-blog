@@ -4,6 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // ギャラリー画像リスト
 const profileImages = [
   { src: '/images/sakura-profile.png', alt: 'サクラ 立ち絵' },
+  { src: '/images/games/chibi/sakura_chibi_v2_06_nobg.png', alt: 'サクラ v2-06' },
+  { src: '/images/games/chibi/sakura_chibi_v2_08_nobg.png', alt: 'サクラ v2-08' },
 ];
 
 const chibiv2Images = Array.from({ length: 10 }, (_, i) => ({
@@ -660,6 +662,17 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     showGallery();
   }
 
+  // ウェルカム画面の立ち絵をランダム設定
+  const WELCOME_IMAGES = [
+    '/images/sakura-profile.png',
+    '/images/games/chibi/sakura_chibi_v2_06_nobg.png',
+    '/images/games/chibi/sakura_chibi_v2_08_nobg.png',
+  ];
+  const welcomeImg = document.querySelector('.sw-sakura-img');
+  if (welcomeImg) {
+    welcomeImg.src = WELCOME_IMAGES[Math.floor(Math.random() * WELCOME_IMAGES.length)];
+  }
+
   // ロック処理
   function startLock() {
     let remaining = LOCK_SEC;
@@ -758,9 +771,9 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
   // サムネイルクリック — グループ別にフラット化してインデックス計算
   const groupOffsets = {
     profile: 0,
-    v2: 1,        // profile 1枚
-    white: 11,    // profile 1 + v2 10 = 11
-    black: 19,    // + white 8 = 19
+    v2: 3,        // profile 3枚
+    white: 13,    // profile 3 + v2 10 = 13
+    black: 21,    // + white 8 = 21
   };
 
   document.querySelectorAll('.sg-thumb').forEach(thumb => {
