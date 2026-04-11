@@ -11,7 +11,7 @@
       "price": 2528,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/colorsstorenigoten/65081074809/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-10"
+      "updated": "2026-04-11"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-11",
+      "amazon": 6380,
+      "rakuten": 2528
+    },
     {
       "date": "2026-04-10",
       "amazon": 6380,
@@ -303,11 +308,6 @@
       "date": "2026-01-11",
       "amazon": 6957,
       "rakuten": 7644
-    },
-    {
-      "date": "2026-01-10",
-      "amazon": 7010,
-      "rakuten": 7783
     }
   ]
 }

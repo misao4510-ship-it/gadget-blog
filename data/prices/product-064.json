@@ -11,7 +11,7 @@
       "price": 3800,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/status/tp-link_decox20_ax1800/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-10"
+      "updated": "2026-04-11"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-11",
+      "amazon": 12980,
+      "rakuten": 3800
+    },
     {
       "date": "2026-04-10",
       "amazon": 12980,
@@ -303,11 +308,6 @@
       "date": "2026-01-11",
       "amazon": 14131,
       "rakuten": 14142
-    },
-    {
-      "date": "2026-01-10",
-      "amazon": 13906,
-      "rakuten": 14376
     }
   ]
 }
