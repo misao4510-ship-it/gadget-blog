@@ -754,10 +754,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label for="pb-extra">追加指示（フリーテキスト）</label>
             <div class="custom-row"><input type="text" id="pb-extra" placeholder="例: 1girl, solo, looking at viewer" /><button type="button" class="trans-btn" data-target="pb-extra">📝 変換</button></div>
           </div>
+        </div>
+      </details>
+
+      <!-- 🔒 管理人 -->
+      <details class="pb-accordion" id="pb-admin-category">
+        <summary>🔒 管理人</summary>
+        <div class="accordion-content">
           <div class="field-group">
             <div class="quality-tags">
               <label><input type="checkbox" id="pb-nsfw" value="nsfw" /> NSFW</label>
             </div>
+          </div>
+          <div class="field-group">
+            <button type="button" id="send-to-shogun-btn" class="send-shogun-btn">📤 将軍に送信</button>
           </div>
         </div>
       </details>
@@ -777,7 +787,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <div class="btn-row">
         <button class="copy-btn" id="pb-copy-btn">📋 コピー</button>
-        <button type="button" id="send-to-shogun-btn" class="send-shogun-btn">📤 将軍に送信</button>
       </div>
       <div>
         <div class="section-label">ネガティブプロンプト</div>
@@ -1165,6 +1174,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       alert('コピーできませんでした。');
     }
   });
+
+  const adminDetails = document.getElementById('pb-admin-category');
+  if (adminDetails) {
+    adminDetails.addEventListener('toggle', function() {
+      if (adminDetails.open) {
+        if (localStorage.getItem('pb_admin_auth') !== '1') {
+          const input = window.prompt('管理人パスワードを入力してください');
+          if (input === '393941') {
+            localStorage.setItem('pb_admin_auth', '1');
+          } else {
+            adminDetails.open = false;
+          }
+        }
+      }
+    });
+  }
 
   document.getElementById('send-to-shogun-btn').addEventListener('click', function() {
     const prompt = buildPrompt();
