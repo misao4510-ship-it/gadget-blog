@@ -25,10 +25,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
   }
   .pw-chara {
-    font-size: 4rem;
     line-height: 1;
     margin-bottom: 0.5rem;
     animation: pw-bounce 1.2s ease-in-out infinite;
+  }
+  .pw-chara-img {
+    width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
   @keyframes pw-bounce {
     0%, 100% { transform: translateY(0); }
@@ -392,7 +397,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <!-- パスワード認証画面 -->
 <div id="pw-screen">
   <div class="pw-card">
-    <div class="pw-chara">🌸</div>
+    <div class="pw-chara">
+      <img src="/images/games/chibi/sakura_chibi_v2_06_nobg.png" alt="サクラ" class="pw-chara-img" />
+    </div>
     <div class="pw-chara-name">— サクラ —</div>
     <div class="pw-speech">
       ここはサクラの秘密工房✨<br />
