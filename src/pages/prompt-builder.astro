@@ -737,8 +737,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <option value="DPM++ 2M Karras">DPM++ 2M Karras</option>
               <option value="DPM++ 2M SDE Karras" selected>DPM++ 2M SDE Karras</option>
               <option value="DPM++ 2S a Karras">DPM++ 2S a Karras</option>
+              <option value="DPM++ SDE Karras">DPM++ SDE Karras</option>
               <option value="DDIM">DDIM</option>
+              <option value="UniPC">UniPC</option>
+              <option value="LMS">LMS</option>
+              <option value="LMS Karras">LMS Karras</option>
+              <option value="Heun">Heun</option>
             </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-sd-steps">ステップ数</label>
+            <input type="number" id="pb-sd-steps" min="1" max="150" value="28">
           </div>
           <div class="field-group">
             <label for="pb-sd-count">生成枚数</label>
@@ -1325,11 +1334,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const sizeSd = document.getElementById('pb-sd-size').value || '512x768';
     const modelSd = document.getElementById('pb-sd-model').value || '';
     const samplerSd = document.getElementById('pb-sd-sampler').value || '';
+    const stepsSd = document.getElementById('pb-sd-steps').value || '28';
     const msgLines = [
       '🎨画像生成依頼(' + countSd + '枚)',
       '📐サイズ: ' + sizeSd,
       '🤖モデル: ' + modelSd,
       '🔧サンプラー: ' + samplerSd,
+      '🔢ステップ数: ' + stepsSd,
       'プロンプト: ' + prompt
     ];
     const message = encodeURIComponent(msgLines.join('\n'));
@@ -1355,6 +1366,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       alert('コピーできませんでした。');
     }
   });
+
+  // サンプラー別最適ステップ数テーブル
+  const SAMPLER_STEPS = {
+    'DPM++ 2M SDE Karras': 28,
+    'DPM++ 2M Karras': 25,
+    'DPM++ SDE Karras': 12,
+    'DPM++ 2S a Karras': 20,
+    'Euler a': 25,
+    'Euler': 25,
+    'DDIM': 20,
+    'UniPC': 20,
+    'LMS': 35,
+    'LMS Karras': 35,
+    'Heun': 15
+  };
+
+  // サンプラー変更時にステップ数自動更新
+  document.getElementById('pb-sd-sampler')?.addEventListener('change', (e) => {
+    const steps = SAMPLER_STEPS[e.target.value];
+    if (steps) {
+      const stepsInput = document.getElementById('pb-sd-steps');
+      if (stepsInput) stepsInput.value = steps;
+    }
+  });
+
+  // 初期ロード時デフォルト値設定
+  (function() {
+    const initSampler = document.getElementById('pb-sd-sampler')?.value;
+    const initSteps = SAMPLER_STEPS[initSampler];
+    if (initSteps) {
+      const stepsInput = document.getElementById('pb-sd-steps');
+      if (stepsInput) stepsInput.value = initSteps;
+    }
+  })();
 
   // 初期表示
   updatePreview();
