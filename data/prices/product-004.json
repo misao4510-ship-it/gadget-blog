@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 710,
+      "price": 650,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/laforest/zak-56445/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-12"
+      "url": "https://item.rakuten.co.jp/kobe-s/zak-56445/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-13"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 710
+      "price": 650
     }
   },
   "history": [
+    {
+      "date": "2026-04-13",
+      "amazon": 5990,
+      "rakuten": 650
+    },
     {
       "date": "2026-04-12",
       "amazon": 5990,
@@ -468,11 +473,6 @@
       "date": "2026-01-13",
       "amazon": 6290,
       "rakuten": 6670
-    },
-    {
-      "date": "2026-01-12",
-      "amazon": 6430,
-      "rakuten": 6600
     }
   ]
 }

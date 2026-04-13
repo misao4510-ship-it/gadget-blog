@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 3800,
+      "price": 9750,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/status/tp-link_decox20_ax1800/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-12"
+      "url": "https://item.rakuten.co.jp/enjoy-lovely/enly0873hwfgq/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-13"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3800
+      "price": 9750
     }
   },
   "history": [
+    {
+      "date": "2026-04-13",
+      "amazon": 12980,
+      "rakuten": 9750
+    },
     {
       "date": "2026-04-12",
       "amazon": 12980,
@@ -303,11 +308,6 @@
       "date": "2026-01-13",
       "amazon": 13930,
       "rakuten": 14081
-    },
-    {
-      "date": "2026-01-12",
-      "amazon": 13859,
-      "rakuten": 14025
     }
   ]
 }

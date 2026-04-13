@@ -8,17 +8,22 @@
       "updated": "2026-04-08"
     },
     "rakuten": {
-      "price": 38,
+      "price": 44,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/bousai-zstyle/wt-5-wakeari/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-12"
+      "url": "https://item.rakuten.co.jp/at-rescue/10000751/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-13"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 38
+      "price": 44
     }
   },
   "history": [
+    {
+      "date": "2026-04-13",
+      "amazon": 8131,
+      "rakuten": 44
+    },
     {
       "date": "2026-04-12",
       "amazon": 8131,
@@ -468,11 +473,6 @@
       "date": "2026-01-13",
       "amazon": 7925,
       "rakuten": 10038
-    },
-    {
-      "date": "2026-01-12",
-      "amazon": 8132,
-      "rakuten": 9829
     }
   ]
 }

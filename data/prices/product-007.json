@@ -8,10 +8,10 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1973,
+      "price": 1969,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/manelabo/20260321-00111/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-12"
+      "updated": "2026-04-13"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-13",
+      "amazon": 1490,
+      "rakuten": 1969
+    },
     {
       "date": "2026-04-12",
       "amazon": 1490,
@@ -468,11 +473,6 @@
       "date": "2026-01-13",
       "amazon": 1590,
       "rakuten": 1740
-    },
-    {
-      "date": "2026-01-12",
-      "amazon": 1560,
-      "rakuten": 1720
     }
   ]
 }
