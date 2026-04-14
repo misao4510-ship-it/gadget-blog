@@ -4,3 +4,4 @@ dist
 .DS_Store
 .astro
 config/rakuten_auth.env
+config/note_auth.env

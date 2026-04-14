@@ -1,0 +1,10 @@
+# note投稿設定
+blog_base_url: "https://your-blog-domain.pages.dev"
+note_hashtags:
+  - "ガジェット"
+  - "レビュー"
+  - "アフィリエイト"
+publish_status: "public"  # public / draft
+add_canonical_footer: true
+canonical_template: "\n\n---\n▶ 元記事はこちら: {url}\n"
+history_file: "config/note_posted.yaml"
