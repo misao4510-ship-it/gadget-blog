@@ -11,3 +11,7 @@ publish_status: "public"  # public / draft
 add_canonical_footer: true
 canonical_template: "\n\n---\n▶ 元記事はこちら: {url}\n"
 history_file: "config/note_posted.yaml"
+# SD WebUI API
+sd_api_url: "http://172.18.208.1:7860"
+# 挿絵出力先
+illustrations_dir: "/tmp/note_illustrations"

@@ -19,6 +19,7 @@ import argparse
 import yaml
 import re
 import json
+import requests
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -34,6 +35,7 @@ BLOG_ROOT = Path(__file__).parent.parent.resolve()
 CONFIG_FILE = BLOG_ROOT / "config" / "note_post.yaml"
 AUTH_ENV_FILE = BLOG_ROOT / "config" / "note_auth.env"
 POSTS_DIR = BLOG_ROOT / "src" / "content" / "posts"
+_TELEGRAM_AUTH_FILE = Path("/mnt/c/tools/multi-agent-shogun/config/telegram_auth.env")
 
 # ログ設定
 logging.basicConfig(
@@ -45,6 +47,64 @@ logger = logging.getLogger(__name__)
 # scripts/libをインポートパスに追加
 sys.path.insert(0, str(Path(__file__).parent))
 from lib.note_converter import NoteConverter
+from note_sakura_voice import convert_to_sakura_voice
+
+
+# ===== ヘルパー関数 =====
+
+# note本文中の区切り線（---）を除去する挿入位置マーカー
+_SPLIT_MARKERS = [
+    ("## 商品概要", "intro"),
+    ("## 主な特徴", "features"),
+    ("## メリット", "merit"),
+    ("## デメリット", "demerit"),
+    ("## まとめ", "summary"),
+]
+
+
+def strip_separator_lines(body: str) -> str:
+    """note本文から区切り線（---）を除去し、連続空行を圧縮する"""
+    body = re.sub(r'\n\s*---\s*\n', '\n\n', body)
+    body = re.sub(r'^\s*---\s*\n', '', body)
+    body = re.sub(r'\n\s*---\s*$', '', body.rstrip())
+    body = re.sub(r'\n{3,}', '\n\n', body)
+    return body
+
+
+def _load_telegram_auth() -> tuple[str, str]:
+    """Telegram BOT_TOKEN と CHAT_ID を返す"""
+    env = {}
+    if _TELEGRAM_AUTH_FILE.exists():
+        with open(_TELEGRAM_AUTH_FILE, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, _, v = line.partition("=")
+                    env[k.strip()] = v.strip()
+    bot_token = env.get("TELEGRAM_BOT_TOKEN", os.environ.get("TELEGRAM_BOT_TOKEN", ""))
+    chat_id = env.get("TELEGRAM_CHAT_ID", os.environ.get("TELEGRAM_CHAT_ID", ""))
+    return bot_token, chat_id
+
+
+def send_telegram_notification(slug: str, note_url: str) -> bool:
+    """note投稿完了をTelegramに通知する"""
+    bot_token, chat_id = _load_telegram_auth()
+    if not bot_token or not chat_id:
+        logger.warning("Telegram認証情報が未設定です（telegram_auth.env）")
+        return False
+    message = f"🌸 note転載完了！\n\nスラッグ: {slug}\nnote URL: {note_url}"
+    try:
+        resp = requests.post(
+            f"https://api.telegram.org/bot{bot_token}/sendMessage",
+            json={"chat_id": chat_id, "text": message},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        logger.info("Telegram通知送信完了")
+        return True
+    except Exception as e:
+        logger.warning(f"Telegram通知失敗: {e}")
+        return False
 
 
 # ===== 設定・認証読み込み =====
@@ -136,9 +196,97 @@ class NoteClient:
         self.email = email
         self.password = password
 
+    @staticmethod
+    def _type_text_block(page, text: str) -> None:
+        """テキストブロックをProseMirrorに入力（連続空行を圧縮）"""
+        lines = text.split("\n")
+        prev_empty = False
+        for i, line in enumerate(lines):
+            is_empty = not line.strip()
+            if is_empty and prev_empty:
+                continue
+            if line.strip():
+                page.keyboard.type(line, delay=1)
+            if i < len(lines) - 1:
+                page.keyboard.press("Enter")
+            prev_empty = is_empty
+
+    @staticmethod
+    def _insert_inline_image(page, image_path: str) -> None:
+        """ProseMirrorエディタにインライン画像を挿入"""
+        page.keyboard.press("Enter")
+        page.wait_for_timeout(800)
+        menu_btn = page.locator('button[aria-label="メニューを開く"]')
+        menu_btn.wait_for(state="visible", timeout=5000)
+        menu_btn.first.click()
+        page.wait_for_timeout(1000)
+        with page.expect_file_chooser(timeout=10000) as fc_info:
+            page.get_by_text("画像", exact=True).click()
+        fc_info.value.set_files(image_path)
+        page.wait_for_timeout(4000)
+        page.keyboard.press("ArrowDown")
+        page.wait_for_timeout(300)
+        page.keyboard.press("End")
+        page.wait_for_timeout(300)
+
+    @staticmethod
+    def _upload_eyecatch(page, image_path: str) -> bool:
+        """アイキャッチ画像をアップロード"""
+        eyecatch_btn = page.locator('button[aria-label="画像を追加"]')
+        if eyecatch_btn.count() == 0:
+            return False
+        eyecatch_btn.click()
+        page.wait_for_timeout(2000)
+        cancel_btn = page.locator('button:has-text("キャンセル")')
+        if cancel_btn.count() > 0 and cancel_btn.first.is_visible():
+            cancel_btn.first.click()
+            page.wait_for_timeout(1000)
+            eyecatch_btn.click()
+            page.wait_for_timeout(2000)
+        upload_option = page.locator(
+            'button:has-text("画像をアップロード"), a:has-text("画像をアップロード")'
+        )
+        if upload_option.count() > 0:
+            with page.expect_file_chooser(timeout=10000) as fc_info:
+                upload_option.first.click()
+            fc_info.value.set_files(image_path)
+            page.wait_for_timeout(5000)
+            save_btn = page.get_by_role("button", name="保存", exact=True)
+            if save_btn.count() > 0:
+                save_btn.click()
+                page.wait_for_timeout(3000)
+                logger.info("アイキャッチ設定完了")
+                return True
+        return False
+
+    @staticmethod
+    def _split_body_into_sections(body: str) -> list[dict]:
+        """本文をセクションに分割し、各セクション後に挿入する挿絵キーを記録"""
+        sections = []
+        remaining = body
+        for marker, img_key in _SPLIT_MARKERS:
+            idx = remaining.find(marker)
+            if idx > 0:
+                sections.append({"text": remaining[:idx].rstrip(), "image_after": img_key})
+                remaining = remaining[idx:]
+        if remaining.strip():
+            sections.append({"text": remaining.strip(), "image_after": None})
+        return sections
+
     def post_article(self, title: str, body: str, hashtags: list[str] = None,
-                     publish_status: str = "public") -> str:
-        """Playwrightでnote.comにログインして記事を投稿"""
+                     publish_status: str = "public",
+                     eyecatch_path: str = None,
+                     illustrations_dir: str = None) -> str:
+        """Playwrightでnote.comにログインして記事を投稿
+
+        Args:
+            title: 記事タイトル
+            body: 本文（Markdown変換済み）
+            hashtags: ハッシュタグリスト
+            publish_status: "public" or "draft"
+            eyecatch_path: アイキャッチ画像パス（省略可）
+            illustrations_dir: 挿絵ディレクトリパス（省略時は挿絵なし）
+        """
         from playwright.sync_api import sync_playwright
 
         with sync_playwright() as p:
@@ -152,11 +300,15 @@ class NoteClient:
             if COOKIES_FILE.exists():
                 logger.info("保存済みCookieでログイン中...")
                 cookies = json.loads(COOKIES_FILE.read_text(encoding="utf-8"))
+                for c in cookies:
+                    if c.get("sameSite") is None or c.get("sameSite") not in ("Strict", "Lax", "None"):
+                        c["sameSite"] = "Lax"
+                    for key in ["hostOnly", "storeId", "session"]:
+                        c.pop(key, None)
                 context.add_cookies(cookies)
                 page.goto(f"{self.BASE_URL}/")
                 page.wait_for_load_state("networkidle")
                 page.wait_for_timeout(2000)
-                # ログイン確認（ダッシュボードや自分のページに遷移しているか）
                 if "/login" in page.url:
                     raise RuntimeError(
                         "Cookie期限切れ: config/note_cookies.jsonを更新してください\n"
@@ -168,15 +320,11 @@ class NoteClient:
                 logger.info("note.comにログイン中...")
                 page.goto(f"{self.BASE_URL}/login")
                 page.wait_for_load_state("networkidle")
-
-                # note.comはid属性を使用（name属性なし）
                 page.fill('input#email', self.email)
                 page.fill('input#password', self.password)
-                # ログインボタン（primary type, social loginボタンを除く）
                 page.locator('button[data-type="primary"]').click()
                 page.wait_for_load_state("networkidle")
                 page.wait_for_timeout(2000)
-
                 if "/login" in page.url:
                     raise RuntimeError(
                         "ログイン失敗: reCAPTCHAまたは認証エラー\n"
@@ -188,46 +336,74 @@ class NoteClient:
             # 2. 新規記事作成ページへ
             page.goto(f"{self.BASE_URL}/notes/new")
             page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(3000)
+            logger.info(f"エディタURL: {page.url}")
+
+            # 3. アイキャッチ設定（あれば）
+            if eyecatch_path and Path(eyecatch_path).exists():
+                logger.info(f"アイキャッチ設定中: {eyecatch_path}")
+                self._upload_eyecatch(page, eyecatch_path)
+
+            # 4. タイトル入力
+            page.locator('textarea[placeholder="記事タイトル"]').fill(title)
+            page.wait_for_timeout(500)
+
+            # 5. 本文入力
+            body_el = page.locator('.ProseMirror[contenteditable="true"]')
+            body_el.click()
+            page.wait_for_timeout(500)
+
+            if illustrations_dir:
+                illust_dir = Path(illustrations_dir)
+                sections = self._split_body_into_sections(body)
+                logger.info(f"セクション数: {len(sections)}（挿絵挿入モード）")
+                for i, section in enumerate(sections):
+                    self._type_text_block(page, section["text"])
+                    page.wait_for_timeout(500)
+                    if section["image_after"]:
+                        img_path = illust_dir / f"{section['image_after']}.png"
+                        if img_path.exists():
+                            logger.info(f"  挿絵挿入: {section['image_after']}")
+                            self._insert_inline_image(page, str(img_path))
+                        else:
+                            logger.warning(f"  挿絵なし（ファイル未存在）: {img_path}")
+                    if i < len(sections) - 1:
+                        page.keyboard.press("Enter")
+                        page.wait_for_timeout(300)
+            else:
+                lines = body.split("\n")
+                for i, line in enumerate(lines):
+                    if line.strip():
+                        page.keyboard.type(line, delay=1)
+                    if i < len(lines) - 1:
+                        page.keyboard.press("Enter")
             page.wait_for_timeout(2000)
 
-            # 3. タイトル入力
-            title_selector = 'textarea[placeholder*="タイトル"], input[placeholder*="タイトル"], [data-placeholder*="タイトル"]'
-            page.fill(title_selector, title)
+            # 6. 「公開に進む」ボタンクリック
+            page.locator('button:has-text("公開に進む")').click()
+            page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(3000)
 
-            # 4. 本文入力（contenteditable）
-            body_selector = '[contenteditable="true"], .note-editor, .ProseMirror'
-            page.click(body_selector)
-            page.keyboard.type(body, delay=10)
-
-            # 5. ハッシュタグ入力（あれば）
+            # 7. ハッシュタグ入力
             if hashtags:
                 try:
-                    tag_input = page.locator('input[placeholder*="タグ"], input[placeholder*="ハッシュタグ"]').first
-                    for tag in hashtags:
+                    tag_input = page.locator('input[placeholder="ハッシュタグを追加する"]')
+                    for tag in hashtags[:10]:
                         tag_input.fill(tag)
                         page.keyboard.press("Enter")
                         page.wait_for_timeout(500)
                 except Exception:
                     logger.warning("ハッシュタグ入力欄が見つかりませんでした（スキップ）")
 
-            # 6. 投稿ボタンクリック
-            page.wait_for_timeout(1000)
-            publish_btn = page.locator('button:has-text("公開"), button:has-text("投稿")').first
-            publish_btn.click()
-            page.wait_for_load_state("networkidle")
-            page.wait_for_timeout(2000)
+            # 8. 「投稿する」ボタンクリック
+            if publish_status == "draft":
+                logger.info("下書きモード: 投稿せず下書き保存のみ")
+            else:
+                page.locator('button:has-text("投稿する")').click()
+                page.wait_for_load_state("networkidle")
+                page.wait_for_timeout(5000)
 
-            # 「公開する」確認ダイアログがある場合
-            try:
-                confirm_btn = page.locator('button:has-text("公開する"), button:has-text("投稿する")').first
-                if confirm_btn.is_visible():
-                    confirm_btn.click()
-                    page.wait_for_load_state("networkidle")
-                    page.wait_for_timeout(3000)
-            except Exception:
-                pass
-
-            # 7. 投稿完了URLを取得
+            # 9. 投稿完了URLを取得
             note_url = page.url
             logger.info(f"投稿完了: {note_url}")
             browser.close()
@@ -237,9 +413,24 @@ class NoteClient:
 # ===== メイン処理 =====
 
 def process_slug(slug: str, converter: NoteConverter, config: dict,
-                 dry_run: bool, client=None) -> bool:
+                 dry_run: bool, client=None,
+                 sakura_voice: bool = False,
+                 with_illustrations: bool = False,
+                 eyecatch: str = None,
+                 telegram_notify: bool = False) -> bool:
     """
     1記事を変換して投稿する
+
+    Args:
+        slug: 記事スラッグ
+        converter: NoteConverter インスタンス
+        config: 設定dict
+        dry_run: Trueの場合は投稿せず変換結果を表示
+        client: NoteClient インスタンス（dry_run=Falseの場合必須）
+        sakura_voice: Trueの場合サクラ口調に変換
+        with_illustrations: Trueの場合挿絵をインライン挿入
+        eyecatch: アイキャッチ画像パス（省略可）
+        telegram_notify: Trueの場合投稿後にTelegram通知
 
     Returns:
         成功した場合True
@@ -249,14 +440,34 @@ def process_slug(slug: str, converter: NoteConverter, config: dict,
         md_content = post_path.read_text(encoding="utf-8")
         result = converter.convert(md_content, slug)
 
+        # 区切り線（---）を除去
+        body = strip_separator_lines(result["body"])
+
+        # サクラ口調変換
+        if sakura_voice:
+            logger.info("サクラ口調変換を適用中...")
+            body = convert_to_sakura_voice(body)
+
+        # 挿絵ディレクトリ設定
+        illustrations_dir = None
+        if with_illustrations:
+            illust_base = config.get("illustrations_dir", "/tmp/note_illustrations")
+            illustrations_dir = str(Path(illust_base) / slug)
+            if not Path(illustrations_dir).exists():
+                logger.warning(f"挿絵ディレクトリが存在しません: {illustrations_dir} （挿絵なしで続行）")
+                illustrations_dir = None
+
         if dry_run:
             print("=" * 60)
             print(f"[DRY RUN] スラッグ: {slug}")
             print(f"タイトル: {result['title']}")
             print(f"ハッシュタグ: {result['hashtags']}")
             print(f"Canonical URL: {result['canonical_url']}")
+            print(f"サクラ口調: {sakura_voice}")
+            print(f"挿絵: {with_illustrations} (dir={illustrations_dir})")
+            print(f"アイキャッチ: {eyecatch}")
             print("-" * 60)
-            print(result["body"][:500] + ("..." if len(result["body"]) > 500 else ""))
+            print(body[:500] + ("..." if len(body) > 500 else ""))
             print("=" * 60)
             return True
 
@@ -264,12 +475,19 @@ def process_slug(slug: str, converter: NoteConverter, config: dict,
         publish_status = config.get("publish_status", "public")
         note_url = client.post_article(
             title=result["title"],
-            body=result["body"],
+            body=body,
             hashtags=result["hashtags"],
             publish_status=publish_status,
+            eyecatch_path=eyecatch,
+            illustrations_dir=illustrations_dir,
         )
         record_posted(slug, note_url, config)
         logger.info(f"投稿完了: {slug} → {note_url}")
+
+        # Telegram通知
+        if telegram_notify:
+            send_telegram_notification(slug, note_url)
+
         return True
 
     except FileNotFoundError as e:
@@ -292,6 +510,14 @@ def main():
     group.add_argument("--all-new", action="store_true", help="未投稿の全記事を投稿")
     parser.add_argument("--dry-run", action="store_true",
                         help="実際に投稿せず変換結果を表示")
+    parser.add_argument("--sakura-voice", action="store_true",
+                        help="本文をサクラ口調に変換してから投稿")
+    parser.add_argument("--with-illustrations", action="store_true",
+                        help="挿絵5枚をnote本文にインライン挿入")
+    parser.add_argument("--eyecatch",
+                        help="アイキャッチ画像パス（note投稿時に設定）")
+    parser.add_argument("--telegram-notify", action="store_true",
+                        help="投稿完了後にTelegram通知を送信")
     args = parser.parse_args()
 
     # 設定読み込み
@@ -312,11 +538,9 @@ def main():
             logger.error(str(e))
             sys.exit(1)
 
-        # APIトークンがあればトークン認証、なければメール+パスワード
         api_token = auth.get("NOTE_API_TOKEN", "")
         if api_token:
             logger.info("APIトークン認証（将来の公式API対応）")
-            # 公式APIが公開された場合はここに実装
             logger.warning("note公式APIは現在非公開。メール+パスワード認証を使用します。")
 
         email = auth.get("NOTE_EMAIL", "")
@@ -341,7 +565,13 @@ def main():
     success_count = 0
     fail_count = 0
     for slug in slugs:
-        ok = process_slug(slug, converter, config, args.dry_run, client)
+        ok = process_slug(
+            slug, converter, config, args.dry_run, client,
+            sakura_voice=args.sakura_voice,
+            with_illustrations=args.with_illustrations,
+            eyecatch=args.eyecatch,
+            telegram_notify=args.telegram_notify,
+        )
         if ok:
             success_count += 1
         else:
