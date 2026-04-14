@@ -998,6 +998,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="field-group" id="pb-admin-btn-area" style="display:none">
         <button type="button" id="admin-modal-btn" class="admin-modal-btn">🔒 管理人メニュー</button>
       </div>
+      <!-- 管理人モーダル選択値（hidden）-->
+      <input type="hidden" id="admin-prompts-output" value="">
 
       <!-- 🔒 管理人モーダル -->
       <div id="admin-modal" class="admin-modal-overlay" style="display:none" role="dialog" aria-modal="true">
@@ -1007,111 +1009,213 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button id="admin-modal-close" class="admin-modal-close" title="閉じる">✕</button>
           </div>
 
-          <!-- タブ -->
-          <div class="admin-tabs">
-            <button class="admin-tab active" data-tab="clothes">👗 着衣</button>
-            <button class="admin-tab" data-tab="foreplay">💋 前戯</button>
-            <button class="admin-tab" data-tab="position">🔥 体位</button>
-            <button class="admin-tab" data-tab="cum">💦 射精</button>
-            <button class="admin-tab" data-tab="desc">✨ 描写</button>
+          <!-- タブ（12個） -->
+          <div class="admin-tabs" style="flex-wrap:wrap">
+            <button class="admin-tab active" data-tab="breast">胸</button>
+            <button class="admin-tab" data-tab="breast-wear">強調衣装</button>
+            <button class="admin-tab" data-tab="lower">下半身</button>
+            <button class="admin-tab" data-tab="h-pose">Hなポーズ</button>
+            <button class="admin-tab" data-tab="combo-pose">複合ポーズ</button>
+            <button class="admin-tab" data-tab="situation">状況</button>
+            <button class="admin-tab" data-tab="combo-sit">複合状況</button>
+            <button class="admin-tab" data-tab="foreplay">前戯・SM</button>
+            <button class="admin-tab" data-tab="combo-sm">複合SM</button>
+            <button class="admin-tab" data-tab="position">体位</button>
+            <button class="admin-tab" data-tab="liquid">汁・液</button>
+            <button class="admin-tab" data-tab="costume">衣装追加</button>
           </div>
 
-          <!-- 着衣タブ -->
-          <div class="admin-tab-content active" id="admin-tab-clothes">
+          <!-- 胸タブ（radio） -->
+          <div class="admin-tab-content active" id="admin-tab-breast">
             <div class="admin-option-grid">
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="see through"> 衣類を透かす</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="underboob"> 下乳</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="skirt lift"> スカートたくし上げ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="lift"> たくし上げ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="clothes lift"> 服たくし上げ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="panty shot"> パンチラ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="panties under pantyhose"> パンスト越しの下着</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="topless"> 上半身裸</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bottomless"> 下半身裸</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="show off nipple"> 乳首見せ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bare breasts"> 胸部分のみを露出</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="coat over naked"> 裸コートなど</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple slip from"> チラ乳首</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="erect nipples"> 胸ポチ(勃起乳首)</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pasties"> ニプレス/前張り</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple piercing"> 乳首ピアス</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cameltoe"> スジ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="clothed"> 服を着せる</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="dressing, putting on clothes"> 着替え中</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="undressing, removing clothes"> 脱いでいる最中</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="removing socks"> 靴下を脱ぐ</label>
+              <label><input type="radio" name="admin-breast" value="flat chest"> ちっぱい(まな板)</label>
+              <label><input type="radio" name="admin-breast" value="small breasts"> 貧乳</label>
+              <label><input type="radio" name="admin-breast" value="medium breasts"> 普通</label>
+              <label><input type="radio" name="admin-breast" value="large breasts"> 巨乳</label>
+              <label><input type="radio" name="admin-breast" value="huge breasts"> 爆乳</label>
+              <label><input type="radio" name="admin-breast" value="gigantic breasts"> 超乳</label>
+              <label><input type="radio" name="admin-breast" value="sideboob"> 横乳</label>
+              <label><input type="radio" name="admin-breast" value="underboob"> 下乳</label>
+              <label><input type="radio" name="admin-breast" value="cleavage between breasts"> 胸の谷間</label>
+              <label><input type="radio" name="admin-breast" value="pointy breasts"> 尖った乳</label>
+              <label><input type="radio" name="admin-breast" value="areola slip"> 乳輪見え</label>
+              <label><input type="radio" name="admin-breast" value="light pink nipples"> 淡いピンクの乳首</label>
             </div>
           </div>
 
-          <!-- 前戯タブ -->
+          <!-- おっぱい強調衣装タブ（radio） -->
+          <div class="admin-tab-content" id="admin-tab-breast-wear">
+            <div class="admin-option-grid">
+              <label><input type="radio" name="admin-breast-wear" value="(large breasts:1.3), busty, flowing sweat, narrow shoulder,(impossible sweater:1.05), see through, sleeveless"> 巨乳＋セーター</label>
+              <label><input type="radio" name="admin-breast-wear" value="(massive breasts:1.3), busty, flowing sweat, narrow shoulder,(impossible sweater:1.04), (see through:1.1), sleeveless"> 超乳＋セーター</label>
+            </div>
+          </div>
+
+          <!-- 下半身・おしりタブ（radio） -->
+          <div class="admin-tab-content" id="admin-tab-lower">
+            <div class="admin-option-grid">
+              <label><input type="radio" name="admin-lower" value="thong undies"> Tバック</label>
+              <label><input type="radio" name="admin-lower" value="pantyhose"> パンスト尻</label>
+              <label><input type="radio" name="admin-lower" value="panties"> パンティ</label>
+              <label><input type="radio" name="admin-lower" value="special occasion thong panties"> 勝負下着</label>
+              <label><input type="radio" name="admin-lower" value="bikini"> ビキニ</label>
+              <label><input type="radio" name="admin-lower" value="white skinny leggings"> ピタパン</label>
+              <label><input type="radio" name="admin-lower" value="booty shorts"> ホットパンツ</label>
+              <label><input type="radio" name="admin-lower" value="micro skirt"> ミニスカート</label>
+              <label><input type="radio" name="admin-lower" value="wide hips"> 大きなおしり</label>
+            </div>
+          </div>
+
+          <!-- Hなポーズタブ（radio） -->
+          <div class="admin-tab-content" id="admin-tab-h-pose">
+            <div class="admin-option-grid">
+              <label><input type="radio" name="admin-h-pose" value="jacket lift"> 上着をたくし上げる</label>
+              <label><input type="radio" name="admin-h-pose" value="shirt lift"> 服をたくし上げる</label>
+              <label><input type="radio" name="admin-h-pose" value="skirt lift"> スカートをたくし上げる</label>
+              <label><input type="radio" name="admin-h-pose" value="showing off panties"> パンツ見せ</label>
+              <label><input type="radio" name="admin-h-pose" value="cameltoe"> まんすじ</label>
+              <label><input type="radio" name="admin-h-pose" value="back shot, ass, butt up"> おしり強調</label>
+              <label><input type="radio" name="admin-h-pose" value="top-down, bottom-up"> おしりを突き出す</label>
+              <label><input type="radio" name="admin-h-pose" value="undressing"> 服をぬぎぬぎ</label>
+              <label><input type="radio" name="admin-h-pose" value="armpits"> わき見せ</label>
+              <label><input type="radio" name="admin-h-pose" value="lying on side"> 横になる</label>
+              <label><input type="radio" name="admin-h-pose" value="lying on stomach"> うつ伏せ</label>
+              <label><input type="radio" name="admin-h-pose" value="lying on back"> 仰向け</label>
+              <label><input type="radio" name="admin-h-pose" value="all fours"> 四つん這い</label>
+              <label><input type="radio" name="admin-h-pose" value="arms behind back"> 手を後ろに</label>
+              <label><input type="radio" name="admin-h-pose" value="arms behind head"> 手を頭の後ろに</label>
+              <label><input type="radio" name="admin-h-pose" value="spread legs"> 足を開く</label>
+              <label><input type="radio" name="admin-h-pose" value="leg up"> 片足をあげる</label>
+              <label><input type="radio" name="admin-h-pose" value="squatting"> しゃがむ</label>
+              <label><input type="radio" name="admin-h-pose" value="seiza"> 正座</label>
+              <label><input type="radio" name="admin-h-pose" value="arms up"> 腕をあげる</label>
+              <label><input type="radio" name="admin-h-pose" value="(handbra:1.5)"> 手ブラ</label>
+              <label><input type="radio" name="admin-h-pose" value="hand between legs"> 足の間に手を入れる</label>
+              <label><input type="radio" name="admin-h-pose" value="sitting"> 座っている</label>
+            </div>
+          </div>
+
+          <!-- 複合ポーズタブ（radio） -->
+          <div class="admin-tab-content" id="admin-tab-combo-pose">
+            <div class="admin-option-grid">
+              <label><input type="radio" name="admin-combo-pose" value="nsfw,(skirt lift:1.3),(white pantie:1.1), showing off panties"> スカートたくし上げパンツ見せ</label>
+              <label><input type="radio" name="admin-combo-pose" value="hugging own legs,white panties,cameltoe"> 膝抱え＋パンツ</label>
+              <label><input type="radio" name="admin-combo-pose" value="back shot,ass,butt up,top-down,white panties"> パンチラ（おしり）</label>
+              <label><input type="radio" name="admin-combo-pose" value="(stairs:1.2),ass, kneehighs, looking back,(pantyshot:1.1), pleated skirt, white panties,running,(from below:1.1)"> 階段パンチラ</label>
+              <label><input type="radio" name="admin-combo-pose" value="nsfw,(full body:1.2),(look at viewer:1.2),(all fours:1.2),(white pantie:1.3), ass, ass focus, back"> 四つん這いパンツ見せ</label>
+              <label><input type="radio" name="admin-combo-pose" value="spread legs, squatting,pussy focus,cameltoe"> M字開脚</label>
+              <label><input type="radio" name="admin-combo-pose" value="(leg lift, leg up, arm support:1.2),flexible,standing on one leg,standing split,(cameltoe:1.4)"> I字開脚</label>
+              <label><input type="radio" name="admin-combo-pose" value="from behind, (lying, on bed:1.4), on side, thighs,(cameltoe:1.2)"> ベッドで横になる</label>
+              <label><input type="radio" name="admin-combo-pose" value="(handbra:1.5), (wariza:1.3)"> 手ブラ＋わり座</label>
+              <label><input type="radio" name="admin-combo-pose" value="(public indecency:1.4),undressing,coat"> 公然猥褻コート</label>
+            </div>
+          </div>
+
+          <!-- 状況・表現タブ（checkbox） -->
+          <div class="admin-tab-content" id="admin-tab-situation">
+            <div class="admin-option-grid">
+              <label><input type="checkbox" name="admin-situation" value="wet"> ぬれぬれ</label>
+              <label><input type="checkbox" name="admin-situation" value="drooling"> よだれ垂らし</label>
+              <label><input type="checkbox" name="admin-situation" value="love juice"> 愛液</label>
+              <label><input type="checkbox" name="admin-situation" value="dripping love juice"> 愛液が垂れる</label>
+              <label><input type="checkbox" name="admin-situation" value="flying sweatdrops"> 飛び散る汗</label>
+              <label><input type="checkbox" name="admin-situation" value="crying, tears"> 泣く、涙</label>
+              <label><input type="checkbox" name="admin-situation" value="fucked silly"> アヘ顔</label>
+              <label><input type="checkbox" name="admin-situation" value="after sex"> 事後</label>
+              <label><input type="checkbox" name="admin-situation" value="dark skin"> 日焼け</label>
+              <label><input type="checkbox" name="admin-situation" value="tan line"> 日焼け跡</label>
+              <label><input type="checkbox" name="admin-situation" value="(bikini tan line:1.2)"> 日焼け跡(ビキニ)</label>
+              <label><input type="checkbox" name="admin-situation" value="nude"> 裸</label>
+              <label><input type="checkbox" name="admin-situation" value="completely nude"> 全裸</label>
+              <label><input type="checkbox" name="admin-situation" value="gravure"> グラビア</label>
+              <label><input type="checkbox" name="admin-situation" value="boyish"> ボーイッシュ</label>
+              <label><input type="checkbox" name="admin-situation" value="attractive mature lady"> 熟女</label>
+              <label><input type="checkbox" name="admin-situation" value="(armpit hair:1.5)"> 腋毛</label>
+              <label><input type="checkbox" name="admin-situation" value="pubic hair"> 陰毛</label>
+            </div>
+          </div>
+
+          <!-- 複合状況タブ（radio） -->
+          <div class="admin-tab-content" id="admin-tab-combo-sit">
+            <div class="admin-option-grid">
+              <label><input type="radio" name="admin-combo-sit" value="(vulgarity:1.1),(fucked silly:1.1),(steam:1.1),(wet:0.7),(trembling:1.1),(tears:1.1),(drooling:1.1),(sweat:1.1)"> アヘ顔＋汁</label>
+              <label><input type="radio" name="admin-combo-sit" value="(O-Face,ahegao,open mouth,tongue:1.5,)(make horizontal peace sign,both hands:1.5), peace sign,(tilt head:1.3)"> アヘ顔＋ダブルピース</label>
+              <label><input type="radio" name="admin-combo-sit" value="nsfw,(bottomless:1.4),(bare pussy:1.4),pussy line, pants taken off, panties, (panty pull:1.3),panties, pulled down to knees"> パンティ脱がし</label>
+              <label><input type="radio" name="admin-combo-sit" value="nsfw, (bandaids on nipples:1.2), navel, (bandaid on pussy:1.2),spread legs"> 乳首バンドエイド</label>
+            </div>
+          </div>
+
+          <!-- 前戯・SMタブ（checkbox） -->
           <div class="admin-tab-content" id="admin-tab-foreplay">
             <div class="admin-option-grid">
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="kiss"> キス</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="masturbation"> 自慰</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="female masturbation"> 自慰(女性)</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vibrator"> バイブ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="dildo"> ディルド挿入</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="crotch grab"> 股間に手を当てる</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="handjob"> 手コキ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="footjob"> 足コキ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="fellatio"> フェラチオ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="tongue licking, fellatio"> 亀頭舐め</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="paizuri"> パイズリ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breasts blowjob"> パイズリフェラ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="hairjob"> 髪コキ</label>
+              <label><input type="checkbox" name="admin-foreplay" value="breast grab"> 胸をもむ</label>
+              <label><input type="checkbox" name="admin-foreplay" value="deep kiss"> ディープキス</label>
+              <label><input type="checkbox" name="admin-foreplay" value="blindfold"> 目隠し</label>
+              <label><input type="checkbox" name="admin-foreplay" value="shibari / bondage / bdsm"> 緊縛</label>
+              <label><input type="checkbox" name="admin-foreplay" value="restrained"> 緊縛(拘束)</label>
+              <label><input type="checkbox" name="admin-foreplay" value="dildo"> ディルド</label>
+              <label><input type="checkbox" name="admin-foreplay" value="vibrator"> バイブ</label>
+              <label><input type="checkbox" name="admin-foreplay" value="egg vibrator"> ローター</label>
+              <label><input type="checkbox" name="admin-foreplay" value="masturbation"> オナニー</label>
+              <label><input type="checkbox" name="admin-foreplay" value="handjob"> 手コキ</label>
+              <label><input type="checkbox" name="admin-foreplay" value="fellatio / blowjob"> フェラ</label>
+              <label><input type="checkbox" name="admin-foreplay" value="irrumatio"> イラマチオ</label>
+              <label><input type="checkbox" name="admin-foreplay" value="(paizuri,titty fuck:1.5)"> パイズリ</label>
             </div>
           </div>
 
-          <!-- 体位タブ -->
+          <!-- 複合SMタブ（radio） -->
+          <div class="admin-tab-content" id="admin-tab-combo-sm">
+            <div class="admin-option-grid">
+              <label><input type="radio" name="admin-combo-sm" value="(arms behind back blindfold:1.3),towel gag,ball gag"> 目隠し拘束</label>
+              <label><input type="radio" name="admin-combo-sm" value="bdsm,bondage, bound, bound arms, bound legs, breast bondage, crotch rope, (rope:1.1), shibari, (skindentation:1.2), thigh strap"> 縄で緊縛</label>
+              <label><input type="radio" name="admin-combo-sm" value="BDSM,animal_collar, chain, chained, (shackles:1.5), slave, cage, fishnets, restrained"> 鎖で緊縛</label>
+              <label><input type="radio" name="admin-combo-sm" value="(defiant look:1.3),(painful expression:1.2),(scowled:1.3),(angry:1.3),(frown:1.3),(blush:1.3)"> くやしさMAX表情</label>
+              <label><input type="radio" name="admin-combo-sm" value="(tearing up:0.9),(painful expression:1.2),(panicking,sobbing:1.3),(despair:1.2),(open mouth:1.3)"> パニック泣き表情</label>
+            </div>
+          </div>
+
+          <!-- 体位タブ（radio） -->
           <div class="admin-tab-content" id="admin-tab-position">
             <div class="admin-option-grid">
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vaginal, sex"> 挿入</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vaginal, sex, back"> 後ろから</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="woman on top"> 騎乗位</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="woman on top, from behind"> 背面騎乗位</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="upright straddle"> 対面座位</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="anal, sex"> アナルSEX</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="gangbang"> 輪姦</label>
+              <label><input type="radio" name="admin-position" value="nsfw,1boy,1girl,(back focus:1.2),from behind, hetero,(doggystyle sex:1.5)"> バック</label>
+              <label><input type="radio" name="admin-position" value="1boy, 1girl, completely nude, girl on top, hetero, straddling, vaginal"> 騎乗位</label>
+              <label><input type="radio" name="admin-position" value="nsfw,1boy,1girl,from behind, hetero,(top down bottom up:1.5)"> 尻上げバック</label>
+              <label><input type="radio" name="admin-position" value="nsfw,1boy,1girl,(girl Lying on own stomach:1.4),(prone bone sex:1.5)"> 寝バック</label>
+              <label><input type="radio" name="admin-position" value="nsfw,on back,lying,(1boy,penis,missionary sex:1.2),(spread legs open wide:1.4)"> 正常位</label>
+              <label><input type="radio" name="admin-position" value="1boy, 1girl, girl on top, hetero, upright straddle, vaginal"> 対面座位</label>
+              <label><input type="radio" name="admin-position" value="nsfw,1boy,1girl,(back focus:1.2),(straddling:1.4)"> 背面騎乗位</label>
+              <label><input type="radio" name="admin-position" value="nsfw,1boy,1girl,(cowgirl position:1.4),kneeling"> 膝付き騎乗位</label>
+              <label><input type="radio" name="admin-position" value="nsfw,1boy,1girl,(girl hands on the wall:1.4),(back standing sex:1.5)"> 立反りバック</label>
             </div>
           </div>
 
-          <!-- 射精タブ -->
-          <div class="admin-tab-content" id="admin-tab-cum">
+          <!-- 汁・液タブ（checkbox） -->
+          <div class="admin-tab-content" id="admin-tab-liquid">
             <div class="admin-option-grid">
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in pussy"> 膣内射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="facial, bukkake"> 顔射</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on tongue"> 舌上射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in mouth"> 口内射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="gokkun"> ごっくん</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on breast"> 胸に射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on armpits"> 腋に射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on head"> 髪に射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in ass"> お尻に射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on feet"> 足に射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on clothes"> 服に射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on body"> 体全体に射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bukkake"> ぶっかけ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="excessive cum"> 大量射精</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="projectile cum"> 飛び散る精液</label>
+              <label><input type="checkbox" name="admin-liquid" value="cumdrip"> あふれ精液(ペニスなし)</label>
+              <label><input type="checkbox" name="admin-liquid" value="creampie"> 中出し</label>
+              <label><input type="checkbox" name="admin-liquid" value="bukkake"> ぶっかけ</label>
+              <label><input type="checkbox" name="admin-liquid" value="facial ejaculation, facial cum"> 顔射</label>
+              <label><input type="checkbox" name="admin-liquid" value="cum on breasts"> 胸射</label>
+              <label><input type="checkbox" name="admin-liquid" value="cum in mouth"> 口内射精</label>
+              <label><input type="checkbox" name="admin-liquid" value="covered in semen"> 精子まみれ</label>
+              <label><input type="checkbox" name="admin-liquid" value="excessive cum"> 大量の精液</label>
+              <label><input type="checkbox" name="admin-liquid" value="female ejaculation"> 潮吹き</label>
+              <label><input type="checkbox" name="admin-liquid" value="cum on hair"> 髪に精液</label>
+              <label><input type="checkbox" name="admin-liquid" value="cum on clothes"> 服に精液</label>
             </div>
           </div>
 
-          <!-- 描写タブ -->
-          <div class="admin-tab-content" id="admin-tab-desc">
+          <!-- 衣装追加タブ（checkbox） -->
+          <div class="admin-tab-content" id="admin-tab-costume">
             <div class="admin-option-grid">
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="spread pussy"> くぱぁ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="sweat"> 汗</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="steam"> 白いモヤ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="handjob gesture"> 手コキポーズ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="fellatio gesture"> フェラチオポーズ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="girl trembling with sexual climax"> 体を震わせる</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast squeeze"> 乳搾り</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast grab"> 乳掴み</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="grabbing another's breast"> 乳掴み(背後から)</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast milk"> 母乳</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple-to-nipple"> 乳首合わせ</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pubic tattoo"> 淫紋</label>
-              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pregnant"> ボテ腹</label>
+              <label><input type="checkbox" name="admin-costume" value="dressing"> 着替え中</label>
+              <label><input type="checkbox" name="admin-costume" value="undressing"> 脱いでいる最中</label>
+              <label><input type="checkbox" name="admin-costume" value="removing socks"> 靴下を脱ぐ</label>
+              <label><input type="checkbox" name="admin-costume" value="naked apron"> 裸エプロン</label>
+              <label><input type="checkbox" name="admin-costume" value="see through"> シースルー</label>
+              <label><input type="checkbox" name="admin-costume" value="torn clothes"> 破れた服</label>
             </div>
           </div>
 
@@ -1484,11 +1588,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     // NSFW
     if (checked('pb-nsfw')) parts.push('nsfw');
 
-    // NSFW詳細カテゴリ（5種）
-    const nsfwItems = Array.from(document.querySelectorAll('.pb-nsfw-item:checked'))
-      .map(cb => cb.dataset.prompt)
-      .filter(Boolean);
-    if (nsfwItems.length) parts.push(nsfwItems.join(', '));
+    // 管理人モーダル選択プロンプト
+    const adminPrompts = val('admin-prompts-output');
+    if (adminPrompts) parts.push(adminPrompts);
 
     // 追加指示
     const extra = val('pb-extra');
@@ -1599,29 +1701,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (e.target === adminModal) closeModal();
     });
 
-    // OK: モーダルを閉じてプレビュー更新
+    // OK: 選択値を収集してhiddenフィールドに保存しプレビュー更新
     if (adminModalOk) {
       adminModalOk.addEventListener('click', function() {
+        var selectedPrompts = [];
+
+        // radioタブ（各グループから最大1つ）
+        ['breast', 'breast-wear', 'lower', 'h-pose', 'combo-pose',
+         'combo-sit', 'combo-sm', 'position'].forEach(function(tabId) {
+          var checked = adminModal.querySelector('input[name="admin-' + tabId + '"]:checked');
+          if (checked) selectedPrompts.push(checked.value);
+        });
+
+        // checkboxタブ（複数選択可）
+        ['situation', 'foreplay', 'liquid', 'costume'].forEach(function(tabId) {
+          adminModal.querySelectorAll('input[name="admin-' + tabId + '"]:checked').forEach(function(cb) {
+            selectedPrompts.push(cb.value);
+          });
+        });
+
+        var outputField = document.getElementById('admin-prompts-output');
+        if (outputField) outputField.value = selectedPrompts.join(', ');
+
         closeModal();
         if (typeof updatePreview === 'function') updatePreview();
       });
     }
 
     // タブ切り替え
-    document.querySelectorAll('.admin-tab').forEach(function(tab) {
+    adminModal.querySelectorAll('.admin-tab').forEach(function(tab) {
       tab.addEventListener('click', function() {
-        document.querySelectorAll('.admin-tab').forEach(function(t) { t.classList.remove('active'); });
-        document.querySelectorAll('.admin-tab-content').forEach(function(c) { c.classList.remove('active'); });
+        adminModal.querySelectorAll('.admin-tab').forEach(function(t) { t.classList.remove('active'); });
+        adminModal.querySelectorAll('.admin-tab-content').forEach(function(c) { c.classList.remove('active'); });
         tab.classList.add('active');
-        const tabContent = document.getElementById('admin-tab-' + tab.dataset.tab);
+        var tabContent = document.getElementById('admin-tab-' + tab.dataset.tab);
         if (tabContent) tabContent.classList.add('active');
-      });
-    });
-
-    // モーダル内チェックボックス変更でプレビュー更新
-    adminModal.querySelectorAll('.pb-nsfw-item').forEach(function(cb) {
-      cb.addEventListener('change', function() {
-        if (typeof updatePreview === 'function') updatePreview();
       });
     });
   })();
