@@ -1,5 +1,8 @@
 # note投稿設定
-blog_base_url: "https://your-blog-domain.pages.dev"
+blog_base_url: "https://gadget-blog-dxq.pages.dev"
+note_creator_name: "サクラ"
+note_user_id: "jinseikaiteki"
+note_profile_url: "https://note.com/jinseikaiteki"
 note_hashtags:
   - "ガジェット"
   - "レビュー"
