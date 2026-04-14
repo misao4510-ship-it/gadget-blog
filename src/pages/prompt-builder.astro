@@ -392,6 +392,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   [data-theme=dark] .pb-accordion summary { background: var(--color-surface); }
   [data-theme=dark] .pb-accordion[open] > summary { background: var(--color-surface-raised, #2a2a2a); }
   [data-theme=dark] .pb-accordion summary:hover { background: var(--color-primary-light, #3a1a2a); }
+
+  /* ===== 色パレット ===== */
+  .color-palette { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.3rem; }
+  .color-chip { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.1s; padding: 0; }
+  .color-chip:hover { transform: scale(1.15); }
+  .color-chip.selected { border-color: #333; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #333; }
+  [data-theme=dark] .color-chip.selected { border-color: #eee; box-shadow: 0 0 0 2px #333, 0 0 0 4px #eee; }
+  .color-none-btn { font-size: 0.7rem; color: var(--color-text-muted); background: none; border: 1px solid var(--color-border); border-radius: 4px; padding: 0 0.4rem; cursor: pointer; height: 28px; line-height: 1; }
+  .color-none-btn:hover { background: var(--color-primary-light); }
 </style>
 
 <!-- パスワード認証画面 -->
@@ -502,38 +511,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="custom-row"><input type="text" id="pb-hair-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
-            <label for="pb-haircolor">髪色</label>
-            <select id="pb-haircolor">
-              <option value="">（なし）</option>
-              <option value="pink hair">ピンク</option>
-              <option value="blue hair">ブルー</option>
-              <option value="gradient pink-blue hair">グラデーション(ピンク→青)</option>
-              <option value="silver hair">シルバー</option>
-              <option value="blonde hair">ブロンド</option>
-              <option value="black hair">ブラック</option>
-            </select>
+            <label>髪色</label>
+            <input type="hidden" id="pb-haircolor" value="" />
+            <div class="color-palette" data-input="pb-haircolor">
+              <button class="color-chip" type="button" data-value="red hair" style="background:#ef4444" title="赤"></button>
+              <button class="color-chip" type="button" data-value="orange hair" style="background:#f97316" title="橙"></button>
+              <button class="color-chip" type="button" data-value="yellow hair" style="background:#eab308" title="黄"></button>
+              <button class="color-chip" type="button" data-value="yellow green hair" style="background:#84cc16" title="黄緑"></button>
+              <button class="color-chip" type="button" data-value="green hair" style="background:#22c55e" title="緑"></button>
+              <button class="color-chip" type="button" data-value="light blue hair" style="background:#38bdf8" title="水"></button>
+              <button class="color-chip" type="button" data-value="blue hair" style="background:#3b82f6" title="青"></button>
+              <button class="color-chip" type="button" data-value="purple hair" style="background:#a855f7" title="紫"></button>
+              <button class="color-chip" type="button" data-value="pink hair" style="background:#ec4899" title="桃"></button>
+              <button class="color-chip" type="button" data-value="white hair" style="background:#f8fafc" title="白"></button>
+              <button class="color-chip" type="button" data-value="gray hair" style="background:#94a3b8" title="灰"></button>
+              <button class="color-chip" type="button" data-value="black hair" style="background:#1e293b" title="黒"></button>
+              <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+            </div>
             <div class="custom-row"><input type="text" id="pb-haircolor-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-haircolor-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
-            <label for="pb-hair-inner">髪のインナー色</label>
-            <select id="pb-hair-inner">
-              <option value="">（なし）</option>
-              <option value="inner color hair, pink roots">ピンクルーツ</option>
-              <option value="inner color hair, blue roots">ブルールーツ</option>
-              <option value="inner color hair, white roots">ホワイトルーツ</option>
-              <option value="inner color hair, rainbow">レインボー</option>
-            </select>
+            <label>髪のインナー色</label>
+            <input type="hidden" id="pb-hair-inner" value="" />
+            <div class="color-palette" data-input="pb-hair-inner">
+              <button class="color-chip" type="button" data-value="red inner color hair" style="background:#ef4444" title="赤"></button>
+              <button class="color-chip" type="button" data-value="orange inner color hair" style="background:#f97316" title="橙"></button>
+              <button class="color-chip" type="button" data-value="yellow inner color hair" style="background:#eab308" title="黄"></button>
+              <button class="color-chip" type="button" data-value="yellow green inner color hair" style="background:#84cc16" title="黄緑"></button>
+              <button class="color-chip" type="button" data-value="green inner color hair" style="background:#22c55e" title="緑"></button>
+              <button class="color-chip" type="button" data-value="light blue inner color hair" style="background:#38bdf8" title="水"></button>
+              <button class="color-chip" type="button" data-value="blue inner color hair" style="background:#3b82f6" title="青"></button>
+              <button class="color-chip" type="button" data-value="purple inner color hair" style="background:#a855f7" title="紫"></button>
+              <button class="color-chip" type="button" data-value="pink inner color hair" style="background:#ec4899" title="桃"></button>
+              <button class="color-chip" type="button" data-value="white inner color hair" style="background:#f8fafc" title="白"></button>
+              <button class="color-chip" type="button" data-value="gray inner color hair" style="background:#94a3b8" title="灰"></button>
+              <button class="color-chip" type="button" data-value="black inner color hair" style="background:#1e293b" title="黒"></button>
+              <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+            </div>
             <div class="custom-row"><input type="text" id="pb-hair-inner-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-inner-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
-            <label for="pb-hair-tip">髪先の色</label>
-            <select id="pb-hair-tip">
-              <option value="">（なし）</option>
-              <option value="gradient hair, pink tips">ピンク先端</option>
-              <option value="gradient hair, blue tips">ブルー先端</option>
-              <option value="gradient hair, white tips">ホワイト先端</option>
-              <option value="gradient hair, gold tips">ゴールド先端</option>
-            </select>
+            <label>髪先の色</label>
+            <input type="hidden" id="pb-hair-tip" value="" />
+            <div class="color-palette" data-input="pb-hair-tip">
+              <button class="color-chip" type="button" data-value="gradient hair, red tips" style="background:#ef4444" title="赤"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, orange tips" style="background:#f97316" title="橙"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, yellow tips" style="background:#eab308" title="黄"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, yellow green tips" style="background:#84cc16" title="黄緑"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, green tips" style="background:#22c55e" title="緑"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, light blue tips" style="background:#38bdf8" title="水"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, blue tips" style="background:#3b82f6" title="青"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, purple tips" style="background:#a855f7" title="紫"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, pink tips" style="background:#ec4899" title="桃"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, white tips" style="background:#f8fafc" title="白"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, gray tips" style="background:#94a3b8" title="灰"></button>
+              <button class="color-chip" type="button" data-value="gradient hair, black tips" style="background:#1e293b" title="黒"></button>
+              <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+            </div>
             <div class="custom-row"><input type="text" id="pb-hair-tip-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-hair-tip-custom">📝 変換</button></div>
           </div>
         </div>
@@ -544,15 +578,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <summary>👁️ 顔</summary>
         <div class="accordion-content">
           <div class="field-group">
-            <label for="pb-eyes">目の色</label>
-            <select id="pb-eyes">
-              <option value="">（なし）</option>
-              <option value="blue eyes">ブルー</option>
-              <option value="green eyes">グリーン</option>
-              <option value="red eyes">レッド</option>
-              <option value="purple eyes">パープル</option>
-              <option value="heterochromia">オッドアイ</option>
-            </select>
+            <label>目の色</label>
+            <input type="hidden" id="pb-eyes" value="" />
+            <div class="color-palette" data-input="pb-eyes">
+              <button class="color-chip" type="button" data-value="red eyes" style="background:#ef4444" title="赤"></button>
+              <button class="color-chip" type="button" data-value="orange eyes" style="background:#f97316" title="橙"></button>
+              <button class="color-chip" type="button" data-value="yellow eyes" style="background:#eab308" title="黄"></button>
+              <button class="color-chip" type="button" data-value="yellow green eyes" style="background:#84cc16" title="黄緑"></button>
+              <button class="color-chip" type="button" data-value="green eyes" style="background:#22c55e" title="緑"></button>
+              <button class="color-chip" type="button" data-value="light blue eyes" style="background:#38bdf8" title="水"></button>
+              <button class="color-chip" type="button" data-value="blue eyes" style="background:#3b82f6" title="青"></button>
+              <button class="color-chip" type="button" data-value="purple eyes" style="background:#a855f7" title="紫"></button>
+              <button class="color-chip" type="button" data-value="pink eyes" style="background:#ec4899" title="桃"></button>
+              <button class="color-chip" type="button" data-value="white eyes" style="background:#f8fafc" title="白"></button>
+              <button class="color-chip" type="button" data-value="gray eyes" style="background:#94a3b8" title="灰"></button>
+              <button class="color-chip" type="button" data-value="black eyes" style="background:#1e293b" title="黒"></button>
+              <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+            </div>
             <div class="custom-row"><input type="text" id="pb-eyes-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyes-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
@@ -579,14 +621,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="custom-row"><input type="text" id="pb-eyebrow-shape-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyebrow-shape-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
-            <label for="pb-eyebrow-color">眉の色</label>
-            <select id="pb-eyebrow-color">
-              <option value="">（なし）</option>
-              <option value="black eyebrows">黒</option>
-              <option value="brown eyebrows">茶</option>
-              <option value="blonde eyebrows">金</option>
-              <option value="matching eyebrows">髪色と同じ</option>
-            </select>
+            <label>眉の色</label>
+            <input type="hidden" id="pb-eyebrow-color" value="" />
+            <div class="color-palette" data-input="pb-eyebrow-color">
+              <button class="color-chip" type="button" data-value="red eyebrows" style="background:#ef4444" title="赤"></button>
+              <button class="color-chip" type="button" data-value="orange eyebrows" style="background:#f97316" title="橙"></button>
+              <button class="color-chip" type="button" data-value="yellow eyebrows" style="background:#eab308" title="黄"></button>
+              <button class="color-chip" type="button" data-value="yellow green eyebrows" style="background:#84cc16" title="黄緑"></button>
+              <button class="color-chip" type="button" data-value="green eyebrows" style="background:#22c55e" title="緑"></button>
+              <button class="color-chip" type="button" data-value="light blue eyebrows" style="background:#38bdf8" title="水"></button>
+              <button class="color-chip" type="button" data-value="blue eyebrows" style="background:#3b82f6" title="青"></button>
+              <button class="color-chip" type="button" data-value="purple eyebrows" style="background:#a855f7" title="紫"></button>
+              <button class="color-chip" type="button" data-value="pink eyebrows" style="background:#ec4899" title="桃"></button>
+              <button class="color-chip" type="button" data-value="white eyebrows" style="background:#f8fafc" title="白"></button>
+              <button class="color-chip" type="button" data-value="gray eyebrows" style="background:#94a3b8" title="灰"></button>
+              <button class="color-chip" type="button" data-value="black eyebrows" style="background:#1e293b" title="黒"></button>
+              <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+            </div>
             <div class="custom-row"><input type="text" id="pb-eyebrow-color-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-eyebrow-color-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
@@ -614,26 +665,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label for="pb-outfit">服装</label>
             <select id="pb-outfit">
               <option value="">（なし）</option>
-              <option value="school uniform">制服</option>
+              <option value="futuristic playsuit">近未来プレイスーツ</option>
+              <option value="sailor uniform">セーラー服</option>
               <option value="maid outfit">メイド服</option>
-              <option value="casual clothes">カジュアル</option>
-              <option value="futuristic white outfit">未来的ホワイト</option>
-              <option value="kimono">着物</option>
-              <option value="swimsuit">水着</option>
+              <option value="shrine maiden outfit, hakama">巫女装束</option>
+              <option value="china dress, cheongsam">チャイナドレス</option>
+              <option value="hoodie, short shorts">パーカー+ショートパンツ</option>
+              <option value="wedding dress">ウェディングドレス</option>
+              <option value="bikini">水着(ビキニ)</option>
+              <option value="gym uniform, bloomers">体操服+ブルマ</option>
+              <option value="nurse uniform">ナース服</option>
               <option value="pajamas">パジャマ</option>
+              <option value="kimono">着物</option>
+              <option value="magical girl costume">魔法少女衣装</option>
+              <option value="gothic lolita dress">ゴスロリ</option>
+              <option value="bunny girl suit">バニーガール</option>
+              <option value="santa costume">サンタ衣装</option>
+              <option value="casual clothes">私服(カジュアル)</option>
+              <option value="idol costume">アイドル衣装</option>
+              <option value="military uniform">軍服</option>
+              <option value="business suit">スーツ(ビジネス)</option>
             </select>
             <div class="custom-row"><input type="text" id="pb-outfit-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
-            <label for="pb-outfit-color">服の色</label>
-            <select id="pb-outfit-color">
-              <option value="">（なし）</option>
-              <option value="white outfit">白</option>
-              <option value="black outfit">黒</option>
-              <option value="red outfit">赤</option>
-              <option value="blue outfit">青</option>
-              <option value="pink outfit">ピンク</option>
-            </select>
+            <label>服の色</label>
+            <input type="hidden" id="pb-outfit-color" value="" />
+            <div class="color-palette" data-input="pb-outfit-color">
+              <button class="color-chip" type="button" data-value="red outfit" style="background:#ef4444" title="赤"></button>
+              <button class="color-chip" type="button" data-value="orange outfit" style="background:#f97316" title="橙"></button>
+              <button class="color-chip" type="button" data-value="yellow outfit" style="background:#eab308" title="黄"></button>
+              <button class="color-chip" type="button" data-value="yellow green outfit" style="background:#84cc16" title="黄緑"></button>
+              <button class="color-chip" type="button" data-value="green outfit" style="background:#22c55e" title="緑"></button>
+              <button class="color-chip" type="button" data-value="light blue outfit" style="background:#38bdf8" title="水"></button>
+              <button class="color-chip" type="button" data-value="blue outfit" style="background:#3b82f6" title="青"></button>
+              <button class="color-chip" type="button" data-value="purple outfit" style="background:#a855f7" title="紫"></button>
+              <button class="color-chip" type="button" data-value="pink outfit" style="background:#ec4899" title="桃"></button>
+              <button class="color-chip" type="button" data-value="white outfit" style="background:#f8fafc" title="白"></button>
+              <button class="color-chip" type="button" data-value="gray outfit" style="background:#94a3b8" title="灰"></button>
+              <button class="color-chip" type="button" data-value="black outfit" style="background:#1e293b" title="黒"></button>
+              <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+            </div>
             <div class="custom-row"><input type="text" id="pb-outfit-color-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-color-custom">📝 変換</button></div>
           </div>
           <div class="field-group">
@@ -651,11 +723,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label for="pb-pose">ポーズ</label>
             <select id="pb-pose">
               <option value="">（なし）</option>
-              <option value="standing">立っている</option>
-              <option value="sitting">座っている</option>
-              <option value="running">走っている</option>
-              <option value="holding device">デバイスを持つ</option>
+              <option value="standing">立ちポーズ</option>
+              <option value="sitting">座りポーズ</option>
               <option value="peace sign">ピースサイン</option>
+              <option value="waving hand">手を振る</option>
+              <option value="arms crossed">腕組み</option>
+              <option value="looking back">振り向き</option>
+              <option value="crouching">しゃがみ</option>
+              <option value="jumping">ジャンプ</option>
+              <option value="lying down">寝そべり</option>
+              <option value="kneeling">膝立ち</option>
+              <option value="standing on one leg">片足立ち</option>
+              <option value="running">走る</option>
+              <option value="sitting sideways">横座り</option>
+              <option value="hugging knees">体育座り</option>
+              <option value="saluting">敬礼</option>
+              <option value="heart hands">ハートポーズ</option>
+              <option value="resting chin on hand">頬杖</option>
+              <option value="stretching">背伸び</option>
+              <option value="winking, pointing finger">ウインク+指差し</option>
+              <option value="arms spread wide">両手広げ</option>
             </select>
             <div class="custom-row"><input type="text" id="pb-pose-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-pose-custom">📝 変換</button></div>
           </div>
@@ -670,12 +757,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label for="pb-bg">背景</label>
             <select id="pb-bg">
               <option value="">（なし）</option>
-              <option value="white background">白背景</option>
-              <option value="city background">都市</option>
-              <option value="nature background">自然</option>
-              <option value="starry sky">星空</option>
-              <option value="room">部屋</option>
-              <option value="studio background">スタジオ</option>
+              <option value="white background">無地白</option>
+              <option value="pink background">無地ピンク</option>
+              <option value="cherry blossom trees">桜並木</option>
+              <option value="classroom">教室</option>
+              <option value="beach, seaside">海辺</option>
+              <option value="night sky, stars">夜空+星</option>
+              <option value="castle town">城下町</option>
+              <option value="futuristic city">近未来都市</option>
+              <option value="flower field">花畑</option>
+              <option value="library">図書館</option>
+              <option value="cafe interior">カフェ</option>
+              <option value="gaming room">ゲーミングルーム</option>
+              <option value="hot spring, onsen">温泉</option>
+              <option value="shrine">神社</option>
+              <option value="snowy landscape">雪景色</option>
+              <option value="sunset sky">夕焼け</option>
+              <option value="forest">森の中</option>
+              <option value="stage, spotlight">ステージ</option>
+              <option value="bedroom">ベッドルーム</option>
+              <option value="gradient background">グラデーション背景</option>
             </select>
             <div class="custom-row"><input type="text" id="pb-bg-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-bg-custom">📝 変換</button></div>
           </div>
@@ -774,7 +875,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </details>
 
       <!-- 🔒 管理人 -->
-      <details class="pb-accordion" id="pb-admin-category">
+      <details class="pb-accordion" id="pb-admin-category" style="display:none">
         <summary>🔒 管理人</summary>
         <div class="accordion-content">
           <!-- NSFW詳細カテゴリ -->
@@ -1003,6 +1104,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   if (pwSubmit) pwSubmit.addEventListener('click', checkPassword);
   if (pwInput) pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
+
+  // 管理人セクション表示チェック（?admin=1 または認証済み）
+  function maybeShowAdmin() {
+    const adminEl = document.getElementById('pb-admin-category');
+    if (!adminEl) return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('admin') === '1' || localStorage.getItem('pb_admin_auth') === '1') {
+      adminEl.style.display = '';
+    }
+  }
+  maybeShowAdmin();
 })();
 
 (function() {
@@ -1134,6 +1246,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     return result;
   }
+
+  // 色パレットのクリックハンドラー
+  document.addEventListener('click', function(e) {
+    const chip = e.target.closest('.color-chip, .color-none-btn');
+    if (!chip) return;
+    const palette = chip.closest('.color-palette');
+    if (!palette) return;
+    const inputId = palette.dataset.input;
+    const hiddenInput = document.getElementById(inputId);
+    if (!hiddenInput) return;
+    const newValue = chip.dataset.value || '';
+    hiddenInput.value = newValue;
+    // 選択状態を更新
+    palette.querySelectorAll('.color-chip').forEach(c => c.classList.remove('selected'));
+    if (newValue) chip.classList.add('selected');
+    // プロンプト更新
+    hiddenInput.dispatchEvent(new Event('input'));
+  });
 
   // 変換ボタンのイベント委譲
   document.addEventListener('click', function(e) {
@@ -1313,8 +1443,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (adminDetails.open) {
         if (localStorage.getItem('pb_admin_auth') !== '1') {
           const input = window.prompt('管理人パスワードを入力してください');
-          if (input === '393941') {
+          if (input === '393941' || input === 'zaku') {
             localStorage.setItem('pb_admin_auth', '1');
+            adminDetails.style.display = '';
           } else {
             adminDetails.open = false;
           }
