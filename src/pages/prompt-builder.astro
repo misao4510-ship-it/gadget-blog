@@ -401,6 +401,126 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   [data-theme=dark] .color-chip.selected { border-color: #eee; box-shadow: 0 0 0 2px #333, 0 0 0 4px #eee; }
   .color-none-btn { font-size: 0.7rem; color: var(--color-text-muted); background: none; border: 1px solid var(--color-border); border-radius: 4px; padding: 0 0.4rem; cursor: pointer; height: 28px; line-height: 1; }
   .color-none-btn:hover { background: var(--color-primary-light); }
+
+  /* ===== 管理人モーダル ===== */
+  .admin-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: #1e293b;
+    color: #f8fafc;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .admin-modal-btn:hover { background: #334155; }
+  .admin-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .admin-modal-content {
+    background: #1e293b;
+    color: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: min(92vw, 520px);
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  .admin-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .admin-modal-header h3 { margin: 0; font-size: 1rem; }
+  .admin-modal-close {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 0.3rem;
+    line-height: 1;
+  }
+  .admin-modal-close:hover { color: #f8fafc; }
+  .admin-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+  .admin-tab {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid #475569;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: background 0.15s;
+  }
+  .admin-tab:hover { background: #334155; color: #f8fafc; }
+  .admin-tab.active { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+  .admin-tab-content { display: none; }
+  .admin-tab-content.active { display: block; }
+  .admin-option-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-bottom: 0.5rem;
+  }
+  .admin-option-grid label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: #cbd5e1;
+  }
+  .admin-modal-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #334155;
+    flex-wrap: wrap;
+  }
+  .admin-modal-footer .admin-nsfw-check {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    cursor: pointer;
+  }
+  .admin-modal-cancel {
+    background: #475569;
+    color: #f8fafc;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  .admin-modal-cancel:hover { background: #64748b; }
+  .admin-modal-ok {
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+  .admin-modal-ok:hover { background: #2563eb; }
 </style>
 
 <!-- パスワード認証画面 -->
@@ -874,130 +994,138 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </details>
 
-      <!-- 🔒 管理人 -->
-      <details class="pb-accordion" id="pb-admin-category" style="display:none">
-        <summary>🔒 管理人</summary>
-        <div class="accordion-content">
-          <!-- NSFW詳細カテゴリ -->
-          <details class="pb-accordion" id="pb-nsfw-clothes">
-            <summary>👗 着衣</summary>
-            <div class="accordion-content">
-              <div class="quality-tags">
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="see through"> 衣類を透かす</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="underboob"> 下乳</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="skirt lift"> スカートたくし上げ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="lift"> たくし上げ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="clothes lift"> 服たくし上げ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="panty shot"> パンチラ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="panties under pantyhose"> パンスト越しの下着</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="topless"> 上半身裸</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bottomless"> 下半身裸</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="show off nipple"> 乳首見せ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bare breasts"> 胸部分のみを露出</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="coat over naked"> 裸コートなど</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple slip from"> チラ乳首</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="erect nipples"> 胸ポチ(勃起乳首)</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pasties"> ニプレス/前張り</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple piercing"> 乳首ピアス</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cameltoe"> スジ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="clothed"> 服を着せる</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="dressing, putting on clothes"> 着替え中</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="undressing, removing clothes"> 脱いでいる最中</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="removing socks"> 靴下を脱ぐ</label>
-              </div>
-            </div>
-          </details>
+      <!-- 🔒 管理人モーダルボタン -->
+      <div class="field-group" id="pb-admin-btn-area" style="display:none">
+        <button type="button" id="admin-modal-btn" class="admin-modal-btn">🔒 管理人メニュー</button>
+      </div>
 
-          <details class="pb-accordion" id="pb-nsfw-foreplay">
-            <summary>💋 前戯</summary>
-            <div class="accordion-content">
-              <div class="quality-tags">
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="kiss"> キス</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="masturbation"> 自慰</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="female masturbation"> 自慰(女性)</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vibrator"> バイブ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="dildo"> ディルド挿入</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="crotch grab"> 股間に手を当てる</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="handjob"> 手コキ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="footjob"> 足コキ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="fellatio"> フェラチオ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="tongue licking, fellatio"> 亀頭舐め</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="paizuri"> パイズリ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breasts blowjob"> パイズリフェラ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="hairjob"> 髪コキ</label>
-              </div>
-            </div>
-          </details>
+      <!-- 🔒 管理人モーダル -->
+      <div id="admin-modal" class="admin-modal-overlay" style="display:none" role="dialog" aria-modal="true">
+        <div class="admin-modal-content">
+          <div class="admin-modal-header">
+            <h3>🔒 管理人メニュー</h3>
+            <button id="admin-modal-close" class="admin-modal-close" title="閉じる">✕</button>
+          </div>
 
-          <details class="pb-accordion" id="pb-nsfw-position">
-            <summary>🔥 体位</summary>
-            <div class="accordion-content">
-              <div class="quality-tags">
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vaginal, sex"> 挿入</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vaginal, sex, back"> 後ろから</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="woman on top"> 騎乗位</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="woman on top, from behind"> 背面騎乗位</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="upright straddle"> 対面座位</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="anal, sex"> アナルSEX</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="gangbang"> 輪姦</label>
-              </div>
-            </div>
-          </details>
+          <!-- タブ -->
+          <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="clothes">👗 着衣</button>
+            <button class="admin-tab" data-tab="foreplay">💋 前戯</button>
+            <button class="admin-tab" data-tab="position">🔥 体位</button>
+            <button class="admin-tab" data-tab="cum">💦 射精</button>
+            <button class="admin-tab" data-tab="desc">✨ 描写</button>
+          </div>
 
-          <details class="pb-accordion" id="pb-nsfw-cum">
-            <summary>💦 射精</summary>
-            <div class="accordion-content">
-              <div class="quality-tags">
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in pussy"> 膣内射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="facial, bukkake"> 顔射</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on tongue"> 舌上射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in mouth"> 口内射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="gokkun"> ごっくん</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on breast"> 胸に射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on armpits"> 腋に射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on head"> 髪に射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in ass"> お尻に射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on feet"> 足に射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on clothes"> 服に射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on body"> 体全体に射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bukkake"> ぶっかけ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="excessive cum"> 大量射精</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="projectile cum"> 飛び散る精液</label>
-              </div>
-            </div>
-          </details>
-
-          <details class="pb-accordion" id="pb-nsfw-desc">
-            <summary>✨ 描写</summary>
-            <div class="accordion-content">
-              <div class="quality-tags">
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="spread pussy"> くぱぁ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="sweat"> 汗</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="steam"> 白いモヤ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="handjob gesture"> 手コキポーズ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="fellatio gesture"> フェラチオポーズ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="girl trembling with sexual climax"> 体を震わせる</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast squeeze"> 乳搾り</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast grab"> 乳掴み</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="grabbing another's breast"> 乳掴み(背後から)</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast milk"> 母乳</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple-to-nipple"> 乳首合わせ</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pubic tattoo"> 淫紋</label>
-                <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pregnant"> ボテ腹</label>
-              </div>
-            </div>
-          </details>
-
-          <div class="field-group">
-            <div class="quality-tags">
-              <label><input type="checkbox" id="pb-nsfw" value="nsfw" /> NSFW</label>
+          <!-- 着衣タブ -->
+          <div class="admin-tab-content active" id="admin-tab-clothes">
+            <div class="admin-option-grid">
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="see through"> 衣類を透かす</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="underboob"> 下乳</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="skirt lift"> スカートたくし上げ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="lift"> たくし上げ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="clothes lift"> 服たくし上げ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="panty shot"> パンチラ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="panties under pantyhose"> パンスト越しの下着</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="topless"> 上半身裸</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bottomless"> 下半身裸</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="show off nipple"> 乳首見せ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bare breasts"> 胸部分のみを露出</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="coat over naked"> 裸コートなど</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple slip from"> チラ乳首</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="erect nipples"> 胸ポチ(勃起乳首)</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pasties"> ニプレス/前張り</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple piercing"> 乳首ピアス</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cameltoe"> スジ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="clothed"> 服を着せる</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="dressing, putting on clothes"> 着替え中</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="undressing, removing clothes"> 脱いでいる最中</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="removing socks"> 靴下を脱ぐ</label>
             </div>
           </div>
-          <div class="field-group">
+
+          <!-- 前戯タブ -->
+          <div class="admin-tab-content" id="admin-tab-foreplay">
+            <div class="admin-option-grid">
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="kiss"> キス</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="masturbation"> 自慰</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="female masturbation"> 自慰(女性)</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vibrator"> バイブ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="dildo"> ディルド挿入</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="crotch grab"> 股間に手を当てる</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="handjob"> 手コキ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="footjob"> 足コキ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="fellatio"> フェラチオ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="tongue licking, fellatio"> 亀頭舐め</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="paizuri"> パイズリ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breasts blowjob"> パイズリフェラ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="hairjob"> 髪コキ</label>
+            </div>
+          </div>
+
+          <!-- 体位タブ -->
+          <div class="admin-tab-content" id="admin-tab-position">
+            <div class="admin-option-grid">
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vaginal, sex"> 挿入</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="vaginal, sex, back"> 後ろから</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="woman on top"> 騎乗位</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="woman on top, from behind"> 背面騎乗位</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="upright straddle"> 対面座位</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="anal, sex"> アナルSEX</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="gangbang"> 輪姦</label>
+            </div>
+          </div>
+
+          <!-- 射精タブ -->
+          <div class="admin-tab-content" id="admin-tab-cum">
+            <div class="admin-option-grid">
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in pussy"> 膣内射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="facial, bukkake"> 顔射</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on tongue"> 舌上射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in mouth"> 口内射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="gokkun"> ごっくん</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on breast"> 胸に射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on armpits"> 腋に射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on head"> 髪に射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum in ass"> お尻に射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on feet"> 足に射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on clothes"> 服に射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="cum on body"> 体全体に射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="bukkake"> ぶっかけ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="excessive cum"> 大量射精</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="projectile cum"> 飛び散る精液</label>
+            </div>
+          </div>
+
+          <!-- 描写タブ -->
+          <div class="admin-tab-content" id="admin-tab-desc">
+            <div class="admin-option-grid">
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="spread pussy"> くぱぁ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="sweat"> 汗</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="steam"> 白いモヤ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="handjob gesture"> 手コキポーズ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="fellatio gesture"> フェラチオポーズ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="girl trembling with sexual climax"> 体を震わせる</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast squeeze"> 乳搾り</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast grab"> 乳掴み</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="grabbing another's breast"> 乳掴み(背後から)</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="breast milk"> 母乳</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="nipple-to-nipple"> 乳首合わせ</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pubic tattoo"> 淫紋</label>
+              <label><input type="checkbox" class="pb-nsfw-item" data-prompt="pregnant"> ボテ腹</label>
+            </div>
+          </div>
+
+          <!-- モーダルフッター -->
+          <div class="admin-modal-footer">
+            <label class="admin-nsfw-check">
+              <input type="checkbox" id="pb-nsfw" value="nsfw" /> NSFW
+            </label>
             <button type="button" id="send-to-shogun-btn" class="send-shogun-btn">📤 将軍に送信</button>
+            <button type="button" id="admin-modal-cancel" class="admin-modal-cancel">キャンセル</button>
+            <button type="button" id="admin-modal-ok" class="admin-modal-ok">OK（反映）</button>
           </div>
         </div>
-      </details>
+      </div>
 
       <div class="field-group">
         <label for="pb-negative">ネガティブプロンプト</label>
@@ -1108,13 +1236,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   if (pwSubmit) pwSubmit.addEventListener('click', checkPassword);
   if (pwInput) pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkPassword(); });
 
-  // 管理人セクション表示チェック（?admin=1 または認証済み）
+  // 管理人ボタン表示チェック（?admin=1 または認証済み）
   function maybeShowAdmin() {
-    const adminEl = document.getElementById('pb-admin-category');
-    if (!adminEl) return;
     const params = new URLSearchParams(window.location.search);
     if (params.get('admin') === '1' || localStorage.getItem('pb_admin_auth') === '1') {
-      adminEl.style.display = '';
+      const btnArea = document.getElementById('pb-admin-btn-area');
+      if (btnArea) btnArea.style.display = '';
     }
   }
   maybeShowAdmin();
@@ -1440,22 +1567,64 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   });
 
-  const adminDetails = document.getElementById('pb-admin-category');
-  if (adminDetails) {
-    adminDetails.addEventListener('toggle', function() {
-      if (adminDetails.open) {
-        if (localStorage.getItem('pb_admin_auth') !== '1') {
-          const input = window.prompt('管理人パスワードを入力してください');
-          if (input === '393941' || input === 'zaku') {
-            localStorage.setItem('pb_admin_auth', '1');
-            adminDetails.style.display = '';
-          } else {
-            adminDetails.open = false;
-          }
+  // ===== 管理人モーダル制御 =====
+  (function() {
+    const adminModalBtn = document.getElementById('admin-modal-btn');
+    const adminModal = document.getElementById('admin-modal');
+    const adminModalClose = document.getElementById('admin-modal-close');
+    const adminModalCancel = document.getElementById('admin-modal-cancel');
+    const adminModalOk = document.getElementById('admin-modal-ok');
+
+    if (!adminModalBtn || !adminModal) return;
+
+    // モーダルを開く
+    adminModalBtn.addEventListener('click', function() {
+      // 未認証の場合はパスワード確認
+      if (localStorage.getItem('pb_admin_auth') !== '1') {
+        const input = window.prompt('管理人パスワードを入力してください');
+        if (input === '393941' || input === 'zaku') {
+          localStorage.setItem('pb_admin_auth', '1');
+        } else {
+          return;
         }
       }
+      adminModal.style.display = 'flex';
     });
-  }
+
+    // モーダルを閉じる（✕・キャンセル・オーバーレイクリック）
+    function closeModal() { adminModal.style.display = 'none'; }
+    if (adminModalClose) adminModalClose.addEventListener('click', closeModal);
+    if (adminModalCancel) adminModalCancel.addEventListener('click', closeModal);
+    adminModal.addEventListener('click', function(e) {
+      if (e.target === adminModal) closeModal();
+    });
+
+    // OK: モーダルを閉じてプレビュー更新
+    if (adminModalOk) {
+      adminModalOk.addEventListener('click', function() {
+        closeModal();
+        if (typeof updatePreview === 'function') updatePreview();
+      });
+    }
+
+    // タブ切り替え
+    document.querySelectorAll('.admin-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.admin-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelectorAll('.admin-tab-content').forEach(function(c) { c.classList.remove('active'); });
+        tab.classList.add('active');
+        const tabContent = document.getElementById('admin-tab-' + tab.dataset.tab);
+        if (tabContent) tabContent.classList.add('active');
+      });
+    });
+
+    // モーダル内チェックボックス変更でプレビュー更新
+    adminModal.querySelectorAll('.pb-nsfw-item').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        if (typeof updatePreview === 'function') updatePreview();
+      });
+    });
+  })();
 
   document.getElementById('send-to-shogun-btn').addEventListener('click', function() {
     const prompt = buildPrompt();
