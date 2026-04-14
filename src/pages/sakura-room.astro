@@ -390,6 +390,64 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
     font-size: 0.85rem;
     margin-top: 12px;
   }
+
+  /* ===== プロフィールカード ===== */
+  .sakura-profile-card {
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(255, 183, 197, 0.15);
+    border: 2px solid #ffb7c5;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+  }
+  [data-theme="dark"] .sakura-profile-card {
+    background: rgba(157, 23, 77, 0.12);
+    border-color: #9d174d;
+  }
+  .sakura-profile-card .profile-image img {
+    width: 120px;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+  .sakura-profile-card .profile-info h2 {
+    font-size: 1.4rem;
+    color: #be185d;
+    margin: 0 0 0.8rem;
+  }
+  [data-theme="dark"] .sakura-profile-card .profile-info h2 {
+    color: #f9a8d4;
+  }
+  .profile-table {
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .profile-table th {
+    color: #d63384;
+    white-space: nowrap;
+    padding-right: 1rem;
+    padding-bottom: 0.4rem;
+    text-align: left;
+    font-weight: 700;
+  }
+  [data-theme="dark"] .profile-table th {
+    color: #f9a8d4;
+  }
+  .profile-table td {
+    color: var(--color-text);
+    padding-bottom: 0.4rem;
+  }
+  @media (max-width: 480px) {
+    .sakura-profile-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .profile-table th {
+      text-align: right;
+    }
+  }
 </style>
 
 <!-- パスワード認証画面 -->
@@ -428,6 +486,21 @@ const allGallery = [...profileImages, ...chibiv2Images, ...whiteImages, ...black
   <div class="sg-header">
     <h1>🌸 サクラの部屋</h1>
     <p>ようこそ、サクラの秘密のギャラリーへ✨</p>
+  </div>
+
+  <!-- プロフィールカード -->
+  <div class="sakura-profile-card">
+    <div class="profile-image">
+      <img src="/images/sakura-profile.png" alt="サクラ" />
+    </div>
+    <div class="profile-info">
+      <h2>サクラ</h2>
+      <table class="profile-table">
+        <tr><th>誕生日</th><td>4月5日（ブログ開設日）</td></tr>
+        <tr><th>好きなもの</th><td>ガジェット、新しい技術</td></tr>
+        <tr><th>口調</th><td>「〜ですよ」（敬語）</td></tr>
+      </table>
+    </div>
   </div>
 
   <div class="sg-section-title">🌸 立ち絵</div>
