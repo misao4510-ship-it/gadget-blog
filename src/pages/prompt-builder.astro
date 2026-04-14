@@ -1048,6 +1048,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button class="admin-tab" data-tab="position">体位</button>
             <button class="admin-tab" data-tab="liquid">汁・液</button>
             <button class="admin-tab" data-tab="costume">衣装追加</button>
+            <button class="admin-tab" data-tab="face">表情</button>
           </div>
 
           <!-- 胸タブ（radio） -->
@@ -1253,6 +1254,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <label><input type="checkbox" name="admin-costume" value="naked apron"> 裸エプロン</label>
               <label><input type="checkbox" name="admin-costume" value="see through"> シースルー</label>
               <label><input type="checkbox" name="admin-costume" value="torn clothes"> 破れた服</label>
+            </div>
+          </div>
+
+          <!-- 表情タブ（checkbox） -->
+          <div class="admin-tab-content" id="admin-tab-face">
+            <div class="tab-clear-row">
+              <span class="tab-title">表情</span>
+              <button class="clear-tab-btn" data-tab="face" type="button">全チェック外す</button>
+            </div>
+            <div class="admin-option-grid">
+              <label><input type="checkbox" name="admin-face" value="surprised"> 驚き</label>
+              <label><input type="checkbox" name="admin-face" value="embarrassed"> 恥じらい</label>
+              <label><input type="checkbox" name="admin-face" value="shy smile"> 照れ笑い</label>
+              <label><input type="checkbox" name="admin-face" value="crying, tears"> 泣き顔</label>
+              <label><input type="checkbox" name="admin-face" value="angry"> 怒り</label>
+              <label><input type="checkbox" name="admin-face" value="ahegao, fucked silly"> アヘ顔</label>
+              <label><input type="checkbox" name="admin-face" value="ecstasy, pleasure"> 恍惚</label>
+              <label><input type="checkbox" name="admin-face" value="sad"> 悲しみ</label>
+              <label><input type="checkbox" name="admin-face" value="expressionless"> 無表情</label>
+              <label><input type="checkbox" name="admin-face" value="smile"> 笑顔</label>
+              <label><input type="checkbox" name="admin-face" value="winking"> ウインク</label>
+              <label><input type="checkbox" name="admin-face" value="tongue out"> 舌出し</label>
+              <label><input type="checkbox" name="admin-face" value="open mouth"> 口開け</label>
+              <label><input type="checkbox" name="admin-face" value="blushing"> 赤面</label>
+              <label><input type="checkbox" name="admin-face" value="defiant look"> くやしい</label>
+              <label><input type="checkbox" name="admin-face" value="panicking, sobbing"> パニック</label>
+              <label><input type="checkbox" name="admin-face" value="smug"> ドヤ顔</label>
+              <label><input type="checkbox" name="admin-face" value="sleepy"> 眠そう</label>
+              <label><input type="checkbox" name="admin-face" value="seductive eyes"> 誘惑</label>
+              <label><input type="checkbox" name="admin-face" value="drooling"> よだれ</label>
             </div>
           </div>
 
@@ -1746,7 +1777,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         var tabIds = [
           'breast', 'breast-wear', 'lower', 'h-pose', 'combo-pose',
           'situation', 'combo-sit', 'foreplay', 'combo-sm', 'position',
-          'liquid', 'costume'
+          'liquid', 'costume', 'face'
         ];
         tabIds.forEach(function(tabId) {
           adminModal.querySelectorAll('input[name="admin-' + tabId + '"]:checked').forEach(function(cb) {
