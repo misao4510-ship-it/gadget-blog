@@ -10,6 +10,7 @@ import base64
 import time
 import argparse
 import sys
+import random
 from pathlib import Path
 
 DEFAULT_API_URL = "http://172.18.208.1:7860"
@@ -70,7 +71,7 @@ def generate_image(name: str, config: dict, output_dir: Path, api_url: str) -> s
     payload = {
         "prompt": config["prompt"],
         "negative_prompt": NEGATIVE,
-        "seed": config["seed"],
+        "seed": random.randint(0, 2147483647),
         "steps": 28,
         "cfg_scale": 7,
         "width": 768,
