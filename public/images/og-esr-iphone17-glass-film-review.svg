@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <!-- Accent bar top -->
+  <rect width="1200" height="8" fill="#FF9900"/>
+  <!-- Accent bar bottom -->
+  <rect y="622" width="1200" height="8" fill="#FF9900"/>
+
+  <!-- Phone icon decoration -->
+  <rect x="60" y="80" width="160" height="320" rx="20" fill="none" stroke="#FF9900" stroke-width="4" opacity="0.3"/>
+  <rect x="80" y="100" width="120" height="260" rx="8" fill="none" stroke="#FF9900" stroke-width="2" opacity="0.4"/>
+  <!-- Screen protector lines -->
+  <line x1="80" y1="140" x2="200" y2="140" stroke="#FF9900" stroke-width="2" opacity="0.3"/>
+  <line x1="80" y1="180" x2="200" y2="180" stroke="#FF9900" stroke-width="2" opacity="0.2"/>
+  <line x1="80" y1="220" x2="200" y2="220" stroke="#FF9900" stroke-width="2" opacity="0.2"/>
+
+  <!-- Category badge -->
+  <rect x="260" y="88" width="260" height="40" rx="20" fill="#FF9900"/>
+  <text x="390" y="114" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="18" fill="#1a1a2e" font-weight="bold" text-anchor="middle">ガラスフィルム レビュー</text>
+
+  <!-- Main title -->
+  <text x="260" y="192" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="36" fill="#ffffff" font-weight="bold">ESR ガラスフィルム</text>
+  <text x="260" y="242" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="36" fill="#ffffff" font-weight="bold">iPhone 17 Pro Max</text>
+  <text x="260" y="292" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="34" fill="#FF9900" font-weight="bold">Corning™製 3枚入り</text>
+
+  <!-- Key points -->
+  <rect x="260" y="318" width="660" height="2" fill="#FF9900" opacity="0.5"/>
+
+  <text x="260" y="360" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="26" fill="#cccccc">✓ 3秒で完成・気泡ゼロ装着</text>
+  <text x="260" y="404" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="26" fill="#cccccc">✓ Corning™製 10倍強化保護</text>
+  <text x="260" y="448" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="26" fill="#cccccc">✓ 米軍MIL規格・AR加工付き</text>
+
+  <!-- Badge -->
+  <rect x="260" y="490" width="280" height="72" rx="8" fill="#FF9900"/>
+  <text x="400" y="520" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="16" fill="#1a1a2e" font-weight="bold" text-anchor="middle">250万回落下テストクリア</text>
+  <text x="400" y="550" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="24" fill="#1a1a2e" font-weight="bold" text-anchor="middle">3枚セット</text>
+
+  <!-- Site name -->
+  <text x="1140" y="600" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="18" fill="#888888" text-anchor="end">misao-gadget.blog</text>
+</svg>
