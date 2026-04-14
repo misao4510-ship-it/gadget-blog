@@ -535,17 +535,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.85rem;
   }
   .admin-modal-cancel:hover { background: #64748b; }
-  .admin-modal-ok {
-    background: #3b82f6;
-    color: #fff;
+  .sakura-template-btn {
+    background: linear-gradient(135deg, #ffb7c5, #ff8fab);
+    color: white;
     border: none;
-    padding: 7px 16px;
-    border-radius: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.85rem;
     font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
   }
-  .admin-modal-ok:hover { background: #2563eb; }
+  .sakura-template-btn:hover { opacity: 0.85; }
 </style>
 
 <!-- パスワード認証画面 -->
@@ -1288,14 +1289,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
 
           <!-- モーダルフッター -->
+          <div style="margin-bottom: 8px;">
+            <button type="button" id="sakura-template-btn" class="sakura-template-btn">🌸 サクラテンプレ</button>
+          </div>
           <div class="admin-modal-footer">
             <label class="admin-nsfw-check">
               <input type="checkbox" id="pb-nsfw" value="nsfw" /> NSFW
             </label>
             <button type="button" id="admin-clear-all" class="admin-clear-all-btn">全クリア</button>
             <button type="button" id="send-to-shogun-btn" class="send-shogun-btn">📤 将軍に送信</button>
-            <button type="button" id="admin-modal-cancel" class="admin-modal-cancel">キャンセル</button>
-            <button type="button" id="admin-modal-ok" class="admin-modal-ok">OK（反映）</button>
+            <button type="button" id="admin-modal-cancel" class="admin-modal-cancel">閉じる</button>
           </div>
         </div>
       </div>
@@ -1550,7 +1553,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     return result;
   }
 
-  // 色パレットのクリックハンドラー
+  // 色パレットのクリックハンドラー（再クリックで解除トグル）
   document.addEventListener('click', function(e) {
     const chip = e.target.closest('.color-chip, .color-none-btn');
     if (!chip) return;
@@ -1559,11 +1562,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const inputId = palette.dataset.input;
     const hiddenInput = document.getElementById(inputId);
     if (!hiddenInput) return;
-    const newValue = chip.dataset.value || '';
-    hiddenInput.value = newValue;
-    // 選択状態を更新
+    const isColorChip = chip.classList.contains('color-chip');
+    const isSelected = chip.classList.contains('selected');
+    // 全チップの選択解除
     palette.querySelectorAll('.color-chip').forEach(c => c.classList.remove('selected'));
-    if (newValue) chip.classList.add('selected');
+    if (isColorChip && !isSelected) {
+      // 未選択→選択
+      chip.classList.add('selected');
+      hiddenInput.value = chip.dataset.value || '';
+    } else if (!isColorChip) {
+      // ×ボタン: 色指定なし
+      hiddenInput.value = '';
+    } else {
+      // 選択済み→解除（色指定なし）
+      hiddenInput.value = '';
+    }
     // プロンプト更新
     hiddenInput.dispatchEvent(new Event('input'));
   });
@@ -1738,13 +1751,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   });
 
+  // 管理人モーダルの選択を収集してhiddenフィールドに反映
+  function collectAdminSelections() {
+    var adminModal = document.getElementById('admin-modal');
+    if (!adminModal) return;
+    var selectedPrompts = [];
+    var tabIds = [
+      'breast', 'breast-wear', 'lower', 'h-pose', 'combo-pose',
+      'situation', 'combo-sit', 'foreplay', 'combo-sm', 'position',
+      'liquid', 'costume', 'face'
+    ];
+    tabIds.forEach(function(tabId) {
+      adminModal.querySelectorAll('input[name="admin-' + tabId + '"]:checked').forEach(function(cb) {
+        selectedPrompts.push(cb.value);
+      });
+    });
+    var outputField = document.getElementById('admin-prompts-output');
+    if (outputField) outputField.value = selectedPrompts.join(', ');
+  }
+
   // ===== 管理人モーダル制御 =====
   (function() {
     const adminModalBtn = document.getElementById('admin-modal-btn');
     const adminModal = document.getElementById('admin-modal');
     const adminModalClose = document.getElementById('admin-modal-close');
     const adminModalCancel = document.getElementById('admin-modal-cancel');
-    const adminModalOk = document.getElementById('admin-modal-ok');
 
     if (!adminModalBtn || !adminModal) return;
 
@@ -1762,36 +1793,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       adminModal.style.display = 'flex';
     });
 
-    // モーダルを閉じる（✕・キャンセル・オーバーレイクリック）
+    // モーダルを閉じる（✕・閉じる・オーバーレイクリック）
     function closeModal() { adminModal.style.display = 'none'; }
     if (adminModalClose) adminModalClose.addEventListener('click', closeModal);
     if (adminModalCancel) adminModalCancel.addEventListener('click', closeModal);
     adminModal.addEventListener('click', function(e) {
       if (e.target === adminModal) closeModal();
     });
-
-    // OK: 全12タブのcheckbox選択値を収集してhiddenフィールドに保存しプレビュー更新
-    if (adminModalOk) {
-      adminModalOk.addEventListener('click', function() {
-        var selectedPrompts = [];
-        var tabIds = [
-          'breast', 'breast-wear', 'lower', 'h-pose', 'combo-pose',
-          'situation', 'combo-sit', 'foreplay', 'combo-sm', 'position',
-          'liquid', 'costume', 'face'
-        ];
-        tabIds.forEach(function(tabId) {
-          adminModal.querySelectorAll('input[name="admin-' + tabId + '"]:checked').forEach(function(cb) {
-            selectedPrompts.push(cb.value);
-          });
-        });
-
-        var outputField = document.getElementById('admin-prompts-output');
-        if (outputField) outputField.value = selectedPrompts.join(', ');
-
-        closeModal();
-        if (typeof updatePreview === 'function') updatePreview();
-      });
-    }
 
     // 各タブの「全チェック外す」ボタン
     adminModal.querySelectorAll('.clear-tab-btn').forEach(function(btn) {
@@ -1823,9 +1831,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
       });
     }
+
+    // 🌸 サクラテンプレボタン
+    function setColorChip(paletteInputId, value) {
+      var hiddenInput = document.getElementById(paletteInputId);
+      if (!hiddenInput) return;
+      hiddenInput.value = value;
+      var palette = hiddenInput.nextElementSibling;
+      if (palette && palette.classList.contains('color-palette')) {
+        palette.querySelectorAll('.color-chip').forEach(function(c) { c.classList.remove('selected'); });
+        if (value) {
+          var target = palette.querySelector('[data-value="' + value + '"]');
+          if (target) target.classList.add('selected');
+        }
+      }
+    }
+
+    var sakuraBtn = document.getElementById('sakura-template-btn');
+    if (sakuraBtn) {
+      sakuraBtn.addEventListener('click', function() {
+        // 髪型: セミロング
+        var hairSel = document.getElementById('pb-hair');
+        if (hairSel) { hairSel.value = 'semi-long hair'; hairSel.dispatchEvent(new Event('change')); }
+        // 髪色: ピンク
+        setColorChip('pb-haircolor', 'pink hair');
+        document.getElementById('pb-haircolor').dispatchEvent(new Event('input'));
+        // インナー色: 水色
+        setColorChip('pb-hair-inner', 'light blue inner color hair');
+        document.getElementById('pb-hair-inner').dispatchEvent(new Event('input'));
+        // 目の色: 水色
+        setColorChip('pb-eyes', 'light blue eyes');
+        document.getElementById('pb-eyes').dispatchEvent(new Event('input'));
+        // 目の形: 丸い目
+        var eyeShapeSel = document.getElementById('pb-eye-shape');
+        if (eyeShapeSel) { eyeShapeSel.value = 'round eyes'; eyeShapeSel.dispatchEvent(new Event('change')); }
+        // 服装: 近未来プレイスーツ
+        var outfitSel = document.getElementById('pb-outfit');
+        if (outfitSel) { outfitSel.value = 'futuristic playsuit'; outfitSel.dispatchEvent(new Event('change')); }
+        // 服の色: 白
+        setColorChip('pb-outfit-color', 'white outfit');
+        document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
+        // 表情(管理人): 驚き
+        adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
+        var surprisedCb = adminModal.querySelector('input[name="admin-face"][value="surprised"]');
+        if (surprisedCb) surprisedCb.checked = true;
+        updatePreview();
+      });
+    }
   })();
 
   document.getElementById('send-to-shogun-btn').addEventListener('click', function() {
+    // 管理人モーダルの選択を自動反映
+    collectAdminSelections();
     const prompt = buildPrompt();
     if (!prompt) {
       alert('プロンプトを生成してから送信してください');
