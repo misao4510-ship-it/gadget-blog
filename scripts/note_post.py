@@ -22,6 +22,13 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 
+# Playwright用システムライブラリのパスを設定（libnspr4等がシステム未インストールの場合）
+_LOCAL_LIBS = Path("/tmp/locallibs/usr/lib/x86_64-linux-gnu")
+if _LOCAL_LIBS.exists():
+    _existing = os.environ.get("LD_LIBRARY_PATH", "")
+    if str(_LOCAL_LIBS) not in _existing:
+        os.environ["LD_LIBRARY_PATH"] = f"{_LOCAL_LIBS}:{_existing}"
+
 # パス設定
 BLOG_ROOT = Path(__file__).parent.parent.resolve()
 CONFIG_FILE = BLOG_ROOT / "config" / "note_post.yaml"
@@ -117,98 +124,114 @@ def get_unposted_slugs(config: dict) -> list[str]:
 
 # ===== note.com 投稿 =====
 
-class NoteClient:
-    """
-    note.com 内部API クライアント
+COOKIES_FILE = BLOG_ROOT / "config" / "note_cookies.json"
 
-    note.comは公式APIを公開していないため、ブラウザが使用する
-    内部APIエンドポイントを利用する。
-    認証: セッションクッキー（メールアドレス + パスワードでログイン）
-    """
+
+class NoteClient:
+    """note.com投稿クライアント（Playwright方式）"""
 
     BASE_URL = "https://note.com"
-    API_BASE = "https://note.com/api/v2"
 
     def __init__(self, email: str, password: str):
-        import requests
-        self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/124.0.0.0 Safari/537.36"
-            ),
-            "Accept": "application/json, text/plain, */*",
-            "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
-            "Origin": self.BASE_URL,
-            "Referer": self.BASE_URL + "/",
-        })
         self.email = email
         self.password = password
-        self._logged_in = False
 
-    def login(self) -> None:
-        """note.comにログイン（セッションクッキー取得）"""
-        import requests
-
-        # まずCSRFトークンを取得
-        resp = self.session.get(self.BASE_URL + "/login")
-        resp.raise_for_status()
-
-        # ログインAPIを呼び出し
-        login_url = f"{self.API_BASE}/session"
-        payload = {
-            "login": self.email,
-            "password": self.password,
-        }
-        resp = self.session.post(login_url, json=payload)
-        if resp.status_code not in (200, 201):
-            raise RuntimeError(
-                f"ログイン失敗: HTTP {resp.status_code}\n"
-                f"認証情報を確認してください（config/note_auth.env）"
-            )
-        logger.info("note.comにログインしました")
-        self._logged_in = True
-
-    def post_article(self, title: str, body: str, hashtags: list[str],
+    def post_article(self, title: str, body: str, hashtags: list[str] = None,
                      publish_status: str = "public") -> str:
-        """
-        記事を投稿して投稿URLを返す
+        """Playwrightでnote.comにログインして記事を投稿"""
+        from playwright.sync_api import sync_playwright
 
-        Args:
-            title: 記事タイトル
-            body: 本文（Markdown）
-            hashtags: ハッシュタグリスト
-            publish_status: "public" または "draft"
-
-        Returns:
-            投稿されたnote記事のURL
-        """
-        if not self._logged_in:
-            self.login()
-
-        # noteの内部APIでテキスト記事を投稿
-        post_url = f"{self.API_BASE}/text_notes"
-        payload = {
-            "body": body,
-            "name": title,
-            "hashtag_list": hashtags,
-            "status": publish_status,
-        }
-        resp = self.session.post(post_url, json=payload)
-        if resp.status_code not in (200, 201):
-            raise RuntimeError(
-                f"投稿失敗: HTTP {resp.status_code}\n"
-                f"レスポンス: {resp.text[:200]}"
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
             )
+            page = context.new_page()
 
-        data = resp.json()
-        # レスポンスからnote URLを取得
-        note_key = data.get("data", {}).get("key", "")
-        user_urlname = data.get("data", {}).get("user", {}).get("urlname", "")
-        if note_key and user_urlname:
-            return f"{self.BASE_URL}/{user_urlname}/n/{note_key}"
-        return f"{self.BASE_URL}/"
+            # 1. ログイン（Cookieファイルがあればそれを使用）
+            if COOKIES_FILE.exists():
+                logger.info("保存済みCookieでログイン中...")
+                cookies = json.loads(COOKIES_FILE.read_text(encoding="utf-8"))
+                context.add_cookies(cookies)
+                page.goto(f"{self.BASE_URL}/")
+                page.wait_for_load_state("networkidle")
+                page.wait_for_timeout(2000)
+                # ログイン確認（ダッシュボードや自分のページに遷移しているか）
+                if "/login" in page.url:
+                    raise RuntimeError(
+                        "Cookie期限切れ: config/note_cookies.jsonを更新してください\n"
+                        "手順: https://note.com にブラウザでログイン後、"
+                        "Cookie Editorなどでnote.comのCookieをJSON形式でエクスポートし保存"
+                    )
+                logger.info("Cookie認証成功")
+            else:
+                logger.info("note.comにログイン中...")
+                page.goto(f"{self.BASE_URL}/login")
+                page.wait_for_load_state("networkidle")
+
+                # note.comはid属性を使用（name属性なし）
+                page.fill('input#email', self.email)
+                page.fill('input#password', self.password)
+                # ログインボタン（primary type, social loginボタンを除く）
+                page.locator('button[data-type="primary"]').click()
+                page.wait_for_load_state("networkidle")
+                page.wait_for_timeout(2000)
+
+                if "/login" in page.url:
+                    raise RuntimeError(
+                        "ログイン失敗: reCAPTCHAまたは認証エラー\n"
+                        "解決策: ブラウザで手動ログイン後、Cookie Editorで"
+                        "note.comのCookieをconfig/note_cookies.jsonに保存してください"
+                    )
+            logger.info("ログイン成功")
+
+            # 2. 新規記事作成ページへ
+            page.goto(f"{self.BASE_URL}/notes/new")
+            page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(2000)
+
+            # 3. タイトル入力
+            title_selector = 'textarea[placeholder*="タイトル"], input[placeholder*="タイトル"], [data-placeholder*="タイトル"]'
+            page.fill(title_selector, title)
+
+            # 4. 本文入力（contenteditable）
+            body_selector = '[contenteditable="true"], .note-editor, .ProseMirror'
+            page.click(body_selector)
+            page.keyboard.type(body, delay=10)
+
+            # 5. ハッシュタグ入力（あれば）
+            if hashtags:
+                try:
+                    tag_input = page.locator('input[placeholder*="タグ"], input[placeholder*="ハッシュタグ"]').first
+                    for tag in hashtags:
+                        tag_input.fill(tag)
+                        page.keyboard.press("Enter")
+                        page.wait_for_timeout(500)
+                except Exception:
+                    logger.warning("ハッシュタグ入力欄が見つかりませんでした（スキップ）")
+
+            # 6. 投稿ボタンクリック
+            page.wait_for_timeout(1000)
+            publish_btn = page.locator('button:has-text("公開"), button:has-text("投稿")').first
+            publish_btn.click()
+            page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(2000)
+
+            # 「公開する」確認ダイアログがある場合
+            try:
+                confirm_btn = page.locator('button:has-text("公開する"), button:has-text("投稿する")').first
+                if confirm_btn.is_visible():
+                    confirm_btn.click()
+                    page.wait_for_load_state("networkidle")
+                    page.wait_for_timeout(3000)
+            except Exception:
+                pass
+
+            # 7. 投稿完了URLを取得
+            note_url = page.url
+            logger.info(f"投稿完了: {note_url}")
+            browser.close()
+            return note_url
 
 
 # ===== メイン処理 =====
@@ -303,11 +326,6 @@ def main():
             sys.exit(1)
 
         client = NoteClient(email, password)
-        try:
-            client.login()
-        except RuntimeError as e:
-            logger.error(str(e))
-            sys.exit(1)
 
     # 投稿対象を決定
     if args.slug:
