@@ -1,6 +1,6 @@
 ---
 ---
-<div id="sakura-welcome" class="sakura-overlay hidden">
+<div id="sakura-welcome" class="sakura-overlay">
   <div class="sakura-overlay-inner">
     <button id="sakura-welcome-close" class="sakura-close-btn" aria-label="閉じる">×</button>
     <div class="sakura-bubble" id="sakura-bubble-text"></div>
@@ -10,17 +10,21 @@
 
 <style>
   .sakura-overlay {
+    display: none; /* JSが実行されるまでレンダリングしない */
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
-    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    opacity: 0;
     transition: opacity 0.8s ease;
   }
-  .sakura-overlay.hidden { opacity: 0; pointer-events: none; }
-  .sakura-overlay.visible { opacity: 1; pointer-events: auto; }
+  .sakura-overlay.visible {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
 
   .sakura-overlay-inner {
     position: relative;
@@ -106,8 +110,13 @@
     bubble.innerHTML = messages[Math.floor(Math.random() * messages.length)];
 
     setTimeout(() => {
-      el.classList.remove('hidden');
-      el.classList.add('visible');
+      el.style.display = 'flex';
+      // display変更後に1フレーム待ってからopacity遷移（transitionのため）
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.classList.add('visible');
+        });
+      });
     }, 300);
 
     const timer = setTimeout(() => dismiss(), 10300);
@@ -115,7 +124,7 @@
     function dismiss() {
       clearTimeout(timer);
       el.classList.remove('visible');
-      el.classList.add('hidden');
+      setTimeout(() => { el.style.display = 'none'; }, 800);
       localStorage.setItem(STORAGE_KEY, '1');
     }
 
