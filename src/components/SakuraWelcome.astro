@@ -86,9 +86,11 @@
 </style>
 
 <script>
+  const TEST_MODE = true; // true=毎回表示（確認用）、false=初回のみ（本番）
+
   document.addEventListener('DOMContentLoaded', () => {
     const STORAGE_KEY = 'sakura_welcomed';
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    if (!TEST_MODE && localStorage.getItem(STORAGE_KEY)) return;
 
     const messages = [
       'こんにちは！サクラです✨<br>ゆっくり見ていってね！',
