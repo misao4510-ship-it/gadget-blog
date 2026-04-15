@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1887,
+      "price": 1622,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/ever-leaf/s-b0f9nqb6l4-20251105/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-14"
+      "url": "https://item.rakuten.co.jp/vision-stores/z6l3oms5qlhfd76xpjc4jz73wu/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-15"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1887
+      "price": 1622
     }
   },
   "history": [
+    {
+      "date": "2026-04-15",
+      "amazon": 12650,
+      "rakuten": 1622
+    },
     {
       "date": "2026-04-14",
       "amazon": 12650,
@@ -303,11 +308,6 @@
       "date": "2026-01-15",
       "amazon": 13493,
       "rakuten": 13847
-    },
-    {
-      "date": "2026-01-14",
-      "amazon": 13683,
-      "rakuten": 13798
     }
   ]
 }

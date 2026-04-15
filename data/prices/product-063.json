@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 5480,
+      "price": 4653,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/janpara/108181293-222/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-14"
+      "url": "https://item.rakuten.co.jp/wattmann/med109668887/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-15"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 5480
+      "price": 4653
     }
   },
   "history": [
+    {
+      "date": "2026-04-15",
+      "amazon": 16800,
+      "rakuten": 4653
+    },
     {
       "date": "2026-04-14",
       "amazon": 16800,
@@ -303,11 +308,6 @@
       "date": "2026-01-15",
       "amazon": 18108,
       "rakuten": 18906
-    },
-    {
-      "date": "2026-01-14",
-      "amazon": 17783,
-      "rakuten": 19131
     }
   ]
 }
