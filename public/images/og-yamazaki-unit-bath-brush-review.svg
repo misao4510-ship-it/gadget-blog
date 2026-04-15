@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <!-- Accent bar top -->
+  <rect width="1200" height="8" fill="#FF9900"/>
+  <!-- Accent bar bottom -->
+  <rect y="622" width="1200" height="8" fill="#FF9900"/>
+
+  <!-- Bath brush icon decoration -->
+  <rect x="60" y="100" width="160" height="110" rx="10" fill="none" stroke="#FF9900" stroke-width="4" opacity="0.3"/>
+  <rect x="60" y="230" width="160" height="110" rx="10" fill="none" stroke="#FF9900" stroke-width="4" opacity="0.3"/>
+  <rect x="60" y="360" width="160" height="110" rx="10" fill="none" stroke="#FF9900" stroke-width="4" opacity="0.3"/>
+  <!-- Bath icon -->
+  <text x="140" y="165" font-family="sans-serif" font-size="40" fill="#FF9900" opacity="0.5" text-anchor="middle">🛁</text>
+
+  <!-- Category badge -->
+  <rect x="260" y="88" width="260" height="40" rx="20" fill="#FF9900"/>
+  <text x="390" y="114" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="18" fill="#1a1a2e" font-weight="bold" text-anchor="middle">お風呂掃除ブラシレビュー</text>
+
+  <!-- Main title -->
+  <text x="260" y="192" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="38" fill="#ffffff" font-weight="bold">山崎産業</text>
+  <text x="260" y="246" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="36" fill="#ffffff" font-weight="bold">ユニットバスボンくん</text>
+  <text x="260" y="300" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="34" fill="#FF9900" font-weight="bold">伸縮ロング 抗菌 レビュー</text>
+
+  <!-- Key points -->
+  <rect x="260" y="338" width="660" height="2" fill="#FF9900" opacity="0.5"/>
+
+  <text x="260" y="380" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="28" fill="#cccccc">✓ 伸縮ロングハンドルで腰への負担ゼロ</text>
+  <text x="260" y="424" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="28" fill="#cccccc">✓ 抗菌加工でブラシを清潔に保つ</text>
+  <text x="260" y="468" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="28" fill="#cccccc">✓ 山崎産業の老舗品質・ロングセラー</text>
+
+  <!-- Category label -->
+  <rect x="260" y="510" width="200" height="72" rx="8" fill="#FF9900"/>
+  <text x="360" y="540" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="16" fill="#1a1a2e" font-weight="bold" text-anchor="middle">おすすめ度</text>
+  <text x="360" y="570" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="28" fill="#1a1a2e" font-weight="bold" text-anchor="middle">★4.0</text>
+
+  <!-- Site name -->
+  <text x="1140" y="600" font-family="'Noto Sans JP', 'Hiragino Sans', sans-serif" font-size="18" fill="#888888" text-anchor="end">misao-gadget.blog</text>
+</svg>
