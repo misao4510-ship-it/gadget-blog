@@ -6,7 +6,7 @@ category: "生活"
 type: "review"
 draft: false
 amazonUrl: "https://amzn.to/4cKD5Ep"
-recommendation: 4.0
+recommendation:
 ogImage: /images/og-yamazaki-unit-bath-brush-review.svg
 ---
 
