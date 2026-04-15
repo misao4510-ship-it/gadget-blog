@@ -101,6 +101,20 @@ const categoryLabels: Record<string, string> = {
             </div>
             <h1 class="article__title">{post.data.title}</h1>
             <StarRating rating={post.data.recommendation} />
+            <!-- Admin star editor (hidden by default, shown with ?admin=1) -->
+            <div id="admin-star-editor" style="display:none;">
+              <div class="admin-star-bar">
+                <span class="admin-star-label">⭐管理者評価:</span>
+                <div class="admin-stars" id="admin-stars">
+                  {[1,2,3,4,5].map(n => (
+                    <button class="admin-star-btn" data-value={n} type="button">☆</button>
+                  ))}
+                </div>
+                <span id="admin-star-value" class="admin-star-value">未設定</span>
+                <button id="admin-star-save" class="admin-star-save" type="button">保存</button>
+                <span id="admin-star-status" class="admin-star-status"></span>
+              </div>
+            </div>
             <p class="article__desc">{post.data.description}</p>
 
             {/* === CTA #1: Store link box at top (ランキング記事では非表示) === */}
@@ -237,6 +251,28 @@ const categoryLabels: Record<string, string> = {
     .article__inner { padding: 1.5rem 0 3rem; }
   }
 
+  /* Admin star editor */
+  .admin-star-bar {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    background: #fef3c7; border: 2px dashed #f59e0b; border-radius: 8px;
+    padding: 0.5rem 1rem; margin: 0.5rem 0;
+  }
+  .admin-star-label { font-size: 0.85rem; font-weight: 700; color: #92400e; }
+  .admin-star-btn {
+    background: none; border: none; font-size: 1.5rem; cursor: pointer;
+    padding: 0 2px; transition: transform 0.1s;
+  }
+  .admin-star-btn:hover { transform: scale(1.2); }
+  .admin-star-btn.active { color: #f59e0b; }
+  .admin-star-value { font-size: 0.85rem; color: #78716c; min-width: 3rem; }
+  .admin-star-save {
+    background: #f59e0b; color: white; border: none; border-radius: 6px;
+    padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+  }
+  .admin-star-save:hover { background: #d97706; }
+  .admin-star-save:disabled { background: #d1d5db; cursor: not-allowed; }
+  .admin-star-status { font-size: 0.8rem; }
+
   /* ===== 3-column layout ===== */
   .article-layout {
     display: grid;
@@ -270,3 +306,83 @@ const categoryLabels: Record<string, string> = {
     }
   }
 </style>
+
+<script define:vars={{ slug: post.id, currentRating: post.data.recommendation }}>
+  // Admin star editor
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('admin') !== '1') return;
+
+    const editor = document.getElementById('admin-star-editor');
+    if (!editor) return;
+    editor.style.display = '';
+
+    const buttons = document.querySelectorAll('.admin-star-btn');
+    const valueEl = document.getElementById('admin-star-value');
+    const saveBtn = document.getElementById('admin-star-save');
+    const statusEl = document.getElementById('admin-star-status');
+    let selectedRating = currentRating || 0;
+
+    function renderStars(rating) {
+      buttons.forEach(btn => {
+        const v = parseInt(btn.dataset.value);
+        btn.textContent = v <= rating ? '★' : '☆';
+        btn.classList.toggle('active', v <= rating);
+      });
+      valueEl.textContent = rating > 0 ? rating + '/5' : '未設定';
+    }
+
+    // Half-star support: click same star toggles .5
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = parseInt(btn.dataset.value);
+        if (selectedRating === v) {
+          selectedRating = v - 0.5;
+        } else {
+          selectedRating = v;
+        }
+        renderStars(Math.ceil(selectedRating));
+        valueEl.textContent = selectedRating > 0 ? selectedRating + '/5' : '未設定';
+      });
+    });
+
+    renderStars(Math.ceil(selectedRating));
+    if (selectedRating > 0) valueEl.textContent = selectedRating + '/5';
+
+    // Save: send to Telegram
+    saveBtn.addEventListener('click', async () => {
+      if (selectedRating <= 0) { statusEl.textContent = '⚠️ 星を選択してください'; return; }
+
+      let token = localStorage.getItem('tg_bot_token');
+      let chatId = localStorage.getItem('tg_chat_id');
+      if (!token || !chatId) {
+        token = prompt('Telegram Bot Token を入力:');
+        chatId = prompt('Telegram Chat ID を入力:');
+        if (!token || !chatId) { statusEl.textContent = '❌ キャンセル'; return; }
+        localStorage.setItem('tg_bot_token', token);
+        localStorage.setItem('tg_chat_id', chatId);
+      }
+
+      saveBtn.disabled = true;
+      statusEl.textContent = '送信中...';
+
+      try {
+        const msg = `⭐recommendation: slug=${slug} stars=${selectedRating}`;
+        const resp = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: chatId, text: msg }),
+        });
+        const data = await resp.json();
+        if (data.ok) {
+          statusEl.textContent = '✅ 送信完了！';
+        } else {
+          statusEl.textContent = '❌ ' + (data.description || 'エラー');
+        }
+      } catch (e) {
+        statusEl.textContent = '❌ 通信エラー';
+      }
+      saveBtn.disabled = false;
+    });
+  })();
+</script>
