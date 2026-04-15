@@ -20,7 +20,7 @@ exclude_categories: []
 
 # 投稿フォーマット設定
 post_format:
-  base_url: "https://jinsei-kaiteki.pages.dev"
+  base_url: "https://gadget-blog-dxq.pages.dev/posts"
   # テンプレート: {title}, {url}, {category_tags}
   template: |
     📝 {title}
