@@ -1928,10 +1928,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 服の色: 白
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 表情(管理人): 驚き
+        // 表情(管理人): テンプレではリセットのみ（表情は都度選択）
         adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
-        var surprisedCb = adminModal.querySelector('input[name="admin-face"][value="surprised"]');
-        if (surprisedCb) surprisedCb.checked = true;
         updatePreview();
       });
     }
