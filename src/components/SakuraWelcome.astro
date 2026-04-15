@@ -1,70 +1,82 @@
 ---
 ---
-<div id="sakura-welcome" class="sakura-welcome hidden">
-  <button id="sakura-welcome-close" class="sakura-welcome-close" aria-label="閉じる">×</button>
-  <div class="sakura-welcome-bubble">
-    <p id="sakura-bubble-text"></p>
+<div id="sakura-welcome" class="sakura-overlay hidden">
+  <div class="sakura-overlay-inner">
+    <button id="sakura-welcome-close" class="sakura-close-btn" aria-label="閉じる">×</button>
+    <div class="sakura-bubble" id="sakura-bubble-text"></div>
+    <img src="/images/sakura-welcome.png" alt="サクラ" class="sakura-overlay-img" loading="lazy" />
   </div>
-  <img src="/images/sakura-welcome.png" alt="サクラ" class="sakura-welcome-img" loading="lazy" />
 </div>
 
 <style>
-  .sakura-welcome {
+  .sakura-overlay {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease;
+  }
+  .sakura-overlay.hidden { opacity: 0; pointer-events: none; }
+  .sakura-overlay.visible { opacity: 1; pointer-events: auto; }
+
+  .sakura-overlay-inner {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    z-index: 9999;
-    transition: opacity 0.8s ease, transform 0.5s ease;
+    align-items: center;
+    max-width: 400px;
+    width: 90%;
   }
-  .sakura-welcome.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
-  .sakura-welcome.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  .sakura-welcome.fadeout { opacity: 0; pointer-events: none; }
 
-  .sakura-welcome-close {
+  .sakura-close-btn {
     position: absolute;
-    top: 0; right: 0;
-    background: #ff8fab;
-    color: white;
+    top: -40px;
+    right: 0;
+    background: rgba(255,255,255,0.9);
     border: none;
     border-radius: 50%;
-    width: 24px; height: 24px;
+    width: 36px; height: 36px;
+    font-size: 20px;
     cursor: pointer;
-    font-size: 14px;
     line-height: 1;
-    z-index: 1;
+    color: #333;
   }
-  .sakura-welcome-bubble {
+
+  .sakura-bubble {
     background: white;
     border: 2px solid #ffb7c5;
-    border-radius: 12px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    max-width: 200px;
-    font-size: 13px;
-    line-height: 1.5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 16px;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     position: relative;
   }
-  .sakura-welcome-bubble::after {
+  .sakura-bubble::after {
     content: '';
     position: absolute;
-    bottom: -10px; right: 30px;
-    border: 5px solid transparent;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
     border-top-color: #ffb7c5;
   }
-  .sakura-welcome-img {
-    height: 200px;
+
+  .sakura-overlay-img {
+    height: 320px;
     width: auto;
     display: block;
-    cursor: pointer;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
   }
+
   @media (max-width: 640px) {
-    .sakura-welcome { bottom: 10px; right: 10px; }
-    .sakura-welcome-img { height: 140px; }
-    .sakura-welcome-bubble { max-width: 160px; font-size: 12px; }
+    .sakura-overlay-img { height: 220px; }
+    .sakura-bubble { font-size: 13px; padding: 10px 14px; }
   }
 </style>
 
@@ -73,10 +85,6 @@
     const STORAGE_KEY = 'sakura_welcomed';
     if (localStorage.getItem(STORAGE_KEY)) return;
 
-    const el = document.getElementById('sakura-welcome');
-    if (!el) return;
-
-    // 吹き出しランダム選択
     const messages = [
       'こんにちは！サクラです✨<br>ゆっくり見ていってね！',
       'いらっしゃい！今日もいいガジェット見つけよう✨',
@@ -89,26 +97,30 @@
       '今日も来てくれてありがとう✨',
       'こんにちは！新しいレビュー書いたよ、見てね♪',
     ];
-    const msg = messages[Math.floor(Math.random() * messages.length)];
-    const bubble = document.getElementById('sakura-bubble-text');
-    if (bubble) bubble.innerHTML = msg;
 
-    // スライドイン
+    const el = document.getElementById('sakura-welcome');
+    const bubble = document.getElementById('sakura-bubble-text');
+    if (!el || !bubble) return;
+
+    bubble.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+
     setTimeout(() => {
       el.classList.remove('hidden');
       el.classList.add('visible');
-    }, 500);
+    }, 300);
 
-    // 10秒後フェードアウト
-    const timer = setTimeout(() => dismiss(), 10500);
+    const timer = setTimeout(() => dismiss(), 10300);
 
     function dismiss() {
       clearTimeout(timer);
       el.classList.remove('visible');
-      el.classList.add('fadeout');
+      el.classList.add('hidden');
       localStorage.setItem(STORAGE_KEY, '1');
     }
 
     document.getElementById('sakura-welcome-close')?.addEventListener('click', dismiss);
+    el.addEventListener('click', (e) => {
+      if (e.target === el) dismiss();
+    });
   });
 </script>
