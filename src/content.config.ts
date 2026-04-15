@@ -14,6 +14,7 @@ const posts = defineCollection({
     draft: z.boolean().default(false),
     ogImage: z.string().optional(),
     recommendation: z.number().min(1).max(5).nullish(),
+    priceUpdatedAt: z.string().optional(),
   }),
 });
 
