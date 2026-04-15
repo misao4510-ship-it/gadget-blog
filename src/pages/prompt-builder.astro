@@ -1883,6 +1883,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     var sakuraBtn = document.getElementById('sakura-template-btn');
     if (sakuraBtn) {
       sakuraBtn.addEventListener('click', function() {
+        // 品質タグ: masterpiece, best quality + 美容5項目
+        var qualityValues = ['masterpiece', 'best quality', 'beautiful face', 'beautiful detailed eyes', 'beautiful hairstyle', 'beautiful skin', 'perfect body'];
+        document.querySelectorAll('#pb-quality-tags input[type="checkbox"]').forEach(function(cb) {
+          cb.checked = qualityValues.includes(cb.value);
+        });
+        // 性別: 女の子 (1girl)
+        var genderSel = document.getElementById('pb-gender');
+        if (genderSel) { genderSel.value = '1girl'; genderSel.dispatchEvent(new Event('change')); }
+        // 年齢: 10代
+        var ageSel = document.getElementById('pb-age');
+        if (ageSel) { ageSel.value = 'teenager'; ageSel.dispatchEvent(new Event('change')); }
+        // 人数: 1人 (solo)
+        var countSel = document.getElementById('pb-count');
+        if (countSel) { countSel.value = 'solo'; countSel.dispatchEvent(new Event('change')); }
+        // 胸: 小さめ
+        var bustSel = document.getElementById('pb-bust');
+        if (bustSel) { bustSel.value = 'small breasts'; bustSel.dispatchEvent(new Event('change')); }
+        // 構図: cowboy shot
+        var compSel = document.getElementById('pb-composition');
+        if (compSel) { compSel.value = 'cowboy shot'; compSel.dispatchEvent(new Event('change')); }
         // 髪型: セミロング
         var hairSel = document.getElementById('pb-hair');
         if (hairSel) { hairSel.value = 'semi-long hair'; hairSel.dispatchEvent(new Event('change')); }
