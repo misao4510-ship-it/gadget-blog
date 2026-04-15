@@ -6,6 +6,7 @@ category: "ビジネス"
 type: "review"
 draft: false
 recommendation:
+priceUpdatedAt: "2026-04-15"
 amazonUrl: "https://amzn.to/4eorbkN"
 ogImage: /images/og-deoway-card-case-review.svg
 ---

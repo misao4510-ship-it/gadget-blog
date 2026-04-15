@@ -130,17 +130,45 @@ const sortedPosts = [...posts].sort((a, b) => {
         return bVal - aVal;
       });
     } else {
-      cards.sort((a, b) => {
-        const aDate = a.dataset.priceUpdated || '';
-        const bDate = b.dataset.priceUpdated || '';
-        if (!aDate && !bDate) return 0;
-        if (!aDate) return 1;
-        if (!bDate) return -1;
-        return new Date(bDate).getTime() - new Date(aDate).getTime();
+      // priceUpdatedAtが設定されている記事のみ表示（フィルター方式）
+      const withPrice = cards.filter(c => c.dataset.priceUpdated && c.dataset.priceUpdated !== '');
+      const withoutPrice = cards.filter(c => !c.dataset.priceUpdated || c.dataset.priceUpdated === '');
+
+      withPrice.sort((a, b) =>
+        new Date(b.dataset.priceUpdated!).getTime() - new Date(a.dataset.priceUpdated!).getTime()
+      );
+
+      withPrice.forEach(card => {
+        card.style.display = '';
+        grid.appendChild(card);
       });
+      withoutPrice.forEach(card => {
+        card.style.display = 'none';
+      });
+
+      // 0件メッセージ
+      let emptyMsg = document.getElementById('price-empty-msg');
+      if (withPrice.length === 0) {
+        if (!emptyMsg) {
+          emptyMsg = document.createElement('p');
+          emptyMsg.id = 'price-empty-msg';
+          emptyMsg.textContent = '最安値更新情報のある商品はまだありません';
+          emptyMsg.style.cssText = 'grid-column:1/-1;text-align:center;color:var(--color-text-muted);padding:2rem 0;';
+          grid.appendChild(emptyMsg);
+        }
+      } else if (emptyMsg) {
+        emptyMsg.remove();
+      }
+      return;
     }
 
-    cards.forEach(card => grid.appendChild(card));
+    // recommend順の時は全カード再表示
+    const emptyMsg = document.getElementById('price-empty-msg');
+    if (emptyMsg) emptyMsg.remove();
+    cards.forEach(card => {
+      card.style.display = '';
+      grid.appendChild(card);
+    });
   }
 
   sortRecommendBtn.addEventListener('click', () => {

@@ -7,6 +7,7 @@ subcategory: "disaster"
 type: "review"
 draft: false
 recommendation:
+priceUpdatedAt: "2026-04-14"
 products: ["product-072"]
 amazonUrl: "https://amzn.to/47JsGpU"
 ogImage: /images/og-amazon-basics-aa-battery-review.svg
