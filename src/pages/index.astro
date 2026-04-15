@@ -78,6 +78,7 @@ const ogImages: Record<string, string> = {
                 ogImage={ogImages[post.id] ?? '/images/og-default.svg'}
                 type={post.data.type}
                 productId={post.data.products?.[0]}
+                recommendation={post.data.recommendation}
               />
             ))}
           </div>

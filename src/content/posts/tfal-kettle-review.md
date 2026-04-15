@@ -7,6 +7,7 @@ products: ["product-014"]
 subcategory: "appliance"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-electric-kettle.svg
 ---
 

@@ -7,6 +7,7 @@ products: ["product-017"]
 subcategory: "gadget"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-camp-snow-peak-titanium-mug.svg
 ---
 

@@ -7,6 +7,7 @@ products: ["product-016"]
 subcategory: "appliance"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-circulator.svg
 ---
 

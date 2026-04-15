@@ -7,6 +7,7 @@ products: ["product-001"]
 subcategory: "gadget"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-anker-review.svg
 ---
 

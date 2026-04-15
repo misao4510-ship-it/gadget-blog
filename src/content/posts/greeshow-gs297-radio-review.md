@@ -6,6 +6,7 @@ category: "review"
 subcategory: "disaster"
 type: "review"
 draft: false
+recommendation:
 products: ["product-077"]
 amazonUrl: "https://www.amazon.co.jp/dp/B0DNQLLD6S?tag=misao4510-22"
 ---

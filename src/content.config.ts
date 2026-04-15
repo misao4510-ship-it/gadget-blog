@@ -13,6 +13,7 @@ const posts = defineCollection({
     type: z.enum(['review', 'comparison', 'roundup', 'ranking', 'guide']),
     draft: z.boolean().default(false),
     ogImage: z.string().optional(),
+    recommendation: z.number().min(1).max(5).nullish(),
   }),
 });
 

@@ -6,6 +6,7 @@ category: "gadget"
 subcategory: "appliance"
 type: "review"
 draft: false
+recommendation:
 products: ["product-071"]
 amazonUrl: "https://amzn.to/41jLYyj"
 ogImage: /images/og-bambu-lab-a1-mini-review.svg

@@ -7,6 +7,7 @@ products: ["product-015"]
 subcategory: "appliance"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-hair-dryer.svg
 ---
 

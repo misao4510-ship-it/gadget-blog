@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { getPriceTrend } from '../utils/priceTrend';
 import type { TrendResult } from '../utils/priceTrend';
+import StarRating from './StarRating.astro';
 
 interface Props {
   title: string;
@@ -13,8 +14,9 @@ interface Props {
   ogImage?: string;
   type: string;
   productId?: string;
+  recommendation?: number | null;
 }
-const { title, description, slug, category, publishDate, ogImage = '/images/og-default.svg', type, productId } = Astro.props;
+const { title, description, slug, category, publishDate, ogImage = '/images/og-default.svg', type, productId, recommendation } = Astro.props;
 
 let trend: TrendResult | null = null;
 if (productId) {
@@ -72,6 +74,9 @@ const categoryLabels: Record<string, string> = {
       <a href={`/posts/${slug}/`}>{title}</a>
     </h2>
     <p class="article-card__desc">{description}</p>
+    {recommendation !== undefined && recommendation !== null && (
+      <StarRating rating={recommendation} compact={true} />
+    )}
     <div class="article-card__footer">
       <time class="article-card__date">{publishDate}</time>
       <a href={`/posts/${slug}/`} class="article-card__cta">続きを読む →</a>

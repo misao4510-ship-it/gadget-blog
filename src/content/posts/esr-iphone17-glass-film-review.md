@@ -5,6 +5,7 @@ publishDate: "2026-04-14"
 category: "screen-protector"
 type: "review"
 draft: false
+recommendation:
 amazonUrl: "https://amzn.to/48MUPfY"
 ogImage: /images/og-esr-iphone17-glass-film-review.svg
 ---

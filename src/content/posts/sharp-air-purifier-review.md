@@ -7,6 +7,7 @@ products: ["product-013"]
 subcategory: "appliance"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-air-purifier.svg
 ---
 

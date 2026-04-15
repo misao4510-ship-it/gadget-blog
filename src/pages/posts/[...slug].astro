@@ -8,6 +8,7 @@ import TableOfContents from '../../components/TableOfContents.astro';
 import StoreLinkBox from '../../components/StoreLinkBox.astro';
 import AuthorProfile from '../../components/AuthorProfile.astro';
 import NaviChar from '../../components/NaviChar.astro';
+import StarRating from '../../components/StarRating.astro';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { getPriceTrend } from '../../utils/priceTrend';
@@ -99,6 +100,7 @@ const categoryLabels: Record<string, string> = {
               <time class="article__date">{post.data.publishDate}</time>
             </div>
             <h1 class="article__title">{post.data.title}</h1>
+            <StarRating rating={post.data.recommendation} />
             <p class="article__desc">{post.data.description}</p>
 
             {/* === CTA #1: Store link box at top (ランキング記事では非表示) === */}

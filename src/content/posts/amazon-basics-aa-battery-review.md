@@ -6,6 +6,7 @@ category: "gadget-misc"
 subcategory: "disaster"
 type: "review"
 draft: false
+recommendation:
 products: ["product-072"]
 amazonUrl: "https://amzn.to/47JsGpU"
 ogImage: /images/og-amazon-basics-aa-battery-review.svg

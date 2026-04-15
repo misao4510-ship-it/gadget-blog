@@ -7,6 +7,7 @@ products: ["product-012"]
 subcategory: "appliance"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-robot-vacuum.svg
 ---
 

@@ -1,0 +1,96 @@
+---
+interface Props {
+  rating?: number | null;
+  compact?: boolean;
+}
+
+const { rating, compact = false } = Astro.props;
+
+const hasRating = rating !== undefined && rating !== null && !isNaN(Number(rating));
+const numRating = hasRating ? Number(rating) : 0;
+
+function getStarType(index: number, rating: number): 'full' | 'half' | 'empty' {
+  if (rating >= index) return 'full';
+  if (rating >= index - 0.5) return 'half';
+  return 'empty';
+}
+
+const stars = hasRating
+  ? [1, 2, 3, 4, 5].map(i => getStarType(i, numRating))
+  : [];
+---
+
+{hasRating ? (
+  compact ? (
+    <span class="star-rating star-rating--compact" aria-label={`おすすめ度 ${numRating}点`}>
+      {stars.map(type => (
+        <span class={`star star--${type}`}>★</span>
+      ))}
+      <span class="star-rating__score">{numRating}</span>
+    </span>
+  ) : (
+    <div class="star-rating" aria-label={`管理人おすすめ度 ${numRating}点`}>
+      <span class="star-rating__label">管理人おすすめ度:</span>
+      <span class="star-rating__stars">
+        {stars.map(type => (
+          <span class={`star star--${type}`}>★</span>
+        ))}
+      </span>
+      <span class="star-rating__score">({numRating})</span>
+    </div>
+  )
+) : !compact ? (
+  <div class="star-rating star-rating--unrated" aria-label="未評価">
+    <span class="star-rating__label">管理人おすすめ度:</span>
+    <span class="star-rating__unrated">未評価</span>
+  </div>
+) : null}
+
+<style>
+  .star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+  }
+  .star-rating--compact {
+    font-size: 0.82rem;
+    gap: 0.2rem;
+  }
+  .star-rating__label {
+    color: var(--color-text-muted, #6b7280);
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+  .star-rating__stars {
+    display: inline-flex;
+    gap: 1px;
+  }
+  .star-rating__score {
+    color: var(--color-text-muted, #6b7280);
+    font-size: 0.8em;
+  }
+  .star-rating__unrated {
+    color: var(--color-text-muted, #9ca3af);
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  /* Star styles */
+  .star {
+    display: inline-block;
+    line-height: 1;
+  }
+  .star--full {
+    color: #FFD700;
+  }
+  .star--empty {
+    color: #ccc;
+  }
+  .star--half {
+    background: linear-gradient(to right, #FFD700 50%, #ccc 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+</style>

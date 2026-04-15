@@ -7,6 +7,7 @@ products: ["product-011"]
 subcategory: "gadget"
 type: "review"
 draft: false
+recommendation:
 ogImage: /images/og-esr-iphone-case.svg
 ---
 
