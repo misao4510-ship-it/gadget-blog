@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SakuraWelcome from '../components/SakuraWelcome.astro';
 
 interface Props {
   title: string;
@@ -441,5 +442,6 @@ const currentYear = new Date().getFullYear();
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
   data-cf-beacon='{"token": "e38061c395ac4765a0b26d9395654415"}'></script>
 
+<SakuraWelcome />
 </body>
 </html>
