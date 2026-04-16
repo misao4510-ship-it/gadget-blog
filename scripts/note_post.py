@@ -10,6 +10,10 @@ Usage:
     python3 scripts/note_post.py --slug amazon-basics-aa-battery-review
     python3 scripts/note_post.py --all-new --dry-run
     python3 scripts/note_post.py --all-new
+
+    # ブログ画像流用（サクラ口調変換なし・SD生成不要）
+    python3 scripts/note_post.py --slug {slug} --no-sakura-voice --blog-images \\
+        --eyecatch public/images/og/{slug}.png --telegram-notify
 """
 
 import os
@@ -261,7 +265,10 @@ class NoteClient:
 
     @staticmethod
     def _split_body_into_sections(body: str) -> list[dict]:
-        """本文をセクションに分割し、各セクション後に挿入する挿絵キーを記録"""
+        """本文をセクションに分割し、各セクション後に挿入する挿絵キーを記録。
+        マーカーが3つ未満しか一致しない場合は、## 見出しで均等分割しフォールバック。
+        """
+        # まずマーカーベースで分割を試みる
         sections = []
         remaining = body
         for marker, img_key in _SPLIT_MARKERS:
@@ -271,6 +278,36 @@ class NoteClient:
                 remaining = remaining[idx:]
         if remaining.strip():
             sections.append({"text": remaining.strip(), "image_after": None})
+
+        # マーカー一致が少ない場合、## 見出しで均等分割にフォールバック
+        matched_images = sum(1 for s in sections if s["image_after"])
+        if matched_images < 3:
+            import re
+            img_keys = ["intro", "features", "merit", "demerit", "summary"]
+            # ## で始まる見出し位置で分割
+            heading_positions = [m.start() for m in re.finditer(r'^## ', body, re.MULTILINE)]
+            if len(heading_positions) >= 2:
+                sections = []
+                # 見出し位置に挿絵キーを均等配分
+                split_points = heading_positions + [len(body)]
+                for i in range(len(split_points) - 1):
+                    text = body[split_points[i]:split_points[i + 1]].rstrip()
+                    img_key = img_keys[i] if i < len(img_keys) else None
+                    sections.append({"text": text, "image_after": img_key})
+                # 先頭部分（最初の見出し前）があれば追加
+                if heading_positions[0] > 0:
+                    intro_text = body[:heading_positions[0]].rstrip()
+                    if intro_text:
+                        sections.insert(0, {"text": intro_text, "image_after": None})
+                        # 挿絵キーを再配分（先頭はなし、以降の見出しセクションに割り当て）
+                        for j, s in enumerate(sections):
+                            if j == 0:
+                                s["image_after"] = None
+                            elif j - 1 < len(img_keys):
+                                s["image_after"] = img_keys[j - 1]
+                            else:
+                                s["image_after"] = None
+
         return sections
 
     def post_article(self, title: str, body: str, hashtags: list[str] = None,
@@ -412,10 +449,57 @@ class NoteClient:
 
 # ===== メイン処理 =====
 
+def _prepare_blog_images_for_note(slug: str, config: dict):
+    """
+    ブログの public/images/posts/{slug}/ 画像を note スクリプトが期待する
+    /tmp/note_illustrations/{slug}/ にコピーし、ディレクトリパスを返す。
+
+    マッピング:
+      spec.png     → intro.png, features.png
+      merit.png    → merit.png
+      demerit.png  → demerit.png
+      summary.png  → summary.png
+
+    Returns:
+        準備されたディレクトリパス（画像が1枚もなければ None）
+    """
+    import shutil
+    blog_src = BLOG_ROOT / "public" / "images" / "posts" / slug
+    illust_base = config.get("illustrations_dir", "/tmp/note_illustrations")
+    dest_dir = Path(illust_base) / slug
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    # ブログ画像名 → note画像名（複数コピー先あり）
+    mapping = {
+        "spec.png": ["intro.png", "features.png"],
+        "merit.png": ["merit.png"],
+        "demerit.png": ["demerit.png"],
+        "summary.png": ["summary.png"],
+    }
+
+    copied = 0
+    for src_name, dst_names in mapping.items():
+        src = blog_src / src_name
+        if src.exists():
+            for dst_name in dst_names:
+                dst = dest_dir / dst_name
+                shutil.copy2(src, dst)
+                copied += 1
+                logger.info(f"  コピー: {src_name} → {dst_name}")
+
+    if copied == 0:
+        logger.warning(f"ブログ画像が見つかりません: {blog_src}")
+        return None
+
+    logger.info(f"ブログ画像を準備しました ({copied}ファイル): {dest_dir}")
+    return str(dest_dir)
+
+
 def process_slug(slug: str, converter: NoteConverter, config: dict,
                  dry_run: bool, client=None,
                  sakura_voice: bool = False,
                  with_illustrations: bool = False,
+                 use_blog_images: bool = False,
                  eyecatch: str = None,
                  telegram_notify: bool = False) -> bool:
     """
@@ -429,6 +513,7 @@ def process_slug(slug: str, converter: NoteConverter, config: dict,
         client: NoteClient インスタンス（dry_run=Falseの場合必須）
         sakura_voice: Trueの場合サクラ口調に変換
         with_illustrations: Trueの場合挿絵をインライン挿入
+        use_blog_images: Trueの場合 public/images/posts/{slug}/ のブログ画像を流用
         eyecatch: アイキャッチ画像パス（省略可）
         telegram_notify: Trueの場合投稿後にTelegram通知
 
@@ -450,12 +535,35 @@ def process_slug(slug: str, converter: NoteConverter, config: dict,
 
         # 挿絵ディレクトリ設定
         illustrations_dir = None
-        if with_illustrations:
+        if use_blog_images:
+            # ブログの public/images/posts/{slug}/ 画像を流用
+            logger.info("ブログ画像を流用して挿絵を準備します...")
+            illustrations_dir = _prepare_blog_images_for_note(slug, config)
+            with_illustrations = illustrations_dir is not None
+        elif with_illustrations:
             illust_base = config.get("illustrations_dir", "/tmp/note_illustrations")
             illustrations_dir = str(Path(illust_base) / slug)
-            if not Path(illustrations_dir).exists():
-                logger.warning(f"挿絵ディレクトリが存在しません: {illustrations_dir} （挿絵なしで続行）")
-                illustrations_dir = None
+            if not Path(illustrations_dir).exists() or not any(Path(illustrations_dir).glob("*.png")):
+                logger.info(f"挿絵が未生成のため自動生成します: {slug}")
+                import subprocess
+                gen_script = Path(__file__).parent / "note_generate_illustrations.py"
+                result_gen = subprocess.run(
+                    ["python3", str(gen_script), "--slug", slug],
+                    capture_output=True, text=True
+                )
+                if result_gen.returncode != 0:
+                    logger.warning(f"挿絵自動生成に失敗（挿絵なしで続行）: {result_gen.stderr}")
+                    illustrations_dir = None
+                elif not Path(illustrations_dir).exists():
+                    logger.warning(f"挿絵ディレクトリが存在しません: {illustrations_dir} （挿絵なしで続行）")
+                    illustrations_dir = None
+
+        # アイキャッチ自動検出（--eyecatch未指定時）
+        if not eyecatch and illustrations_dir:
+            auto_eyecatch = Path(illustrations_dir) / "eyecatch.png"
+            if auto_eyecatch.exists():
+                eyecatch = str(auto_eyecatch)
+                logger.info(f"アイキャッチ自動検出: {eyecatch}")
 
         if dry_run:
             print("=" * 60)
@@ -510,14 +618,22 @@ def main():
     group.add_argument("--all-new", action="store_true", help="未投稿の全記事を投稿")
     parser.add_argument("--dry-run", action="store_true",
                         help="実際に投稿せず変換結果を表示")
-    parser.add_argument("--sakura-voice", action="store_true",
-                        help="本文をサクラ口調に変換してから投稿")
-    parser.add_argument("--with-illustrations", action="store_true",
-                        help="挿絵5枚をnote本文にインライン挿入")
+    parser.add_argument("--sakura-voice", action="store_true", default=True,
+                        help="本文をサクラ口調に変換してから投稿（デフォルト: 有効）")
+    parser.add_argument("--no-sakura-voice", action="store_false", dest="sakura_voice",
+                        help="サクラ口調変換を無効化")
+    parser.add_argument("--with-illustrations", action="store_true", default=True,
+                        help="挿絵5枚をnote本文にインライン挿入（デフォルト: 有効）")
+    parser.add_argument("--no-illustrations", action="store_false", dest="with_illustrations",
+                        help="挿絵挿入を無効化")
+    parser.add_argument("--blog-images", action="store_true", default=False,
+                        help="public/images/posts/{slug}/ のブログ画像を挿絵として流用（SD生成不要）")
     parser.add_argument("--eyecatch",
                         help="アイキャッチ画像パス（note投稿時に設定）")
-    parser.add_argument("--telegram-notify", action="store_true",
-                        help="投稿完了後にTelegram通知を送信")
+    parser.add_argument("--telegram-notify", action="store_true", default=True,
+                        help="投稿完了後にTelegram通知を送信（デフォルト: 有効）")
+    parser.add_argument("--no-telegram-notify", action="store_false", dest="telegram_notify",
+                        help="Telegram通知を無効化")
     args = parser.parse_args()
 
     # 設定読み込み
@@ -569,6 +685,7 @@ def main():
             slug, converter, config, args.dry_run, client,
             sakura_voice=args.sakura_voice,
             with_illustrations=args.with_illustrations,
+            use_blog_images=args.blog_images,
             eyecatch=args.eyecatch,
             telegram_notify=args.telegram_notify,
         )
