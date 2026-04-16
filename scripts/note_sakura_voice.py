@@ -9,8 +9,8 @@ import argparse
 from pathlib import Path
 
 
-INTRO = "こんにちは、サクラです！"
-OUTRO = "\n\nサクラでした！またお会いしましょうね🌸"
+INTRO = "こんにちは！サクラです✨ 今日も素敵なガジェット情報をお届けしますよ！"
+OUTRO = "\n\n今日もお読みいただきありがとうございます！また次の記事でお会いしましょうね🌸✨"
 
 
 def convert_to_sakura_voice(text: str) -> str:
