@@ -7,7 +7,7 @@ products: ["product-079"]
 subcategory: "gadget"
 type: "review"
 draft: false
-recommendation:
+recommendation: 4
 ogImage: /images/products/ciniffo-air-duster.svg
 ---
 

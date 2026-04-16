@@ -6,7 +6,7 @@ category: "health"
 subcategory: "gadget"
 type: "review"
 draft: false
-recommendation:
+recommendation: 5
 products: ["product-068", "product-069", "product-070"]
 ogImage: /images/og-gummy-supplement.svg
 ---

@@ -6,7 +6,7 @@ category: "gadget"
 subcategory: "aquarium"
 type: "review"
 draft: false
-recommendation:
+recommendation: 3
 ---
 
 ※本記事はアフィリエイト広告を含みます

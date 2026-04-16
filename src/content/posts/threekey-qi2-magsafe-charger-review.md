@@ -7,7 +7,7 @@ products: ["product-078"]
 subcategory: "gadget"
 type: "review"
 draft: false
-recommendation:
+recommendation: 4
 ---
 
 ※本記事はアフィリエイト広告を含みます

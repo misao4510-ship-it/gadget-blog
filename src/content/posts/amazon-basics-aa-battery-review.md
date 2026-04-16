@@ -6,7 +6,7 @@ category: "gadget-misc"
 subcategory: "disaster"
 type: "review"
 draft: false
-recommendation:
+recommendation: 4
 priceUpdatedAt: "2026-04-14"
 products: ["product-072"]
 amazonUrl: "https://amzn.to/47JsGpU"

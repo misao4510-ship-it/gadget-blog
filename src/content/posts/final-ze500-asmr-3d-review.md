@@ -6,7 +6,7 @@ category: "earphone"
 subcategory: "gadget"
 type: "review"
 draft: false
-recommendation:
+recommendation: 5
 ogImage: ""
 ---
 
