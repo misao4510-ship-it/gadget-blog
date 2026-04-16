@@ -175,14 +175,25 @@ def get_post_path(slug: str) -> Path:
 
 
 def get_unposted_slugs(config: dict) -> list[str]:
-    """未投稿の記事スラッグ一覧を返す"""
+    """未投稿の記事スラッグ一覧を返す（draft: true は除外）"""
     history = load_history(config)
     posted_slugs = {item["slug"] for item in history["posted"]}
     all_slugs = []
     for md_file in sorted(POSTS_DIR.glob("*.md")):
         slug = md_file.stem
-        if slug not in posted_slugs:
-            all_slugs.append(slug)
+        if slug in posted_slugs:
+            continue
+        # draft: true の記事は除外
+        try:
+            content = md_file.read_text(encoding="utf-8")
+            match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
+            if match:
+                meta = yaml.safe_load(match.group(1)) or {}
+                if meta.get("draft", False):
+                    continue
+        except Exception:
+            pass
+        all_slugs.append(slug)
     return all_slugs
 
 
@@ -540,6 +551,12 @@ def process_slug(slug: str, converter: NoteConverter, config: dict,
             logger.info("ブログ画像を流用して挿絵を準備します...")
             illustrations_dir = _prepare_blog_images_for_note(slug, config)
             with_illustrations = illustrations_dir is not None
+            # ogImage を eyecatch として自動設定（未指定時）
+            if not eyecatch:
+                og_path = BLOG_ROOT / "public" / "images" / "og" / f"{slug}.png"
+                if og_path.exists():
+                    eyecatch = str(og_path)
+                    logger.info(f"ogImageを自動eyecatch設定: {eyecatch}")
         elif with_illustrations:
             illust_base = config.get("illustrations_dir", "/tmp/note_illustrations")
             illustrations_dir = str(Path(illust_base) / slug)
@@ -628,6 +645,8 @@ def main():
                         help="挿絵挿入を無効化")
     parser.add_argument("--blog-images", action="store_true", default=False,
                         help="public/images/posts/{slug}/ のブログ画像を挿絵として流用（SD生成不要）")
+    parser.add_argument("--limit", type=int, default=0,
+                        help="1回の実行で投稿する最大記事数（0=無制限、デフォルト: 0）")
     parser.add_argument("--eyecatch",
                         help="アイキャッチ画像パス（note投稿時に設定）")
     parser.add_argument("--telegram-notify", action="store_true", default=True,
@@ -676,6 +695,10 @@ def main():
             logger.info("未投稿の記事はありません")
             return
         logger.info(f"未投稿記事: {len(slugs)}件")
+        # --limit が指定されている場合は件数を制限
+        if args.limit > 0 and len(slugs) > args.limit:
+            logger.info(f"--limit {args.limit} により先頭{args.limit}件のみ処理します")
+            slugs = slugs[:args.limit]
 
     # 投稿実行
     success_count = 0
