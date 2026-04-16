@@ -5,6 +5,10 @@
     <button id="sakura-welcome-close" class="sakura-close-btn" aria-label="閉じる">×</button>
     <div class="sakura-bubble" id="sakura-bubble-text"></div>
     <img src="/images/sakura-welcome.png" alt="サクラ" class="sakura-overlay-img" loading="lazy" />
+    <label class="sakura-skip-label">
+      <input type="checkbox" id="sakura-skip-today" />
+      本日は表示しない
+    </label>
   </div>
 </div>
 
@@ -79,6 +83,27 @@
     filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
   }
 
+  .sakura-skip-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    user-select: none;
+  }
+  .sakura-skip-label input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: #ffb7c5;
+    cursor: pointer;
+  }
+
+  [data-theme=dark] .sakura-skip-label {
+    color: rgba(255,255,255,0.7);
+  }
+
   @media (max-width: 640px) {
     .sakura-overlay-img { height: 340px; }
     .sakura-bubble { font-size: 13px; padding: 10px 14px; }
@@ -86,14 +111,13 @@
 </style>
 
 <script>
-  const TEST_MODE = false; // true=毎回表示（確認用）、false=初回のみ（本番）
-
   document.addEventListener('DOMContentLoaded', () => {
     // トップページ(/)のみ表示
     if (window.location.pathname !== '/') return;
 
-    const STORAGE_KEY = 'sakura_welcomed';
-    if (!TEST_MODE && localStorage.getItem(STORAGE_KEY)) return;
+    const STORAGE_KEY = 'sakura_skip_date';
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    if (localStorage.getItem(STORAGE_KEY) === today) return;
 
     const messages = [
       'こんにちは！サクラです✨<br>ゆっくり見ていってね！',
@@ -110,13 +134,13 @@
 
     const el = document.getElementById('sakura-welcome');
     const bubble = document.getElementById('sakura-bubble-text');
+    const skipCheckbox = document.getElementById('sakura-skip-today') as HTMLInputElement | null;
     if (!el || !bubble) return;
 
     bubble.innerHTML = messages[Math.floor(Math.random() * messages.length)];
 
     setTimeout(() => {
       el.style.display = 'flex';
-      // display変更後に1フレーム待ってからopacity遷移（transitionのため）
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           el.classList.add('visible');
@@ -130,7 +154,9 @@
       clearTimeout(timer);
       el.classList.remove('visible');
       setTimeout(() => { el.style.display = 'none'; }, 800);
-      localStorage.setItem(STORAGE_KEY, '1');
+      if (skipCheckbox?.checked) {
+        localStorage.setItem(STORAGE_KEY, today);
+      }
     }
 
     document.getElementById('sakura-welcome-close')?.addEventListener('click', dismiss);
