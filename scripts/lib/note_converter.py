@@ -37,6 +37,11 @@ class NoteConverter:
 
         # body変換
         body = self._remove_svg_images(body)
+        body = self._remove_inline_images(body)
+        body = self._remove_html_blocks(body)
+        body = self._remove_amazon_links(body)
+        body = self._convert_markdown_links(body)
+        body = self._convert_tables(body)
         body = self._convert_headers(body)
         body = body.strip()
 
@@ -79,6 +84,75 @@ class NoteConverter:
         content = re.sub(r'!\[.*?\]\([^)]*\.svg[^)]*\)', '', content)
         # HTML imgタグでSVGを参照しているものを除去
         content = re.sub(r'<img[^>]+src="[^"]*\.svg[^"]*"[^>]*/?>', '', content)
+        return content
+
+    def _remove_inline_images(self, content: str) -> str:
+        """ブログのインライン画像タグを除去（note転載時はillustration systemで別途挿入）"""
+        # ![alt](path.png) 等のMarkdown画像記法を除去（alt文字列が残らないよう ! ごと削除）
+        content = re.sub(r'!\[.*?\]\([^)]*\.(png|jpe?g|gif|webp)[^)]*\)', '', content)
+        # HTML imgタグ（PNG/JPG等）を除去
+        content = re.sub(r'<img[^>]+src="[^"]*\.(png|jpe?g|gif|webp)[^"]*"[^>]*/?>', '', content)
+        return content
+
+    def _remove_html_blocks(self, content: str) -> str:
+        """HTMLブロック（divタグ、aタグ等）を除去"""
+        # <div>...</div> ブロックを除去（Amazonボタン等）
+        content = re.sub(r'<div[^>]*>.*?</div>', '', content, flags=re.DOTALL)
+        # 残りのHTMLタグを除去
+        content = re.sub(r'<[^>]+>', '', content)
+        return content
+
+    def _remove_amazon_links(self, content: str) -> str:
+        """Amazonアフィリエイトリンクを保持（URLはプレーンテキストとして残す）"""
+        # [テキスト](Amazon URL) → テキスト（Amazon URL）
+        content = re.sub(
+            r'\[([^\]]+)\]\((https?://(?:www\.)?(?:amazon\.co\.jp|amazon\.com|amzn\.to|amzn\.asia)[^\)]*)\)',
+            r'\1（\2）', content
+        )
+        # 裸のAmazon URLはそのまま残す（削除しない）
+        return content
+
+    def _convert_markdown_links(self, content: str) -> str:
+        """残りのMarkdownリンクをテキスト化（note.comはプレーンテキスト入力のため）"""
+        # [テキスト](URL) → テキスト
+        content = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', content)
+        return content
+
+    def _convert_tables(self, content: str) -> str:
+        """Markdownテーブルを見やすいテキスト形式に変換"""
+        def _replace_table(match):
+            table_text = match.group(0)
+            lines = [l.strip() for l in table_text.strip().split('\n') if l.strip()]
+            rows = []
+            for line in lines:
+                cells = [c.strip() for c in line.strip('|').split('|')]
+                if all(re.match(r'^[-:]+$', c) for c in cells):
+                    continue
+                rows.append(cells)
+            if len(rows) < 2:
+                return table_text
+            header = rows[0]
+            data_rows = rows[1:]
+            if len(header) == 2:
+                # 2列: key：value のリスト形式
+                result = f"【{header[0]}／{header[1]}】\n"
+                for row in data_rows:
+                    result += f"・{row[0]}：{row[1]}\n"
+            else:
+                # 3列以上: ヘッダー付きリスト形式
+                result = ""
+                for row in data_rows:
+                    parts = [f"{header[i]}:{row[i]}" for i in range(len(header)) if i < len(row)]
+                    result += "▸ " + "／".join(parts) + "\n"
+            return result.rstrip('\n')
+
+        # Markdownテーブル検出（|で始まる連続行）
+        content = re.sub(
+            r'(?:^\|.+\|[ ]*\n)+',
+            _replace_table,
+            content,
+            flags=re.MULTILINE,
+        )
         return content
 
     def _convert_headers(self, content: str) -> str:
