@@ -31,7 +31,7 @@ const disasterPosts = posts.filter(p => p.data.subcategory === 'disaster')
               slug={post.id}
               category={post.data.category}
               publishDate={post.data.publishDate}
-              ogImage={'/images/og-default.svg'}
+              ogImage={post.data.ogImage || '/images/og-default.svg'}
               type={post.data.type}
               productId={post.data.products?.[0]}
               recommendation={post.data.recommendation}

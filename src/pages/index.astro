@@ -7,12 +7,6 @@ const posts = await getCollection('posts', ({ data }) => !data.draft);
 posts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
 const recentPosts = posts.slice(0, 5);
 
-const ogImages: Record<string, string> = {
-  'mobile-battery-recommendation': '/images/og-mobile-battery.svg',
-  'usbc-hub-comparison': '/images/og-usbc-hub.svg',
-  'wireless-earphones-guide': '/images/og-earphones.svg',
-  'amazon-sale-guide-2026': '/images/og-amazon-sale.svg',
-};
 ---
 <BaseLayout
   title="人生快適ブログ — 毎日の生活をもっと快適に"
@@ -70,7 +64,7 @@ const ogImages: Record<string, string> = {
                 slug={post.id}
                 category={post.data.category}
                 publishDate={post.data.publishDate}
-                ogImage={ogImages[post.id] ?? '/images/og-default.svg'}
+                ogImage={post.data.ogImage || '/images/og-default.svg'}
                 type={post.data.type}
                 productId={post.data.products?.[0]}
                 recommendation={post.data.recommendation}
