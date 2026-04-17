@@ -40,7 +40,14 @@ GS-297は、ラジオ・懐中電灯・SOS警報・スマートフォン充電�
 | 認証 | 日本防災安全協会認証・PSE技術基準適合 |
 | カラー | ホワイト |
 
-<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B0DNQLLD6S?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで価格を確認 ▶</a></div>
+<div class="shop-links-wrap">
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0DNQLLD6S%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGreeshow%2520GS-297%2520%25E9%2598%25B2%25E7%2581%25BD%25E3%2583%25A9%25E3%2582%25B8%25E3%2582%25AA%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGreeshow%2520GS-297%2520%25E9%2598%25B2%25E7%2581%25BD%25E3%2583%25A9%25E3%2582%25B8%25E3%2582%25AA" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
+</div>
+<img src="https://i.moshimo.com/af/i/impression?a_id=5471177&p_id=170" width="1" height="1" style="display:none" />
+<img src="https://i.moshimo.com/af/i/impression?a_id=5471111&p_id=54" width="1" height="1" style="display:none" />
+<img src="https://i.moshimo.com/af/i/impression?a_id=5494175&p_id=1225" width="1" height="1" style="display:none" />
 
 ---
 
@@ -119,6 +126,10 @@ Greeshow GS-297は、情報収集・照明・緊急信号・スマートフォ�
 
 「ラジオを準備していなかった」という後悔をしないよう、ぜひ防災バッグに加えてみてくださいね！
 
-<div class="btn-wrap"><a href="https://www.amazon.co.jp/dp/B0DNQLLD6S?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ確認・購入 ▶</a></div>
+<div class="shop-links-wrap">
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0DNQLLD6S%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGreeshow%2520GS-297%2520%25E9%2598%25B2%25E7%2581%25BD%25E3%2583%25A9%25E3%2582%25B8%25E3%2582%25AA%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGreeshow%2520GS-297%2520%25E9%2598%25B2%25E7%2581%25BD%25E3%2583%25A9%25E3%2582%25B8%25E3%2582%25AA" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
+</div>
 
 サクラでした！またお会いしましょうね🌸
