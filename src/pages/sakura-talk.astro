@@ -282,22 +282,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   });
 
   // 初期メッセージ
-  function init() {
-    const greeting = 'こんにちは！サクラです✨ ガジェットのことでも、なんでも聞いてくださいね！';
-    addMessage('sakura', greeting);
-    chatHistory.push({ role: 'assistant', content: greeting });
+  const GREETING = 'こんにちは！サクラです✨ ガジェットのことでも、なんでも聞いてくださいね！';
+  let greetingSpoken = false;
 
-    // 音声は少し遅らせて読み上げ（voicesが読み込まれるのを待つ）
-    setTimeout(() => speakText(greeting), 600);
+  function init() {
+    addMessage('sakura', GREETING);
+    chatHistory.push({ role: 'assistant', content: GREETING });
+
+    // ブラウザの自動再生ポリシーにより、ユーザー操作前の音声再生はブロックされる
+    // 挨拶再生ボタンを表示して、クリックで読み上げできるようにする
+    const playBtn = document.createElement('button');
+    playBtn.className = 'greeting-play-btn';
+    playBtn.textContent = '🔊 サクラの声を聞く';
+    playBtn.addEventListener('click', () => {
+      speakText(GREETING);
+      greetingSpoken = true;
+      playBtn.remove();
+    });
+    chatEl.appendChild(playBtn);
+    chatEl.scrollTop = chatEl.scrollHeight;
   }
 
-  // voicesが非同期で読み込まれる場合の対処
+  // voicesの読み込みを待つ
   if (window.speechSynthesis) {
     if (window.speechSynthesis.getVoices().length > 0) {
       init();
     } else {
       window.speechSynthesis.onvoiceschanged = () => init();
-      setTimeout(init, 1000); // fallback
+      setTimeout(init, 1000);
     }
   } else {
     init();
@@ -586,6 +598,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: 0.5rem 0.75rem;
+  }
+
+  /* 挨拶再生ボタン */
+  .greeting-play-btn {
+    display: block;
+    margin: 0.25rem auto 0;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, #f9a8c9, #f06090);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.1s;
+  }
+  .greeting-play-btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
   }
 
   /* レスポンシブ */
