@@ -268,8 +268,8 @@ const productsJson = JSON.stringify(products);
       flipContainer.classList.add('flipped');
     }, 300);
 
-    // 0.1%の確率で特賞（日付シードではなく毎回ランダム）
-    const isSpecialPrize = Math.random() < 0.001;
+    // 1%の確率で特賞（日付シードではなく毎回ランダム）
+    const isSpecialPrize = Math.random() < 0.01;
     if (isSpecialPrize) {
       setTimeout(() => showSpecialPrize(), 1800);
     }
