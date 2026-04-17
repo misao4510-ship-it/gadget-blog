@@ -20,6 +20,7 @@ import json
 import logging
 import random
 import sys
+import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -211,6 +212,7 @@ def main():
     parser.add_argument("--category", type=str,
                         help="指定カテゴリから選択 (豆知識/季節ネタ/テック小話/日常サクラ/おすすめ小ネタ/防災・備蓄)")
     parser.add_argument("--no-image", action="store_true", help="テキストのみ投稿（画像生成スキップ）")
+    parser.add_argument("--no-delay", action="store_true", help="ランダム遅延をスキップ（テスト用）")
     parser.add_argument("--list", action="store_true", help="テンプレート一覧を表示して終了")
     args = parser.parse_args()
 
@@ -230,6 +232,12 @@ def main():
 
     logger.info(f"選択テンプレート: id={tmpl_id} [{category}]")
     logger.info(f"ツイート内容:\n{tweet_text}")
+
+    # BOT認定回避のためランダム遅延（0〜900秒 = ±15分）
+    if not args.dry_run and not args.no_delay:
+        delay = random.randint(0, 900)
+        logger.info(f"ランダム遅延: {delay}秒 ({delay // 60}分{delay % 60}秒)")
+        time.sleep(delay)
 
     if args.dry_run:
         logger.info("[DRY RUN] 投稿スキップ。")
