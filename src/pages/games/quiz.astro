@@ -48,6 +48,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </div>
 
+      <!-- 連続正解表示 -->
+      <div class="correct-streak-display" id="correct-streak-display"></div>
+
       <!-- 問題画面 -->
       <div class="screen screen--question" id="screen-question" style="display:none">
         <div class="progress-bar-wrap">
@@ -152,6 +155,69 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     setTimeout(() => wrapper.classList.remove('chibi-bounce'), 700);
   }
 
+  // ===== 連続正解記録 (localStorage永続) =====
+  let consecutiveCorrect = parseInt(localStorage.getItem('quiz_correct_streak') || '0');
+
+  function saveCorrectStreak() {
+    localStorage.setItem('quiz_correct_streak', String(consecutiveCorrect));
+  }
+
+  function updateCorrectStreakDisplay() {
+    const el = document.getElementById('correct-streak-display');
+    if (!el) return;
+    if (consecutiveCorrect <= 0) {
+      el.textContent = '';
+      el.className = 'correct-streak-display';
+    } else if (consecutiveCorrect >= 100) {
+      el.textContent = `🏆 ${consecutiveCorrect}問連続正解！`;
+      el.className = 'correct-streak-display correct-streak-display--max';
+    } else {
+      el.textContent = `🔥 ${consecutiveCorrect}問連続正解中`;
+      el.className = consecutiveCorrect >= 50 ? 'correct-streak-display correct-streak-display--hot' : 'correct-streak-display correct-streak-display--on';
+    }
+  }
+
+  function showQuizInvitation() {
+    const inv = document.createElement('div');
+    inv.className = 'sinv-overlay';
+    inv.innerHTML = `
+      <div class="sinv-backdrop"></div>
+      <div class="sinv-card">
+        <div class="sinv-stars">🧠✨🌸✨🏆</div>
+        <div class="sinv-title">🎓 100問連続正解！ 🎓</div>
+        <div class="sinv-subtitle">ガジェット博士に認定です！</div>
+        <div class="sinv-envelope-wrap">
+          <div class="sinv-envelope">
+            <div class="sinv-envelope-flap">💌</div>
+            <div class="sinv-letter">
+              <div class="sinv-letter-header">🌸 ご招待状 🌸</div>
+              <div class="sinv-letter-body">
+                100問連続正解おめでとうございます！<br>
+                サクラの秘密の部屋への<br>
+                特別招待状をお届けします✨
+              </div>
+              <div class="sinv-letter-sign">— サクラ より —</div>
+            </div>
+          </div>
+        </div>
+        <div class="sinv-message">サクラの部屋への特別招待状が届きました！</div>
+        <button class="sinv-btn" id="quiz-invite-btn">📩 招待状を開く</button>
+        <button class="sinv-close-btn" id="quiz-invite-close">今は行かない</button>
+      </div>
+    `;
+    document.body.appendChild(inv);
+    consecutiveCorrect = 0;
+    saveCorrectStreak();
+    updateCorrectStreakDisplay();
+    document.getElementById('quiz-invite-btn')?.addEventListener('click', () => {
+      sessionStorage.setItem('sakura_room_via_redirect', 'true');
+      window.location.href = '/sakura-room/';
+    });
+    document.getElementById('quiz-invite-close')?.addEventListener('click', () => {
+      inv.remove();
+    });
+  }
+
   // ===== ゲーム状態 =====
   let currentQ = 0;
   let score = 0;
@@ -229,12 +295,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     if (isCorrect) {
       score++;
+      consecutiveCorrect++;
+      saveCorrectStreak();
+      updateCorrectStreakDisplay();
       btn.classList.add('choice-btn--correct');
       setSakuraMessage(rand(sakuraMessages.correct));
       setChibiPose('correct');
       showAnswerOverlay(true);
       chibiBounce();
+      if (consecutiveCorrect >= 100) {
+        setTimeout(showQuizInvitation, 1200);
+      }
     } else {
+      consecutiveCorrect = 0;
+      saveCorrectStreak();
+      updateCorrectStreakDisplay();
       btn.classList.add('choice-btn--wrong');
       setSakuraMessage(rand(sakuraMessages.wrong));
       setChibiPose('wrong');
@@ -311,6 +386,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     document.getElementById('progress-bar').style.width = '100%';
   }
+
+  // 初期化
+  updateCorrectStreakDisplay();
 
   // ===== イベント =====
   document.getElementById('btn-mode-10')?.addEventListener('click', () => {
@@ -777,6 +855,85 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .review-q { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; }
   .review-ans { font-size: 0.85rem; color: #059669; font-weight: 600; margin-bottom: 0.25rem; }
   .review-exp { font-size: 0.82rem; color: var(--color-text-muted); line-height: 1.5; margin: 0; }
+
+  /* 連続正解表示 */
+  .correct-streak-display {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    min-height: 1.75rem;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s;
+  }
+  .correct-streak-display--on { color: var(--color-primary); }
+  .correct-streak-display--hot { color: #f97316; animation: streak-pulse 1s ease-in-out infinite alternate; }
+  .correct-streak-display--max { color: #e11d48; animation: streak-pulse 0.6s ease-in-out infinite alternate; }
+
+  @keyframes streak-pulse {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+  }
+
+  /* 招待状オーバーレイ */
+  .sinv-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sinv-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  }
+  .sinv-card {
+    position: relative; z-index: 1;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 2rem 1.5rem;
+    max-width: 360px; width: 90%;
+    text-align: center;
+    border: 2px solid #f9a8c9;
+    box-shadow: 0 20px 60px rgba(240,96,144,0.3);
+    animation: sinv-pop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes sinv-pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  .sinv-stars { font-size: 1.4rem; margin-bottom: 0.5rem; letter-spacing: 0.15em; }
+  .sinv-title { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.25rem; }
+  .sinv-subtitle { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.25rem; }
+  .sinv-envelope-wrap { perspective: 800px; margin-bottom: 1.25rem; }
+  .sinv-envelope {
+    background: linear-gradient(135deg,#ffe4f3,#ffd6eb);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    border: 2px solid #f9a8c9;
+    display: inline-block; min-width: 200px;
+    animation: sinv-float 2s ease-in-out infinite;
+  }
+  @keyframes sinv-float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .sinv-envelope-flap { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .sinv-letter { background: #fff; border-radius: var(--radius); padding: 0.75rem; font-size: 0.82rem; line-height: 1.6; color: #555; }
+  .sinv-letter-header { font-weight: 700; color: var(--color-primary); margin-bottom: 0.35rem; }
+  .sinv-letter-sign { margin-top: 0.35rem; color: #f06090; font-weight: 600; font-size: 0.78rem; }
+  .sinv-message { font-size: 0.9rem; color: var(--color-text); margin-bottom: 1rem; line-height: 1.5; }
+  .sinv-btn {
+    display: block; width: 100%;
+    background: linear-gradient(135deg,#f9a8c9,#f06090);
+    color: #fff; font-weight: 700; font-size: 1rem;
+    padding: 0.8rem 1.5rem; border-radius: var(--radius);
+    border: none; cursor: pointer; margin-bottom: 0.5rem;
+    box-shadow: 0 4px 14px rgba(240,96,144,0.35);
+    transition: filter 0.15s, transform 0.1s;
+  }
+  .sinv-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+  .sinv-close-btn {
+    background: none; border: none; color: var(--color-text-muted);
+    font-size: 0.85rem; cursor: pointer; padding: 0.25rem 0.5rem;
+  }
+  .sinv-close-btn:hover { color: var(--color-text); }
 
   @media (max-width: 480px) {
     .quiz-title { font-size: 1.4rem; }

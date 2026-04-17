@@ -41,6 +41,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </div>
 
+      <!-- 連勝記録 -->
+      <div class="streak-display" id="streak-display"></div>
+
       <!-- 対戦エリア -->
       <div class="battle-area" id="battle-area">
         <div class="hand-display">
@@ -136,6 +139,69 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   let round = 0;
   let busy = false;
 
+  // ===== 連勝記録 (localStorage永続) =====
+  let consecutiveWins = parseInt(localStorage.getItem('janken_win_streak') || '0');
+
+  function saveWinStreak() {
+    localStorage.setItem('janken_win_streak', String(consecutiveWins));
+  }
+
+  function updateStreakDisplay() {
+    const el = document.getElementById('streak-display');
+    if (!el) return;
+    if (consecutiveWins <= 0) {
+      el.textContent = '';
+      el.className = 'streak-display';
+    } else if (consecutiveWins >= 10) {
+      el.textContent = `🏆 ${consecutiveWins}連勝！`;
+      el.className = 'streak-display streak-display--max';
+    } else {
+      el.textContent = `🔥 ${consecutiveWins}連勝中`;
+      el.className = consecutiveWins >= 5 ? 'streak-display streak-display--hot' : 'streak-display streak-display--on';
+    }
+  }
+
+  function showJankenInvitation() {
+    const inv = document.createElement('div');
+    inv.className = 'sinv-overlay';
+    inv.innerHTML = `
+      <div class="sinv-backdrop"></div>
+      <div class="sinv-card">
+        <div class="sinv-stars">🏆✨🌸✨🏆</div>
+        <div class="sinv-title">🎊 10連勝達成！ 🎊</div>
+        <div class="sinv-subtitle">じゃんけんマスターですね！</div>
+        <div class="sinv-envelope-wrap">
+          <div class="sinv-envelope">
+            <div class="sinv-envelope-flap">💌</div>
+            <div class="sinv-letter">
+              <div class="sinv-letter-header">🌸 ご招待状 🌸</div>
+              <div class="sinv-letter-body">
+                10連勝おめでとうございます！<br>
+                サクラの秘密の部屋への<br>
+                特別招待状をお届けします✨
+              </div>
+              <div class="sinv-letter-sign">— サクラ より —</div>
+            </div>
+          </div>
+        </div>
+        <div class="sinv-message">サクラの部屋への特別招待状が届きました！</div>
+        <button class="sinv-btn" id="janken-invite-btn">📩 招待状を開く</button>
+        <button class="sinv-close-btn" id="janken-invite-close">今は行かない</button>
+      </div>
+    `;
+    document.body.appendChild(inv);
+    consecutiveWins = 0;
+    saveWinStreak();
+    updateStreakDisplay();
+    document.getElementById('janken-invite-btn')?.addEventListener('click', () => {
+      sessionStorage.setItem('sakura_room_via_redirect', 'true');
+      window.location.href = '/sakura-room/';
+    });
+    document.getElementById('janken-invite-close')?.addEventListener('click', () => {
+      inv.remove();
+    });
+  }
+
   function getRandomHand() {
     const keys = Object.keys(hands);
     return keys[Math.floor(Math.random() * keys.length)];
@@ -162,12 +228,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     if (result === 'win') {
       playerScore++;
+      consecutiveWins++;
+      saveWinStreak();
+      updateStreakDisplay();
       document.getElementById('result-display').textContent = '✅ あなたの勝ち！';
       document.getElementById('result-display').className = 'result-display result--win';
       setSakura(rand(sakuraMessages.win));
       setChibiPose('idle');   // 勝ち→v2_01喜びポーズ
+      if (consecutiveWins >= 10) {
+        setTimeout(showJankenInvitation, 900);
+      }
     } else if (result === 'lose') {
       sakuraScore++;
+      consecutiveWins = 0;
+      saveWinStreak();
+      updateStreakDisplay();
       document.getElementById('result-display').textContent = '😅 サクラの勝ち！';
       document.getElementById('result-display').className = 'result-display result--lose';
       setSakura(rand(sakuraMessages.lose));
@@ -241,6 +316,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     setSakura(rand(sakuraMessages.idle));
     setChibiPose('idle');
   }
+
+  // 初期化
+  updateStreakDisplay();
 
   document.querySelectorAll('.hand-btn').forEach(btn => {
     btn.addEventListener('click', () => play(btn.dataset.hand));
@@ -497,6 +575,85 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     color: var(--color-text);
     border: 2px solid var(--color-border);
   }
+
+  /* 連勝表示 */
+  .streak-display {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    min-height: 1.75rem;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s;
+  }
+  .streak-display--on { color: var(--color-primary); }
+  .streak-display--hot { color: #f97316; animation: streak-pulse 1s ease-in-out infinite alternate; }
+  .streak-display--max { color: #e11d48; animation: streak-pulse 0.6s ease-in-out infinite alternate; }
+
+  @keyframes streak-pulse {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+  }
+
+  /* 招待状オーバーレイ (BaseLayout sinv- CSSをコピー) */
+  .sinv-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sinv-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  }
+  .sinv-card {
+    position: relative; z-index: 1;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 2rem 1.5rem;
+    max-width: 360px; width: 90%;
+    text-align: center;
+    border: 2px solid #f9a8c9;
+    box-shadow: 0 20px 60px rgba(240,96,144,0.3);
+    animation: sinv-pop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes sinv-pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  .sinv-stars { font-size: 1.4rem; margin-bottom: 0.5rem; letter-spacing: 0.15em; }
+  .sinv-title { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.25rem; }
+  .sinv-subtitle { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.25rem; }
+  .sinv-envelope-wrap { perspective: 800px; margin-bottom: 1.25rem; }
+  .sinv-envelope {
+    background: linear-gradient(135deg,#ffe4f3,#ffd6eb);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    border: 2px solid #f9a8c9;
+    display: inline-block; min-width: 200px;
+    animation: sinv-float 2s ease-in-out infinite;
+  }
+  @keyframes sinv-float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .sinv-envelope-flap { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .sinv-letter { background: #fff; border-radius: var(--radius); padding: 0.75rem; font-size: 0.82rem; line-height: 1.6; color: #555; }
+  .sinv-letter-header { font-weight: 700; color: var(--color-primary); margin-bottom: 0.35rem; }
+  .sinv-letter-sign { margin-top: 0.35rem; color: #f06090; font-weight: 600; font-size: 0.78rem; }
+  .sinv-message { font-size: 0.9rem; color: var(--color-text); margin-bottom: 1rem; line-height: 1.5; }
+  .sinv-btn {
+    display: block; width: 100%;
+    background: linear-gradient(135deg,#f9a8c9,#f06090);
+    color: #fff; font-weight: 700; font-size: 1rem;
+    padding: 0.8rem 1.5rem; border-radius: var(--radius);
+    border: none; cursor: pointer; margin-bottom: 0.5rem;
+    box-shadow: 0 4px 14px rgba(240,96,144,0.35);
+    transition: filter 0.15s, transform 0.1s;
+  }
+  .sinv-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+  .sinv-close-btn {
+    background: none; border: none; color: var(--color-text-muted);
+    font-size: 0.85rem; cursor: pointer; padding: 0.25rem 0.5rem;
+  }
+  .sinv-close-btn:hover { color: var(--color-text); }
 
   @media (max-width: 480px) {
     .game-title { font-size: 1.4rem; }
