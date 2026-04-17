@@ -1,6 +1,16 @@
 ---
 import '../styles/global.css';
 import SakuraWelcome from '../components/SakuraWelcome.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const searchData = allPosts.map(p => ({
+  t: p.data.title,
+  d: p.data.description,
+  s: p.id,
+  c: p.data.category,
+}));
+const searchDataJson = JSON.stringify(searchData);
 
 interface Props {
   title: string;
@@ -38,7 +48,25 @@ const currentYear = new Date().getFullYear();
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
   <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="apple-touch-icon" href="/images/sakura-profile.png" />
   <link rel="alternate" type="application/rss+xml" title="人生快適ブログ RSS" href="/rss.xml" />
+  <!-- 構造化データ: WebSite + SearchAction -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "人生快適ブログ",
+    "url": siteUrl,
+    "description": "毎日の生活をもっと快適に。厳選ガジェット・便利グッズの価格比較・レビューをお届けします。",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": `${siteUrl}/posts/?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }
+  })} />
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2795927092024984" crossorigin="anonymous"></script>
   <!-- Google Fonts: Quicksand (heading) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -74,6 +102,7 @@ const currentYear = new Date().getFullYear();
       <a href="/about/">サクラとは</a>
       <a href="/prompt-builder/">🎨工房</a>
       <a href="/games/">🎮 ゲーム</a>
+      <a href="/sakura-talk/">💬 お話し</a>
       <a href="/sakura-room/" class="hidden-link" aria-label="サクラの部屋">🌸</a>
     </nav>
   </div>
@@ -90,8 +119,16 @@ const currentYear = new Date().getFullYear();
         <a href="/about/">サクラとは</a>
         <a href="/prompt-builder/">🎨工房</a>
         <a href="/games/">🎮 ゲーム</a>
+        <a href="/sakura-talk/">💬 お話し</a>
         <a href="/sakura-room/" class="hidden-link" aria-label="サクラの部屋">🌸</a>
       </nav>
+      <div class="search-wrapper">
+        <button id="search-toggle" aria-label="検索を開く" class="search-toggle-btn">🔍</button>
+        <div id="search-box" class="search-box">
+          <input type="text" id="search-input" placeholder="記事を検索..." autocomplete="off" />
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
       <button id="theme-toggle" aria-label="ダークモード切り替え" class="theme-toggle-btn">☀</button>
       <button id="hamburger-btn" aria-label="メニューを開く">☰</button>
     </div>
@@ -101,12 +138,16 @@ const currentYear = new Date().getFullYear();
     <slot />
   </main>
 
+  <!-- トップに戻るボタン -->
+  <button id="scroll-top-btn" class="scroll-top-btn" aria-label="トップに戻る">↑</button>
+
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div class="site-footer__links">
         <a href="/">ホーム</a>
         <a href="/privacy-policy/">プライバシーポリシー</a>
         <a href="/sitemap-index.xml">サイトマップ</a>
+        <a href="/rss.xml" class="rss-link">📰 RSS</a>
       </div>
       <p>© {currentYear} 人生快適ブログ</p>
       <p class="site-footer__affiliate">
@@ -132,6 +173,132 @@ const currentYear = new Date().getFullYear();
   }
   .theme-toggle-btn:hover {
     background: rgba(128,128,128,0.15);
+  }
+
+  /* 検索バー */
+  .search-wrapper {
+    position: relative;
+  }
+  .search-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 6px;
+    color: inherit;
+    line-height: 1;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .search-toggle-btn:hover {
+    background: rgba(128,128,128,0.15);
+  }
+  .search-box {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    margin-top: 8px;
+    z-index: 1100;
+  }
+  .search-box.open {
+    display: block;
+  }
+  #search-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid var(--color-border, #e5e7eb);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: var(--color-surface, #fff);
+    color: var(--color-text, #1f2937);
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  #search-input:focus {
+    border-color: #3b82f6;
+  }
+  .search-results {
+    max-height: 360px;
+    overflow-y: auto;
+    background: var(--color-surface, #fff);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 12px;
+    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .search-results:empty {
+    display: none;
+  }
+  .search-result-item {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--color-text, #1f2937);
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+    transition: background 0.15s;
+  }
+  .search-result-item:last-child {
+    border-bottom: none;
+  }
+  .search-result-item:hover {
+    background: var(--color-surface-raised, #f3f4f6);
+  }
+  .search-result-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+  .search-result-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #6b7280);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .search-no-result {
+    padding: 12px 14px;
+    color: var(--color-text-muted, #6b7280);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .search-box {
+      width: 280px;
+      right: -40px;
+    }
+  }
+
+  /* トップに戻るボタン */
+  .scroll-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent, #3b82f6);
+    color: white;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 900;
+  }
+  .scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .scroll-top-btn:hover {
+    transform: scale(1.1);
+  }
+  .rss-link {
+    color: #f97316 !important;
+    font-weight: 600;
   }
 
   /* ハンバーガーボタン: モバイルのみ表示 */
@@ -443,5 +610,70 @@ const currentYear = new Date().getFullYear();
   data-cf-beacon='{"token": "e38061c395ac4765a0b26d9395654415"}'></script>
 
 <SakuraWelcome />
+<script define:vars={{ searchDataJson }}>
+  window.__SEARCH_DATA__ = JSON.parse(searchDataJson);
+</script>
+<script is:inline>
+  (function() {
+    const toggleBtn = document.getElementById('search-toggle');
+    const searchBox = document.getElementById('search-box');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    if (!toggleBtn || !searchBox) return;
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      searchBox.classList.toggle('open');
+      if (searchBox.classList.contains('open')) {
+        searchInput.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!searchBox.contains(e.target) && e.target !== toggleBtn) {
+        searchBox.classList.remove('open');
+        searchResults.innerHTML = '';
+        searchInput.value = '';
+      }
+    });
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      if (q.length < 2) { searchResults.innerHTML = ''; return; }
+      const data = window.__SEARCH_DATA__ || [];
+      const matches = data.filter(p =>
+        p.t.toLowerCase().includes(q) || p.d.toLowerCase().includes(q)
+      ).slice(0, 8);
+      if (matches.length === 0) {
+        searchResults.innerHTML = '<div class="search-no-result">記事が見つかりませんでした</div>';
+        return;
+      }
+      searchResults.innerHTML = matches.map(p =>
+        '<a class="search-result-item" href="/posts/' + p.s + '/">' +
+          '<div class="search-result-title">' + p.t.replace(/</g,'&lt;') + '</div>' +
+          '<div class="search-result-desc">' + p.d.replace(/</g,'&lt;') + '</div>' +
+        '</a>'
+      ).join('');
+    });
+  })();
+</script>
+<script is:inline>
+  // トップに戻るボタン
+  (function() {
+    const btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+<script is:inline>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  }
+</script>
 </body>
 </html>
