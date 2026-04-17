@@ -668,14 +668,50 @@ const allGallery = [
     showWelcomeWithComment(REDIRECT_COMMENTS[Math.floor(Math.random() * REDIRECT_COMMENTS.length)]);
   }
 
+  const JANKEN_COMMENTS = [
+    'うそでしょ…10連勝って…！いや、それより今見ないでくださいっ！',
+    'うわぁっ！じゃんけんの裏口から入ってきたんですか！？セキュリティ甘すぎ…！',
+    'えっ、あっ、わっ…！じゃんけんって、そっちに繋がってたんですか！？',
+    'じゃんけん勝ち抜いてきた方に言うのもアレですけど…今だけ負けてほしかった…！',
+    'これはサクラの落ち度です…！じゃんけん経路の設計レビューが甘かった…！',
+    'えぇっ！？こっちから来る人いたんですか…！想定外すぎます…！',
+    'ひゃっ！見ちゃダメですってば！…って、なんで私がじゃんけん強い人の対策してないの…！',
+    'ちょ、ちょっと後ろ向いててください！じゃんけんルート想定してなかったんです…！',
+    'じゃんけんで来る猛者がいるとは…！サクラの見積もりが甘かったです…！',
+    'うぅ…じゃんけんルート、次のアプデで鍵つけます…絶対…！',
+  ];
+
+  function showJankenRoomWelcome() {
+    showWelcomeWithComment(JANKEN_COMMENTS[Math.floor(Math.random() * JANKEN_COMMENTS.length)]);
+  }
+
+  const QUIZ_COMMENTS = [
+    'ちょっ…！クイズ全問正解って…！いやそれよりまず見ないで！',
+    'うそ…クイズルートって飾りだと思ってたのに…！本当に来ちゃったんですか！？',
+    'ま、まさかクイズで来る方がいるとは…！正直ダミールートだと思ってました…！',
+    'す、すみません…！クイズ側は「理論上突破不可能」ってことで対策してなくて…！',
+    'クイズ全問正解できる頭脳があるなら…この状況の最適解も分かりますよね…？後ろ向いて…！',
+    'ク、クイズ経路は難易度的に封印してるのと同じだと思ってたのに…！想定外です…！',
+    'あの…サクラからのお願いなんですけど…次のアプデまでこのルート内緒にしてもらえますか…？',
+    'えぇ…クイズ100問って普通途中で飽きません…？なんで来ちゃったんですか…！',
+    '100問正解おめでとう…じゃなくて！今それどころじゃないんですってば！',
+    'えっ…！？100問連続正解する人が本当にいたんですか！？い、今着替え中なんですけど…！',
+  ];
+
+  function showQuizRoomWelcome() {
+    showWelcomeWithComment(QUIZ_COMMENTS[Math.floor(Math.random() * QUIZ_COMMENTS.length)]);
+  }
+
   // アクセス制御
   const isAuth = sessionStorage.getItem(SESSION_KEY) === 'true';
   const isViaRedirect = sessionStorage.getItem('sakura_room_via_redirect') === 'true';
   const isViaLink = sessionStorage.getItem('sakura_room_via_link') === 'true';
   const isViaOmikuji = sessionStorage.getItem('sakura_room_via_omikuji') === 'true';
   const isViaTap = sessionStorage.getItem('sakura_room_via_tap') === 'true';
+  const isViaJanken = sessionStorage.getItem('sakura_room_via_janken') === 'true';
+  const isViaQuiz = sessionStorage.getItem('sakura_room_via_quiz') === 'true';
 
-  if (!isAuth && !isViaRedirect && !isViaLink && !isViaOmikuji && !isViaTap) {
+  if (!isAuth && !isViaRedirect && !isViaLink && !isViaOmikuji && !isViaTap && !isViaJanken && !isViaQuiz) {
     // URL直打ち → トップへリダイレクト
     window.location.href = '/';
   } else if (isViaTap) {
@@ -688,6 +724,16 @@ const allGallery = [
     sessionStorage.removeItem('sakura_room_via_omikuji');
     sessionStorage.setItem(SESSION_KEY, 'true');
     showOmikujiWelcome();
+  } else if (isViaJanken) {
+    // じゃんけん10連勝経由 → PW不要でじゃんけん専用ウェルカム演出
+    sessionStorage.removeItem('sakura_room_via_janken');
+    sessionStorage.setItem(SESSION_KEY, 'true');
+    showJankenRoomWelcome();
+  } else if (isViaQuiz) {
+    // クイズ100問連続正解経由 → PW不要でクイズ専用ウェルカム演出
+    sessionStorage.removeItem('sakura_room_via_quiz');
+    sessionStorage.setItem(SESSION_KEY, 'true');
+    showQuizRoomWelcome();
   } else if (isViaRedirect) {
     // 記事クリック経由 → PW不要で記事経由専用ウェルカム演出
     sessionStorage.removeItem('sakura_room_via_redirect');
