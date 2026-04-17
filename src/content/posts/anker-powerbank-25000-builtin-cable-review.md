@@ -36,7 +36,14 @@ ogImage: /images/og/anker-powerbank-25000-builtin-cable-review.png
 | 対応デバイス | スマートフォン・タブレット・iPad Pro・MacBook・WindowsノートPC |
 | 安全認証 | PSE技術基準適合 |
 
-<div class="btn-wrap"><a href="https://amzn.to/4sCrvzW" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで価格を確認 ▶</a></div>
+<div class="shop-links-wrap">
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Famzn.to%2F4sCrvzW" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Power%2520Bank%252025000mAh%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E5%2586%2585%25E8%2594%25B5%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DAnker%2520Power%2520Bank%252025000mAh%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E5%2586%2585%25E8%2594%25B5" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
+</div>
+<img src="https://i.moshimo.com/af/i/impression?a_id=5471177&p_id=170" width="1" height="1" style="display:none" />
+<img src="https://i.moshimo.com/af/i/impression?a_id=5471111&p_id=54" width="1" height="1" style="display:none" />
+<img src="https://i.moshimo.com/af/i/impression?a_id=5494175&p_id=1225" width="1" height="1" style="display:none" />
 
 ---
 
@@ -113,6 +120,10 @@ Anker Power Bank 25000mAhは、**内蔵リトラクタブルUSB-Cケーブル**�
 
 ケーブル持ち忘れの心配もなく、大容量で複数デバイスを長時間サポートしてくれますね✨ 出張・旅行・アウトドアシーンでの電源確保に悩んでいる方は、ぜひ検討してみてくださいね！
 
-<div class="btn-wrap"><a href="https://amzn.to/4sCrvzW" class="btn-amazon" target="_blank" rel="noopener">🛒 Amazonで今すぐ確認・購入 ▶</a></div>
+<div class="shop-links-wrap">
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Famzn.to%2F4sCrvzW" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Power%2520Bank%252025000mAh%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E5%2586%2585%25E8%2594%25B5%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
+  <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DAnker%2520Power%2520Bank%252025000mAh%2520%25E3%2582%25B1%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E5%2586%2585%25E8%2594%25B5" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
+</div>
 
 サクラでした！またお会いしましょうね🌸

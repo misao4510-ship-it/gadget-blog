@@ -274,7 +274,25 @@ main { min-height: 60vh; padding: 0; }
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(143,0,0,.45);
 }
+.btn-yahoo {
+  display: inline-block;
+  background: linear-gradient(135deg, #720099, #4c0066);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: .7rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  box-shadow: 0 3px 10px rgba(114,0,153,.35);
+  transition: transform .15s, box-shadow .15s;
+  margin: .3rem 0 .3rem 0;
+}
+.btn-yahoo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(114,0,153,.45);
+}
 .btn-wrap { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; }
+.shop-links-wrap { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; align-items: center; }
 
 /* ===== ランクバッジ（第1位〜第3位強調） ===== */
 .rank-1 { border-left: 5px solid #FFD700; padding-left: .8rem; }
