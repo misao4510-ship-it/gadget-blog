@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 600,
+      "price": 648,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/one-daze/pr-minipost/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-16"
+      "url": "https://item.rakuten.co.jp/one-daze/pr-pf171/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-17"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 600
+      "price": 648
     }
   },
   "history": [
+    {
+      "date": "2026-04-17",
+      "amazon": 2490,
+      "rakuten": 648
+    },
     {
       "date": "2026-04-16",
       "amazon": 2490,
@@ -413,11 +418,6 @@
       "date": "2026-01-17",
       "amazon": 2555,
       "rakuten": 2748
-    },
-    {
-      "date": "2026-01-16",
-      "amazon": 2557,
-      "rakuten": 2795
     }
   ]
 }
