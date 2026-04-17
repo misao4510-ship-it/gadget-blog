@@ -1372,7 +1372,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // ===== アクセス制御（ナビリンク経由 または 認証済みなら許可） =====
 (function() {
   const isViaNav = sessionStorage.getItem('prompt_builder_via_nav') === 'true';
-  const isAuth = localStorage.getItem('pb_auth') === '1';
+  const isAuth = sessionStorage.getItem('pb_auth') === '1';
   if (!isViaNav && !isAuth) {
     window.location.href = '/';
     return;
@@ -1402,8 +1402,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (pbMain) pbMain.style.display = 'block';
   }
 
-  // 認証済みなら即表示（localStorageで永続化）
-  if (localStorage.getItem(SESSION_KEY) === '1') {
+  // 認証済みなら即表示（sessionStorageで管理 — タブ閉じでリセット）
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
     showMain();
   }
 
@@ -1433,7 +1433,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (lockTimer) return;
     const val = pwInput ? pwInput.value : '';
     if (val === CORRECT_PW) {
-      localStorage.setItem(SESSION_KEY, '1');
+      sessionStorage.setItem(SESSION_KEY, '1');
       showMain();
     } else {
       failCount++;
