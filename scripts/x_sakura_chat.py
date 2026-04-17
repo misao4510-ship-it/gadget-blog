@@ -2,18 +2,20 @@
 """
 サクラ雑談ツイートスクリプト (cmd_179 / cmd_171 施策⑥)
 
-記事紹介以外の「サクラキャラとしての雑談ツイート」を投稿する。
+記事紹介以外の「サクラキャラとしての雑談ツイート」をサクラ画像付きで投稿する。
 data/x_chat_templates.json から未使用（または7日以上経過）のテンプレートを
 ランダム選択して投稿。
 
 Usage:
-    python3 scripts/x_sakura_chat.py              # 通常投稿
+    python3 scripts/x_sakura_chat.py              # 通常投稿（10:00/15:00/18:00 cron）
     python3 scripts/x_sakura_chat.py --dry-run    # ログのみ（投稿しない）
     python3 scripts/x_sakura_chat.py --category 豆知識  # カテゴリ指定
+    python3 scripts/x_sakura_chat.py --no-image   # テキストのみ投稿（画像生成なし）
     python3 scripts/x_sakura_chat.py --list       # テンプレート一覧表示
 """
 
 import argparse
+import base64
 import json
 import logging
 import random
@@ -24,6 +26,7 @@ from pathlib import Path
 BLOG_ROOT = Path(__file__).parent.parent.resolve()
 TEMPLATES_FILE = BLOG_ROOT / "data" / "x_chat_templates.json"
 TELEGRAM_AUTH = Path("/mnt/c/tools/multi-agent-shogun/config/telegram_auth.env")
+SD_FORGE_API = "http://172.18.208.1:7860"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -34,6 +37,34 @@ logger = logging.getLogger(__name__)
 
 # 7日以上経過したテンプレートは再利用可能とみなす
 REUSE_DAYS = 7
+
+# サクラテンプレート（殿確定 2026-04-15）
+SAKURA_BASE = (
+    "masterpiece, best quality, beautiful face, beautiful detailed eyes, "
+    "beautiful hairstyle, beautiful skin, perfect body, "
+    "1girl, solo, teenager, small breasts, cowboy shot, "
+    "semi-long hair, pink hair, light blue inner color hair, "
+    "light blue eyes, round eyes, "
+    "futuristic playsuit, white outfit, "
+    "<lora:kaina_v1:0.70>"
+)
+
+NEGATIVE = (
+    "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, "
+    "missing fingers, watermark, text, signature, deformed, ugly, 3d, realistic, "
+    "cropped head, head out of frame, cut off head, nsfw, nude, naked"
+)
+
+# カテゴリ別のポーズ指定
+CATEGORY_POSES = {
+    "豆知識":     f"{SAKURA_BASE}, holding book, explaining, finger raised, didactic pose, cheerful expression",
+    "季節ネタ":   f"{SAKURA_BASE}, seasonal background, bright smile, cheerful, waving hand, greeting",
+    "テック小話": f"{SAKURA_BASE}, holding gadget, excited expression, pointing, showing, presentation",
+    "日常サクラ": f"{SAKURA_BASE}, casual pose, gentle smile, relaxed, friendly, heart hands",
+    "おすすめ小ネタ": f"{SAKURA_BASE}, thumbs up, winking, happy, grin, one eye closed, recommending",
+    "防災・備蓄": f"{SAKURA_BASE}, serious expression, holding emergency kit, cautious, informative pose",
+}
+DEFAULT_POSE = f"{SAKURA_BASE}, smile, cheerful, waving hand, greeting"
 
 
 def load_env(path: Path) -> dict:
@@ -134,10 +165,52 @@ def mark_used(data: dict, tmpl_id: int):
             break
 
 
+def generate_sakura_image(category: str, output_path: Path) -> bool:
+    """SD Forge APIでサクラ画像を生成 (1024×1536)"""
+    import requests as req
+
+    prompt = CATEGORY_POSES.get(category, DEFAULT_POSE)
+    payload = {
+        "prompt": prompt,
+        "negative_prompt": NEGATIVE,
+        "seed": random.randint(0, 2147483647),
+        "steps": 28,
+        "cfg_scale": 7,
+        "width": 1024,
+        "height": 1536,
+        "sampler_name": "DPM++ 2M SDE",
+        "scheduler": "Karras",
+        "batch_size": 1,
+        "n_iter": 1,
+        "override_settings": {
+            "sd_model_checkpoint": "novaAnimeXL_ilV170.safetensors",
+        },
+    }
+    logger.info(f"SD Forge APIでサクラ画像生成中: {category}")
+    try:
+        resp = req.post(f"{SD_FORGE_API}/sdapi/v1/txt2img", json=payload, timeout=120)
+        resp.raise_for_status()
+        result = resp.json()
+        img_b64 = result["images"][0]
+        img_bytes = base64.b64decode(img_b64)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_bytes(img_bytes)
+        logger.info(f"画像生成完了: {output_path}")
+        return True
+    except req.exceptions.ConnectionError:
+        logger.warning(f"SD Forge API ({SD_FORGE_API}) に接続できません。テキストのみで投稿します。")
+        return False
+    except Exception as e:
+        logger.warning(f"画像生成失敗: {e}。テキストのみで投稿します。")
+        return False
+
+
 def main():
     parser = argparse.ArgumentParser(description="サクラ雑談ツイート投稿スクリプト")
     parser.add_argument("--dry-run", action="store_true", help="実際に投稿せずログのみ表示")
-    parser.add_argument("--category", type=str, help="指定カテゴリから選択 (豆知識/季節ネタ/テック小話/日常サクラ/おすすめ小ネタ/防災・備蓄)")
+    parser.add_argument("--category", type=str,
+                        help="指定カテゴリから選択 (豆知識/季節ネタ/テック小話/日常サクラ/おすすめ小ネタ/防災・備蓄)")
+    parser.add_argument("--no-image", action="store_true", help="テキストのみ投稿（画像生成スキップ）")
     parser.add_argument("--list", action="store_true", help="テンプレート一覧を表示して終了")
     args = parser.parse_args()
 
@@ -153,28 +226,41 @@ def main():
     tmpl = pick_template(templates, args.category)
     tweet_text = tmpl["text"]
     tmpl_id = tmpl["id"]
+    category = tmpl.get("category", "")
 
-    logger.info(f"選択テンプレート: id={tmpl_id} [{tmpl.get('category')}]")
+    logger.info(f"選択テンプレート: id={tmpl_id} [{category}]")
     logger.info(f"ツイート内容:\n{tweet_text}")
 
     if args.dry_run:
         logger.info("[DRY RUN] 投稿スキップ。")
         return
 
-    # x_post_playwright.py の関数を直接使用
+    # サクラ画像生成
+    image_path = None
+    if not args.no_image:
+        now_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+        img_file = Path(f"/tmp/sakura_chat_{now_str}.png")
+        if generate_sakura_image(category, img_file):
+            image_path = str(img_file)
+
+    # x_scheduled_post.py の post_to_x 関数で画像付き投稿
     try:
         sys.path.insert(0, str(BLOG_ROOT / "scripts"))
-        from x_post_playwright import post_to_x_playwright
-        post_url = post_to_x_playwright(tweet_text)
-        logger.info(f"投稿完了: {post_url}")
+        from x_scheduled_post import post_to_x
+        success = post_to_x(tweet_text, image_path)
 
-        # 使用済みマーク + 保存
-        mark_used(data, tmpl_id)
-        save_templates(data)
-        logger.info("テンプレート使用状態を更新しました。")
-
-        send_telegram(f"🌸 サクラ雑談ツイート投稿完了\n[{tmpl.get('category')}]\n{tweet_text[:80]}...")
-        logger.info("Telegram通知済み。")
+        if success:
+            # 使用済みマーク + 保存
+            mark_used(data, tmpl_id)
+            save_templates(data)
+            logger.info("テンプレート使用状態を更新しました。")
+            img_info = "🖼️画像付き" if image_path else "テキストのみ"
+            send_telegram(f"🌸 サクラ雑談ツイート投稿完了 ({img_info})\n[{category}]\n{tweet_text[:80]}...")
+            logger.info("Telegram通知済み。")
+        else:
+            logger.error("投稿失敗（post_to_x がFalseを返した）")
+            send_telegram(f"❌ サクラ雑談ツイート失敗\n[{category}]\n投稿処理エラー")
+            sys.exit(1)
     except Exception as e:
         logger.error(f"投稿失敗: {e}")
         send_telegram(f"❌ サクラ雑談ツイート失敗\n{e}")
