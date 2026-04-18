@@ -2827,6 +2827,161 @@
         }
       },
       "image_url": null
+    },
+    {
+      "id": "product-095",
+      "name": "Anker Soundcore Liberty 5",
+      "category": "earphone",
+      "asin": "B0DRVB48LJ",
+      "rakuten_keyword": "Anker Soundcore Liberty 5 完全ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-095",
+      "image": "/images/products/anker-soundcore-liberty5.svg",
+      "tags": [
+        "完全ワイヤレスイヤホン",
+        "Anker",
+        "Soundcore",
+        "ノイズキャンセリング",
+        "Bluetooth5.4"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0DRVB48LJ%3Ftag%3Dmisao4510-22",
+          "url": "https://amzn.to/4tit338"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Liberty%25205%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-095"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-096",
+      "name": "Sony WF-1000XM5",
+      "category": "earphone",
+      "asin": "B0CD6SH87B",
+      "rakuten_keyword": "Sony WF-1000XM5 完全ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-096",
+      "image": "/images/products/sony-wf1000xm5.svg",
+      "tags": [
+        "完全ワイヤレスイヤホン",
+        "Sony",
+        "ノイズキャンセリング",
+        "ハイレゾ",
+        "フラッグシップ"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0CD6SH87B?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CD6SH87B?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%2520WF-1000XM5%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-096"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-097",
+      "name": "Apple AirPods Pro 2",
+      "category": "earphone",
+      "asin": "SEARCH",
+      "rakuten_keyword": "Apple AirPods Pro 第2世代 完全ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-097",
+      "image": "/images/products/apple-airpods-pro2.svg",
+      "tags": [
+        "完全ワイヤレスイヤホン",
+        "Apple",
+        "AirPods",
+        "ノイズキャンセリング",
+        "空間オーディオ"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/s?k=Apple+AirPods+Pro+第2世代&tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/s?k=Apple+AirPods+Pro+%E7%AC%AC2%E4%B8%96%E4%BB%A3&tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FApple%2520AirPods%2520Pro%25202%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-097"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-098",
+      "name": "Samsung Galaxy Buds3 Pro",
+      "category": "earphone",
+      "asin": "SEARCH",
+      "rakuten_keyword": "Samsung Galaxy Buds3 Pro 完全ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-098",
+      "image": "/images/products/samsung-galaxy-buds3-pro.svg",
+      "tags": [
+        "完全ワイヤレスイヤホン",
+        "Samsung",
+        "Galaxy Buds",
+        "ノイズキャンセリング",
+        "Android"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/s?k=Samsung+Galaxy+Buds3+Pro&tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/s?k=Samsung+Galaxy+Buds3+Pro&tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamsung%2520Galaxy%2520Buds3%2520Pro%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-098"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-099",
+      "name": "Technics EAH-AZ80",
+      "category": "earphone",
+      "asin": "B0BX4HQLXF",
+      "rakuten_keyword": "Technics EAH-AZ80 完全ワイヤレスイヤホン",
+      "a8_link": "https://px.a8.net/placeholder/product-099",
+      "image": "/images/products/technics-eah-az80.svg",
+      "tags": [
+        "完全ワイヤレスイヤホン",
+        "Technics",
+        "Panasonic",
+        "ノイズキャンセリング",
+        "マルチポイント"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0BX4HQLXF?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0BX4HQLXF?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTechnics%2520EAH-AZ80%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-099"
+        }
+      },
+      "image_url": null
     }
   ]
 }

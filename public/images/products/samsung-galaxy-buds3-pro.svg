@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1428a0"/>
+      <stop offset="100%" stop-color="#4e8ef7"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)" rx="24"/>
+  <ellipse cx="200" cy="180" rx="52" ry="62" fill="#1428a0" opacity="0.88"/><ellipse cx="200" cy="180" rx="35" ry="44" fill="#4e8ef7" opacity="0.18"/><circle cx="200" cy="180" r="20" fill="#4e8ef7" opacity="0.75"/><rect x="158" y="238" width="84" height="16" rx="8" fill="#1428a0" opacity="0.65"/>
+  <text x="200" y="330" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="bold" fill="white" opacity="0.95">Galaxy Buds3 Pro</text>
+  <text x="200" y="358" text-anchor="middle" font-family="sans-serif" font-size="16" fill="white" opacity="0.7">Samsung</text>
+</svg>
