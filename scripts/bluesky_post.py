@@ -16,6 +16,8 @@ Usage:
 import os
 import sys
 import json
+import time
+import random
 import logging
 import argparse
 from pathlib import Path
@@ -147,7 +149,16 @@ def main():
                         help="投稿スロット (1=7:30, 2=12:30, 3=21:00)")
     parser.add_argument("--dry-run", action="store_true",
                         help="実際に投稿せずログのみ表示")
+    parser.add_argument("--no-delay", action="store_true",
+                        help="ランダム遅延をスキップ（テスト用）")
     args = parser.parse_args()
+
+    # BOT認定回避のためランダム遅延（0〜900秒 = ±15分）
+    if not args.no_delay and not args.dry_run:
+        delay = random.randint(0, 900)
+        logger.info(f"ランダム遅延: {delay}秒 ({delay // 60}分{delay % 60}秒)")
+        time.sleep(delay)
+        logger.info(f"遅延終了。実際の投稿時刻: {datetime.now().strftime('%H:%M:%S')}")
 
     if not SCHEDULE_FILE.exists():
         logger.info("Bluesky予約データなし。スキップ。")

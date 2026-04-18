@@ -7,6 +7,11 @@ products: []
 type: "guide"
 draft: false
 ogImage: /images/og/rakuten-sale-calendar-2026.png
+tags:
+  - "楽天"
+  - "セール"
+  - "カレンダー"
+  - "お得"
 ---
 
 こんにちは！サクラです✨ 今日は楽天市場でポイントをたっぷり貯める攻略法をご紹介しますよ！

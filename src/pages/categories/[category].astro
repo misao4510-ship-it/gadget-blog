@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const CATEGORY_META: Record<string, { icon: string; label: string; color: string }> = {
+  'charger': { icon: '🔌', label: '充電器', color: '#059669' },
+  'wireless-charger': { icon: '🔋', label: 'ワイヤレス充電器', color: '#0891b2' },
+  'mobile-battery': { icon: '🪫', label: 'モバイルバッテリー', color: '#7c3aed' },
+  'earphones': { icon: '🎧', label: 'イヤホン', color: '#db2777' },
+  'earphone': { icon: '🎧', label: 'イヤホン', color: '#db2777' },
+  'keyboard': { icon: '⌨️', label: 'キーボード', color: '#ea580c' },
+  'monitor': { icon: '🖥️', label: 'モニター', color: '#2563eb' },
+  'portable-ssd': { icon: '💾', label: 'ポータブルSSD', color: '#4f46e5' },
+  'usb-hub': { icon: '🔗', label: 'USBハブ', color: '#0d9488' },
+  'gadget': { icon: '📱', label: 'ガジェット', color: '#2563eb' },
+  'gadget-misc': { icon: '🔧', label: 'ガジェット雑貨', color: '#64748b' },
+  'electric-kettle': { icon: '☕', label: '電気ケトル', color: '#b45309' },
+  'health': { icon: '💊', label: 'ヘルス', color: '#16a34a' },
+  '生活': { icon: '🏠', label: '生活', color: '#0284c7' },
+  'ビジネス': { icon: '💼', label: 'ビジネス', color: '#1d4ed8' },
+};
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const categories = [...new Set(posts.map(p => p.data.category))];
+  return categories.map(cat => ({
+    params: { category: cat },
+    props: { category: cat },
+  }));
+}
+
+const { category } = Astro.props;
+const meta = CATEGORY_META[category] || { icon: '📦', label: category, color: '#2563eb' };
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const categoryPosts = allPosts
+  .filter(p => p.data.category === category)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+---
+<BaseLayout
+  title={`${meta.label}の記事一覧`}
+  description={`${meta.label}カテゴリの記事一覧。レビュー・比較・おすすめ情報をお届けします。`}
+>
+  <section class="category-hero" style={`background: linear-gradient(135deg, ${meta.color} 0%, ${meta.color}cc 100%);`}>
+    <div class="container">
+      <h1 class="category-hero__title">{meta.icon} {meta.label}</h1>
+      <p class="category-hero__desc">{meta.label}カテゴリの記事一覧です</p>
+      <span class="category-hero__count">{categoryPosts.length}件の記事</span>
+    </div>
+  </section>
+
+  <section class="category-articles">
+    <div class="container">
+      {categoryPosts.length > 0 ? (
+        <div class="articles__grid">
+          {categoryPosts.map(post => (
+            <ArticleCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.id}
+              category={post.data.category}
+              publishDate={post.data.publishDate}
+              ogImage={post.data.ogImage || '/images/og-default.svg'}
+              type={post.data.type}
+              productId={post.data.products?.[0]}
+              recommendation={post.data.recommendation}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="no-articles">このカテゴリの記事はまだありません。</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .category-hero {
+    padding: 3rem 0 2.5rem;
+    color: white;
+  }
+  .category-hero__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: .75rem; color: white; }
+  .category-hero__desc { font-size: 1.05rem; color: rgba(255,255,255,.85); margin-bottom: 1rem; }
+  .category-hero__count { background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3); padding: .25em .8em; border-radius: 99px; font-size: .875rem; font-weight: 600; }
+  .category-articles { padding: 3rem 0; }
+  .articles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+  .no-articles { color: var(--color-text-muted); text-align: center; padding: 3rem 0; }
+  @media (max-width: 640px) {
+    .articles__grid { grid-template-columns: 1fr; }
+    .category-hero { padding: 2rem 0 1.75rem; }
+  }
+</style>

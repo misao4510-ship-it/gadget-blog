@@ -10,6 +10,10 @@ recommendation: 5
 products: ["product-071"]
 amazonUrl: "https://amzn.to/41jLYyj"
 ogImage: /images/og/bambu-lab-a1-mini-review.png
+tags:
+  - "3Dプリンター"
+  - "Bambu Lab"
+  - "初心者向け"
 ---
 
 こんにちは！サクラです✨ 今日は「3Dプリンターって難しそう…」と感じている方に、ぜひ知っていただきたい製品をご紹介しますよ！

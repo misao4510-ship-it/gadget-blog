@@ -21,6 +21,18 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
+
+// 読了時間の計算（日本語は400文字/分）
+const body = post.body || '';
+const charCount = body.replace(/[#\-*\[\]()!`>|]/g, '').length;
+const readingTime = Math.max(1, Math.ceil(charCount / 400));
+
+// 関連記事（同カテゴリから最大4件）
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter(p => p.id !== post.id && p.data.category === post.data.category)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 4);
 const { products } = await import('../../../data/products.json');
 
 const articleTrend: TrendResult | null = (() => {
@@ -71,11 +83,51 @@ const categoryLabels: Record<string, string> = {
 >
   {post.data.products.map((id: string) => <ProductSchemaLD productId={id} />)}
 
+  <!-- 構造化データ: Article -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "image": post.data.ogImage ? `https://gadget-blog-dxq.pages.dev${post.data.ogImage}` : undefined,
+    "datePublished": post.data.publishDate,
+    "dateModified": post.data.publishDate,
+    "author": { "@type": "Person", "name": "サクラ" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "人生快適ブログ",
+      "logo": { "@type": "ImageObject", "url": "https://gadget-blog-dxq.pages.dev/images/sakura-profile.png" }
+    },
+    "mainEntityOfPage": `https://gadget-blog-dxq.pages.dev/posts/${post.id}/`
+  })} />
+
+  <!-- 構造化データ: BreadcrumbList -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://gadget-blog-dxq.pages.dev/" },
+      { "@type": "ListItem", "position": 2, "name": categoryLabels[post.data.category] ?? post.data.category, "item": `https://gadget-blog-dxq.pages.dev/categories/${post.data.category}/` },
+      { "@type": "ListItem", "position": 3, "name": post.data.title }
+    ]
+  })} />
+
+  <!-- パンくずリスト -->
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+    <div class="container">
+      <ol class="breadcrumb__list">
+        <li><a href="/">ホーム</a></li>
+        <li><a href={`/categories/${post.data.category}/`}>{categoryLabels[post.data.category] ?? post.data.category}</a></li>
+        <li aria-current="page">{post.data.title}</li>
+      </ol>
+    </div>
+  </nav>
+
   <article class="article">
     <!-- Hero Image (ランキング記事では非表示) -->
     {post.data.ogImage && post.data.type !== 'ranking' && (
       <div class="article__hero">
-        <img src={post.data.ogImage} alt={post.data.title} class="article__hero-img" />
+        <img src={post.data.ogImage} alt={post.data.title} class="article__hero-img" width="1200" height="624" fetchpriority="high" />
       </div>
     )}
 
@@ -97,9 +149,13 @@ const categoryLabels: Record<string, string> = {
                 <span class={`price-badge price-badge--${articleTrend.color}`}>{articleTrend.label}</span>
               )}
               <span class="trust-badge">📅 最終更新: {post.data.publishDate}</span>
+              <span class="reading-time">⏱️ 約{readingTime}分で読める</span>
               <time class="article__date">{post.data.publishDate}</time>
             </div>
-            <h1 class="article__title">{post.data.title}</h1>
+            <div class="article__title-row">
+              <h1 class="article__title">{post.data.title}</h1>
+              <button class="fav-btn" id="fav-btn" type="button" title="お気に入り" aria-label="お気に入りに追加">♡</button>
+            </div>
             <StarRating rating={post.data.recommendation} />
             <!-- Admin star editor (hidden by default, shown with ?admin=1) -->
             <div id="admin-star-editor" style="display:none;">
@@ -175,8 +231,78 @@ const categoryLabels: Record<string, string> = {
               </div>
             )}
 
+            {/* === サクラのリアクション === */}
+            <div class="sakura-reaction">
+              <div class="reaction-header">
+                <img src="/images/sakura-profile.png" alt="サクラ" class="reaction-avatar" />
+                <p class="reaction-question">この記事はいかがでしたか？🌸</p>
+              </div>
+              <div class="reaction-buttons" id="reaction-buttons">
+                <button class="reaction-btn" data-type="helpful" type="button">
+                  <span class="reaction-emoji">👍</span>
+                  <span class="reaction-label">参考になった</span>
+                  <span class="reaction-count" id="count-helpful">0</span>
+                </button>
+                <button class="reaction-btn" data-type="interested" type="button">
+                  <span class="reaction-emoji">👀</span>
+                  <span class="reaction-label">気になる</span>
+                  <span class="reaction-count" id="count-interested">0</span>
+                </button>
+                <button class="reaction-btn" data-type="want" type="button">
+                  <span class="reaction-emoji">🛒</span>
+                  <span class="reaction-label">欲しい！</span>
+                  <span class="reaction-count" id="count-want">0</span>
+                </button>
+                <button class="reaction-btn" data-type="thanks" type="button">
+                  <span class="reaction-emoji">🌸</span>
+                  <span class="reaction-label">ありがとう</span>
+                  <span class="reaction-count" id="count-thanks">0</span>
+                </button>
+              </div>
+              <div class="reaction-response" id="reaction-response" style="display:none;">
+                <img src="/images/sakura-profile.png" alt="サクラ" class="reaction-avatar-sm" />
+                <p class="reaction-msg" id="reaction-msg"></p>
+              </div>
+            </div>
+
             {/* === Author profile (E-E-A-T) === */}
             <AuthorProfile />
+
+            {/* === タグ === */}
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="article-tags">
+                {post.data.tags.map((tag: string) => (
+                  <a href={`/tags/${tag}/`} class="tag-chip">#{tag}</a>
+                ))}
+              </div>
+            )}
+
+            {/* === SNSシェアボタン === */}
+            <div class="share-buttons">
+              <p class="share-title">📢 この記事をシェア</p>
+              <div class="share-list">
+                <a class="share-btn share-btn--x" href={`https://twitter.com/intent/tweet?url=https://gadget-blog-dxq.pages.dev/posts/${post.id}/&text=${encodeURIComponent(post.data.title)}`} target="_blank" rel="noopener noreferrer">𝕏 ポスト</a>
+                <a class="share-btn share-btn--line" href={`https://social-plugins.line.me/lineit/share?url=https://gadget-blog-dxq.pages.dev/posts/${post.id}/`} target="_blank" rel="noopener noreferrer">LINE</a>
+                <a class="share-btn share-btn--hatena" href={`https://b.hatena.ne.jp/entry/s/gadget-blog-dxq.pages.dev/posts/${post.id}/`} target="_blank" rel="noopener noreferrer">はてブ</a>
+              </div>
+            </div>
+
+            {/* === 関連記事 === */}
+            {relatedPosts.length > 0 && (
+              <div class="related-articles">
+                <h2 class="related-title">📖 関連記事</h2>
+                <div class="related-grid">
+                  {relatedPosts.map(rp => (
+                    <a href={`/posts/${rp.id}/`} class="related-card">
+                      {rp.data.ogImage && (
+                        <img src={rp.data.ogImage} alt={rp.data.title} class="related-img" loading="lazy" />
+                      )}
+                      <p class="related-card-title">{rp.data.title}</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* === Navi character (fixed bottom-right) === */}
@@ -200,7 +326,52 @@ const categoryLabels: Record<string, string> = {
   .article__meta { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: 1rem; }
   .article__date { font-size: .875rem; color: var(--color-text-muted); margin-left: auto; }
 
-  .article__title { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; margin: .5rem 0 .75rem; color: var(--color-text); }
+  /* パンくずリスト */
+  .breadcrumb { padding: 0.75rem 0; font-size: 0.85rem; color: var(--color-text-muted, #6b7280); }
+  .breadcrumb__list { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; gap: 0.25rem; }
+  .breadcrumb__list li:not(:last-child)::after { content: '>'; margin-left: 0.25rem; color: var(--color-text-muted, #9ca3af); }
+  .breadcrumb__list a { color: var(--accent, #3b82f6); text-decoration: none; }
+  .breadcrumb__list a:hover { text-decoration: underline; }
+  .breadcrumb__list li:last-child { color: var(--color-text, #1f2937); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 300px; }
+
+  /* 読了時間 */
+  .reading-time { font-size: 0.8rem; color: var(--color-text-muted, #6b7280); background: var(--color-surface, #f3f4f6); padding: 2px 8px; border-radius: 4px; }
+
+  /* SNSシェアボタン */
+  .share-buttons { margin: 2.5rem 0 1rem; padding: 1.5rem; background: var(--color-surface, #f9fafb); border-radius: 12px; text-align: center; }
+  .share-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.75rem; }
+  .share-list { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+  .share-btn { display: inline-flex; align-items: center; padding: 8px 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; color: white; transition: opacity 0.2s; }
+  .share-btn:hover { opacity: 0.85; }
+  .share-btn--x { background: #000; }
+  .share-btn--line { background: #06c755; }
+  .share-btn--hatena { background: #00a4de; }
+
+  /* タグ */
+  .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+  .tag-chip {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--color-surface, #f3f4f6);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tag-chip:hover { background: #7c3aed; color: white; }
+
+  .article__title-row { display: flex; align-items: flex-start; gap: 0.5rem; }
+  .article__title { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; margin: .5rem 0 .75rem; color: var(--color-text); flex: 1; }
+  .fav-btn {
+    flex-shrink: 0; background: none; border: 2px solid #f9a8d4; border-radius: 50%;
+    width: 44px; height: 44px; font-size: 1.4rem; cursor: pointer; color: #f9a8d4;
+    transition: all 0.2s; display: flex; align-items: center; justify-content: center; margin-top: 0.5rem;
+  }
+  .fav-btn:hover { background: #fdf2f8; }
+  .fav-btn.active { background: #ec4899; color: white; border-color: #ec4899; }
   .article__desc { font-size: 1.05rem; color: var(--color-text-muted); border-left: 4px solid var(--color-primary); padding-left: 1rem; margin-bottom: 1.5rem; }
 
   /* Top CTA */
@@ -228,6 +399,35 @@ const categoryLabels: Record<string, string> = {
 
   /* Bottom CTA */
   .article__bottom-cta { margin: 2rem 0; }
+
+  /* サクラリアクション */
+  .sakura-reaction {
+    margin: 2.5rem 0;
+    background: var(--color-surface, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .reaction-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+  .reaction-avatar { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #f9a8d4; }
+  .reaction-avatar-sm { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #f9a8d4; }
+  .reaction-question { font-size: 0.95rem; font-weight: 600; color: var(--color-text); margin: 0; }
+  .reaction-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .reaction-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+    background: white; border: 2px solid var(--color-border, #e5e7eb); border-radius: 12px;
+    padding: 0.6rem 1rem; cursor: pointer; transition: all 0.2s; min-width: 80px;
+  }
+  .reaction-btn:hover { border-color: #f9a8d4; background: #fdf2f8; transform: translateY(-2px); }
+  .reaction-btn.selected { border-color: #ec4899; background: #fdf2f8; }
+  .reaction-emoji { font-size: 1.5rem; }
+  .reaction-label { font-size: 0.7rem; font-weight: 600; color: var(--color-text-muted); }
+  .reaction-count { font-size: 0.75rem; font-weight: 700; color: var(--color-primary); }
+  .reaction-response { display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-border); }
+  .reaction-msg { font-size: 0.9rem; color: var(--color-text); margin: 0; line-height: 1.5; }
+  [data-theme="dark"] .sakura-reaction { background: var(--color-surface, #1e293b); }
+  [data-theme="dark"] .reaction-btn { background: #1e293b; border-color: #334155; }
+  [data-theme="dark"] .reaction-btn:hover { background: rgba(236,72,153,0.1); border-color: #f9a8d4; }
 
   /* Prose styles */
   .prose h2, .prose h3, .prose h4 { scroll-margin-top: 80px; }
@@ -303,6 +503,62 @@ const categoryLabels: Record<string, string> = {
     }
     .article-layout__toc {
       order: -1;
+    }
+  }
+
+  /* 関連記事 */
+  .related-articles {
+    margin: 3rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--color-border, #e5e7eb);
+  }
+  .related-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .related-card {
+    display: block;
+    background: var(--color-surface, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .related-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .related-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+  .related-card-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 0.6rem 0.8rem;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  [data-theme="dark"] .related-card {
+    background: var(--color-surface, #1e293b);
+  }
+  @media (max-width: 640px) {
+    .related-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -383,6 +639,109 @@ const categoryLabels: Record<string, string> = {
         statusEl.textContent = '❌ 通信エラー';
       }
       saveBtn.disabled = false;
+    });
+  })();
+
+  // === お気に入り ===
+  (function() {
+    const favBtn = document.getElementById('fav-btn');
+    if (!favBtn) return;
+    const favs = JSON.parse(localStorage.getItem('jk_favorites') || '[]');
+    const isFav = favs.some(f => f.slug === slug);
+    if (isFav) { favBtn.textContent = '♥'; favBtn.classList.add('active'); }
+
+    favBtn.addEventListener('click', () => {
+      let list = JSON.parse(localStorage.getItem('jk_favorites') || '[]');
+      const idx = list.findIndex(f => f.slug === slug);
+      if (idx >= 0) {
+        list.splice(idx, 1);
+        favBtn.textContent = '♡'; favBtn.classList.remove('active');
+      } else {
+        list.unshift({ slug, title: document.querySelector('.article__title')?.textContent || '', date: new Date().toISOString() });
+        if (list.length > 50) list = list.slice(0, 50);
+        favBtn.textContent = '♥'; favBtn.classList.add('active');
+      }
+      localStorage.setItem('jk_favorites', JSON.stringify(list));
+    });
+  })();
+
+  // === 閲覧履歴 ===
+  (function() {
+    let hist = JSON.parse(localStorage.getItem('jk_history') || '[]');
+    hist = hist.filter(h => h.slug !== slug);
+    hist.unshift({ slug, title: document.querySelector('.article__title')?.textContent || '', date: new Date().toISOString() });
+    if (hist.length > 30) hist = hist.slice(0, 30);
+    localStorage.setItem('jk_history', JSON.stringify(hist));
+  })();
+
+  // === サクラリアクション ===
+  (function() {
+    const RESPONSES = {
+      helpful: [
+        "わぁ、参考になったって嬉しいです！もっと頑張りますね✨",
+        "お役に立てて光栄です！他の記事もぜひ見てくださいね🌸",
+        "ありがとうございます！レビューの甲斐がありました♪",
+      ],
+      interested: [
+        "気になりますよね！サクラも最初見たとき目が輝いちゃいました✨",
+        "ぜひチェックしてみてくださいね！後悔しないと思いますよ🌸",
+        "気になったらまずは比較してみるのがおすすめですよ♪",
+      ],
+      want: [
+        "わかります！サクラも欲しくなっちゃいました🛒✨",
+        "買っちゃいましょう！ポチる瞬間が一番楽しいですよね🌸",
+        "セールのタイミングを狙うとお得ですよ！サクラが見張ってます♪",
+      ],
+      thanks: [
+        "こちらこそありがとうございます！読んでくれて嬉しいです🌸",
+        "サクラも感謝の気持ちでいっぱいです✨ また来てくださいね！",
+        "えへへ、照れちゃいます♪ これからも応援してくださいね🌸",
+      ],
+    };
+
+    const reactions = JSON.parse(localStorage.getItem('jk_reactions') || '{}');
+    const articleReactions = reactions[slug] || {};
+
+    // カウント表示の初期化
+    Object.keys(articleReactions).forEach(type => {
+      const countEl = document.getElementById('count-' + type);
+      if (countEl) countEl.textContent = articleReactions[type] || 0;
+    });
+
+    // 既にリアクション済みかチェック
+    const myReaction = localStorage.getItem('jk_my_reaction_' + slug);
+    if (myReaction) {
+      const btn = document.querySelector(`.reaction-btn[data-type="${myReaction}"]`);
+      if (btn) btn.classList.add('selected');
+    }
+
+    document.querySelectorAll('.reaction-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (myReaction) return; // 1記事1回
+
+        const type = btn.dataset.type;
+        btn.classList.add('selected');
+
+        // カウント更新
+        if (!articleReactions[type]) articleReactions[type] = 0;
+        articleReactions[type]++;
+        reactions[slug] = articleReactions;
+        localStorage.setItem('jk_reactions', JSON.stringify(reactions));
+        localStorage.setItem('jk_my_reaction_' + slug, type);
+
+        const countEl = document.getElementById('count-' + type);
+        if (countEl) countEl.textContent = articleReactions[type];
+
+        // サクラの返答
+        const msgs = RESPONSES[type] || RESPONSES.helpful;
+        const msg = msgs[Math.floor(Math.random() * msgs.length)];
+        const responseEl = document.getElementById('reaction-response');
+        const msgEl = document.getElementById('reaction-msg');
+        if (responseEl && msgEl) {
+          msgEl.textContent = msg;
+          responseEl.style.display = 'flex';
+        }
+      });
     });
   })();
 </script>

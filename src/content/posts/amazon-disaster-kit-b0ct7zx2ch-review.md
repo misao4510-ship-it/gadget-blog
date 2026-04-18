@@ -10,6 +10,10 @@ recommendation: 3
 products: ["product-075"]
 amazonUrl: "https://www.amazon.co.jp/dp/B0CT7ZX2CH?tag=misao4510-22"
 ogImage: /images/og/amazon-disaster-kit-b0ct7zx2ch-review.png
+tags:
+  - "防災"
+  - "非常用"
+  - "セット"
 ---
 
 こんにちは！サクラです✨ 今日は万が一の災害時に家族を守るための防災グッズをご紹介しますよ！

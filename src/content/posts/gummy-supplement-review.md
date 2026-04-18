@@ -9,6 +9,11 @@ draft: false
 recommendation: 5
 products: ["product-068", "product-069", "product-070"]
 ogImage: /images/og/gummy-supplement-review.png
+tags:
+  - "サプリ"
+  - "グミ"
+  - "健康"
+  - "比較"
 ---
 
 こんにちは！サクラです✨ 今日は「サプリって続けにくい…」という方にぴったりのアイテムをご紹介しますよ！

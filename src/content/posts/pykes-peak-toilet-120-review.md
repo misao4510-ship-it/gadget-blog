@@ -10,6 +10,10 @@ recommendation:
 products: ["product-073"]
 amazonUrl: "https://www.amazon.co.jp/dp/B0D4YJC9Q1?tag=misao4510-22"
 ogImage: /images/og/pykes-peak-toilet-120-review.png
+tags:
+  - "防災"
+  - "簡易トイレ"
+  - "非常用"
 ---
 
 こんにちは！サクラです✨ 今日は万が一の備えとして大切な防災グッズをご紹介しますよ！

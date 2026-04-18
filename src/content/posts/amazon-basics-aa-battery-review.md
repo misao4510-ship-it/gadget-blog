@@ -11,6 +11,11 @@ priceUpdatedAt: "2026-04-14"
 products: ["product-072"]
 amazonUrl: "https://amzn.to/47JsGpU"
 ogImage: /images/og/amazon-basics-aa-battery-review.png
+tags:
+  - "電池"
+  - "コスパ"
+  - "備蓄"
+  - "防災"
 ---
 
 こんにちは！サクラです✨ 今日は家庭の必需品、単3電池のレビューをお届けしますよ！

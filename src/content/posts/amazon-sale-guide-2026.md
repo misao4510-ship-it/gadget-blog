@@ -7,6 +7,11 @@ products: ["product-001", "product-003", "product-004", "product-005"]
 type: "roundup"
 draft: false
 ogImage: /images/og/amazon-sale-guide-2026.png
+tags:
+  - "Amazon"
+  - "セール"
+  - "攻略"
+  - "お得"
 ---
 
 こんにちは！サクラです✨ 今日はAmazonセールを賢く使ってガジェットをお得に買う方法をご紹介しますよ！

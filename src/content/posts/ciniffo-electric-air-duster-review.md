@@ -9,6 +9,10 @@ type: "review"
 draft: false
 recommendation: 4
 ogImage: /images/og/ciniffo-electric-air-duster-review.png
+tags:
+  - "エアダスター"
+  - "PC清掃"
+  - "電動"
 ---
 
 こんにちは！サクラです✨ 今日はPCやキーボードのお掃除に革命をもたらす製品をご紹介しますよ！

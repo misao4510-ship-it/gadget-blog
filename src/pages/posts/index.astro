@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+posts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+---
+<BaseLayout
+  title="記事一覧"
+  description="人生快適ブログの全記事一覧。ガジェットレビュー・比較・セール情報をまとめてチェック。"
+>
+  <section class="posts-hero">
+    <div class="container">
+      <h1 class="posts-hero__title">📝 記事一覧</h1>
+      <p class="posts-hero__desc">全{posts.length}件の記事</p>
+    </div>
+  </section>
+
+  <section class="posts-list">
+    <div class="container">
+      <div class="articles__grid">
+        {posts.map(post => (
+          <ArticleCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.id}
+            category={post.data.category}
+            publishDate={post.data.publishDate}
+            ogImage={post.data.ogImage || '/images/og-default.svg'}
+            type={post.data.type}
+            productId={post.data.products?.[0]}
+            recommendation={post.data.recommendation}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .posts-hero {
+    padding: 3rem 0 2.5rem;
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    color: white;
+  }
+  .posts-hero__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: .5rem; color: white; }
+  .posts-hero__desc { font-size: 1.05rem; color: rgba(255,255,255,.85); }
+  .posts-list { padding: 3rem 0; }
+  .articles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+  @media (max-width: 640px) {
+    .articles__grid { grid-template-columns: 1fr; }
+    .posts-hero { padding: 2rem 0 1.75rem; }
+  }
+</style>

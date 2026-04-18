@@ -8,6 +8,12 @@ subcategory: "gadget"
 type: "comparison"
 draft: false
 ogImage: /images/og/usbc-hub-comparison.png
+tags:
+  - "USB-Cハブ"
+  - "Anker"
+  - "UGREEN"
+  - "Belkin"
+  - "比較"
 ---
 
 こんにちは！サクラです✨ 今日はノートPCやタブレットの機能をぐんと広げてくれるUSB-Cハブをご紹介しますよ！

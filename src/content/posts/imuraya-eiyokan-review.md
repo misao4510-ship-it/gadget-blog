@@ -10,6 +10,11 @@ recommendation: 4
 products: ["product-076"]
 amazonUrl: "https://www.amazon.co.jp/dp/B07ZJRK1MM?tag=misao4510-22"
 ogImage: /images/og/imuraya-eiyokan-review.png
+tags:
+  - "防災"
+  - "非常食"
+  - "長期保存"
+  - "井村屋"
 ---
 
 こんにちは！サクラです✨ 今日は防災備蓄の定番「えいようかん」をご紹介しますよ！

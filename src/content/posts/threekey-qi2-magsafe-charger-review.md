@@ -9,6 +9,10 @@ type: "review"
 draft: false
 recommendation: 4
 ogImage: /images/og/threekey-qi2-magsafe-charger-review.png
+tags:
+  - "Qi2"
+  - "ワイヤレス充電"
+  - "MagSafe"
 ---
 
 こんにちは！サクラです✨ 今日はiPhoneユーザーさんに特におすすめしたいワイヤレス充電器をご紹介しますよ！

@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const tagSet = new Set<string>();
+  posts.forEach(p => (p.data.tags || []).forEach((t: string) => tagSet.add(t)));
+  return Array.from(tagSet).map(tag => ({
+    params: { tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const tagPosts = allPosts
+  .filter(p => (p.data.tags || []).includes(tag))
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+---
+<BaseLayout
+  title={`#${tag} の記事一覧`}
+  description={`タグ「${tag}」の記事一覧です。`}
+>
+  <section class="tag-hero">
+    <div class="container">
+      <h1 class="tag-hero__title">🏷️ #{tag}</h1>
+      <p class="tag-hero__desc">{tagPosts.length}件の記事</p>
+    </div>
+  </section>
+
+  <section class="tag-articles">
+    <div class="container">
+      {tagPosts.length > 0 ? (
+        <div class="articles__grid">
+          {tagPosts.map(post => (
+            <ArticleCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.id}
+              category={post.data.category}
+              publishDate={post.data.publishDate}
+              ogImage={post.data.ogImage || '/images/og-default.svg'}
+              type={post.data.type}
+              productId={post.data.products?.[0]}
+              recommendation={post.data.recommendation}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="no-articles">このタグの記事はまだありません。</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tag-hero {
+    padding: 3rem 0 2.5rem;
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+    color: white;
+  }
+  .tag-hero__title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: .5rem; color: white; }
+  .tag-hero__desc { font-size: 1.05rem; color: rgba(255,255,255,.85); }
+  .tag-articles { padding: 3rem 0; }
+  .articles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+  .no-articles { color: var(--color-text-muted); text-align: center; padding: 3rem 0; }
+  @media (max-width: 640px) {
+    .articles__grid { grid-template-columns: 1fr; }
+  }
+</style>

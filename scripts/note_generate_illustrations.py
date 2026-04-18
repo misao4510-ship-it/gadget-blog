@@ -15,26 +15,22 @@ from pathlib import Path
 
 DEFAULT_API_URL = "http://172.18.208.1:7860"
 
-# カイナLoRA v1: 前髪あり・白の近未来スーツ
+# サクラテンプレート（殿が2026-04-15にプロンプトビルダーから指定）
 SAKURA_BASE = (
-    "masterpiece, best quality, "
-    "1girl, <lora:kaina_v1:0.8>, "
-    "pink hair, multicolored hair, blue gradient tips, long hair, bangs, blunt bangs, "
-    "blue eyes, "
-    "white futuristic leotard, white bodysuit, blue accents, high collar, long sleeves, "
-    "white thighhighs, headphones, "
-    "petite, small breasts, youthful face, "
-    "cowboy shot, white background, simple background, looking at viewer, "
-    "full head visible, forehead visible"
+    "masterpiece, best quality, beautiful face, beautiful detailed eyes, "
+    "beautiful hairstyle, beautiful skin, perfect body, "
+    "1girl, solo, teenager, small breasts, cowboy shot, "
+    "semi-long hair, pink hair, light blue inner color hair, "
+    "light blue eyes, round eyes, "
+    "futuristic playsuit, white outfit, "
+    "<lora:kaina_v1:0.70>"
 )
 
 NEGATIVE = (
     "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, "
     "missing fingers, watermark, text, signature, deformed, ugly, 3d, realistic, "
     "cropped head, head out of frame, cut off head, "
-    "black bodysuit, black suit, dark clothes, "
-    "casual clothes, t-shirt, shorts, jeans, hoodie, "
-    "full body, feet, shoes, boots"
+    "nsfw, nude, naked"
 )
 
 ILLUSTRATIONS = [

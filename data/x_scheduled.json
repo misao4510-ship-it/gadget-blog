@@ -1,0 +1,32 @@
+{
+  "date": "2026-04-18",
+  "slots": [
+    {
+      "slot": 1,
+      "time": "07:07",
+      "slug": "100w-usb-charger-comparison-2026",
+      "title": "100W USB-C充電器おすすめ5選",
+      "text": "🌸 100W充電器、どれがいいか迷いますよね？Anker・UGREEN・CIOの人気5モデルを徹底比較しましたよ✨ あなたにピッタリの1台が見つかるはず！\nhttps://gadget-blog-dxq.pages.dev/posts/100w-usb-charger-comparison-2026/\n#充電器 #100W #USB充電器",
+      "image": "/home/misao/gadget-blog/data/x_images/sakura_100w_usb_charger_comparison_2026_v.png",
+      "status": "posted"
+    },
+    {
+      "slot": 2,
+      "time": "12:13",
+      "slug": "amazon-sale-guide-2026",
+      "title": "Amazonセール攻略ガイド2026",
+      "text": "🌸 Amazonのセール、いつが一番お得か知ってますか？年間カレンダーと攻略ポイントをまとめましたよ✨ 買い時を逃さないで！\nhttps://gadget-blog-dxq.pages.dev/posts/amazon-sale-guide-2026/\n#Amazonセール #お買い得",
+      "image": "/home/misao/gadget-blog/data/x_images/sakura_amazon_sale_guide_2026_v.png",
+      "status": "pending"
+    },
+    {
+      "slot": 3,
+      "time": "20:43",
+      "slug": "anker-powerbank-25000-builtin-cable-review",
+      "title": "Anker 25000mAh モバイルバッテリー レビュー",
+      "text": "🌸 ケーブル内蔵で25000mAh！Ankerのモバイルバッテリーが便利すぎますよ✨ 旅行にも防災にもおすすめです！\nhttps://gadget-blog-dxq.pages.dev/posts/anker-powerbank-25000-builtin-cable-review/\n#モバイルバッテリー #Anker",
+      "image": "/home/misao/gadget-blog/data/x_images/sakura_anker_powerbank_25000_builtin_cable_review_v.png",
+      "status": "pending"
+    }
+  ]
+}

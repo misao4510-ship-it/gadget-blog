@@ -7,6 +7,12 @@ products: []
 type: "guide"
 draft: false
 ogImage: /images/og/yahoo-sale-calendar-2026.png
+tags:
+  - "Yahoo!"
+  - "セール"
+  - "PayPay"
+  - "カレンダー"
+  - "お得"
 ---
 
 こんにちは！サクラです✨ 今日はYahoo!ショッピングでポイントをどんどん貯める攻略法をご紹介しますよ！

@@ -7,11 +7,36 @@ const posts = await getCollection('posts', ({ data }) => !data.draft);
 posts.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
 const recentPosts = posts.slice(0, 5);
 
+// 大分類
+const MAJOR_CATEGORIES = [
+  { slug: 'charging', icon: '🔋', label: '充電・バッテリー', categories: ['charger', 'wireless-charger', 'mobile-battery'] },
+  { slug: 'pc-peripherals', icon: '💻', label: 'PC・周辺機器', categories: ['keyboard', 'monitor', 'portable-ssd', 'usb-hub'] },
+  { slug: 'audio', icon: '🎧', label: 'オーディオ', categories: ['earphones', 'earphone'] },
+  { slug: 'gadget', icon: '📱', label: 'ガジェット', categories: ['gadget', 'gadget-misc'] },
+  { slug: 'lifestyle', icon: '🏠', label: '生活・ヘルス', categories: ['生活', 'health', 'electric-kettle', 'ビジネス', 'review'] },
+  { slug: 'sale', icon: '🏷️', label: 'セール情報', categories: ['sale-info', 'sale-guide'] },
+];
+// 大分類ごとの記事数
+const majorCounts = MAJOR_CATEGORIES.map(mc => ({
+  ...mc,
+  count: posts.filter(p => mc.categories.includes(p.data.category)).length,
+}));
+
 ---
 <BaseLayout
   title="人生快適ブログ — 毎日の生活をもっと快適に"
   description="毎日の生活をもっと快適に。厳選ガジェット・便利グッズの価格比較・レビューをお届けします。"
 >
+  <!-- 新着バナー -->
+  {recentPosts.length > 0 && (
+    <div class="new-article-banner">
+      <div class="container">
+        <span class="banner-badge">NEW</span>
+        <a href={`/posts/${recentPosts[0].id}/`} class="banner-link">{recentPosts[0].data.title}</a>
+      </div>
+    </div>
+  )}
+
   <!-- Hero -->
   <section class="hero">
     <div class="container">
@@ -27,30 +52,53 @@ const recentPosts = posts.slice(0, 5);
     </div>
   </section>
 
+  <!-- サクラの今日のひとこと -->
+  <section class="sakura-hitokoto">
+    <div class="container">
+      <div class="hitokoto-card">
+        <img src="/images/sakura-profile.png" alt="サクラ" class="hitokoto-avatar" />
+        <div class="hitokoto-bubble">
+          <p class="hitokoto-text" id="hitokoto-text">読み込み中...</p>
+          <span class="hitokoto-name">🌸 サクラ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Main Content: Category sidebar + Latest articles -->
   <section class="main-content">
     <div class="container">
       <div class="content-grid">
 
-        <!-- Category Sidebar -->
+        <!-- Category Sidebar (大分類) -->
         <aside class="category-sidebar">
           <h2 class="sidebar-title">カテゴリ</h2>
           <nav class="category-menu" aria-label="カテゴリナビ">
-            <a href="/categories/sale/" class="category-item">
-              <span class="category-icon">🛒</span>
-              <span>セール</span>
-            </a>
-
-            <a href="/categories/review/" class="category-item">
-              <span class="category-icon">📝</span>
-              <span>レビュー</span>
-            </a>
-
+            {majorCounts.map(mc => (
+              <a href={`/categories/major/${mc.slug}/`} class="category-item">
+                <span class="category-icon">{mc.icon}</span>
+                <span>{mc.label}</span>
+                <span class="category-count">{mc.count}</span>
+              </a>
+            ))}
             <a href="/games/" class="category-item">
               <span class="category-icon">🎮</span>
               <span>ゲーム</span>
             </a>
           </nav>
+
+          <!-- 人気記事ランキング -->
+          <div class="popular-ranking">
+            <h3 class="sidebar-title">🏆 人気記事</h3>
+            <ol class="ranking-list">
+              {posts.slice(0, 5).map((p, i) => (
+                <li class="ranking-item">
+                  <span class={`ranking-num ranking-num--${i + 1}`}>{i + 1}</span>
+                  <a href={`/posts/${p.id}/`} class="ranking-link">{p.data.title}</a>
+                </li>
+              ))}
+            </ol>
+          </div>
         </aside>
 
         <!-- Latest Articles -->
@@ -81,9 +129,104 @@ const recentPosts = posts.slice(0, 5);
       </div>
     </div>
   </section>
+
+  <!-- お気に入り・閲覧履歴 -->
+  <section class="history-section" id="history-section" style="display:none;">
+    <div class="container">
+      <div class="history-grid">
+        <div class="history-block" id="fav-block">
+          <h2 class="history-title">♥ お気に入り</h2>
+          <ul class="history-list" id="fav-list"></ul>
+        </div>
+        <div class="history-block" id="hist-block">
+          <h2 class="history-title">🕐 最近見た記事</h2>
+          <ul class="history-list" id="hist-list"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
+  /* ===== 新着バナー ===== */
+  .new-article-banner {
+    background: linear-gradient(90deg, #f97316, #ef4444);
+    color: white;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    overflow: hidden;
+  }
+  .new-article-banner .container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .banner-badge {
+    background: white;
+    color: #ef4444;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .banner-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .banner-link:hover { text-decoration: underline; }
+
+  /* ===== 人気記事ランキング ===== */
+  .popular-ranking {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+  }
+  .ranking-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .ranking-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .ranking-num {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: white;
+    background: #9ca3af;
+  }
+  .ranking-num--1 { background: #f59e0b; }
+  .ranking-num--2 { background: #6b7280; }
+  .ranking-num--3 { background: #b45309; }
+  .ranking-link {
+    font-size: 0.85rem;
+    color: var(--color-text, #1f2937);
+    text-decoration: none;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .ranking-link:hover { color: var(--color-primary, #3b82f6); }
+
   /* ===== Hero ===== */
   .hero {
     background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
@@ -110,6 +253,71 @@ const recentPosts = posts.slice(0, 5);
     font-size: .875rem;
     font-weight: 600;
   }
+
+  /* ===== サクラの今日のひとこと ===== */
+  .sakura-hitokoto { padding: 1.5rem 0 0; }
+  .hitokoto-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hitokoto-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #f9a8d4;
+  }
+  .hitokoto-bubble {
+    background: var(--color-surface, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    position: relative;
+    flex: 1;
+  }
+  .hitokoto-bubble::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 16px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid var(--color-border, #e5e7eb);
+  }
+  .hitokoto-bubble::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 17px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid var(--color-surface, #f9fafb);
+  }
+  .hitokoto-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 0.4rem;
+    color: var(--color-text, #1f2937);
+  }
+  .hitokoto-name {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #6b7280);
+    font-weight: 600;
+  }
+  [data-theme="dark"] .hitokoto-bubble {
+    background: var(--color-surface, #1e293b);
+    border-color: var(--color-border, #334155);
+  }
+  [data-theme="dark"] .hitokoto-bubble::before { border-right-color: var(--color-border, #334155); }
+  [data-theme="dark"] .hitokoto-bubble::after { border-right-color: var(--color-surface, #1e293b); }
 
   /* ===== Main Content Layout ===== */
   .main-content { padding: 3rem 0; }
@@ -171,6 +379,15 @@ const recentPosts = posts.slice(0, 5);
     flex-shrink: 0;
     width: 1.4rem;
     text-align: center;
+  }
+  .category-count {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-muted, #6b7280);
+    background: var(--color-bg, #f1f5f9);
+    padding: 0.1rem 0.5rem;
+    border-radius: 99px;
   }
 
   /* ===== Articles Column ===== */
@@ -250,6 +467,115 @@ const recentPosts = posts.slice(0, 5);
     }
     .sidebar-title { display: none; }
     .articles__list { gap: 1rem; }
+    .hitokoto-card { max-width: 100%; }
+  }
+
+  /* ===== お気に入り・閲覧履歴 ===== */
+  .history-section { padding: 2rem 0 3rem; }
+  .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .history-block {
+    background: var(--color-surface, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .history-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border, #e5e7eb);
+  }
+  .history-list { list-style: none; padding: 0; margin: 0; }
+  .history-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--color-border, #f1f5f9); }
+  .history-list li:last-child { border-bottom: none; }
+  .history-list a {
+    color: var(--color-text, #1f2937);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .history-list a:hover { color: var(--color-primary, #2563eb); }
+  .history-empty { font-size: 0.85rem; color: var(--color-text-muted, #9ca3af); }
+  [data-theme="dark"] .history-block {
+    background: var(--color-surface, #1e293b);
+    border-color: var(--color-border, #334155);
+  }
+  @media (max-width: 640px) {
+    .history-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  const HITOKOTO_LIST = [
+    "今日もガジェット日和ですね✨ 新しい発見があるといいですね！",
+    "充電器選びって迷いますよね〜。サクラがお手伝いしますよ♪",
+    "おはようございます！今日はどんなガジェットを探しますか？🌸",
+    "イヤホン沼にハマると抜け出せないって聞きますよね…わかります！",
+    "モバイルバッテリーは大容量がいいけど、軽さも大事ですよね✨",
+    "セール情報見逃してませんか？サクラがチェックしてますよ！",
+    "USB-C統一の時代が来ましたね！ケーブルがスッキリ♪",
+    "GaN充電器って小さいのにパワフルで驚きですよね！",
+    "今日のおすすめ記事、ぜひチェックしてくださいね🌸",
+    "防災グッズにモバイルバッテリーは必須ですよ！備えあれば憂いなし✨",
+    "ワイヤレス充電って便利ですけど、有線の速さも捨てがたいですよね！",
+    "サクラ、最近3Dプリンターにも興味が出てきちゃいました♪",
+    "お買い物リスト作りましたか？サクラと一緒に賢くお買い物しましょう！",
+    "レビュー記事は正直に書いてますよ！デメリットも隠しません✨",
+    "キーボードって打鍵感で選ぶ派ですか？見た目で選ぶ派ですか？🌸",
+    "マウスパッドって意外と大事なんですよ！作業効率が変わります♪",
+    "PCモニターは目に優しいものを選びたいですよね✨",
+    "ガジェットポーチの中身って見せ合いたくなりませんか？🌸",
+    "Type-Cハブがあると世界が変わりますよ！おすすめです♪",
+    "サクラのブログに来てくれてありがとうございます✨ ゆっくりしていってくださいね！",
+    "スマートウォッチで健康管理、始めてみませんか？🌸",
+    "タブレットスタンドがあると動画視聴が快適になりますよ♪",
+    "最近のワイヤレスイヤホンはノイキャン性能がすごいですよね！",
+    "Amazonのセール、次はいつかな…サクラもソワソワしちゃいます✨",
+    "デスク周りの整理整頓で作業効率アップですよ！",
+    "今月のベストバイ、もう決まりましたか？🌸",
+    "ガジェット好きさん同士で語り合いたいですね♪",
+    "寝る前のスマホ、ブルーライトカット使ってますか？目に優しくしましょう✨",
+    "ポータブル電源があるとアウトドアが快適になりますよ！",
+    "サクラと一緒に、快適な毎日を見つけましょう🌸✨",
+  ];
+  const el = document.getElementById('hitokoto-text');
+  if (el) {
+    el.textContent = HITOKOTO_LIST[Math.floor(Math.random() * HITOKOTO_LIST.length)];
+  }
+
+  // お気に入り・閲覧履歴の表示
+  (function() {
+    const favs = JSON.parse(localStorage.getItem('jk_favorites') || '[]');
+    const hist = JSON.parse(localStorage.getItem('jk_history') || '[]');
+
+    if (favs.length === 0 && hist.length === 0) return;
+
+    const section = document.getElementById('history-section');
+    if (section) section.style.display = '';
+
+    const favList = document.getElementById('fav-list');
+    if (favList) {
+      if (favs.length === 0) {
+        favList.innerHTML = '<li class="history-empty">まだお気に入りはありません</li>';
+      } else {
+        favList.innerHTML = favs.slice(0, 5).map(f =>
+          `<li><a href="/posts/${f.slug}/">♥ ${f.title}</a></li>`
+        ).join('');
+      }
+    }
+
+    const histList = document.getElementById('hist-list');
+    if (histList) {
+      if (hist.length === 0) {
+        histList.innerHTML = '<li class="history-empty">まだ閲覧履歴はありません</li>';
+      } else {
+        histList.innerHTML = hist.slice(0, 5).map(h =>
+          `<li><a href="/posts/${h.slug}/">${h.title}</a></li>`
+        ).join('');
+      }
+    }
+  })();
+</script>
 
