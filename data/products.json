@@ -2701,6 +2701,132 @@
         }
       },
       "image_url": "https://m.media-amazon.com/images/I/71placeholder090.jpg"
+    },
+    {
+      "id": "product-091",
+      "name": "Creality Ender-3 V3 SE",
+      "category": "3d-printer",
+      "asin": "B0CBWHJSQ9",
+      "rakuten_keyword": "Creality Ender-3 V3 SE 3Dプリンター",
+      "a8_link": "https://px.a8.net/placeholder/product-091",
+      "image": "/images/products/creality-ender3-v3-se.svg",
+      "tags": [
+        "3Dプリンター",
+        "Creality",
+        "Ender-3",
+        "入門機",
+        "自動レベリング"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0CBWHJSQ9?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CBWHJSQ9?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCreality%20Ender-3%20V3%20SE%203D%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BF%E3%83%BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-091"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder091.jpg"
+    },
+    {
+      "id": "product-092",
+      "name": "Anycubic Kobra 3 Combo",
+      "category": "3d-printer",
+      "asin": "B0CZ76M6ZH",
+      "rakuten_keyword": "Anycubic Kobra 3 Combo マルチカラー 3Dプリンター",
+      "a8_link": "https://px.a8.net/placeholder/product-092",
+      "image": "/images/products/anycubic-kobra3-combo.svg",
+      "tags": [
+        "3Dプリンター",
+        "Anycubic",
+        "Kobra",
+        "マルチカラー",
+        "ACE Pro"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0CZ76M6ZH?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CZ76M6ZH?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnycubic%20Kobra%203%20Combo%20%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AB%E3%83%A9%E3%83%BC%203D%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BF%E3%83%BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-092"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder092.jpg"
+    },
+    {
+      "id": "product-093",
+      "name": "Creality K1C",
+      "category": "3d-printer",
+      "asin": "B0CQKZYXF6",
+      "rakuten_keyword": "Creality K1C 3Dプリンター カーボンファイバー",
+      "a8_link": "https://px.a8.net/placeholder/product-093",
+      "image": "/images/products/creality-k1c.svg",
+      "tags": [
+        "3Dプリンター",
+        "Creality",
+        "K1C",
+        "Core-XY",
+        "カーボンファイバー",
+        "高速"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0CQKZYXF6?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CQKZYXF6?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCreality%20K1C%203D%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BF%E3%83%BC%20%E3%82%AB%E3%83%BC%E3%83%9C%E3%83%B3%E3%83%95%E3%82%A1%E3%82%A4%E3%83%90%E3%83%BC%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-093"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder093.jpg"
+    },
+    {
+      "id": "product-094",
+      "name": "Elegoo Neptune 4 Pro",
+      "category": "3d-printer",
+      "asin": "B0PLACEHOLDER94",
+      "rakuten_keyword": "Elegoo Neptune 4 Pro 3Dプリンター Klipper",
+      "a8_link": "https://px.a8.net/placeholder/product-094",
+      "image": "/images/products/elegoo-neptune4-pro.svg",
+      "tags": [
+        "3Dプリンター",
+        "Elegoo",
+        "Neptune",
+        "Klipper",
+        "高速",
+        "直接押出"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/s?k=Elegoo+Neptune+4+Pro&tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/s?k=Elegoo+Neptune+4+Pro&tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FElegoo%20Neptune%204%20Pro%203D%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BF%E3%83%BC%20Klipper%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-094"
+        }
+      },
+      "image_url": null
     }
   ]
 }

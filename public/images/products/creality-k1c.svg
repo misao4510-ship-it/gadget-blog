@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#e2e8f0"/></linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- 密閉筐体（Core-XY特徴） -->
+  <rect x="100" y="85" width="200" height="190" rx="10" fill="url(#box)" stroke="#334155" stroke-width="2"/>
+  <!-- 前面パネル（透明） -->
+  <rect x="115" y="100" width="170" height="160" rx="6" fill="#1e3a5f" opacity=".6"/>
+  <!-- 内部 Core-XY 構造 -->
+  <rect x="125" y="115" width="150" height="8" rx="3" fill="#475569"/>
+  <rect x="125" y="240" width="150" height="8" rx="3" fill="#475569"/>
+  <rect x="125" y="115" width="8" height="133" rx="3" fill="#475569"/>
+  <rect x="267" y="115" width="8" height="133" rx="3" fill="#475569"/>
+  <!-- ヘッド -->
+  <rect x="175" y="155" width="50" height="55" rx="6" fill="#64748b"/>
+  <rect x="188" y="205" width="24" height="20" rx="3" fill="#f97316"/>
+  <!-- AIカメラ -->
+  <circle cx="260" cy="120" r="10" fill="#22d3ee"/>
+  <circle cx="260" cy="120" r="5" fill="#0e7490"/>
+  <!-- ロゴ/仕様 -->
+  <text x="200" y="108" text-anchor="middle" fill="#dc2626" font-family="Arial,sans-serif" font-size="11" font-weight="700">Creality K1C</text>
+  <text x="200" y="308" text-anchor="middle" fill="#1e293b" font-family="Arial,sans-serif" font-size="18" font-weight="800">Creality K1C</text>
+  <text x="200" y="334" text-anchor="middle" fill="#64748b" font-family="Arial,sans-serif" font-size="13">Core-XY 600mm/s CF対応</text>
+</svg>
