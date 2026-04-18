@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#f1f5f9"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- ラジオ本体 -->
+  <rect x="100" y="130" width="200" height="130" rx="12" fill="#1e293b"/>
+  <!-- スピーカーグリル -->
+  <rect x="110" y="145" width="80" height="80" rx="8" fill="#334155"/>
+  <circle cx="150" cy="185" r="28" fill="#475569"/>
+  <circle cx="150" cy="185" r="18" fill="#64748b"/>
+  <circle cx="150" cy="185" r="6" fill="#94a3b8"/>
+  <!-- 画面 -->
+  <rect x="200" y="145" width="90" height="35" rx="4" fill="#0f172a"/>
+  <text x="245" y="168" text-anchor="middle" fill="#22d3ee" font-family="Arial,sans-serif" font-size="12">FM 89.7</text>
+  <!-- ボタン群 -->
+  <circle cx="215" cy="200" r="8" fill="#ef4444"/>
+  <circle cx="240" cy="200" r="8" fill="#22c55e"/>
+  <circle cx="265" cy="200" r="8" fill="#f59e0b"/>
+  <!-- アンテナ -->
+  <line x1="280" y1="130" x2="300" y2="80" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <text x="200" y="295" text-anchor="middle" fill="#1e293b" font-family="Arial,sans-serif" font-size="16" font-weight="800">Greeshow GS-297</text>
+  <text x="200" y="320" text-anchor="middle" fill="#64748b" font-family="Arial,sans-serif" font-size="13">多機能防災ラジオ</text>
+</svg>

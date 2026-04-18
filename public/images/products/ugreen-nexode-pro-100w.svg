@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0fdf4"/><stop offset="100%" stop-color="#dcfce7"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1c1c1e"/><stop offset="100%" stop-color="#2c2c2e"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <rect x="130" y="120" width="140" height="110" rx="14" fill="url(#body)"/>
+  <!-- 3ポート -->
+  <rect x="260" y="138" width="13" height="22" rx="3" fill="#3f3f46"/>
+  <rect x="260" y="165" width="13" height="22" rx="3" fill="#3f3f46"/>
+  <rect x="260" y="148" width="11" height="16" rx="2" fill="#52525b"/>
+  <!-- プラグ -->
+  <rect x="155" y="230" width="10" height="20" rx="3" fill="#71717a"/>
+  <rect x="235" y="230" width="10" height="20" rx="3" fill="#71717a"/>
+  <text x="195" y="155" text-anchor="middle" fill="#4ade80" font-family="Arial,sans-serif" font-size="12" font-weight="700">UGREEN</text>
+  <text x="195" y="178" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="14" font-weight="800">Nexode Pro</text>
+  <text x="195" y="200" text-anchor="middle" fill="#86efac" font-family="Arial,sans-serif" font-size="18" font-weight="800">100W</text>
+  <text x="200" y="300" text-anchor="middle" fill="#14532d" font-family="Arial,sans-serif" font-size="17" font-weight="800">UGREEN Nexode Pro</text>
+  <text x="200" y="326" text-anchor="middle" fill="#15803d" font-family="Arial,sans-serif" font-size="13">100W 3ポート GaNInfinity</text>
+</svg>

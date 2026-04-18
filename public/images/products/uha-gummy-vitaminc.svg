@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff7ed"/><stop offset="100%" stop-color="#ffedd5"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- パッケージ箱 -->
+  <rect x="120" y="100" width="160" height="180" rx="12" fill="#f97316"/>
+  <rect x="130" y="110" width="140" height="60" rx="8" fill="#ea580c"/>
+  <text x="200" y="150" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="16" font-weight="700">UHA味覚糖</text>
+  <!-- グミ粒 -->
+  <circle cx="165" cy="210" r="18" fill="#fbbf24"/>
+  <circle cx="200" cy="205" r="18" fill="#fb923c"/>
+  <circle cx="235" cy="210" r="18" fill="#fbbf24"/>
+  <circle cx="182" cy="238" r="18" fill="#fb923c"/>
+  <circle cx="218" cy="238" r="18" fill="#fbbf24"/>
+  <text x="200" y="305" text-anchor="middle" fill="#c2410c" font-family="Arial,sans-serif" font-size="18" font-weight="800">グミサプリ</text>
+  <text x="200" y="330" text-anchor="middle" fill="#9a3412" font-family="Arial,sans-serif" font-size="14">ビタミンC</text>
+</svg>

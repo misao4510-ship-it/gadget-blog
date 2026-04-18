@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff7ed"/><stop offset="100%" stop-color="#ffedd5"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#292524"/><stop offset="100%" stop-color="#1c1917"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <rect x="128" y="115" width="144" height="125" rx="14" fill="url(#body)"/>
+  <!-- 4ポート -->
+  <rect x="262" y="135" width="13" height="20" rx="3" fill="#44403c"/>
+  <rect x="262" y="160" width="13" height="20" rx="3" fill="#44403c"/>
+  <rect x="262" y="185" width="13" height="20" rx="3" fill="#57534e"/>
+  <rect x="262" y="150" width="11" height="14" rx="2" fill="#57534e"/>
+  <!-- プラグ -->
+  <rect x="153" y="240" width="10" height="20" rx="3" fill="#78716c"/>
+  <rect x="237" y="240" width="10" height="20" rx="3" fill="#78716c"/>
+  <text x="193" y="150" text-anchor="middle" fill="#f97316" font-family="Arial,sans-serif" font-size="12" font-weight="700">CIO</text>
+  <text x="193" y="172" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="13" font-weight="800">NovaPort</text>
+  <text x="193" y="195" text-anchor="middle" fill="#fdba74" font-family="Arial,sans-serif" font-size="12">QUAD II 100W</text>
+  <text x="200" y="305" text-anchor="middle" fill="#7c2d12" font-family="Arial,sans-serif" font-size="16" font-weight="800">CIO NovaPort QUAD II</text>
+  <text x="200" y="330" text-anchor="middle" fill="#c2410c" font-family="Arial,sans-serif" font-size="13">100W 4ポート 日本製</text>
+</svg>

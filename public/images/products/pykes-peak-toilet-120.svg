@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0fdf4"/><stop offset="100%" stop-color="#dcfce7"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <!-- 箱 -->
+  <rect x="120" y="120" width="160" height="140" rx="10" fill="#15803d"/>
+  <rect x="130" y="130" width="140" height="50" rx="6" fill="#166534"/>
+  <text x="200" y="163" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="13" font-weight="700">PYKES PEAK</text>
+  <!-- トイレアイコン -->
+  <ellipse cx="200" cy="210" rx="35" ry="20" fill="#86efac"/>
+  <rect x="175" y="210" width="50" height="30" rx="4" fill="#4ade80"/>
+  <text x="200" y="300" text-anchor="middle" fill="#14532d" font-family="Arial,sans-serif" font-size="18" font-weight="800">簡易トイレ</text>
+  <text x="200" y="326" text-anchor="middle" fill="#166534" font-family="Arial,sans-serif" font-size="14">120回分</text>
+</svg>

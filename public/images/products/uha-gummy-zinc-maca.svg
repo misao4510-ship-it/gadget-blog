@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fdf4ff"/><stop offset="100%" stop-color="#fae8ff"/></linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+  <rect x="120" y="100" width="160" height="180" rx="12" fill="#a855f7"/>
+  <rect x="130" y="110" width="140" height="60" rx="8" fill="#9333ea"/>
+  <text x="200" y="150" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="16" font-weight="700">UHA味覚糖</text>
+  <circle cx="165" cy="210" r="18" fill="#d8b4fe"/>
+  <circle cx="200" cy="205" r="18" fill="#c084fc"/>
+  <circle cx="235" cy="210" r="18" fill="#d8b4fe"/>
+  <circle cx="182" cy="238" r="18" fill="#c084fc"/>
+  <circle cx="218" cy="238" r="18" fill="#d8b4fe"/>
+  <text x="200" y="305" text-anchor="middle" fill="#7e22ce" font-family="Arial,sans-serif" font-size="18" font-weight="800">グミサプリ</text>
+  <text x="200" y="330" text-anchor="middle" fill="#6b21a8" font-family="Arial,sans-serif" font-size="14">亜鉛＆マカ</text>
+</svg>
