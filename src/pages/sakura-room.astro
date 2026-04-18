@@ -161,7 +161,7 @@ const allGallery = [
   }
 
   /* ===== ウェルカム演出 ===== */
-  #sakura-welcome {
+  #sakura-room-welcome {
     display: none;
     position: fixed;
     inset: 0;
@@ -173,10 +173,10 @@ const allGallery = [
     padding: 2rem;
     text-align: center;
   }
-  [data-theme="dark"] #sakura-welcome {
+  [data-theme="dark"] #sakura-room-welcome {
     background: rgba(26, 13, 26, 0.97);
   }
-  #sakura-welcome.show { display: flex; }
+  #sakura-room-welcome.show { display: flex; }
   .sw-img-wrap {
     position: relative;
     display: inline-block;
@@ -476,9 +476,9 @@ const allGallery = [
 </div>
 
 <!-- ウェルカム演出 -->
-<div id="sakura-welcome">
+<div id="sakura-room-welcome">
   <div class="sw-img-wrap">
-    <img src="/images/sakura-profile.png" alt="サクラ" class="sw-sakura-img" />
+    <img src="/images/sakura-room/demukae/sakura_bedroom_1.png" alt="サクラ" class="sw-sakura-img" />
     <div class="sw-blush">
       <div class="sw-blush-circle"></div>
       <div class="sw-blush-circle"></div>
@@ -538,7 +538,7 @@ const allGallery = [
   const LOCK_SEC = 30;
 
   const pwScreen = document.getElementById('sakura-pw-screen');
-  const welcome = document.getElementById('sakura-welcome');
+  const welcome = document.getElementById('sakura-room-welcome');
   const gallery = document.getElementById('sakura-gallery');
   const pwInput = document.getElementById('sr-pw-input');
   const pwBtn = document.getElementById('sr-pw-btn');
@@ -564,9 +564,16 @@ const allGallery = [
 
   // ウェルカム画面の立ち絵をランダム設定
   const WELCOME_IMAGES = [
-    '/images/sakura-profile.png',
-    '/images/games/chibi/sakura_chibi_v2_06_nobg.png',
-    '/images/games/chibi/sakura_chibi_v2_08_nobg.png',
+    '/images/sakura-room/demukae/sakura_bedroom_1.png',
+    '/images/sakura-room/demukae/sakura_bedroom_10.png',
+    '/images/sakura-room/demukae/sakura_bedroom_2.png',
+    '/images/sakura-room/demukae/sakura_changing_3.png',
+    '/images/sakura-room/demukae/sakura_changing_9.png',
+    '/images/sakura-room/demukae/sakura_hoodie_10.png',
+    '/images/sakura-room/demukae/sakura_hoodie_3.png',
+    '/images/sakura-room/demukae/sakura_hoodie_8.png',
+    '/images/sakura-room/demukae/sakura_pajamas_3.png',
+    '/images/sakura-room/demukae/sakura_pajamas_6.png',
   ];
 
   function showGallery() {
