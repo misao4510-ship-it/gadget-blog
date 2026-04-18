@@ -2354,6 +2354,353 @@
         }
       },
       "image_url": "https://m.media-amazon.com/images/I/71placeholder079.jpg"
+    },
+    {
+      "id": "product-080",
+      "name": "Anker 317 Charger (100W)",
+      "category": "charger",
+      "asin": "B0C1GNK9NZ",
+      "rakuten_keyword": "Anker 317 Charger 100W",
+      "a8_link": "https://px.a8.net/placeholder/product-080",
+      "image": "/images/products/anker-317-charger-100w.svg",
+      "tags": [
+        "充電器",
+        "Anker",
+        "100W",
+        "USB-C",
+        "GaN"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0C1GNK9NZ?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0C1GNK9NZ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%20317%20Charger%20100W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-080"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder080.jpg"
+    },
+    {
+      "id": "product-081",
+      "name": "Anker Nano Charger (100W)",
+      "category": "charger",
+      "asin": "B0DQVDW4MH",
+      "rakuten_keyword": "Anker Nano Charger 100W",
+      "a8_link": "https://px.a8.net/placeholder/product-081",
+      "image": "/images/products/anker-nano-charger-100w.svg",
+      "tags": [
+        "充電器",
+        "Anker",
+        "100W",
+        "USB-C",
+        "GaN",
+        "コンパクト"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0DQVDW4MH?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0DQVDW4MH?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%20Nano%20Charger%20100W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-081"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder081.jpg"
+    },
+    {
+      "id": "product-082",
+      "name": "Anker Prime Charger (100W, 3 Ports, GaN)",
+      "category": "charger",
+      "asin": "B0D73JBJ56",
+      "rakuten_keyword": "Anker Prime Charger 100W 3ポート",
+      "a8_link": "https://px.a8.net/placeholder/product-082",
+      "image": "/images/products/anker-prime-charger-100w.svg",
+      "tags": [
+        "充電器",
+        "Anker",
+        "100W",
+        "USB-C",
+        "GaN",
+        "3ポート"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0D73JBJ56?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0D73JBJ56?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%20Prime%20Charger%20100W%203%E3%83%9D%E3%83%BC%E3%83%88%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-082"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder082.jpg"
+    },
+    {
+      "id": "product-083",
+      "name": "UGREEN Nexode Pro 100W 3ポート充電器",
+      "category": "charger",
+      "asin": "B0CCVQB7MY",
+      "rakuten_keyword": "UGREEN Nexode Pro 100W",
+      "a8_link": "https://px.a8.net/placeholder/product-083",
+      "image": "/images/products/ugreen-nexode-pro-100w.svg",
+      "tags": [
+        "充電器",
+        "UGREEN",
+        "100W",
+        "USB-C",
+        "GaN",
+        "3ポート"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0CCVQB7MY?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CCVQB7MY?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%20Nexode%20Pro%20100W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-083"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder083.jpg"
+    },
+    {
+      "id": "product-084",
+      "name": "CIO NovaPort QUAD II 100W",
+      "category": "charger",
+      "asin": "B0DK7DRXSR",
+      "rakuten_keyword": "CIO NovaPort QUAD II 100W",
+      "a8_link": "https://px.a8.net/placeholder/product-084",
+      "image": "/images/products/cio-novaport-quad2-100w.svg",
+      "tags": [
+        "充電器",
+        "CIO",
+        "100W",
+        "USB-C",
+        "GaN",
+        "4ポート",
+        "日本製"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0DK7DRXSR?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0DK7DRXSR?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCIO%20NovaPort%20QUAD%20II%20100W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-084"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder084.jpg"
+    },
+    {
+      "id": "product-085",
+      "name": "Anker Power Bank (25000mAh, Built-In USB-C Cable)",
+      "category": "mobile-battery",
+      "asin": "B0DT4RGDSJ",
+      "rakuten_keyword": "Anker Power Bank 25000mAh 内蔵ケーブル",
+      "a8_link": "https://px.a8.net/placeholder/product-085",
+      "image": "/images/products/anker-powerbank-25000-builtin-cable.svg",
+      "tags": [
+        "モバイルバッテリー",
+        "Anker",
+        "25000mAh",
+        "165W",
+        "内蔵ケーブル"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0DT4RGDSJ?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0DT4RGDSJ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%20Power%20Bank%2025000mAh%20%E5%86%85%E8%94%B5%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-085"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder085.jpg"
+    },
+    {
+      "id": "product-086",
+      "name": "deoway 名刺入れ 2026年最新型 大容量",
+      "category": "business",
+      "asin": "B0CQSRHSGJ",
+      "rakuten_keyword": "deoway 名刺入れ マグネット",
+      "a8_link": "https://px.a8.net/placeholder/product-086",
+      "image": "/images/products/deoway-card-case.svg",
+      "tags": [
+        "名刺入れ",
+        "ビジネス",
+        "マグネット",
+        "大容量",
+        "コスパ"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0CQSRHSGJ?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B0CQSRHSGJ?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Fdeoway%20%E5%90%8D%E5%88%BA%E5%85%A5%E3%82%8C%20%E3%83%9E%E3%82%B0%E3%83%8D%E3%83%83%E3%83%88%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-086"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder086.jpg"
+    },
+    {
+      "id": "product-087",
+      "name": "FEDOUR パワー強い水槽エアーポンプ 10W 4口",
+      "category": "aquarium",
+      "asin": "B08GYBFLFH",
+      "rakuten_keyword": "FEDOUR 水槽 エアーポンプ 10W",
+      "a8_link": "https://px.a8.net/placeholder/product-087",
+      "image": "/images/products/fedour-aquarium-air-pump.svg",
+      "tags": [
+        "エアーポンプ",
+        "水槽",
+        "アクアリウム",
+        "FEDOUR",
+        "静音"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B08GYBFLFH?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B08GYBFLFH?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FFEDOUR%20%E6%B0%B4%E6%A7%BD%20%E3%82%A8%E3%82%A2%E3%83%BC%E3%83%9D%E3%83%B3%E3%83%97%2010W%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-087"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder087.jpg"
+    },
+    {
+      "id": "product-088",
+      "name": "final ZE500 for ASMR 3D",
+      "category": "earphone",
+      "asin": "B0PLACEHOLDER88",
+      "rakuten_keyword": "final ZE500 ASMR 3D",
+      "a8_link": "https://px.a8.net/placeholder/product-088",
+      "image": "/images/products/final-ze500-asmr-3d.svg",
+      "tags": [
+        "イヤホン",
+        "ASMR",
+        "寝ホン",
+        "final",
+        "Bluetooth"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/s?k=final+ZE500+ASMR+3D&tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/s?k=final+ZE500+ASMR+3D&tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2Ffinal%20ZE500%20ASMR%203D%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-088"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-089",
+      "name": "UGREEN Nexode 65W 急速充電器 Type-C 3ポート GaN II",
+      "category": "charger",
+      "asin": "B091BGMKYS",
+      "rakuten_keyword": "UGREEN Nexode 65W GaN 充電器",
+      "a8_link": "https://px.a8.net/placeholder/product-089",
+      "image": "/images/products/ugreen-nexode-65w.svg",
+      "tags": [
+        "充電器",
+        "UGREEN",
+        "65W",
+        "USB-C",
+        "GaN",
+        "3ポート"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B091BGMKYS?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B091BGMKYS?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FUGREEN%20Nexode%2065W%20GaN%20%E5%85%85%E9%9B%BB%E5%99%A8%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-089"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder089.jpg"
+    },
+    {
+      "id": "product-090",
+      "name": "山崎産業 ユニットバスボンくん 抗菌",
+      "category": "cleaning",
+      "asin": "B00R12PR3K",
+      "rakuten_keyword": "山崎産業 ユニットバスボンくん",
+      "a8_link": "https://px.a8.net/placeholder/product-090",
+      "image": "/images/products/yamazaki-unit-bath-brush.svg",
+      "tags": [
+        "お風呂掃除",
+        "山崎産業",
+        "ブラシ",
+        "伸縮ハンドル",
+        "抗菌"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B00R12PR3K?tag=misao4510-22",
+          "url": "https://www.amazon.co.jp/dp/B00R12PR3K?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E5%B1%B1%E5%B4%8E%E7%94%A3%E6%A5%AD%20%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%90%E3%82%B9%E3%83%9C%E3%83%B3%E3%81%8F%E3%82%93%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-090"
+        }
+      },
+      "image_url": "https://m.media-amazon.com/images/I/71placeholder090.jpg"
     }
   ]
 }

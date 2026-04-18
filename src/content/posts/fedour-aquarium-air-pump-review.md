@@ -8,6 +8,12 @@ type: "review"
 draft: false
 recommendation: 3
 ogImage: /images/og/fedour-aquarium-air-pump-review.png
+tags:
+  - "水槽"
+  - "エアーポンプ"
+  - "アクアリウム"
+products:
+  - "product-087"
 ---
 
 こんにちは！サクラです✨ 今日はアクアリウムが好きな方にご紹介したいアイテムですよ！

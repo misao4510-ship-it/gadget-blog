@@ -8,6 +8,13 @@ type: "review"
 draft: false
 recommendation: 5
 ogImage: /images/og/final-ze500-asmr-3d-review.png
+tags:
+  - "イヤホン"
+  - "ASMR"
+  - "寝ホン"
+  - "final"
+products:
+  - "product-088"
 ---
 
 こんにちは！サクラです✨ 今日はASMR好きさんにぜひ知っていただきたいイヤホンをご紹介しますよ！

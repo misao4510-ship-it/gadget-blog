@@ -8,6 +8,13 @@ draft: false
 amazonUrl: "https://amzn.to/4cKD5Ep"
 recommendation:
 ogImage: /images/og/yamazaki-unit-bath-brush-review.png
+tags:
+  - "掃除"
+  - "浴室"
+  - "山崎産業"
+  - "便利グッズ"
+products:
+  - "product-090"
 ---
 
 こんにちは！サクラです✨ 今日は毎日のお風呂掃除を楽にしてくれるアイテムをご紹介しますよ！

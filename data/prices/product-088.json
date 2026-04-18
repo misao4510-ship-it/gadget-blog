@@ -1,0 +1,28 @@
+{
+  "product_id": "product-088",
+  "current": {
+    "amazon": {
+      "price": 7980,
+      "url": "https://www.amazon.co.jp/dp/PLACEHOLDER?tag=misao4510-22",
+      "in_stock": true,
+      "updated": "2026-04-17"
+    },
+    "rakuten": {
+      "price": 7980,
+      "in_stock": true,
+      "url": "https://search.rakuten.co.jp/search/mall/product-088/",
+      "updated": "2026-04-17"
+    },
+    "cheapest": {
+      "store": "amazon",
+      "price": 7980
+    }
+  },
+  "history": [
+    {
+      "date": "2026-04-17",
+      "amazon": 7980,
+      "rakuten": 7980
+    }
+  ]
+}

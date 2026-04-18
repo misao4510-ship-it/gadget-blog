@@ -9,6 +9,12 @@ recommendation: 3
 priceUpdatedAt: "2026-04-15"
 amazonUrl: "https://amzn.to/4eorbkN"
 ogImage: /images/og/deoway-card-case-review.png
+tags:
+  - "名刺入れ"
+  - "ビジネス"
+  - "コスパ"
+products:
+  - "product-086"
 ---
 
 こんにちは！サクラです✨ 今日はビジネスパーソンの必需品、名刺入れをご紹介しますよ！

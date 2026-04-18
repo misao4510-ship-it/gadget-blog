@@ -9,6 +9,14 @@ draft: false
 recommendation: 4
 amazonUrl: "https://amzn.to/4sCrvzW"
 ogImage: /images/og/anker-powerbank-25000-builtin-cable-review.png
+tags:
+  - "Anker"
+  - "モバイルバッテリー"
+  - "大容量"
+  - "USB-C"
+  - "165W"
+products:
+  - "product-085"
 ---
 
 こんにちは！サクラです✨ 今日はケーブル内蔵で超便利な大容量モバイルバッテリーをご紹介しますよ！
