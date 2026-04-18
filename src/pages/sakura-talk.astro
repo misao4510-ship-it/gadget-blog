@@ -74,6 +74,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <script>
   const WORKER_URL = 'https://sakura-chat-api.misao-4510.workers.dev/chat';
+  const VOICEVOX_URL = 'https://immigrants-bible-organized-sat.trycloudflare.com';
+  const VOICEVOX_SPEAKER = 0; // 四国めたん（あまあま）
+  let voicevoxAvailable = false;
 
   // チャット履歴（AIへ送るmessages配列）
   let chatHistory: {role: string, content: string}[] = [];
@@ -148,8 +151,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     return wrap;
   }
 
-  // 音声読み上げ
-  function speakText(text: string) {
+  // VOICEVOX接続確認
+  async function checkVoicevox() {
+    try {
+      const res = await fetch(`${VOICEVOX_URL}/version`, { signal: AbortSignal.timeout(3000) });
+      if (res.ok) { voicevoxAvailable = true; console.log('[sakura-talk] VOICEVOX available'); }
+    } catch { voicevoxAvailable = false; console.log('[sakura-talk] VOICEVOX unavailable, using browser TTS'); }
+  }
+  checkVoicevox();
+
+  // VOICEVOX音声合成
+  async function speakWithVoicevox(text: string): Promise<boolean> {
+    try {
+      const qRes = await fetch(
+        `${VOICEVOX_URL}/audio_query?text=${encodeURIComponent(text)}&speaker=${VOICEVOX_SPEAKER}`,
+        { method: 'POST' }
+      );
+      if (!qRes.ok) return false;
+      const query = await qRes.json();
+
+      const sRes = await fetch(
+        `${VOICEVOX_URL}/synthesis?speaker=${VOICEVOX_SPEAKER}`,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(query) }
+      );
+      if (!sRes.ok) return false;
+      const blob = await sRes.blob();
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+
+      return new Promise((resolve) => {
+        audio.onplay = () => { setChibiPose('speak'); setStatus('話し中...', 'speaking'); };
+        audio.onended = () => { setChibiPose('idle'); setStatus('待機中', 'idle'); URL.revokeObjectURL(url); resolve(true); };
+        audio.onerror = () => { URL.revokeObjectURL(url); resolve(false); };
+        audio.play().catch(() => resolve(false));
+      });
+    } catch { return false; }
+  }
+
+  // ブラウザTTSフォールバック
+  function speakWithBrowser(text: string) {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
 
@@ -158,23 +198,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     utt.rate = 1.05;
     utt.pitch = 1.2;
 
-    // 日本語女性音声を優先
     const voices = window.speechSynthesis.getVoices();
     const jaVoice = voices.find(v =>
       v.lang.startsWith('ja') && /female|woman|girl|Kyoko|Otoya|Haruka/i.test(v.name)
     ) || voices.find(v => v.lang.startsWith('ja'));
     if (jaVoice) utt.voice = jaVoice;
 
-    utt.onstart = () => {
-      setChibiPose('speak');
-      setStatus('話し中...', 'speaking');
-    };
-    utt.onend = () => {
-      setChibiPose('idle');
-      setStatus('待機中', 'idle');
-    };
-
+    utt.onstart = () => { setChibiPose('speak'); setStatus('話し中...', 'speaking'); };
+    utt.onend = () => { setChibiPose('idle'); setStatus('待機中', 'idle'); };
     window.speechSynthesis.speak(utt);
+  }
+
+  // 音声読み上げ（VOICEVOX優先、フォールバックでブラウザTTS）
+  async function speakText(text: string) {
+    if (voicevoxAvailable) {
+      const ok = await speakWithVoicevox(text);
+      if (ok) return;
+      voicevoxAvailable = false;
+    }
+    speakWithBrowser(text);
   }
 
   // AI呼び出し
