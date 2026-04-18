@@ -16,7 +16,7 @@ import type { TrendResult } from '../../utils/priceTrend';
 
 export async function getStaticPaths() {
   const now = new Date();
-  const posts = await getCollection('posts', ({ data }) => !data.draft && new Date(data.publishDate) <= now);
+  const posts = await getCollection('posts', ({ data }) => !data.draft && data.publishDate <= new Date().toLocaleDateString('sv-SE', {timeZone: 'Asia/Tokyo'}));
   return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
 }
 
@@ -29,7 +29,7 @@ const charCount = body.replace(/[#\-*\[\]()!`>|]/g, '').length;
 const readingTime = Math.max(1, Math.ceil(charCount / 400));
 
 // 関連記事（同カテゴリから最大4件）
-const allPosts = await getCollection('posts', ({ data }) => !data.draft && new Date(data.publishDate) <= new Date());
+const allPosts = await getCollection('posts', ({ data }) => !data.draft && data.publishDate <= new Date().toLocaleDateString('sv-SE', {timeZone: 'Asia/Tokyo'}));
 const relatedPosts = allPosts
   .filter(p => p.id !== post.id && p.data.category === post.data.category)
   .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())

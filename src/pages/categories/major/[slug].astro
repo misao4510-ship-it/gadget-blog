@@ -62,7 +62,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.props;
 const major = MAJOR_CATEGORIES[slug];
 
-const allPosts = await getCollection('posts', ({ data }) => !data.draft && new Date(data.publishDate) <= new Date());
+const allPosts = await getCollection('posts', ({ data }) => !data.draft && data.publishDate <= new Date().toLocaleDateString('sv-SE', {timeZone: 'Asia/Tokyo'}));
 const categoryPosts = allPosts
   .filter(p => major.categories.includes(p.data.category))
   .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());

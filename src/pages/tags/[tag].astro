@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }) => !data.draft && new Date(data.publishDate) <= new Date());
+  const posts = await getCollection('posts', ({ data }) => !data.draft && data.publishDate <= new Date().toLocaleDateString('sv-SE', {timeZone: 'Asia/Tokyo'}));
   const tagSet = new Set<string>();
   posts.forEach(p => (p.data.tags || []).forEach((t: string) => tagSet.add(t)));
   return Array.from(tagSet).map(tag => ({
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.props;
-const allPosts = await getCollection('posts', ({ data }) => !data.draft && new Date(data.publishDate) <= new Date());
+const allPosts = await getCollection('posts', ({ data }) => !data.draft && data.publishDate <= new Date().toLocaleDateString('sv-SE', {timeZone: 'Asia/Tokyo'}));
 const tagPosts = allPosts
   .filter(p => (p.data.tags || []).includes(tag))
   .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
