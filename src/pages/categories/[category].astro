@@ -22,7 +22,7 @@ const CATEGORY_META: Record<string, { icon: string; label: string; color: string
 };
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const posts = await getCollection('posts', ({ data }) => !data.draft && new Date(data.publishDate) <= new Date());
   const categories = [...new Set(posts.map(p => p.data.category))];
   return categories.map(cat => ({
     params: { category: cat },
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 const { category } = Astro.props;
 const meta = CATEGORY_META[category] || { icon: '📦', label: category, color: '#2563eb' };
 
-const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const allPosts = await getCollection('posts', ({ data }) => !data.draft && new Date(data.publishDate) <= new Date());
 const categoryPosts = allPosts
   .filter(p => p.data.category === category)
   .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
