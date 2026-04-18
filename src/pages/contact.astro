@@ -1,0 +1,418 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="お問い合わせ"
+  description="人生快適ブログへのお問い合わせページです。記事の内容・アフィリエイト・サイト運営に関するご質問・ご要望をお気軽にどうぞ。"
+  ogImage="/images/sakura-profile.png"
+>
+  <div class="contact-page">
+    <div class="container">
+
+      <section class="contact-hero">
+        <div class="contact-hero__icon">🌸</div>
+        <h1 class="contact-hero__title">お問い合わせ</h1>
+        <p class="contact-hero__desc">ご質問・ご意見・ご要望など、お気軽にお送りくださいね！<br>サクラがしっかり確認しますよ✨</p>
+      </section>
+
+      <!-- 対応内容 -->
+      <section class="contact-info">
+        <h2 class="contact-section-title">📋 対応内容</h2>
+        <ul class="contact-list">
+          <li>📝 記事内容に関するご指摘・誤情報のご報告</li>
+          <li>🛒 掲載商品・価格情報に関するお問い合わせ</li>
+          <li>💰 アフィリエイトリンクに関するご質問</li>
+          <li>📣 掲載依頼・ビジネスに関するお問い合わせ</li>
+          <li>🔒 プライバシーポリシーに関するご質問</li>
+          <li>💬 その他、サイト全般に関するご意見・ご要望</li>
+        </ul>
+      </section>
+
+      <!-- お問い合わせフォーム -->
+      <section class="contact-form-section">
+        <h2 class="contact-section-title">✉️ お問い合わせフォーム</h2>
+        <p class="contact-form-note">以下のフォームにご入力のうえ、送信してください。通常3〜5営業日以内にご返信いたします。</p>
+
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/xjkvopob"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="contact-name" class="form-label">お名前 <span class="form-required">必須</span></label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              class="form-input"
+              placeholder="例：山田 太郎"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email" class="form-label">メールアドレス <span class="form-required">必須</span></label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              class="form-input"
+              placeholder="例：example@mail.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-subject" class="form-label">件名 <span class="form-required">必須</span></label>
+            <select id="contact-subject" name="subject" class="form-input form-select" required>
+              <option value="">件名を選択してください</option>
+              <option value="記事の内容に関するご指摘">記事の内容に関するご指摘</option>
+              <option value="アフィリエイトに関するご質問">アフィリエイトに関するご質問</option>
+              <option value="掲載依頼・ビジネスのご相談">掲載依頼・ビジネスのご相談</option>
+              <option value="プライバシーポリシーに関するご質問">プライバシーポリシーに関するご質問</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message" class="form-label">お問い合わせ内容 <span class="form-required">必須</span></label>
+            <textarea
+              id="contact-message"
+              name="message"
+              class="form-input form-textarea"
+              placeholder="お問い合わせ内容を具体的にご記入ください"
+              rows="6"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group form-group--privacy">
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="privacy" required class="form-checkbox" />
+              <span><a href="/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します</span>
+            </label>
+          </div>
+
+          <button type="submit" class="form-submit-btn">送信する 🌸</button>
+        </form>
+      </section>
+
+      <!-- 運営者情報 -->
+      <section class="contact-operator">
+        <h2 class="contact-section-title">📋 運営者情報</h2>
+        <div class="operator-table-wrap">
+          <table class="operator-table">
+            <tbody>
+              <tr><th>サイト名</th><td>人生快適ブログ</td></tr>
+              <tr><th>運営者</th><td>misao（ミサオ）</td></tr>
+              <tr><th>サイトURL</th><td>https://jinsei-kaiteki.com/</td></tr>
+              <tr><th>サイトの目的</th><td>ガジェット・生活便利グッズの情報発信。価格比較・コスパ分析を通じて読者の購買判断をサポートすること。</td></tr>
+              <tr><th>収益化</th><td>Amazonアソシエイト・楽天アフィリエイト・もしもアフィリエイト等のアフィリエイトプログラムを利用しています。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding: 3rem 0 5rem;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ===== Hero ===== */
+  .contact-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-hero__icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .contact-hero__title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #d06080;
+    margin: 0 0 0.75rem;
+  }
+
+  :global([data-theme="dark"]) .contact-hero__title {
+    color: #c4b5fd;
+  }
+
+  .contact-hero__desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* ===== Section Title ===== */
+  .contact-section-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #d06080;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #fecdd3;
+  }
+
+  :global([data-theme="dark"]) .contact-section-title {
+    color: #c4b5fd;
+    border-bottom-color: #333366;
+  }
+
+  /* ===== Info List ===== */
+  .contact-info {
+    margin-bottom: 3rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.97rem;
+    color: var(--color-text-muted);
+    line-height: 2.4;
+  }
+
+  /* ===== Form ===== */
+  .contact-form-section {
+    margin-bottom: 3rem;
+  }
+
+  .contact-form-note {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-form {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group--privacy {
+    margin-bottom: 2rem;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-required {
+    background: #ff9a9e;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+
+  :global([data-theme="dark"]) .form-required {
+    background: #667eea;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #fecdd3;
+    border-radius: 12px;
+    font-size: 0.97rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+
+  :global([data-theme="dark"]) .form-input {
+    border-color: #333366;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #ff9a9e;
+    box-shadow: 0 0 0 3px rgba(255,154,158,0.15);
+  }
+
+  :global([data-theme="dark"]) .form-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+  }
+
+  .form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23d06080'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.2rem;
+    padding-right: 2.5rem;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .form-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+  }
+
+  .form-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    accent-color: #ff9a9e;
+  }
+
+  .form-checkbox-label a {
+    color: #d06080;
+    text-decoration: underline;
+  }
+
+  :global([data-theme="dark"]) .form-checkbox-label a {
+    color: #c4b5fd;
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #ff9a9e, #fbc2eb);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255,100,150,0.3);
+    font-family: inherit;
+  }
+
+  .form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255,100,150,0.35);
+  }
+
+  :global([data-theme="dark"]) .form-submit-btn {
+    background: linear-gradient(135deg, #667eea, #a5b4fc);
+    box-shadow: 0 4px 15px rgba(102,126,234,0.35);
+  }
+
+  /* ===== Operator Table ===== */
+  .contact-operator {
+    margin-bottom: 2rem;
+  }
+
+  .operator-table-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #fecdd3;
+    box-shadow: 0 4px 12px rgba(255,100,150,0.06);
+  }
+
+  :global([data-theme="dark"]) .operator-table-wrap {
+    border-color: #333366;
+  }
+
+  .operator-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+  }
+
+  .operator-table th,
+  .operator-table td {
+    padding: 0.85rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid #fecdd3;
+  }
+
+  :global([data-theme="dark"]) .operator-table th,
+  :global([data-theme="dark"]) .operator-table td {
+    border-bottom-color: #333355;
+  }
+
+  .operator-table tr:last-child th,
+  .operator-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .operator-table th {
+    width: 30%;
+    color: #d06080;
+    font-weight: 700;
+    background: linear-gradient(90deg, #fff5f7, #fef0f5);
+    font-size: 0.88rem;
+  }
+
+  :global([data-theme="dark"]) .operator-table th {
+    color: #c4b5fd;
+    background: linear-gradient(90deg, #16213e, #1a1a2e);
+  }
+
+  .operator-table td {
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .contact-hero__title {
+      font-size: 1.8rem;
+    }
+
+    .contact-form {
+      padding: 1.5rem;
+    }
+
+    .operator-table th {
+      width: 38%;
+    }
+  }
+</style>

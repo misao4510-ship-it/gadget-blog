@@ -144,6 +144,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
+    <!-- 運営者情報 Section -->
+    <section class="about-operator">
+      <div class="container">
+        <h2 class="section-title--cute">📋 運営者情報</h2>
+        <div class="operator-card">
+          <table class="specs-table">
+            <tbody>
+              <tr><th>🌸 サイト名</th><td>人生快適ブログ</td></tr>
+              <tr><th>🌐 サイトURL</th><td>https://jinsei-kaiteki.com/</td></tr>
+              <tr><th>👤 運営者</th><td>misao（ミサオ）</td></tr>
+              <tr><th>📧 お問い合わせ</th><td><a href="/contact/">お問い合わせフォームへ</a></td></tr>
+              <tr><th>🎯 サイトの目的</th><td>ガジェット・生活便利グッズの情報発信。価格比較・コスパ分析を通じて、読者の購買判断をサポートすること。</td></tr>
+              <tr><th>💡 コンテンツ方針</th><td>AIナビゲーター「サクラ」が記事を作成。実際の商品スペック・口コミ・価格データに基づき、正確な情報提供を心がけています。</td></tr>
+              <tr><th>💰 収益化</th><td>Amazonアソシエイト・楽天アフィリエイト・もしもアフィリエイト等のアフィリエイトプログラムに参加しています。記事内のリンクから購入いただくと、サイト運営者に一定の報酬が発生します。</td></tr>
+              <tr><th>📅 開設</th><td>2025年</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="operator-note">ご不明な点・ご要望は<a href="/contact/">お問い合わせページ</a>よりお気軽にご連絡ください🌸</p>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="about-cta">
       <div class="container">
@@ -739,6 +761,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   :global([data-theme="dark"]) .specs-table tr:hover td,
   :global([data-theme="dark"]) .specs-table tr:hover th {
     background: #1e1e3e;
+  }
+
+  /* ===== Operator Info ===== */
+  .about-operator {
+    padding: 0 0 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .operator-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid #fecdd3;
+    box-shadow: 0 4px 16px rgba(255,100,150,0.08);
+    margin-bottom: 1.5rem;
+  }
+
+  :global([data-theme="dark"]) .operator-card {
+    border-color: #333366;
+    box-shadow: 0 4px 16px rgba(102,126,234,0.08);
+  }
+
+  .operator-card .specs-table th {
+    width: 30%;
+  }
+
+  .operator-card .specs-table a {
+    color: #d06080;
+    text-decoration: underline;
+  }
+
+  :global([data-theme="dark"]) .operator-card .specs-table a {
+    color: #c4b5fd;
+  }
+
+  .operator-note {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  .operator-note a {
+    color: #d06080;
+    text-decoration: underline;
+  }
+
+  :global([data-theme="dark"]) .operator-note a {
+    color: #c4b5fd;
   }
 
   /* ===== CTA ===== */
