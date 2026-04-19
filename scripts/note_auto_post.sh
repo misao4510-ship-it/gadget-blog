@@ -29,7 +29,7 @@ python3 scripts/note_post.py \
     --all-new \
     --no-sakura-voice \
     --blog-images \
-    --limit 3 \
+    --limit 1 \
     --telegram-notify \
     ${DRY_RUN} \
     2>&1 | tee -a "$LOG_FILE"
