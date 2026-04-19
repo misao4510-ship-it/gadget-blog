@@ -1,7 +1,7 @@
 ---
 title: "【2026年】モニターアーム シングル ガス式 おすすめ5選比較｜Amazon Basics・エルゴトロン・エレコム・HUANUO・サンワサプライ"
 description: "2026年おすすめシングルモニターアーム（ガス式）5製品を徹底比較！Amazon Basics B0CQXMT3QC・エルゴトロンLX・エレコム・HUANUO・サンワサプライを価格・スペック・使いやすさで比べました。"
-publishDate: "2026-04-19"
+publishDate: "2026-04-25"
 category: "gadget"
 subcategory: "pc-accessories"
 type: "comparison"

@@ -1,7 +1,7 @@
 ---
 title: "エルゴトロン LX デスクマウントアーム レビュー｜10年保証・プロ仕様の最高品質モニターアーム"
 description: "エルゴトロン LX シングルモニターアームをレビュー。コンスタントフォース技術で業界最高の操作感、34インチ・耐荷重11.3kg・10年保証。モニターアームの最高峰を徹底解説。"
-publishDate: "2026-04-21"
+publishDate: "2026-04-27"
 category: "gadget"
 subcategory: "pc-accessories"
 type: "review"

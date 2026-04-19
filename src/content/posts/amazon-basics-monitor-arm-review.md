@@ -1,7 +1,7 @@
 ---
 title: "Amazon Basics シングルモニターアーム（ガス式）レビュー｜¥4,000以下で買えるコスパ最強アームの実力は？"
 description: "Amazon Basics シングルモニターアーム（ガス式）B0CQXMT3QCをレビュー。27インチ以下対応でガス式のスムーズな動き、ケーブルマネジメント内蔵。¥4,000以下のコスパ重視モニターアームを徹底解説。"
-publishDate: "2026-04-20"
+publishDate: "2026-04-26"
 category: "gadget"
 subcategory: "pc-accessories"
 type: "review"
