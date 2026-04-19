@@ -2982,6 +2982,162 @@
         }
       },
       "image_url": null
+    },
+    {
+      "id": "product-100",
+      "name": "Amazon Basics シングルモニターアーム ガス式",
+      "category": "monitor-arm",
+      "asin": "B0CQXMT3QC",
+      "rakuten_keyword": "Amazon Basics モニターアーム ガス式",
+      "a8_link": "https://px.a8.net/placeholder/product-100",
+      "image": "/images/products/amazon-basics-monitor-arm.svg",
+      "tags": [
+        "モニターアーム",
+        "Amazon Basics",
+        "ガス式",
+        "シングル",
+        "コスパ"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0CQXMT3QC?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B0CQXMT3QC?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAmazon%2520Basics%2520%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC%E3%82%A2%E3%83%BC%E3%83%A0%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-100"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-101",
+      "name": "エルゴトロン LX デスクマウントアーム",
+      "category": "monitor-arm",
+      "asin": "B07Q8TJ2KL",
+      "rakuten_keyword": "エルゴトロン LX モニターアーム",
+      "a8_link": "https://px.a8.net/placeholder/product-101",
+      "image": "/images/products/ergotron-lx-monitor-arm.svg",
+      "tags": [
+        "モニターアーム",
+        "エルゴトロン",
+        "Ergotron",
+        "LX",
+        "プロ仕様",
+        "10年保証"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B07Q8TJ2KL?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B07Q8TJ2KL?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%A8%E3%83%AB%E3%82%B4%E3%83%88%E3%83%AD%E3%83%B3%2520LX%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-101"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-102",
+      "name": "エレコム シングルモニターアーム ガス式 DPA-SS02BK",
+      "category": "monitor-arm",
+      "asin": "B09DSCG8DC",
+      "rakuten_keyword": "エレコム DPA-SS02BK モニターアーム",
+      "a8_link": "https://px.a8.net/placeholder/product-102",
+      "image": "/images/products/elecom-monitor-arm-dpa-ss02bk.svg",
+      "tags": [
+        "モニターアーム",
+        "エレコム",
+        "ELECOM",
+        "ガス式",
+        "32インチ対応"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B09DSCG8DC?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B09DSCG8DC?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%A8%E3%83%AC%E3%82%B3%E3%83%A0%2520DPA-SS02BK%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-102"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-103",
+      "name": "HUANUO シングルモニターアーム ガス式 HNSSK1",
+      "category": "monitor-arm",
+      "asin": "B07C2DBDNC",
+      "rakuten_keyword": "HUANUO モニターアーム ガス式",
+      "a8_link": "https://px.a8.net/placeholder/product-103",
+      "image": "/images/products/huanuo-monitor-arm-hnssk1.svg",
+      "tags": [
+        "モニターアーム",
+        "HUANUO",
+        "ガス式",
+        "32インチ対応",
+        "激安"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B07C2DBDNC?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B07C2DBDNC?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FHUANUO%2520%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC%E3%82%A2%E3%83%BC%E3%83%A0%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-103"
+        }
+      },
+      "image_url": null
+    },
+    {
+      "id": "product-104",
+      "name": "サンワサプライ モニターアーム ガス式 CR-LAC1405BK",
+      "category": "monitor-arm",
+      "asin": "B0DKDVNSDT",
+      "rakuten_keyword": "サンワサプライ CR-LAC1405BK モニターアーム",
+      "a8_link": "https://px.a8.net/placeholder/product-104",
+      "image": "/images/products/sanwa-monitor-arm-cr-lac1405bk.svg",
+      "tags": [
+        "モニターアーム",
+        "サンワサプライ",
+        "ガス式",
+        "32インチ対応",
+        "2024年モデル"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/dp/B0DKDVNSDT?tag={tag}",
+          "url": "https://www.amazon.co.jp/dp/B0DKDVNSDT?tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://hb.afl.rakuten.co.jp/hgc/528d8064.7012489d.528d8065.8ee4ffed/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E3%82%B5%E3%83%B3%E3%83%AF%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4%2520CR-LAC1405BK%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-104"
+        }
+      },
+      "image_url": null
     }
   ]
 }
