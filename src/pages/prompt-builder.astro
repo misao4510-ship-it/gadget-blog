@@ -1058,7 +1058,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </details>
 
       <!-- 🔒 管理人モーダルボタン -->
-      <div class="field-group" id="pb-admin-btn-area" style="display:none">
+      <div class="field-group" id="pb-admin-btn-area">
         <button type="button" id="admin-modal-btn" class="admin-modal-btn">🔒 管理人メニュー</button>
       </div>
       <!-- 管理人モーダル選択値（hidden）-->
@@ -1821,7 +1821,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       // 未認証の場合はパスワード確認
       if (localStorage.getItem('pb_admin_auth') !== '1') {
         const input = window.prompt('管理人パスワードを入力してください');
-        if (input === '393941' || input === 'zaku') {
+        if (input === 'zaku') {
           localStorage.setItem('pb_admin_auth', '1');
         } else {
           return;
