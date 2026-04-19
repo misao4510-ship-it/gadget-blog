@@ -535,6 +535,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.85rem;
   }
   .admin-modal-cancel:hover { background: #64748b; }
+  .admin-modal-ok {
+    background: #2563eb;
+    color: #f8fafc;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .admin-modal-ok:hover { background: #1d4ed8; }
   .sakura-template-btn {
     background: linear-gradient(135deg, #ffb7c5, #ff8fab);
     color: white;
@@ -1335,6 +1346,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </label>
             <button type="button" id="admin-clear-all" class="admin-clear-all-btn">全クリア</button>
             <button type="button" id="send-to-shogun-btn" class="send-shogun-btn">📤 将軍に送信</button>
+            <button type="button" id="admin-modal-ok" class="admin-modal-ok">反映する</button>
             <button type="button" id="admin-modal-cancel" class="admin-modal-cancel">閉じる</button>
           </div>
         </div>
@@ -1813,6 +1825,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const adminModal = document.getElementById('admin-modal');
     const adminModalClose = document.getElementById('admin-modal-close');
     const adminModalCancel = document.getElementById('admin-modal-cancel');
+    const adminModalOk = document.getElementById('admin-modal-ok');
 
     if (!adminModalBtn || !adminModal) return;
 
@@ -1837,6 +1850,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     adminModal.addEventListener('click', function(e) {
       if (e.target === adminModal) closeModal();
     });
+
+    // 反映する: 全タブのcheckbox選択値を収集してhiddenフィールドに保存しプレビュー更新
+    if (adminModalOk) {
+      adminModalOk.addEventListener('click', function() {
+        var selectedPrompts = [];
+        var tabIds = [
+          'breast', 'breast-wear', 'lower', 'h-pose', 'combo-pose',
+          'situation', 'combo-sit', 'foreplay', 'combo-sm', 'position',
+          'liquid', 'costume', 'face'
+        ];
+        tabIds.forEach(function(tabId) {
+          adminModal.querySelectorAll('input[name="admin-' + tabId + '"]:checked').forEach(function(cb) {
+            selectedPrompts.push(cb.value);
+          });
+        });
+
+        var outputField = document.getElementById('admin-prompts-output');
+        if (outputField) outputField.value = selectedPrompts.join(', ');
+
+        closeModal();
+        if (typeof updatePreview === 'function') updatePreview();
+      });
+    }
 
     // 各タブの「全チェック外す」ボタン
     adminModal.querySelectorAll('.clear-tab-btn').forEach(function(btn) {
