@@ -11,7 +11,7 @@
       "price": 7365,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/goodtimestore/20251002161308_107/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-18"
+      "updated": "2026-04-19"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-19",
+      "amazon": 75000,
+      "rakuten": 7365
+    },
     {
       "date": "2026-04-18",
       "amazon": 75000,
@@ -468,11 +473,6 @@
       "date": "2026-01-19",
       "amazon": 77000,
       "rakuten": 75500
-    },
-    {
-      "date": "2026-01-18",
-      "amazon": 73000,
-      "rakuten": 70500
     }
   ]
 }

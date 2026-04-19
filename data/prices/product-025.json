@@ -8,17 +8,22 @@
       "updated": "2026-04-06"
     },
     "rakuten": {
-      "price": 370,
+      "price": 360,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/kobe-s/pcs-42013/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-18"
+      "updated": "2026-04-19"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 370
+      "price": 360
     }
   },
   "history": [
+    {
+      "date": "2026-04-19",
+      "amazon": 899,
+      "rakuten": 360
+    },
     {
       "date": "2026-04-18",
       "amazon": 899,
@@ -378,11 +383,6 @@
       "date": "2026-01-19",
       "amazon": 926,
       "rakuten": 1068
-    },
-    {
-      "date": "2026-01-18",
-      "amazon": 933,
-      "rakuten": 1059
     }
   ]
 }

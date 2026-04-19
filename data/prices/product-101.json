@@ -7,20 +7,21 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 16500,
+      "price": 2431,
       "in_stock": true,
+      "url": "https://item.rakuten.co.jp/acceljapan6520/97-844/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
       "updated": "2026-04-19"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 16280
+      "store": "rakuten",
+      "price": 2431
     }
   },
   "history": [
     {
       "date": "2026-04-19",
-      "amazon": 16137,
-      "rakuten": 16780
+      "amazon": 16280,
+      "rakuten": 2431
     },
     {
       "date": "2026-04-18",

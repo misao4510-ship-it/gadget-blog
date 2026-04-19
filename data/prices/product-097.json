@@ -8,17 +8,22 @@
       "updated": "2026-04-18"
     },
     "rakuten": {
-      "price": 40000,
+      "price": 15800,
       "in_stock": true,
-      "url": "https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FApple%2520AirPods%2520Pro%25202%2F",
-      "updated": "2026-04-18"
+      "url": "https://item.rakuten.co.jp/kamiaoki-shop/1000000305v/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-19"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 39800
+      "store": "rakuten",
+      "price": 15800
     }
   },
   "history": [
+    {
+      "date": "2026-04-19",
+      "amazon": 39800,
+      "rakuten": 15800
+    },
     {
       "date": "2026-04-18",
       "amazon": 39800,
@@ -468,11 +473,6 @@
       "date": "2026-01-19",
       "amazon": 38896,
       "rakuten": 38212
-    },
-    {
-      "date": "2026-01-18",
-      "amazon": 38629,
-      "rakuten": 38114
     }
   ]
 }
