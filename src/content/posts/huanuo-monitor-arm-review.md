@@ -1,7 +1,7 @@
 ---
 title: "HUANUO モニターアーム（ガス式）レビュー｜¥3,000台で32インチ対応の激安コスパ王"
 description: "HUANUO シングルモニターアーム ガス式（HNSSK1）をレビュー。¥3,000〜¥4,300で32インチ・耐荷重8kg対応。コスパ重視でモニターアームを試したい方に最適な激安アームを徹底解説。"
-publishDate: "2026-04-22"
+publishDate: "2026-04-23"
 category: "gadget"
 subcategory: "pc-accessories"
 type: "review"
