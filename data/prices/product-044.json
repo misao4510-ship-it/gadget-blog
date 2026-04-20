@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2656,
+      "price": 3124,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/freema-ket01/20240808181450_102/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-19"
+      "updated": "2026-04-20"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2656
+      "price": 3124
     }
   },
   "history": [
+    {
+      "date": "2026-04-20",
+      "amazon": 3480,
+      "rakuten": 3124
+    },
     {
       "date": "2026-04-19",
       "amazon": 3480,
@@ -303,11 +308,6 @@
       "date": "2026-01-20",
       "amazon": 3837,
       "rakuten": 4025
-    },
-    {
-      "date": "2026-01-19",
-      "amazon": 3809,
-      "rakuten": 4045
     }
   ]
 }
