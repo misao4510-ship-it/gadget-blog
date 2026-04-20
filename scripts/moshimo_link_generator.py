@@ -2,8 +2,11 @@
 """
 もしもアフィリエイト 3ショップリンク生成スクリプト (cmd_181)
 
-Amazon URL から もしもアフィリエイト経由の3ショップリンクを生成し、
+Amazon URL から Amazonアソシエイト直リンク + もしもアフィリエイト経由の楽天/Yahoo!リンクを生成し、
 記事内挿入用のHTMLを出力する。
+
+Amazon: アソシエイト直リンク (tag=misao4510-22)
+楽天/Yahoo!: もしもアフィリエイト経由
 
 Usage:
     python3 scripts/moshimo_link_generator.py --amazon-url https://amzn.to/XXXXX
@@ -19,12 +22,11 @@ from pathlib import Path
 
 BLOG_ROOT = Path(__file__).parent.parent.resolve()
 
-# もしもアフィリエイト ID設定
+# Amazonアソシエイト設定
+AMAZON_ASSOCIATE_TAG = "misao4510-22"
+
+# もしもアフィリエイト ID設定（楽天・Yahoo!のみ使用）
 MOSHIMO = {
-    "amazon": {
-        "a_id": "5471177", "p_id": "170", "pc_id": "185", "pl_id": "4072",
-        "base": "https://af.moshimo.com/af/c/click",
-    },
     "rakuten": {
         "a_id": "5471111", "p_id": "54", "pc_id": "54", "pl_id": "616",
         "base": "https://af.moshimo.com/af/c/click",
@@ -36,8 +38,23 @@ MOSHIMO = {
 }
 
 
+def make_amazon_associate_url(amazon_url: str) -> str:
+    """Amazon URLをアソシエイト直リンクに変換（/dp/{ASIN}?tag=xxx 形式）"""
+    import re
+    # Extract ASIN if present
+    m = re.search(r'/dp/([A-Z0-9]{10})', amazon_url)
+    if m:
+        return f"https://www.amazon.co.jp/dp/{m.group(1)}?tag={AMAZON_ASSOCIATE_TAG}"
+    # For search URLs or other formats, just add/replace the tag
+    if "?" in amazon_url:
+        # Remove existing tag param if any
+        url = re.sub(r'[?&]tag=[^&]+', '', amazon_url)
+        return f"{url}&tag={AMAZON_ASSOCIATE_TAG}"
+    return f"{amazon_url}?tag={AMAZON_ASSOCIATE_TAG}"
+
+
 def make_moshimo_url(shop: str, product_url: str) -> str:
-    """商品URLをもしもアフィリエイトリンクに変換"""
+    """商品URLをもしもアフィリエイトリンクに変換（楽天・Yahoo!用）"""
     m = MOSHIMO[shop]
     params = {
         "a_id": m["a_id"],
@@ -61,9 +78,9 @@ def make_yahoo_search_url(keyword: str) -> str:
 
 
 def make_impression_tags() -> str:
-    """もしもインプレッションタグ（各ショップ1x1 gif）"""
+    """もしもインプレッションタグ（楽天・Yahoo!のみ）"""
     tags = []
-    for shop in ["amazon", "rakuten", "yahoo"]:
+    for shop in ["rakuten", "yahoo"]:
         m = MOSHIMO[shop]
         tags.append(
             f'<img src="https://i.moshimo.com/af/i/impression?a_id={m["a_id"]}&p_id={m["p_id"]}" '
@@ -87,10 +104,10 @@ def generate_shop_links_html(
         yahoo_url: Yahoo!ショッピング商品URL（Noneの場合はボタンなし）
         with_impression: インプレッションタグを含めるか
     """
-    amazon_moshimo = make_moshimo_url("amazon", amazon_url)
+    amazon_direct = make_amazon_associate_url(amazon_url)
     lines = ['<div class="shop-links-wrap">']
     lines.append(
-        f'  <a href="{amazon_moshimo}" class="btn-amazon" target="_blank" rel="noopener nofollow">'
+        f'  <a href="{amazon_direct}" class="btn-amazon" target="_blank" rel="noopener nofollow">'
         '🛒 Amazonで見る</a>'
     )
     if rakuten_url:

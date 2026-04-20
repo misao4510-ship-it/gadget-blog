@@ -88,7 +88,7 @@ tags:
 
 <div class="shop-links-wrap">
   <span style="font-weight:bold">Amazon Basics</span>
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0CQXMT3QC%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CQXMT3QC?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAmazon%2520Basics%2520%25E3%2583%25A2%25E3%2583%258B%25E3%2582%25BF%25E3%2583%25BC%25E3%2582%25A2%25E3%2583%25BC%25E3%2583%25A0%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DAmazon%2520Basics%2520%25E3%2583%25A2%25E3%2583%258B%25E3%2582%25BF%25E3%2583%25BC%25E3%2582%25A2%25E3%2583%BC%25E3%2583%25A0" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -99,7 +99,7 @@ tags:
 
 <div class="shop-links-wrap">
   <span style="font-weight:bold">エレコム DPA-SS02BK</span>
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB09DSCG8DC%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B09DSCG8DC?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A8%25E3%2583%25AC%25E3%2582%25B3%25E3%2583%25A0%2520DPA-SS02BK%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3D%25E3%2582%25A8%25E3%2583%25AC%25E3%2582%25B3%25E3%2583%25A0%2520DPA-SS02BK" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -109,7 +109,7 @@ tags:
 モニターアームで一番有名なのが**エルゴトロン LX**ですよ！コンスタントフォース技術でどこでもピタッと止まる動作感は他の追随を許しませんね。10年保証で長く使える本物のプロ仕様です✨ 予算に余裕がある方には断然これがおすすめですよ。
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB07Q8TJ2KL%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B07Q8TJ2KL?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2582%25A8%25E3%2583%25AB%25E3%2582%25B4%25E3%2583%2588%25E3%2583%25AD%25E3%2583%25B3%2520LX%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3D%25E3%2582%25A8%25E3%2583%25AB%25E3%2582%25B4%25E3%2583%2588%25E3%2583%25AD%25E3%2583%25B3%2520LX" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>

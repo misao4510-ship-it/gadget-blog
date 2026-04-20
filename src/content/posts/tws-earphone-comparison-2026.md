@@ -88,7 +88,7 @@ tags:
 ¥12,000前後でBluetooth 5.4・LDAC・ウルトラANC 3.5・48時間再生・IP55・3Dオーディオ・ワイヤレス充電をすべて実現していますよ！この価格でこの機能量は他の追随を許しませんね✨
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0DRVB48LJ%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0DRVB48LJ?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520Soundcore%2520Liberty%25205%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DAnker%2520Soundcore%2520Liberty%25205" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -97,7 +97,7 @@ tags:
 業界最高水準のノイズキャンセリングで、騒音の多い環境でも完全に外音を遮断できますよ！テレワーク・通勤・カフェでの作業に最高の集中環境を作れますね。
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0CD6SH87B%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CD6SH87B?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%2520WF-1000XM5%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DSony%2520WF-1000XM5" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -106,7 +106,7 @@ tags:
 iPhone・Mac・iPad・Apple Watchとのシームレスな連携はAirPodsだけが実現できる体験ですよ！H2チップの高精度ANCと空間オーディオも優秀ですね✨
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fs%3Fk%3DApple%2BAirPods%2BPro%2B%E7%AC%AC2%E4%B8%96%E4%BB%A3%26tag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/s?k=Apple+AirPods+Pro+第2世代&tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FApple%2520AirPods%2520Pro%25202%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DApple%2520AirPods%2520Pro%25202" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -115,7 +115,7 @@ iPhone・Mac・iPad・Apple Watchとのシームレスな連携はAirPodsだけ�
 Galaxy スマートフォンとの超低遅延接続・リアルタイム翻訳・自動デバイス切り替えなど、Galaxy連携機能が充実していますよ！
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fs%3Fk%3DSamsung%2BGalaxy%2BBuds3%2BPro%26tag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/s?k=Samsung+Galaxy+Buds3+Pro&tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamsung%2520Galaxy%2520Buds3%2520Pro%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DSamsung%2520Galaxy%2520Buds3%2520Pro" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -124,7 +124,7 @@ Galaxy スマートフォンとの超低遅延接続・リアルタイム翻訳�
 松下（Panasonic）のオーディオブランドTechnicsの音響技術が光る一台ですよ！3デバイス同時接続は他の追随を許さない機能で、PC・スマホ・タブレットを一台でカバーできますね。
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0BX4HQLXF%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0BX4HQLXF?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTechnics%2520EAH-AZ80%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DTechnics%2520EAH-AZ80" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>

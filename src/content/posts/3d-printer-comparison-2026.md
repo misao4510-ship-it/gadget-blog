@@ -77,7 +77,7 @@ tags:
 全自動キャリブレーション・日本語UI・充実のエコシステムで、セットアップ20分で印刷開始できますよ！3Dプリンター初心者の方に最もおすすめの1台ですね✨
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Famzn.to%2F41jLYyj" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CRYJBKQQ?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBambu%2520Lab%2520A1%2520mini%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DBambu%2520Lab%2520A1%2520mini%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -86,7 +86,7 @@ tags:
 ¥22,000〜という圧倒的なコストパフォーマンスで、CR Touch自動レベリング搭載ですよ！入門機として最も普及しているモデルで、情報も豊富ですね。
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0CBWHJSQ9%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CBWHJSQ9?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCreality%2520Ender-3%2520V3%2520SE%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DCreality%2520Ender-3%2520V3%2520SE%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -95,7 +95,7 @@ tags:
 ACE Proシステムで最大8色（実用4色）のマルチカラー印刷が可能ですよ！フィギュアやアート作品を作りたい方にぴったりですね✨
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0CZ76M6ZH%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CZ76M6ZH?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnycubic%2520Kobra%25203%2520Combo%2520%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DAnycubic%2520Kobra%25203%2520Combo%2520%25E3%2583%259E%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25AB%25E3%2583%25A9%25E3%2583%25BC" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -104,7 +104,7 @@ ACE Proシステムで最大8色（実用4色）のマルチカラー印刷が�
 クローズドボックス＋AIカメラ＋300℃高温ノズルで、エンジニアリングフィラメントにも対応ですよ！工業的な用途や耐熱パーツ製作に最適ですね。
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0CQKZYXF6%3Ftag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CQKZYXF6?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCreality%2520K1C%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DCreality%2520K1C%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -113,7 +113,7 @@ ACE Proシステムで最大8色（実用4色）のマルチカラー印刷が�
 オープンソースのKlipper搭載で、速度・品質の両立とカスタマイズ性を重視する中級者向けですよ！セグメント式ヒートベッドで温度均一性も抜群ですね♪
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fs%3Fk%3DElegoo%2BNeptune%2B4%2BPro%26tag%3Dmisao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/s?k=Elegoo+Neptune+4+Pro&tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FElegoo%2520Neptune%25204%2520Pro%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DElegoo%2520Neptune%25204%2520Pro%25203D%25E3%2583%2597%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>

@@ -48,7 +48,7 @@ products:
 | Amazonレビュー | 4.3/5.0（497件） |
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Famzn.to%2F4eorbkN" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CQSRHSGJ?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FDEOWAY%2520%25E5%2590%258D%25E5%2588%25BA%25E5%2585%25A5%25E3%2582%258C%2520%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DDEOWAY%2520%25E5%2590%258D%25E5%2588%25BA%25E5%2585%25A5%25E3%2582%258C%2520%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -130,7 +130,7 @@ deoway名刺入れは**¥940という価格帯で、マグネット式・V字型
 「とにかく安くて使いやすい名刺入れが欲しい」という方はぜひ試してみてくださいね！
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Famzn.to%2F4eorbkN" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B0CQSRHSGJ?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FDEOWAY%2520%25E5%2590%258D%25E5%2588%25BA%25E5%2585%25A5%25E3%2582%258C%2520%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DDEOWAY%2520%25E5%2590%258D%25E5%2588%25BA%25E5%2585%25A5%25E3%2582%258C%2520%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%25E3%2582%25B1%25E3%2583%25BC%25E3%2582%25B9" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>

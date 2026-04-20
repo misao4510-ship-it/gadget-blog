@@ -46,7 +46,7 @@ tags:
 | 参考価格 | ¥758〜¥776（2026年4月時点） |
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Famzn.to%2F47JsGpU" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B00NTCH52W?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAmazon%2520%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%2583%25E3%2582%25AF%2520%25E5%258D%2598%25E4%25B8%2589%25E9%259B%25BB%25E6%25B1%25A0%2520%25E4%25B9%25BE%25E9%259B%25BB%25E6%25B1%25A0%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DAmazon%2520%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%2583%25E3%2582%25AF%2520%25E5%258D%2598%25E4%25B8%2589%25E9%259B%25BB%25E6%25B1%25A0%2520%25E4%25B9%25BE%25E9%259B%25BB%25E6%25B1%25A0" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
@@ -154,7 +154,7 @@ Amazonベーシック 単3形アルカリ電池は、**コスパ最重視の日�
 高負荷デバイスへの使用やエネルギー密度を重視する場合はパナソニック エボルタ NEOが上回りますが、「家庭の消耗品コストを下げたい」「備蓄用にまとめ買いしたい」という用途には迷わず選べる一品ですよ！ぜひチェックしてみてくださいね。
 
 <div class="shop-links-wrap">
-  <a href="https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Famzn.to%2F47JsGpU" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
+  <a href="https://www.amazon.co.jp/dp/B00NTCH52W?tag=misao4510-22" class="btn-amazon" target="_blank" rel="noopener nofollow">🛒 Amazonで見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAmazon%2520%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%2583%25E3%2582%25AF%2520%25E5%258D%2598%25E4%25B8%2589%25E9%259B%25BB%25E6%25B1%25A0%2520%25E4%25B9%25BE%25E9%259B%25BB%25E6%25B1%25A0%2F" class="btn-rakuten" target="_blank" rel="noopener nofollow">🛒 楽天で見る</a>
   <a href="https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DAmazon%2520%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%2583%25E3%2582%25AF%2520%25E5%258D%2598%25E4%25B8%2589%25E9%259B%25BB%25E6%25B1%25A0%2520%25E4%25B9%25BE%25E9%259B%25BB%25E6%25B1%25A0" class="btn-yahoo" target="_blank" rel="noopener nofollow">🛒 Yahoo!で見る</a>
 </div>
