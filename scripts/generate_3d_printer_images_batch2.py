@@ -13,7 +13,7 @@ SAKURA_BASE = (
     "semi-long hair, pink hair, light blue inner color hair, "
     "light blue eyes, round eyes, "
     "futuristic playsuit, white outfit, "
-    "<lora:kaina_v1:0.70>"
+    "<lora:yozakura_quartet_v2:0.75>"
 )
 
 NEGATIVE = (
