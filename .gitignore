@@ -6,3 +6,4 @@ dist
 config/rakuten_auth.env
 config/note_auth.env
 config/moshimo_auth.env
+config/buttondown_auth.env
