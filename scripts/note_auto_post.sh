@@ -28,7 +28,7 @@ cd "$BLOG_ROOT"
 python3 scripts/note_post.py \
     --all-new \
     --no-sakura-voice \
-    --blog-images \
+    --no-illustrations \
     --limit 1 \
     --telegram-notify \
     ${DRY_RUN} \

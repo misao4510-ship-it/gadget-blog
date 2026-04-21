@@ -235,8 +235,10 @@ class NoteClient:
         menu_btn.wait_for(state="visible", timeout=5000)
         menu_btn.first.click()
         page.wait_for_timeout(1000)
-        with page.expect_file_chooser(timeout=10000) as fc_info:
-            page.get_by_text("画像", exact=True).click()
+        img_btn = page.locator(".RPPSu:has-text('画像')")
+        img_btn.wait_for(state="attached", timeout=5000)
+        with page.expect_file_chooser(timeout=30000) as fc_info:
+            img_btn.first.click(force=True)
         fc_info.value.set_files(image_path)
         page.wait_for_timeout(4000)
         page.keyboard.press("ArrowDown")
@@ -557,6 +559,13 @@ def process_slug(slug: str, converter: NoteConverter, config: dict,
                 if og_path.exists():
                     eyecatch = str(og_path)
                     logger.info(f"ogImageを自動eyecatch設定: {eyecatch}")
+
+        # --blog-images なしでも ogImage を eyecatch として自動検出（未指定時）
+        if not eyecatch:
+            og_path = BLOG_ROOT / "public" / "images" / "og" / f"{slug}.png"
+            if og_path.exists():
+                eyecatch = str(og_path)
+                logger.info(f"ogImage自動eyecatch検出: {eyecatch}")
         elif with_illustrations:
             illust_base = config.get("illustrations_dir", "/tmp/note_illustrations")
             illustrations_dir = str(Path(illust_base) / slug)
