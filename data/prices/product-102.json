@@ -10,7 +10,7 @@
       "price": 4747,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/rinrindou/4951f28a1d5b4f/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-20"
+      "updated": "2026-04-21"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-21",
+      "amazon": 4490,
+      "rakuten": 4747
+    },
     {
       "date": "2026-04-20",
       "amazon": 4490,
@@ -467,11 +472,6 @@
       "date": "2026-01-21",
       "amazon": 4470,
       "rakuten": 4799
-    },
-    {
-      "date": "2026-01-20",
-      "amazon": 4455,
-      "rakuten": 4949
     }
   ]
 }

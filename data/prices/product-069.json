@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 4470,
+      "price": 1686,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/yoikenkou/103-4902750709737-5g/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-20"
+      "url": "https://item.rakuten.co.jp/uha-mikakuto/06353/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-21"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 3780
+      "store": "rakuten",
+      "price": 1686
     }
   },
   "history": [
+    {
+      "date": "2026-04-21",
+      "amazon": 3780,
+      "rakuten": 1686
+    },
     {
       "date": "2026-04-20",
       "amazon": 3780,
@@ -468,11 +473,6 @@
       "date": "2026-01-21",
       "amazon": 3869,
       "rakuten": 4027
-    },
-    {
-      "date": "2026-01-20",
-      "amazon": 3849,
-      "rakuten": 4068
     }
   ]
 }

@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 410,
+      "price": 383,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/dailyplus-onlineshop/s0dp1nwyz6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-20"
+      "url": "https://item.rakuten.co.jp/yakinikuyutaka/y0dp87p282/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-21"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 410
+      "price": 383
     }
   },
   "history": [
+    {
+      "date": "2026-04-21",
+      "amazon": 34800,
+      "rakuten": 383
+    },
     {
       "date": "2026-04-20",
       "amazon": 34800,
@@ -468,11 +473,6 @@
       "date": "2026-01-21",
       "amazon": 37430,
       "rakuten": 36800
-    },
-    {
-      "date": "2026-01-20",
-      "amazon": 37150,
-      "rakuten": 37720
     }
   ]
 }

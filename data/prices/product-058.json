@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1328,
+      "price": 1597,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/lavett-shop/6mmm85dnz7xy/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-20"
+      "url": "https://item.rakuten.co.jp/utakatazakka/w3gtrxdvtw3q4njxk3kppuagk4/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-21"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1328
+      "price": 1597
     }
   },
   "history": [
+    {
+      "date": "2026-04-21",
+      "amazon": 12650,
+      "rakuten": 1597
+    },
     {
       "date": "2026-04-20",
       "amazon": 12650,
@@ -303,11 +308,6 @@
       "date": "2026-01-21",
       "amazon": 13198,
       "rakuten": 13772
-    },
-    {
-      "date": "2026-01-20",
-      "amazon": 13190,
-      "rakuten": 13779
     }
   ]
 }
