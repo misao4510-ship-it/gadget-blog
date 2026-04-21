@@ -17,13 +17,13 @@ DEFAULT_API_URL = "http://172.18.208.1:7860"
 
 # サクラテンプレート（殿が2026-04-15にプロンプトビルダーから指定）
 SAKURA_BASE = (
-    "masterpiece, best quality, beautiful face, beautiful detailed eyes, "
+    "masterpiece, best quality, amazing quality, absurdres, beautiful face, beautiful detailed eyes, "
     "beautiful hairstyle, beautiful skin, perfect body, "
     "1girl, solo, teenager, small breasts, cowboy shot, "
     "semi-long hair, pink hair, light blue inner color hair, "
     "light blue eyes, round eyes, "
     "futuristic playsuit, white outfit, "
-    "<lora:yozakura_quartet_v2:0.75>"
+    "<lora:kaina_v1_ep100:0.70>"
 )
 
 NEGATIVE = (
