@@ -18,8 +18,9 @@ interface Props {
   heroImage?: string;
   ogImage?: string;
   type?: string;
+  tags?: string[];
 }
-const { title, description, heroImage, ogImage, type = 'website' } = Astro.props;
+const { title, description, heroImage, ogImage, type = 'website', tags } = Astro.props;
 const siteUrl = 'https://gadget-blog-dxq.pages.dev';
 const defaultOg = `${siteUrl}/images/og-default.png`;
 const ogImageUrl = ogImage
@@ -86,6 +87,17 @@ const currentYear = new Date().getFullYear();
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageUrl} />
+  {tags && tags.map(tag => <meta property="article:tag" content={tag} />)}
+  <!-- GA4 Google Analytics -->
+  {import.meta.env.PUBLIC_GA4_ID && (
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA4_ID}`}></script>
+    <script define:vars={{gaId: import.meta.env.PUBLIC_GA4_ID}}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  )}
 </head>
 <body>
   <!-- モバイルドロワーオーバーレイ -->
