@@ -17,7 +17,7 @@ DEFAULT_API_URL = "http://172.18.208.1:7860"
 
 # サクラテンプレート（殿が2026-04-15にプロンプトビルダーから指定）
 SAKURA_BASE = (
-    "masterpiece, best quality, amazing quality, absurdres, beautiful face, beautiful detailed eyes, "
+    "masterpiece, best quality, amazing quality, absurdres, lineart, bold outlines, anime coloring, cel shading, flat color, vivid colors, beautiful face, beautiful detailed eyes, "
     "sparkling eyes, glowing eyes, detailed iris, eye reflection, colorful eyes, "
     "beautiful hairstyle, beautiful skin, perfect body, "
     "1girl, solo, teenager, small breasts, cowboy shot, "
@@ -31,7 +31,7 @@ NEGATIVE = (
     "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, "
     "missing fingers, watermark, text, signature, deformed, ugly, 3d, realistic, "
     "cropped head, head out of frame, cut off head, "
-    "nsfw, nude, naked"
+    "nsfw, nude, naked, oil painting, impasto"
 )
 
 ILLUSTRATIONS = [
