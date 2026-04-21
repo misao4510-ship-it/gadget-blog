@@ -42,6 +42,7 @@ REUSE_DAYS = 7
 # サクラテンプレート（殿確定 2026-04-15）
 SAKURA_BASE = (
     "masterpiece, best quality, amazing quality, absurdres, beautiful face, beautiful detailed eyes, "
+    "sparkling eyes, glowing eyes, detailed iris, eye reflection, colorful eyes, "
     "beautiful hairstyle, beautiful skin, perfect body, "
     "1girl, solo, teenager, small breasts, cowboy shot, "
     "semi-long hair, pink hair, light blue inner color hair, "

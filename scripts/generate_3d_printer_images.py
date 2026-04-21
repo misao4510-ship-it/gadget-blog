@@ -8,6 +8,7 @@ API_URL = "http://172.18.208.1:7860"
 
 SAKURA_BASE = (
     "masterpiece, best quality, amazing quality, absurdres, beautiful face, beautiful detailed eyes, "
+    "sparkling eyes, glowing eyes, detailed iris, eye reflection, colorful eyes, "
     "beautiful hairstyle, beautiful skin, perfect body, "
     "1girl, solo, teenager, small breasts, cowboy shot, "
     "semi-long hair, pink hair, light blue inner color hair, "
