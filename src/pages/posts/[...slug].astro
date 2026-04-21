@@ -304,6 +304,49 @@ const categoryLabels: Record<string, string> = {
                 </div>
               </div>
             )}
+
+            {/* === ニュースレター登録フォーム（Buttondown） === */}
+            {import.meta.env.PUBLIC_BUTTONDOWN_USER && (
+              <div class="newsletter-section">
+                <div class="newsletter-inner">
+                  <img src="/images/sakura-profile.png" alt="サクラ" class="newsletter-avatar" />
+                  <div class="newsletter-body">
+                    <p class="newsletter-title">📩 メルマガ登録</p>
+                    <p class="newsletter-desc">新着ガジェット情報をお届けしますよ🌸メールアドレスを登録してね！</p>
+                    <form
+                      action={`https://buttondown.email/api/emails/embed-subscribe/${import.meta.env.PUBLIC_BUTTONDOWN_USER}`}
+                      method="post"
+                      target="popupwindow"
+                      class="newsletter-form"
+                    >
+                      <input type="email" name="email" placeholder="メールアドレス" required class="newsletter-input" />
+                      <button type="submit" class="newsletter-btn">登録する🌸</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* === giscus コメントシステム === */}
+            <div class="giscus-section">
+              <h2 class="giscus-title">💬 コメント</h2>
+              <script src="https://giscus.app/client.js"
+                data-repo="misao-4510/gadget-blog"
+                data-repo-id="REPO_ID_PLACEHOLDER"
+                data-category="General"
+                data-category-id="CATEGORY_ID_PLACEHOLDER"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="ja"
+                crossorigin="anonymous"
+                async
+                is:inline
+              ></script>
+            </div>
           </div>
 
           {/* === Navi character (fixed bottom-right) === */}
@@ -561,6 +604,45 @@ const categoryLabels: Record<string, string> = {
     .related-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  /* ニュースレター */
+  .newsletter-section {
+    margin: 2.5rem 0 1.5rem;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    border: 2px solid #f9a8d4;
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .newsletter-inner { display: flex; align-items: flex-start; gap: 1rem; }
+  .newsletter-avatar { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #f9a8d4; flex-shrink: 0; }
+  .newsletter-body { flex: 1; }
+  .newsletter-title { font-size: 1rem; font-weight: 800; color: #be185d; margin: 0 0 0.3rem; }
+  .newsletter-desc { font-size: 0.9rem; color: #4b5563; margin: 0 0 0.75rem; line-height: 1.5; }
+  .newsletter-form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .newsletter-input {
+    flex: 1; min-width: 200px; padding: 0.6rem 1rem;
+    border: 2px solid #f9a8d4; border-radius: 8px; font-size: 0.9rem;
+    background: white; color: #1f2937;
+  }
+  .newsletter-input:focus { outline: none; border-color: #ec4899; }
+  .newsletter-btn {
+    background: #ec4899; color: white; border: none; border-radius: 8px;
+    padding: 0.6rem 1.2rem; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .newsletter-btn:hover { background: #db2777; }
+  [data-theme="dark"] .newsletter-section { background: linear-gradient(135deg, #3b0764 0%, #4c0519 100%); border-color: #c026d3; }
+  [data-theme="dark"] .newsletter-input { background: #1e293b; color: #e2e8f0; border-color: #c026d3; }
+
+  /* giscus */
+  .giscus-section {
+    margin: 2.5rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--color-border, #e5e7eb);
+  }
+  .giscus-title {
+    font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-text);
   }
 </style>
 

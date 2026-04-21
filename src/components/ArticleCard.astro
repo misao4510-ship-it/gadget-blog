@@ -4,6 +4,7 @@ import { join } from 'path';
 import { getPriceTrend } from '../utils/priceTrend';
 import type { TrendResult } from '../utils/priceTrend';
 import StarRating from './StarRating.astro';
+import { Image } from 'astro:assets';
 
 interface Props {
   title: string;
@@ -53,14 +54,15 @@ const categoryLabels: Record<string, string> = {
 ---
 <article class="article-card">
   <a href={`/posts/${slug}/`} class="article-card__image-link">
-    <img
+    <Image
       src={ogImage}
       alt={title}
       class="article-card__image"
-      width="400"
-      height="210"
+      width={400}
+      height={210}
       loading="lazy"
       decoding="async"
+      format="webp"
     />
   </a>
   <div class="article-card__body">
