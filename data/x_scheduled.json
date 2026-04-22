@@ -1,32 +1,31 @@
 {
-  "date": "2026-04-19",
+  "date": "2026-04-21",
   "slots": [
     {
       "slot": 1,
       "time": "07:07",
-      "slug": "tws-earphone-comparison-2026",
-      "title": "完全ワイヤレスイヤホン おすすめ5選比較",
-      "text": "🌸 完全ワイヤレスイヤホン選び、迷いますよね！Anker Liberty 5・Sony WF-1000XM5・AirPods Pro 2など5機種を徹底比較しましたよ✨ 予算別の最適解も解説！\nhttps://gadget-blog-dxq.pages.dev/posts/tws-earphone-comparison-2026/\n#イヤホン #ワイヤレスイヤホン #ガジェット",
-      "image": "/home/misao/gadget-blog/data/x_images/sakura_tws_earphone_comparison_2026_v.png",
-      "status": "posted",
-      "posted_at": "2026-04-18T22:13:07.210566+00:00"
+      "slug": "cio-novaport-quad2-100w-review",
+      "title": "CIO NovaPort QUAD II 100W レビュー",
+      "text": "4台同時に充電できる日本メーカーの充電器、気になりませんか？🌸\nCIO NovaPort QUAD II 100Wは、USB-C×3＋USB-A×1の4ポートで全部まとめて充電できちゃいますよ✨ NovaIntelligence搭載で電力自動配分！\nhttps://gadget-blog-dxq.pages.dev/posts/cio-novaport-quad2-100w-review/\n#CIO #充電器 #100W #ガジェット",
+      "image": "/home/misao/gadget-blog/public/images/og/cio-novaport-quad2-100w-review.png",
+      "status": "pending"
     },
     {
       "slot": 2,
       "time": "12:13",
-      "slug": "creality-k1c-review",
-      "title": "Creality K1C レビュー",
-      "text": "300mm/sで印刷できる3Dプリンターが¥62,000…！\n🌸 Creality K1Cですよ！炭素繊維フィラメント対応でプロ仕様なのに、AIカメラでエラーも自動検知してくれるんです✨ 初心者から中級者まで使える本格マシンをレビューしました！\nhttps://gadget-blog-dxq.pages.dev/posts/creality-k1c-review/\n#3Dプリンター #ガジェット #Creality",
-      "image": "/home/misao/gadget-blog/data/x_images/sakura_creality_k1c_review_v.png",
+      "slug": "anker-prime-charger-100w-review",
+      "title": "Anker Prime Charger (100W, 3 Ports) レビュー",
+      "text": "クレカサイズで168g、なのに3ポート100W出力！🌸\nAnker Prime Chargerは軽さ・サイズ・パワーのバランスが最強の充電器ですよ✨ ノートPC+スマホ+イヤホンを同時充電できちゃいます！\nhttps://gadget-blog-dxq.pages.dev/posts/anker-prime-charger-100w-review/\n#Anker #充電器 #100W #GaN",
+      "image": "/home/misao/gadget-blog/public/images/og/anker-prime-charger-100w-review.png",
       "status": "pending"
     },
     {
       "slot": 3,
       "time": "20:43",
-      "slug": "100w-usb-charger-comparison-2026",
-      "title": "100W USB-C充電器比較",
-      "text": "100W充電器、5種類で迷ってない？\n🌸 Anker・UGREEN・CIOを実際に比べてみましたよ！価格差2倍でも性能差はわずかだったり…意外な結果が出ましたね✨ 予算・サイズ・ポート数で選べる比較表つきです！\nhttps://gadget-blog-dxq.pages.dev/posts/100w-usb-charger-comparison-2026/\n#充電器 #ガジェット #コスパ",
-      "image": "/home/misao/gadget-blog/data/x_images/sakura_100w_usb_charger_comparison_2026_v.png",
+      "slug": "anker-317-charger-100w-review",
+      "title": "Anker 317 Charger (100W) レビュー",
+      "text": "100W充電器がケーブル付きで¥5,290！？🌸\nAnker 317 Chargerはコスパ最強の据え置き用100W充電器ですよ✨ セール時なら¥3,000以下で買えることも…！机に1台置いておくと超便利です♪\nhttps://gadget-blog-dxq.pages.dev/posts/anker-317-charger-100w-review/\n#Anker #充電器 #コスパ #100W",
+      "image": "/home/misao/gadget-blog/data/x_images/sakura_anker_317_charger_100w_review_v.png",
       "status": "pending"
     }
   ]

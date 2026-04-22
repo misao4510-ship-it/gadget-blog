@@ -1,41 +1,35 @@
 {
-  "date": "2026-04-18",
+  "date": "2026-04-21",
   "slots": [
     {
       "slot": 1,
       "time": "07:30",
-      "slug": "100w-usb-charger-comparison-2026",
-      "title": "100W USB-C充電器おすすめ5選",
-      "text": "🌸 100W充電器、どれがいいか迷いますよね？Anker・UGREEN・CIOの人気5モデルを徹底比較しましたよ✨ あなたにピッタリの1台が見つかるはず！\nhttps://gadget-blog-dxq.pages.dev/posts/100w-usb-charger-comparison-2026/\n#充電器 #100W #USB充電器",
-      "image": "/home/misao/gadget-blog/data/x_images/sakura_100w_usb_charger_comparison_2026_v.png",
-      "url": "https://gadget-blog-dxq.pages.dev/posts/100w-usb-charger-comparison-2026/",
-      "status": "posted",
-      "posted_at": "2026-04-17T22:44:03.089650+00:00",
-      "bluesky_uri": "at://did:plc:d675zyhsh7pka77jbx62zaxk/app.bsky.feed.post/3mjpyrrhhds2i"
+      "slug": "cio-novaport-quad2-100w-review",
+      "title": "CIO NovaPort QUAD II 100W レビュー",
+      "text": "4台同時に充電できる日本メーカーの充電器、気になりませんか？🌸\nCIO NovaPort QUAD II 100Wは、USB-C×3＋USB-A×1の4ポートで全部まとめて充電できちゃいますよ✨ NovaIntelligence搭載で電力自動配分！\nhttps://gadget-blog-dxq.pages.dev/posts/cio-novaport-quad2-100w-review/\n#CIO #充電器 #100W #ガジェット",
+      "image": "/home/misao/gadget-blog/public/images/og/cio-novaport-quad2-100w-review.png",
+      "url": "https://gadget-blog-dxq.pages.dev/posts/cio-novaport-quad2-100w-review/",
+      "status": "pending"
     },
     {
       "slot": 2,
       "time": "12:30",
-      "slug": "amazon-sale-guide-2026",
-      "title": "Amazonセール攻略ガイド2026",
-      "text": "🌸 Amazonのセール、いつが一番お得か知ってますか？年間カレンダーと攻略ポイントをまとめましたよ✨ 買い時を逃さないで！\nhttps://gadget-blog-dxq.pages.dev/posts/amazon-sale-guide-2026/\n#Amazonセール #お買い得",
-      "image": "/home/misao/gadget-blog/data/x_images/sakura_amazon_sale_guide_2026_v.png",
-      "url": "https://gadget-blog-dxq.pages.dev/posts/amazon-sale-guide-2026/",
-      "status": "posted",
-      "posted_at": "2026-04-18T03:39:11.585506+00:00",
-      "bluesky_uri": "at://did:plc:d675zyhsh7pka77jbx62zaxk/app.bsky.feed.post/3mjqjbkbzyf2u"
+      "slug": "anker-prime-charger-100w-review",
+      "title": "Anker Prime Charger (100W, 3 Ports) レビュー",
+      "text": "クレカサイズで168g、なのに3ポート100W出力！🌸\nAnker Prime Chargerは軽さ・サイズ・パワーのバランスが最強の充電器ですよ✨ ノートPC+スマホ+イヤホンを同時充電できちゃいます！\nhttps://gadget-blog-dxq.pages.dev/posts/anker-prime-charger-100w-review/\n#Anker #充電器 #100W #GaN",
+      "image": "/home/misao/gadget-blog/public/images/og/anker-prime-charger-100w-review.png",
+      "url": "https://gadget-blog-dxq.pages.dev/posts/anker-prime-charger-100w-review/",
+      "status": "pending"
     },
     {
       "slot": 3,
       "time": "21:00",
-      "slug": "anker-powerbank-25000-builtin-cable-review",
-      "title": "Anker 25000mAh モバイルバッテリー レビュー",
-      "text": "🌸 ケーブル内蔵で25000mAh！Ankerのモバイルバッテリーが便利すぎますよ✨ 旅行にも防災にもおすすめです！\nhttps://gadget-blog-dxq.pages.dev/posts/anker-powerbank-25000-builtin-cable-review/\n#モバイルバッテリー #Anker",
-      "image": "/home/misao/gadget-blog/data/x_images/sakura_anker_powerbank_25000_builtin_cable_review_v.png",
-      "url": "https://gadget-blog-dxq.pages.dev/posts/anker-powerbank-25000-builtin-cable-review/",
-      "status": "posted",
-      "posted_at": "2026-04-18T12:15:31.437966+00:00",
-      "bluesky_uri": "at://did:plc:d675zyhsh7pka77jbx62zaxk/app.bsky.feed.post/3mjrg4st2ns2r"
+      "slug": "anker-317-charger-100w-review",
+      "title": "Anker 317 Charger (100W) レビュー",
+      "text": "100W充電器がケーブル付きで¥5,290！？🌸\nAnker 317 Chargerはコスパ最強の据え置き用100W充電器ですよ✨ セール時なら¥3,000以下で買えることも…！机に1台置いておくと超便利です♪\nhttps://gadget-blog-dxq.pages.dev/posts/anker-317-charger-100w-review/\n#Anker #充電器 #コスパ #100W",
+      "image": "/home/misao/gadget-blog/data/x_images/sakura_anker_317_charger_100w_review_v.png",
+      "url": "https://gadget-blog-dxq.pages.dev/posts/anker-317-charger-100w-review/",
+      "status": "pending"
     }
   ]
 }

@@ -7,3 +7,8 @@ config/rakuten_auth.env
 config/note_auth.env
 config/moshimo_auth.env
 config/buttondown_auth.env
+config/pinterest_auth.env
+config/pinterest_cookies.json
+config/amazon_associate_auth.env
+__pycache__/
+*.pyc

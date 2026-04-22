@@ -360,17 +360,34 @@ def post_via_playwright(article: dict, dry_run: bool = False) -> bool:
             viewport={"width": 1280, "height": 900},
             locale="ja-JP",
         )
+        # BOT検知回避: playwright-stealth適用
+        try:
+            from playwright_stealth import Stealth
+            stealth = Stealth(
+                navigator_languages_override=("ja", "ja-JP"),
+            )
+            stealth.apply_stealth_sync(context)
+            logger.info("playwright-stealth 適用済み")
+        except ImportError:
+            logger.warning("playwright-stealth 未インストール。BOT検知される可能性あり")
         context.add_cookies(cookies)
         page = context.new_page()
 
         try:
             # Pinterestホームで認証確認
             logger.info("Pinterest にアクセス中...")
-            page.goto("https://www.pinterest.jp/", wait_until="domcontentloaded", timeout=30000)
+            page.goto("https://jp.pinterest.com/", wait_until="domcontentloaded", timeout=30000)
             page.wait_for_timeout(3000)
 
+            # デバッグ: ページ状態を記録
+            page.screenshot(path="/tmp/pinterest_login_check.png")
+            logger.info(f"現在のURL: {page.url}")
+            login_in_url = "login" in page.url
+            login_btn = page.locator('[data-test-id="simple-login-button"]').count()
+            logger.info(f"login in URL: {login_in_url}, login button count: {login_btn}")
+
             # ログイン確認
-            if "login" in page.url or page.locator('[data-test-id="simple-login-button"]').count() > 0:
+            if login_in_url or login_btn > 0:
                 browser.close()
                 logger.error("Cookie期限切れ。config/pinterest_cookies.json を更新してください")
                 return False
@@ -378,7 +395,7 @@ def post_via_playwright(article: dict, dry_run: bool = False) -> bool:
             logger.info("Cookie認証成功")
 
             # ピン作成ページへ
-            page.goto("https://www.pinterest.jp/pin-builder/", wait_until="domcontentloaded", timeout=30000)
+            page.goto("https://jp.pinterest.com/pin-builder/", wait_until="domcontentloaded", timeout=30000)
             page.wait_for_timeout(3000)
 
             page.screenshot(path="/tmp/pinterest_before_upload.png")
