@@ -41,17 +41,17 @@ REUSE_DAYS = 7
 
 # サクラテンプレート（殿確定 2026-04-15）
 SAKURA_BASE = (
-    "masterpiece, best quality, amazing quality, absurdres, lineart, bold outlines, anime coloring, cel shading, flat color, vivid colors, beautiful face, beautiful detailed eyes, "
-    "sparkling eyes, glowing eyes, detailed iris, eye reflection, colorful eyes, "
+    "kurokawa style, masterpiece, best quality, amazing quality, absurdres, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, beautiful face, beautiful detailed eyes, "
     "beautiful hairstyle, beautiful skin, perfect body, "
     "1girl, solo, teenager, small breasts, cowboy shot, "
     "semi-long hair, pink hair, light blue inner color hair, "
     "light blue eyes, round eyes, "
     "futuristic playsuit, white outfit, "
-    "<lora:kaina_v1_ep100:0.70>"
+    "<lora:kurokawa_v1:0.70>"
 )
 
 NEGATIVE = (
+    "2girls, 3girls, multiple girls, multiple people, "
     "worst quality, low quality, blurry, bad anatomy, bad hands, extra fingers, "
     "missing fingers, watermark, text, signature, deformed, ugly, 3d, realistic, "
     "cropped head, head out of frame, cut off head, nsfw, nude, naked, oil painting, impasto"

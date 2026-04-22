@@ -17,7 +17,7 @@ SD_API = "http://172.18.208.1:7860"
 OUTPUT_SD = "/mnt/c/tools/multi-agent-shogun/output_sd"
 BLOG_PUBLIC = "/home/misao/gadget-blog/public"
 
-SAKURA_BASE = "masterpiece, best quality, amazing quality, absurdres, lineart, bold outlines, anime coloring, cel shading, flat color, vivid colors, beautiful face, beautiful detailed eyes, sparkling eyes, glowing eyes, detailed iris, eye reflection, colorful eyes, beautiful hairstyle, beautiful skin, perfect body, 1girl, solo, teenager, small breasts, cowboy shot, semi-long hair, pink hair, light blue inner color hair, light blue eyes, round eyes, futuristic playsuit, white outfit, <lora:kaina_v1_ep100:0.70>"
+SAKURA_BASE = "kurokawa style, masterpiece, best quality, amazing quality, absurdres, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, beautiful face, beautiful detailed eyes, beautiful hairstyle, beautiful skin, perfect body, 1girl, solo, teenager, small breasts, cowboy shot, semi-long hair, pink hair, light blue inner color hair, light blue eyes, round eyes, futuristic playsuit, white outfit, <lora:kurokawa_v1:0.70>"
 
 NEGATIVE = "lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, oil painting, impasto"
 
