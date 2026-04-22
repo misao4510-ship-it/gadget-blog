@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """記事用サクラ挿絵を一括生成するスクリプト"""
-import json, base64, random, time, sys, os, shutil
+import json, base64, random, time, sys, os, shutil, io
 from pathlib import Path
 import requests
+from PIL import Image
 
 API_URL = "http://172.18.208.1:7860"
 
@@ -70,6 +71,19 @@ def generate_image(prompt: str, width: int, height: int) -> str | None:
         print(f"  ERROR: {e}")
         return None
 
+def crop_to_og(b64_img: str) -> str:
+    """1024x1024画像 → 1024x624クロップ → 1200x624リサイズ → base64"""
+    img_data = base64.b64decode(b64_img)
+    img = Image.open(io.BytesIO(img_data))
+    # 縦の上寄り(y=200)から624pxを抽出。顔と上半身を保持
+    crop_y = 200
+    cropped = img.crop((0, crop_y, 1024, crop_y + 624))
+    # 横を1024→1200に拡大（縦は変えない）
+    resized = cropped.resize((1200, 624), Image.LANCZOS)
+    buf = io.BytesIO()
+    resized.save(buf, format="PNG")
+    return base64.b64encode(buf.getvalue()).decode()
+
 def save_image(b64: str, path: Path):
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "wb") as f:
@@ -77,6 +91,7 @@ def save_image(b64: str, path: Path):
     print(f"  Saved: {path}")
 
 def main():
+    force_og = "--force-og" in sys.argv
     total = len(ARTICLES) * 5  # 4 sections + 1 OG per article
     done = 0
 
@@ -84,18 +99,21 @@ def main():
         print(f"\n=== {slug} ===")
         post_dir = BLOG_IMAGES / slug
 
-        # OG画像 (1200x624)
+        # OG画像 (1024x1024生成 → 1200x624クロップ＋リサイズ)
         og_path = OG_DIR / f"{slug}.png"
-        if og_path.exists():
+        if og_path.exists() and not force_og:
             print(f"  OG already exists, skipping")
         else:
-            print(f"  Generating OG (1200x624)...")
-            prompt = f"{SAKURA_BASE}, holding charger, presenting product, smile, cheerful"
-            b64 = generate_image(prompt, 1200, 624)
+            print(f"  Generating OG (1024x1024 → 1200x624)...")
+            # SAKURA_BASE中の cowboy shot を upper body に置換（OGのみ）
+            og_base = SAKURA_BASE.replace("cowboy shot", "upper body, portrait, looking at viewer, centered")
+            prompt = f"{og_base}, holding gadget, presenting product, smile, cheerful"
+            b64 = generate_image(prompt, 1024, 1024)
             if b64:
-                save_image(b64, og_path)
+                b64_og = crop_to_og(b64)
+                save_image(b64_og, og_path)
                 # output_sdにも保存
-                save_image(b64, OUTPUT_SD / f"og_{slug}.png")
+                save_image(b64_og, OUTPUT_SD / f"og_{slug}.png")
             time.sleep(1)
         done += 1
 
