@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 7365,
+      "price": 5599,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/goodtimestore/20251002161308_107/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-21"
+      "url": "https://item.rakuten.co.jp/konanonline/spgm-0cw1qd5t6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-22"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 7365
+      "price": 5599
     }
   },
   "history": [
+    {
+      "date": "2026-04-22",
+      "amazon": 75000,
+      "rakuten": 5599
+    },
     {
       "date": "2026-04-21",
       "amazon": 75000,
@@ -468,11 +473,6 @@
       "date": "2026-01-22",
       "amazon": 75000,
       "rakuten": 76500
-    },
-    {
-      "date": "2026-01-21",
-      "amazon": 78000,
-      "rakuten": 72000
     }
   ]
 }

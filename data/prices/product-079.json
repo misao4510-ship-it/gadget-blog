@@ -8,10 +8,10 @@
       "updated": "2026-04-09"
     },
     "rakuten": {
-      "price": 5520,
+      "price": 5830,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/enlilsss/p-b0gl1hkfms/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-21"
+      "updated": "2026-04-22"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-22",
+      "amazon": 2979,
+      "rakuten": 5830
+    },
     {
       "date": "2026-04-21",
       "amazon": 2979,
@@ -468,11 +473,6 @@
       "date": "2026-01-22",
       "amazon": 4309,
       "rakuten": 5149
-    },
-    {
-      "date": "2026-01-21",
-      "amazon": 4345,
-      "rakuten": 5077
     }
   ]
 }
