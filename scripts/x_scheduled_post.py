@@ -104,22 +104,81 @@ def post_to_x(text: str, image_path: str = None) -> bool:
         page.goto("https://x.com/home", wait_until="domcontentloaded", timeout=30000)
         page.wait_for_timeout(3000)
 
+        # URL判定
         if "/login" in page.url or "/i/flow/login" in page.url:
-            logger.error("Cookie期限切れ")
+            logger.error("Cookie期限切れ（/loginへリダイレクト）")
+            page.screenshot(path="/tmp/x_auth_fail.png")
+            browser.close()
+            return False
+        # ランディングページ等でURL判定できない場合のログインボタン検出
+        login_btn = page.locator('a[data-testid="loginButton"], a[href="/login"], [data-testid="login"]')
+        if login_btn.count() > 0 and login_btn.first.is_visible():
+            logger.error("Cookie期限切れ（ログインボタン検出）")
+            page.screenshot(path="/tmp/x_auth_fail.png")
             browser.close()
             return False
         logger.info("Cookie認証成功")
 
-        # Intent URLでテキストを事前入力（URL折り返し問題を回避）
-        import urllib.parse
-        intent_url = "https://x.com/intent/tweet?" + urllib.parse.urlencode({"text": text})
-        logger.info("Intent URLで投稿ダイアログを開く...")
-        page.goto(intent_url, wait_until="domcontentloaded", timeout=30000)
-        page.wait_for_timeout(5000)
+        # 投稿ページへ遷移（複数URL試行）
+        compose_urls = [
+            "https://x.com/compose/tweet",
+            "https://x.com/compose/post",
+            "https://x.com/home",
+        ]
+        compose_ok = False
+        for compose_url in compose_urls:
+            logger.info(f"投稿ページを開く: {compose_url}")
+            page.goto(compose_url, wait_until="domcontentloaded", timeout=30000)
+            page.wait_for_timeout(4000)
+            page.screenshot(path=f"/tmp/x_compose_nav_{compose_url.split('/')[-1]}.png")
+            if "/login" not in page.url and "/i/flow/login" not in page.url:
+                # ログインボタンも確認
+                lb = page.locator('a[data-testid="loginButton"], a[href="/login"]')
+                if lb.count() > 0 and lb.first.is_visible():
+                    logger.warning(f"遷移後ログインボタン検出: {compose_url}")
+                    continue
+                compose_ok = True
+                logger.info(f"ページ遷移成功: {page.url}")
+                break
+            logger.warning(f"遷移失敗（ログインページへ）: {compose_url}")
 
-        # ツイート入力欄を待つ
-        tweet_box = page.locator('[data-testid="tweetTextarea_0"]').first
-        tweet_box.wait_for(state="visible", timeout=15000)
+        if not compose_ok:
+            logger.error("全ての投稿ページ遷移が失敗")
+            browser.close()
+            return False
+
+        # ツイート入力欄を待つ（フォールバックセレクタ対応）
+        tweet_selectors = [
+            '[data-testid="tweetTextarea_0"]',
+            '[data-testid^="tweetTextarea"]',
+            'div[role="textbox"][contenteditable="true"]',
+            'div[contenteditable="true"][data-text="true"]',
+            'div[contenteditable="true"]',
+        ]
+        tweet_box = None
+        for sel in tweet_selectors:
+            try:
+                candidate = page.locator(sel).first
+                candidate.wait_for(state="visible", timeout=5000)
+                tweet_box = candidate
+                logger.info(f"ツイート入力欄セレクタヒット: {sel}")
+                break
+            except Exception:
+                logger.warning(f"セレクタ不発: {sel}")
+                continue
+
+        if tweet_box is None:
+            page.screenshot(path="/tmp/x_compose_selector_fail.png")
+            logger.error("ツイート入力欄セレクタが全て失敗。/tmp/x_compose_selector_fail.png を確認")
+            browser.close()
+            return False
+        page.wait_for_timeout(1000)
+
+        # テキスト入力（fill使用。intent URL廃止のため手動入力）
+        logger.info("テキスト入力中...")
+        tweet_box.click()
+        page.wait_for_timeout(500)
+        tweet_box.fill(text)
         page.wait_for_timeout(1000)
 
         # 画像添付
@@ -136,11 +195,30 @@ def post_to_x(text: str, image_path: str = None) -> bool:
         # デバッグスクリーンショット
         page.screenshot(path="/tmp/x_compose_before.png")
 
-        # 投稿ボタン
+        # 投稿ボタン（フォールバックセレクタ対応）
         logger.info("投稿ボタンをクリック...")
-        post_btn = page.locator('[data-testid="tweetButton"]')
-        if post_btn.count() == 0:
-            post_btn = page.locator('[data-testid="tweetButtonInline"]')
+        post_btn_selectors = [
+            '[data-testid="tweetButton"]',
+            '[data-testid="tweetButtonInline"]',
+            'button[data-testid$="tweetButton"]',
+            'button:has-text("ポスト")',
+            'button:has-text("Post")',
+        ]
+        post_btn = None
+        for sel in post_btn_selectors:
+            try:
+                candidate = page.locator(sel).first
+                if candidate.count() > 0 and candidate.is_visible():
+                    post_btn = candidate
+                    logger.info(f"投稿ボタンセレクタヒット: {sel}")
+                    break
+            except Exception:
+                continue
+        if post_btn is None:
+            page.screenshot(path="/tmp/x_compose_postbtn_fail.png")
+            logger.error("投稿ボタンセレクタが全て失敗。/tmp/x_compose_postbtn_fail.png を確認")
+            browser.close()
+            return False
         post_btn.evaluate("el => el.click()")
         page.wait_for_timeout(5000)
 
