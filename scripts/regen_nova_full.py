@@ -323,12 +323,18 @@ def run_illust(args):
     done_set = set(state.get("done", []))
     pending_all = [(s, sec) for s, sec in all_tasks if f"{s}/{sec}" not in done_set]
 
-    # --batch / --offset でバッチ制御
-    offset = args.offset
+    # STATE_FILEで未処理を絞り込んだ後、先頭batch_size件を処理
+    # (--offset はSTATE_FILEなしの場合にall_tasks全体のオフセットとして使う場合向け)
     batch_size = args.batch
-    pending = pending_all[offset:offset + batch_size]
+    offset = args.offset
+    if done_set:
+        # STATE_FILEで進捗管理中: pending_allの先頭batch_sizeを処理
+        pending = pending_all[:batch_size]
+    else:
+        # STATE_FILEなし: offsetを使って全タスクからスライス
+        pending = pending_all[offset:offset + batch_size]
 
-    print(f"  全未処理: {len(pending_all)} 枚 | offset={offset} batch={batch_size} → 今回: {len(pending)} 枚")
+    print(f"  全未処理: {len(pending_all)} 枚 | batch={batch_size} → 今回: {len(pending)} 枚")
 
     if not pending:
         print("このバッチの対象なし（全処理済みか offset 超過）。完了。")
