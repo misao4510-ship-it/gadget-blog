@@ -261,6 +261,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transition: background 0.15s;
   }
   .admin-preset-btn:hover { background: #475569; }
+  /* エロス系タグセクション */
+  .erotag-section {
+    margin: 12px 0 4px;
+    border-top: 1px solid #334155;
+    padding-top: 10px;
+  }
+  .erotag-section summary {
+    font-size: 0.83rem;
+    color: #f8fafc;
+    cursor: pointer;
+    padding: 4px 0;
+    user-select: none;
+    list-style: none;
+  }
+  .erotag-section summary::-webkit-details-marker { display: none; }
+  .erotag-section summary::before { content: "▶ "; font-size: 0.7rem; }
+  .erotag-section[open] summary::before { content: "▼ "; }
+  .erotag-category { margin-top: 8px; }
+  .erotag-category h5 {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin: 6px 0 4px;
+  }
+  .erotag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 4px;
+  }
+  @media (max-width: 480px) {
+    .erotag-grid { grid-template-columns: 1fr; }
+  }
+  .erotag-btn {
+    background: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    text-align: left;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .erotag-btn:hover { background: #334155; border-color: #475569; color: #f8fafc; }
   /* LoRAタブ内スタイル調整 */
   .admin-lora-row {
     display: flex;
@@ -1518,6 +1564,116 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </div>
 
+          <!-- 🔥エロス系プリセット -->
+          <details class="erotag-section">
+            <summary>🔥 エロス系タグプリセット（クリックで追加タグ欄に追記）</summary>
+
+            <div class="erotag-category">
+              <h5>🔥 ポーズ系</h5>
+              <div class="erotag-grid">
+                <button type="button" class="erotag-btn" data-tag="seductive pose">seductive pose</button>
+                <button type="button" class="erotag-btn" data-tag="lying on back">lying on back</button>
+                <button type="button" class="erotag-btn" data-tag="lying on side">lying on side</button>
+                <button type="button" class="erotag-btn" data-tag="all fours">all fours</button>
+                <button type="button" class="erotag-btn" data-tag="sitting on bed">sitting on bed</button>
+                <button type="button" class="erotag-btn" data-tag="leaning forward">leaning forward</button>
+                <button type="button" class="erotag-btn" data-tag="arched back">arched back</button>
+                <button type="button" class="erotag-btn" data-tag="hand on hip">hand on hip</button>
+                <button type="button" class="erotag-btn" data-tag="arms behind head">arms behind head</button>
+                <button type="button" class="erotag-btn" data-tag="looking back">looking back</button>
+                <button type="button" class="erotag-btn" data-tag="straddling">straddling</button>
+                <button type="button" class="erotag-btn" data-tag="spread legs">spread legs</button>
+                <button type="button" class="erotag-btn" data-tag="kneeling">kneeling</button>
+                <button type="button" class="erotag-btn" data-tag="bending over">bending over</button>
+                <button type="button" class="erotag-btn" data-tag="on stomach">on stomach</button>
+              </div>
+            </div>
+
+            <div class="erotag-category">
+              <h5>😳 表情系</h5>
+              <div class="erotag-grid">
+                <button type="button" class="erotag-btn" data-tag="blushing">blushing</button>
+                <button type="button" class="erotag-btn" data-tag="parted lips">parted lips</button>
+                <button type="button" class="erotag-btn" data-tag="half-closed eyes">half-closed eyes</button>
+                <button type="button" class="erotag-btn" data-tag="bedroom eyes">bedroom eyes</button>
+                <button type="button" class="erotag-btn" data-tag="ahegao">ahegao</button>
+                <button type="button" class="erotag-btn" data-tag="embarrassed">embarrassed</button>
+                <button type="button" class="erotag-btn" data-tag="shy">shy</button>
+                <button type="button" class="erotag-btn" data-tag="panting">panting</button>
+                <button type="button" class="erotag-btn" data-tag="lip biting">lip biting</button>
+                <button type="button" class="erotag-btn" data-tag="tongue out">tongue out</button>
+                <button type="button" class="erotag-btn" data-tag="drooling">drooling</button>
+                <button type="button" class="erotag-btn" data-tag="seductive smile">seductive smile</button>
+                <button type="button" class="erotag-btn" data-tag="inviting expression">inviting expression</button>
+                <button type="button" class="erotag-btn" data-tag="flushed face">flushed face</button>
+                <button type="button" class="erotag-btn" data-tag="teary eyes">teary eyes</button>
+              </div>
+            </div>
+
+            <div class="erotag-category">
+              <h5>🛏️ シチュエーション系</h5>
+              <div class="erotag-grid">
+                <button type="button" class="erotag-btn" data-tag="on bed">on bed</button>
+                <button type="button" class="erotag-btn" data-tag="in shower">in shower</button>
+                <button type="button" class="erotag-btn" data-tag="bath">bath</button>
+                <button type="button" class="erotag-btn" data-tag="locker room">locker room</button>
+                <button type="button" class="erotag-btn" data-tag="bedroom">bedroom</button>
+                <button type="button" class="erotag-btn" data-tag="morning after">morning after</button>
+                <button type="button" class="erotag-btn" data-tag="undressing">undressing</button>
+                <button type="button" class="erotag-btn" data-tag="dressing">dressing</button>
+                <button type="button" class="erotag-btn" data-tag="changing clothes">changing clothes</button>
+                <button type="button" class="erotag-btn" data-tag="caught">caught</button>
+                <button type="button" class="erotag-btn" data-tag="voyeur perspective">voyeur perspective</button>
+                <button type="button" class="erotag-btn" data-tag="sleeping">sleeping</button>
+                <button type="button" class="erotag-btn" data-tag="waking up">waking up</button>
+                <button type="button" class="erotag-btn" data-tag="steam">steam</button>
+                <button type="button" class="erotag-btn" data-tag="wet">wet</button>
+              </div>
+            </div>
+
+            <div class="erotag-category">
+              <h5>💫 身体表現系</h5>
+              <div class="erotag-grid">
+                <button type="button" class="erotag-btn" data-tag="cleavage">cleavage</button>
+                <button type="button" class="erotag-btn" data-tag="sideboob">sideboob</button>
+                <button type="button" class="erotag-btn" data-tag="underboob">underboob</button>
+                <button type="button" class="erotag-btn" data-tag="back dimples">back dimples</button>
+                <button type="button" class="erotag-btn" data-tag="navel">navel</button>
+                <button type="button" class="erotag-btn" data-tag="thigh gap">thigh gap</button>
+                <button type="button" class="erotag-btn" data-tag="collarbone">collarbone</button>
+                <button type="button" class="erotag-btn" data-tag="bare shoulders">bare shoulders</button>
+                <button type="button" class="erotag-btn" data-tag="bare back">bare back</button>
+                <button type="button" class="erotag-btn" data-tag="midriff">midriff</button>
+                <button type="button" class="erotag-btn" data-tag="hip bones">hip bones</button>
+                <button type="button" class="erotag-btn" data-tag="skin tight">skin tight</button>
+                <button type="button" class="erotag-btn" data-tag="body curve">body curve</button>
+                <button type="button" class="erotag-btn" data-tag="sweat">sweat</button>
+                <button type="button" class="erotag-btn" data-tag="glistening skin">glistening skin</button>
+              </div>
+            </div>
+
+            <div class="erotag-category">
+              <h5>👗 衣装状態系</h5>
+              <div class="erotag-grid">
+                <button type="button" class="erotag-btn" data-tag="clothes pull">clothes pull</button>
+                <button type="button" class="erotag-btn" data-tag="shirt lift">shirt lift</button>
+                <button type="button" class="erotag-btn" data-tag="skirt lift">skirt lift</button>
+                <button type="button" class="erotag-btn" data-tag="unbuttoned">unbuttoned</button>
+                <button type="button" class="erotag-btn" data-tag="unzipped">unzipped</button>
+                <button type="button" class="erotag-btn" data-tag="off shoulder">off shoulder</button>
+                <button type="button" class="erotag-btn" data-tag="fallen strap">fallen strap</button>
+                <button type="button" class="erotag-btn" data-tag="loosened tie">loosened tie</button>
+                <button type="button" class="erotag-btn" data-tag="open shirt">open shirt</button>
+                <button type="button" class="erotag-btn" data-tag="torn clothes">torn clothes</button>
+                <button type="button" class="erotag-btn" data-tag="wet clothes">wet clothes</button>
+                <button type="button" class="erotag-btn" data-tag="see-through">see-through</button>
+                <button type="button" class="erotag-btn" data-tag="transparent">transparent</button>
+                <button type="button" class="erotag-btn" data-tag="barely covered">barely covered</button>
+                <button type="button" class="erotag-btn" data-tag="wardrobe malfunction">wardrobe malfunction</button>
+              </div>
+            </div>
+          </details>
+
           <div class="admin-modal-footer">
             <label class="admin-nsfw-check">
               <input type="checkbox" id="pb-nsfw" value="nsfw" /> NSFW
@@ -2244,6 +2400,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         var current = extraInput.value.trim();
         extraInput.value = current ? current + ', ' + preset.tags : preset.tags;
         extraInput.dispatchEvent(new Event('input'));
+      });
+    });
+  })();
+
+  // ===== エロス系タグボタン(data-tag方式) =====
+  (function() {
+    function appendExtra(tag) {
+      var el = document.getElementById('pb-extra');
+      if (!el) return;
+      var v = el.value.trim();
+      el.value = v ? v + ', ' + tag : tag;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    document.querySelectorAll('.erotag-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        appendExtra(btn.dataset.tag);
       });
     });
   })();
