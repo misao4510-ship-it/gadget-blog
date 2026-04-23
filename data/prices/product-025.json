@@ -8,17 +8,22 @@
       "updated": "2026-04-06"
     },
     "rakuten": {
-      "price": 385,
+      "price": 360,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/bestdo-rk-shop/2110000002043/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-22"
+      "url": "https://item.rakuten.co.jp/laforest/pcs-42013/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-23"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 385
+      "price": 360
     }
   },
   "history": [
+    {
+      "date": "2026-04-23",
+      "amazon": 899,
+      "rakuten": 360
+    },
     {
       "date": "2026-04-22",
       "amazon": 899,
@@ -377,11 +382,6 @@
     {
       "date": "2026-01-23",
       "amazon": 902,
-      "rakuten": 1051
-    },
-    {
-      "date": "2026-01-22",
-      "amazon": 915,
       "rakuten": 1051
     }
   ]
