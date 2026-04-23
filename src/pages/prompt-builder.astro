@@ -307,6 +307,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-overflow: ellipsis;
   }
   .erotag-btn:hover { background: #334155; border-color: #475569; color: #f8fafc; }
+  /* エロス系チェックボックス（タブ内アコーディオン） */
+  .erotag-details {
+    margin-top: 10px;
+    border-top: 1px solid #334155;
+    padding-top: 6px;
+  }
+  .erotag-details > summary {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 0;
+    list-style: none;
+  }
+  .erotag-details > summary::-webkit-details-marker { display: none; }
+  .erotag-details > summary::before { content: "▶ "; font-size: 0.7rem; }
+  .erotag-details[open] > summary::before { content: "▼ "; }
+  .erotag-details[open] > summary { color: #f8fafc; }
   /* LoRAタブ内スタイル調整 */
   .admin-lora-row {
     display: flex;
@@ -1290,6 +1308,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button class="admin-tab" data-tab="liquid">汁・液</button>
             <button class="admin-tab" data-tab="costume">衣装追加</button>
             <button class="admin-tab" data-tab="face">表情</button>
+            <button class="admin-tab" data-tab="body">身体表現</button>
             <button class="admin-tab" data-tab="lora-setting">⚙️LoRA</button>
           </div>
 
@@ -1365,6 +1384,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <label><input type="checkbox" name="admin-h-pose" value="hand between legs"> 足の間に手を入れる</label>
               <label><input type="checkbox" name="admin-h-pose" value="sitting"> 座っている</label>
             </div>
+            <!-- エロスポーズ追加チェックボックス（pb-extra反映） -->
+            <details class="erotag-details">
+              <summary>🔥 エロスポーズ追加（チェックでpb-extraに追加/削除）</summary>
+              <div class="admin-option-grid" style="margin-top:6px;">
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="seductive pose"> セクシーポーズ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="lying on side"> 横向き</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="sitting on bed"> ベッドに座る</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="leaning forward"> 前傾み</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="arched back"> 背中を反らす</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="hand on hip"> 腰に手</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="looking back"> 振り返り</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="straddling"> またがる</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="kneeling"> ひざまずく</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="bending over"> 前かがみ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="on stomach"> うつ伏せ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="lying on back"> 仰向け</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="all fours"> 四つん這い</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="arms behind head"> 頭の後ろに手</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="spread legs"> 足を開く</label>
+              </div>
+            </details>
           </div>
 
           <!-- 複合ポーズタブ（radio） -->
@@ -1407,6 +1447,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <label><input type="checkbox" name="admin-situation" value="(armpit hair:1.5)"> 腋毛</label>
               <label><input type="checkbox" name="admin-situation" value="pubic hair"> 陰毛</label>
             </div>
+            <!-- シチュエーション追加チェックボックス（pb-extra反映） -->
+            <details class="erotag-details">
+              <summary>🛏️ シチュエーション追加（チェックでpb-extraに追加/削除）</summary>
+              <div class="admin-option-grid" style="margin-top:6px;">
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="on bed"> ベッドの上</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="in shower"> シャワー中</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="bath"> お風呂</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="locker room"> ロッカールーム</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="bedroom"> 寝室</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="morning after"> 翌朝</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="undressing"> 脱ぎぬぎ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="dressing"> 着替え中</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="changing clothes"> 服を着替え</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="caught"> 見られた</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="voyeur perspective"> 盗み見</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="sleeping"> 眠っている</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="waking up"> 目覚め</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="steam"> 湯気</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="wet"> ぬれている</label>
+              </div>
+            </details>
           </div>
 
           <!-- 複合状況タブ（radio） -->
@@ -1497,6 +1558,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <label><input type="checkbox" name="admin-costume" value="see through"> シースルー</label>
               <label><input type="checkbox" name="admin-costume" value="torn clothes"> 破れた服</label>
             </div>
+            <!-- 衣装状態追加チェックボックス（pb-extra反映） -->
+            <details class="erotag-details">
+              <summary>👗 衣装状態追加（チェックでpb-extraに追加/削除）</summary>
+              <div class="admin-option-grid" style="margin-top:6px;">
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="clothes pull"> 服を引っ張る</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="shirt lift"> シャツをたくし上げ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="skirt lift"> スカートをたくし上げ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="unbuttoned"> ボタンを外す</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="unzipped"> チャックを開ける</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="off shoulder"> 肩を出す</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="fallen strap"> 肩紐が落ちる</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="loosened tie"> ネクタイを緩める</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="open shirt"> シャツを開ける</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="torn clothes"> 服が破れている</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="wet clothes"> 濡れた服</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="see-through"> 透け透け</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="transparent"> 透明素材</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="barely covered"> ほぼ露出</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="wardrobe malfunction"> 服がズレた</label>
+              </div>
+            </details>
           </div>
 
           <!-- 表情タブ（checkbox） -->
@@ -1526,6 +1608,53 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <label><input type="checkbox" name="admin-face" value="sleepy"> 眠そう</label>
               <label><input type="checkbox" name="admin-face" value="seductive eyes"> 誘惑</label>
               <label><input type="checkbox" name="admin-face" value="drooling"> よだれ</label>
+            </div>
+            <!-- 表情追加チェックボックス（pb-extra反映） -->
+            <details class="erotag-details">
+              <summary>😳 表情追加（チェックでpb-extraに追加/削除）</summary>
+              <div class="admin-option-grid" style="margin-top:6px;">
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="blushing"> 赤面</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="parted lips"> 半開きの唇</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="half-closed eyes"> 半目</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="bedroom eyes"> うるみ目</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="ahegao"> アヘ顔</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="embarrassed"> 恥ずかしそう</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="shy"> 照れ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="panting"> 息切れ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="lip biting"> 唇噛み</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="tongue out"> 舌出し</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="drooling"> よだれ</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="seductive smile"> 誘惑の笑み</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="inviting expression"> 誘う表情</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="flushed face"> 上気した顔</label>
+                <label><input type="checkbox" class="erotag-checkbox" data-tag="teary eyes"> 涙目</label>
+              </div>
+            </details>
+          </div>
+
+          <!-- 身体表現タブ（erotag-checkbox） -->
+          <div class="admin-tab-content" id="admin-tab-body">
+            <div class="tab-clear-row">
+              <span class="tab-title">身体表現</span>
+              <button class="clear-tab-btn" data-tab="body" type="button">全チェック外す</button>
+            </div>
+            <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:6px;">チェックON → pb-extraに追加、OFFで削除</div>
+            <div class="admin-option-grid">
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="cleavage"> 谷間</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="sideboob"> 横乳</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="underboob"> 下乳</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="back dimples"> 背中のくぼみ</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="navel"> へそ</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="thigh gap"> 太もも隙間</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="collarbone"> 鎖骨</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="bare shoulders"> 肩出し</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="bare back"> 背中出し</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="midriff"> お腹出し</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="hip bones"> 骨盤</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="skin tight"> ピタピタ</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="body curve"> ボディライン</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="sweat"> 汗</label>
+              <label><input type="checkbox" class="erotag-checkbox" data-tag="glistening skin"> 光る肌</label>
             </div>
           </div>
 
@@ -1563,116 +1692,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <button type="button" id="pb-preset-highres" class="admin-preset-btn">💎高解像度</button>
             </div>
           </div>
-
-          <!-- 🔥エロス系プリセット -->
-          <details class="erotag-section">
-            <summary>🔥 エロス系タグプリセット（クリックで追加タグ欄に追記）</summary>
-
-            <div class="erotag-category">
-              <h5>🔥 ポーズ系</h5>
-              <div class="erotag-grid">
-                <button type="button" class="erotag-btn" data-tag="seductive pose">セクシーポーズ</button>
-                <button type="button" class="erotag-btn" data-tag="lying on back">仰向け</button>
-                <button type="button" class="erotag-btn" data-tag="lying on side">横向き</button>
-                <button type="button" class="erotag-btn" data-tag="all fours">四つん這い</button>
-                <button type="button" class="erotag-btn" data-tag="sitting on bed">ベッドに座る</button>
-                <button type="button" class="erotag-btn" data-tag="leaning forward">前傾み</button>
-                <button type="button" class="erotag-btn" data-tag="arched back">背中を反らす</button>
-                <button type="button" class="erotag-btn" data-tag="hand on hip">腰に手</button>
-                <button type="button" class="erotag-btn" data-tag="arms behind head">頭の後ろに手</button>
-                <button type="button" class="erotag-btn" data-tag="looking back">振り返り</button>
-                <button type="button" class="erotag-btn" data-tag="straddling">またがる</button>
-                <button type="button" class="erotag-btn" data-tag="spread legs">足を開く</button>
-                <button type="button" class="erotag-btn" data-tag="kneeling">ひざまずく</button>
-                <button type="button" class="erotag-btn" data-tag="bending over">前かがみ</button>
-                <button type="button" class="erotag-btn" data-tag="on stomach">うつ伏せ</button>
-              </div>
-            </div>
-
-            <div class="erotag-category">
-              <h5>😳 表情系</h5>
-              <div class="erotag-grid">
-                <button type="button" class="erotag-btn" data-tag="blushing">赤面</button>
-                <button type="button" class="erotag-btn" data-tag="parted lips">半開きの唇</button>
-                <button type="button" class="erotag-btn" data-tag="half-closed eyes">半目</button>
-                <button type="button" class="erotag-btn" data-tag="bedroom eyes">うるみ目</button>
-                <button type="button" class="erotag-btn" data-tag="ahegao">アヘ顔</button>
-                <button type="button" class="erotag-btn" data-tag="embarrassed">恥ずかしそう</button>
-                <button type="button" class="erotag-btn" data-tag="shy">照れ</button>
-                <button type="button" class="erotag-btn" data-tag="panting">息切れ</button>
-                <button type="button" class="erotag-btn" data-tag="lip biting">唇噛み</button>
-                <button type="button" class="erotag-btn" data-tag="tongue out">舌出し</button>
-                <button type="button" class="erotag-btn" data-tag="drooling">よだれ</button>
-                <button type="button" class="erotag-btn" data-tag="seductive smile">誘惑の笑み</button>
-                <button type="button" class="erotag-btn" data-tag="inviting expression">誘う表情</button>
-                <button type="button" class="erotag-btn" data-tag="flushed face">上気した顔</button>
-                <button type="button" class="erotag-btn" data-tag="teary eyes">涙目</button>
-              </div>
-            </div>
-
-            <div class="erotag-category">
-              <h5>🛏️ シチュエーション系</h5>
-              <div class="erotag-grid">
-                <button type="button" class="erotag-btn" data-tag="on bed">ベッドの上</button>
-                <button type="button" class="erotag-btn" data-tag="in shower">シャワー中</button>
-                <button type="button" class="erotag-btn" data-tag="bath">お風呂</button>
-                <button type="button" class="erotag-btn" data-tag="locker room">ロッカールーム</button>
-                <button type="button" class="erotag-btn" data-tag="bedroom">寝室</button>
-                <button type="button" class="erotag-btn" data-tag="morning after">翌朝</button>
-                <button type="button" class="erotag-btn" data-tag="undressing">脱ぎぬぎ</button>
-                <button type="button" class="erotag-btn" data-tag="dressing">着替え中</button>
-                <button type="button" class="erotag-btn" data-tag="changing clothes">服を着替え</button>
-                <button type="button" class="erotag-btn" data-tag="caught">見られた</button>
-                <button type="button" class="erotag-btn" data-tag="voyeur perspective">盗み見</button>
-                <button type="button" class="erotag-btn" data-tag="sleeping">眠っている</button>
-                <button type="button" class="erotag-btn" data-tag="waking up">目覚め</button>
-                <button type="button" class="erotag-btn" data-tag="steam">湯気</button>
-                <button type="button" class="erotag-btn" data-tag="wet">ぬれている</button>
-              </div>
-            </div>
-
-            <div class="erotag-category">
-              <h5>💫 身体表現系</h5>
-              <div class="erotag-grid">
-                <button type="button" class="erotag-btn" data-tag="cleavage">谷間</button>
-                <button type="button" class="erotag-btn" data-tag="sideboob">横乳</button>
-                <button type="button" class="erotag-btn" data-tag="underboob">下乳</button>
-                <button type="button" class="erotag-btn" data-tag="back dimples">背中のくぼみ</button>
-                <button type="button" class="erotag-btn" data-tag="navel">へそ</button>
-                <button type="button" class="erotag-btn" data-tag="thigh gap">太もも隙間</button>
-                <button type="button" class="erotag-btn" data-tag="collarbone">鎖骨</button>
-                <button type="button" class="erotag-btn" data-tag="bare shoulders">肩出し</button>
-                <button type="button" class="erotag-btn" data-tag="bare back">背中出し</button>
-                <button type="button" class="erotag-btn" data-tag="midriff">お腹出し</button>
-                <button type="button" class="erotag-btn" data-tag="hip bones">骨盤</button>
-                <button type="button" class="erotag-btn" data-tag="skin tight">ピタピタ</button>
-                <button type="button" class="erotag-btn" data-tag="body curve">ボディライン</button>
-                <button type="button" class="erotag-btn" data-tag="sweat">汗</button>
-                <button type="button" class="erotag-btn" data-tag="glistening skin">光る肌</button>
-              </div>
-            </div>
-
-            <div class="erotag-category">
-              <h5>👗 衣装状態系</h5>
-              <div class="erotag-grid">
-                <button type="button" class="erotag-btn" data-tag="clothes pull">服を引っ張る</button>
-                <button type="button" class="erotag-btn" data-tag="shirt lift">シャツをたくし上げ</button>
-                <button type="button" class="erotag-btn" data-tag="skirt lift">スカートをたくし上げ</button>
-                <button type="button" class="erotag-btn" data-tag="unbuttoned">ボタンを外す</button>
-                <button type="button" class="erotag-btn" data-tag="unzipped">チャックを開ける</button>
-                <button type="button" class="erotag-btn" data-tag="off shoulder">肩を出す</button>
-                <button type="button" class="erotag-btn" data-tag="fallen strap">肩紐が落ちる</button>
-                <button type="button" class="erotag-btn" data-tag="loosened tie">ネクタイを緩める</button>
-                <button type="button" class="erotag-btn" data-tag="open shirt">シャツを開ける</button>
-                <button type="button" class="erotag-btn" data-tag="torn clothes">服が破れている</button>
-                <button type="button" class="erotag-btn" data-tag="wet clothes">濡れた服</button>
-                <button type="button" class="erotag-btn" data-tag="see-through">透け透け</button>
-                <button type="button" class="erotag-btn" data-tag="transparent">透明素材</button>
-                <button type="button" class="erotag-btn" data-tag="barely covered">ほぼ露出</button>
-                <button type="button" class="erotag-btn" data-tag="wardrobe malfunction">服がズレた</button>
-              </div>
-            </div>
-          </details>
 
           <div class="admin-modal-footer">
             <label class="admin-nsfw-check">
@@ -2222,8 +2241,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     adminModal.querySelectorAll('.clear-tab-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var tabId = btn.dataset.tab;
-        adminModal.querySelectorAll('input[name="admin-' + tabId + '"]').forEach(function(cb) {
+        var tabEl = document.getElementById('admin-tab-' + tabId);
+        if (!tabEl) return;
+        // 通常のadminチェックボックス
+        tabEl.querySelectorAll('input[name="admin-' + tabId + '"]').forEach(function(cb) {
           cb.checked = false;
+        });
+        // erotag-checkboxを持つタブ（body等）はpb-extraからも削除
+        tabEl.querySelectorAll('.erotag-checkbox').forEach(function(cb) {
+          if (cb.checked) {
+            cb.checked = false;
+            cb.dispatchEvent(new Event('change', { bubbles: true }));
+          }
         });
       });
     });
@@ -2404,18 +2433,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     });
   })();
 
-  // ===== エロス系タグボタン(data-tag方式) =====
+  // ===== エロス系チェックボックス(ON/OFFでpb-extra追加/削除) =====
   (function() {
-    function appendExtra(tag) {
-      var el = document.getElementById('pb-extra');
-      if (!el) return;
-      var v = el.value.trim();
-      el.value = v ? v + ', ' + tag : tag;
-      el.dispatchEvent(new Event('input', { bubbles: true }));
-    }
-    document.querySelectorAll('.erotag-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        appendExtra(btn.dataset.tag);
+    document.querySelectorAll('.erotag-checkbox').forEach(function(cb) {
+      cb.addEventListener('change', function(e) {
+        var tag = e.target.dataset.tag;
+        var extraEl = document.getElementById('pb-extra');
+        if (!extraEl) return;
+        var parts = extraEl.value.split(',').map(function(s) { return s.trim(); }).filter(Boolean);
+        var idx = parts.indexOf(tag);
+        if (e.target.checked) {
+          if (idx === -1) parts.push(tag);
+        } else {
+          if (idx !== -1) parts.splice(idx, 1);
+        }
+        extraEl.value = parts.join(', ');
+        extraEl.dispatchEvent(new Event('input', { bubbles: true }));
       });
     });
   })();
