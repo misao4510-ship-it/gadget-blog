@@ -2328,6 +2328,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   })();
 
+  // モデル選択 localStorage 保持 (cmd_223)
+  (function() {
+    const modelEl = document.getElementById('pb-sd-model');
+    if (modelEl) {
+      const saved = localStorage.getItem('pb-sd-model');
+      if (saved) {
+        const opt = modelEl.querySelector('option[value="' + saved + '"]');
+        if (opt) modelEl.value = saved;
+      }
+      modelEl.addEventListener('change', function() {
+        localStorage.setItem('pb-sd-model', modelEl.value);
+      });
+    }
+  })();
+
   // 服装詳細プルダウン localStorage 保持 (cmd_222)
   (function() {
     const PB_DETAIL_KEYS = ['pb-top', 'pb-bottom', 'pb-legwear'];
