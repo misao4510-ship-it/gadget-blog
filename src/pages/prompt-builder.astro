@@ -1339,6 +1339,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- モーダルフッター -->
           <div style="margin-bottom: 8px;">
             <button type="button" id="sakura-template-btn" class="sakura-template-btn">🌸 サクラテンプレ</button>
+            <button type="button" id="yukine-template-btn" class="sakura-template-btn">🌙 雪音テンプレ</button>
           </div>
           <div class="admin-modal-footer">
             <label class="admin-nsfw-check">
@@ -1965,6 +1966,69 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
         // 表情(管理人): テンプレではリセットのみ（表情は都度選択）
+        adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
+        updatePreview();
+      });
+    }
+
+    // 🌙 雪音テンプレボタン
+    var yukineBtn = document.getElementById('yukine-template-btn');
+    if (yukineBtn) {
+      yukineBtn.addEventListener('click', function() {
+        // 品質タグ: masterpiece, best quality + 美容5項目
+        var qualityValues = ['masterpiece', 'best quality', 'beautiful face', 'beautiful detailed eyes', 'beautiful hairstyle', 'beautiful skin', 'perfect body'];
+        document.querySelectorAll('#pb-quality-tags input[type="checkbox"]').forEach(function(cb) {
+          cb.checked = qualityValues.includes(cb.value);
+        });
+        // 性別: 女の子 (1girl)
+        var genderSel = document.getElementById('pb-gender');
+        if (genderSel) { genderSel.value = '1girl'; genderSel.dispatchEvent(new Event('change')); }
+        // 年齢: 大人
+        var ageSel = document.getElementById('pb-age');
+        if (ageSel) { ageSel.value = 'adult'; ageSel.dispatchEvent(new Event('change')); }
+        // 人数: 1人 (solo)
+        var countSel = document.getElementById('pb-count');
+        if (countSel) { countSel.value = 'solo'; countSel.dispatchEvent(new Event('change')); }
+        // 胸: 普通
+        var bustSel = document.getElementById('pb-bust');
+        if (bustSel) { bustSel.value = 'medium breasts'; bustSel.dispatchEvent(new Event('change')); }
+        // 構図: cowboy shot
+        var compSel = document.getElementById('pb-composition');
+        if (compSel) { compSel.value = 'cowboy shot'; compSel.dispatchEvent(new Event('change')); }
+        // 髪型: ロングストレート（手入力）
+        var hairSel = document.getElementById('pb-hair');
+        if (hairSel) { hairSel.value = ''; hairSel.dispatchEvent(new Event('change')); }
+        var hairCustom = document.getElementById('pb-hair-custom');
+        if (hairCustom) { hairCustom.value = 'long straight hair'; hairCustom.dispatchEvent(new Event('input')); }
+        // 髪色: シルバー（パレットにない色→hidden inputに直接セット）
+        setColorChip('pb-haircolor', 'silver hair');
+        document.getElementById('pb-haircolor').dispatchEvent(new Event('input'));
+        // インナー色: なし
+        setColorChip('pb-hair-inner', '');
+        document.getElementById('pb-hair-inner').dispatchEvent(new Event('input'));
+        // 目の色: ライトパープル（hidden inputに直接セット）
+        setColorChip('pb-eyes', 'light purple eyes');
+        document.getElementById('pb-eyes').dispatchEvent(new Event('input'));
+        // 目の形: 丸い目
+        var eyeShapeSel = document.getElementById('pb-eye-shape');
+        if (eyeShapeSel) { eyeShapeSel.value = 'round eyes'; eyeShapeSel.dispatchEvent(new Event('change')); }
+        // 表情: gentle expression（手入力）
+        var exprSel = document.getElementById('pb-expression');
+        if (exprSel) { exprSel.value = ''; exprSel.dispatchEvent(new Event('change')); }
+        var exprCustom = document.getElementById('pb-expression-custom');
+        if (exprCustom) { exprCustom.value = 'gentle expression'; exprCustom.dispatchEvent(new Event('input')); }
+        // 服装: white blouse（手入力）
+        var outfitSel = document.getElementById('pb-outfit');
+        if (outfitSel) { outfitSel.value = ''; outfitSel.dispatchEvent(new Event('change')); }
+        var outfitCustom = document.getElementById('pb-outfit-custom');
+        if (outfitCustom) { outfitCustom.value = 'white blouse'; outfitCustom.dispatchEvent(new Event('input')); }
+        // 服の色: 白
+        setColorChip('pb-outfit-color', 'white outfit');
+        document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
+        // 追加指示: elegant
+        var extraInput = document.getElementById('pb-extra');
+        if (extraInput) { extraInput.value = 'elegant'; extraInput.dispatchEvent(new Event('input')); }
+        // 表情(管理人): リセット
         adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
         updatePreview();
       });
