@@ -910,6 +910,116 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
             <div class="custom-row"><input type="text" id="pb-outfit-color-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-color-custom">📝 変換</button></div>
           </div>
+          <!-- 服装詳細プルダウン3種 (cmd_222) -->
+          <div class="field-group">
+            <label for="pb-top">上着(トップス)</label>
+            <select id="pb-top">
+              <option value="">指定なし</option>
+              <option value="t-shirt">t-shirt</option>
+              <option value="blouse">blouse</option>
+              <option value="sweater">sweater</option>
+              <option value="hoodie">hoodie</option>
+              <option value="cardigan">cardigan</option>
+              <option value="tank top">tank top</option>
+              <option value="crop top">crop top</option>
+              <option value="dress shirt">dress shirt</option>
+              <option value="polo shirt">polo shirt</option>
+              <option value="camisole">camisole</option>
+              <option value="tube top">tube top</option>
+              <option value="off-shoulder top">off-shoulder top</option>
+              <option value="turtleneck">turtleneck</option>
+              <option value="vest">vest</option>
+              <option value="blazer">blazer</option>
+              <option value="jacket">jacket</option>
+              <option value="leather jacket">leather jacket</option>
+              <option value="denim jacket">denim jacket</option>
+              <option value="kimono top">kimono top</option>
+              <option value="sailor collar top">sailor collar top</option>
+              <option value="maid uniform top">maid uniform top</option>
+              <option value="school uniform">school uniform</option>
+              <option value="bikini top">bikini top</option>
+              <option value="sports bra">sports bra</option>
+              <option value="corset">corset</option>
+              <option value="halter top">halter top</option>
+              <option value="wrap top">wrap top</option>
+              <option value="oversized shirt">oversized shirt</option>
+              <option value="negligee">negligee</option>
+              <option value="china dress">china dress</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-bottom">下(ボトムス/下着)</label>
+            <select id="pb-bottom">
+              <option value="">指定なし</option>
+              <option value="skirt">skirt</option>
+              <option value="mini skirt">mini skirt</option>
+              <option value="long skirt">long skirt</option>
+              <option value="pleated skirt">pleated skirt</option>
+              <option value="pencil skirt">pencil skirt</option>
+              <option value="shorts">shorts</option>
+              <option value="hot pants">hot pants</option>
+              <option value="jeans">jeans</option>
+              <option value="leggings">leggings</option>
+              <option value="sweatpants">sweatpants</option>
+              <option value="panties">panties</option>
+              <option value="thong">thong</option>
+              <option value="bloomers">bloomers</option>
+              <option value="bike shorts">bike shorts</option>
+              <option value="dolphin shorts">dolphin shorts</option>
+              <option value="hakama">hakama</option>
+              <option value="sarong">sarong</option>
+              <option value="tutu">tutu</option>
+              <option value="bodysuit bottom">bodysuit bottom</option>
+              <option value="garter belt">garter belt</option>
+              <option value="school uniform skirt">school uniform skirt</option>
+              <option value="maid skirt">maid skirt</option>
+              <option value="bikini bottom">bikini bottom</option>
+              <option value="swim briefs">swim briefs</option>
+              <option value="loincloth">loincloth</option>
+              <option value="fundoshi">fundoshi</option>
+              <option value="apron (bottom)">apron (bottom)</option>
+              <option value="chaps">chaps</option>
+              <option value="overalls">overalls</option>
+              <option value="no bottoms">no bottoms</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="pb-legwear">靴下/レッグウェア</label>
+            <select id="pb-legwear">
+              <option value="">指定なし</option>
+              <option value="barefoot">barefoot</option>
+              <option value="ankle socks">ankle socks</option>
+              <option value="crew socks">crew socks</option>
+              <option value="knee-high socks">knee-high socks</option>
+              <option value="thigh-high socks">thigh-high socks</option>
+              <option value="over-knee socks">over-knee socks</option>
+              <option value="stockings">stockings</option>
+              <option value="black stockings">black stockings</option>
+              <option value="white stockings">white stockings</option>
+              <option value="fishnet stockings">fishnet stockings</option>
+              <option value="fishnet thigh highs">fishnet thigh highs</option>
+              <option value="pantyhose">pantyhose</option>
+              <option value="black pantyhose">black pantyhose</option>
+              <option value="white pantyhose">white pantyhose</option>
+              <option value="striped thigh highs">striped thigh highs</option>
+              <option value="lace-trimmed stockings">lace-trimmed stockings</option>
+              <option value="leg warmers">leg warmers</option>
+              <option value="bandaged legs">bandaged legs</option>
+              <option value="boots">boots</option>
+              <option value="high heels">high heels</option>
+              <option value="sneakers">sneakers</option>
+              <option value="sandals">sandals</option>
+              <option value="loafers">loafers</option>
+              <option value="mary janes">mary janes</option>
+              <option value="platform shoes">platform shoes</option>
+              <option value="slippers">slippers</option>
+              <option value="bare legs">bare legs</option>
+              <option value="toe socks">toe socks</option>
+              <option value="geta">geta</option>
+              <option value="zouri">zouri</option>
+            </select>
+          </div>
+
           <div class="field-group">
             <label for="pb-bust">胸のサイズ</label>
             <select id="pb-bust">
@@ -1784,6 +1894,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (v) parts.push(v);
     }
 
+    // 服装詳細プルダウン (cmd_222)
+    const top = document.getElementById('pb-top')?.value;
+    if (top) parts.push(top);
+    const bottom = document.getElementById('pb-bottom')?.value;
+    if (bottom) parts.push(bottom);
+    const legwear = document.getElementById('pb-legwear')?.value;
+    if (legwear) parts.push(legwear);
+
     // NSFW
     if (checked('pb-nsfw')) parts.push('nsfw');
 
@@ -1834,6 +1952,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     'pb-expression','pb-expression-custom',
     'pb-outfit','pb-outfit-custom',
     'pb-outfit-color','pb-outfit-color-custom',
+    'pb-top','pb-bottom','pb-legwear',
     'pb-pose','pb-pose-custom',
     'pb-bg','pb-bg-custom','pb-extra','pb-negative',
     'pb-lora-on','pb-lora-strength','pb-lora-name','pb-nsfw',
@@ -2207,6 +2326,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       const stepsInput = document.getElementById('pb-sd-steps');
       if (stepsInput) stepsInput.value = initSteps;
     }
+  })();
+
+  // 服装詳細プルダウン localStorage 保持 (cmd_222)
+  (function() {
+    const PB_DETAIL_KEYS = ['pb-top', 'pb-bottom', 'pb-legwear'];
+    // ロード
+    PB_DETAIL_KEYS.forEach(function(id) {
+      const saved = localStorage.getItem(id);
+      if (saved) {
+        const el = document.getElementById(id);
+        if (el) el.value = saved;
+      }
+    });
+    // セーブ
+    PB_DETAIL_KEYS.forEach(function(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('change', function() {
+          localStorage.setItem(id, el.value);
+        });
+      }
+    });
   })();
 
   // 初期表示
