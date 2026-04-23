@@ -987,7 +987,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <label>LoRA指定</label>
             <div class="lora-row">
               <input type="checkbox" id="pb-lora-on" checked />
-              <span style="font-size:0.85rem;color:var(--color-text)">kaina_v1</span>
+              <select id="pb-lora-name" style="font-size:0.85rem;color:var(--color-text);background:var(--color-bg);border:1px solid var(--color-border);border-radius:4px;padding:2px 4px;">
+                <option value="kurokawa_v1" selected>kurokawa_v1</option>
+                <option value="kaina_v1">kaina_v1</option>
+              </select>
               <input type="range" id="pb-lora-strength" min="0.1" max="1.0" step="0.05" value="0.7" />
               <span class="lora-strength-label" id="pb-lora-value">0.70</span>
             </div>
@@ -1731,7 +1734,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     // LoRA
     if (checked('pb-lora-on')) {
       const strength = parseFloat(document.getElementById('pb-lora-strength').value).toFixed(2);
-      parts.push(`<lora:kaina_v1:${strength}>`);
+      const loraName = document.getElementById('pb-lora-name').value || 'kurokawa_v1';
+      parts.push(`<lora:${loraName}:${strength}>`);
     }
 
     return parts.join(', ');
@@ -1768,7 +1772,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     'pb-outfit-color','pb-outfit-color-custom',
     'pb-pose','pb-pose-custom',
     'pb-bg','pb-bg-custom','pb-extra','pb-negative',
-    'pb-lora-on','pb-lora-strength','pb-nsfw',
+    'pb-lora-on','pb-lora-strength','pb-lora-name','pb-nsfw',
   ];
   for (const id of watchIds) {
     const el = document.getElementById(id);
@@ -1965,6 +1969,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 服の色: 白
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
+        // LoRA: kurokawa_v1 自動選択
+        var loraSel = document.getElementById('pb-lora-name');
+        if (loraSel) { loraSel.value = 'kurokawa_v1'; loraSel.dispatchEvent(new Event('change')); }
         // 表情(管理人): テンプレではリセットのみ（表情は都度選択）
         adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
         updatePreview();
@@ -2028,6 +2035,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 追加指示: elegant
         var extraInput = document.getElementById('pb-extra');
         if (extraInput) { extraInput.value = 'elegant'; extraInput.dispatchEvent(new Event('input')); }
+        // LoRA: kurokawa_v1 自動選択
+        var loraSel2 = document.getElementById('pb-lora-name');
+        if (loraSel2) { loraSel2.value = 'kurokawa_v1'; loraSel2.dispatchEvent(new Event('change')); }
         // 表情(管理人): リセット
         adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
         updatePreview();
