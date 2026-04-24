@@ -2402,12 +2402,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
         // 追加指示: 最新ゆきね確定容姿
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'very round face, cute face, baby face, small nose, round cheeks, petite face, slender, slim waist, gentle smile, soft expression, thin frame rectangular glasses, finger on lips, shush gesture, elegant, graceful'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'very round face, cute face, baby face, small nose, round cheeks, petite face, slender, slim waist, gentle smile, soft expression, thin frame rectangular glasses, elegant, graceful'; extraInput.dispatchEvent(new Event('input')); }
         // ネガティブ: ゆきね確定版
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
           var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
-          var yukineNeg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people';
+          var yukineNeg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people, purple hair, violet hair, purple tint hair, blue tinted hair, lavender hair';
           negInput.value = baseNeg + ', ' + yukineNeg;
           negInput.dispatchEvent(new Event('input'));
         }
