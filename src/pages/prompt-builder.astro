@@ -1683,7 +1683,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:6px;">📌 キャラテンプレ</div>
             <div style="margin-bottom: 10px;">
               <button type="button" id="sakura-template-btn" class="sakura-template-btn">🌸 サクラテンプレ</button>
-              <button type="button" id="yukine-template-btn" class="sakura-template-btn">🌙 雪音テンプレ</button>
+              <button type="button" id="yukine-template-btn" class="sakura-template-btn">🌙 ゆきねテンプレ</button>
             </div>
             <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:6px;">⚡ プリセット（追加タグ欄に追記）</div>
             <div class="admin-presets">
@@ -2346,7 +2346,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       });
     }
 
-    // 🌙 雪音テンプレボタン
+    // 🌙 ゆきねテンプレボタン
     var yukineBtn = document.getElementById('yukine-template-btn');
     if (yukineBtn) {
       yukineBtn.addEventListener('click', function() {
@@ -2370,28 +2370,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 構図: cowboy shot
         var compSel = document.getElementById('pb-composition');
         if (compSel) { compSel.value = 'cowboy shot'; compSel.dispatchEvent(new Event('change')); }
-        // 髪型: ロングストレート（手入力）
+        // 髪型: ロングストレート＋ツヤ（手入力）
         var hairSel = document.getElementById('pb-hair');
         if (hairSel) { hairSel.value = ''; hairSel.dispatchEvent(new Event('change')); }
         var hairCustom = document.getElementById('pb-hair-custom');
-        if (hairCustom) { hairCustom.value = 'long straight hair'; hairCustom.dispatchEvent(new Event('input')); }
-        // 髪色: 黒寄りダークブラウン（パレットにない色→hidden inputに直接セット）
-        setColorChip('pb-haircolor', 'black brown hair');
+        if (hairCustom) { hairCustom.value = 'long straight hair, glossy hair, hair shine'; hairCustom.dispatchEvent(new Event('input')); }
+        // 髪色: 純黒
+        setColorChip('pb-haircolor', 'black hair');
         document.getElementById('pb-haircolor').dispatchEvent(new Event('input'));
         // インナー色: なし
         setColorChip('pb-hair-inner', '');
         document.getElementById('pb-hair-inner').dispatchEvent(new Event('input'));
-        // 目の色: 鮮やかなパープル（hidden inputに直接セット）
-        setColorChip('pb-eyes', 'vivid purple eyes');
+        // 目の色: バイオレット
+        setColorChip('pb-eyes', 'violet eyes, purple eyes');
         document.getElementById('pb-eyes').dispatchEvent(new Event('input'));
-        // 目の形: 丸い目
+        // 目の形: 大きな丸い目
         var eyeShapeSel = document.getElementById('pb-eye-shape');
-        if (eyeShapeSel) { eyeShapeSel.value = 'round eyes'; eyeShapeSel.dispatchEvent(new Event('change')); }
-        // 表情: gentle expression（手入力）
+        if (eyeShapeSel) { eyeShapeSel.value = 'big round eyes'; eyeShapeSel.dispatchEvent(new Event('change')); }
+        // 表情: gentle smile（手入力）
         var exprSel = document.getElementById('pb-expression');
         if (exprSel) { exprSel.value = ''; exprSel.dispatchEvent(new Event('change')); }
         var exprCustom = document.getElementById('pb-expression-custom');
-        if (exprCustom) { exprCustom.value = 'gentle expression'; exprCustom.dispatchEvent(new Event('input')); }
+        if (exprCustom) { exprCustom.value = 'gentle smile, soft expression'; exprCustom.dispatchEvent(new Event('input')); }
         // 服装: white blouse（手入力）
         var outfitSel = document.getElementById('pb-outfit');
         if (outfitSel) { outfitSel.value = ''; outfitSel.dispatchEvent(new Event('change')); }
@@ -2400,14 +2400,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 服の色: 白
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 追加指示: 小顔・強い紫瞳・お嬢様
+        // 追加指示: 最新ゆきね確定容姿
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'elegant, youthful, ojou-sama, refined, small face, slim face, v-shaped chin, gentle eyes, soft gaze, kind eyes, purple iris, violet eyes, very dark hair, dark hair'; extraInput.dispatchEvent(new Event('input')); }
-        // ネガティブ: 既存ネガに雪音用追加
+        if (extraInput) { extraInput.value = 'very round face, cute face, baby face, small nose, round cheeks, petite face, slender, slim waist, gentle smile, soft expression, thin frame rectangular glasses, finger on lips, shush gesture, elegant, graceful'; extraInput.dispatchEvent(new Event('input')); }
+        // ネガティブ: ゆきね確定版
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
           var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
-          var yukineNeg = 'purple hair, violet hair, blue hair, light brown hair, sharp eyes, glaring, angry eyes, blue eyes, green eyes, red eyes';
+          var yukineNeg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people';
           negInput.value = baseNeg + ', ' + yukineNeg;
           negInput.dispatchEvent(new Event('input'));
         }
