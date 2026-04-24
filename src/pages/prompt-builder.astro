@@ -2375,14 +2375,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (hairSel) { hairSel.value = ''; hairSel.dispatchEvent(new Event('change')); }
         var hairCustom = document.getElementById('pb-hair-custom');
         if (hairCustom) { hairCustom.value = 'long straight hair'; hairCustom.dispatchEvent(new Event('input')); }
-        // 髪色: シルバー（パレットにない色→hidden inputに直接セット）
-        setColorChip('pb-haircolor', 'silver hair');
+        // 髪色: 黒寄りダークブラウン（パレットにない色→hidden inputに直接セット）
+        setColorChip('pb-haircolor', 'black brown hair');
         document.getElementById('pb-haircolor').dispatchEvent(new Event('input'));
         // インナー色: なし
         setColorChip('pb-hair-inner', '');
         document.getElementById('pb-hair-inner').dispatchEvent(new Event('input'));
-        // 目の色: ライトパープル（hidden inputに直接セット）
-        setColorChip('pb-eyes', 'light purple eyes');
+        // 目の色: 鮮やかなパープル（hidden inputに直接セット）
+        setColorChip('pb-eyes', 'vivid purple eyes');
         document.getElementById('pb-eyes').dispatchEvent(new Event('input'));
         // 目の形: 丸い目
         var eyeShapeSel = document.getElementById('pb-eye-shape');
@@ -2400,9 +2400,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 服の色: 白
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 追加指示: elegant
+        // 追加指示: 小顔・強い紫瞳・お嬢様
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'elegant'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'elegant, youthful, ojou-sama, refined, small face, slim face, v-shaped chin, gentle eyes, soft gaze, kind eyes, purple iris, violet eyes, very dark hair, dark hair'; extraInput.dispatchEvent(new Event('input')); }
+        // ネガティブ: 既存ネガに雪音用追加
+        var negInput = document.getElementById('pb-negative');
+        if (negInput) {
+          var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
+          var yukineNeg = 'purple hair, violet hair, blue hair, light brown hair, sharp eyes, glaring, angry eyes, blue eyes, green eyes, red eyes';
+          negInput.value = baseNeg + ', ' + yukineNeg;
+          negInput.dispatchEvent(new Event('input'));
+        }
         // LoRA: kurokawa_v1 自動選択
         var loraSel2 = document.getElementById('pb-lora-name');
         if (loraSel2) { loraSel2.value = 'kurokawa_v1'; loraSel2.dispatchEvent(new Event('change')); }
