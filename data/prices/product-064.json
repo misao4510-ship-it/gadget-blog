@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 10457,
+      "price": 10680,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/uguisumama/20251214134637_25/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-23"
+      "url": "https://item.rakuten.co.jp/kbshop/6935364053154/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-24"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 10457
+      "price": 10680
     }
   },
   "history": [
+    {
+      "date": "2026-04-24",
+      "amazon": 12980,
+      "rakuten": 10680
+    },
     {
       "date": "2026-04-23",
       "amazon": 12980,
@@ -303,11 +308,6 @@
       "date": "2026-01-24",
       "amazon": 13281,
       "rakuten": 14050
-    },
-    {
-      "date": "2026-01-23",
-      "amazon": 13504,
-      "rakuten": 13946
     }
   ]
 }

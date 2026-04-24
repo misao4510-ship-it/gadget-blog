@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 3366,
+      "price": 3526,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/natuarc/s-b0bmfsvbxm-20250803/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-23"
+      "url": "https://item.rakuten.co.jp/ekobo/aainybyuowo4a2e376k5dokoqm/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-24"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3366
+      "price": 3526
     }
   },
   "history": [
+    {
+      "date": "2026-04-24",
+      "amazon": 12800,
+      "rakuten": 3526
+    },
     {
       "date": "2026-04-23",
       "amazon": 12800,
@@ -468,11 +473,6 @@
       "date": "2026-01-24",
       "amazon": 13750,
       "rakuten": 14430
-    },
-    {
-      "date": "2026-01-23",
-      "amazon": 13630,
-      "rakuten": 13840
     }
   ]
 }

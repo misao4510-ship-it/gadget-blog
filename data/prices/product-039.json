@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2990,
+      "price": 2190,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/anker/a1229/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-23"
+      "updated": "2026-04-24"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2990
+      "price": 2190
     }
   },
   "history": [
+    {
+      "date": "2026-04-24",
+      "amazon": 3990,
+      "rakuten": 2190
+    },
     {
       "date": "2026-04-23",
       "amazon": 3990,
@@ -303,11 +308,6 @@
       "date": "2026-01-24",
       "amazon": 4362,
       "rakuten": 4262
-    },
-    {
-      "date": "2026-01-23",
-      "amazon": 4387,
-      "rakuten": 4233
     }
   ]
 }

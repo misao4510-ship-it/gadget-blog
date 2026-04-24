@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2790,
+      "price": 2290,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/suzuyaebisudo/r-anker-hub-gray/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-23"
+      "url": "https://item.rakuten.co.jp/anker/a8357/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-24"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 2499
+      "store": "rakuten",
+      "price": 2290
     }
   },
   "history": [
+    {
+      "date": "2026-04-24",
+      "amazon": 2499,
+      "rakuten": 2290
+    },
     {
       "date": "2026-04-23",
       "amazon": 2499,
@@ -412,11 +417,6 @@
     {
       "date": "2026-01-24",
       "amazon": 2382,
-      "rakuten": 2564
-    },
-    {
-      "date": "2026-01-23",
-      "amazon": 2427,
       "rakuten": 2564
     }
   ]

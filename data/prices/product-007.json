@@ -8,10 +8,10 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1860,
+      "price": 1690,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/manelabo/20260321-00111/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-23"
+      "url": "https://item.rakuten.co.jp/anker/a2503/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-24"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-24",
+      "amazon": 1490,
+      "rakuten": 1690
+    },
     {
       "date": "2026-04-23",
       "amazon": 1490,
@@ -468,11 +473,6 @@
       "date": "2026-01-24",
       "amazon": 1550,
       "rakuten": 1700
-    },
-    {
-      "date": "2026-01-23",
-      "amazon": 1590,
-      "rakuten": 1750
     }
   ]
 }
