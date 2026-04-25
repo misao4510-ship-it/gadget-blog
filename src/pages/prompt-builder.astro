@@ -504,6 +504,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ===== 色パレット ===== */
   .color-palette { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.3rem; }
+  .color-palette--sm .color-chip { width: 22px; height: 22px; }
+  .cloth-sub-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; padding: 0.5rem; background: var(--color-surface-raised); border-radius: 6px; }
+  .cloth-sub-row > div { flex: 1; min-width: 120px; }
+  .sub-label { display: block; font-size: 0.78rem; color: var(--color-text-muted); margin-bottom: 0.3rem; }
+  .material-sel { width: 100%; font-size: 0.85rem; padding: 0.3rem 0.5rem; }
   .color-chip { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.1s; padding: 0; }
   .color-chip:hover { transform: scale(1.15); }
   .color-chip.selected { border-color: #333; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #333; }
@@ -974,7 +979,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
             <div class="custom-row"><input type="text" id="pb-outfit-color-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-outfit-color-custom">📝 変換</button></div>
           </div>
-          <!-- 服装詳細プルダウン3種 (cmd_222) -->
+          <!-- 服装詳細プルダウン3種 + 色・材質 (cmd_222/263) -->
           <div class="field-group">
             <label for="pb-top">上着(トップス)</label>
             <select id="pb-top">
@@ -1010,6 +1015,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <option value="negligee">ネグリジェ</option>
               <option value="china dress">チャイナドレス</option>
             </select>
+            <div class="cloth-sub-row">
+              <div>
+                <label class="sub-label">上着の色</label>
+                <input type="hidden" id="pb-top-color" value="" />
+                <div class="color-palette color-palette--sm" data-input="pb-top-color">
+                  <button class="color-chip" type="button" data-value="red" style="background:#ef4444" title="赤"></button>
+                  <button class="color-chip" type="button" data-value="orange" style="background:#f97316" title="橙"></button>
+                  <button class="color-chip" type="button" data-value="yellow" style="background:#eab308" title="黄"></button>
+                  <button class="color-chip" type="button" data-value="green" style="background:#22c55e" title="緑"></button>
+                  <button class="color-chip" type="button" data-value="light blue" style="background:#38bdf8" title="水"></button>
+                  <button class="color-chip" type="button" data-value="blue" style="background:#3b82f6" title="青"></button>
+                  <button class="color-chip" type="button" data-value="purple" style="background:#a855f7" title="紫"></button>
+                  <button class="color-chip" type="button" data-value="pink" style="background:#ec4899" title="桃"></button>
+                  <button class="color-chip" type="button" data-value="white" style="background:#f8fafc" title="白"></button>
+                  <button class="color-chip" type="button" data-value="gray" style="background:#94a3b8" title="灰"></button>
+                  <button class="color-chip" type="button" data-value="black" style="background:#1e293b" title="黒"></button>
+                  <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+                </div>
+              </div>
+              <div>
+                <label class="sub-label" for="pb-top-material">素材</label>
+                <select id="pb-top-material" class="material-sel">
+                  <option value="">指定なし</option>
+                  <option value="silk">シルク</option>
+                  <option value="cotton">コットン</option>
+                  <option value="lace">レース</option>
+                  <option value="denim">デニム</option>
+                  <option value="leather">レザー</option>
+                  <option value="wool">ウール</option>
+                  <option value="satin">サテン</option>
+                  <option value="velvet">ベルベット</option>
+                  <option value="knit">ニット</option>
+                  <option value="linen">リネン</option>
+                  <option value="polyester">ポリエステル</option>
+                  <option value="chiffon">シフォン</option>
+                  <option value="mesh">メッシュ</option>
+                  <option value="see-through">シースルー</option>
+                  <option value="wet">濡れた素材</option>
+                  <option value="latex">ラテックス</option>
+                  <option value="fur">ファー</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="field-group">
             <label for="pb-bottom">下(ボトムス/下着)</label>
@@ -1046,6 +1094,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <option value="overalls">オーバーオール</option>
               <option value="no bottoms">ボトムなし</option>
             </select>
+            <div class="cloth-sub-row">
+              <div>
+                <label class="sub-label">下の色</label>
+                <input type="hidden" id="pb-bottom-color" value="" />
+                <div class="color-palette color-palette--sm" data-input="pb-bottom-color">
+                  <button class="color-chip" type="button" data-value="red" style="background:#ef4444" title="赤"></button>
+                  <button class="color-chip" type="button" data-value="orange" style="background:#f97316" title="橙"></button>
+                  <button class="color-chip" type="button" data-value="yellow" style="background:#eab308" title="黄"></button>
+                  <button class="color-chip" type="button" data-value="green" style="background:#22c55e" title="緑"></button>
+                  <button class="color-chip" type="button" data-value="light blue" style="background:#38bdf8" title="水"></button>
+                  <button class="color-chip" type="button" data-value="blue" style="background:#3b82f6" title="青"></button>
+                  <button class="color-chip" type="button" data-value="purple" style="background:#a855f7" title="紫"></button>
+                  <button class="color-chip" type="button" data-value="pink" style="background:#ec4899" title="桃"></button>
+                  <button class="color-chip" type="button" data-value="white" style="background:#f8fafc" title="白"></button>
+                  <button class="color-chip" type="button" data-value="gray" style="background:#94a3b8" title="灰"></button>
+                  <button class="color-chip" type="button" data-value="black" style="background:#1e293b" title="黒"></button>
+                  <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+                </div>
+              </div>
+              <div>
+                <label class="sub-label" for="pb-bottom-material">素材</label>
+                <select id="pb-bottom-material" class="material-sel">
+                  <option value="">指定なし</option>
+                  <option value="silk">シルク</option>
+                  <option value="cotton">コットン</option>
+                  <option value="lace">レース</option>
+                  <option value="denim">デニム</option>
+                  <option value="leather">レザー</option>
+                  <option value="wool">ウール</option>
+                  <option value="satin">サテン</option>
+                  <option value="velvet">ベルベット</option>
+                  <option value="knit">ニット</option>
+                  <option value="linen">リネン</option>
+                  <option value="polyester">ポリエステル</option>
+                  <option value="chiffon">シフォン</option>
+                  <option value="mesh">メッシュ</option>
+                  <option value="see-through">シースルー</option>
+                  <option value="wet">濡れた素材</option>
+                  <option value="latex">ラテックス</option>
+                  <option value="fur">ファー</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="field-group">
             <label for="pb-legwear">靴下/レッグウェア</label>
@@ -1082,6 +1173,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <option value="geta">下駄</option>
               <option value="zouri">草履</option>
             </select>
+            <div class="cloth-sub-row">
+              <div>
+                <label class="sub-label">レッグウェアの色</label>
+                <input type="hidden" id="pb-legwear-color" value="" />
+                <div class="color-palette color-palette--sm" data-input="pb-legwear-color">
+                  <button class="color-chip" type="button" data-value="red" style="background:#ef4444" title="赤"></button>
+                  <button class="color-chip" type="button" data-value="orange" style="background:#f97316" title="橙"></button>
+                  <button class="color-chip" type="button" data-value="yellow" style="background:#eab308" title="黄"></button>
+                  <button class="color-chip" type="button" data-value="green" style="background:#22c55e" title="緑"></button>
+                  <button class="color-chip" type="button" data-value="light blue" style="background:#38bdf8" title="水"></button>
+                  <button class="color-chip" type="button" data-value="blue" style="background:#3b82f6" title="青"></button>
+                  <button class="color-chip" type="button" data-value="purple" style="background:#a855f7" title="紫"></button>
+                  <button class="color-chip" type="button" data-value="pink" style="background:#ec4899" title="桃"></button>
+                  <button class="color-chip" type="button" data-value="white" style="background:#f8fafc" title="白"></button>
+                  <button class="color-chip" type="button" data-value="gray" style="background:#94a3b8" title="灰"></button>
+                  <button class="color-chip" type="button" data-value="black" style="background:#1e293b" title="黒"></button>
+                  <button class="color-none-btn" type="button" data-value="" title="なし">×</button>
+                </div>
+              </div>
+              <div>
+                <label class="sub-label" for="pb-legwear-material">素材</label>
+                <select id="pb-legwear-material" class="material-sel">
+                  <option value="">指定なし</option>
+                  <option value="silk">シルク</option>
+                  <option value="cotton">コットン</option>
+                  <option value="lace">レース</option>
+                  <option value="denim">デニム</option>
+                  <option value="leather">レザー</option>
+                  <option value="wool">ウール</option>
+                  <option value="satin">サテン</option>
+                  <option value="velvet">ベルベット</option>
+                  <option value="knit">ニット</option>
+                  <option value="linen">リネン</option>
+                  <option value="polyester">ポリエステル</option>
+                  <option value="chiffon">シフォン</option>
+                  <option value="mesh">メッシュ</option>
+                  <option value="see-through">シースルー</option>
+                  <option value="wet">濡れた素材</option>
+                  <option value="latex">ラテックス</option>
+                  <option value="fur">ファー</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <div class="field-group">
@@ -2076,13 +2210,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (v) parts.push(v);
     }
 
-    // 服装詳細プルダウン (cmd_222)
-    const top = document.getElementById('pb-top')?.value;
-    if (top) parts.push(top);
-    const bottom = document.getElementById('pb-bottom')?.value;
-    if (bottom) parts.push(bottom);
-    const legwear = document.getElementById('pb-legwear')?.value;
-    if (legwear) parts.push(legwear);
+    // 服装詳細プルダウン + 色・材質 (cmd_222/263)
+    function clothPart(itemId, colorId, matId) {
+      const item = document.getElementById(itemId)?.value;
+      if (!item) return;
+      const color = document.getElementById(colorId)?.value || '';
+      const mat   = document.getElementById(matId)?.value || '';
+      parts.push([color, mat, item].filter(Boolean).join(' '));
+    }
+    clothPart('pb-top',     'pb-top-color',     'pb-top-material');
+    clothPart('pb-bottom',  'pb-bottom-color',  'pb-bottom-material');
+    clothPart('pb-legwear', 'pb-legwear-color', 'pb-legwear-material');
 
     // NSFW
     if (checked('pb-nsfw')) parts.push('nsfw');
@@ -2134,7 +2272,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     'pb-expression','pb-expression-custom',
     'pb-outfit','pb-outfit-custom',
     'pb-outfit-color','pb-outfit-color-custom',
-    'pb-top','pb-bottom','pb-legwear',
+    'pb-top','pb-top-color','pb-top-material',
+    'pb-bottom','pb-bottom-color','pb-bottom-material',
+    'pb-legwear','pb-legwear-color','pb-legwear-material',
     'pb-pose','pb-pose-custom',
     'pb-bg','pb-bg-custom','pb-extra','pb-negative',
     'pb-lora-on','pb-lora-strength','pb-lora-name','pb-nsfw',
