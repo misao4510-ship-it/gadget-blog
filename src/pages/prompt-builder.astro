@@ -1818,6 +1818,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div style="margin-bottom: 10px;">
               <button type="button" id="sakura-template-btn" class="sakura-template-btn">🌸 サクラテンプレ</button>
               <button type="button" id="yukine-template-btn" class="sakura-template-btn">🌙 ゆきねテンプレ</button>
+              <button type="button" id="yukine-noglasses-btn" class="sakura-template-btn">🔥 ゆきね（眼鏡なし）</button>
             </div>
             <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:6px;">⚡ プリセット（追加タグ欄に追記）</div>
             <div class="admin-presets">
@@ -2562,6 +2563,62 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         var loraSel2 = document.getElementById('pb-lora-name');
         if (loraSel2) { loraSel2.value = 'kurokawa_v1'; loraSel2.dispatchEvent(new Event('change')); }
         // 表情(管理人): リセット
+        adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
+        updatePreview();
+      });
+    }
+    // 🔥 ゆきね（眼鏡なし）ボタン
+    var yukineNgBtn = document.getElementById('yukine-noglasses-btn');
+    if (yukineNgBtn) {
+      yukineNgBtn.addEventListener('click', function() {
+        var qualityValues = ['masterpiece', 'best quality', 'beautiful face', 'beautiful detailed eyes', 'beautiful hairstyle', 'beautiful skin', 'perfect body'];
+        document.querySelectorAll('#pb-quality-tags input[type="checkbox"]').forEach(function(cb) {
+          cb.checked = qualityValues.includes(cb.value);
+        });
+        var genderSel = document.getElementById('pb-gender');
+        if (genderSel) { genderSel.value = '1girl'; genderSel.dispatchEvent(new Event('change')); }
+        var ageSel = document.getElementById('pb-age');
+        if (ageSel) { ageSel.value = 'adult'; ageSel.dispatchEvent(new Event('change')); }
+        var countSel = document.getElementById('pb-count');
+        if (countSel) { countSel.value = 'solo'; countSel.dispatchEvent(new Event('change')); }
+        var bustSel = document.getElementById('pb-bust');
+        if (bustSel) { bustSel.value = 'medium breasts'; bustSel.dispatchEvent(new Event('change')); }
+        var compSel = document.getElementById('pb-composition');
+        if (compSel) { compSel.value = 'cowboy shot'; compSel.dispatchEvent(new Event('change')); }
+        var hairSel = document.getElementById('pb-hair');
+        if (hairSel) { hairSel.value = ''; hairSel.dispatchEvent(new Event('change')); }
+        var hairCustom = document.getElementById('pb-hair-custom');
+        if (hairCustom) { hairCustom.value = 'long straight hair, glossy hair, hair shine'; hairCustom.dispatchEvent(new Event('input')); }
+        setColorChip('pb-haircolor', 'black hair');
+        document.getElementById('pb-haircolor').dispatchEvent(new Event('input'));
+        setColorChip('pb-hair-inner', '');
+        document.getElementById('pb-hair-inner').dispatchEvent(new Event('input'));
+        setColorChip('pb-eyes', 'violet eyes, purple eyes');
+        document.getElementById('pb-eyes').dispatchEvent(new Event('input'));
+        var eyeShapeSel = document.getElementById('pb-eye-shape');
+        if (eyeShapeSel) { eyeShapeSel.value = 'big round eyes'; eyeShapeSel.dispatchEvent(new Event('change')); }
+        var exprSel = document.getElementById('pb-expression');
+        if (exprSel) { exprSel.value = ''; exprSel.dispatchEvent(new Event('change')); }
+        var exprCustom = document.getElementById('pb-expression-custom');
+        if (exprCustom) { exprCustom.value = 'gentle smile, soft expression'; exprCustom.dispatchEvent(new Event('input')); }
+        var outfitSel = document.getElementById('pb-outfit');
+        if (outfitSel) { outfitSel.value = ''; outfitSel.dispatchEvent(new Event('change')); }
+        var outfitCustom = document.getElementById('pb-outfit-custom');
+        if (outfitCustom) { outfitCustom.value = 'white blouse'; outfitCustom.dispatchEvent(new Event('input')); }
+        setColorChip('pb-outfit-color', 'white outfit');
+        document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
+        // 眼鏡なし: thin frame rectangular glasses を除外
+        var extraInput = document.getElementById('pb-extra');
+        if (extraInput) { extraInput.value = 'very round face, cute face, baby face, small nose, round cheeks, petite face, slender, slim waist, gentle smile, soft expression, elegant, graceful'; extraInput.dispatchEvent(new Event('input')); }
+        var negInput = document.getElementById('pb-negative');
+        if (negInput) {
+          var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
+          var yukineNegNg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people, purple hair, violet hair, purple tint hair, blue tinted hair, lavender hair, glasses, eyewear, frames';
+          negInput.value = baseNeg + ', ' + yukineNegNg;
+          negInput.dispatchEvent(new Event('input'));
+        }
+        var loraSel3 = document.getElementById('pb-lora-name');
+        if (loraSel3) { loraSel3.value = 'kurokawa_v1'; loraSel3.dispatchEvent(new Event('change')); }
         adminModal.querySelectorAll('input[name="admin-face"]').forEach(function(cb) { cb.checked = false; });
         updatePreview();
       });
