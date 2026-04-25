@@ -1734,15 +1734,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div><!-- /#pb-main -->
 
 <script>
-// ===== アクセス制御（ナビリンク経由 または 認証済みなら許可） =====
+// ===== アクセス制御（ナビリンク経由 / 認証済み / アトリエトークン） =====
 (function() {
-  const isViaNav = sessionStorage.getItem('prompt_builder_via_nav') === 'true';
-  const isAuth = sessionStorage.getItem('pb_auth') === '1';
-  if (!isViaNav && !isAuth) {
-    window.location.href = '/';
-    return;
+  const ATELIER_TOKEN = 'tsukiakari_atelier_2026_x9k3';
+  const urlToken = new URLSearchParams(window.location.search).get('token');
+  if (urlToken === ATELIER_TOKEN) {
+    sessionStorage.setItem('pb_auth', '1');
+    history.replaceState({}, '', window.location.pathname);
+  } else {
+    const isViaNav = sessionStorage.getItem('prompt_builder_via_nav') === 'true';
+    const isAuth = sessionStorage.getItem('pb_auth') === '1';
+    if (!isViaNav && !isAuth) {
+      window.location.href = '/';
+      return;
+    }
+    sessionStorage.removeItem('prompt_builder_via_nav');
   }
-  sessionStorage.removeItem('prompt_builder_via_nav'); // フラグ消費
 })();
 
 (function() {
