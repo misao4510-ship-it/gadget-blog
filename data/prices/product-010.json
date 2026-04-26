@@ -11,7 +11,7 @@
       "price": 1599,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/nova2021/b08638g2nz/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-25"
+      "updated": "2026-04-26"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-26",
+      "amazon": 11980,
+      "rakuten": 1599
+    },
     {
       "date": "2026-04-25",
       "amazon": 11980,
@@ -468,11 +473,6 @@
       "date": "2026-01-26",
       "amazon": 12740,
       "rakuten": 13040
-    },
-    {
-      "date": "2026-01-25",
-      "amazon": 12860,
-      "rakuten": 13070
     }
   ]
 }

@@ -11,7 +11,7 @@
       "price": 4499,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/kohrin/809/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-25"
+      "updated": "2026-04-26"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-26",
+      "amazon": 5990,
+      "rakuten": 4499
+    },
     {
       "date": "2026-04-25",
       "amazon": 5990,
@@ -302,11 +307,6 @@
     {
       "date": "2026-01-26",
       "amazon": 6384,
-      "rakuten": 7329
-    },
-    {
-      "date": "2026-01-25",
-      "amazon": 6402,
       "rakuten": 7329
     }
   ]
