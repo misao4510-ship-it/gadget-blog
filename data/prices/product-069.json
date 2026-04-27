@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 897,
+      "price": 1686,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/sugartime/mzuha-78/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-26"
+      "url": "https://item.rakuten.co.jp/uha-mikakuto/06353/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-27"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 897
+      "price": 1686
     }
   },
   "history": [
+    {
+      "date": "2026-04-27",
+      "amazon": 3780,
+      "rakuten": 1686
+    },
     {
       "date": "2026-04-26",
       "amazon": 3780,
@@ -468,11 +473,6 @@
       "date": "2026-01-27",
       "amazon": 3834,
       "rakuten": 4010
-    },
-    {
-      "date": "2026-01-26",
-      "amazon": 3820,
-      "rakuten": 4012
     }
   ]
 }

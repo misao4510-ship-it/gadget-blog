@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 2800,
+      "price": 5585,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/janpara/38059056-38/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-26"
+      "url": "https://item.rakuten.co.jp/info-flash/4570188381735-/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-27"
     },
     "cheapest": {
-      "store": "rakuten",
-      "price": 2800
+      "store": "amazon",
+      "price": 4980
     }
   },
   "history": [
+    {
+      "date": "2026-04-27",
+      "amazon": 4980,
+      "rakuten": 5585
+    },
     {
       "date": "2026-04-26",
       "amazon": 4980,
@@ -468,11 +473,6 @@
       "date": "2026-01-27",
       "amazon": 5310,
       "rakuten": 5520
-    },
-    {
-      "date": "2026-01-26",
-      "amazon": 5210,
-      "rakuten": 5290
     }
   ]
 }

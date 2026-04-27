@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 390,
+      "price": 400,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/ciel-sora/2g5vrva4o4mmvrpm3eh4hjut2u/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-26"
+      "url": "https://item.rakuten.co.jp/utakatazakka/eizp54maxahnjqufgye56tb3de/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-27"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 390
+      "price": 400
     }
   },
   "history": [
+    {
+      "date": "2026-04-27",
+      "amazon": 34800,
+      "rakuten": 400
+    },
     {
       "date": "2026-04-26",
       "amazon": 34800,
@@ -468,11 +473,6 @@
       "date": "2026-01-27",
       "amazon": 36370,
       "rakuten": 38810
-    },
-    {
-      "date": "2026-01-26",
-      "amazon": 35570,
-      "rakuten": 38250
     }
   ]
 }
