@@ -7,10 +7,10 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 5744,
+      "price": 5627,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/makana--/yk2-089gpnm5v/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-27"
+      "updated": "2026-04-28"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-28",
+      "amazon": 3099,
+      "rakuten": 5627
+    },
     {
       "date": "2026-04-27",
       "amazon": 3099,
@@ -467,11 +472,6 @@
       "date": "2026-01-28",
       "amazon": 3310,
       "rakuten": 3102
-    },
-    {
-      "date": "2026-01-27",
-      "amazon": 3126,
-      "rakuten": 3220
     }
   ]
 }

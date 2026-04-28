@@ -11,7 +11,7 @@
       "price": 402,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/modeqstore/d100001/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-27"
+      "updated": "2026-04-28"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-28",
+      "amazon": 799,
+      "rakuten": 402
+    },
     {
       "date": "2026-04-27",
       "amazon": 799,
@@ -378,11 +383,6 @@
       "date": "2026-01-28",
       "amazon": 888,
       "rakuten": 973
-    },
-    {
-      "date": "2026-01-27",
-      "amazon": 892,
-      "rakuten": 967
     }
   ]
 }
