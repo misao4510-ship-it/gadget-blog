@@ -1,7 +1,7 @@
 ---
 title: "【2026年最新】チャットAI比較！ChatGPT・Claude・Gemini・Perplexity・Copilotどれがおすすめ？"
 description: "ChatGPT・Claude・Gemini・Perplexity・Microsoft Copilotの5大チャットAIを徹底比較！価格・強み・弱み・用途別おすすめを分かりやすく解説します。"
-publishDate: "2026-05-01"
+publishDate: "2026-04-28"
 category: "ai"
 subcategory: "chat-ai"
 type: "comparison"
