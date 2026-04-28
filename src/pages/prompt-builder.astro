@@ -925,6 +925,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </select>
             <div class="custom-row"><input type="text" id="pb-expression-custom" placeholder="または手入力" /><button type="button" class="trans-btn" data-target="pb-expression-custom">📝 変換</button></div>
           </div>
+          <div class="field-group">
+            <label>表情・色気タグ</label>
+            <div class="quality-tags" id="pb-expression-mood-tags">
+              <label><input type="checkbox" value="watery eyes" /> 潤み目</label>
+              <label><input type="checkbox" value="glistening wet eyes" /> 濡れた目</label>
+              <label><input type="checkbox" value="deep flushed cheeks" /> 頬紅濃いめ</label>
+              <label><input type="checkbox" value="heavy blush" /> 紅潮</label>
+              <label><input type="checkbox" value="slightly parted lips" /> 半開き口</label>
+              <label><input type="checkbox" value="half-open mouth" /> 口を半開き</label>
+              <label><input type="checkbox" value="pleading expression" /> ねだり表情</label>
+              <label><input type="checkbox" value="yearning eyes" /> 渇望の目</label>
+              <label><input type="checkbox" value="longing gaze" /> 切ない眼差し</label>
+              <label><input type="checkbox" value="embarrassed but willing" /> 恥じらい受容</label>
+              <label><input type="checkbox" value="intimate atmosphere" /> 親密な雰囲気</label>
+            </div>
+          </div>
         </div>
       </details>
 
@@ -1867,6 +1883,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <button class="copy-btn" id="pb-export-btn" style="background:var(--color-surface-raised);">💾 設定を保存</button>
         <button class="copy-btn" id="pb-import-btn" style="background:var(--color-surface-raised);">📂 設定を読み込み</button>
         <input type="file" id="pb-import-file" accept=".json" style="display:none" />
+        <button class="copy-btn" id="pb-random-btn" style="background:#1e3a5f; border:1px solid #3b82f6;">🎲 ランダム作成</button>
+      </div>
+      <!-- ランダム作成パネル -->
+      <div id="pb-random-result" style="display:none; margin-top:1rem; background:#0f2233; border:1px solid #3b82f6; border-radius:8px; padding:0.9rem 1rem; font-size:0.88rem;">
+        <div style="font-weight:700; color:#60a5fa; margin-bottom:0.6rem;">🎲 ランダム選択結果</div>
+        <ul id="pb-random-list" style="margin:0 0 0.8rem 1rem; padding:0; color:#cbd5e1; line-height:1.8;"></ul>
       </div>
     </div>
   </div>
@@ -2175,6 +2197,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       .map(cb => cb.value);
     if (qtags.length) parts.push(qtags.join(', '));
 
+    // 表情・色気タグ
+    const moodtags = Array.from(document.querySelectorAll('#pb-expression-mood-tags input[type="checkbox"]:checked'))
+      .map(cb => cb.value);
+    if (moodtags.length) parts.push(moodtags.join(', '));
+
     // 性別・人数・年齢
     const gender = val('pb-gender');
     if (gender) parts.push(gender);
@@ -2295,6 +2322,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   document.querySelectorAll('#pb-quality-tags input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', updatePreview);
   });
+  document.querySelectorAll('#pb-expression-mood-tags input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', updatePreview);
+  });
   document.querySelectorAll('.pb-nsfw-item').forEach(cb => {
     cb.addEventListener('change', updatePreview);
   });
@@ -2324,6 +2354,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (cb.checked) quality.push(cb.value);
       });
       fields['__quality'] = quality;
+
+      // expression mood checkboxes
+      var moodtags = [];
+      document.querySelectorAll('#pb-expression-mood-tags input[type="checkbox"]').forEach(function(cb) {
+        if (cb.checked) moodtags.push(cb.value);
+      });
+      fields['__moodtags'] = moodtags;
 
       var now = new Date();
       var ts = now.toISOString().replace(/[-:T]/g,'').slice(0,15);
@@ -2355,6 +2392,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           if (Array.isArray(f['__quality'])) {
             document.querySelectorAll('#pb-quality-tags input[type="checkbox"]').forEach(function(cb) {
               cb.checked = f['__quality'].includes(cb.value);
+            });
+          }
+
+          // expression mood checkboxes
+          if (Array.isArray(f['__moodtags'])) {
+            document.querySelectorAll('#pb-expression-mood-tags input[type="checkbox"]').forEach(function(cb) {
+              cb.checked = f['__moodtags'].includes(cb.value);
             });
           }
 
@@ -2391,6 +2435,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         e.target.value = '';
       };
       reader.readAsText(file);
+    });
+  })();
+
+  // ===== ランダム作成 =====
+  (function() {
+    const RANDOM_FIELDS = [
+      { id: 'pb-composition', label: '構図' },
+      { id: 'pb-expression', label: '表情' },
+      { id: 'pb-hair', label: '髪型' },
+      { id: 'pb-outfit', label: '衣装スタイル' },
+      { id: 'pb-top', label: '上着' },
+      { id: 'pb-bottom', label: '下' },
+      { id: 'pb-legwear', label: 'レッグウェア' },
+      { id: 'pb-pose', label: 'ポーズ' },
+      { id: 'pb-bg', label: '背景' },
+      { id: 'pb-bust', label: '胸サイズ' },
+    ];
+
+    function pickRandom(sel) {
+      const opts = Array.from(sel.options).filter(o => o.value !== '');
+      if (!opts.length) return null;
+      return opts[Math.floor(Math.random() * opts.length)];
+    }
+
+    function getJaLabel(optText) {
+      // オプションテキスト「日本語 (english)」→ 日本語部分だけ返す
+      return optText.replace(/\s*\([^)]*\)\s*$/, '').trim() || optText.trim();
+    }
+
+    document.getElementById('pb-random-btn').addEventListener('click', function() {
+      const list = document.getElementById('pb-random-list');
+      const panel = document.getElementById('pb-random-result');
+      list.innerHTML = '';
+
+      RANDOM_FIELDS.forEach(({ id, label }) => {
+        const sel = document.getElementById(id);
+        if (!sel) return;
+        const opt = pickRandom(sel);
+        if (!opt) return;
+        sel.value = opt.value;
+        sel.dispatchEvent(new Event('change'));
+        const li = document.createElement('li');
+        li.textContent = `${label}：${getJaLabel(opt.textContent)}`;
+        list.appendChild(li);
+      });
+
+      updatePreview();
+      panel.style.display = 'block';
     });
   })();
 
