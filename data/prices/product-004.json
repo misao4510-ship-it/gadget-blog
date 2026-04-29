@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 730,
+      "price": 630,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/laforest/zak-92662/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-28"
+      "url": "https://item.rakuten.co.jp/motto-motto/zak-56445/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-29"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 730
+      "price": 630
     }
   },
   "history": [
+    {
+      "date": "2026-04-29",
+      "amazon": 5990,
+      "rakuten": 630
+    },
     {
       "date": "2026-04-28",
       "amazon": 5990,
@@ -468,11 +473,6 @@
       "date": "2026-01-29",
       "amazon": 6180,
       "rakuten": 6530
-    },
-    {
-      "date": "2026-01-28",
-      "amazon": 6330,
-      "rakuten": 6620
     }
   ]
 }

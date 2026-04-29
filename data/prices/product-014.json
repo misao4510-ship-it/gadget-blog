@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 2680,
+      "price": 2200,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/haroharo/a8938/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-28"
+      "updated": "2026-04-29"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2680
+      "price": 2200
     }
   },
   "history": [
+    {
+      "date": "2026-04-29",
+      "amazon": 3280,
+      "rakuten": 2200
+    },
     {
       "date": "2026-04-28",
       "amazon": 3280,
@@ -468,11 +473,6 @@
       "date": "2026-01-29",
       "amazon": 3510,
       "rakuten": 3660
-    },
-    {
-      "date": "2026-01-28",
-      "amazon": 3480,
-      "rakuten": 3720
     }
   ]
 }
