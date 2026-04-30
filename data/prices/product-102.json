@@ -7,10 +7,10 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 5079,
+      "price": 4758,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/supplyshop/131273/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-29"
+      "url": "https://item.rakuten.co.jp/izuka/aj4009fb6ea44f3c/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-30"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-04-30",
+      "amazon": 4490,
+      "rakuten": 4758
+    },
     {
       "date": "2026-04-29",
       "amazon": 4490,
@@ -467,11 +472,6 @@
       "date": "2026-01-30",
       "amazon": 4567,
       "rakuten": 5018
-    },
-    {
-      "date": "2026-01-29",
-      "amazon": 4338,
-      "rakuten": 5079
     }
   ]
 }

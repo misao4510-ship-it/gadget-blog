@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1790,
+      "price": 1487,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/monoria/lvaawt300/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-29"
+      "url": "https://item.rakuten.co.jp/yakinikuyutaka/y07tj1crlf/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-30"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 1590
+      "store": "rakuten",
+      "price": 1487
     }
   },
   "history": [
+    {
+      "date": "2026-04-30",
+      "amazon": 1590,
+      "rakuten": 1487
+    },
     {
       "date": "2026-04-29",
       "amazon": 1590,
@@ -413,11 +418,6 @@
       "date": "2026-01-30",
       "amazon": 1575,
       "rakuten": 1764
-    },
-    {
-      "date": "2026-01-29",
-      "amazon": 1563,
-      "rakuten": 1743
     }
   ]
 }

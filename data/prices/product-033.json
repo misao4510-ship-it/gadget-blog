@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 478,
+      "price": 480,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/daiwasyoukayi/w5326/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-29"
+      "url": "https://item.rakuten.co.jp/koyokoma/ca-1745/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-04-30"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 478
+      "price": 480
     }
   },
   "history": [
+    {
+      "date": "2026-04-30",
+      "amazon": 1799,
+      "rakuten": 480
+    },
     {
       "date": "2026-04-29",
       "amazon": 1799,
@@ -413,11 +418,6 @@
       "date": "2026-01-30",
       "amazon": 1709,
       "rakuten": 1973
-    },
-    {
-      "date": "2026-01-29",
-      "amazon": 1718,
-      "rakuten": 1996
     }
   ]
 }
