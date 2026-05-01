@@ -11,7 +11,7 @@
       "price": 1700,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/iikakakustore/x0019w9vlr/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-04-30"
+      "updated": "2026-05-01"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-01",
+      "amazon": 3490,
+      "rakuten": 1700
+    },
     {
       "date": "2026-04-30",
       "amazon": 3490,
@@ -303,11 +308,6 @@
       "date": "2026-01-31",
       "amazon": 3522,
       "rakuten": 3800
-    },
-    {
-      "date": "2026-01-30",
-      "amazon": 3590,
-      "rakuten": 3795
     }
   ]
 }
