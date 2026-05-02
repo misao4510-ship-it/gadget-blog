@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1597,
+      "price": 1899,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/utakatazakka/w3gtrxdvtw3q4njxk3kppuagk4/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-01"
+      "updated": "2026-05-02"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1597
+      "price": 1899
     }
   },
   "history": [
+    {
+      "date": "2026-05-02",
+      "amazon": 12650,
+      "rakuten": 1899
+    },
     {
       "date": "2026-05-01",
       "amazon": 12650,
@@ -303,11 +308,6 @@
       "date": "2026-02-01",
       "amazon": 13980,
       "rakuten": 13738
-    },
-    {
-      "date": "2026-01-31",
-      "amazon": 14176,
-      "rakuten": 13694
     }
   ]
 }
