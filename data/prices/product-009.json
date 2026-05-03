@@ -11,7 +11,7 @@
       "price": 3526,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/ekobo/aainybyuowo4a2e376k5dokoqm/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-02"
+      "updated": "2026-05-03"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-03",
+      "amazon": 12800,
+      "rakuten": 3526
+    },
     {
       "date": "2026-05-02",
       "amazon": 12800,
@@ -468,11 +473,6 @@
       "date": "2026-02-02",
       "amazon": 13510,
       "rakuten": 14110
-    },
-    {
-      "date": "2026-02-01",
-      "amazon": 13680,
-      "rakuten": 14410
     }
   ]
 }

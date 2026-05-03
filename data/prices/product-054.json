@@ -11,7 +11,7 @@
       "price": 13932,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/scarlet2021/b09dcjh44d/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-02"
+      "updated": "2026-05-03"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-03",
+      "amazon": 8490,
+      "rakuten": 13932
+    },
     {
       "date": "2026-05-02",
       "amazon": 8490,
@@ -303,11 +308,6 @@
       "date": "2026-02-02",
       "amazon": 9672,
       "rakuten": 10004
-    },
-    {
-      "date": "2026-02-01",
-      "amazon": 9726,
-      "rakuten": 9901
     }
   ]
 }
