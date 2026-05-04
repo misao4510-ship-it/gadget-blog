@@ -420,6 +420,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transition: background 0.2s;
   }
   .send-shogun-btn:hover { background: #006fa8; }
+  .sd-bot-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: #229ED9;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    transition: background 0.2s;
+  }
+  .sd-bot-btn:hover { background: #1a8bbf; }
   .section-label {
     font-size: 0.8rem;
     color: var(--color-text-muted);
@@ -1850,6 +1865,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </label>
             <button type="button" id="admin-clear-all" class="admin-clear-all-btn">全クリア</button>
             <button type="button" id="send-to-shogun-btn" class="send-shogun-btn">📤 将軍に送信</button>
+            <button type="button" id="send-to-sd-bot-btn" class="sd-bot-btn">🤖 Telegram SD Botに送信</button>
+            <div id="sd-bot-status" style="display:none;font-size:0.85em;margin-top:4px;width:100%;"></div>
             <button type="button" id="admin-modal-ok" class="admin-modal-ok">反映する</button>
             <button type="button" id="admin-modal-cancel" class="admin-modal-cancel">閉じる</button>
           </div>
@@ -2885,6 +2902,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const btn = document.getElementById('send-to-shogun-btn');
     btn.textContent = '✅ コピー＆Telegram起動';
     setTimeout(() => { btn.textContent = '📤 将軍に送信'; }, 2000);
+  });
+
+  document.getElementById('send-to-sd-bot-btn').addEventListener('click', async () => {
+    const prompt = buildPrompt();
+    const status = document.getElementById('sd-bot-status');
+    status.style.display = 'block';
+    status.textContent = '送信中...';
+    try {
+      const res = await fetch('/api/send-to-sd-bot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        status.textContent = '✅ 送信完了。Telegramを開いて画像を待たれよ';
+      } else {
+        status.textContent = `❌ エラー: ${data.error}`;
+      }
+    } catch(e) {
+      status.textContent = `❌ 送信失敗: ${e.message}`;
+    }
+    setTimeout(() => { status.style.display = 'none'; }, 5000);
   });
 
   document.getElementById('pb-copy-neg-btn').addEventListener('click', async () => {
