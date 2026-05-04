@@ -11,7 +11,7 @@
       "price": 400,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/lexstore/98611d91-118a-4f2c-b87b-ce41e1a1/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-03"
+      "updated": "2026-05-04"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-04",
+      "amazon": 34800,
+      "rakuten": 400
+    },
     {
       "date": "2026-05-03",
       "amazon": 34800,
@@ -468,11 +473,6 @@
       "date": "2026-02-03",
       "amazon": 35540,
       "rakuten": 38350
-    },
-    {
-      "date": "2026-02-02",
-      "amazon": 35050,
-      "rakuten": 36750
     }
   ]
 }

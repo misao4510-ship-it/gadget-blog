@@ -7,10 +7,10 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 4933,
+      "price": 5689,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/makana--/yk2-089gpnm5v/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-03"
+      "url": "https://item.rakuten.co.jp/vicsystore/gr-e9t0d57ops/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-04"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-04",
+      "amazon": 3099,
+      "rakuten": 5689
+    },
     {
       "date": "2026-05-03",
       "amazon": 3099,
@@ -467,11 +472,6 @@
       "date": "2026-02-03",
       "amazon": 3280,
       "rakuten": 3158
-    },
-    {
-      "date": "2026-02-02",
-      "amazon": 3029,
-      "rakuten": 3366
     }
   ]
 }
