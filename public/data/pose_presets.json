@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "c_plan_ready": true,
+  "categories": [
+    {"id": "standing", "name": "立ち姿", "icon": "🚶"},
+    {"id": "sitting",  "name": "座り",   "icon": "🪑"},
+    {"id": "lying",    "name": "寝そべり","icon": "🛏️"},
+    {"id": "action",   "name": "動作",   "icon": "🏃"},
+    {"id": "neda",     "name": "ねだり系","icon": "💕"},
+    {"id": "camera",   "name": "カメラアングル","icon": "📷"}
+  ],
+  "presets": [
+    {"id": "stand_basic",       "category": "standing", "name": "基本立ち姿",   "tags": "standing, looking at viewer",                       "openpose": "/images/poses/stand_basic.png",       "pose_3d": null},
+    {"id": "stand_hand_cheek",  "category": "standing", "name": "頬に手",       "tags": "standing, hand on own cheek, tilting head",         "openpose": "/images/poses/stand_hand_cheek.png",  "pose_3d": null},
+    {"id": "stand_arms_crossed","category": "standing", "name": "腕組み",       "tags": "standing, arms crossed, closed mouth",              "openpose": "/images/poses/stand_arms_crossed.png","pose_3d": null},
+    {"id": "stand_hands_back",  "category": "standing", "name": "後ろ手",       "tags": "standing, hands behind back, looking at viewer",    "openpose": "/images/poses/stand_hands_back.png",  "pose_3d": null},
+    {"id": "stand_top_down",    "category": "standing", "name": "見下ろし",     "tags": "standing, looking down at viewer, from below",      "openpose": "/images/poses/stand_top_down.png",    "pose_3d": null},
+
+    {"id": "sit_chair",         "category": "sitting",  "name": "椅子に座る",   "tags": "sitting on chair, hands on lap",                    "openpose": "/images/poses/sit_chair.png",         "pose_3d": null},
+    {"id": "sit_floor",         "category": "sitting",  "name": "正座",         "tags": "sitting, seiza, floor",                             "openpose": "/images/poses/sit_floor.png",         "pose_3d": null},
+    {"id": "sit_chair_side",    "category": "sitting",  "name": "足を組む",     "tags": "sitting, legs crossed, side view",                  "openpose": "/images/poses/sit_chair_side.png",    "pose_3d": null},
+    {"id": "sit_knees_up",      "category": "sitting",  "name": "膝抱え",       "tags": "sitting, knees up, hugging knees",                  "openpose": "/images/poses/sit_knees_up.png",      "pose_3d": null},
+    {"id": "sit_casual",        "category": "sitting",  "name": "カジュアル座り","tags": "sitting, casual pose, sideways glance",             "openpose": "/images/poses/sit_casual.png",        "pose_3d": null},
+
+    {"id": "lie_back",          "category": "lying",    "name": "仰向け",       "tags": "lying on back, looking at viewer, arms up",         "openpose": "/images/poses/lie_back.png",          "pose_3d": null},
+    {"id": "lie_stomach",       "category": "lying",    "name": "うつ伏せ",     "tags": "lying on stomach, chin rest, looking at viewer",    "openpose": "/images/poses/lie_stomach.png",       "pose_3d": null},
+    {"id": "lie_side",          "category": "lying",    "name": "横向き",       "tags": "lying on side, resting head on hand",               "openpose": "/images/poses/lie_side.png",          "pose_3d": null},
+    {"id": "lie_pillow",        "category": "lying",    "name": "枕抱え",       "tags": "lying down, hugging pillow, from above",            "openpose": "/images/poses/lie_pillow.png",        "pose_3d": null},
+    {"id": "lie_arm_pillow",    "category": "lying",    "name": "腕枕",         "tags": "lying on side, arm pillow, close-up",               "openpose": "/images/poses/lie_arm_pillow.png",    "pose_3d": null},
+
+    {"id": "act_walk",          "category": "action",   "name": "歩く",         "tags": "walking, from side, natural stride",                "openpose": "/images/poses/act_walk.png",          "pose_3d": null},
+    {"id": "act_run",           "category": "action",   "name": "走る",         "tags": "running, action pose, motion lines",                "openpose": "/images/poses/act_run.png",           "pose_3d": null},
+    {"id": "act_reach",         "category": "action",   "name": "手を伸ばす",   "tags": "reaching out, arm extended toward viewer",          "openpose": "/images/poses/act_reach.png",         "pose_3d": null},
+    {"id": "act_turn",          "category": "action",   "name": "振り返り",     "tags": "turning around, looking back over shoulder",        "openpose": "/images/poses/act_turn.png",          "pose_3d": null},
+    {"id": "act_crouch",        "category": "action",   "name": "しゃがむ",     "tags": "crouching, knees bent, looking up at viewer",       "openpose": "/images/poses/act_crouch.png",        "pose_3d": null},
+
+    {"id": "neda_hug",          "category": "neda",     "name": "ハグ求め",     "tags": "arms outstretched, hugging gesture, looking at viewer","openpose": "/images/poses/neda_hug.png",        "pose_3d": null},
+    {"id": "neda_camera",       "category": "neda",     "name": "おねだりポーズ","tags": "facing camera, hands clasped, pleading expression", "openpose": "/images/poses/neda_camera.png",       "pose_3d": null},
+    {"id": "neda_profile",      "category": "neda",     "name": "横顔しおらし", "tags": "profile view, soft expression, gentle smile",       "openpose": "/images/poses/neda_profile.png",      "pose_3d": null},
+    {"id": "neda_cheeks",       "category": "neda",     "name": "頬に両手",     "tags": "both hands on own cheeks, blushing",                "openpose": "/images/poses/neda_cheeks.png",       "pose_3d": null},
+    {"id": "neda_smile",        "category": "neda",     "name": "微笑み",       "tags": "warm smile, eye contact, close-up",                 "openpose": "/images/poses/neda_smile.png",        "pose_3d": null},
+
+    {"id": "cam_front",         "category": "camera",   "name": "正面・水平",   "tags": "from front, eye level",                            "openpose": "/images/poses/cam_front.png",         "pose_3d": null},
+    {"id": "cam_bird",          "category": "camera",   "name": "俯瞰",         "tags": "from above, bird's eye view, looking up at viewer", "openpose": "/images/poses/cam_bird.png",          "pose_3d": null},
+    {"id": "cam_low",           "category": "camera",   "name": "あおり",       "tags": "from below, dynamic angle, looking down at viewer", "openpose": "/images/poses/cam_low.png",           "pose_3d": null},
+    {"id": "cam_side",          "category": "camera",   "name": "横から",       "tags": "from side, profile view",                          "openpose": "/images/poses/cam_side.png",          "pose_3d": null},
+    {"id": "cam_behind",        "category": "camera",   "name": "後ろ姿",       "tags": "from behind, back view, looking back",             "openpose": "/images/poses/cam_behind.png",        "pose_3d": null}
+  ]
+}
