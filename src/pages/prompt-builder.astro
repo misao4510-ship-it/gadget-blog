@@ -1932,6 +1932,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button type="button" id="apply-sd-settings-btn" class="sd-settings-btn">⚙️ SD Bot設定を反映</button>
             <div id="sd-bot-status" style="display:none;font-size:0.85em;margin-top:4px;width:100%;"></div>
             <div id="sd-settings-status" style="display:none;font-size:0.85em;margin-top:4px;width:100%;"></div>
+
+            <!-- 🛡️ ネガティブ設定 -->
+            <div style="width:100%;margin-top:0.8rem;border-top:1px solid var(--color-border,#333);padding-top:0.8rem;">
+              <div style="font-size:0.85em;color:var(--color-text-muted,#aaa);margin-bottom:0.4rem;">🛡️ SD Bot ネガティブ設定</div>
+              <textarea id="sd-neg-input" placeholder="ネガティブプロンプト（空白でデフォルト使用）"
+                style="width:100%;height:60px;background:var(--color-surface,#1a1a2e);color:var(--color-text,#e0e0e0);border:1px solid var(--color-border,#333);border-radius:4px;padding:4px 6px;font-size:0.8em;resize:vertical;box-sizing:border-box;"></textarea>
+              <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.4rem;">
+                <button type="button" id="sd-neg-set-btn" class="sd-bot-btn" style="font-size:0.8em;padding:4px 8px;">🛡️ 設定</button>
+                <button type="button" id="sd-neg-add-btn" class="sd-bot-btn" style="font-size:0.8em;padding:4px 8px;">➕ 追加</button>
+                <button type="button" id="sd-neg-show-btn" class="sd-bot-btn" style="font-size:0.8em;padding:4px 8px;">👁️ 表示</button>
+                <button type="button" id="sd-neg-reset-btn" class="sd-bot-btn" style="font-size:0.8em;padding:4px 8px;background:#c0392b;">🔄 リセット</button>
+              </div>
+              <div id="sd-neg-status" style="display:none;font-size:0.8em;margin-top:4px;"></div>
+            </div>
+
             <button type="button" id="admin-modal-ok" class="admin-modal-ok">反映する</button>
             <button type="button" id="admin-modal-cancel" class="admin-modal-cancel">閉じる</button>
           </div>
@@ -3042,6 +3057,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       status.textContent = `❌ 通信エラー: ${e.message}`;
     }
     setTimeout(() => { status.style.display = 'none'; }, 6000);
+  });
+
+  // 🛡️ ネガティブ設定ボタン群
+  async function sendNegCommand(command) {
+    const status = document.getElementById('sd-neg-status');
+    status.style.display = 'block';
+    status.textContent = '送信中...';
+    try {
+      const res = await fetch('/api/send-sd-neg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ command })
+      });
+      const data = await res.json();
+      status.textContent = data.ok ? '✅ 送信完了' : `❌ 失敗: ${data.error}`;
+    } catch(e) {
+      status.textContent = `❌ 通信エラー: ${e.message}`;
+    }
+    setTimeout(() => { status.style.display = 'none'; }, 5000);
+  }
+
+  document.getElementById('sd-neg-set-btn').addEventListener('click', () => {
+    const text = document.getElementById('sd-neg-input').value.trim();
+    if (!text) { alert('ネガティブプロンプトを入力してください'); return; }
+    sendNegCommand(`/sd_neg ${text}`);
+  });
+
+  document.getElementById('sd-neg-add-btn').addEventListener('click', () => {
+    const text = document.getElementById('sd-neg-input').value.trim();
+    if (!text) { alert('追加するタグを入力してください'); return; }
+    sendNegCommand(`/sd_neg_add ${text}`);
+  });
+
+  document.getElementById('sd-neg-show-btn').addEventListener('click', () => {
+    sendNegCommand('/sd_neg_show');
+  });
+
+  document.getElementById('sd-neg-reset-btn').addEventListener('click', () => {
+    if (confirm('ネガティブプロンプトをデフォルトに戻しますか？')) {
+      sendNegCommand('/sd_neg_reset');
+    }
   });
 
   document.getElementById('pb-copy-neg-btn').addEventListener('click', async () => {
