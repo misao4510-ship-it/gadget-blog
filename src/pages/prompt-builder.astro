@@ -435,6 +435,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transition: background 0.2s;
   }
   .sd-bot-btn:hover { background: #1a8bbf; }
+  .sd-settings-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: #5B8DD9;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    transition: background 0.2s;
+  }
+  .sd-settings-btn:hover { background: #4a7bc4; }
   .section-label {
     font-size: 0.8rem;
     color: var(--color-text-muted);
@@ -1866,7 +1881,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button type="button" id="admin-clear-all" class="admin-clear-all-btn">全クリア</button>
             <button type="button" id="send-to-shogun-btn" class="send-shogun-btn">📤 将軍に送信</button>
             <button type="button" id="send-to-sd-bot-btn" class="sd-bot-btn">🤖 Telegram SD Botに送信</button>
+            <button type="button" id="apply-sd-settings-btn" class="sd-settings-btn">⚙️ SD Bot設定を反映</button>
             <div id="sd-bot-status" style="display:none;font-size:0.85em;margin-top:4px;width:100%;"></div>
+            <div id="sd-settings-status" style="display:none;font-size:0.85em;margin-top:4px;width:100%;"></div>
             <button type="button" id="admin-modal-ok" class="admin-modal-ok">反映する</button>
             <button type="button" id="admin-modal-cancel" class="admin-modal-cancel">閉じる</button>
           </div>
@@ -2925,6 +2942,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       status.textContent = `❌ 送信失敗: ${e.message}`;
     }
     setTimeout(() => { status.style.display = 'none'; }, 5000);
+  });
+
+  document.getElementById('apply-sd-settings-btn').addEventListener('click', async () => {
+    const settings = {};
+    const sizeVal = document.getElementById('pb-sd-size')?.value;
+    if (sizeVal) {
+      const [w, h] = sizeVal.split('x');
+      if (w) settings.width = w;
+      if (h) settings.height = h;
+    }
+    const model = document.getElementById('pb-sd-model')?.value;
+    if (model) settings.model = model;
+    const sampler = document.getElementById('pb-sd-sampler')?.value;
+    if (sampler) settings.sampler = sampler;
+    const steps = document.getElementById('pb-sd-steps')?.value;
+    if (steps) settings.steps = steps;
+    const count = document.getElementById('pb-sd-count')?.value;
+    if (count) settings.count = count;
+    const loraOn = document.getElementById('pb-lora-on')?.checked;
+    if (loraOn) {
+      const loraName = document.getElementById('pb-lora-name')?.value;
+      const loraStrength = document.getElementById('pb-lora-strength')?.value;
+      if (loraName) settings.lora = loraName;
+      if (loraStrength) settings.lora_strength = parseFloat(loraStrength).toFixed(2);
+    }
+    const status = document.getElementById('sd-settings-status');
+    status.style.display = 'block';
+    if (Object.keys(settings).length === 0) {
+      status.textContent = '❌ 設定値が取得できません';
+      return;
+    }
+    status.textContent = '反映中...';
+    try {
+      const res = await fetch('/api/send-sd-set', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ settings })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        status.textContent = '✅ Bot設定反映完了。Telegramで /sd_settings で確認可能';
+      } else {
+        status.textContent = `❌ 反映失敗: ${data.error}`;
+      }
+    } catch(e) {
+      status.textContent = `❌ 通信エラー: ${e.message}`;
+    }
+    setTimeout(() => { status.style.display = 'none'; }, 6000);
   });
 
   document.getElementById('pb-copy-neg-btn').addEventListener('click', async () => {
