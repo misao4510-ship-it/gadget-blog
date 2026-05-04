@@ -1511,6 +1511,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button class="admin-tab" data-tab="body">身体表現</button>
             <button class="admin-tab" data-tab="lora-setting">⚙️LoRA</button>
             <button class="admin-tab" data-tab="pose-presets">📐 ポーズ</button>
+            <button class="admin-tab" data-tab="popular-prompts">🎨 人気プロンプト集</button>
           </div>
 
           <!-- 胸タブ（radio） -->
@@ -1886,6 +1887,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div style="margin-top:0.8rem;">
                 <button type="button" id="pose-clear-btn" style="font-size:0.8rem;padding:4px 10px;background:#334155;color:#94a3b8;border:1px solid #475569;border-radius:4px;cursor:pointer;">🗑️ ポーズクリア</button>
                 <span id="pose-selected-label" style="font-size:0.78rem;color:#64748b;margin-left:8px;"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🎨 人気プロンプト集タブ -->
+          <div class="admin-tab-content" id="admin-tab-popular-prompts">
+            <div style="padding:0.5rem 0;">
+              <div style="font-size:0.78rem;color:#94a3b8;margin-bottom:0.5rem;">CivitAI novaAnimeXL_ilV170 月間人気TOP30タグ</div>
+              <div id="popular-prompts-container" style="font-size:0.85rem;color:#94a3b8;">読み込み中...</div>
+              <div style="margin-top:0.8rem;display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" id="add-selected-tags-btn" style="font-size:0.82rem;padding:5px 12px;background:#3b82f6;color:#fff;border:none;border-radius:4px;cursor:pointer;">✅ 選択タグをPositiveに追加</button>
+                <button type="button" id="clear-selected-tags-btn" style="font-size:0.82rem;padding:5px 12px;background:#475569;color:#94a3b8;border:1px solid #475569;border-radius:4px;cursor:pointer;">🗑️ チェックをクリア</button>
+              </div>
+              <div style="margin-top:0.6rem;font-size:0.78rem;color:#64748b;">
+                ※ 人気LoRAをクリックするとLoRAタグをPrompに追加します
               </div>
             </div>
           </div>
@@ -3207,6 +3223,122 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (poseTab) {
       poseTab.addEventListener('click', function() {
         if (!posePresets) loadPosePresets();
+      });
+    }
+  })();
+
+  // ===== 🎨 人気プロンプト集タブ =====
+  (function() {
+    var popularData = null;
+    var popularLoaded = false;
+
+    async function loadPopularPrompts() {
+      if (popularLoaded) return;
+      popularLoaded = true;
+      const container = document.getElementById('popular-prompts-container');
+      if (!container) return;
+      try {
+        const res = await fetch('/data/civitai_popular_prompts.json');
+        if (!res.ok) throw new Error('fetch failed');
+        popularData = await res.json();
+        renderPopularPrompts(popularData, container);
+      } catch(e) {
+        container.innerHTML = '<span style="color:#ef4444;">読み込み失敗: ' + e.message + '</span>';
+      }
+    }
+
+    function renderPopularPrompts(data, container) {
+      var html = '';
+
+      // TOP30タグ チェックボックス
+      html += '<div style="margin-bottom:0.8rem;">';
+      html += '<div style="font-size:0.78rem;color:#60a5fa;margin-bottom:0.4rem;font-weight:600;">✅ Positive TOP30タグ（チェックして一括追加）</div>';
+      html += '<div style="display:flex;flex-wrap:wrap;gap:4px;" id="popular-tags-grid">';
+      (data.positive_top30 || []).forEach(function(item) {
+        var tag = item.tag.replace(/"/g, '&quot;');
+        var safeId = 'pp-' + tag.replace(/[^a-z0-9]/g, '_').substring(0, 30);
+        html += '<label style="display:inline-flex;align-items:center;gap:3px;background:#1e293b;border:1px solid #334155;border-radius:4px;padding:2px 6px;cursor:pointer;font-size:0.78rem;color:#cbd5e1;">';
+        html += '<input type="checkbox" class="popular-tag-cb" data-tag="' + tag + '" style="margin:0;cursor:pointer;">';
+        html += '<span>' + item.tag + '</span><span style="color:#64748b;font-size:0.7rem;margin-left:2px;">×' + item.count + '</span>';
+        html += '</label>';
+      });
+      html += '</div></div>';
+
+      // 人気LoRAプリセット
+      if (data.popular_loras && data.popular_loras.length > 0) {
+        html += '<div>';
+        html += '<div style="font-size:0.78rem;color:#f59e0b;margin-bottom:0.4rem;font-weight:600;">🔥 人気LoRAプリセット（クリックでLoRAタグ追加）</div>';
+        html += '<div style="display:flex;flex-wrap:wrap;gap:4px;">';
+        data.popular_loras.forEach(function(lora) {
+          var tag = '<lora:' + lora.name + ':0.7>';
+          html += '<button type="button" class="popular-lora-btn" data-lora-tag="' + tag.replace(/"/g, '&quot;') + '" ';
+          html += 'style="font-size:0.75rem;padding:3px 8px;background:#292524;color:#f59e0b;border:1px solid #78350f;border-radius:4px;cursor:pointer;">';
+          html += lora.name.substring(0, 20) + ' ×' + lora.count;
+          html += '</button>';
+        });
+        html += '</div>';
+        html += '<div style="font-size:0.7rem;color:#64748b;margin-top:4px;">CivitAI: <a href="https://civitai.com/models" target="_blank" style="color:#3b82f6;">civitai.com/models</a></div>';
+        html += '</div>';
+      }
+
+      container.innerHTML = html;
+
+      // LoRAボタンのクリックイベント
+      container.querySelectorAll('.popular-lora-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var loraTag = btn.getAttribute('data-lora-tag');
+          var addTags = document.getElementById('add-tags');
+          if (addTags) {
+            addTags.value = (addTags.value ? addTags.value + ', ' : '') + loraTag;
+            updatePreview && updatePreview();
+          }
+          btn.style.background = '#292524';
+          btn.style.borderColor = '#3b82f6';
+          btn.style.color = '#60a5fa';
+          setTimeout(function() {
+            btn.style.background = '';
+            btn.style.borderColor = '#78350f';
+            btn.style.color = '#f59e0b';
+          }, 1500);
+        });
+      });
+    }
+
+    // 「選択タグを追加」ボタン
+    var addBtn = document.getElementById('add-selected-tags-btn');
+    if (addBtn) {
+      addBtn.addEventListener('click', function() {
+        var checked = document.querySelectorAll('#popular-tags-grid .popular-tag-cb:checked');
+        var tags = [];
+        checked.forEach(function(cb) { tags.push(cb.getAttribute('data-tag')); });
+        if (tags.length === 0) return;
+        var addTags = document.getElementById('add-tags');
+        if (addTags) {
+          addTags.value = (addTags.value ? addTags.value + ', ' : '') + tags.join(', ');
+          updatePreview && updatePreview();
+        }
+        // チェックをクリア
+        checked.forEach(function(cb) { cb.checked = false; });
+        addBtn.textContent = '✅ ' + tags.length + 'タグ追加しました！';
+        setTimeout(function() { addBtn.textContent = '✅ 選択タグをPositiveに追加'; }, 2000);
+      });
+    }
+
+    // 「チェッククリア」ボタン
+    var clearTagsBtn = document.getElementById('clear-selected-tags-btn');
+    if (clearTagsBtn) {
+      clearTagsBtn.addEventListener('click', function() {
+        document.querySelectorAll('#popular-tags-grid .popular-tag-cb').forEach(function(cb) {
+          cb.checked = false;
+        });
+      });
+    }
+
+    // 人気プロンプトタブを開いたときにロード（遅延ロード）
+    var popularTab = document.querySelector('.admin-tab[data-tab="popular-prompts"]');
+    if (popularTab) {
+      popularTab.addEventListener('click', function() {
+        loadPopularPrompts();
       });
     }
   })();
