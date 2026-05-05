@@ -3049,14 +3049,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 服の色: 白
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 追加指示: 真マスター（memory/project_yukine_final_design.md）準拠
+        // 追加指示: 真マスター（cmd_354確定版）準拠
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, detailed iris, eye reflection, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, elegant, graceful, high contrast, young adult woman, 20 years old, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus, thin frame rectangular glasses'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, beautiful detailed eyes, ultra detailed eyes, detailed iris, intricate iris pattern, eye reflection, crystal clear eyes, lustrous eyes, limpid eyes, expressive eyes, gentle gaze, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, elegant, graceful, high contrast, young adult woman, 20 years old, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus, hyperdetailed, ultra-fine details, fabric texture, thin frame rectangular glasses'; extraInput.dispatchEvent(new Event('input')); }
         // ネガティブ: ゆきね確定版
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
           var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
-          var yukineNeg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people, purple hair, violet hair, purple tint hair, blue tinted hair, lavender hair';
+          var yukineNeg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people, purple hair, violet hair, purple tint hair, blue tinted hair, lavender hair, dull eyes, lifeless eyes, flat eyes';
           negInput.value = baseNeg + ', ' + yukineNeg;
           negInput.dispatchEvent(new Event('input'));
         }
@@ -3110,11 +3110,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
         // 眼鏡なし: 真マスター準拠（thin frame rectangular glasses のみ除外）
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, detailed iris, eye reflection, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, elegant, graceful, high contrast, young adult woman, 20 years old, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, beautiful detailed eyes, ultra detailed eyes, detailed iris, intricate iris pattern, eye reflection, crystal clear eyes, lustrous eyes, limpid eyes, expressive eyes, gentle gaze, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, elegant, graceful, high contrast, young adult woman, 20 years old, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus, hyperdetailed, ultra-fine details, fabric texture'; extraInput.dispatchEvent(new Event('input')); }
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
           var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
-          var yukineNegNg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people, purple hair, violet hair, purple tint hair, blue tinted hair, lavender hair, glasses, eyewear, frames';
+          var yukineNegNg = 'oil painting, impasto, sharp chin, narrow eyes, long face, bold outlines, thick outlines, cel shading, flat color, 3d, realistic, 2girls, 3girls, multiple girls, multiple people, purple hair, violet hair, purple tint hair, blue tinted hair, lavender hair, dull eyes, lifeless eyes, flat eyes, glasses, eyewear, frames';
           negInput.value = baseNeg + ', ' + yukineNegNg;
           negInput.dispatchEvent(new Event('input'));
         }
