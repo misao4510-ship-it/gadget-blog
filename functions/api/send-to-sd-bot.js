@@ -16,12 +16,14 @@ export async function onRequestPost(context) {
   if (sampler !== undefined) payload.sampler = sampler;
   if (lora !== undefined) payload.lora = lora;
 
-  const res = await fetch(`${webhookUrl}/generate`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  const data = await res.json();
-  if (data.ok || data.queued) return Response.json({ ok: true, queued: data.queued });
-  return Response.json({ error: data.error || "generation failed" }, { status: 500 });
+  // Fire-and-forget: Workerはwebhookのレスポンスを待たず即時返却
+  context.waitUntil(
+    fetch(`${webhookUrl}/generate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(8000),
+    }).catch(() => {})
+  );
+  return Response.json({ ok: true, queued: payload.count || 1 });
 }
