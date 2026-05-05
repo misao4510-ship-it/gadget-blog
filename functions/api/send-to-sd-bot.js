@@ -1,18 +1,27 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
-  const { prompt } = await request.json();
+  const body = await request.json();
+  const { prompt, count, width, height, steps, cfg, sampler, lora } = body;
   if (!prompt) return Response.json({ error: "prompt required" }, { status: 400 });
 
-  const token = env.TELEGRAM_SD_BOT_TOKEN;
-  const chatId = env.LORD_CHAT_ID;
-  if (!token || !chatId) return Response.json({ error: "not configured" }, { status: 500 });
+  const webhookUrl = env.SD_BOT_WEBHOOK_URL;
+  if (!webhookUrl) return Response.json({ error: "SD_BOT_WEBHOOK_URL not configured" }, { status: 500 });
 
-  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const payload = { prompt };
+  if (count !== undefined) payload.count = count;
+  if (width !== undefined) payload.width = width;
+  if (height !== undefined) payload.height = height;
+  if (steps !== undefined) payload.steps = steps;
+  if (cfg !== undefined) payload.cfg = cfg;
+  if (sampler !== undefined) payload.sampler = sampler;
+  if (lora !== undefined) payload.lora = lora;
+
+  const res = await fetch(`${webhookUrl}/generate`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: parseInt(chatId), text: `/sd ${prompt}` }),
+    body: JSON.stringify(payload),
   });
   const data = await res.json();
-  if (data.ok) return Response.json({ ok: true });
-  return Response.json({ error: data.description }, { status: 500 });
+  if (data.ok || data.queued) return Response.json({ ok: true, queued: data.queued });
+  return Response.json({ error: data.error || "generation failed" }, { status: 500 });
 }
