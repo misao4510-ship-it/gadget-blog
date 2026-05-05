@@ -1,11 +1,21 @@
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function onRequestOptions() {
+  return new Response(null, { status: 204, headers: CORS_HEADERS });
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
   const body = await request.json();
   const { prompt, count, width, height, steps, cfg, sampler, lora } = body;
-  if (!prompt) return Response.json({ error: "prompt required" }, { status: 400 });
+  if (!prompt) return Response.json({ error: "prompt required" }, { status: 400, headers: CORS_HEADERS });
 
   const webhookUrl = env.SD_BOT_WEBHOOK_URL;
-  if (!webhookUrl) return Response.json({ error: "SD_BOT_WEBHOOK_URL not configured" }, { status: 500 });
+  if (!webhookUrl) return Response.json({ error: "SD_BOT_WEBHOOK_URL not configured" }, { status: 500, headers: CORS_HEADERS });
 
   const payload = { prompt };
   if (count !== undefined) payload.count = count;
@@ -25,5 +35,5 @@ export async function onRequestPost(context) {
       signal: AbortSignal.timeout(8000),
     }).catch(() => {})
   );
-  return Response.json({ ok: true, queued: payload.count || 1 });
+  return Response.json({ ok: true, queued: payload.count || 1 }, { headers: CORS_HEADERS });
 }
