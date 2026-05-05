@@ -2869,12 +2869,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // インナー色: なし
         setColorChip('pb-hair-inner', '');
         document.getElementById('pb-hair-inner').dispatchEvent(new Event('input'));
-        // 目の色: バイオレット
-        setColorChip('pb-eyes', 'violet eyes, purple eyes');
+        // 目の色: ヴィヴィッドライトパープル
+        setColorChip('pb-eyes', 'vivid light purple eyes, violet eyes');
         document.getElementById('pb-eyes').dispatchEvent(new Event('input'));
-        // 目の形: 大きな丸い目
+        // 目の形: デフォルト（Bot同期・big round eyes除去）
         var eyeShapeSel = document.getElementById('pb-eye-shape');
-        if (eyeShapeSel) { eyeShapeSel.value = 'big round eyes'; eyeShapeSel.dispatchEvent(new Event('change')); }
+        if (eyeShapeSel) { eyeShapeSel.value = ''; eyeShapeSel.dispatchEvent(new Event('change')); }
         // 表情: gentle smile（手入力）
         var exprSel = document.getElementById('pb-expression');
         if (exprSel) { exprSel.value = ''; exprSel.dispatchEvent(new Event('change')); }
@@ -2888,9 +2888,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 服の色: 白
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 追加指示: CHARACTER_BASE全文（スタイル・目輝き・肌・髪詳細・品質すべて復元）
+        // 追加指示: Bot SD_DEFAULT_PREFIXと完全一致（baby face等除去・ojou-sama追加）
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, detailed iris, eye reflection, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, gentle smile, soft expression, elegant, graceful, high contrast, thin frame rectangular glasses, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, small face, v-shaped chin, detailed iris, eye reflection, colorful eyes, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, gentle smile, soft expression, elegant, graceful, youthful, ojou-sama, refined, high contrast, thin frame rectangular glasses, young woman, 20 years old, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus'; extraInput.dispatchEvent(new Event('input')); }
         // ネガティブ: ゆきね確定版
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
@@ -2933,10 +2933,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         document.getElementById('pb-haircolor').dispatchEvent(new Event('input'));
         setColorChip('pb-hair-inner', '');
         document.getElementById('pb-hair-inner').dispatchEvent(new Event('input'));
-        setColorChip('pb-eyes', 'violet eyes, purple eyes');
+        setColorChip('pb-eyes', 'vivid light purple eyes, violet eyes');
         document.getElementById('pb-eyes').dispatchEvent(new Event('input'));
         var eyeShapeSel = document.getElementById('pb-eye-shape');
-        if (eyeShapeSel) { eyeShapeSel.value = 'big round eyes'; eyeShapeSel.dispatchEvent(new Event('change')); }
+        if (eyeShapeSel) { eyeShapeSel.value = ''; eyeShapeSel.dispatchEvent(new Event('change')); }
         var exprSel = document.getElementById('pb-expression');
         if (exprSel) { exprSel.value = ''; exprSel.dispatchEvent(new Event('change')); }
         var exprCustom = document.getElementById('pb-expression-custom');
@@ -2947,9 +2947,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (outfitCustom) { outfitCustom.value = 'white blouse'; outfitCustom.dispatchEvent(new Event('input')); }
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 眼鏡なし: CHARACTER_BASE全文（thin frame rectangular glasses を除外）
+        // 眼鏡なし: Bot SD_DEFAULT_PREFIXと完全一致（baby face等除去・ojou-sama追加）
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, detailed iris, eye reflection, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, gentle smile, soft expression, elegant, graceful, high contrast, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, small face, v-shaped chin, detailed iris, eye reflection, colorful eyes, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, gentle smile, soft expression, elegant, graceful, youthful, ojou-sama, refined, high contrast, young woman, 20 years old, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus'; extraInput.dispatchEvent(new Event('input')); }
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
           var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
