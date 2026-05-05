@@ -720,6 +720,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.9rem;
   }
   .sakura-template-btn:hover { opacity: 0.85; }
+  /* ===== Custom Dropdown (WebKitGTK select popup workaround) ===== */
+  .custom-dropdown { position: relative; display: inline-block; width: 100%; }
+  .custom-dropdown-trigger {
+    width: 100%; padding: 0.4rem 1.5rem 0.4rem 0.6rem; text-align: left;
+    background: var(--color-bg); color: var(--color-text);
+    border: 1px solid var(--color-border); border-radius: var(--radius);
+    cursor: pointer; position: relative; font-size: 0.9rem; box-sizing: border-box;
+  }
+  .custom-dropdown-trigger:hover { border-color: var(--color-primary); }
+  .custom-dropdown-trigger:focus { outline: 2px solid var(--color-primary); }
+  .custom-dropdown-trigger .dd-arrow {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%); pointer-events: none;
+  }
+  .custom-dropdown-list {
+    display: none; position: absolute; top: 100%; left: 0; width: 100%; z-index: 9999;
+    background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius);
+    list-style: none; margin: 2px 0 0; padding: 0; max-height: 200px; overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .custom-dropdown-list li {
+    padding: 0.4rem 0.6rem; cursor: pointer; font-size: 0.9rem; color: var(--color-text);
+  }
+  .custom-dropdown-list li:hover { background: var(--color-primary-light, #fce8f3); }
+  .custom-dropdown-list li.is-selected { background: var(--color-primary-light, #fce8f3); color: var(--color-primary); }
 </style>
 
 <!-- パスワード認証画面 -->
@@ -3439,6 +3463,118 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   // 初期表示
   updatePreview();
+})();
+</script>
+
+<script is:inline>
+// ===== Custom Dropdown (WebKitGTK <select> popup workaround) =====
+(function() {
+  function createCustomDropdown(selectEl) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'custom-dropdown';
+
+    var trigger = document.createElement('button');
+    trigger.className = 'custom-dropdown-trigger';
+    trigger.type = 'button';
+
+    var labelNode = document.createTextNode('');
+    trigger.appendChild(labelNode);
+
+    var arrow = document.createElement('span');
+    arrow.className = 'dd-arrow';
+    arrow.textContent = '▾';
+    trigger.appendChild(arrow);
+
+    var list = document.createElement('ul');
+    list.className = 'custom-dropdown-list';
+
+    var selectedIndex = selectEl.selectedIndex;
+
+    function updateDisplay() {
+      var opt = selectEl.options[selectedIndex];
+      labelNode.textContent = opt ? opt.text : '';
+    }
+
+    function renderOptions() {
+      list.innerHTML = '';
+      Array.from(selectEl.options).forEach(function(opt, i) {
+        var li = document.createElement('li');
+        li.textContent = opt.text;
+        li.dataset.value = opt.value;
+        if (i === selectedIndex) li.classList.add('is-selected');
+        li.addEventListener('mouseenter', function() { li.classList.add('is-selected'); });
+        li.addEventListener('mouseleave', function() { if (i !== selectedIndex) li.classList.remove('is-selected'); });
+        li.addEventListener('click', function() {
+          selectedIndex = i;
+          selectEl.selectedIndex = i;
+          selectEl.value = opt.value;
+          selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+          updateDisplay();
+          closeList();
+        });
+        list.appendChild(li);
+      });
+    }
+
+    function openList() { renderOptions(); list.style.display = 'block'; }
+    function closeList() { list.style.display = 'none'; }
+
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      list.style.display === 'none' ? openList() : closeList();
+    });
+
+    wrapper.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { closeList(); return; }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (list.style.display === 'none') { openList(); return; }
+        selectedIndex = Math.min(selectedIndex + 1, selectEl.options.length - 1);
+        updateDisplay(); renderOptions();
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedIndex = Math.max(selectedIndex - 1, 0);
+        updateDisplay(); renderOptions();
+      }
+      if (e.key === 'Enter' && list.style.display !== 'none') {
+        e.preventDefault();
+        selectEl.selectedIndex = selectedIndex;
+        selectEl.value = selectEl.options[selectedIndex] ? selectEl.options[selectedIndex].value : '';
+        selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+        updateDisplay(); closeList();
+      }
+    });
+    wrapper.tabIndex = 0;
+
+    document.addEventListener('click', function(e) {
+      if (!wrapper.contains(e.target)) closeList();
+    });
+
+    selectEl.style.display = 'none';
+    wrapper.appendChild(trigger);
+    wrapper.appendChild(list);
+    updateDisplay();
+
+    selectEl.addEventListener('change', function() {
+      selectedIndex = selectEl.selectedIndex;
+      updateDisplay();
+    });
+
+    return wrapper;
+  }
+
+  function initCustomDropdowns(root) {
+    (root || document).querySelectorAll('select').forEach(function(sel) {
+      if (sel.dataset.noCustomDropdown) return;
+      var wrapper = createCustomDropdown(sel);
+      sel.parentNode.insertBefore(wrapper, sel.nextSibling);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initCustomDropdowns();
+  });
 })();
 </script>
 
