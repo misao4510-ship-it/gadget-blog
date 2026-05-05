@@ -1941,6 +1941,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <button type="button" id="pb-preset-sexy" class="admin-preset-btn">🔥セクシーアップ</button>
               <button type="button" id="pb-preset-quality" class="admin-preset-btn">✨品質アップ</button>
               <button type="button" id="pb-preset-highres" class="admin-preset-btn">💎高解像度</button>
+              <button type="button" id="eye-shine-btn" class="admin-preset-btn" style="background:#7c3aed;">✨ 目の輝き</button>
             </div>
           </div>
 
@@ -2863,9 +2864,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         // 服の色: 白
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 追加指示: 最新ゆきね確定容姿
+        // 追加指示: CHARACTER_BASE全文（スタイル・目輝き・肌・髪詳細・品質すべて復元）
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'very round face, cute face, baby face, small nose, round cheeks, petite face, slender, slim waist, gentle smile, soft expression, thin frame rectangular glasses, elegant, graceful'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, detailed iris, eye reflection, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, gentle smile, soft expression, elegant, graceful, high contrast, thin frame rectangular glasses, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus'; extraInput.dispatchEvent(new Event('input')); }
         // ネガティブ: ゆきね確定版
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
@@ -2922,9 +2923,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (outfitCustom) { outfitCustom.value = 'white blouse'; outfitCustom.dispatchEvent(new Event('input')); }
         setColorChip('pb-outfit-color', 'white outfit');
         document.getElementById('pb-outfit-color').dispatchEvent(new Event('input'));
-        // 眼鏡なし: thin frame rectangular glasses を除外
+        // 眼鏡なし: CHARACTER_BASE全文（thin frame rectangular glasses を除外）
         var extraInput = document.getElementById('pb-extra');
-        if (extraInput) { extraInput.value = 'very round face, cute face, baby face, small nose, round cheeks, petite face, slender, slim waist, gentle smile, soft expression, elegant, graceful'; extraInput.dispatchEvent(new Event('input')); }
+        if (extraInput) { extraInput.value = 'kurokawa style, soft lineart, thin outlines, digital painting, smooth shading, gradient shading, soft shadows, soft lighting, very round face, cute face, baby face, big round eyes, small nose, round cheeks, petite face, detailed iris, eye reflection, pure black hair, jet black hair, detailed hair strands, smooth skin, white skin, porcelain skin, glossy skin, slender, slim waist, gentle smile, soft expression, elegant, graceful, high contrast, amazing quality, absurdres, ultra detailed, highly detailed, sharp focus'; extraInput.dispatchEvent(new Event('input')); }
         var negInput = document.getElementById('pb-negative');
         if (negInput) {
           var baseNeg = 'lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry';
@@ -2957,6 +2958,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         extraInput.value = current ? current + ', ' + preset.tags : preset.tags;
         extraInput.dispatchEvent(new Event('input'));
       });
+    });
+  })();
+
+  // ===== ✨ 目の輝きボタン =====
+  (function() {
+    var eyeShineBtn = document.getElementById('eye-shine-btn');
+    if (!eyeShineBtn) return;
+    eyeShineBtn.addEventListener('click', function() {
+      var shineTags = 'detailed iris, eye reflection, sparkling eyes';
+      var extraInput = document.getElementById('pb-extra');
+      if (!extraInput) return;
+      var current = extraInput.value;
+      if (current.includes('detailed iris') || current.includes('eye reflection')) return;
+      extraInput.value = current ? current.trimEnd().replace(/,\s*$/, '') + ', ' + shineTags : shineTags;
+      extraInput.dispatchEvent(new Event('input', { bubbles: true }));
     });
   })();
 
