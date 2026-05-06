@@ -1,0 +1,16 @@
+# YouTube channels to monitor for new videos
+# cmd_359-A fills in channel_id values
+# channel_id empty → auto-skipped by youtube_trending_collector.py
+channels:
+  - name: "ch1"
+    channel_id: ""
+    active: true
+  - name: "ch2"
+    channel_id: ""
+    active: true
+  - name: "ch3"
+    channel_id: ""
+    active: true
+  - name: "ch4"
+    channel_id: ""
+    active: true
