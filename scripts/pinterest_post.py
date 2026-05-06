@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Pinterest 自動ピン投稿スクリプト (cmd_207)
+Pinterest 自動ピン投稿スクリプト (cmd_207, cmd_365)
 
 Pinterest API v5でピンを投稿する。
 APIトークンがない場合はPlaywright+Cookie方式にフォールバック。
@@ -14,6 +14,8 @@ Usage:
     python3 scripts/pinterest_post.py --slug anker-nano-charger-100w-review --dry-run
     python3 scripts/pinterest_post.py --all --dry-run --no-delay
     python3 scripts/pinterest_post.py --list-boards   # ボード一覧を表示（API方式のみ）
+    python3 scripts/pinterest_post.py --site misaki --slug first-credit-card --dry-run
+    python3 scripts/pinterest_post.py --site misaki --all
 """
 
 import os
@@ -28,7 +30,7 @@ import re
 from pathlib import Path
 from datetime import datetime, timezone
 
-# パス設定
+# パス設定（gadget-blogデフォルト — --site misaki 指定時はmain()で上書き）
 BLOG_ROOT = Path(__file__).parent.parent.resolve()
 AUTH_FILE = BLOG_ROOT / "config" / "pinterest_auth.env"
 COOKIES_FILE = BLOG_ROOT / "config" / "pinterest_cookies.json"
@@ -38,6 +40,11 @@ OG_DIR = BLOG_ROOT / "public" / "images" / "og"
 BLOG_BASE_URL = "https://gadget-blog-dxq.pages.dev"
 
 PINTEREST_API_BASE = "https://api.pinterest.com/v5"
+
+# misaki-money 設定
+MISAKI_BLOG_ROOT = Path("/home/misao/misaki-money")
+MISAKI_BLOG_BASE_URL = "https://misaki-money.com"
+MISAKI_HASHTAGS = "#節約 #クレカ #NISA #20代女性 #お金 #マネープラン #FP #資産形成"
 
 # カテゴリ→ハッシュタグマッピング
 CATEGORY_HASHTAGS = {
@@ -132,17 +139,26 @@ def get_hashtags(category: str) -> str:
     return CATEGORY_HASHTAGS.get(category, CATEGORY_HASHTAGS["default"])
 
 
-def build_pin_description(article: dict) -> str:
-    """サクラ口調のピン説明文を生成（100文字程度）"""
+def build_pin_description(article: dict, site: str = "gadget") -> str:
+    """ピン説明文を生成（site='misaki'の場合は misaki-money 用テンプレ）"""
     title = article.get("title", "")
-    category = article.get("category", "gadget")
     slug = article["slug"]
     url = f"{BLOG_BASE_URL}/posts/{slug}/"
-    hashtags = get_hashtags(category)
 
-    # 短いキャッチコピー（記事タイトルから自動生成）
-    catch = f"✨ {title}\n\nサクラが詳しくレビューしていますよ！\n気になる方はチェックしてみてくださいね🌸\n\n{url}\n\n{hashtags}"
-    return catch
+    if site == "misaki":
+        summary = article.get("description", article.get("summary", ""))
+        parts = [title]
+        if summary:
+            parts.append(summary)
+        parts.append("")
+        parts.append(MISAKI_HASHTAGS)
+        parts.append(url)
+        return "\n".join(parts)
+
+    # gadget-blog: サクラ口調
+    category = article.get("category", "gadget")
+    hashtags = get_hashtags(category)
+    return f"✨ {title}\n\nサクラが詳しくレビューしていますよ！\n気になる方はチェックしてみてくださいね🌸\n\n{url}\n\n{hashtags}"
 
 
 def get_board_id_for_category(auth: dict, category: str) -> str | None:
@@ -238,11 +254,11 @@ def api_create_pin(
         return None
 
 
-def post_via_api(article: dict, auth: dict, dry_run: bool = False) -> bool:
+def post_via_api(article: dict, auth: dict, dry_run: bool = False, site: str = "gadget") -> bool:
     """API v5でピンを投稿"""
     slug = article["slug"]
     title = article.get("title", slug)
-    description = build_pin_description(article)
+    description = build_pin_description(article, site)
     link = f"{BLOG_BASE_URL}/posts/{slug}/"
     image_path = OG_DIR / f"{slug}.png"
     category = article.get("category", "gadget")
@@ -274,11 +290,11 @@ def post_via_api(article: dict, auth: dict, dry_run: bool = False) -> bool:
 
 # ===== Playwright方式 =====
 
-def post_via_playwright(article: dict, dry_run: bool = False) -> bool:
+def post_via_playwright(article: dict, dry_run: bool = False, site: str = "gadget") -> bool:
     """Playwright+CookieでPinterestにピンを投稿"""
     slug = article["slug"]
     title = article.get("title", slug)
-    description = build_pin_description(article)
+    description = build_pin_description(article, site)
     link = f"{BLOG_BASE_URL}/posts/{slug}/"
     image_path = OG_DIR / f"{slug}.png"
 
@@ -308,7 +324,7 @@ def post_via_playwright(article: dict, dry_run: bool = False) -> bool:
 
     slug = article["slug"]
     title = article.get("title", slug)
-    description = build_pin_description(article)
+    description = build_pin_description(article, site)
     link = f"{BLOG_BASE_URL}/posts/{slug}/"
     image_path = OG_DIR / f"{slug}.png"
 
@@ -493,23 +509,26 @@ def list_boards():
 
 # ===== メイン処理 =====
 
-def post_article(article: dict, auth: dict | None, dry_run: bool = False) -> bool:
+def post_article(article: dict, auth: dict | None, dry_run: bool = False, site: str = "gadget") -> bool:
     """1記事をPinterestに投稿（API優先、fallbackはPlaywright）"""
     slug = article["slug"]
     image_path = OG_DIR / f"{slug}.png"
 
     if not image_path.exists():
-        logger.warning(f"OG画像が存在しないためスキップ: {image_path}")
-        return False
+        if dry_run:
+            logger.info(f"[DRY RUN] OG画像なし（投稿時は要生成）: {image_path}")
+        else:
+            logger.warning(f"OG画像が存在しないためスキップ: {image_path}")
+            return False
 
     # API方式を試みる（dry-runでも選択）
     if auth and (auth.get("PINTEREST_ACCESS_TOKEN") or dry_run):
         logger.info(f"API方式で投稿: {slug}")
-        return post_via_api(article, auth or {}, dry_run)
+        return post_via_api(article, auth or {}, dry_run, site)
 
     # Playwright方式にフォールバック
     logger.info(f"Playwright方式で投稿: {slug}")
-    return post_via_playwright(article, dry_run)
+    return post_via_playwright(article, dry_run, site)
 
 
 def main():
@@ -518,9 +537,25 @@ def main():
     group.add_argument("--slug", help="投稿する記事のスラッグ")
     group.add_argument("--all", action="store_true", help="未投稿記事を全て投稿（1日1件）")
     group.add_argument("--list-boards", action="store_true", help="Pinterest ボード一覧を表示")
+    parser.add_argument("--site", choices=["gadget", "misaki"], default="gadget", help="投稿対象サイト (gadget | misaki)")
     parser.add_argument("--dry-run", action="store_true", help="投稿せずにログのみ表示")
     parser.add_argument("--no-delay", action="store_true", help="ランダム遅延をスキップ（テスト用）")
     args = parser.parse_args()
+
+    # --site misaki 時はグローバルパス変数を misaki-money 用に切り替える
+    global BLOG_ROOT, AUTH_FILE, COOKIES_FILE, HISTORY_FILE, POSTS_DIR, OG_DIR, BLOG_BASE_URL
+    if args.site == "misaki":
+        BLOG_ROOT = MISAKI_BLOG_ROOT
+        AUTH_FILE = BLOG_ROOT / "config" / "pinterest_auth.env"
+        # Cookieは gadget-blog のものを共用（同じPinterestアカウント）
+        COOKIES_FILE = Path("/home/misao/gadget-blog/config/pinterest_cookies.json")
+        HISTORY_FILE = BLOG_ROOT / "data" / "pinterest_post_history.json"
+        POSTS_DIR = BLOG_ROOT / "src" / "content" / "posts"
+        OG_DIR = BLOG_ROOT / "public" / "images" / "og"
+        BLOG_BASE_URL = MISAKI_BLOG_BASE_URL
+        logger.info("サイト: misaki-money")
+    else:
+        logger.info("サイト: gadget-blog")
 
     # ボード一覧表示
     if args.list_boards:
@@ -562,7 +597,7 @@ def main():
             logger.error(f"frontmatterのパースに失敗: {md_file}")
             sys.exit(1)
 
-        success = post_article(article, auth, args.dry_run)
+        success = post_article(article, auth, args.dry_run, args.site)
         if success and not args.dry_run:
             history.setdefault("posted_slugs", [])
             if slug not in history["posted_slugs"]:
@@ -595,7 +630,7 @@ def main():
         slug = article["slug"]
         logger.info(f"投稿対象: {slug}（残り{len(candidates)}件）")
 
-        success = post_article(article, auth, args.dry_run)
+        success = post_article(article, auth, args.dry_run, args.site)
         if success and not args.dry_run:
             history.setdefault("posted_slugs", [])
             if slug not in history["posted_slugs"]:
