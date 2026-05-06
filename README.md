@@ -96,3 +96,36 @@ node scripts/fetch-amazon-prices.mjs
 node scripts/fetch-rakuten-prices.mjs
 node scripts/merge-prices.mjs
 ```
+
+## 半自動アフィリエイトEngine（cmd_358）
+
+売れ筋商品をリアルタイム検出→殿が選択→自動記事化するパイプライン。
+
+### フロー
+
+1. 毎朝6:30 → `trending_products_collector.py` → `data/trending_today.yaml` 生成
+2. `trending_propose.py` → 殿のTelegramへTOP5提案送信
+3. 殿が「1,3」等で番号返信 → `article_select` として ntfy_inbox に記録
+4. 将軍が `article_select` 確認後、以下を実行:
+   ```bash
+   cd /home/misao/gadget-blog
+   python3 scripts/article_from_trending_template.py --indices 1,3
+   ```
+5. 出力YAMLを確認し `shogun_to_karo.yaml` に追記 → 家老へ発令
+6. 足軽が記事化（比較1本+個別レビュー5本）→ deploy → SNS投稿予約
+
+### 重要ルール（cmd_358e確認済み）
+
+- **publishDate**: frontmatterのフィールド名は `publishDate`（`pubDate` 不可）
+- **publishDate連番**: 最終記事の翌日から1日1本ずつ自動割当
+- **x_scheduled.json**: `status` は必ず `"pending"`（`"scheduled"` はスキップされるバグあり）
+
+### スクリプト引数
+
+```bash
+# 基本（stdout出力）
+python3 scripts/article_from_trending_template.py --indices 1,3
+
+# ファイル出力
+python3 scripts/article_from_trending_template.py --indices 1,3 --output /tmp/cmd_draft.yaml
+```
