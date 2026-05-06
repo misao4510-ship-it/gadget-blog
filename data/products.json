@@ -3138,6 +3138,48 @@
         }
       },
       "image_url": null
+    },
+    {
+      "id": "product-105",
+      "name": "HyperX SoloCast 2 USBコンデンサーマイク",
+      "asin": "",
+      "amazonUrl": "https://af.moshimo.com/af/c/click?a_id=5471177&p_id=170&pc_id=185&pl_id=4072&url=https%3A%2F%2Fwww.amazon.co.jp%2Fs%3Fk%3DHyperX%2BSoloCast%2B2",
+      "rakutenUrl": "https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FHyperX%2BSoloCast%2B2%2F",
+      "yahooUrl": "https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DHyperX%2BSoloCast%2B2",
+      "currentPrice": 0,
+      "priceHistory": []
+    },
+    {
+      "id": "product-105",
+      "name": "Wasachi USB-C LANアダプター 1000Mbps PD100W",
+      "category": "pc-accessory",
+      "asin": "",
+      "rakuten_keyword": "Wasachi USB-C LANアダプター 1000Mbps PD100W",
+      "a8_link": "https://px.a8.net/placeholder/product-105",
+      "image": "/images/products/wasachi-usbc-lan-pd100w.svg",
+      "tags": [
+        "USB-C",
+        "有線LAN",
+        "LANアダプター",
+        "PD100W",
+        "Wasachi",
+        "MacBook"
+      ],
+      "affiliate_links": {
+        "amazon": {
+          "tag": "misao4510-22",
+          "url_template": "https://www.amazon.co.jp/s?k=Wasachi+USB-C+LAN%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%83%BC&tag={tag}",
+          "url": "https://www.amazon.co.jp/s?k=Wasachi+USB-C+LAN%E3%82%A2%E3%83%80%E3%83%97%E3%82%BF%E3%83%BC&tag=misao4510-22"
+        },
+        "rakuten": {
+          "affiliate_id": "528d8064.7012489d.528d8065.8ee4ffed",
+          "url": "https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fitem.rakuten.co.jp%2Fsugarlight%2Fgr-e9zd2xg7z8%2F"
+        },
+        "a8": {
+          "url": "https://px.a8.net/placeholder/product-105"
+        }
+      },
+      "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/sugarlight/cabinet/g/31/e9zd2xg7z8-1.jpg?_ex=128x128"
     }
   ]
 }

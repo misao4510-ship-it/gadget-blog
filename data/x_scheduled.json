@@ -1,32 +1,45 @@
 {
-  "date": "2026-04-21",
+  "date": "2026-04-26",
   "slots": [
     {
       "slot": 1,
-      "time": "07:07",
       "slug": "cio-novaport-quad2-100w-review",
       "title": "CIO NovaPort QUAD II 100W レビュー",
-      "text": "4台同時に充電できる日本メーカーの充電器、気になりませんか？🌸\nCIO NovaPort QUAD II 100Wは、USB-C×3＋USB-A×1の4ポートで全部まとめて充電できちゃいますよ✨ NovaIntelligence搭載で電力自動配分！\nhttps://gadget-blog-dxq.pages.dev/posts/cio-novaport-quad2-100w-review/\n#CIO #充電器 #100W #ガジェット",
-      "image": "/home/misao/gadget-blog/public/images/og/cio-novaport-quad2-100w-review.png",
+      "text": "🌸 4ポートで全部まとめて充電できるの、最高すぎます！CIO NovaPort QUAD II 100Wは日本製GaNで電力を自動配分してくれるんです✨ デスク周りがスッキリしますよ！ #充電器 #USB充電 #GaN",
+      "url": "https://gadget-blog-dxq.pages.dev/posts/cio-novaport-quad2-100w-review/",
+      "image": "/mnt/c/tools/multi-agent-shogun/output_sd/sakura_x_slot1_cio_charger_20260426.png",
       "status": "pending"
     },
     {
       "slot": 2,
-      "time": "12:13",
-      "slug": "anker-prime-charger-100w-review",
-      "title": "Anker Prime Charger (100W, 3 Ports) レビュー",
-      "text": "クレカサイズで168g、なのに3ポート100W出力！🌸\nAnker Prime Chargerは軽さ・サイズ・パワーのバランスが最強の充電器ですよ✨ ノートPC+スマホ+イヤホンを同時充電できちゃいます！\nhttps://gadget-blog-dxq.pages.dev/posts/anker-prime-charger-100w-review/\n#Anker #充電器 #100W #GaN",
-      "image": "/home/misao/gadget-blog/public/images/og/anker-prime-charger-100w-review.png",
-      "status": "pending"
+      "slug": "creality-ender3-v3-se-review",
+      "title": "Creality Ender-3 V3 SE レビュー",
+      "text": "🌸 2万円台で全自動レベリングってすごくないですか！？Creality Ender-3 V3 SEは初めての3Dプリンターにぴったりですよ✨ 250mm/sで印刷できてコスパ最強です！ #3Dプリンター #ガジェット",
+      "url": "https://gadget-blog-dxq.pages.dev/posts/creality-ender3-v3-se-review/",
+      "image": "/mnt/c/tools/multi-agent-shogun/output_sd/sakura_x_slot2_3d_printer_20260426.png",
+      "status": "posted",
+      "posted_at": "2026-04-26T03:21:48.969634+00:00"
     },
     {
       "slot": 3,
-      "time": "20:43",
-      "slug": "anker-317-charger-100w-review",
-      "title": "Anker 317 Charger (100W) レビュー",
-      "text": "100W充電器がケーブル付きで¥5,290！？🌸\nAnker 317 Chargerはコスパ最強の据え置き用100W充電器ですよ✨ セール時なら¥3,000以下で買えることも…！机に1台置いておくと超便利です♪\nhttps://gadget-blog-dxq.pages.dev/posts/anker-317-charger-100w-review/\n#Anker #充電器 #コスパ #100W",
-      "image": "/home/misao/gadget-blog/data/x_images/sakura_anker_317_charger_100w_review_v.png",
-      "status": "pending"
+      "slug": "elecom-dpa-ss02bk-monitor-arm-review",
+      "title": "エレコム DPA-SS02BK モニターアーム レビュー",
+      "text": "🌸 国内ブランドのモニターアームが4,490円〜って安いですよね！エレコム DPA-SS02BKは32インチ対応でガス式だから調整もラク✨ デスク環境が快適になりましたよ！ #モニターアーム #デスク改善",
+      "url": "https://gadget-blog-dxq.pages.dev/posts/elecom-dpa-ss02bk-monitor-arm-review/",
+      "image": "/mnt/c/tools/multi-agent-shogun/output_sd/sakura_x_slot3_monitor_arm_20260426.png",
+      "status": "posted",
+      "posted_at": "2026-04-26T11:57:20.562549+00:00"
+    }
+  ],
+  "posts": [
+    {
+      "slug": "hyperx-solocast-2-review-new-life",
+      "title": "HyperX SoloCast 2 レビュー｜新生活向けUSBマイク3選！YouTubeで話題の商品まとめ",
+      "text": "🌸 YouTubeで話題の新生活向けUSBマイクをまとめてみました！\n\n🎤 HyperX SoloCast 2\n🎤 Amazonベーシック USBマイク\n🎤 FIFINE USBコンデンサーマイク\n\nテレワーク・配信・ゲーム実況にピッタリですよ！ #USBマイク #テレワーク #新生活",
+      "image": "/images/og/hyperx-solocast-2-review-new-life.png",
+      "status": "pending",
+      "scheduledTime": "12:13",
+      "publishDate": "2026-05-08"
     }
   ]
 }
