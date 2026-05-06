@@ -1,16 +1,27 @@
-# YouTube channels to monitor for new videos
-# cmd_359-A fills in channel_id values
-# channel_id empty → auto-skipped by youtube_trending_collector.py
+# YouTuber監視チャンネル設定 (cmd_359-A)
+# RSSフィード: https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}
 channels:
-  - name: "ch1"
-    channel_id: ""
+  - name: "たこまる"
+    handle: "takomaru"
+    channel_id: "UCCP7JJ2wn-wIytM9L-Wkndw"
+    rss_title: "takomaru"
+    genre: "ガジェット"
     active: true
-  - name: "ch2"
-    channel_id: ""
+  - name: "さがらごうち"
+    handle: "sagaragouchi"
+    channel_id: "UCa889pmUWv-3WVA2GMFKEQg"
+    rss_title: "さがらごうちの右側"
+    genre: "ガジェット"
     active: true
-  - name: "ch3"
-    channel_id: ""
+  - name: "超猫拳"
+    handle: "SUPER_NEKOPUNCH"
+    channel_id: "UCtu3QGmMXAVjc6UFbTOIVGQ"
+    rss_title: "超猫拳/SUPER NEKOPUNCH"
+    genre: "ガジェット"
     active: true
-  - name: "ch4"
-    channel_id: ""
+  - name: "さいちょう"
+    handle: "saichou"
+    channel_id: "UCfFhDxodPhQ5kvL3sEhkZOQ"
+    rss_title: "chou Chouchou"
+    genre: "ガジェット"
     active: true
