@@ -12,10 +12,13 @@ import yaml
 from pathlib import Path
 from dotenv import load_dotenv
 
-# 将軍/cronのみ許可
+DRY_RUN = os.environ.get('DRY_RUN', '0') == '1'
+
+# 将軍/cronのみ許可（DRY_RUNはTelegram不送信のためgateスキップ）
 sys.path.insert(0, str(Path(__file__).parent))
-from _telegram_gate import check_shogun_auth
-check_shogun_auth("trending_propose.py")
+if not DRY_RUN:
+    from _telegram_gate import check_shogun_auth
+    check_shogun_auth("trending_propose.py")
 
 SCRIPT_DIR  = Path(__file__).parent
 BLOG_DIR    = SCRIPT_DIR.parent
@@ -23,14 +26,21 @@ TODAY_FILE  = BLOG_DIR / 'data' / 'trending_today.yaml'
 PROPOSE_LOG = BLOG_DIR / 'data' / 'trending_propose_log.yaml'
 
 MA_DIR = Path('/mnt/c/tools/multi-agent-shogun')
-load_dotenv(MA_DIR / 'config' / 'telegram_auth.env')
-BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
-CHAT_ID   = os.environ['TELEGRAM_CHAT_ID']
+if not DRY_RUN:
+    load_dotenv(MA_DIR / 'config' / 'telegram_auth.env')
+    BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
+    CHAT_ID   = os.environ['TELEGRAM_CHAT_ID']
+else:
+    BOT_TOKEN = ''
+    CHAT_ID   = ''
 
 RANK_EMOJI = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
 
 
 def send_message(text: str):
+    if DRY_RUN:
+        print(f'[DRY_RUN] sendMessage: {text[:100]}')
+        return
     requests.post(
         f'https://api.telegram.org/bot{BOT_TOKEN}/sendMessage',
         json={'chat_id': int(CHAT_ID), 'text': text, 'parse_mode': 'HTML'},
@@ -39,6 +49,9 @@ def send_message(text: str):
 
 
 def send_photo(image_url: str, caption: str):
+    if DRY_RUN:
+        print(f'[DRY_RUN] sendPhoto: {caption[:80]}')
+        return
     try:
         requests.post(
             f'https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto',
@@ -95,24 +108,25 @@ def main():
         '記事化して公開スケジュールに追加いたす。'
     )
 
-    log = []
-    if PROPOSE_LOG.exists():
-        with open(PROPOSE_LOG) as f:
-            log = yaml.safe_load(f) or []
-    log.append({
-        'proposed_at': datetime.datetime.now().isoformat(),
-        'date': date_str,
-        'items': [{
-            'index': i + 1,
-            'item_code': item.get('item_code'),
-            'name': item.get('name', '')[:60],
-        } for i, item in enumerate(top5[:5])],
-    })
-    log = log[-7:]
-    with open(PROPOSE_LOG, 'w') as f:
-        yaml.dump(log, f, allow_unicode=True, default_flow_style=False)
+    if not DRY_RUN:
+        log = []
+        if PROPOSE_LOG.exists():
+            with open(PROPOSE_LOG) as f:
+                log = yaml.safe_load(f) or []
+        log.append({
+            'proposed_at': datetime.datetime.now().isoformat(),
+            'date': date_str,
+            'items': [{
+                'index': i + 1,
+                'item_code': item.get('item_code'),
+                'name': item.get('name', '')[:60],
+            } for i, item in enumerate(top5[:5])],
+        })
+        log = log[-7:]
+        with open(PROPOSE_LOG, 'w') as f:
+            yaml.dump(log, f, allow_unicode=True, default_flow_style=False)
 
-    print(f'[trending_propose] TOP5送信完了。propose_log保存。')
+    print(f'[trending_propose] TOP5送信完了。{"(DRY_RUN)" if DRY_RUN else "propose_log保存。"}')
 
 
 if __name__ == '__main__':
