@@ -7,17 +7,26 @@
       "updated_at": "2026-05-07"
     },
     "rakuten": {
-      "price": 3489,
-      "url": "https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fitem.rakuten.co.jp%2Fsugarlight%2Fgr-e9zd2xg7z8%2F",
-      "updated_at": "2026-05-07"
+      "price": 2975,
+      "in_stock": true,
+      "url": "https://item.rakuten.co.jp/remake-buddy/lb533rvkexk2lk7pub4jr7uxt4/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-07"
     },
     "yahoo": {
       "price": 3489,
       "url": "https://af.moshimo.com/af/c/click?a_id=5494175&p_id=1225&pc_id=1925&pl_id=19165&url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DWasachi%2BUSB-C%2BLAN%25E3%2582%25A2%25E3%2583%2480%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC",
       "updated_at": "2026-05-07"
+    },
+    "cheapest": {
+      "store": "rakuten",
+      "price": 2975
     }
   },
   "history": [
-    {"date": "2026-05-07", "amazon": 3489, "rakuten": 3489, "yahoo": 3489}
+    {
+      "date": "2026-05-07",
+      "amazon": 3489,
+      "rakuten": 2975
+    }
   ]
 }

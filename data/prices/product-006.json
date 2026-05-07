@@ -11,7 +11,7 @@
       "price": 383,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/yakinikuyutaka/y0dp87p282/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-06"
+      "updated": "2026-05-07"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-07",
+      "amazon": 34800,
+      "rakuten": 383
+    },
     {
       "date": "2026-05-06",
       "amazon": 34800,
@@ -468,11 +473,6 @@
       "date": "2026-02-06",
       "amazon": 37030,
       "rakuten": 36780
-    },
-    {
-      "date": "2026-02-05",
-      "amazon": 36990,
-      "rakuten": 36810
     }
   ]
 }
