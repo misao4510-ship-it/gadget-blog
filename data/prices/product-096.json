@@ -11,7 +11,7 @@
       "price": 1439,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/komorebishop/pr5l2ko5rf2pnc542u5r3z53we/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-07"
+      "updated": "2026-05-08"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-08",
+      "amazon": 35000,
+      "rakuten": 1439
+    },
     {
       "date": "2026-05-07",
       "amazon": 35000,
@@ -468,11 +473,6 @@
       "date": "2026-02-07",
       "amazon": 32010,
       "rakuten": 34606
-    },
-    {
-      "date": "2026-02-06",
-      "amazon": 32235,
-      "rakuten": 34922
     }
   ]
 }

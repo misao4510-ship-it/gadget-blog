@@ -11,7 +11,7 @@
       "price": 440,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/kk1206/syoku00248/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-07"
+      "updated": "2026-05-08"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-08",
+      "amazon": 856,
+      "rakuten": 440
+    },
     {
       "date": "2026-05-07",
       "amazon": 856,
@@ -468,11 +473,6 @@
       "date": "2026-02-07",
       "amazon": 854,
       "rakuten": 944
-    },
-    {
-      "date": "2026-02-06",
-      "amazon": 848,
-      "rakuten": 941
     }
   ]
 }

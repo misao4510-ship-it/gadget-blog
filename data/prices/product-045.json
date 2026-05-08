@@ -11,7 +11,7 @@
       "price": 2900,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/knicomcorporation/esr398401404407/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-07"
+      "updated": "2026-05-08"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-08",
+      "amazon": 3280,
+      "rakuten": 2900
+    },
     {
       "date": "2026-05-07",
       "amazon": 3280,
@@ -302,11 +307,6 @@
     {
       "date": "2026-02-07",
       "amazon": 3397,
-      "rakuten": 3515
-    },
-    {
-      "date": "2026-02-06",
-      "amazon": 3371,
       "rakuten": 3515
     }
   ]
