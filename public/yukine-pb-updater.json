@@ -1,0 +1,11 @@
+{
+  "version": "0.1.9",
+  "notes": "v0.1.9: CSP fix (ipc protocol allowed)",
+  "pub_date": "2026-05-09T10:08:21Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMHFVMUtJc1lRdGV1cTk3R1owcGU2UGNMbTlQVUxQR01LVFg3REl3RGdOS1JSMzJaVlU1Zm8raUdJanNYbTBkYVkwQXVkNE5kbEFNVjZBeWpCUVVCTFh3V25pbFNnd2dBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc4MzIwNDkzCWZpbGU6eXVraW5lLXBiXzAuMS45X3g2NC1zZXR1cC5leGUKNmllbytGVkxBM0syeVFLc0pYTGtQejhjT1FrY1NvRGhhendzdmplZkNocWU5VDlHdHpUTjBrYXlvS1V4bCtCM1lSN1BhZUtkWTh6NkhyaEZsTytnQkE9PQo=",
+      "url": "https://github.com/misao4510-ship-it/yukine-pb-desktop/releases/download/v0.1.9/yukine-pb_0.1.9_x64-setup.exe"
+    }
+  }
+}

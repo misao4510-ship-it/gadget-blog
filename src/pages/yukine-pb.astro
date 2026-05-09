@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const latestVersion = 'v0.1.10';
+const releaseDate = '2026-05-09';
+const releaseUrl = 'https://github.com/misao4510-ship-it/yukine-pb-desktop/releases/latest';
+---
+
+<BaseLayout
+  title="ゆきねプロンプトビルダー (デスクトップ版)"
+  description="Stable Diffusion 用プロンプトを直感的に組み立てるデスクトップアプリ。Windows対応。"
+>
+  <section style="max-width:720px; margin:0 auto; padding:1.5rem 1rem;">
+    <h1 style="color:#FF69B4; border-bottom:3px solid #FF69B4; padding-bottom:0.5rem;">
+      🎨 ゆきねプロンプトビルダー (デスクトップ版)
+    </h1>
+
+    <div style="background:#fdfaf6; border:1px solid #e8d5bc; border-radius:0.75rem; padding:1.25rem; margin:1.5rem 0;">
+      <h2 style="color:#6b4428; margin-top:0;">📥 最新版ダウンロード</h2>
+      <p style="margin:0.5rem 0; color:#7a6152;">
+        最新バージョン: <b style="color:#FF69B4;">{latestVersion}</b><br />
+        リリース日: {releaseDate}
+      </p>
+      <p style="margin:1rem 0;">
+        <a href={releaseUrl} target="_blank" rel="noopener"
+           style="display:inline-block; padding:0.75rem 1.5rem; background:#FF69B4; color:#fff; border-radius:0.5rem; text-decoration:none; font-weight:600;">
+          🔗 GitHub Releases から最新版をダウンロード
+        </a>
+      </p>
+      <p style="font-size:0.85rem; color:#a08070; margin:0.75rem 0;">
+        ※ ダウンロードページから <code>yukine-pb_X.X.X_x64-setup.exe</code> を選択してください。
+      </p>
+    </div>
+
+    <div style="background:#fff; border:1px solid #e8d5bc; border-radius:0.75rem; padding:1.25rem; margin:1.5rem 0;">
+      <h2 style="color:#6b4428; margin-top:0;">📦 機能</h2>
+      <ul style="line-height:1.9; color:#5e4737;">
+        <li>SDプロンプトを直感的なUIで組み立て</li>
+        <li>ゆきね・サクラのキャラクターテンプレ</li>
+        <li>ポーズプリセット30種＋カメラアングル指定</li>
+        <li>3Dポーズビューア (Three.js + VRM)</li>
+        <li>NSFW プロンプト集（成人向け）</li>
+        <li>Telegram Bot 送信・SD直接生成</li>
+        <li>日本語・英語切替</li>
+      </ul>
+    </div>
+
+    <div style="background:#fff; border:1px solid #e8d5bc; border-radius:0.75rem; padding:1.25rem; margin:1.5rem 0;">
+      <h2 style="color:#6b4428; margin-top:0;">🔄 アップデート方法</h2>
+      <p style="line-height:1.8; color:#5e4737;">
+        現在は <b>手動アップデート</b> のみ対応です。
+      </p>
+      <ol style="line-height:1.9; color:#5e4737;">
+        <li>このページの「最新版をダウンロード」ボタンから新しいインストーラを取得</li>
+        <li>ダウンロードした <code>setup.exe</code> を実行（既存インストールに上書き可）</li>
+        <li>PB を再起動して新バージョン反映</li>
+      </ol>
+      <p style="font-size:0.85rem; color:#a08070;">
+        最新情報はこのページで随時更新します。
+      </p>
+    </div>
+
+    <div style="background:#fdfaf6; border:1px solid #e8d5bc; border-radius:0.75rem; padding:1.25rem; margin:1.5rem 0;">
+      <h2 style="color:#6b4428; margin-top:0;">💡 動作確認・トラブル</h2>
+      <ul style="line-height:1.9; color:#5e4737; font-size:0.95rem;">
+        <li>F12キーで開発者ツールを開けます (Console / Network)</li>
+        <li>SD直接生成は ローカル SD Forge (172.18.208.1:7860) が起動中であることを前提</li>
+        <li>Bot送信は Cloudflare Worker 経由でゆきね Bot にプロンプトを転送</li>
+        <li>動作不良時は ゆきねBot プロセスが起動しているか確認 (殿側のサーバー)</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
