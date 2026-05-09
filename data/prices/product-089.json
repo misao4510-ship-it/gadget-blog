@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 4175,
+      "price": 3870,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/slife/b091bgmkys/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-08"
+      "url": "https://item.rakuten.co.jp/reveliser/b091bgmkys/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-09"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 3990
+      "store": "rakuten",
+      "price": 3870
     }
   },
   "history": [
+    {
+      "date": "2026-05-09",
+      "amazon": 3990,
+      "rakuten": 3870
+    },
     {
       "date": "2026-05-08",
       "amazon": 3990,
@@ -468,11 +473,6 @@
       "date": "2026-02-08",
       "amazon": 3900,
       "rakuten": 4100
-    },
-    {
-      "date": "2026-02-07",
-      "amazon": 3250,
-      "rakuten": 3050
     }
   ]
 }
