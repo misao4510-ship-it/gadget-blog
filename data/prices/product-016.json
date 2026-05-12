@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1669,
+      "price": 1624,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/ecoeur555/jw294-00/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-11"
+      "url": "https://item.rakuten.co.jp/utakatazakka/k2kbdmtj3k36stq3zuzakultwu/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-12"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1669
+      "price": 1624
     }
   },
   "history": [
+    {
+      "date": "2026-05-12",
+      "amazon": 6480,
+      "rakuten": 1624
+    },
     {
       "date": "2026-05-11",
       "amazon": 6480,
@@ -468,11 +473,6 @@
       "date": "2026-02-11",
       "amazon": 6530,
       "rakuten": 7390
-    },
-    {
-      "date": "2026-02-10",
-      "amazon": 6670,
-      "rakuten": 7100
     }
   ]
 }

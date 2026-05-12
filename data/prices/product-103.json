@@ -10,7 +10,7 @@
       "price": 5771,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/manmaru-fresta/20250913072731_211/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-11"
+      "updated": "2026-05-12"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-12",
+      "amazon": 3099,
+      "rakuten": 5771
+    },
     {
       "date": "2026-05-11",
       "amazon": 3099,
@@ -467,11 +472,6 @@
       "date": "2026-02-11",
       "amazon": 2961,
       "rakuten": 3358
-    },
-    {
-      "date": "2026-02-10",
-      "amazon": 3164,
-      "rakuten": 3204
     }
   ]
 }
