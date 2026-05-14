@@ -8,10 +8,10 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 3749,
+      "price": 3860,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/flowing2/2dssbb74h467nwtouwu7ylg5si/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-13"
+      "url": "https://item.rakuten.co.jp/suzukidenkioutlets/00mmn9gyvrnc1k2y/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-14"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-14",
+      "amazon": 2980,
+      "rakuten": 3860
+    },
     {
       "date": "2026-05-13",
       "amazon": 2980,
@@ -468,11 +473,6 @@
       "date": "2026-02-13",
       "amazon": 2800,
       "rakuten": 2950
-    },
-    {
-      "date": "2026-02-12",
-      "amazon": 3000,
-      "rakuten": 3100
     }
   ]
 }
