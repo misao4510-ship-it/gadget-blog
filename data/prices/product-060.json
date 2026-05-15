@@ -11,7 +11,7 @@
       "price": 3874,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/level-h-shop/20260224003151_113/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-14"
+      "updated": "2026-05-15"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-15",
+      "amazon": 24200,
+      "rakuten": 3874
+    },
     {
       "date": "2026-05-14",
       "amazon": 24200,
@@ -303,11 +308,6 @@
       "date": "2026-02-14",
       "amazon": 25383,
       "rakuten": 24776
-    },
-    {
-      "date": "2026-02-13",
-      "amazon": 25292,
-      "rakuten": 24933
     }
   ]
 }

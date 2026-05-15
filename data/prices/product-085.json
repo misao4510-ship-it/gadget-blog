@@ -11,7 +11,7 @@
       "price": 13500,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/alice00/4drdv6001-00/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-14"
+      "updated": "2026-05-15"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-15",
+      "amazon": 19990,
+      "rakuten": 13500
+    },
     {
       "date": "2026-05-14",
       "amazon": 19990,
@@ -468,11 +473,6 @@
       "date": "2026-02-14",
       "amazon": 19850,
       "rakuten": 20450
-    },
-    {
-      "date": "2026-02-13",
-      "amazon": 21100,
-      "rakuten": 20100
     }
   ]
 }
