@@ -11,7 +11,7 @@
       "price": 2866,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/mr-hedgehog/mrhg-0gl5wp5s6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-15"
+      "updated": "2026-05-16"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-16",
+      "amazon": 9980,
+      "rakuten": 2866
+    },
     {
       "date": "2026-05-15",
       "amazon": 9980,
@@ -303,11 +308,6 @@
       "date": "2026-02-15",
       "amazon": 11248,
       "rakuten": 12027
-    },
-    {
-      "date": "2026-02-14",
-      "amazon": 11210,
-      "rakuten": 11888
     }
   ]
 }
