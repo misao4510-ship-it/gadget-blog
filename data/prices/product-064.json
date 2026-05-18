@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 10874,
+      "price": 10056,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/oktalers-shop/10019457/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-17"
+      "updated": "2026-05-18"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 10874
+      "price": 10056
     }
   },
   "history": [
+    {
+      "date": "2026-05-18",
+      "amazon": 12980,
+      "rakuten": 10056
+    },
     {
       "date": "2026-05-17",
       "amazon": 12980,
@@ -303,11 +308,6 @@
       "date": "2026-02-17",
       "amazon": 13947,
       "rakuten": 14366
-    },
-    {
-      "date": "2026-02-16",
-      "amazon": 14123,
-      "rakuten": 14291
     }
   ]
 }

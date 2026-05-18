@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 2660,
+      "price": 2720,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/kyoseastore/s-b0bkpf1m8s-20260326/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-17"
+      "url": "https://item.rakuten.co.jp/cumainte/kim-b0cw57y7c6003/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-18"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2660
+      "price": 2720
     }
   },
   "history": [
+    {
+      "date": "2026-05-18",
+      "amazon": 35000,
+      "rakuten": 2720
+    },
     {
       "date": "2026-05-17",
       "amazon": 35000,
@@ -468,11 +473,6 @@
       "date": "2026-02-17",
       "amazon": 37000,
       "rakuten": 35000
-    },
-    {
-      "date": "2026-02-16",
-      "amazon": 37000,
-      "rakuten": 33000
     }
   ]
 }
