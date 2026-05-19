@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 10056,
+      "price": 10855,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/oktalers-shop/10019457/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-18"
+      "url": "https://item.rakuten.co.jp/uguisumama/20251214134637_25/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-19"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 10056
+      "price": 10855
     }
   },
   "history": [
+    {
+      "date": "2026-05-19",
+      "amazon": 12980,
+      "rakuten": 10855
+    },
     {
       "date": "2026-05-18",
       "amazon": 12980,
@@ -303,11 +308,6 @@
       "date": "2026-02-18",
       "amazon": 13891,
       "rakuten": 14358
-    },
-    {
-      "date": "2026-02-17",
-      "amazon": 13947,
-      "rakuten": 14366
     }
   ]
 }

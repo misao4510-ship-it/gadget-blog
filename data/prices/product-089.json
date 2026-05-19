@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 3870,
+      "price": 3830,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/reveliser/b091bgmkys/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-18"
+      "updated": "2026-05-19"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3870
+      "price": 3830
     }
   },
   "history": [
+    {
+      "date": "2026-05-19",
+      "amazon": 3990,
+      "rakuten": 3830
+    },
     {
       "date": "2026-05-18",
       "amazon": 3990,
@@ -468,11 +473,6 @@
       "date": "2026-02-18",
       "amazon": 4150,
       "rakuten": 3900
-    },
-    {
-      "date": "2026-02-17",
-      "amazon": 4300,
-      "rakuten": 4100
     }
   ]
 }
