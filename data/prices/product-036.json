@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1290,
+      "price": 1239,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/anker/a81e6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-19"
+      "url": "https://item.rakuten.co.jp/free-jin-japan/s-b0ccqp3y1w-20241017/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-20"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1290
+      "price": 1239
     }
   },
   "history": [
+    {
+      "date": "2026-05-20",
+      "amazon": 1299,
+      "rakuten": 1239
+    },
     {
       "date": "2026-05-19",
       "amazon": 1299,
@@ -413,11 +418,6 @@
       "date": "2026-02-19",
       "amazon": 1234,
       "rakuten": 1514
-    },
-    {
-      "date": "2026-02-18",
-      "amazon": 1234,
-      "rakuten": 1502
     }
   ]
 }

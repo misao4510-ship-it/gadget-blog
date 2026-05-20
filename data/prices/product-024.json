@@ -8,17 +8,22 @@
       "updated": "2026-04-06"
     },
     "rakuten": {
-      "price": 498,
+      "price": 489,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/urpremium/gpnp/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-19"
+      "url": "https://item.rakuten.co.jp/crestshop/koji14-000209491/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-20"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 498
+      "price": 489
     }
   },
   "history": [
+    {
+      "date": "2026-05-20",
+      "amazon": 699,
+      "rakuten": 489
+    },
     {
       "date": "2026-05-19",
       "amazon": 699,
@@ -378,11 +383,6 @@
       "date": "2026-02-19",
       "amazon": 786,
       "rakuten": 792
-    },
-    {
-      "date": "2026-02-18",
-      "amazon": 788,
-      "rakuten": 805
     }
   ]
 }
