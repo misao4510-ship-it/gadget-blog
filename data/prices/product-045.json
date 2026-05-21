@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2900,
+      "price": 2478,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/knicomcorporation/esr398401404407/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-20"
+      "url": "https://item.rakuten.co.jp/fidela/fid2-08t8h5c3y/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-21"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2900
+      "price": 2478
     }
   },
   "history": [
+    {
+      "date": "2026-05-21",
+      "amazon": 3280,
+      "rakuten": 2478
+    },
     {
       "date": "2026-05-20",
       "amazon": 3280,
@@ -303,11 +308,6 @@
       "date": "2026-02-20",
       "amazon": 3388,
       "rakuten": 3703
-    },
-    {
-      "date": "2026-02-19",
-      "amazon": 3389,
-      "rakuten": 3658
     }
   ]
 }

@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1980,
+      "price": 1951,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/handycaps/406mx2300case/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-20"
+      "url": "https://item.rakuten.co.jp/terracestore/zrqbqhr6hwmtmaodrjytj46t3a/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-21"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1980
+      "price": 1951
     }
   },
   "history": [
+    {
+      "date": "2026-05-21",
+      "amazon": 12650,
+      "rakuten": 1951
+    },
     {
       "date": "2026-05-20",
       "amazon": 12650,
@@ -303,11 +308,6 @@
       "date": "2026-02-20",
       "amazon": 13575,
       "rakuten": 13587
-    },
-    {
-      "date": "2026-02-19",
-      "amazon": 13715,
-      "rakuten": 13640
     }
   ]
 }

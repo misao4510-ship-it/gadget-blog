@@ -7,10 +7,10 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 5079,
+      "price": 4789,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/supplyshop/131273/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-20"
+      "url": "https://item.rakuten.co.jp/rafinagift/hac95b93f706/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-21"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-21",
+      "amazon": 4490,
+      "rakuten": 4789
+    },
     {
       "date": "2026-05-20",
       "amazon": 4490,
@@ -467,11 +472,6 @@
       "date": "2026-02-20",
       "amazon": 4588,
       "rakuten": 5054
-    },
-    {
-      "date": "2026-02-19",
-      "amazon": 4754,
-      "rakuten": 4794
     }
   ]
 }

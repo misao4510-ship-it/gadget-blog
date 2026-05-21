@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2849,
+      "price": 2656,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/kyomarche827/gr-e9r0vqhsst/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-20"
+      "url": "https://item.rakuten.co.jp/freema-ket01/20240808181450_102/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-21"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2849
+      "price": 2656
     }
   },
   "history": [
+    {
+      "date": "2026-05-21",
+      "amazon": 3480,
+      "rakuten": 2656
+    },
     {
       "date": "2026-05-20",
       "amazon": 3480,
@@ -303,11 +308,6 @@
       "date": "2026-02-20",
       "amazon": 3591,
       "rakuten": 3883
-    },
-    {
-      "date": "2026-02-19",
-      "amazon": 3586,
-      "rakuten": 3841
     }
   ]
 }
