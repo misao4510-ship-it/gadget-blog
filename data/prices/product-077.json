@@ -8,17 +8,22 @@
       "updated": "2026-04-08"
     },
     "rakuten": {
-      "price": 3880,
+      "price": 3780,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/keynice/gs-297/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-23"
+      "updated": "2026-05-24"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3880
+      "price": 3780
     }
   },
   "history": [
+    {
+      "date": "2026-05-24",
+      "amazon": 3974,
+      "rakuten": 3780
+    },
     {
       "date": "2026-05-23",
       "amazon": 3974,
@@ -468,11 +473,6 @@
       "date": "2026-02-23",
       "amazon": 3936,
       "rakuten": 4114
-    },
-    {
-      "date": "2026-02-22",
-      "amazon": 4031,
-      "rakuten": 4089
     }
   ]
 }
