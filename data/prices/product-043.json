@@ -11,7 +11,7 @@
       "price": 4980,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/laox/6932172628161/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-27"
+      "updated": "2026-05-28"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-28",
+      "amazon": 4490,
+      "rakuten": 4980
+    },
     {
       "date": "2026-05-27",
       "amazon": 4490,
@@ -303,11 +308,6 @@
       "date": "2026-02-27",
       "amazon": 4589,
       "rakuten": 4787
-    },
-    {
-      "date": "2026-02-26",
-      "amazon": 4663,
-      "rakuten": 4706
     }
   ]
 }

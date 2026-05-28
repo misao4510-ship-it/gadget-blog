@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 620,
+      "price": 580,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/kobe-s/zak-56445/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-27"
+      "updated": "2026-05-28"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 620
+      "price": 580
     }
   },
   "history": [
+    {
+      "date": "2026-05-28",
+      "amazon": 5990,
+      "rakuten": 580
+    },
     {
       "date": "2026-05-27",
       "amazon": 5990,
@@ -468,11 +473,6 @@
       "date": "2026-02-27",
       "amazon": 6310,
       "rakuten": 6180
-    },
-    {
-      "date": "2026-02-26",
-      "amazon": 6250,
-      "rakuten": 6240
     }
   ]
 }
