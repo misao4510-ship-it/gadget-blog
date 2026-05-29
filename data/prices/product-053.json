@@ -11,7 +11,7 @@
       "price": 5843,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/ugreen-gear/15202/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-28"
+      "updated": "2026-05-29"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-05-29",
+      "amazon": 7980,
+      "rakuten": 5843
+    },
     {
       "date": "2026-05-28",
       "amazon": 7980,
@@ -303,11 +308,6 @@
       "date": "2026-02-28",
       "amazon": 9104,
       "rakuten": 9341
-    },
-    {
-      "date": "2026-02-27",
-      "amazon": 8936,
-      "rakuten": 9298
     }
   ]
 }

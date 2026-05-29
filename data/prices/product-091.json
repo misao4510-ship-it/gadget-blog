@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 2720,
+      "price": 2688,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/renos55/kim-b0cw57y7c6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-28"
+      "url": "https://item.rakuten.co.jp/almeria-secondstore/57081585404/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-05-29"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2720
+      "price": 2688
     }
   },
   "history": [
+    {
+      "date": "2026-05-29",
+      "amazon": 35000,
+      "rakuten": 2688
+    },
     {
       "date": "2026-05-28",
       "amazon": 35000,
@@ -468,11 +473,6 @@
       "date": "2026-02-28",
       "amazon": 33500,
       "rakuten": 34000
-    },
-    {
-      "date": "2026-02-27",
-      "amazon": 36500,
-      "rakuten": 35000
     }
   ]
 }
