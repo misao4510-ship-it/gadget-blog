@@ -8,10 +8,10 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 5353,
+      "price": 5475,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/enjoy-lovely/enly0d53vjj7f/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-31"
+      "url": "https://item.rakuten.co.jp/enjoy-lovely/enly0d53z4wx3/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-01"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-01",
+      "amazon": 4980,
+      "rakuten": 5475
+    },
     {
       "date": "2026-05-31",
       "amazon": 4980,
@@ -468,11 +473,6 @@
       "date": "2026-03-03",
       "amazon": 4970,
       "rakuten": 5370
-    },
-    {
-      "date": "2026-03-02",
-      "amazon": 5080,
-      "rakuten": 5160
     }
   ]
 }

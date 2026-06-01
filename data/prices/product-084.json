@@ -10,8 +10,8 @@
     "rakuten": {
       "price": 8478,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/ec-current/4570188382206/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-31"
+      "url": "https://item.rakuten.co.jp/onesmart/4570188382190/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-01"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-01",
+      "amazon": 9990,
+      "rakuten": 8478
+    },
     {
       "date": "2026-05-31",
       "amazon": 9990,
@@ -468,11 +473,6 @@
       "date": "2026-03-03",
       "amazon": 9450,
       "rakuten": 9400
-    },
-    {
-      "date": "2026-03-02",
-      "amazon": 10450,
-      "rakuten": 9350
     }
   ]
 }

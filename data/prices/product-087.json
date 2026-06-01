@@ -11,7 +11,7 @@
       "price": 3749,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/flowing-ando/36orpep6flp5q3o66jmxtz2xsi/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-05-31"
+      "updated": "2026-06-01"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-01",
+      "amazon": 2980,
+      "rakuten": 3749
+    },
     {
       "date": "2026-05-31",
       "amazon": 2980,
@@ -468,11 +473,6 @@
       "date": "2026-03-03",
       "amazon": 3150,
       "rakuten": 3100
-    },
-    {
-      "date": "2026-03-02",
-      "amazon": 3100,
-      "rakuten": 2800
     }
   ]
 }
