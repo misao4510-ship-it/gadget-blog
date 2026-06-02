@@ -11,7 +11,7 @@
       "price": 3026,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/yotsubasyouten/20240512004711_24/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-01"
+      "updated": "2026-06-02"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-02",
+      "amazon": 3990,
+      "rakuten": 3026
+    },
     {
       "date": "2026-06-01",
       "amazon": 3990,

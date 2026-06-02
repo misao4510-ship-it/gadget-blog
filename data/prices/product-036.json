@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1239,
+      "price": 1236,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/free-jin-japan/s-b0ccqp3y1w-20241017/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-01"
+      "url": "https://item.rakuten.co.jp/freelife-1173/f0chcf338b/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-02"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1239
+      "price": 1236
     }
   },
   "history": [
+    {
+      "date": "2026-06-02",
+      "amazon": 1299,
+      "rakuten": 1236
+    },
     {
       "date": "2026-06-01",
       "amazon": 1299,
@@ -413,11 +418,6 @@
       "date": "2026-03-04",
       "amazon": 1333,
       "rakuten": 1554
-    },
-    {
-      "date": "2026-03-03",
-      "amazon": 1311,
-      "rakuten": 1535
     }
   ]
 }

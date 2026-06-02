@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1599,
+      "price": 1799,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/nova2021/b08638g2nz/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-01"
+      "url": "https://item.rakuten.co.jp/plays23/b08mzrrh52/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-02"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1599
+      "price": 1799
     }
   },
   "history": [
+    {
+      "date": "2026-06-02",
+      "amazon": 11980,
+      "rakuten": 1799
+    },
     {
       "date": "2026-06-01",
       "amazon": 11980,
@@ -468,11 +473,6 @@
       "date": "2026-03-04",
       "amazon": 12440,
       "rakuten": 11430
-    },
-    {
-      "date": "2026-03-03",
-      "amazon": 12170,
-      "rakuten": 13230
     }
   ]
 }
