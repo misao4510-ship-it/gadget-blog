@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2656,
+      "price": 3134,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/manoangel/20240627145342_100/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-02"
+      "url": "https://item.rakuten.co.jp/s4gshop/20240711005556_95/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-03"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2656
+      "price": 3134
     }
   },
   "history": [
+    {
+      "date": "2026-06-03",
+      "amazon": 3480,
+      "rakuten": 3134
+    },
     {
       "date": "2026-06-02",
       "amazon": 3480,
