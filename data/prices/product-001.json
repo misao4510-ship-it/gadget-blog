@@ -11,7 +11,7 @@
       "price": 1188,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/casemania55/cable-e010-pr000097/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-03"
+      "updated": "2026-06-04"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-04",
+      "amazon": 2980,
+      "rakuten": 1188
+    },
     {
       "date": "2026-06-03",
       "amazon": 2980,
@@ -468,11 +473,6 @@
       "date": "2026-03-06",
       "amazon": 3010,
       "rakuten": 2740
-    },
-    {
-      "date": "2026-03-05",
-      "amazon": 3090,
-      "rakuten": 2630
     }
   ]
 }
