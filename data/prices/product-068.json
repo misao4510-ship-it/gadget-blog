@@ -11,7 +11,7 @@
       "price": 897,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/sugartime/mzuha-78/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-04"
+      "updated": "2026-06-05"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-05",
+      "amazon": 3995,
+      "rakuten": 897
+    },
     {
       "date": "2026-06-04",
       "amazon": 3995,
@@ -468,11 +473,6 @@
       "date": "2026-03-07",
       "amazon": 4065,
       "rakuten": 4196
-    },
-    {
-      "date": "2026-03-06",
-      "amazon": 4098,
-      "rakuten": 4240
     }
   ]
 }
