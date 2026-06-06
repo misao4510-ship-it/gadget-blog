@@ -11,7 +11,7 @@
       "price": 5000,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/f401005-kitakyushu/457-3888/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-05"
+      "updated": "2026-06-06"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-06",
+      "amazon": 3910,
+      "rakuten": 5000
+    },
     {
       "date": "2026-06-05",
       "amazon": 3910,
@@ -468,11 +473,6 @@
       "date": "2026-03-08",
       "amazon": 4240,
       "rakuten": 4961
-    },
-    {
-      "date": "2026-03-07",
-      "amazon": 4153,
-      "rakuten": 4867
     }
   ]
 }
