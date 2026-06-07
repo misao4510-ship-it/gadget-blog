@@ -11,7 +11,7 @@
       "price": 832,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/haikanbuhin/00731459/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-06"
+      "updated": "2026-06-07"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-07",
+      "amazon": 399,
+      "rakuten": 832
+    },
     {
       "date": "2026-06-06",
       "amazon": 399,
@@ -378,11 +383,6 @@
       "date": "2026-03-09",
       "amazon": 432,
       "rakuten": 475
-    },
-    {
-      "date": "2026-03-08",
-      "amazon": 430,
-      "rakuten": 471
     }
   ]
 }

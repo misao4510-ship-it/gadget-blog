@@ -7,10 +7,10 @@
       "updated_at": "2026-05-07"
     },
     "rakuten": {
-      "price": 2816,
+      "price": 2730,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/luminous81023/rum0161839ac8/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-06"
+      "url": "https://item.rakuten.co.jp/sinuchihonpo/b0fgq3dnft/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-07"
     },
     "yahoo": {
       "price": 3489,
@@ -19,10 +19,15 @@
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2816
+      "price": 2730
     }
   },
   "history": [
+    {
+      "date": "2026-06-07",
+      "amazon": 3489,
+      "rakuten": 2730
+    },
     {
       "date": "2026-06-06",
       "amazon": 3489,
