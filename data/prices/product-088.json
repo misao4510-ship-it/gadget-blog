@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 11713,
+      "price": 2312,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/wmarket/5keiya7ccgq2s4qljikma5lzfq/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-08"
+      "url": "https://item.rakuten.co.jp/kyoseastore/s-b0f6bf482x-20260605/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-09"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 7980
+      "store": "rakuten",
+      "price": 2312
     }
   },
   "history": [
+    {
+      "date": "2026-06-09",
+      "amazon": 7980,
+      "rakuten": 2312
+    },
     {
       "date": "2026-06-08",
       "amazon": 7980,
@@ -468,11 +473,6 @@
       "date": "2026-03-11",
       "amazon": 7750,
       "rakuten": 8000
-    },
-    {
-      "date": "2026-03-10",
-      "amazon": 8200,
-      "rakuten": 8350
     }
   ]
 }

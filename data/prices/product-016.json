@@ -11,7 +11,7 @@
       "price": 1624,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/utakatazakka/k2kbdmtj3k36stq3zuzakultwu/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-08"
+      "updated": "2026-06-09"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-09",
+      "amazon": 6480,
+      "rakuten": 1624
+    },
     {
       "date": "2026-06-08",
       "amazon": 6480,
@@ -468,11 +473,6 @@
       "date": "2026-03-11",
       "amazon": 6770,
       "rakuten": 6210
-    },
-    {
-      "date": "2026-03-10",
-      "amazon": 6690,
-      "rakuten": 6120
     }
   ]
 }
