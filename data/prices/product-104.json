@@ -10,7 +10,7 @@
       "price": 3280,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/gekiyasu-ink/out-cr-lac1405bk/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-13"
+      "updated": "2026-06-14"
     },
     "cheapest": {
       "store": "rakuten",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-14",
+      "amazon": 3873,
+      "rakuten": 3280
+    },
     {
       "date": "2026-06-13",
       "amazon": 3873,
@@ -467,11 +472,6 @@
       "date": "2026-03-16",
       "amazon": 3816,
       "rakuten": 4062
-    },
-    {
-      "date": "2026-03-15",
-      "amazon": 4113,
-      "rakuten": 4312
     }
   ]
 }
