@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1799,
+      "price": 1679,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/plays23/b08mzrrh52/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-16"
+      "updated": "2026-06-17"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1799
+      "price": 1679
     }
   },
   "history": [
+    {
+      "date": "2026-06-17",
+      "amazon": 11980,
+      "rakuten": 1679
+    },
     {
       "date": "2026-06-16",
       "amazon": 11980,
@@ -468,11 +473,6 @@
       "date": "2026-03-19",
       "amazon": 12160,
       "rakuten": 13270
-    },
-    {
-      "date": "2026-03-18",
-      "amazon": 11890,
-      "rakuten": 12740
     }
   ]
 }
