@@ -11,7 +11,7 @@
       "price": 520,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/giobear/iseriese-sidebrush/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-17"
+      "updated": "2026-06-18"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-18",
+      "amazon": 29800,
+      "rakuten": 520
+    },
     {
       "date": "2026-06-17",
       "amazon": 29800,
@@ -468,11 +473,6 @@
       "date": "2026-03-20",
       "amazon": 29530,
       "rakuten": 31250
-    },
-    {
-      "date": "2026-03-19",
-      "amazon": 29210,
-      "rakuten": 31710
     }
   ]
 }

@@ -8,17 +8,22 @@
       "updated": "2026-04-18"
     },
     "rakuten": {
-      "price": 13800,
+      "price": 10800,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/kamiaoki-shop/1000000302c/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-17"
+      "url": "https://item.rakuten.co.jp/kamiaoki-shop/1000000305v/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-18"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 13800
+      "price": 10800
     }
   },
   "history": [
+    {
+      "date": "2026-06-18",
+      "amazon": 39800,
+      "rakuten": 10800
+    },
     {
       "date": "2026-06-17",
       "amazon": 39800,
@@ -468,11 +473,6 @@
       "date": "2026-03-20",
       "amazon": 38731,
       "rakuten": 39803
-    },
-    {
-      "date": "2026-03-19",
-      "amazon": 38991,
-      "rakuten": 40263
     }
   ]
 }

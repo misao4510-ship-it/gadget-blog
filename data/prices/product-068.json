@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1449,
+      "price": 1680,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/uha-mikakuto/06002/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-17"
+      "url": "https://item.rakuten.co.jp/tigtig/25043004/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-18"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1449
+      "price": 1680
     }
   },
   "history": [
+    {
+      "date": "2026-06-18",
+      "amazon": 3995,
+      "rakuten": 1680
+    },
     {
       "date": "2026-06-17",
       "amazon": 3995,
@@ -468,11 +473,6 @@
       "date": "2026-03-20",
       "amazon": 4005,
       "rakuten": 4227
-    },
-    {
-      "date": "2026-03-19",
-      "amazon": 3982,
-      "rakuten": 4220
     }
   ]
 }
