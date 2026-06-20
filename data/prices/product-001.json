@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1188,
+      "price": 1510,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/casemania55/cable-e010-pr000097/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-19"
+      "url": "https://item.rakuten.co.jp/haroharo/a8991/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-20"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1188
+      "price": 1510
     }
   },
   "history": [
+    {
+      "date": "2026-06-20",
+      "amazon": 2980,
+      "rakuten": 1510
+    },
     {
       "date": "2026-06-19",
       "amazon": 2980,
@@ -468,11 +473,6 @@
       "date": "2026-03-22",
       "amazon": 2960,
       "rakuten": 3240
-    },
-    {
-      "date": "2026-03-21",
-      "amazon": 3030,
-      "rakuten": 3110
     }
   ]
 }
