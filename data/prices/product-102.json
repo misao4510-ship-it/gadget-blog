@@ -10,7 +10,7 @@
       "price": 4940,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/elecom/4549550217569/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-20"
+      "updated": "2026-06-21"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-21",
+      "amazon": 4490,
+      "rakuten": 4940
+    },
     {
       "date": "2026-06-20",
       "amazon": 4490,
@@ -467,11 +472,6 @@
       "date": "2026-03-23",
       "amazon": 4713,
       "rakuten": 5185
-    },
-    {
-      "date": "2026-03-22",
-      "amazon": 4536,
-      "rakuten": 5126
     }
   ]
 }

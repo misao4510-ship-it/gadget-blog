@@ -11,7 +11,7 @@
       "price": 3960,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/jumblestore/2329817047908/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-20"
+      "updated": "2026-06-21"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-21",
+      "amazon": 3280,
+      "rakuten": 3960
+    },
     {
       "date": "2026-06-20",
       "amazon": 3280,
@@ -468,11 +473,6 @@
       "date": "2026-03-23",
       "amazon": 3320,
       "rakuten": 3510
-    },
-    {
-      "date": "2026-03-22",
-      "amazon": 3240,
-      "rakuten": 3400
     }
   ]
 }
