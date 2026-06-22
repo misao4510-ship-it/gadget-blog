@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 8484,
+      "price": 8485,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/cuticle/4570188382206/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-21"
+      "url": "https://item.rakuten.co.jp/mod-k/4570188382206/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-22"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 8484
+      "price": 8485
     }
   },
   "history": [
+    {
+      "date": "2026-06-22",
+      "amazon": 9990,
+      "rakuten": 8485
+    },
     {
       "date": "2026-06-21",
       "amazon": 9990,
@@ -468,11 +473,6 @@
       "date": "2026-03-24",
       "amazon": 8450,
       "rakuten": 8000
-    },
-    {
-      "date": "2026-03-23",
-      "amazon": 10500,
-      "rakuten": 9250
     }
   ]
 }
