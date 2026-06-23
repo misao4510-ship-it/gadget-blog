@@ -8,17 +8,22 @@
       "updated": "2026-04-18"
     },
     "rakuten": {
-      "price": 30500,
+      "price": 21424,
       "in_stock": true,
-      "url": "https://af.moshimo.com/af/c/click?a_id=5471111&p_id=54&pc_id=54&pl_id=616&url=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamsung%2520Galaxy%2520Buds3%2520Pro%2F",
-      "updated": "2026-04-18"
+      "url": "https://item.rakuten.co.jp/takayama78/1226120450016/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-23"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 29800
+      "store": "rakuten",
+      "price": 21424
     }
   },
   "history": [
+    {
+      "date": "2026-06-23",
+      "amazon": 29800,
+      "rakuten": 21424
+    },
     {
       "date": "2026-06-22",
       "amazon": 29800,
@@ -468,11 +473,6 @@
       "date": "2026-03-25",
       "amazon": 29808,
       "rakuten": 31520
-    },
-    {
-      "date": "2026-03-24",
-      "amazon": 29963,
-      "rakuten": 31591
     }
   ]
 }

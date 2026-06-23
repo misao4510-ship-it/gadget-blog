@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 3870,
+      "price": 3980,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/reveliser/b091bgmkys/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-22"
+      "url": "https://item.rakuten.co.jp/biccamera/4580883889993/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-23"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3870
+      "price": 3980
     }
   },
   "history": [
+    {
+      "date": "2026-06-23",
+      "amazon": 3990,
+      "rakuten": 3980
+    },
     {
       "date": "2026-06-22",
       "amazon": 3990,
@@ -468,11 +473,6 @@
       "date": "2026-03-25",
       "amazon": 4050,
       "rakuten": 4150
-    },
-    {
-      "date": "2026-03-24",
-      "amazon": 4300,
-      "rakuten": 4200
     }
   ]
 }
