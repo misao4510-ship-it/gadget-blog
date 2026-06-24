@@ -11,7 +11,7 @@
       "price": 2920,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/kyomarche827/gr-e9rii023k2/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-23"
+      "updated": "2026-06-24"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-24",
+      "amazon": 12800,
+      "rakuten": 2920
+    },
     {
       "date": "2026-06-23",
       "amazon": 12800,
@@ -468,11 +473,6 @@
       "date": "2026-03-26",
       "amazon": 13000,
       "rakuten": 13170
-    },
-    {
-      "date": "2026-03-25",
-      "amazon": 12700,
-      "rakuten": 13590
     }
   ]
 }
