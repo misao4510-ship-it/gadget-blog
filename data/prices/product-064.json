@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 10180,
+      "price": 6578,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/dreamspace/2423-010436/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-26"
+      "url": "https://item.rakuten.co.jp/yamada-denki/4420968018/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-06-27"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 10180
+      "price": 6578
     }
   },
   "history": [
+    {
+      "date": "2026-06-27",
+      "amazon": 12980,
+      "rakuten": 6578
+    },
     {
       "date": "2026-06-26",
       "amazon": 12980,
