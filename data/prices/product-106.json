@@ -10,7 +10,7 @@
       "price": 3151,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/everydaydirect/raku95489a385e/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-28"
+      "updated": "2026-06-29"
     },
     "yahoo": {
       "price": 3489,
@@ -23,6 +23,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-06-29",
+      "amazon": 3489,
+      "rakuten": 3151
+    },
     {
       "date": "2026-06-28",
       "amazon": 3489,
