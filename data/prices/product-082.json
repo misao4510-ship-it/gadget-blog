@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 9990,
+      "price": 6990,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/alice00/5dank5020/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-06-30"
+      "url": "https://item.rakuten.co.jp/anker/a2343/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-01"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 8990
+      "store": "rakuten",
+      "price": 6990
     }
   },
   "history": [
+    {
+      "date": "2026-07-01",
+      "amazon": 8990,
+      "rakuten": 6990
+    },
     {
       "date": "2026-06-30",
       "amazon": 8990,
@@ -468,11 +473,6 @@
       "date": "2026-04-02",
       "amazon": 9500,
       "rakuten": 8800
-    },
-    {
-      "date": "2026-04-01",
-      "amazon": 8850,
-      "rakuten": 8750
     }
   ]
 }
