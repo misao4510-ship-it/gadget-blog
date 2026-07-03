@@ -11,7 +11,7 @@
       "price": 916,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/astershop/6bu3anowseavohneyufoljeasq/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-02"
+      "updated": "2026-07-03"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-03",
+      "amazon": 2979,
+      "rakuten": 916
+    },
     {
       "date": "2026-07-02",
       "amazon": 2979,
@@ -468,11 +473,6 @@
       "date": "2026-04-04",
       "amazon": 3107,
       "rakuten": 4885
-    },
-    {
-      "date": "2026-04-03",
-      "amazon": 3115,
-      "rakuten": 4877
     }
   ]
 }
