@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 347,
+      "price": 356,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/dailyplus-onlineshop/s0dp1nwyz6/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-03"
+      "url": "https://item.rakuten.co.jp/skylight/cxymiat4za3uxpnnb3qpvq5ogi/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-04"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 347
+      "price": 356
     }
   },
   "history": [
+    {
+      "date": "2026-07-04",
+      "amazon": 34800,
+      "rakuten": 356
+    },
     {
       "date": "2026-07-03",
       "amazon": 34800,
@@ -468,11 +473,6 @@
       "date": "2026-04-05",
       "amazon": 33770,
       "rakuten": 35250
-    },
-    {
-      "date": "2026-04-04",
-      "amazon": 34250,
-      "rakuten": 36640
     }
   ]
 }
