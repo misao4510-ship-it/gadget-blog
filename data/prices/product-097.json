@@ -8,17 +8,22 @@
       "updated": "2026-04-18"
     },
     "rakuten": {
-      "price": 13800,
+      "price": 26550,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/kamiaoki-shop/1000000302c/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-04"
+      "url": "https://item.rakuten.co.jp/chisaya/airpodspro2-usbc/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-05"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 13800
+      "price": 26550
     }
   },
   "history": [
+    {
+      "date": "2026-07-05",
+      "amazon": 39800,
+      "rakuten": 26550
+    },
     {
       "date": "2026-07-04",
       "amazon": 39800,
@@ -468,11 +473,6 @@
       "date": "2026-04-06",
       "amazon": 39979,
       "rakuten": 38491
-    },
-    {
-      "date": "2026-04-05",
-      "amazon": 39739,
-      "rakuten": 38234
     }
   ]
 }
