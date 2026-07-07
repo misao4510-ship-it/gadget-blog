@@ -7,10 +7,10 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 4040,
+      "price": 4260,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/ec-current/4969887197059/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-06"
+      "url": "https://item.rakuten.co.jp/biccamera/4969887197059/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-07"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-07",
+      "amazon": 3873,
+      "rakuten": 4260
+    },
     {
       "date": "2026-07-06",
       "amazon": 3873,
@@ -467,11 +472,6 @@
       "date": "2026-04-08",
       "amazon": 3927,
       "rakuten": 4438
-    },
-    {
-      "date": "2026-04-07",
-      "amazon": 3797,
-      "rakuten": 4429
     }
   ]
 }

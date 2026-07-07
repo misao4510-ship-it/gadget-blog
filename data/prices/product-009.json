@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 2624,
+      "price": 3210,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/multibox/54nmyb3wzmffhx6oyslai4oe3u/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-06"
+      "url": "https://item.rakuten.co.jp/kyomarche827/gr-e9rii023k2/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-07"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2624
+      "price": 3210
     }
   },
   "history": [
+    {
+      "date": "2026-07-07",
+      "amazon": 12800,
+      "rakuten": 3210
+    },
     {
       "date": "2026-07-06",
       "amazon": 12800,
@@ -468,11 +473,6 @@
       "date": "2026-04-08",
       "amazon": 12800,
       "rakuten": 3366
-    },
-    {
-      "date": "2026-04-07",
-      "amazon": 12800,
-      "rakuten": 13500
     }
   ]
 }

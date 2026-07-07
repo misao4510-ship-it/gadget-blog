@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1690,
+      "price": 1370,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/anker/a2503/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-06"
+      "url": "https://item.rakuten.co.jp/yakinikuyutaka/y07tj1crlf/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-07"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 1590
+      "store": "rakuten",
+      "price": 1370
     }
   },
   "history": [
+    {
+      "date": "2026-07-07",
+      "amazon": 1590,
+      "rakuten": 1370
+    },
     {
       "date": "2026-07-06",
       "amazon": 1590,
@@ -468,11 +473,6 @@
       "date": "2026-04-08",
       "amazon": 1590,
       "rakuten": 1690
-    },
-    {
-      "date": "2026-04-07",
-      "amazon": 1590,
-      "rakuten": 1780
     }
   ]
 }
