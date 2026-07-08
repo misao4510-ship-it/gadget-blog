@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1310,
+      "price": 1440,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/goodsstreet/b0g2l511py/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-07"
+      "updated": "2026-07-08"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1310
+      "price": 1440
     }
   },
   "history": [
+    {
+      "date": "2026-07-08",
+      "amazon": 2980,
+      "rakuten": 1440
+    },
     {
       "date": "2026-07-07",
       "amazon": 2980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-04-09",
-      "amazon": 2980,
-      "rakuten": 1599
-    },
-    {
-      "date": "2026-04-08",
       "amazon": 2980,
       "rakuten": 1599
     }
