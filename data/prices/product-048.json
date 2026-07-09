@@ -8,10 +8,10 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 5990,
+      "price": 7443,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/minimalife/a2668n11/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-08"
+      "url": "https://item.rakuten.co.jp/haikanshop/6344128/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-09"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-09",
+      "amazon": 5990,
+      "rakuten": 7443
+    },
     {
       "date": "2026-07-08",
       "amazon": 5990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-04-10",
-      "amazon": 5990,
-      "rakuten": 4499
-    },
-    {
-      "date": "2026-04-09",
       "amazon": 5990,
       "rakuten": 4499
     }
