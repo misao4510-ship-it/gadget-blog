@@ -10,7 +10,7 @@
       "price": 4030,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/gekiyasu-ink/ees-cr-lac1405bk/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-10"
+      "updated": "2026-07-11"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-11",
+      "amazon": 3873,
+      "rakuten": 4030
+    },
     {
       "date": "2026-07-10",
       "amazon": 3873,
@@ -467,11 +472,6 @@
       "date": "2026-04-12",
       "amazon": 4127,
       "rakuten": 4039
-    },
-    {
-      "date": "2026-04-11",
-      "amazon": 3853,
-      "rakuten": 4032
     }
   ]
 }
