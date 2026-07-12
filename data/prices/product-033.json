@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 470,
+      "price": 460,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/laforest/gds-58989/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-11"
+      "updated": "2026-07-12"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 470
+      "price": 460
     }
   },
   "history": [
+    {
+      "date": "2026-07-12",
+      "amazon": 1799,
+      "rakuten": 460
+    },
     {
       "date": "2026-07-11",
       "amazon": 1799,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-04-13",
-      "amazon": 1799,
-      "rakuten": 478
-    },
-    {
-      "date": "2026-04-12",
       "amazon": 1799,
       "rakuten": 478
     }
