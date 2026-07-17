@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1331,
+      "price": 1427,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/selectable/a9415ce2fc5daddcf0a5f9b91d283a6d/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-16"
+      "url": "https://item.rakuten.co.jp/nicobest/js6cbdfd54a9/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-17"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1331
+      "price": 1427
     }
   },
   "history": [
+    {
+      "date": "2026-07-17",
+      "amazon": 48800,
+      "rakuten": 1427
+    },
     {
       "date": "2026-07-16",
       "amazon": 48800,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-04-18",
-      "amazon": 48800,
-      "rakuten": 1189
-    },
-    {
-      "date": "2026-04-17",
       "amazon": 48800,
       "rakuten": 1189
     }
