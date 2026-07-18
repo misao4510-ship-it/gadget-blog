@@ -10,7 +10,7 @@
       "price": 7950,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/e-zoa-klaxon/itm0015896368/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-17"
+      "updated": "2026-07-18"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-18",
+      "amazon": 3099,
+      "rakuten": 7950
+    },
     {
       "date": "2026-07-17",
       "amazon": 3099,
@@ -467,11 +472,6 @@
       "date": "2026-04-19",
       "amazon": 3099,
       "rakuten": 5744
-    },
-    {
-      "date": "2026-04-18",
-      "amazon": 3178,
-      "rakuten": 3193
     }
   ]
 }

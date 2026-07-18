@@ -11,7 +11,7 @@
       "price": 9990,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/alice00/5dank5020/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-17"
+      "updated": "2026-07-18"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-18",
+      "amazon": 8990,
+      "rakuten": 9990
+    },
     {
       "date": "2026-07-17",
       "amazon": 8990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-04-19",
-      "amazon": 8990,
-      "rakuten": 9990
-    },
-    {
-      "date": "2026-04-18",
       "amazon": 8990,
       "rakuten": 9990
     }

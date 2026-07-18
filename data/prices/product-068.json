@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1680,
+      "price": 724,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/tigtig/25043004/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-17"
+      "url": "https://item.rakuten.co.jp/sugartime/mzuha-1/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-18"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1680
+      "price": 724
     }
   },
   "history": [
+    {
+      "date": "2026-07-18",
+      "amazon": 3995,
+      "rakuten": 724
+    },
     {
       "date": "2026-07-17",
       "amazon": 3995,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-04-19",
-      "amazon": 3995,
-      "rakuten": 1680
-    },
-    {
-      "date": "2026-04-18",
       "amazon": 3995,
       "rakuten": 1680
     }
