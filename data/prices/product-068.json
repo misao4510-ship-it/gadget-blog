@@ -11,7 +11,7 @@
       "price": 724,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/sugartime/mzuha-1/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-19"
+      "updated": "2026-07-20"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-20",
+      "amazon": 3995,
+      "rakuten": 724
+    },
     {
       "date": "2026-07-19",
       "amazon": 3995,
@@ -468,11 +473,6 @@
       "date": "2026-04-21",
       "amazon": 3995,
       "rakuten": 1449
-    },
-    {
-      "date": "2026-04-20",
-      "amazon": 3995,
-      "rakuten": 1680
     }
   ]
 }

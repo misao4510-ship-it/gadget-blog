@@ -11,7 +11,7 @@
       "price": 1720,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/yakinikuyutaka/y07tj1crlf/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-19"
+      "updated": "2026-07-20"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-20",
+      "amazon": 1590,
+      "rakuten": 1720
+    },
     {
       "date": "2026-07-19",
       "amazon": 1590,
@@ -468,11 +473,6 @@
       "date": "2026-04-21",
       "amazon": 1590,
       "rakuten": 1839
-    },
-    {
-      "date": "2026-04-20",
-      "amazon": 1590,
-      "rakuten": 1843
     }
   ]
 }
