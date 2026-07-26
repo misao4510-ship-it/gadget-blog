@@ -11,7 +11,7 @@
       "price": 500,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/sunivision/uc0112/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-25"
+      "updated": "2026-07-26"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-26",
+      "amazon": 699,
+      "rakuten": 500
+    },
     {
       "date": "2026-07-25",
       "amazon": 699,
@@ -468,11 +473,6 @@
       "date": "2026-04-27",
       "amazon": 699,
       "rakuten": 498
-    },
-    {
-      "date": "2026-04-26",
-      "amazon": 699,
-      "rakuten": 489
     }
   ]
 }
