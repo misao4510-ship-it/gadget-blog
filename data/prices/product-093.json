@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 5164,
+      "price": 6013,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/root-house/5cq3mjpnn2ytjhab5gsgste6wq/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-28"
+      "url": "https://item.rakuten.co.jp/cocohi-nata/ehzlhdrp4as7ubgcdnvoqv4pwe/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-29"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 5164
+      "price": 6013
     }
   },
   "history": [
+    {
+      "date": "2026-07-29",
+      "amazon": 75000,
+      "rakuten": 6013
+    },
     {
       "date": "2026-07-28",
       "amazon": 75000,
@@ -468,11 +473,6 @@
       "date": "2026-04-30",
       "amazon": 75000,
       "rakuten": 6161
-    },
-    {
-      "date": "2026-04-29",
-      "amazon": 75000,
-      "rakuten": 5599
     }
   ]
 }

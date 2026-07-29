@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 3874,
+      "price": 3739,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/level-h-shop/20260224003151_113/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-28"
+      "url": "https://item.rakuten.co.jp/bontan108/20260728145510_104/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-29"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3874
+      "price": 3739
     }
   },
   "history": [
+    {
+      "date": "2026-07-29",
+      "amazon": 24200,
+      "rakuten": 3739
+    },
     {
       "date": "2026-07-28",
       "amazon": 24200,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-04-30",
-      "amazon": 24200,
-      "rakuten": 3874
-    },
-    {
-      "date": "2026-04-29",
       "amazon": 24200,
       "rakuten": 3874
     }

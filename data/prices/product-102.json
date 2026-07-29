@@ -7,17 +7,22 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 4940,
+      "price": 4489,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/elecom/4549550217569/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-28"
+      "url": "https://item.rakuten.co.jp/shopflora/ue9f2e088ab0/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-29"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 4490
+      "store": "rakuten",
+      "price": 4489
     }
   },
   "history": [
+    {
+      "date": "2026-07-29",
+      "amazon": 4490,
+      "rakuten": 4489
+    },
     {
       "date": "2026-07-28",
       "amazon": 4490,
@@ -467,11 +472,6 @@
       "date": "2026-04-30",
       "amazon": 4490,
       "rakuten": 4758
-    },
-    {
-      "date": "2026-04-29",
-      "amazon": 4490,
-      "rakuten": 5079
     }
   ]
 }
