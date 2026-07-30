@@ -11,7 +11,7 @@
       "price": 385,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/bestdo-rk-shop/2110000002043/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-29"
+      "updated": "2026-07-30"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-07-30",
+      "amazon": 899,
+      "rakuten": 385
+    },
     {
       "date": "2026-07-29",
       "amazon": 899,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-01",
-      "amazon": 899,
-      "rakuten": 385
-    },
-    {
-      "date": "2026-04-30",
       "amazon": 899,
       "rakuten": 385
     }
