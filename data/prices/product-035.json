@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 500,
+      "price": 540,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/yosuzu/charger/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-30"
+      "url": "https://item.rakuten.co.jp/trust-nine/4582621913274aa/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-31"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 500
+      "price": 540
     }
   },
   "history": [
+    {
+      "date": "2026-07-31",
+      "amazon": 1980,
+      "rakuten": 540
+    },
     {
       "date": "2026-07-30",
       "amazon": 1980,
@@ -468,11 +473,6 @@
       "date": "2026-05-02",
       "amazon": 1980,
       "rakuten": 648
-    },
-    {
-      "date": "2026-05-01",
-      "amazon": 1980,
-      "rakuten": 580
     }
   ]
 }

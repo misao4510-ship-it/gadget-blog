@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1999,
+      "price": 6225,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/knicomcorporation/esr388391394397/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-30"
+      "url": "https://item.rakuten.co.jp/morro/20250125083317_94/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-07-31"
     },
     "cheapest": {
-      "store": "rakuten",
-      "price": 1999
+      "store": "amazon",
+      "price": 3280
     }
   },
   "history": [
+    {
+      "date": "2026-07-31",
+      "amazon": 3280,
+      "rakuten": 6225
+    },
     {
       "date": "2026-07-30",
       "amazon": 3280,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-02",
-      "amazon": 3280,
-      "rakuten": 2478
-    },
-    {
-      "date": "2026-05-01",
       "amazon": 3280,
       "rakuten": 2478
     }
