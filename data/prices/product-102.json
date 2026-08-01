@@ -7,17 +7,22 @@
       "updated": "2026-04-19"
     },
     "rakuten": {
-      "price": 4472,
+      "price": 4439,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/gr-online/oof8163f4ce1/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-07-31"
+      "url": "https://item.rakuten.co.jp/izuka/aj4009fb6ea44f3c/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-01"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 4472
+      "price": 4439
     }
   },
   "history": [
+    {
+      "date": "2026-08-01",
+      "amazon": 4490,
+      "rakuten": 4439
+    },
     {
       "date": "2026-07-31",
       "amazon": 4490,
@@ -465,11 +470,6 @@
     },
     {
       "date": "2026-05-03",
-      "amazon": 4490,
-      "rakuten": 4758
-    },
-    {
-      "date": "2026-05-02",
       "amazon": 4490,
       "rakuten": 4758
     }
