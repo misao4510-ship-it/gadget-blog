@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1565,
+      "price": 1719,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/yakinikuyutaka/y07tj1crlf/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-02"
+      "url": "https://item.rakuten.co.jp/manelabo/20260321-00111/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-03"
     },
     "cheapest": {
-      "store": "rakuten",
-      "price": 1565
+      "store": "amazon",
+      "price": 1590
     }
   },
   "history": [
+    {
+      "date": "2026-08-03",
+      "amazon": 1590,
+      "rakuten": 1719
+    },
     {
       "date": "2026-08-02",
       "amazon": 1590,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-05",
-      "amazon": 1590,
-      "rakuten": 1788
-    },
-    {
-      "date": "2026-05-04",
       "amazon": 1590,
       "rakuten": 1788
     }
