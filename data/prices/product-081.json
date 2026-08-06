@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 2500,
+      "price": 2300,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/pippi-store/qc2mip6tcbky3sn2sbgqpwu4qu/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-05"
+      "url": "https://item.rakuten.co.jp/omichi-store/sclpr6opgegdu2j6txyq5bvx2i/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-06"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2500
+      "price": 2300
     }
   },
   "history": [
+    {
+      "date": "2026-08-06",
+      "amazon": 5990,
+      "rakuten": 2300
+    },
     {
       "date": "2026-08-05",
       "amazon": 5990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-08",
-      "amazon": 5990,
-      "rakuten": 2400
-    },
-    {
-      "date": "2026-05-07",
       "amazon": 5990,
       "rakuten": 2400
     }

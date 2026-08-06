@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 8536,
+      "price": 8479,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/first23/trusco-6905691/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-05"
+      "url": "https://item.rakuten.co.jp/gbft-ltd/gb-st00-8078/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-06"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 8536
+      "price": 8479
     }
   },
   "history": [
+    {
+      "date": "2026-08-06",
+      "amazon": 9990,
+      "rakuten": 8479
+    },
     {
       "date": "2026-08-05",
       "amazon": 9990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-08",
-      "amazon": 9990,
-      "rakuten": 8536
-    },
-    {
-      "date": "2026-05-07",
       "amazon": 9990,
       "rakuten": 8536
     }

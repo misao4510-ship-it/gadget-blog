@@ -11,7 +11,7 @@
       "price": 380,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/mobile123/b0864tabf/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-05"
+      "updated": "2026-08-06"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-06",
+      "amazon": 14980,
+      "rakuten": 380
+    },
     {
       "date": "2026-08-05",
       "amazon": 14980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-08",
-      "amazon": 14980,
-      "rakuten": 420
-    },
-    {
-      "date": "2026-05-07",
       "amazon": 14980,
       "rakuten": 420
     }

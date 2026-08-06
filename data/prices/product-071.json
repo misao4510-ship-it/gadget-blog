@@ -11,7 +11,7 @@
       "price": 1427,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/nicobest/js6cbdfd54a9/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-05"
+      "updated": "2026-08-06"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-06",
+      "amazon": 48800,
+      "rakuten": 1427
+    },
     {
       "date": "2026-08-05",
       "amazon": 48800,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-08",
-      "amazon": 48800,
-      "rakuten": 1189
-    },
-    {
-      "date": "2026-05-07",
       "amazon": 48800,
       "rakuten": 1189
     }
