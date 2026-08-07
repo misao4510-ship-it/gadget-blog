@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 8479,
+      "price": 8092,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/gbft-ltd/gb-st00-8078/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-06"
+      "url": "https://item.rakuten.co.jp/cuticle/4570188382190/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-07"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 8479
+      "price": 8092
     }
   },
   "history": [
+    {
+      "date": "2026-08-07",
+      "amazon": 9990,
+      "rakuten": 8092
+    },
     {
       "date": "2026-08-06",
       "amazon": 9990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-09",
-      "amazon": 9990,
-      "rakuten": 8536
-    },
-    {
-      "date": "2026-05-08",
       "amazon": 9990,
       "rakuten": 8536
     }
