@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2849,
+      "price": 3124,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/shop-uchihonmachi/gr-e9r0ckcgna/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-07"
+      "url": "https://item.rakuten.co.jp/freema-ket01/20240808181450_102/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-08"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2849
+      "price": 3124
     }
   },
   "history": [
+    {
+      "date": "2026-08-08",
+      "amazon": 3480,
+      "rakuten": 3124
+    },
     {
       "date": "2026-08-07",
       "amazon": 3480,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-10",
-      "amazon": 3480,
-      "rakuten": 3124
-    },
-    {
-      "date": "2026-05-09",
       "amazon": 3480,
       "rakuten": 3124
     }
