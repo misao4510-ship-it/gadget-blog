@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1533,
+      "price": 1558,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/famila-ec/tdptmltmu2zwudb7wrzadnqn5e/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-13"
+      "updated": "2026-08-14"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1533
+      "price": 1558
     }
   },
   "history": [
+    {
+      "date": "2026-08-14",
+      "amazon": 12650,
+      "rakuten": 1558
+    },
     {
       "date": "2026-08-13",
       "amazon": 12650,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-16",
-      "amazon": 12650,
-      "rakuten": 1980
-    },
-    {
-      "date": "2026-05-15",
       "amazon": 12650,
       "rakuten": 1980
     }
