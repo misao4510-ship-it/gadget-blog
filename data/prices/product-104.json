@@ -10,7 +10,7 @@
       "price": 2319,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/cocodecow/r895lu/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-15"
+      "updated": "2026-08-16"
     },
     "cheapest": {
       "store": "rakuten",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-16",
+      "amazon": 3873,
+      "rakuten": 2319
+    },
     {
       "date": "2026-08-15",
       "amazon": 3873,
@@ -465,11 +470,6 @@
     },
     {
       "date": "2026-05-18",
-      "amazon": 3873,
-      "rakuten": 4030
-    },
-    {
-      "date": "2026-05-17",
       "amazon": 3873,
       "rakuten": 4030
     }
