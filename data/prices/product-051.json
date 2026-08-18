@@ -11,7 +11,7 @@
       "price": 1707,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/famila-ec/oribkn4rk6zo7aqlpzvfd6xzfm/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-17"
+      "updated": "2026-08-18"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-18",
+      "amazon": 5380,
+      "rakuten": 1707
+    },
     {
       "date": "2026-08-17",
       "amazon": 5380,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-20",
-      "amazon": 5380,
-      "rakuten": 1749
-    },
-    {
-      "date": "2026-05-19",
       "amazon": 5380,
       "rakuten": 1749
     }

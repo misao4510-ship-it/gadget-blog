@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 9990,
+      "price": 8348,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/alice00/5dank5020/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-12"
+      "url": "https://item.rakuten.co.jp/housing-reformfair/b0d73jbj56/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-18"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 8990
+      "store": "rakuten",
+      "price": 8348
     }
   },
   "history": [
+    {
+      "date": "2026-08-18",
+      "amazon": 8990,
+      "rakuten": 8348
+    },
     {
       "date": "2026-08-17",
       "amazon": 8990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-20",
-      "amazon": 8990,
-      "rakuten": 9990
-    },
-    {
-      "date": "2026-05-19",
       "amazon": 8990,
       "rakuten": 9990
     }
