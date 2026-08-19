@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 468,
+      "price": 439,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/ganbariya/529-8545/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-18"
+      "url": "https://item.rakuten.co.jp/selectable/a88e5adca2a65b8ba7ff16df71b36869/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-19"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 468
+      "price": 439
     }
   },
   "history": [
+    {
+      "date": "2026-08-19",
+      "amazon": 1100,
+      "rakuten": 439
+    },
     {
       "date": "2026-08-18",
       "amazon": 1100,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-21",
-      "amazon": 1100,
-      "rakuten": 468
-    },
-    {
-      "date": "2026-05-20",
       "amazon": 1100,
       "rakuten": 468
     }
