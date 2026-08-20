@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2990,
+      "price": 3095,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/sakuraya-online/b0c9s24vv8/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-19"
+      "url": "https://item.rakuten.co.jp/s4gshop/20240711005556_95/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-20"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2990
+      "price": 3095
     }
   },
   "history": [
+    {
+      "date": "2026-08-20",
+      "amazon": 3480,
+      "rakuten": 3095
+    },
     {
       "date": "2026-08-19",
       "amazon": 3480,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-22",
-      "amazon": 3480,
-      "rakuten": 2656
-    },
-    {
-      "date": "2026-05-21",
       "amazon": 3480,
       "rakuten": 2656
     }
