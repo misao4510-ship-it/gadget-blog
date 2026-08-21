@@ -8,10 +8,10 @@
       "updated": "2026-04-09"
     },
     "rakuten": {
-      "price": 3087,
+      "price": 3122,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/globalcollection/amz-b0dd33cfl3-u4/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-20"
+      "updated": "2026-08-21"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-21",
+      "amazon": 2979,
+      "rakuten": 3122
+    },
     {
       "date": "2026-08-20",
       "amazon": 2979,
@@ -468,11 +473,6 @@
       "date": "2026-05-23",
       "amazon": 2979,
       "rakuten": 4360
-    },
-    {
-      "date": "2026-05-22",
-      "amazon": 2979,
-      "rakuten": 4880
     }
   ]
 }
