@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 499,
+      "price": 449,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/puchirabbit/4-holder-799/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-25"
+      "updated": "2026-08-26"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 499
+      "price": 449
     }
   },
   "history": [
+    {
+      "date": "2026-08-26",
+      "amazon": 2490,
+      "rakuten": 449
+    },
     {
       "date": "2026-08-25",
       "amazon": 2490,
@@ -468,11 +473,6 @@
       "date": "2026-05-28",
       "amazon": 2490,
       "rakuten": 293
-    },
-    {
-      "date": "2026-05-27",
-      "amazon": 2490,
-      "rakuten": 648
     }
   ]
 }
