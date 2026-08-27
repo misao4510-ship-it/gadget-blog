@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 8092,
+      "price": 7611,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/cuticle/4570188382190/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-26"
+      "url": "https://item.rakuten.co.jp/thinkrich/ss4570188382190/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-08-27"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 8092
+      "price": 7611
     }
   },
   "history": [
+    {
+      "date": "2026-08-27",
+      "amazon": 9990,
+      "rakuten": 7611
+    },
     {
       "date": "2026-08-26",
       "amazon": 9990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-05-29",
-      "amazon": 9990,
-      "rakuten": 8478
-    },
-    {
-      "date": "2026-05-28",
       "amazon": 9990,
       "rakuten": 8478
     }
