@@ -10,7 +10,7 @@
       "price": 2645,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/happymasaya/gr-e9zd2xg7z8/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-29"
+      "updated": "2026-08-30"
     },
     "yahoo": {
       "price": 3489,
@@ -23,6 +23,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-08-30",
+      "amazon": 3489,
+      "rakuten": 2645
+    },
     {
       "date": "2026-08-29",
       "amazon": 3489,
@@ -470,11 +475,6 @@
     },
     {
       "date": "2026-06-01",
-      "amazon": 3489,
-      "rakuten": 2615
-    },
-    {
-      "date": "2026-05-31",
       "amazon": 3489,
       "rakuten": 2615
     }
