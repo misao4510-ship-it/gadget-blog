@@ -11,7 +11,7 @@
       "price": 1550,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/ecoeur555/jw294-00/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-08-31"
+      "updated": "2026-09-01"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-09-01",
+      "amazon": 6480,
+      "rakuten": 1550
+    },
     {
       "date": "2026-08-31",
       "amazon": 6480,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-03",
-      "amazon": 6480,
-      "rakuten": 1624
-    },
-    {
-      "date": "2026-06-02",
       "amazon": 6480,
       "rakuten": 1624
     }
