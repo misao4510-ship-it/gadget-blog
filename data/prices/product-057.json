@@ -11,7 +11,7 @@
       "price": 2305,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/sunmarket-ago/cjnyh2ywww4frqfsxsu54hjjey/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-01"
+      "updated": "2026-09-02"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-09-02",
+      "amazon": 6380,
+      "rakuten": 2305
+    },
     {
       "date": "2026-09-01",
       "amazon": 6380,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-04",
-      "amazon": 6380,
-      "rakuten": 2200
-    },
-    {
-      "date": "2026-06-03",
       "amazon": 6380,
       "rakuten": 2200
     }
