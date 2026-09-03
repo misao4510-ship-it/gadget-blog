@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 3900,
+      "price": 4493,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/omichi-store/6ywc3h6d3w5wy3tur2csxmqdla/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-02"
+      "url": "https://item.rakuten.co.jp/morinoya-light/b08gfjsfj8/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-03"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3900
+      "price": 4493
     }
   },
   "history": [
+    {
+      "date": "2026-09-03",
+      "amazon": 24200,
+      "rakuten": 4493
+    },
     {
       "date": "2026-09-02",
       "amazon": 24200,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-05",
-      "amazon": 24200,
-      "rakuten": 3874
-    },
-    {
-      "date": "2026-06-04",
       "amazon": 24200,
       "rakuten": 3874
     }

@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1337,
+      "price": 1203,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/iikakaku-officialstore/x0019w9vlr-/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-02"
+      "url": "https://item.rakuten.co.jp/pc-express/4571411226281/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-03"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1337
+      "price": 1203
     }
   },
   "history": [
+    {
+      "date": "2026-09-03",
+      "amazon": 3490,
+      "rakuten": 1203
+    },
     {
       "date": "2026-09-02",
       "amazon": 3490,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-05",
-      "amazon": 3490,
-      "rakuten": 1290
-    },
-    {
-      "date": "2026-06-04",
       "amazon": 3490,
       "rakuten": 1290
     }

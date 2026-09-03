@@ -11,7 +11,7 @@
       "price": 5645,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/matsukageya/mk-0d53yvf2f/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-02"
+      "updated": "2026-09-03"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-09-03",
+      "amazon": 4980,
+      "rakuten": 5645
+    },
     {
       "date": "2026-09-02",
       "amazon": 4980,
@@ -468,11 +473,6 @@
       "date": "2026-06-05",
       "amazon": 4980,
       "rakuten": 4380
-    },
-    {
-      "date": "2026-06-04",
-      "amazon": 4980,
-      "rakuten": 5585
     }
   ]
 }
