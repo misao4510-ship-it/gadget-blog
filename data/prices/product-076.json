@@ -8,17 +8,22 @@
       "updated": "2026-04-08"
     },
     "rakuten": {
-      "price": 390,
+      "price": 399,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/at-cvs/4901006111669-yu5-ss2503/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-03"
+      "url": "https://item.rakuten.co.jp/matomero/rneko_rsl817/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-04"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 390
+      "price": 399
     }
   },
   "history": [
+    {
+      "date": "2026-09-04",
+      "amazon": 856,
+      "rakuten": 399
+    },
     {
       "date": "2026-09-03",
       "amazon": 856,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-06",
-      "amazon": 856,
-      "rakuten": 399
-    },
-    {
-      "date": "2026-06-05",
       "amazon": 856,
       "rakuten": 399
     }

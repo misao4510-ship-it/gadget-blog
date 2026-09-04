@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 3600,
+      "price": 3200,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/auc-vector/165-502604240026/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-03"
+      "updated": "2026-09-04"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 3280
+      "store": "rakuten",
+      "price": 3200
     }
   },
   "history": [
+    {
+      "date": "2026-09-04",
+      "amazon": 3280,
+      "rakuten": 3200
+    },
     {
       "date": "2026-09-03",
       "amazon": 3280,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-06",
-      "amazon": 3280,
-      "rakuten": 4019
-    },
-    {
-      "date": "2026-06-05",
       "amazon": 3280,
       "rakuten": 4019
     }
