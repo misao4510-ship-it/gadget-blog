@@ -11,7 +11,7 @@
       "price": 2280,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/pykespeak/p0244/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-04"
+      "updated": "2026-09-05"
     },
     "cheapest": {
       "store": "rakuten",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-09-05",
+      "amazon": 3062,
+      "rakuten": 2280
+    },
     {
       "date": "2026-09-04",
       "amazon": 3062,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-07",
-      "amazon": 3062,
-      "rakuten": 1280
-    },
-    {
-      "date": "2026-06-06",
       "amazon": 3062,
       "rakuten": 1280
     }

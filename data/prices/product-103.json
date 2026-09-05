@@ -10,7 +10,7 @@
       "price": 4901,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/yakinikuyutaka/y089gpnm5v/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-04"
+      "updated": "2026-09-05"
     },
     "cheapest": {
       "store": "amazon",
@@ -18,6 +18,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-09-05",
+      "amazon": 3099,
+      "rakuten": 4901
+    },
     {
       "date": "2026-09-04",
       "amazon": 3099,
@@ -465,11 +470,6 @@
     },
     {
       "date": "2026-06-07",
-      "amazon": 3099,
-      "rakuten": 5976
-    },
-    {
-      "date": "2026-06-06",
       "amazon": 3099,
       "rakuten": 5976
     }
