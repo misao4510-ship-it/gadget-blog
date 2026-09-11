@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 400,
+      "price": 429,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/shopanew/watch-band01/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-10"
+      "url": "https://item.rakuten.co.jp/comwap/se_wasbdguhy/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-11"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 400
+      "price": 429
     }
   },
   "history": [
+    {
+      "date": "2026-09-11",
+      "amazon": 34800,
+      "rakuten": 429
+    },
     {
       "date": "2026-09-10",
       "amazon": 34800,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-13",
-      "amazon": 34800,
-      "rakuten": 347
-    },
-    {
-      "date": "2026-06-12",
       "amazon": 34800,
       "rakuten": 347
     }

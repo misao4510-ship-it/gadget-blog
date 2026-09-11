@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 4380,
+      "price": 5885,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/machinoomise/cio-g67w3c-n2/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-10"
+      "url": "https://item.rakuten.co.jp/info-flash/4570188381735/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-11"
     },
     "cheapest": {
-      "store": "rakuten",
-      "price": 4380
+      "store": "amazon",
+      "price": 4980
     }
   },
   "history": [
+    {
+      "date": "2026-09-11",
+      "amazon": 4980,
+      "rakuten": 5885
+    },
     {
       "date": "2026-09-10",
       "amazon": 4980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-13",
-      "amazon": 4980,
-      "rakuten": 5306
-    },
-    {
-      "date": "2026-06-12",
       "amazon": 4980,
       "rakuten": 5306
     }
