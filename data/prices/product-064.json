@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 3240,
+      "price": 3350,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/formira88/mnd-19v4eijzop17iia7/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-12"
+      "updated": "2026-09-13"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3240
+      "price": 3350
     }
   },
   "history": [
+    {
+      "date": "2026-09-13",
+      "amazon": 12980,
+      "rakuten": 3350
+    },
     {
       "date": "2026-09-12",
       "amazon": 12980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-15",
-      "amazon": 12980,
-      "rakuten": 10890
-    },
-    {
-      "date": "2026-06-14",
       "amazon": 12980,
       "rakuten": 10890
     }

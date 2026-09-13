@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 3003,
+      "price": 2750,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/goodtimestore/20260115110953_107/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-12"
+      "url": "https://item.rakuten.co.jp/wonder-depo/wd0c38y5q9z/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-13"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3003
+      "price": 2750
     }
   },
   "history": [
+    {
+      "date": "2026-09-13",
+      "amazon": 4490,
+      "rakuten": 2750
+    },
     {
       "date": "2026-09-12",
       "amazon": 4490,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-15",
-      "amazon": 4490,
-      "rakuten": 3003
-    },
-    {
-      "date": "2026-06-14",
       "amazon": 4490,
       "rakuten": 3003
     }
