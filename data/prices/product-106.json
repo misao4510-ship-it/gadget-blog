@@ -7,10 +7,10 @@
       "updated_at": "2026-05-07"
     },
     "rakuten": {
-      "price": 3131,
+      "price": 2645,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/everydaydirect/raku95489a385e/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-18"
+      "url": "https://item.rakuten.co.jp/happymasaya/gr-e9zd2xg7z8/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-19"
     },
     "yahoo": {
       "price": 3489,
@@ -19,10 +19,15 @@
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3131
+      "price": 2645
     }
   },
   "history": [
+    {
+      "date": "2026-09-19",
+      "amazon": 3489,
+      "rakuten": 2645
+    },
     {
       "date": "2026-09-18",
       "amazon": 3489,
@@ -472,11 +477,6 @@
       "date": "2026-06-21",
       "amazon": 3489,
       "rakuten": 3156
-    },
-    {
-      "date": "2026-06-20",
-      "amazon": 3489,
-      "rakuten": 2615
     }
   ]
 }
