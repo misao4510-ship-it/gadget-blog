@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 2305,
+      "price": 2200,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/flowing-ando/db34sj6rqu3f7tu2z2zvp35nn4/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-09-24"
+      "url": "https://item.rakuten.co.jp/janpara/67710035-67/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-09-25"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 2305
+      "price": 2200
     }
   },
   "history": [
+    {
+      "date": "2026-09-25",
+      "amazon": 6380,
+      "rakuten": 2200
+    },
     {
       "date": "2026-09-24",
       "amazon": 6380,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-06-27",
-      "amazon": 6380,
-      "rakuten": 2339
-    },
-    {
-      "date": "2026-06-26",
       "amazon": 6380,
       "rakuten": 2339
     }
