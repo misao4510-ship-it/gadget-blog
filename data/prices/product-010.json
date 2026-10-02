@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 1919,
+      "price": 1900,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/fukuroku-1/sjrefzamimcr65c3bttasdlrxy/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-01"
+      "url": "https://item.rakuten.co.jp/ail-shops2/ail085l6tq2s/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-10-02"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1919
+      "price": 1900
     }
   },
   "history": [
+    {
+      "date": "2026-10-02",
+      "amazon": 11980,
+      "rakuten": 1900
+    },
     {
       "date": "2026-10-01",
       "amazon": 11980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-07-04",
-      "amazon": 11980,
-      "rakuten": 1679
-    },
-    {
-      "date": "2026-07-03",
       "amazon": 11980,
       "rakuten": 1679
     }
