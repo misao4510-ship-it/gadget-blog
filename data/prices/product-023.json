@@ -8,17 +8,22 @@
       "updated": "2026-04-06"
     },
     "rakuten": {
-      "price": 176,
+      "price": 290,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/daiomfg/hkcloop-1---/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-04"
+      "url": "https://item.rakuten.co.jp/plusnao/gds-52942/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-10-05"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 176
+      "price": 290
     }
   },
   "history": [
+    {
+      "date": "2026-10-05",
+      "amazon": 499,
+      "rakuten": 290
+    },
     {
       "date": "2026-10-04",
       "amazon": 499,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-07-07",
-      "amazon": 499,
-      "rakuten": 176
-    },
-    {
-      "date": "2026-07-06",
       "amazon": 499,
       "rakuten": 176
     }
