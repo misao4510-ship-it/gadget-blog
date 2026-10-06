@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 798,
+      "price": 784,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/loolshop/5qn-p2m-case/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-05"
+      "url": "https://item.rakuten.co.jp/donzstore/b09n72cxqk/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-10-06"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 798
+      "price": 784
     }
   },
   "history": [
+    {
+      "date": "2026-10-06",
+      "amazon": 4990,
+      "rakuten": 784
+    },
     {
       "date": "2026-10-05",
       "amazon": 4990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-07-08",
-      "amazon": 4990,
-      "rakuten": 900
-    },
-    {
-      "date": "2026-07-07",
       "amazon": 4990,
       "rakuten": 900
     }
