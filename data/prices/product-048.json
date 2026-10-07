@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 7443,
+      "price": 4880,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/haikanshop/6344128/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-06"
+      "url": "https://item.rakuten.co.jp/zendo/cos-47345-01/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-10-07"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 5990
+      "store": "rakuten",
+      "price": 4880
     }
   },
   "history": [
+    {
+      "date": "2026-10-07",
+      "amazon": 5990,
+      "rakuten": 4880
+    },
     {
       "date": "2026-10-06",
       "amazon": 5990,
@@ -468,11 +473,6 @@
       "date": "2026-07-09",
       "amazon": 5990,
       "rakuten": 7443
-    },
-    {
-      "date": "2026-07-08",
-      "amazon": 5990,
-      "rakuten": 5990
     }
   ]
 }
