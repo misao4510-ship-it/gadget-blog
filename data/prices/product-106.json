@@ -10,7 +10,7 @@
       "price": 3220,
       "in_stock": true,
       "url": "https://item.rakuten.co.jp/sinuchihonpo/b0fgq3dnft/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-08"
+      "updated": "2026-10-09"
     },
     "yahoo": {
       "price": 3489,
@@ -23,6 +23,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-10-09",
+      "amazon": 3489,
+      "rakuten": 3220
+    },
     {
       "date": "2026-10-08",
       "amazon": 3489,
@@ -470,11 +475,6 @@
     },
     {
       "date": "2026-07-11",
-      "amazon": 3489,
-      "rakuten": 3143
-    },
-    {
-      "date": "2026-07-10",
       "amazon": 3489,
       "rakuten": 3143
     }

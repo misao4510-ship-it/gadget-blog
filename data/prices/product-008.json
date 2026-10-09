@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 34750,
+      "price": 21400,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/hauteproduit/2024-06-20-4073/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-08"
+      "url": "https://item.rakuten.co.jp/rebellious/2742-006617/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-10-09"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 34750
+      "price": 21400
     }
   },
   "history": [
+    {
+      "date": "2026-10-09",
+      "amazon": 38500,
+      "rakuten": 21400
+    },
     {
       "date": "2026-10-08",
       "amazon": 38500,
@@ -468,11 +473,6 @@
       "date": "2026-07-11",
       "amazon": 38500,
       "rakuten": 20757
-    },
-    {
-      "date": "2026-07-10",
-      "amazon": 38500,
-      "rakuten": 8190
     }
   ]
 }
