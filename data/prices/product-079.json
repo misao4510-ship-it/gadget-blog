@@ -8,17 +8,22 @@
       "updated": "2026-04-09"
     },
     "rakuten": {
-      "price": 1200,
+      "price": 1009,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/astershop/wnhdj45snvaik2xkemg7r5kksq/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-21"
+      "url": "https://item.rakuten.co.jp/sofapotato/paibxz5caenp5vcqi4sl32b2oq/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-10-22"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1200
+      "price": 1009
     }
   },
   "history": [
+    {
+      "date": "2026-10-22",
+      "amazon": 2979,
+      "rakuten": 1009
+    },
     {
       "date": "2026-10-21",
       "amazon": 2979,
@@ -468,11 +473,6 @@
       "date": "2026-07-24",
       "amazon": 2979,
       "rakuten": 3513
-    },
-    {
-      "date": "2026-07-23",
-      "amazon": 2979,
-      "rakuten": 3511
     }
   ]
 }
