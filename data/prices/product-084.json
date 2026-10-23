@@ -8,17 +8,22 @@
       "updated": "2026-04-17"
     },
     "rakuten": {
-      "price": 6987,
+      "price": 7562,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/ksdenki/4570188382190/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-10-22"
+      "url": "https://item.rakuten.co.jp/thinkrich/ss4570188382190/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-10-23"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 6987
+      "price": 7562
     }
   },
   "history": [
+    {
+      "date": "2026-10-23",
+      "amazon": 9990,
+      "rakuten": 7562
+    },
     {
       "date": "2026-10-22",
       "amazon": 9990,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-07-25",
-      "amazon": 9990,
-      "rakuten": 8536
-    },
-    {
-      "date": "2026-07-24",
       "amazon": 9990,
       "rakuten": 8536
     }
