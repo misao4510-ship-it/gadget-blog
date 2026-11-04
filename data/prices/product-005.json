@@ -8,10 +8,10 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 6240,
+      "price": 5745,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/lifestyle-007/62607/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-03"
+      "url": "https://item.rakuten.co.jp/konanonline/spgm-0d53yvf2f/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-04"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-04",
+      "amazon": 4980,
+      "rakuten": 5745
+    },
     {
       "date": "2026-11-03",
       "amazon": 4980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-06",
-      "amazon": 4980,
-      "rakuten": 5645
-    },
-    {
-      "date": "2026-08-05",
       "amazon": 4980,
       "rakuten": 5645
     }

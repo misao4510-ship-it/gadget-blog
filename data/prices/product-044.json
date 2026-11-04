@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 3078,
+      "price": 2999,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/hanamaruhonp01/20261022052150_244/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-03"
+      "url": "https://item.rakuten.co.jp/tamtamshop/gr-e9r0vqhsst/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-04"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 3078
+      "price": 2999
     }
   },
   "history": [
+    {
+      "date": "2026-11-04",
+      "amazon": 3480,
+      "rakuten": 2999
+    },
     {
       "date": "2026-11-03",
       "amazon": 3480,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-06",
-      "amazon": 3480,
-      "rakuten": 2656
-    },
-    {
-      "date": "2026-08-05",
       "amazon": 3480,
       "rakuten": 2656
     }
