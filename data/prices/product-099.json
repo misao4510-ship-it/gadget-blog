@@ -8,17 +8,22 @@
       "updated": "2026-04-18"
     },
     "rakuten": {
-      "price": 9460,
+      "price": 16399,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/jumblestore/2333932942635/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-09"
+      "url": "https://item.rakuten.co.jp/harison-r/3984-007984/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-10"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 9460
+      "price": 16399
     }
   },
   "history": [
+    {
+      "date": "2026-11-10",
+      "amazon": 25000,
+      "rakuten": 16399
+    },
     {
       "date": "2026-11-09",
       "amazon": 25000,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-12",
-      "amazon": 25000,
-      "rakuten": 14960
-    },
-    {
-      "date": "2026-08-11",
       "amazon": 25000,
       "rakuten": 14960
     }
