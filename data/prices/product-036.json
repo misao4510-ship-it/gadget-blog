@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1182,
+      "price": 1148,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/iikakaku-officialstore/x0012nclpv/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-11"
+      "url": "https://item.rakuten.co.jp/hidacurt/b0ccqp3y1w/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-12"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1182
+      "price": 1148
     }
   },
   "history": [
+    {
+      "date": "2026-11-12",
+      "amazon": 1299,
+      "rakuten": 1148
+    },
     {
       "date": "2026-11-11",
       "amazon": 1299,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-14",
-      "amazon": 1299,
-      "rakuten": 973
-    },
-    {
-      "date": "2026-08-13",
       "amazon": 1299,
       "rakuten": 973
     }
