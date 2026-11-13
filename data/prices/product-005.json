@@ -8,10 +8,10 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 5556,
+      "price": 5784,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/aims-sakura/gr-e9gpxs66nz/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-12"
+      "url": "https://item.rakuten.co.jp/kurashiryouhindou/3102b96b25a7d2a421ca13ff42f3c464/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-13"
     },
     "cheapest": {
       "store": "amazon",
@@ -19,6 +19,11 @@
     }
   },
   "history": [
+    {
+      "date": "2026-11-13",
+      "amazon": 4980,
+      "rakuten": 5784
+    },
     {
       "date": "2026-11-12",
       "amazon": 4980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-15",
-      "amazon": 4980,
-      "rakuten": 5885
-    },
-    {
-      "date": "2026-08-14",
       "amazon": 4980,
       "rakuten": 5885
     }
