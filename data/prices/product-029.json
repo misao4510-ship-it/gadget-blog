@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 680,
+      "price": 699,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/bloomelier/kzdcj7xesj6soxdkil2qvyz4im/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-13"
+      "url": "https://item.rakuten.co.jp/ariake88/10000090/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-14"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 680
+      "price": 699
     }
   },
   "history": [
+    {
+      "date": "2026-11-14",
+      "amazon": 2490,
+      "rakuten": 699
+    },
     {
       "date": "2026-11-13",
       "amazon": 2490,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-16",
-      "amazon": 2490,
-      "rakuten": 499
-    },
-    {
-      "date": "2026-08-15",
       "amazon": 2490,
       "rakuten": 499
     }
