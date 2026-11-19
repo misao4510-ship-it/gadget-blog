@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 1597,
+      "price": 2000,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/purebliss/ubhsxm46hb4jfkt225xmvek3ry/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-18"
+      "url": "https://item.rakuten.co.jp/lilishop6-store/34ajkrpysxiahug3ce7g6j25ey/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-19"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 1597
+      "price": 2000
     }
   },
   "history": [
+    {
+      "date": "2026-11-19",
+      "amazon": 12650,
+      "rakuten": 2000
+    },
     {
       "date": "2026-11-18",
       "amazon": 12650,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-21",
-      "amazon": 12650,
-      "rakuten": 1558
-    },
-    {
-      "date": "2026-08-20",
       "amazon": 12650,
       "rakuten": 1558
     }

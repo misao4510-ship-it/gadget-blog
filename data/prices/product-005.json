@@ -8,17 +8,22 @@
       "updated": "2026-04-05"
     },
     "rakuten": {
-      "price": 5784,
+      "price": 3980,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/kurashiryouhindou/3102b96b25a7d2a421ca13ff42f3c464/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-18"
+      "url": "https://item.rakuten.co.jp/machinoomise/cio-g67w3c-n2/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-19"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 4980
+      "store": "rakuten",
+      "price": 3980
     }
   },
   "history": [
+    {
+      "date": "2026-11-19",
+      "amazon": 4980,
+      "rakuten": 3980
+    },
     {
       "date": "2026-11-18",
       "amazon": 4980,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-21",
-      "amazon": 4980,
-      "rakuten": 5885
-    },
-    {
-      "date": "2026-08-20",
       "amazon": 4980,
       "rakuten": 5885
     }
