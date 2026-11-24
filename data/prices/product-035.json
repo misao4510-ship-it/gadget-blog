@@ -8,17 +8,22 @@
       "updated": "2026-04-07"
     },
     "rakuten": {
-      "price": 499,
+      "price": 250,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/good-life2020/206-zj-05/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-23"
+      "url": "https://item.rakuten.co.jp/yosuzu/charger/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-24"
     },
     "cheapest": {
       "store": "rakuten",
-      "price": 499
+      "price": 250
     }
   },
   "history": [
+    {
+      "date": "2026-11-24",
+      "amazon": 1980,
+      "rakuten": 250
+    },
     {
       "date": "2026-11-23",
       "amazon": 1980,
@@ -468,11 +473,6 @@
       "date": "2026-08-26",
       "amazon": 1980,
       "rakuten": 500
-    },
-    {
-      "date": "2026-08-25",
-      "amazon": 1980,
-      "rakuten": 540
     }
   ]
 }
