@@ -8,17 +8,22 @@
       "updated": "2026-04-08"
     },
     "rakuten": {
-      "price": 3980,
+      "price": 3893,
       "in_stock": true,
-      "url": "https://item.rakuten.co.jp/keynice/gs-298/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
-      "updated": "2026-11-26"
+      "url": "https://item.rakuten.co.jp/mkslpulp/muydig3ivjgx6tauyoxb7xi2i4/?rafcid=wsc_i_is_6aac1a36-6441-4ac4-8287-cd6f6263f658",
+      "updated": "2026-11-27"
     },
     "cheapest": {
-      "store": "amazon",
-      "price": 3974
+      "store": "rakuten",
+      "price": 3893
     }
   },
   "history": [
+    {
+      "date": "2026-11-27",
+      "amazon": 3974,
+      "rakuten": 3893
+    },
     {
       "date": "2026-11-26",
       "amazon": 3974,
@@ -466,11 +471,6 @@
     },
     {
       "date": "2026-08-29",
-      "amazon": 3974,
-      "rakuten": 3280
-    },
-    {
-      "date": "2026-08-28",
       "amazon": 3974,
       "rakuten": 3280
     }
